@@ -1,0 +1,87 @@
+---
+title: "Linux and R"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-10-11
+categories: ["R"]
+tags: ["R"]
+draft: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, eval=FALSE)
+```
+
+## Linux and the R Community
+
+In Rstudio [log files](http://cran-logs.rstudio.com/) we can find information about the OS of all downloads of R since october 2012. This is a good source of information for better understanding the proportion of linux user around the world. 
+
+I wrote a simple script that downloads and organizes this data. I saved the resulting dataframe in a file called `logdata_2017-08-12.RData`. Let's load it and check its contents.
+
+```{r}
+load('data/logdata_2017-08-12.RData')
+
+str(df.Rdls)
+```
+
+The aggregated data from the log files contains the date, time, OS and country for each R download from RStudion mirrors. Let's see how many OS we have:
+
+```{r}
+unique(df.Rdls$os)
+```
+
+We have the usual suspects. Value 'win' is just Windows, 'osx' is MAC-OS and 'src' should be linux based system, I hope. 
+
+For our next step, let's clean up the NAs and check the propotion of each OS overall.
+
+```{r}
+df.Rdls <- na.omit(df.Rdls)
+table(df.Rdls$os)/nrow(df.Rdls)
+```
+
+The Windows operating system clearly dominates with aproximatelly 75% of the downloads over all days. Let's see how this percentage changes over the years:
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+df.Rdls$year <- format(df.Rdls$date, '%Y')
+
+p <- df.Rdls %>%
+  group_by(year, os) %>%
+  summarise(ndls = n()) %>%
+  ggplot(aes(x = year, y = ndls, fill = os))  + 
+         geom_bar(stat = 'identity', position = 'fill')
+
+print(p)
+```
+
+It seems that `osx` gained a small percentage of R users in 2016 and 2017. However, Windows still dominates and Linux is a tiny percentage. Still, this scenario is significantly different from the [overall market share percentage](https://www.netmarketshare.com/operating-system-market-share.aspx?qprid=9&qpcustomb=0), where Windows based systems dominates with around 90% of desktop computers. This suggests that R users are more open to different operating systems, which is not surprising. 
+
+We can also analyze this data by country. Let's plot the overall percentage of each OS by country, restricting it to only those 25 with highest number of downloads.
+
+```{r}
+
+n.countries <- 25
+countries.to.keep <-  names(sort(table(df.Rdls$country), decreasing = T))[1:n.countries]
+
+p <- df.Rdls %>%
+  filter(country %in% countries.to.keep) %>%
+  ggplot(aes(x = country, fill = os))  + 
+         geom_bar(position = 'fill' )
+
+print(p)
+
+```
+
+
+
+
+# problems
+
+## folders and files
+
+The first difference you'll note from switching from windows to linux is the way that computer folders are organized. While in windows you might have something like C:/, in Linux it will start from a mount point,
+
+# Where should you start
+

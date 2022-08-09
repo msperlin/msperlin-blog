@@ -1,0 +1,204 @@
+---
+title: "Compiling Book Exercises to pdf | html | Moodle | Blackboard"
+author: "Marcelo S. Perlin"
+date: '2021-02-28'
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+draft: no
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>The revised second edition of <a href="https://www.msperlin.com/adfeR/">Analylzing Financial and Economic Data with R</a> presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the <a href="http://www.r-exams.org/"><code>exams</code> format</a>, meaning that any R tutor can export the same exercises to pdf, html or <em>e-learning</em> platforms. In this post I’ll show how to compile exercises to pdf, html, <em>Moodle</em> and <em>blackboard</em>.</p>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<p>The first step is to install package <code>afedR</code> with <code>devtools</code>:</p>
+<pre class="r"><code>devtools::install_github(&#39;msperlin/afedR&#39;)</code></pre>
+<p>Another requirement is a working Latex instalation. For that, use <code>tinytex</code>:</p>
+<pre class="r"><code>tinytex::install_tinytex()</code></pre>
+</div>
+<div id="compiling-exercises" class="section level1">
+<h1>Compiling Exercises</h1>
+<div id="how-it-works" class="section level2">
+<h2>How it works?</h2>
+<p>All book exercises in the <code>exams</code> format: each exercise is a .Rmd file containing code, exercise text and solution. The files themselves can be found in the installation directory of the package:</p>
+<pre class="r"><code>eoc_dir &lt;- afedR::get_EOC_dir()
+
+eoc_chapters &lt;- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)</code></pre>
+<pre><code>##  [1] &quot;Chapter01-Introduction&quot;             &quot;Chapter02-Basic-Operations&quot;        
+##  [3] &quot;Chapter03-Research-Scripts&quot;         &quot;Chapter04-Import-Local&quot;            
+##  [5] &quot;Chapter05-Import-Internet&quot;          &quot;Chapter06-Dataframes-and-Others&quot;   
+##  [7] &quot;Chapter07-Basic-Classes&quot;            &quot;Chapter08-Programming&quot;             
+##  [9] &quot;Chapter09-Cleaning-and-Structuring&quot; &quot;Chapter10-Figures&quot;                 
+## [11] &quot;Chapter11-FinEcon&quot;                  &quot;Chapter12-Reporting&quot;               
+## [13] &quot;Chapter13-Optimizing-Code&quot;</code></pre>
+<p>Each folder will have several exercises. Let’s try one out:</p>
+<pre class="r"><code>eoc_files &lt;- fs::dir_ls(eoc_chapters[1])
+basename(eoc_files)</code></pre>
+<pre><code>##  [1] &quot;afedR_Chap-01_01_SPLUS.Rmd&quot;            
+##  [2] &quot;afedR_Chap-01_02_Authors-R.Rmd&quot;        
+##  [3] &quot;afedR_Chap-01_03_About-R.Rmd&quot;          
+##  [4] &quot;afedR_Chap-01_04_name-R.Rmd&quot;           
+##  [5] &quot;afedR_Chap-01_05_about-R.Rmd&quot;          
+##  [6] &quot;afedR_Chap-01_06_Tecnology-R.Rmd&quot;      
+##  [7] &quot;afedR_Chap-01_07_rtools.Rmd&quot;           
+##  [8] &quot;afedR_Chap-01_08_Groups.Rmd&quot;           
+##  [9] &quot;afedR_Chap-01_09_RBloggers.Rmd&quot;        
+## [10] &quot;afedR_Chap-01_10_Infrastructure-TI.Rmd&quot;</code></pre>
+<p>We can also read one of the files to show the strucuture of the exercise in code and text:</p>
+<pre class="r"><code>readLines(eoc_files[1])</code></pre>
+<pre><code>##  [1] &quot;```{r datageneration, echo = FALSE, results = \&quot;hide\&quot;}&quot;                                                                                                                                
+##  [2] &quot;my_answers &lt;- c(&#39;S&#39;, &quot;                                                                                                                                                                  
+##  [3] &quot;                &#39;C++&#39;,&quot;                                                                                                                                                                 
+##  [4] &quot;                &#39;Python&#39;,&quot;                                                                                                                                                              
+##  [5] &quot;                &#39;Julia&#39;,&quot;                                                                                                                                                               
+##  [6] &quot;                &#39;Javascript&#39;)&quot;                                                                                                                                                          
+##  [7] &quot;&quot;                                                                                                                                                                                       
+##  [8] &quot;#check_answers(my_answers)&quot;                                                                                                                                                             
+##  [9] &quot;```&quot;                                                                                                                                                                                    
+## [10] &quot;&quot;                                                                                                                                                                                       
+## [11] &quot;Question&quot;                                                                                                                                                                               
+## [12] &quot;========&quot;                                                                                                                                                                               
+## [13] &quot;&quot;                                                                                                                                                                                       
+## [14] &quot;The R language was developed based on what other programming language?&quot;                                                                                                                 
+## [15] &quot;&quot;                                                                                                                                                                                       
+## [16] &quot;```{r questionlist, echo = FALSE, results = \&quot;asis\&quot;}&quot;                                                                                                                                  
+## [17] &quot;exams::answerlist(my_answers, markup = \&quot;markdown\&quot;)&quot;                                                                                                                                   
+## [18] &quot;```&quot;                                                                                                                                                                                    
+## [19] &quot;&quot;                                                                                                                                                                                       
+## [20] &quot;Solution&quot;                                                                                                                                                                               
+## [21] &quot;================&quot;                                                                                                                                                                       
+## [22] &quot;&quot;                                                                                                                                                                                       
+## [23] &quot;Straight from the book, section **What is R**: \&quot;R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies).\&quot;&quot;
+## [24] &quot;&quot;                                                                                                                                                                                       
+## [25] &quot;Meta-information&quot;                                                                                                                                                                       
+## [26] &quot;================&quot;                                                                                                                                                                       
+## [27] &quot;extype: schoice&quot;                                                                                                                                                                        
+## [28] &quot;exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`&quot;                                                                                                     
+## [29] &quot;exname: \&quot;S PLUS\&quot;&quot;                                                                                                                                                                     
+## [30] &quot;exshuffle: TRUE&quot;                                                                                                                                                                        
+## [31] &quot;&quot;</code></pre>
+<p>Basically, we define all sections of a question – text, solution, alternatives – using a .Rmd template. Again, you can find more details about using package <code>exams</code> in its own <a href="http://www.r-exams.org/">website</a>.</p>
+<p>Be aware that, all exams .rmd files available within <code>afedR</code> are self contained and you can export and compile them directly from <code>exams</code>. An easy way to copy all exercise files to your local folder is using function <code>afedR::path_to_copy</code>:</p>
+<pre class="r"><code># copy to &quot;documents&quot; folder
+afedR::copy_book_files(path_to_copy = &#39;~&#39;)</code></pre>
+<pre><code>## Copying data files files to ~/afedR files/data</code></pre>
+<pre><code>##  37 files copied</code></pre>
+<pre><code>## Copying end-of-chapter (eoc) exercises with solutions to ~/afedR files/eoc-exercises/</code></pre>
+<pre><code>##  99 files copied</code></pre>
+<pre><code>## Copying R code to ~/afedR files/R-code</code></pre>
+<pre><code>##  15 files copied</code></pre>
+<p>All book files – data, code and exercises – are now available at your “Documents” folder (shorcut of <code>~</code>).</p>
+</div>
+<div id="compiling-to-pdf" class="section level2">
+<h2>Compiling to pdf</h2>
+<p>For pdf compilation, you’ll need:</p>
+<ul>
+<li>name of students (will be printed in pdf)</li>
+<li>students ids (I usually use their university card number)</li>
+<li>Chapters to include</li>
+<li>Exercise name</li>
+<li>Course name</li>
+</ul>
+<p>And use the following code</p>
+<pre class="r"><code>library(afedR)
+
+names_students &lt;- c(&#39;Michael Peterling&#39;, &#39;John Aspper&#39;, &#39;Mr. Beans&#39;)
+ids_students &lt;- 1:length(names_students) # probably id card?
+chapters &lt;- 1:3 # chapters from 1 to 13
+dir_output &lt;- file.path(tempdir(), &#39;pdf-example&#39;)
+
+
+df_exams &lt;- compile_pdf_exercises(students_names = names_students, 
+                                  students_ids = ids_students, 
+                                  chapters_to_include = chapters,
+                                  dir_out = dir_output)</code></pre>
+<p>The output of <code>compile_pdf_exercises</code> is a table with the correct answers for <code>schoice</code> and <code>num</code> type of questions:</p>
+<pre class="r"><code>glimpse(df_exams)</code></pre>
+<pre><code>## Rows: 69
+## Columns: 4
+## $ i_name   &lt;chr&gt; &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;…
+## $ i_ver    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ i_q      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
+## $ solution &lt;chr&gt; &quot;b&quot;, &quot;b&quot;, &quot;b&quot;, &quot;c&quot;, &quot;b&quot;, NA, &quot;a&quot;, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+<p>After compilation, all pdf files are available at folder <code>dir_output</code>:</p>
+<pre class="r"><code>fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 01_Michael Peterling.pdf
+## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 02_John Aspper.pdf
+## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 03_Mr. Beans.pdf</code></pre>
+<p>The final result will be as follows:</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/wVAd8Xr" data-context="false">
+<a href="//imgur.com/a/wVAd8Xr"></a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
+<div id="compiling-to-html" class="section level2">
+<h2>Compiling to html</h2>
+<p>You can also compile to a html file using <code>afedR::compile_html_exercises</code>:</p>
+<pre class="r"><code>library(afedR)
+
+names_students &lt;- c(&#39;Michael Peterling&#39;, &#39;John Aspper&#39;, &#39;Mr. Beans&#39;)
+ids_students &lt;- 1:length(names_students) # probably id card?
+chapters &lt;- 1:3 # chapters from 1 to 13
+dir_output &lt;- file.path(tempdir(), &#39;html-example&#39;)
+
+df_exams &lt;- compile_html_exercises(students_names = names_students, 
+                                   students_ids = ids_students, 
+                                   chapters_to_include = chapters,
+                                   dir_out = dir_output)</code></pre>
+<pre><code>## Exams generation initialized.
+## 
+## Output directory: /tmp/RtmpuI4IpQ/exams files file6d236c2d8ef2
+## Exercise directory: /mnt/HDD/Dropbox/05-My Website/01-msperlin.com/content/post
+## Supplement directory: /tmp/RtmpuI4IpQ/file6d23249571af
+## Temporary directory: /tmp/RtmpuI4IpQ/file6d2338a774fc
+## Exercises: /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_01_SPLUS, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_02_Authors-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_03_About-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_04_name-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_05_about-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_06_Tecnology-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_07_rtools, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_08_Groups, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_09_RBloggers, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_10_Infrastructure-TI, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_01_Basic, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_02_Basic, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_03_getwd, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_04_download, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_05_unzip, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_06_installpkgs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_07_filespkgs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_08_installpkgs2, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_09_installpkgs3-cranlogs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_10_devtools, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_11_files-in-computer, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter03-Research-Scripts/afedR_Chap-03_01_pesquisa, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter03-Research-Scripts/afedR_Chap-03_02_folders
+## 
+## Generation of individual exams.
+## Exam 1: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.
+## Exam 2: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.
+## Exam 3: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.</code></pre>
+<p>An example of full compiled html file is available <a href="https://www.msperlin.com/blog/files/afedr-files/Introduction%20to%20R_Robert%20Engle_Ver%2003.html">here</a>.</p>
+</div>
+<div id="exporting-to-moodle" class="section level2">
+<h2>Exporting to Moodle</h2>
+<p>You can also export to <em>e-learning</em> platforms such as Moodle. The process is quite simple as <code>exams</code> package does the heavy work:</p>
+<pre class="r"><code>require(afedR)
+my_eoc_dir &lt;- afedR::get_EOC_dir()
+
+available_chapters &lt;- fs::dir_ls(my_eoc_dir)
+exercise_files &lt;- fs::dir_ls(available_chapters[1])
+dir_output &lt;- file.path(tempdir(), &#39;moodle-test&#39;)
+
+exams::exams2moodle(file = exercise_files, 
+                    name = &#39;TestingMoodle&#39;, 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpuI4IpQ/moodle-test/TestingMoodle.xml</code></pre>
+<p>You can later import this .xml file in your Moodle class.</p>
+</div>
+<div id="exporting-to-blackboard" class="section level2">
+<h2>Exporting to Blackboard</h2>
+<pre class="r"><code>require(afedR)
+my_eoc_dir &lt;- afedR::get_EOC_dir()
+
+available_chapters &lt;- fs::dir_ls(my_eoc_dir)
+exercise_files &lt;- fs::dir_ls(available_chapters[1])
+dir_output &lt;- file.path(tempdir(), &#39;blackboard-test&#39;)
+
+exams::exams2blackboard(file = exercise_files, 
+                        name = &#39;TestingBlackBoard&#39;, 
+                        dir = dir_output)
+
+fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpuI4IpQ/blackboard-test/TestingBlackBoard.zip</code></pre>
+<p>This .zip file contains all exercises of chapter 01 and can be imported in your blackboard account.</p>
+</div>
+</div>

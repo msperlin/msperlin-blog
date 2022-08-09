@@ -1,0 +1,102 @@
+---
+title: "Static and Dynamic Book Exercises with R"
+author: "Marcelo S. Perlin"
+date: '2019-12-02'
+draft: no
+subtitle: 'Exercises from the book Analyzing Financial and Economic Data with R'
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache = TRUE, eval=FALSE)
+
+link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
+link_full_compiled_html <- 'https://www.msperlin.com/blog/files/Introduction to R_John Wick_Ver 01.html'
+link_chapter_2_html_file <- 'https://www.msperlin.com/blog/files/Introduction to R_Roger Federer_Ver 01.html'
+link_github <- 'https://github.com/msperlin/afedR'
+```
+
+```{block, type='alert alert-warning'}
+This post is deprecated due to changes in package code. See the new post in [this link](https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/).
+```
+
+In the new edition of my R book, to be released in early 2020 (see [current TOC](`r link_toc`), [new packages](`r link_previous_post`) and [notification form ](`r link_notification`)), I'm giving special attention to its use in the classroom. For that, I've created class slides and R exercises in the static and dynamic form. All the extra content will be freely available in the internet and distributed with package `afedR`. Anyone can use it, without the need of purchasing the book (but off course it would help).
+
+To access the files, first install the package from Github with `devtools` (ignore warning messages about long paths):
+
+```{r, eval=FALSE}
+devtools::install_github('msperlin/afedR')
+```
+
+You can copy all book content to a local folder using the following function:
+
+```{r}
+my_tempdir <- tempdir()
+afedR::afedR_get_book_files(path_to_copy = my_tempdir)
+```
+
+The static exercises for all chapters are available in the `afedR files/eoc-exercises` folder:
+
+```{r}
+list.files(file.path(my_tempdir, 'afedR files/eoc-exercises/'))
+```
+
+Every .Rmd file is self-contained and should compile without any problems in your computer. 
+
+Now, the real benefit of the package is in the **dynamic R exercises** you can create with package `exams`. [Back in 2017](https://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/) I already talked about my admiration and use of `exams` in all of my university classes. In short, you can use `exams` to create an unique version of a exercise for each student by randomizing numbers and text. All questions are written in .Rmd/.Rnw files and, since its all RMarkdown code, you can make it as dynamic as possible. The amount of hours it saved me so far in creating and grading exams is unbelievable! I even changed the structure of all my classes to a more activity-oriented coursework based on single-choice exercises. The feedback I get from the students has been very positive. 
+
+As a result of using `exams` for many years, I wrote a significant database of R single-choice questions that I use in my university courses. It amounts to 91 questions, covering R basics, functions, class objects, programming, econometrics, and much more. All of these exam questions are included in the package and I'll add more with time. You can find all of them in a compiled html file in this [link](`r link_full_compiled_html`).
+
+
+## Creating a Dynamic Exam
+
+Creating a dynamic R exam is simple. All you need is the names of all students among other options. Function `afedR_build_exam` will grab all exercise templates, compile each exam, and output a different .html file for each student. Have a look at a reproducible example:
+
+```{r intro}
+library(afedR)
+library(tidyverse)
+
+set.seed(1)
+
+student_names <- c('Roger Federer', 'John Wick', 'Robert Engle', 
+                   'Getulio Vargas', 'Mario Quintana', 'Elis Regina') 
+my_ids <- c(sample(seq(length(student_names)))) # ids (usually a numeric and unique symbol given by the university)
+class_name <- 'R Workshop'
+exercise_name <- 'Introduction to R'
+temp_dir <- file.path(tempdir(), 'html exams') # where to create exam files
+
+l_out <- afedR_build_exam(students_names = student_names, 
+                          students_ids = my_ids, 
+                          class_name = class_name, 
+                          exercise_name = 'Introduction to R',
+                          chapters_to_include = 2, # single chapter for simplicity (it goes from 1-13)
+                          dir_out = temp_dir)
+```
+
+Done. All exams files are available in folder `temp_dir`:
+
+```{r list-files}
+list.files(temp_dir)
+```
+
+As an example of html output, file `Introduction to R_Roger Federer_Ver 01.html` is available in this [link](`r link_chapter_2_html_file`).
+
+Going further, the output of `afedR_build_exam` is a list that includes the correct answers for each student/question:
+
+```{r abc}
+print(l_out$answer_key)
+```
+
+You can use this table for grading all exams. Currently I use [Google Forms](https://www.google.com/forms/about/) to register student's answers with an online questionnaire. This helps because I can turn all answers in a single Google Spreadsheet, import it in R with package `googlesheets4`, and effortlessly grade all exams in a R script. Soon, in another post, I'll write about my detailed workflow in using `exams` with Google Forms and Google Classroom. 
+
+I hope this content helps all R instructions around the world. But, it is a work in progress. If you find any issue, please let me know by [email](emailto:marceloperlin@gmail.com) or posting an issue event at the  [github code](`r link_github`). 
+
+**The book is finally reaching its final version** and I'm very excited about it. Its been a long journey. You can find more details about the new book [here](`r link_previous_post`). If you want to be notified about the publication, just sign this [form](`r link_notification`) and I'll email you as soon as the book becomes available.
+

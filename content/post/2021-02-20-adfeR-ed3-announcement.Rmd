@@ -1,0 +1,43 @@
+---
+title: "LANÇAMENTO - Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)"
+author: "Marcelo S. Perlin"
+date: '2021-02-20'
+draft: false
+subtitle: ' '
+tags: ["R", "adfeR"]
+categories: ["R", "adfeR"]
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = TRUE, cache = TRUE, eval=TRUE)
+
+link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
+
+link_book_page <- 'https://www.msperlin.com/blog/publication/2021_book-adfer-pt/'
+link_github <- 'https://github.com/msperlin/adfeR'
+link_web_book <- 'https://www.msperlin.com/adfeR/'
+link_amazon_ebook <- 'https://www.amazon.com.br/dp/B08WNC27ZY'
+link_amazon_print <- 'https://www.amazon.com/dp/B08WP8CCDB'
+link_post_exercises <- 'https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/'
+```
+
+
+É com muito prazer que comunico o lançamento oficial da **terceira edição** do livro **Análise de Dados Financeiros e Econômicos com o R**. Encontrarás a obra na Amazon.com.br como um [ebook](`r link_amazon_ebook`) ou [livro impresso](`r link_amazon_print`). A versão online do livro com os primeiros sete capítulos está disponível neste [link](`r link_web_book`). Maiores detalhes, incluindo material suplementar, encontram-se na [página do livro](`r link_book_page`).
+
+A primeira edição foi lançada em 2016 e, desde então, venho atualizando o conteúdo com novos pacotes e novos capítulos. A terceira edição contempla as seguintes mudanças:
+
+- Todo o conteúdo do livro agora é disponibilizado via pacote `adfeR` -- [link github](`r link_github`) -- facilitando muito a reprodução de todos os exemplos de código. 
+
+- Uso de **caixas de textos customizadas** para indicar pontos importantes e precauções que os leitores devem ter em cada seção do livro. 
+
+- Mais de **100 exercícios de final de capítulo** foram criados e agora possuem gabarito em texto e código, disponível na versão [web do livro](`r link_web_book`). Todos os exercícios estão disponíveis no formato `exams` e podem ser compilados para um pdf ou então exportados para plataformas de _e-learning_, tal como o _Moodle_ ou _Blackboard_ (veja seção _Conteúdo para Instrutores_ no Prefácio do livro). Um exemplo de compilação para pdf e Moodle está disponível neste [post do blog](`r link_post_exercises`). 
+
+- **Quatro novos pacotes** especializados na obtenção de dados financeiros e econômicos estão inclusos na nova edição. São estes: `GetDFPData2`, `GetFREData`, `GetQuandlData` e `GetBCBData`. Todos pacotes são estáveis, desenvolvidos por mim e serão mantidos ao longo do tempo. Assim, não corremos mais o risco de quebra de código devido a desatualização de um pacote por um autor. 
+
+- Um novo capítulo sobre **Otimização de Código em R**, discutindo melhorias na estrutura de código e também minimização do tempo de execução via estratégias de cacheamento local e processamento paralelo. 
+
+- Uso de **template customizado** para o ebook e html via CSS (_Cascading Style Sheets_). Agora, o livro possui, sem dúvida, uma cara própria e consistente entre os diferentes formatos. 
+
+Se gostou do conteúdo, considere comprar o livro e **deixar um feedback na [página da amazon](`r link_amazon_ebook`)**. Sua opinião é muito importante para promover o livro e ajudar outros a aprender mais sobre o R e RStudio. Como autor independente, certamente apreciarei o gesto e tomarei como fator motivante para futuras edições do livro. 

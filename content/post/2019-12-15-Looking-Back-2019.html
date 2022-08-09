@@ -1,0 +1,198 @@
+---
+title: "Looking back at 2019 and plans for 2020"
+author: "Marcelo S. Perlin"
+date: '2019-12-12'
+draft: false
+subtitle: ' '
+tags: ["R", "site"]
+categories: ["R", "site"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I’m just about to leave for my vacation and, as usual, I’ll write about the highlights of 2019 and my plans for the year to come. First, let’s talk about my work in 2019.</p>
+<div id="highlights-of-2019" class="section level1">
+<h1>Highlights of 2019</h1>
+<p>The year of 2019 was not particularly fruitful in journal publications. I only had two: <em>Accessing Financial Reports and Corporate Events with GetDFPData</em>, <a href="http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/issue/view/4431">published in RBfin</a> and <em>A consumer credit risk structural model based on affordability: balance at risk</em> <a href="https://www.risk.net/journal-of-credit-risk/6743521/a-consumer-credit-risk-structural-model-based-on-affordability-balance-at-risk">published in JCR</a>. Both are papers I wrote back in 2017 and 2018 and not new articles. Most of the papers I worked this year will be published in 2020 or 2021.</p>
+<p>This year, I’m mostly proud of the publication of my book about investing in the fixed income markets <a href="https://www.amazon.com.br/dp/B07RR9K9PV">Poupando e Investindo em Renda Fixa: Uma Abordagem Baseada em Dados</a>. This was a special project, very different from the usual writing style of scientific research and, lots of fun to write. As a side effect, I learned a lot about the fixed income market in Brasil and it forced me to think objectively about a problem that is inherently subjective, personal finance and investing. Hopefully, in the future, I’ll write another book about the stock market and real state investing, a topic that I’m also very interested.</p>
+<p>My main project this year is the work in the second edition of my R book <em>Analyzing Financial and Economic Data with R</em>. It took a major part of my working weeks and weekends, but its coming together. Soon I’ll be publishing it in Amazon. You can find more details about it in this <a href="https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/">previous post</a>.</p>
+<p>In the programming side, I wrote two new CRAN packages in 2019: simfinR and GetQuandlData. Both are featured in the new edition of my R book (soon to be published).</p>
+</div>
+<div id="my-blog-posts-in-2018" class="section level1">
+<h1>My blog posts in 2018</h1>
+<p>Let’s have a look at my blog posts so so far.</p>
+<pre class="r"><code>my.blog.folder &lt;- &#39;~/Dropbox/11-My Website/01-msperlin.com/content/post/&#39;
+post.files &lt;- list.files(path = my.blog.folder, pattern = &#39;.Rmd&#39;)
+
+post.files</code></pre>
+<pre><code>##   [1] &quot;2017-02-16-Writing-a-book.Rmd&quot;                           
+##   [2] &quot;2017-02-16-Writing-a-book.Rmd.lock~&quot;                     
+##   [3] &quot;2017-12-06-Package-GetDFPData.Rmd&quot;                       
+##   [4] &quot;2017-12-06-Package-GetDFPData.Rmd.lock~&quot;                 
+##   [5] &quot;2017-12-13-Serving-shiny-apps-internet.Rmd&quot;              
+##   [6] &quot;2017-12-13-Serving-shiny-apps-internet.Rmd.lock~&quot;        
+##   [7] &quot;2017-12-30-Looking-Back-2017.Rmd&quot;                        
+##   [8] &quot;2017-12-30-Looking-Back-2017.Rmd.lock~&quot;                  
+##   [9] &quot;2018-01-22-Update-BatchGetSymbols.Rmd&quot;                   
+##  [10] &quot;2018-01-22-Update-BatchGetSymbols.Rmd.lock~&quot;             
+##  [11] &quot;2018-03-16-Writing_Papers_About_Pkgs.Rmd&quot;                
+##  [12] &quot;2018-03-16-Writing_Papers_About_Pkgs.Rmd.lock~&quot;          
+##  [13] &quot;2018-04-22-predatory-scientometrics.Rmd&quot;                 
+##  [14] &quot;2018-04-22-predatory-scientometrics.Rmd.lock~&quot;           
+##  [15] &quot;2018-05-12-Investing-Long-Run.Rmd&quot;                       
+##  [16] &quot;2018-05-12-Investing-Long-Run.Rmd.lock~&quot;                 
+##  [17] &quot;2018-06-12-padfR-ed2.Rmd&quot;                                
+##  [18] &quot;2018-06-12-padfR-ed2.Rmd.lock~&quot;                          
+##  [19] &quot;2018-06-29-BenchmarkingSSD.Rmd&quot;                          
+##  [20] &quot;2018-06-29-BenchmarkingSSD.Rmd.lock~&quot;                    
+##  [21] &quot;2018-10-10-BatchGetSymbols-NewVersion.Rmd&quot;               
+##  [22] &quot;2018-10-10-BatchGetSymbols-NewVersion.Rmd.lock~&quot;         
+##  [23] &quot;2018-10-11-Update-GetLattesData.Rmd&quot;                     
+##  [24] &quot;2018-10-11-Update-GetLattesData.Rmd.lock~&quot;               
+##  [25] &quot;2018-10-13-NewPackage-PkgsFromFiles.Rmd&quot;                 
+##  [26] &quot;2018-10-13-NewPackage-PkgsFromFiles.Rmd.lock~&quot;           
+##  [27] &quot;2018-10-19-R-and-loops.Rmd&quot;                              
+##  [28] &quot;2018-10-19-R-and-loops.Rmd.lock~&quot;                        
+##  [29] &quot;2018-10-20-Linux-and-R.Rmd&quot;                              
+##  [30] &quot;2018-10-20-Linux-and-R.Rmd.lock~&quot;                        
+##  [31] &quot;2018-11-03-NewBlog.Rmd&quot;                                  
+##  [32] &quot;2018-11-03-NewBlog.Rmd.lock~&quot;                            
+##  [33] &quot;2018-11-03-RstudioTricks.Rmd&quot;                            
+##  [34] &quot;2018-11-03-RstudioTricks.Rmd.lock~&quot;                      
+##  [35] &quot;2019-01-08-Looking-Back-2018.Rmd&quot;                        
+##  [36] &quot;2019-01-08-Looking-Back-2018.Rmd.lock~&quot;                  
+##  [37] &quot;2019-01-12-GetDFPData-ver14.Rmd&quot;                         
+##  [38] &quot;2019-01-12-GetDFPData-ver14.Rmd.lock~&quot;                   
+##  [39] &quot;2019-03-09-pafdR-promotion.Rmd&quot;                          
+##  [40] &quot;2019-03-09-pafdR-promotion.Rmd.lock~&quot;                    
+##  [41] &quot;2019-03-10-pafdR-promotion_2.Rmd&quot;                        
+##  [42] &quot;2019-03-10-pafdR-promotion_2.Rmd.lock~&quot;                  
+##  [43] &quot;2019-03-23-Bettina-Case.Rmd&quot;                             
+##  [44] &quot;2019-03-23-Bettina-Case.Rmd.lock~&quot;                       
+##  [45] &quot;2019-04-13-Parallel-BatchGetsymbols.Rmd&quot;                 
+##  [46] &quot;2019-04-13-Parallel-BatchGetsymbols.Rmd.lock~&quot;           
+##  [47] &quot;2019-04-15-GetBCBData.Rmd&quot;                               
+##  [48] &quot;2019-04-15-GetBCBData.Rmd.lock~&quot;                         
+##  [49] &quot;2019-05-01-MeanVariance.Rmd&quot;                             
+##  [50] &quot;2019-05-01-MeanVariance.Rmd.lock~&quot;                       
+##  [51] &quot;2019-05-17-R-in-Brazil.Rmd&quot;                              
+##  [52] &quot;2019-05-17-R-in-Brazil.Rmd.lock~&quot;                        
+##  [53] &quot;2019-05-20-Lindy-Effect.Rmd&quot;                             
+##  [54] &quot;2019-05-20-Lindy-Effect.Rmd.lock~&quot;                       
+##  [55] &quot;2019-07-01-ftp-shutdown.Rmd&quot;                             
+##  [56] &quot;2019-07-01-ftp-shutdown.Rmd.lock~&quot;                       
+##  [57] &quot;2019-08-08-ftp-NOT-shutdown.Rmd&quot;                         
+##  [58] &quot;2019-08-08-ftp-NOT-shutdown.Rmd.lock~&quot;                   
+##  [59] &quot;2019-10-01-new-package-GetQuandlData.Rmd&quot;                
+##  [60] &quot;2019-10-01-new-package-GetQuandlData.Rmd.lock~&quot;          
+##  [61] &quot;2019-10-12-support-GetDFPData-shiny.Rmd&quot;                 
+##  [62] &quot;2019-10-12-support-GetDFPData-shiny.Rmd.lock~&quot;           
+##  [63] &quot;2019-10-16-new-package-GetEdgarData.Rmd&quot;                 
+##  [64] &quot;2019-10-16-new-package-GetEdgarData.Rmd.lock~&quot;           
+##  [65] &quot;2019-11-01-new-package-simfinR.Rmd&quot;                      
+##  [66] &quot;2019-11-01-new-package-simfinR.Rmd.lock~&quot;                
+##  [67] &quot;2019-11-25-feedback-TOC-afedR.Rmd&quot;                       
+##  [68] &quot;2019-11-25-feedback-TOC-afedR.Rmd.lock~&quot;                 
+##  [69] &quot;2019-12-02-dynamic-exercises-afedR.Rmd&quot;                  
+##  [70] &quot;2019-12-02-dynamic-exercises-afedR.Rmd.lock~&quot;            
+##  [71] &quot;2019-12-15-Looking-Back-2019.Rmd&quot;                        
+##  [72] &quot;2019-12-15-Looking-Back-2019.Rmd.lock~&quot;                  
+##  [73] &quot;2020-01-15-afedR-ed2-announcement.Rmd&quot;                   
+##  [74] &quot;2020-01-15-afedR-ed2-announcement.Rmd.lock~&quot;             
+##  [75] &quot;2020-02-25-afedR-ed2-slides-available.Rmd&quot;               
+##  [76] &quot;2020-02-25-afedR-ed2-slides-available.Rmd.lock~&quot;         
+##  [77] &quot;2020-03-29-garch-tutorial-in-r.Rmd&quot;                      
+##  [78] &quot;2020-03-29-garch-tutorial-in-r.Rmd.lock~&quot;                
+##  [79] &quot;2020-04-17-update-getdfpdata.Rmd&quot;                        
+##  [80] &quot;2020-04-17-update-getdfpdata.Rmd.lock~&quot;                  
+##  [81] &quot;2020-04-20-free-compiled-data-in-site.Rmd&quot;               
+##  [82] &quot;2020-04-20-free-compiled-data-in-site.Rmd.lock~&quot;         
+##  [83] &quot;2020-04-20-new-package-GetCVMData.Rmd&quot;                   
+##  [84] &quot;2020-04-20-new-package-GetCVMData.Rmd.lock~&quot;             
+##  [85] &quot;2020-04-25-investments-costs.Rmd&quot;                        
+##  [86] &quot;2020-04-25-investments-costs.Rmd.lock~&quot;                  
+##  [87] &quot;2020-05-24-pirf-is-online.Rmd&quot;                           
+##  [88] &quot;2020-05-24-pirf-is-online.Rmd.lock~&quot;                     
+##  [89] &quot;2020-05-27-call-for-papers-rac.Rmd&quot;                      
+##  [90] &quot;2020-05-27-call-for-papers-rac.Rmd.lock~&quot;                
+##  [91] &quot;2020-07-07-garch-tutorial-in-r-REVISED.Rmd&quot;              
+##  [92] &quot;2020-07-07-garch-tutorial-in-r-REVISED.Rmd.lock~&quot;        
+##  [93] &quot;2020-07-18-new_packages-GetFREData-GetDFPData2.Rmd&quot;      
+##  [94] &quot;2020-07-18-new_packages-GetFREData-GetDFPData2.Rmd.lock~&quot;
+##  [95] &quot;2020-12-22-Looking-Back-2020.Rmd&quot;                        
+##  [96] &quot;2020-12-22-Looking-Back-2020.Rmd.lock~&quot;                  
+##  [97] &quot;2021-02-18-dynamic-exercises-adfeR.Rmd&quot;                  
+##  [98] &quot;2021-02-18-dynamic-exercises-adfeR.Rmd.lock~&quot;            
+##  [99] &quot;2021-02-19-dynamic-exercises-adfeR.Rmd.lock~&quot;            
+## [100] &quot;2021-02-20-adfeR-ed3-announcement.Rmd&quot;                   
+## [101] &quot;2021-02-20-adfeR-ed3-announcement.Rmd.lock~&quot;</code></pre>
+<p>The blog started in january of 2017 and, over time, I wrote 101 posts, around 33.6666667 per year. Let’s get more information from the .Rmd files. I’ll write function <code>read_blog_files</code> and use it for all post files.</p>
+<pre class="r"><code>read_blog_files &lt;- function(f.in) {
+  require(tidyverse)
+  my.front.matter &lt;- rmarkdown::yaml_front_matter(f.in)
+
+  df.out &lt;- data_frame(post.title = my.front.matter$title,
+                       post.date = lubridate::ymd(my.front.matter$date),
+                       post.month = as.Date(format(post.date, &#39;%Y-%m-01&#39;)),
+                       tags = paste0(my.front.matter$tags, collapse = &#39;;&#39;),
+                       categories = paste0(my.front.matter$categories, collapse = &#39;;&#39;),
+                       content = paste0(read_lines(f.in), collapse = &#39; &#39;))
+
+  return(df.out)
+}
+
+df.posts &lt;- dplyr::bind_rows(purrr::map(post.files, read_blog_files))</code></pre>
+<pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre class="r"><code>glimpse(df.posts)</code></pre>
+<pre><code>## Rows: 50
+## Columns: 6
+## $ post.title &lt;chr&gt; &quot;Writing a R book and self-publishing it in Amazon&quot;, &quot;Pack…
+## $ post.date  &lt;date&gt; 2017-02-16, 2017-12-06, 2017-12-13, 2017-12-30, 2018-01-2…
+## $ post.month &lt;date&gt; 2017-02-01, 2017-12-01, 2017-12-01, 2017-12-01, 2018-01-0…
+## $ tags       &lt;chr&gt; &quot;R;book;self-publish&quot;, &quot;R;GetDFPData;corporate events;fina…
+## $ categories &lt;chr&gt; &quot;R;book;self-publish&quot;, &quot;R;GetDFPData;B3&quot;, &quot;R;shiny;webserv…
+## $ content    &lt;chr&gt; &quot;--- title: \&quot;Writing a R book and self-publishing it in A…</code></pre>
+<p>First, let’s look at the frequency of posts over time.</p>
+<pre class="r"><code>df.posts &lt;- df.posts %&gt;%
+  filter(post.date &gt;= as.Date(&#39;2019-01-01&#39;), 
+         post.date &lt;= as.Date(&#39;2020-01-01&#39;))
+
+print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&#39;count&#39;) +
+         theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+         labs(y = &#39;Number of posts&#39;, x = &#39;&#39;))</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
+<p><img src="/blog/post/2019-12-15-Looking-Back-2019_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="checking-2019s-plans" class="section level1">
+<h1>Checking 2019’s plans</h1>
+<p>At the end of 2018, my plans for 2019 <a href="https://www.msperlin.com/blog/post/2019-01-08-looking-back-2018/">were</a>:</p>
+<dl>
+<dt>New edition of “Analyzing Financial and Economic Data with R”</dt>
+<dd>in progress!
+</dd>
+<dt>Work on my new book: “Investing For the Long Term” (provisory title)</dt>
+<dd><a href="https://www.msperlin.com/blog/publication/2019_book-pirf/">Done!</a> The first idea was to write a book about investing in general. I soon realized I would not be able to complete such task within one year. So, I decided to first write about the fixed income market and later, perhaps, write about stock markets and real state.
+</dd>
+<dt>Solidify my research agenda in Board Composition</dt>
+<dd>In progress. I’ve got four papers in development, two already submitted and two in the pipeline.
+</dd>
+</dl>
+</div>
+<div id="plans-for-2020" class="section level1">
+<h1>Plans for 2020</h1>
+<dl>
+<dt>Publish afedR (analyzing financial and economic data with R)</dt>
+<dd>My expectation is to publish the book in the first months of the year. I believe it is quite doable, unless something unexpected happens.
+</dd>
+<dt>Finish board papers</dt>
+<dd>Also doable. The working papers are in a good shape and should be submitted soon.
+</dd>
+<dt>Start “personal finance project”</dt>
+<dd>I’m not yet sure how to call it, but I’ve got a couple of ideas for creating a project all about helping people with their finances.
+</dd>
+</dl>
+</div>

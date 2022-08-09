@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GetDFPData | msperlin</title>
+    <link>http://www.msperlin.com/blog/tag/getdfpdata/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/getdfpdata/index.xml" rel="self" type="application/rss+xml" />
+    <description>GetDFPData</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <title>GetDFPData</title>
+      <link>http://www.msperlin.com/blog/tag/getdfpdata/</link>
+    </image>
+    
+    <item>
+      <title>Update on GetDFPData tables -- 2019&#39;s DFP and FRE data</title>
+      <link>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</link>
+      <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;After battling B3’s website for days, I finally managed to gather a master table for all corporate data. I’m happy to report that the 2019’s data is now included in GetDFPData, the CRAN package and &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny interface&lt;/a&gt;. This includes new financial statements and company’s FRE data.&lt;/p&gt;
+&lt;p&gt;I also want to use this update to formally thank everyone that made a donation in the &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny website&lt;/a&gt;. Your donation is not only helping paying for the bills of the server but increasing my motivation for working further in this project.&lt;/p&gt;
+&lt;p&gt;As for R code with then new dataset, let’s give it a try:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GetDFPData)
+library(tidyverse)
+
+name.companies &amp;lt;- c(&amp;#39;PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS&amp;#39;)
+
+first.date &amp;lt;- &amp;#39;2017-01-01&amp;#39;
+last.date &amp;lt;- &amp;#39;2020-01-01&amp;#39;
+inflation.index &amp;lt;- &amp;#39;IPCA&amp;#39;
+
+df.reports &amp;lt;- gdfpd.GetDFPData(name.companies = name.companies,
+                               first.date = first.date,
+                               last.date = last.date)
+
+glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Help support GetDFPData</title>
+      <link>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</link>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny version of GetDFPData&lt;/a&gt; is currently hosted in a private server at DigitalOcean. A problem with the basic (5 USD) server I was using is with the low amount of available memory (RAM and HD). With that, I had to limit all xlsx queries for the data, otherwise the shiny app would ran out of memory. After upgrading R in the server, the xlsx option was no longer working.&lt;/p&gt;
+&lt;p&gt;Today I tried all tricks in the book for keeping the 5 USD server and get the code to work. Nothing worked effectively. The Microsoft Excel is a very restrictive format, and you should only use it to small projects. If the volume of data is high, as in GetDFPData, you’re going to run into a lot of issues of cell sizes and memory allocation. Despite my explicit recommendation to avoid Excel format as much as possible, people still use it a lot. Not surprisingly, once I took the “xlsx” option from the shiny interface, people complained to my email – a lot.&lt;/p&gt;
+&lt;p&gt;I just upgraded the RAM and HD of the server in DigitalOcean. &lt;strong&gt;The xlsx option is back and working&lt;/strong&gt;. The new bill is 10 USD per month. So far I’ve been paying the bill from my own pocket, using revenues from my &lt;a href=&#34;https://www.msperlin.com/blog/publication/#5&#34;&gt;books&lt;/a&gt;. The GetDFPData has no official financial support and yes, I’ll continue to finance it as much as can. But, support from those using the shiny interface of the CRAN package is very much welcomed and will motive further development to keep things running smoothly.&lt;/p&gt;
+&lt;p&gt;If you can, please help &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;donating a small value&lt;/a&gt; and keeping the server financed. Once I reach 12 months of payed bills (around 120 USD), I’ll remove the Paypal donation button and only add it back after the cash runs out.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GetDFPData Ver 1.4</title>
+      <link>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I just released a major update to package GetDFPData. Here are the main changes:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Naming conventions for caching system are improved so that it reflects different versions of FRE and DFP files&lt;/strong&gt;. This means the old caching system no longer works. If you have built yourself your own cache folder with many companies, do clean up the cache by deleting all folders. Run your code again and it will rebuild all files. Unfortinatelly this is a “brute force”, but necessary step. The code and data is now explicit about the version of downloaded files. If a company updates its FRE files, for example, the package will detect it and download and read the new information.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fixed issue with dates in FRE&lt;/strong&gt;. Many people reported that the dates from the FRE tables did not match the ones in the website. The reason is that the FRE column “ref.date” was set as (year.fre -1)-12-31. This made sense for many of the FRE tables, but not all. The idea was to use column ref.date to bind the DFP and FRE datasets together. In order to be more transparent about this choice, a new column “year.fre” is added to all FRE data. It contains the original year of the FRE file. This way the user will always know where the FRE datasets are coming from.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Many improvements&lt;/strong&gt;. Bugs were chased and fixed. The code is now more mantainable and runs with more smoothly.&lt;/p&gt;
+&lt;p&gt;The new version is already available at github and should be in CRAN in a few days.&lt;/p&gt;
+&lt;p&gt;The datasets from the &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shinny version&lt;/a&gt; are also updated with this new dataset.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Package GetDFPData</title>
+      <link>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</link>
+      <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+&lt;p&gt;
+Package &lt;code&gt;GetDFPData&lt;/code&gt; is being substituted by &lt;code&gt;GetDFPData2&lt;/code&gt;. See this &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;blog post&lt;/a&gt; for details.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Financial statements of companies traded at B3 (formerly Bovespa), the Brazilian stock exchange, are available in its &lt;a href=&#34;http://www.bmfbovespa.com.br/&#34;&gt;website&lt;/a&gt;. Accessing the data for a single company is straightforward. In the website one can find a simple interface for accessing this dataset. An example is given &lt;a href=&#34;https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=67775&amp;amp;CodigoTipoInstituicao=2&#34;&gt;here&lt;/a&gt;. However, gathering and organizing the data for a large scale research, with many companies and many dates, is painful. Financial reports must be downloaded or copied individually and later aggregated. Changes in the accounting format thoughout time can make this process slow, unreliable and irreproducible.&lt;/p&gt;
+&lt;p&gt;Package &lt;code&gt;GetDFPData&lt;/code&gt; provides a R interface to all annual financial statements available in the website and more. It not only downloads the data but also organizes it in a tabular format and allows the use of inflation indexes. Users can select companies and a time period to download all available data. Several information about current companies, such as sector and available quarters are also at reach. The main purpose of the package is to make it easy to access financial statements in large scale research, facilitating the reproducibility of corporate finance studies with B3 data.&lt;/p&gt;
+&lt;p&gt;The positive aspects of &lt;code&gt;GetDFDData&lt;/code&gt; are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy and simple R and web interface&lt;/li&gt;
+&lt;li&gt;Changes in accounting format are internally handled by the software&lt;/li&gt;
+&lt;li&gt;Access to corporate events in the FRE system such as dividend payments, changes in stock holder composition, changes in governance listings, board composition and compensation, debt composition, and a lot more!&lt;/li&gt;
+&lt;li&gt;The output data is automatically organized using tidy data principles (long format)&lt;/li&gt;
+&lt;li&gt;A cache system is employed for fast data acquisition&lt;/li&gt;
+&lt;li&gt;Completely free and open source!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Installation&lt;/h1&gt;
+&lt;p&gt;The package is available in CRAN (release version) and in Github (development version). You can install any of those with the following code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Release version in CRAN
+install.packages(&amp;#39;GetDFPData&amp;#39;) # not in CRAN yet
+
+# Development version in Github
+devtools::install_github(&amp;#39;msperlin/GetDFPData&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shinny-interface&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Shinny interface&lt;/h1&gt;
+&lt;p&gt;The web interface of &lt;code&gt;GetDFPData&lt;/code&gt; is available at &lt;a href=&#34;http://www.msperlin.com/shiny/GetDFPData/&#34;&gt;http://www.msperlin.com/shiny/GetDFPData/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-to-use-getdfpdata&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;How to use &lt;code&gt;GetDFPData&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The starting point of &lt;code&gt;GetDFPData&lt;/code&gt; is to find the official names of companies in B3. Function &lt;code&gt;gdfpd.search.company&lt;/code&gt; serves this purpose. Given a string (text), it will search for a partial matches in companies names. As an example, let’s find the &lt;em&gt;official&lt;/em&gt; name of Petrobras, one of the largest companies in Brazil:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(GetDFPData)
+library(tibble)
+
+gdfpd.search.company(&amp;#39;petrobras&amp;#39;,cache.folder = tempdir())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Its official name in Bovespa records is &lt;code&gt;PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS&lt;/code&gt;. Data for quarterly and annual statements are available from 1998 to 2017. The situation of the company, active or canceled, is also given. This helps verifying the availability of data.&lt;/p&gt;
+&lt;p&gt;The content of all available financial statements can be accessed with function &lt;code&gt;gdfpd.get.info.companies&lt;/code&gt;. It will read and parse a .csv file from my &lt;a href=&#34;https://github.com/msperlin/GetDFPData_auxiliary&#34;&gt;github repository&lt;/a&gt;. This will be periodically updated for new information. Let’s try it out:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.info &amp;lt;- gdfpd.get.info.companies(type.data = &amp;#39;companies&amp;#39;, cache.folder = tempdir())
+
+glimpse(df.info)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This file includes several information that are gathered from Bovespa: names of companies, official numeric ids, listing segment, sectors, traded tickers and, most importantly, the available dates. The resulting dataframe can be used to filter and gather information for large scale research such as downloading financial data for a specific sector.&lt;/p&gt;
+&lt;div id=&#34;downloading-financial-information-for-one-company&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Downloading financial information for ONE company&lt;/h2&gt;
+&lt;p&gt;All you need to download financial data with &lt;code&gt;GetDFPData&lt;/code&gt; are the official names of companies, which can be found with &lt;code&gt;gdfpd.search.company&lt;/code&gt;, the desired starting and ending dates and the type of financial information (individual or consolidated). Let’s try it for PETROBRAS:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;name.companies &amp;lt;- &amp;#39;PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS&amp;#39;
+first.date &amp;lt;- &amp;#39;2015-01-01&amp;#39;
+last.date  &amp;lt;- &amp;#39;2016-01-01&amp;#39;
+
+df.reports &amp;lt;- gdfpd.GetDFPData(name.companies = name.companies, 
+                               first.date = first.date,
+                               last.date = last.date,
+                               cache.folder = tempdir())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The resulting object is a &lt;code&gt;tibble&lt;/code&gt;, a data.frame type of object that allows for list columns. Let’s have a look in its content:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Object &lt;code&gt;df.reports&lt;/code&gt; only has one row since we only asked for data of one company. The number of rows increases with the number of companies, as we will soon learn with the next example. All financial statements for the different years are available within &lt;code&gt;df.reports&lt;/code&gt;. For example, the assets statements for all desired years of PETROBRAS are:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.income.long &amp;lt;- df.reports$fr.income[[1]]
+
+glimpse(df.income.long)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The resulting dataframe is in the long format, ready for processing. In the long format, financial statements of different years are stacked. In the wide format, we have the year as columns of the table.&lt;/p&gt;
+&lt;p&gt;If you want the wide format, which is the most common way that financial reports are presented, you can use function &lt;code&gt;gdfpd.convert.to.wide&lt;/code&gt;. See an example next:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.income.wide &amp;lt;- gdfpd.convert.to.wide(df.income.long)
+
+knitr::kable(df.income.wide )&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;downloading-financial-information-for-several-companies&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Downloading financial information for SEVERAL companies&lt;/h2&gt;
+&lt;p&gt;If you are doing serious research, it is likely that you need financial statements for more than one company. Package &lt;code&gt;GetDFPData&lt;/code&gt; is specially designed for handling large scale download of data. Let’s build a case with two selected companies:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.companies &amp;lt;- c(&amp;#39;PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS&amp;#39;,
+                  &amp;#39;BANCO DO ESTADO DO RIO GRANDE DO SUL SA&amp;#39;)
+
+first.date &amp;lt;- &amp;#39;2016-01-01&amp;#39;
+last.date  &amp;lt;- &amp;#39;2017-01-01&amp;#39;
+type.statements &amp;lt;- &amp;#39;individual&amp;#39;
+
+df.reports &amp;lt;- gdfpd.GetDFPData(name.companies = my.companies, 
+                               first.date = first.date,
+                               last.date = last.date,
+                               cache.folder = tempdir())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And now we can check the resulting &lt;code&gt;tibble&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Every row of &lt;code&gt;df.reports&lt;/code&gt; will provide information for one company. Metadata about the corresponding dataframes such as min/max dates is available in the first columns. Keeping a tabular structure facilitates the organization and future processing of all financial data. We can use tibble &lt;code&gt;df.reports&lt;/code&gt; for creating other dataframes in the long format containing data for all companies. See next, where we create dataframes with the assets and liabilities of all companies:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.assets &amp;lt;- do.call(what = rbind, args = df.reports$fr.assets)
+df.liabilities &amp;lt;- do.call(what = rbind, args = df.reports$fr.liabilities)
+
+df.assets.liabilities &amp;lt;- rbind(df.assets, df.liabilities)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As an example, let’s use the resulting dataframe for calculating and analyzing a simple liquidity index of a company, the total of current (liquid) assets (&lt;em&gt;Ativo circulante&lt;/em&gt;) divided by the total of current short term liabilities (&lt;em&gt;Passivo Circulante&lt;/em&gt;), over time.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+
+my.tab &amp;lt;- df.assets.liabilities %&amp;gt;%
+  group_by(name.company, ref.date) %&amp;gt;%
+  summarise(Liq.Index = acc.value[acc.number == &amp;#39;1.01&amp;#39;]/ acc.value[acc.number == &amp;#39;2.01&amp;#39;])
+
+my.tab&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can visualize the information using &lt;code&gt;ggplot2&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+p &amp;lt;- ggplot(my.tab, aes(x = ref.date, y = Liq.Index, fill = name.company)) +
+  geom_col(position = &amp;#39;dodge&amp;#39; )
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exporting-financial-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exporting financial data&lt;/h2&gt;
+&lt;p&gt;The package includes function &lt;code&gt;gdfpd.export.DFP.data&lt;/code&gt; for exporting the financial data to an Excel or zipped csv files. See next:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.basename &amp;lt;- &amp;#39;MyExcelData&amp;#39;
+my.format &amp;lt;- &amp;#39;csv&amp;#39; # only supported so far
+gdfpd.export.DFP.data(df.reports = df.reports, 
+                      base.file.name = my.basename,
+                      type.export = my.format)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The resulting Excel file contains all data available in &lt;code&gt;df.reports&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

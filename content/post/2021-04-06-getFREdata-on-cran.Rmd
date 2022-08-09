@@ -1,0 +1,63 @@
+---
+title: "GetFREData available in CRAN!"
+author: "Marcelo S. Perlin"
+date: '2021-04-06'
+tags:
+- R
+- GetFREData
+categories:
+- R
+- GetFREData
+draft: false
+---
+
+I'm happy to report that package `GetFREData` is now available in CRAN. This R package serves as an interface to **all** corporate datasets available in the FRE system, a vast and **official** repository of information about many different corporate events. All companies listed at B3 -- Brazilian stock exchange -- must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its [web interface](https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=102618&CodigoTipoInstituicao=2).
+
+The R package fetches data from the [CVM ftp](http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/), downloads and parses the xml files, and output several tables as a `list`. The corporate data includes (since 2010):
+
+- List of stockholders
+- All capital issues 
+- Stock value over years
+- Compensation of boards and directors
+- Composition of boards and committees
+- Family relations within the company
+- List of companies related to family members
+- Stock details
+- Intangible details
+- Auditing details
+- Dividends details
+
+
+Historical parsed data between 2010 and 2019 is available for download in my [personal site](https://www.msperlin.com/blog/data/).
+
+
+## Installation
+
+```{r, eval=FALSE}
+# CRAN (stable)
+install.packages('GetFREData')
+
+# github (development)
+if (!require(devtools)) install.packages('devtools')
+if (!require(GetFREData)) devtools::install_github('msperlin/GetFREData') 
+```
+
+## Example of usage
+
+```{r}
+library(GetFREData)
+library(tidyverse)
+
+search_company('grendene', 
+               cache_folder = tempdir())
+
+l_fre <- get_fre_data(companies_cvm_codes = 19615,
+                      fre_to_read = 'last',
+                      first_year = 2020,
+                      last_year = 2020, 
+                      cache_folder = tempdir())
+                      
+glimpse(l_fre)
+```
+
+

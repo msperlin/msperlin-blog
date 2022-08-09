@@ -1,0 +1,150 @@
+---
+title: "Update to GetLattesData"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-10-11
+categories: ["R", "GetLattesData"]
+tags: [R, GetLattesData]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Last year I released <code>GetLattesData</code>. This package is very handy for anyone that researches bibliometric data of Brazilian scholars. You could easily import the whole academic history of any researcher registered at the platform. More details about Lattes and <code>GetLattesData</code> in the this <a href="https://msperlin.github.io/2017-09-04-Package-GetLattesData/">post</a>.</p>
+<p>However, a couple months ago CNPQ introduced a captcha in the webpage. This made it impossible to download the xml files directly, breaking my code. It seems that those changes are now permanent. The update to GetLattesData will address this issue by asking the user to download the files manually and input its location to function <code>gld_get_lattes_data_from_zip</code>. Unfortunately, one can no longer download the files automatically.</p>
+<p>Next I provide an example of usage from the vignette:</p>
+<pre class="r"><code>library(GetLattesData)
+
+# get files from pkg (you can download from other researchers in lattes website)
+f.in &lt;- c(system.file(&#39;extdata/3262699324398819.zip&#39;, package = &#39;GetLattesData&#39;),
+          system.file(&#39;extdata/8373564643000623.zip&#39;, package = &#39;GetLattesData&#39;))
+
+# set qualis
+field.qualis = &#39;ADMINISTRAÇÃO PÚBLICA E DE EMPRESAS, CIÊNCIAS CONTÁBEIS E TURISMO&#39;
+
+# get data
+l.out &lt;- gld_get_lattes_data_from_zip(f.in, 
+                                      field.qualis = field.qualis )</code></pre>
+<pre><code>## 
+## Reading  3262699324398819.zip -  Marcelo Scherer Perlin
+##  Found 21 published papers
+##  Found 2 accepted paper(s)
+##  Found 10 supervisions
+##  Found 2 published books
+##  Found 0 book chapters
+##  Found 17 conference papers
+## Reading  8373564643000623.zip -  Denis Borenstein
+##  Found 75 published papers
+##  Found 2 accepted paper(s)
+##  Found 97 supervisions
+##  Found 1 published books
+##  Found 6 book chapters
+##  Found 89 conference papers</code></pre>
+<p>The output <code>my.l</code> is a list with the following dataframes:</p>
+<pre class="r"><code>names(l.out)</code></pre>
+<pre><code>## [1] &quot;tpesq&quot;             &quot;tpublic.published&quot; &quot;tpublic.accepted&quot; 
+## [4] &quot;tsupervisions&quot;     &quot;tbooks&quot;            &quot;tconferences&quot;</code></pre>
+<p>The first is a dataframe with information about researchers:</p>
+<pre class="r"><code>tpesq &lt;- l.out$tpesq
+str(tpesq)</code></pre>
+<pre><code>## tibble [2 × 16] (S3: tbl_df/tbl/data.frame)
+##  $ name           : chr [1:2] &quot;Marcelo Scherer Perlin&quot; &quot;Denis Borenstein&quot;
+##  $ last.update    : Date[1:2], format: &quot;2018-09-24&quot; &quot;2018-08-24&quot;
+##  $ bsc.institution: chr [1:2] &quot;Universidade Federal de Santa Maria&quot; &quot;Universidade Federal do Rio de Janeiro&quot;
+##  $ bsc.start.year : chr [1:2] &quot;2001&quot; &quot;1981&quot;
+##  $ bsc.end.year   : chr [1:2] &quot;2005&quot; &quot;1986&quot;
+##  $ bsc.course     : chr [1:2] &quot;Administração de empresas&quot; &quot;Engenharia Naval&quot;
+##  $ msc.institution: chr [1:2] &quot;Universidade Federal do Rio Grande do Sul&quot; &quot;Universidade Federal do Rio Grande do Sul&quot;
+##  $ msc.start.year : chr [1:2] &quot;2005&quot; &quot;1989&quot;
+##  $ msc.end.year   : chr [1:2] &quot;2007&quot; &quot;1991&quot;
+##  $ phd.institution: chr [1:2] &quot;University of Reading&quot; &quot;University of Strathclyde&quot;
+##  $ phd.start.year : num [1:2] 2007 1991
+##  $ phd.end.year   : num [1:2] 2010 1995
+##  $ country.origin : chr [1:2] &quot;Brasil&quot; &quot;Brasil&quot;
+##  $ major.field    : chr [1:2] &quot;CIENCIAS_SOCIAIS_APLICADAS&quot; &quot;ENGENHARIAS&quot;
+##  $ minor.field    : chr [1:2] &quot;Administração&quot; &quot;Engenharia de Produção&quot;
+##  $ id.file        : chr [1:2] &quot;3262699324398819.zip&quot; &quot;8373564643000623.zip&quot;</code></pre>
+<p>The second dataframe contains information about all published publications, including Qualis and SJR:</p>
+<pre class="r"><code>dplyr::glimpse(l.out$tpublic.published)</code></pre>
+<pre><code>## Rows: 96
+## Columns: 13
+## $ id.file            &lt;chr&gt; &quot;3262699324398819.zip&quot;, &quot;3262699324398819.zip&quot;, &quot;3…
+## $ name               &lt;chr&gt; &quot;Marcelo Scherer Perlin&quot;, &quot;Marcelo Scherer Perlin&quot;…
+## $ article.title      &lt;chr&gt; &quot;Teoria do Caos aplicada aos Contratos de Café no …
+## $ year               &lt;dbl&gt; 2006, 2009, 2007, 2011, 2013, 2013, 2013, 2013, 20…
+## $ language           &lt;chr&gt; &quot;Português&quot;, &quot;Inglês&quot;, &quot;Inglês&quot;, &quot;Inglês&quot;, &quot;Portug…
+## $ journal.title      &lt;chr&gt; &quot;READ - Revista Eletrônica da Administração (UFRGS…
+## $ contry.publication &lt;chr&gt; &quot;Brasil&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, …
+## $ ISSN               &lt;chr&gt; &quot;-&quot;, &quot;1753-9641&quot;, &quot;1413-2311&quot;, &quot;1749-9135&quot;, &quot;1679-…
+## $ order.aut          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1, 1, 3, 1, 3,…
+## $ n.authors          &lt;dbl&gt; 2, 1, 2, 2, 1, 3, 3, 3, 2, 2, 3, 2, 4, 5, 3, 2, 5,…
+## $ qualis             &lt;chr&gt; NA, NA, &quot;B1&quot;, NA, &quot;B1&quot;, &quot;A2&quot;, &quot;B1&quot;, &quot;A1&quot;, &quot;B1&quot;, &quot;B…
+## $ SJR                &lt;dbl&gt; NA, 0.213, NA, NA, NA, 0.886, NA, 0.429, NA, NA, N…
+## $ H.SJR              &lt;int&gt; NA, 6, NA, NA, NA, 17, NA, 38, NA, NA, NA, NA, 45,…</code></pre>
+<p>Other dataframes in <code>l.out</code> included information about accepted papers, supervisions, books and conferences.</p>
+<div id="an-application-of-getlattesdata" class="section level2">
+<h2>An application of <code>GetLattesData</code></h2>
+<p><code>GetLattesData</code> makes it easy to create academic reports for a large number of researchers. See next, where I plot the number of publications for each researcher, conditioning on Qualis ranking.</p>
+<pre class="r"><code>tpublic.published &lt;- l.out$tpublic.published
+
+library(ggplot2)
+
+p &lt;- ggplot(tpublic.published, aes(x = qualis)) +
+  geom_bar(position = &#39;identity&#39;) + facet_wrap(~name) +
+  labs(x = paste0(&#39;Qualis: &#39;, field.qualis))
+print(p)</code></pre>
+<p><img src="/blog/post/2018-10-11-Update-GetLattesData_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>We can also use <code>dplyr</code> to do some simple assessment of academic productivity:</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>my.tab &lt;- tpublic.published %&gt;%
+  group_by(name) %&gt;%
+  summarise(n.papers = n(),
+            max.SJR = max(SJR, na.rm = T),
+            mean.SJR = mean(SJR, na.rm = T),
+            n.A1.qualis = sum(qualis == &#39;A1&#39;, na.rm = T),
+            n.A2.qualis = sum(qualis == &#39;A2&#39;, na.rm = T),
+            median.authorship = median(as.numeric(order.aut), na.rm = T ))
+
+knitr::kable(my.tab)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">name</th>
+<th align="right">n.papers</th>
+<th align="right">max.SJR</th>
+<th align="right">mean.SJR</th>
+<th align="right">n.A1.qualis</th>
+<th align="right">n.A2.qualis</th>
+<th align="right">median.authorship</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Denis Borenstein</td>
+<td align="right">75</td>
+<td align="right">3.674</td>
+<td align="right">1.2808113</td>
+<td align="right">27</td>
+<td align="right">16</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Marcelo Scherer Perlin</td>
+<td align="right">21</td>
+<td align="right">2.029</td>
+<td align="right">0.7204444</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>

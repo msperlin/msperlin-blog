@@ -1,0 +1,108 @@
+---
+title: 'R usage in Brazil'
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: '2019-05-17'
+draft: false
+tags: ["R", "Brazil",'cranes']
+categories: ["R", "Brazil", 'cranlogs']
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache=TRUE)
+```
+
+I'm using R for at least five years and always been curious about its usage in Brazil. I see some minor personal evidence that the number of users is increasing over time. My [book in portuguese](https://www.amazon.com.br/dp/B07DN4M357) is steadily increasing its sales, and I've been receiving far more emails about my [R packages](https://www.crantastic.org/authors/5303). Conference are also booming. Every year there are at least two or three R conferences in Brazil.
+
+What I learned from experience is that software choice is a group decision. It is very likely that you will use whatever your peer group uses. For example, if you are a PhD student, you will never convince your adviser to change research software, even if you have perfectly good reasons! 
+
+It takes some independence and autonomy to be able to break free from bad group choices. In academia, you can only do that later on, when you finish your PhD and start your career. Then you can use whatever rocks your boat. And, even for that, it takes courage and humbleness to relearn all you research tricks, from data acquisition to reporting your results.
+
+In this post I'll investigate the use of R in Brazil. Rstudio publishes a [log page](http://cran-logs.rstudio.com/) covering all R downloads and package installations. The data is organized by day and very easy to download and parse within R. After downloading it, I organized it by filtering only downloads in Brazil, and saved it in a .rds file. Let's explore it.
+
+```{r}
+library(tidyverse)
+
+df.dls <- read_rds('data/r-downloads-brazil.rds')
+
+glimpse(df.dls)
+```
+
+As you can see, we have the date, time, version, os (platform), country and ip (randomized daily). First of all, let's see how many downloads per day we have for Brazil. I'm also including the different release dates for major R versions. 
+
+```{r}
+df_by_day <- df.dls %>%
+  group_by(ref.date = date) %>%
+  summarise(n = n())
+
+df.R.releases <- tibble(ref.date = as.Date(c('2013-04-03', '2014-04-10','2015-04-16',
+                                             '2016-05-03', '2017-04-21',
+                                             '2018-04-23', '2019-04-26')),
+                            R_version  = c('3.0.0', '3.1.0','3.2.0', 
+                                 '3.3.0','3.4.0', '3.5.0', 
+                                 '3.6.0') )
+
+p <- ggplot(data = df_by_day, aes(y = n, 
+                                  x = ref.date) ) + 
+  geom_point() + geom_smooth(size = 2) + 
+  labs(x = 'Date (day)', y= 'Number of Downloads', 
+       title = paste0('Number of R downloads in Brazil'),
+       subtitle = 'Data from Rstudio logs <http://cran-logs.rstudio.com/>') + 
+  geom_vline(data = df.R.releases,
+             aes(xintercept = ref.date, color = R_version ), size = 1) + 
+  scale_color_grey(start = 0.8, end = 0.2 )
+
+print(p)
+```
+
+The number of downloads is steadily increasing over time. The new releases of R also seems to explain the outliers in the dataset. Let's clean it a bit by decreasing the frequency and calculating the number of downloads per month, instead of by day.
+
+```{r}
+df_by_month <- df.dls %>%
+  group_by(ref.month = lubridate::ymd(format(date, '%Y-%m-01'))) %>%
+  summarise(n = n())
+  
+p <- ggplot(data = df_by_month, aes(y = n, 
+                                  x = ref.month) ) + 
+  geom_point() + geom_smooth(size = 2) + 
+  labs(x = 'Date (month)', y= 'Number of Downloads', 
+       title = paste0('Number of R downloads in Brazil'),
+       subtitle = 'Data from Rstudio logs <http://cran-logs.rstudio.com/>') + 
+  geom_vline(data = df.R.releases,
+             aes(xintercept = ref.date, color = R_version ), size = 1) + 
+  scale_color_grey(start = 0.8, end = 0.2 )
+
+
+print(p)
+```
+
+```{r, echo = FALSE}
+my.rate <- (last(df_by_month$n)/first(df_by_month$n))^(1/nrow(df_by_month)) - 1
+```
+
+Much better! Overall, R downloads average about `r format(mean(na.omit(df_by_month$n)), digits = 4)` per month, with a monthly compound rate of `r scales::percent(my.rate)`. It means that, each month, the number of downloads is increasing by `r scales::percent(my.rate)` from previous month.  
+
+The data also includes information about the operating system. Let's check its distribution:
+
+```{r}
+df_by_os <- df.dls %>%
+  group_by(os) %>%
+  count() %>%
+  na.omit() %>% ungroup() %>%
+  mutate(os = fct_recode(os, 
+                         "Windows" = "win",
+                         'Mac OS' = 'osx',
+                         'Linux' = 'src'))
+
+p <- ggplot(df_by_os, aes(x = os, y = n)) + 
+  geom_col() + 
+  labs(x = 'Operation System', y = 'Number of Download Cases', 
+       title = 'Distribution of OS',
+       subtitle = 'Data from Rstudio logs <http://cran-logs.rstudio.com/>')
+
+print(p)
+```
+
+Not unexpectedly, Windows is the winner! I'm very surprised to see that Mac OS presents more downloads than Linux. With an unfavorable exchange rate and many import taxes, the price of a Mac computer --- desktop or laptop --- are exorbitantly expensive in Brazil. This tells a lot about the purchase power of R users. 
+
+I hope you liked this post. Next time I'll analyze the logs of package installation in Brazil.

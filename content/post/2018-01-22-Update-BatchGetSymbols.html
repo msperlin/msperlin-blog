@@ -1,0 +1,130 @@
+---
+title: "Major update to BatchGetSymbols"
+subtitle: "Making it even easier to download and organize stock prices from Yahoo Finance"
+author: "Marcelo S. Perlin"
+date: 2018-01-22
+tags: [R, BatchGetSymbols, Yahoo finance]
+categories: [R, BatchGetSymbols, Yahoo finance]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I just released a long due update to package <code>BatchGetSymbols</code>. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:</p>
+<pre class="r"><code>if (!require(devtools)) install.packages(&#39;devtools&#39;)
+devtools::install_github(&#39;msperlin/BatchGetSymbols&#39;)</code></pre>
+<p>The main innovations are:</p>
+<ul>
+<li><p><strong>Clever cache system</strong>: By default, every new download of data will be saved in a local file located in a directory chosen by user. Every new request of data is compared to the available local information. If data is missing, the function only downloads the piece of data that is missing. This make the call to function <code>BatchGetSymbols</code> a lot faster! When updating an existing dataset of prices, the function only downloads the missing part of the data.</p></li>
+<li><p><strong>Returns calculation</strong>: Function now returns a return vector in <code>df.tickers</code>. Returns are used a lot more than prices in research. No reason why they should be keep out of the output.</p></li>
+<li><p><strong>Wide format</strong>: Added function for converting data to the wide format. In some situations, such as portfolio analysis, the wide format makes a lot of sense and is required for some methodologies.</p></li>
+<li><p><strong>Ibovespa composition</strong>: Added function for downloading current Ibovespa composition directly from Bovespa website.</p></li>
+</ul>
+<p>In the next chunks of code I show some of the innovations:</p>
+<pre class="r"><code>library(BatchGetSymbols)</code></pre>
+<pre><code>## Loading required package: rvest</code></pre>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## </code></pre>
+<pre class="r"><code># download Ibovespa stocks
+my.tickers &lt;- GetSP500Stocks()$Tickers[1:5] # lets keep it light
+
+# set dates
+first.date &lt;- &#39;2017-01-01&#39;
+last.date &lt;- &#39;2019-01-01&#39;
+
+# set folder for cache system
+my.temp.cache.folder &lt;- &#39;BGS_CACHE&#39;
+
+# get data and time it
+time.nocache &lt;- system.time({
+my.l &lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = FALSE)
+})</code></pre>
+<pre><code>## 
+## Running BatchGetSymbols for:</code></pre>
+<pre><code>## 
+##    tickers =MMM, ABT, ABBV, ABMD, ACN
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## MMM | yahoo (1|5) - Got 100% of valid prices | Well done!
+## ABT | yahoo (2|5) - Got 100% of valid prices | Good job!
+## ABBV | yahoo (3|5) - Got 100% of valid prices | Youre doing good!
+## ABMD | yahoo (4|5) - Got 100% of valid prices | Youre doing good!
+## ACN | yahoo (5|5) - Got 100% of valid prices | You got it!</code></pre>
+<pre class="r"><code>time.withcache &lt;- system.time({
+my.l &lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = TRUE)
+})</code></pre>
+<pre><code>## 
+## Running BatchGetSymbols for:
+##    tickers =MMM, ABT, ABBV, ABMD, ACN
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1) | Not Cached | Saving cache
+## MMM | yahoo (1|5) | Not Cached | Saving cache - Got 100% of valid prices | Looking good!
+## ABT | yahoo (2|5) | Not Cached | Saving cache - Got 100% of valid prices | Good stuff!
+## ABBV | yahoo (3|5) | Not Cached | Saving cache - Got 100% of valid prices | Got it!
+## ABMD | yahoo (4|5) | Not Cached | Saving cache - Got 100% of valid prices | Looking good!
+## ACN | yahoo (5|5) | Not Cached | Saving cache - Got 100% of valid prices | Good stuff!</code></pre>
+<pre class="r"><code>cat(&#39;\nTime with no cache:&#39;, time.nocache[&#39;elapsed&#39;])</code></pre>
+<pre><code>## 
+## Time with no cache: 4.094</code></pre>
+<pre class="r"><code>cat(&#39;\nTime with cache:&#39;, time.withcache[&#39;elapsed&#39;])</code></pre>
+<pre><code>## 
+## Time with cache: 2.386</code></pre>
+<p>Now let’s check the default output with data in the long format:</p>
+<pre class="r"><code>dplyr::glimpse(my.l)</code></pre>
+<pre><code>## List of 2
+##  $ df.control: tibble [5 × 6] (S3: tbl_df/tbl/data.frame)
+##   ..$ ticker              : chr [1:5] &quot;MMM&quot; &quot;ABT&quot; &quot;ABBV&quot; &quot;ABMD&quot; ...
+##   ..$ src                 : chr [1:5] &quot;yahoo&quot; &quot;yahoo&quot; &quot;yahoo&quot; &quot;yahoo&quot; ...
+##   ..$ download.status     : chr [1:5] &quot;OK&quot; &quot;OK&quot; &quot;OK&quot; &quot;OK&quot; ...
+##   ..$ total.obs           : int [1:5] 502 502 502 502 502
+##   ..$ perc.benchmark.dates: num [1:5] 1 1 1 1 1
+##   ..$ threshold.decision  : chr [1:5] &quot;KEEP&quot; &quot;KEEP&quot; &quot;KEEP&quot; &quot;KEEP&quot; ...
+##  $ df.tickers:&#39;data.frame&#39;:  2510 obs. of  10 variables:
+##   ..$ price.open         : num [1:2510] 179 178 178 177 178 ...
+##   ..$ price.high         : num [1:2510] 180 179 179 179 178 ...
+##   ..$ price.low          : num [1:2510] 177 178 177 176 177 ...
+##   ..$ price.close        : num [1:2510] 178 178 178 178 177 ...
+##   ..$ volume             : num [1:2510] 2509300 1542000 1447800 1625000 1622600 ...
+##   ..$ price.adjusted     : num [1:2510] 162 163 162 163 162 ...
+##   ..$ ref.date           : Date[1:2510], format: &quot;2017-01-03&quot; &quot;2017-01-04&quot; ...
+##   ..$ ticker             : chr [1:2510] &quot;MMM&quot; &quot;MMM&quot; &quot;MMM&quot; &quot;MMM&quot; ...
+##   ..$ ret.adjusted.prices: num [1:2510] NA 0.00152 -0.00342 0.00293 -0.00539 ...
+##   ..$ ret.closing.prices : num [1:2510] NA 0.00152 -0.00342 0.00293 -0.00539 ...</code></pre>
+<p>And change the format of the long dataframe to wide:</p>
+<pre class="r"><code>l.wide &lt;- reshape.wide(my.l$df.tickers) </code></pre>
+<p>Now we check the matrix of prices:</p>
+<pre class="r"><code>print(head(l.wide$price.adjusted))</code></pre>
+<pre><code>##     ref.date     ABBV   ABMD      ABT      ACN      MMM
+## 1 2017-01-03 52.55166 112.36 36.55642 109.8161 162.4736
+## 2 2017-01-04 53.29267 115.74 36.84662 110.0802 162.7200
+## 3 2017-01-05 53.69685 114.81 37.16491 108.4300 162.1634
+## 4 2017-01-06 53.71369 115.42 38.17595 109.6653 162.6379
+## 5 2017-01-09 54.06735 117.11 38.13851 108.4394 161.7619
+## 6 2017-01-10 53.94946 112.24 38.65339 108.4960 161.1322</code></pre>
+<p>and matrix of returns:</p>
+<pre class="r"><code>print(head(l.wide$ret.adjusted.prices))</code></pre>
+<pre><code>##     ref.date          ABBV         ABMD           ABT           ACN
+## 1 2017-01-03            NA           NA            NA            NA
+## 2 2017-01-04  0.0141005055  0.030081853  0.0079383861  0.0024043005
+## 3 2017-01-05  0.0075841391 -0.008035252  0.0086381596 -0.0149906200
+## 4 2017-01-06  0.0003136497  0.005313126  0.0272041565  0.0113923084
+## 5 2017-01-09  0.0065841132  0.014642203 -0.0009806436 -0.0111779967
+## 6 2017-01-10 -0.0021804289 -0.041584860  0.0135001858  0.0005216922
+##            MMM
+## 1           NA
+## 2  0.001516547
+## 3 -0.003420851
+## 4  0.002926172
+## 5 -0.005386333
+## 6 -0.003892474</code></pre>

@@ -1,0 +1,90 @@
+---
+title: "A clever bash script for R Users"
+subtitle: "Installing software and R packages easily"
+author: "Marcelo S. Perlin"
+date: '2021-03-23'
+tags:
+- R
+- Linux Mint
+- Ubuntu
+- Bash
+categories:
+- R
+- Linux Mint
+- Ubuntu
+- Bash
+draft: no
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Back in 2017 I wrote a <a href="https://www.r-craft.org/r-news/simple-bash-script-for-a-fresh-install-of-r-and-its-dependencies-in-linux/">blog post</a> describing a simple bash script for installing R in a Ubuntu setup. The problem with this script, and many others found in the internet, is that they quickly become <strong>obsolete</strong> due to changes in Ubuntu, R and RStudio. For example, if Ubuntu version changes from “trusty” to “focal”, the link to the CRAN ppa also changes. The same is true with RStudio, which does not provide installation by apt, only downloadable .deb files from its <a href="https://rstudio.com/products/rstudio/download/">website</a>.</p>
+<p>Today I manage to develop a clever <a href="https://github.com/msperlin/UBUNTU-Fresh-Install/">bash script</a> that uses the internet and local files to find out the current version of all software. Using three different methods – apt, snap and custom bash scripts – the script installs all required software in its latest version. The script also installs <strong>R packages</strong> set in a .txt file and configures RStudio to a dark theme. The best part is that all code is <strong>modular</strong> and you can easily customize your installs by changing .txt files in each sub-folder.</p>
+<p>You can find the bash script in <a href="https://github.com/msperlin/UBUNTU-Fresh-Install">https://github.com/msperlin/UBUNTU-Fresh-Install</a>.</p>
+<div id="how-to-use-it" class="section level1">
+<h1>How to use it</h1>
+<ol style="list-style-type: decimal">
+<li>Download the github repository as a <a href="https://github.com/msperlin/UBUNTU-Fresh-Install/archive/refs/heads/main.zip">zip file</a></li>
+<li>Unpack the zip file and check all .txt files in all sub-folders. Remove or add software/R packages as needed.</li>
+<li>Within a terminal, execute the main script:</li>
+</ol>
+<pre><code>./UBUNTU_Install-Bash.sh</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>type your sudo password and wait…</li>
+</ol>
+</div>
+<div id="installed-software" class="section level1">
+<h1>Installed Software</h1>
+<p>The bash script includes the following software:</p>
+<div id="using-apt" class="section level2">
+<h2>Using apt</h2>
+<ul>
+<li>libreoffice (<a href="https://www.libreoffice.org/">lastest</a>)</li>
+<li>texstudio (<a href="https://www.texstudio.org/">latest</a>)</li>
+<li>obstudio (<a href="https://obsproject.com/wiki/install-instructions#linux">latest</a>)</li>
+<li>many others (see file <code>apt-to-install/list_to_install.txt)</code></li>
+</ul>
+</div>
+<div id="using-custom-bash-scripts" class="section level2">
+<h2>Using custom bash scripts</h2>
+<ul>
+<li>R (<a href="https://www.r-project.org/">latest</a>)</li>
+<li>R Packages
+<ul>
+<li>See file <code>R-pkgs/pkgs_to_install.txt</code></li>
+</ul></li>
+<li>RStudio (<a href="https://rstudio.com/">latest</a>
+<ul>
+<li>RStudio configuration – color scheme, size font, .. (see file <code>Rstudio-Config/my-rstudio-prefs.json</code>). You can get your own Rstudio preference file locally at <code>~/.config/rstudio/rstudio-pref.json</code>.</li>
+</ul></li>
+<li>Google Chrome (<a href="https://www.google.com/chrome/">latest</a>)</li>
+</ul>
+</div>
+<div id="using-snap" class="section level2">
+<h2>Using snap</h2>
+<ul>
+<li>Microsoft code (<a href="https://snapcraft.io/code">latest by snap</a>)</li>
+</ul>
+</div>
+</div>
+<div id="generating-r-package-list" class="section level1">
+<h1>Generating R package list</h1>
+<p>You can generate your own list of used R packages based on your existing code. For that, use the R code below, which will scan your files and retrieve all calls to existing packages. Do notice you’ll need to change the base folder in <code>renv::dependencies</code>.</p>
+<pre><code>library(dplyr)
+
+my_r_dir &lt;- &#39;YOUR-FOLDER-HERE&#39;
+df &lt;- renv::dependencies(my_r_dir)
+
+n_to_colect &lt;- 50 # number of pkgs to collect (most to least frequent)
+
+tbl_pkgs &lt;- df %&gt;%
+  group_by(Package) %&gt;%
+  count() %&gt;%
+  arrange(-n) %&gt;%
+  #view() %&gt;%
+  ungroup() %&gt;%
+  slice(1:n_to_colect)
+
+tbl_pkgs</code></pre>
+</div>

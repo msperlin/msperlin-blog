@@ -1,0 +1,30 @@
+---
+title: "Update of compiled datasets (2022)"
+author: "Marcelo S. Perlin"
+date: '2022-04-07'
+tags:
+- R
+- GetDFPData2
+- GetFREData
+- GetTDData
+categories:
+- R
+- GetDFPData2
+- GetFREData
+- GetTDData
+draft: no
+---
+
+Back in 2020 I started to compile and share financial data in [dataverse](https://dataverse.harvard.edu/dataverse/msperlin). The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year. 
+
+Today I updated all datasets. The available data are:
+
+| R Package      | Source of Data    | Description | Direct Link | Last Update |
+| -------------  |:-----------------:| :---------------------------------------------| :------------| :------------|
+| GetTDData      | Tesouro Nacional  | Prices and yields of brazilian sovereign bonds | [Link](https://doi.org/10.7910/DVN/SCSQUF) | 2022-04-06 |
+| GetFREData     | CVM               | Corporate dataset from FRE systems| [Link](https://doi.org/10.7910/DVN/QIMUNZ) | 2022-04-06 |
+| GetDFPData2    | CVM               | Annual Financial Reports from DFP system  | [Link](https://doi.org/10.7910/DVN/7VVX4J) | 2022-04-06 |
+
+
+
+

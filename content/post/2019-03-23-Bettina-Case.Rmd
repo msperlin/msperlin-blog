@@ -1,0 +1,219 @@
+---
+title: 'Can you turn 1500 USD into 1.000.430 USD by investing in the stock market for three years?'
+subtitle: "The Bettina Case"
+author: "Marcelo S. Perlin"
+date: '2019-03-23'
+draft: false
+tags: ["R", "investments"]
+categories: ["R", "investments"]
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = FALSE, cache=TRUE)
+
+
+format.cash <- function(x) {
+ require(scales)
+
+ x.formatted <- dollar(x,
+                       prefix = 'R$ ',
+                       decimal.mark = ',',
+                       big.mark = '.',
+                       largest_with_cents = Inf)
+
+ return(x.formatted)
+}
+
+
+format.percent <- function(x) {
+ require(scales)
+
+ x.formatted <- percent(x,
+                        decimal.mark = ',',
+                        big.mark = '.')
+
+ return(x.formatted)
+}
+
+format.date <- function(x) {
+
+ x <- as.Date(x)
+ x.formatted <- format(x, '%d/%m/%Y')
+
+ return(x.formatted)
+}
+
+my.kable <- function(tbl,
+                    my.tab.caption = 'MISSING CAPTION',
+                    do.scale.down = TRUE) {
+ require(knitr)
+ require(kableExtra)
+ require(tidyverse)
+
+ if (do.scale.down) {
+   my.latex.options <- c("scale_down", 'hold_position')
+ } else {
+   my.latex.options <- c('HOLD_position')
+ }
+
+ tab <- kable(tbl,
+              align = 'l',
+              caption = my.tab.caption,
+              booktabs=TRUE,
+              digits = 4) %>%
+   kable_styling(latex_options = my.latex.options,
+                 position = 'center')
+
+ return(tab)
+}
+
+```
+
+
+```{r, echo=FALSE}
+initial.cash <- 1500
+last.cash <- 1000043
+my.T <- 3 # years
+
+r.aa <- (last.cash/initial.cash)^(1/3) -1 
+r.am <- (last.cash/initial.cash)^(1/(3*12)) -1 
+
+usd.rate <- 3.8
+initial.cash.usd <- initial.cash/usd.rate
+last.cash.usd <- last.cash/usd.rate
+
+```
+
+In the last few weeks we've seen a great deal of controversy in Brazil regarding financial investments. Too keep it short, _Empiricus_, an ad-based company that massively sells online courses and subscriptions, posted a YouTube ad where a young girl, Bettina, [says the following](https://canaltech.com.br/memes/entenda-o-caso-bettina-a-jovem-tia-patinhas-brasileira-que-virou-meme-135035/):
+
+    Hi, I'm Bettina, I am 22 years old and, starting with R$ 1,500, I now own R$ 1,042,000 of  accumulated wealth.
+    
+   
+She later explains that she _earned_ the money by investing in the stock market over three years. For my international audience, the proposed investment is equivalent of turning `r floor(initial.cash.usd)` dolars into `r format(last.cash.usd)` dolars over a three year period.
+   
+Anyone with a economics or business background will easily spot that the financial returns stated in the ad is simply not possible. Even if Bettina is a very good investor, reaching this level of returns over a three year period in the stock market is unheard of. The yearly rate of return of the investment is equal to `r format.percent(r.aa)` per year. The monthly rate proposed in the ad is equivalent to `r format.percent(r.am)` per month.
+
+Giving perspective, Buffet, one of the greatest long term investor of all times, has reached the approximate rate of 19% **per year**, around 1.46% per month. So, Bettina is either a financial genius that, with only 22 years old, was able to beat _Buffet_ in its own game, or the ad is not fully committed to the truth. To be fair, even if we took the difference of inflation rates between Brazil and US into account, the difference is still very impressive and misleading.
+
+[Others](https://twitter.com/samydana/status/1107104905205039104) have pointed out that if you compound these return over time, the result will be economically unrealistic. See next what happens to `r format.cash(initial.cash)` if we assume that you can replicate the alledged investment return of Bettina (`r format.percent(r.aa)` per year) over a 10 year period.
+
+```{r, message=FALSE, echo=FALSE}
+require(tidyverse)
+
+df <- tibble(`Number of years` = 1:10,
+            `Investiment value` = format.cash(initial.cash*(1+r.aa)^`Number of years`))
+
+my.kable(df, my.tab.caption = 'Compounding returns for Bettina' )
+```
+
+
+If Bettina is a genius and can replicate her result over the years, she will be a billionaire in 7 years and a trillionaire in 10. If she waited one more year, she could even buy the whole country if she wanted to. The current GDP of Brazil is around 2 trillion USD (7.5 trillion in R$). She can easily reach this amount of cash in 12 years or more.
+
+But lets go further in this endeavor. Let's stop being skeptic about her returns and see whether its possible to achieve such returns in the stock market. As you can expect, I'm taking a data based approach. I'll compare the returns of Bettina to _GodBot_, a computer algorithm that can perfectly predict stock prices.
+
+First, let's download some stock data from B3, the Brazilian stock exchange.
+
+```{r, cache=TRUE}
+library(BatchGetSymbols)
+
+df.ibov <- GetIbovStocks()
+
+my.tickers <- paste0(df.ibov$tickers, '.SA')
+
+df.stocks <- BatchGetSymbols(tickers = my.tickers,
+                            first.date = '2010-01-01', 
+                            last.date = '2019-01-01', 
+                            cache.folder = '~/.mem_cache/BGS_Cache')[[2]]
+                             
+```
+
+My god bot has a single and simple rule:
+
+- For each month, it will always invest 100% in the stock with the highest return for the month
+
+Next we code this _bot_ using `tidyverse`:
+
+```{r}
+library(tidyverse)
+
+res.inv <- df.stocks %>%
+ mutate(ref.month = as.Date(format(ref.date, '%Y-%m-01'))) %>%
+ group_by(ref.month, ticker) %>%
+ summarise(ret.month = last(price.adjusted)/first(price.adjusted) - 1) %>%
+ group_by(ref.month) %>%
+ summarise(best.ticker = ticker[which.max(ret.month)],
+           best.return = ret.month[which.max(ret.month)])
+```
+
+Now, let's have a look in those returns:
+
+```{r}
+library(ggplot2)
+
+# bettinas returns
+initial.cash <- 1500
+last.cash <- 1000043
+my.T <- 3 # years
+
+r.aa <- (last.cash/initial.cash)^(1/3) -1 
+r.am <- (last.cash/initial.cash)^(1/(3*12)) -1 
+
+p <- ggplot(res.inv, aes(x = ref.month, y = best.return)) + 
+ geom_col() + 
+ geom_hline(yintercept =r.am, color = 'red', size =1.5) + 
+ labs(x = 'Time', y = 'Monthly Returns',
+      title = 'Monthly Returns of Bettina and GodBot',
+      subtitle = paste0('- This plot shows the "alleged" returns from Bettina against a perfect predictor \n for the BR stock market\n',
+                        '- The horizontal red line represents the return of Bettina (19.79% monthly)'),
+      caption = 'www.msperlin.com/blog'
+       ) + 
+ scale_y_continuous(labels = scales::percent)
+
+p
+```
+
+As you can see, Bettina did good with a constant monthly return of `r format.percent(r.am)`. But, _GodBot_ is better. Bettina is clearly missing something out!
+
+When looking at the nominal value of the investment, the effect of compound returns explodes the value of the portfolio.
+
+```{r}
+library(tidyr)
+
+format.cash <- function(x) {
+ require(scales)
+
+ x.formatted <- dollar(x,
+                       prefix = 'R$ ',
+                       decimal.mark = ',',
+                       big.mark = '.',
+                       largest_with_cents = Inf)
+
+ return(x.formatted)
+}
+
+df.cumret <- res.inv %>%
+ mutate(cumret.godbot = initial.cash*cumprod(1+res.inv$best.return),
+        cumret.bettina =initial.cash*cumprod(1+rep(r.am, n())) ) %>%
+ select(-best.ticker, -best.return)
+
+df.to.plot <- gather(df.cumret, 'Investor', "Value", -ref.month )
+
+p <- ggplot(df.to.plot, aes(x = ref.month, y = Value, color = Investor)) + 
+ geom_line(size =2) + 
+ labs(x = 'Time', 
+      y = 'Value of Return',
+      title = 'Accumulated Value of Portfolio',
+      subtitle = 'This figure shows the value of accumulated return for Bettina in comparison to GodBot, a perfect predictor of stock markets') + 
+ scale_y_continuous(labels = format.cash)
+
+p
+```
+
+The results show that Bettina's returns are possible. All you need to do is to perfectly predict, for each month, which stock will do best in the market. If you haven't sensed my irony, let me be crystal clear: **Market prices are impossible to predict**. The result I just showed you is only possible in my computer. No one will ever be able to replicate it in practice. 
+
+The ad from _Empiricus_ is very misleading. In my opinion as a finance professor, the real problem in this episode is that the great majority of the Brazilian population is not financially educated. Many people **will believe** that is legally possible to reach a 20% return over a month. 
+
+I've seen countless cases of financial pyramids, usually tied to some exotic cryptocurrency, to rise and shortly burn here in Brazil. This is specially -- and sadly -- most frequent in the poorer areas of the country. Those that follow _Empiricus_ advice will soon learn its lesson. Making money in short run in stocks is very difficult.
+
+Unfortunately, every disapointed person that followed _Empiricus_ advice is never going back to investing in financial markets. They will  miss what is probably the greatest system ever designed for investing and passively creating wealth in the long run.  
+

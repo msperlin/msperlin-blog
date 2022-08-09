@@ -1,0 +1,200 @@
+---
+title: 'New package: simfinR'
+author: "Marcelo S. Perlin"
+date: '2019-11-01'
+draft: no
+subtitle: Fetching corporate financial information and adjusted stock prices from
+  the SimFin project
+tags:
+- R
+- simfinR
+categories:
+- R
+- simfinR
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In my <a href="https://www.msperlin.com/blog/post/2019-10-16-new-package-getedgardata/">latest post</a> I wrote about package GetEdgarData, which downloaded structured data from the SEC. I’ve been working on this project and soon realized that the available data at the SEC/DERA section is not complete. For example, all Q4 statements are missing. This seems to be the way all exchanges release the financial documents. I’ve found the same problem here in the Brazilian exchange.</p>
+<p>It came to my attention that there is an alternative way of fetching corporate data and adjusted prices, the <a href="https://simfin.com/">SimFin project</a>. From its own website:</p>
+<pre><code>Our core goal is to make financial data as freely available as possible because we believe that  having the right tools for investing/research shouldn&#39;t be the privilege of those that can afford to spend thousands of dollars per year on data.</code></pre>
+<p>The platform is free with a daily limit of 2000 api calls. This is not bad and should suffice for most users. If you need more calls, the <a href="https://simfin.com/simfin-plus">premium version</a> is just 10 euros a month, a fraction of what other data vendors usually request.</p>
+<p>Package <code>simfinR</code>, available in <a href="https://github.com/msperlin/simfinR/">Github</a> and soon in CRAN, facilitates all calls to the simfin API. It first makes sure the requested data exists and only then calls the api. As usual, all api queries are saved locally using package <code>memoise</code>. This means that the second time you ask for a particular data about a company/year, the function will load a local copy, and will not call the web api.</p>
+<p>Package <code>GetEdgarData</code>, however, will be discontinued. I’ll keep the files in <a href="https://github.com/msperlin/GetEdgarData/">Github</a> but will no longer develop it. It takes a lot of time to write and maintain R packages, and I fell that simfinR has far more potential.</p>
+<p>As mentioned before, both new packages, <a href="https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/">GetQuandlData</a> and simfinR will be part of my next book, “Analyzing Financial and Economic Data with R”, which should be released in early 2020.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<pre class="r"><code># not in CRAN yet (need to test it further)
+#install.packages(&#39;simfinR&#39;)
+
+# from Github
+devtools::install_github(&#39;msperlin/simfinR&#39;)</code></pre>
+<div id="example-01---apples-quarterly-net-profit" class="section level3">
+<h3>Example 01 - Apples Quarterly Net Profit</h3>
+<p>The first step in using <code>simfinR</code> is finding information about available companies:</p>
+<pre class="r"><code>library(simfinR)
+library(tidyverse)
+
+# You need to get your own api key at https://simfin.com/
+my_api_key &lt;- readLines(&#39;~/Dropbox/98-pass_and_bash/.api_key_simfin.txt&#39;)
+
+# get info
+df_info_companies &lt;- simfinR_get_available_companies(my_api_key)
+
+# check it
+glimpse(df_info_companies)</code></pre>
+<pre><code>## Rows: 2,760
+## Columns: 3
+## $ simId  &lt;int&gt; 171401, 901704, 901866, 45730, 378251, 987611, 896477, 418866,…
+## $ ticker &lt;chr&gt; &quot;ZYXI&quot;, &quot;ZYNE&quot;, &quot;ZVO&quot;, &quot;ZUMZ&quot;, &quot;ZTS&quot;, &quot;ZSAN&quot;, &quot;ZS&quot;, &quot;ZNGA&quot;, &quot;Z…
+## $ name   &lt;chr&gt; &quot;ZYNEX INC&quot;, &quot;Zynerba Pharmaceuticals, Inc.&quot;, &quot;Zovio Inc&quot;, &quot;Zu…</code></pre>
+<p>We find information about 2760 companies. Digging deeper we find that the simfin id of Apple is 111052. Let’s use it to download the annual financial information since 2009.</p>
+<pre class="r"><code>id_companies &lt;- 111052 # id of APPLE INC
+type_statements &lt;- &#39;pl&#39; # profit/loss
+periods = &#39;FY&#39; # final year
+years = 2009:2018
+
+df_fin_FY &lt;- simfinR_get_fin_statements(id_companies,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+glimpse(df_fin_FY)</code></pre>
+<pre><code>## Rows: 580
+## Columns: 13
+## $ company_name   &lt;chr&gt; &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;A…
+## $ company_sector &lt;chr&gt; &quot;Computer Hardware&quot;, &quot;Computer Hardware&quot;, &quot;Computer Ha…
+## $ type_statement &lt;fct&gt; pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl…
+## $ period         &lt;fct&gt; FY, FY, FY, FY, FY, FY, FY, FY, FY, FY, FY, FY, FY, FY…
+## $ year           &lt;int&gt; 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, …
+## $ ref_date       &lt;date&gt; 2009-12-31, 2009-12-31, 2009-12-31, 2009-12-31, 2009-…
+## $ acc_name       &lt;chr&gt; &quot;Revenue&quot;, &quot;Sales &amp; Services Revenue&quot;, &quot;Financing Reve…
+## $ acc_value      &lt;dbl&gt; 4.2905e+10, NA, NA, NA, -2.5683e+10, NA, NA, NA, 1.722…
+## $ tid            &lt;chr&gt; &quot;1&quot;, &quot;3&quot;, &quot;5&quot;, &quot;6&quot;, &quot;2&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;4&quot;, &quot;10&quot;, &quot;11…
+## $ uid            &lt;chr&gt; &quot;1&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;2&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;4&quot;, &quot;10&quot;, &quot;11…
+## $ parent_tid     &lt;chr&gt; &quot;4&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;4&quot;, &quot;2&quot;, &quot;2&quot;, &quot;2&quot;, &quot;19&quot;, &quot;19&quot;, &quot;1…
+## $ display_level  &lt;chr&gt; &quot;0&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;,…
+## $ check_possible &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…</code></pre>
+<p>And now we plot the results of the “Net Income” (profit/loss) for all years:</p>
+<pre class="r"><code>net_income &lt;- df_fin_FY %&gt;% 
+              filter(acc_name == &#39;Net Income&#39;)
+
+p &lt;- ggplot(net_income,
+            aes(x = ref_date, y = acc_value)) +
+  geom_col()  + 
+  labs(title = &#39;Yearly Profit of APPLE INC&#39;,
+       x = &#39;&#39;,
+       y = &#39;Yearly Profit&#39;,
+       subtitle = &#39;&#39;,
+       caption = &#39;Data from simfin &lt;https://simfin.com/&gt;&#39;) + 
+  theme_bw()
+
+print(p)</code></pre>
+<p><img src="/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Not bad!</p>
+<p>We can also grab data for all quarters:</p>
+<pre class="r"><code>type_statements &lt;- &#39;pl&#39; # profit/loss
+periods = c(&#39;Q1&#39;, &#39;Q2&#39;, &#39;Q3&#39;, &#39;Q4&#39;) # final year
+years = 2009:2018
+
+df_fin_quarters &lt;- simfinR_get_fin_statements(id_companies,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+glimpse(df_fin_quarters)</code></pre>
+<pre><code>## Rows: 2,320
+## Columns: 13
+## $ company_name   &lt;chr&gt; &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;APPLE INC&quot;, &quot;A…
+## $ company_sector &lt;chr&gt; &quot;Computer Hardware&quot;, &quot;Computer Hardware&quot;, &quot;Computer Ha…
+## $ type_statement &lt;fct&gt; pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl, pl…
+## $ period         &lt;fct&gt; Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1, Q1…
+## $ year           &lt;int&gt; 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, 2009, …
+## $ ref_date       &lt;date&gt; 2009-03-31, 2009-03-31, 2009-03-31, 2009-03-31, 2009-…
+## $ acc_name       &lt;chr&gt; &quot;Revenue&quot;, &quot;Sales &amp; Services Revenue&quot;, &quot;Financing Reve…
+## $ acc_value      &lt;dbl&gt; 1.188e+10, NA, NA, NA, -7.373e+09, NA, NA, NA, 4.507e+…
+## $ tid            &lt;chr&gt; &quot;1&quot;, &quot;3&quot;, &quot;5&quot;, &quot;6&quot;, &quot;2&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;4&quot;, &quot;10&quot;, &quot;11…
+## $ uid            &lt;chr&gt; &quot;1&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;2&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;4&quot;, &quot;10&quot;, &quot;11…
+## $ parent_tid     &lt;chr&gt; &quot;4&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;4&quot;, &quot;2&quot;, &quot;2&quot;, &quot;2&quot;, &quot;19&quot;, &quot;19&quot;, &quot;1…
+## $ display_level  &lt;chr&gt; &quot;0&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;,…
+## $ check_possible &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE…</code></pre>
+<p>And plot the results:</p>
+<pre class="r"><code>net_income &lt;- df_fin_quarters %&gt;% 
+              filter(acc_name == &#39;Net Income&#39;)
+
+p &lt;- ggplot(net_income,
+            aes(x = period, y = acc_value)) +
+  geom_col() + facet_grid(~year, scales = &#39;free&#39;) + 
+  labs(title = &#39;Quarterly Profit of APPLE INC&#39;,
+       x = &#39;Quarters&#39;,
+       y = &#39;Net Profit&#39;) + 
+  theme_bw()
+
+print(p)</code></pre>
+<p><img src="/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Nice and impressive profit record. The first quarter (Q1) seems to present the best performance, probably due to end of year holidays.</p>
+</div>
+<div id="example-02---quarterly-net-profit-of-many-companies" class="section level3">
+<h3>Example 02 - Quarterly Net Profit of Many Companies</h3>
+<p>Package <code>simfinR</code> can also fetch information for many companies in a single call. Let’s run another example by selecting four random companies and creating the same previous graph:</p>
+<pre class="r"><code>set.seed(5)
+my_ids &lt;- sample(df_info_companies$simId, 4)
+type_statements &lt;- &#39;pl&#39; # profit/loss
+periods = &#39;FY&#39; # final year
+years = 2010:2018
+
+df_fin &lt;- simfinR_get_fin_statements(id_companies = my_ids,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+net_income &lt;- df_fin %&gt;% 
+              filter(acc_name == &#39;Net Income&#39;)
+
+p &lt;- ggplot(net_income,
+            aes(x = ref_date, y = acc_value)) +
+  geom_col() + 
+  labs(title = &#39;Annual Profit/Loss of Four Companies&#39;,
+       x = &#39;&#39;,
+       y = &#39;Net Profit/Loss&#39;) + 
+  facet_wrap(~company_name, scales = &#39;free_y&#39;) + 
+  theme_bw()
+
+print(p)</code></pre>
+<p><img src="/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="example-03-fetching-price-data" class="section level3">
+<h3>Example 03: Fetching price data</h3>
+<p>The simfin project also provides adjusted prices of stocks. Have a look:</p>
+<pre class="r"><code>set.seed(5)
+my_ids &lt;- sample(df_info_companies$simId, 4)
+type_statements &lt;- &#39;pl&#39; # profit/loss
+periods = &#39;FY&#39; # final year
+years = 2009:2018
+
+df_price &lt;- simfinR_get_price_data(id_companies = my_ids,
+                                     api_key = my_api_key)
+
+
+p &lt;- ggplot(df_price,
+            aes(x = ref_date, y = close_adj)) +
+  geom_line() + 
+  labs(title = &#39;Adjusted stock prices for four companies&#39;,
+       x = &#39;&#39;,
+       y = &#39;Adjusted Stock Prices&#39;) + 
+  facet_wrap(~company_name, scales = &#39;free_y&#39;) + 
+  theme_bw()
+
+print(p)</code></pre>
+<p><img src="/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>As you can see, the data is comprehensive and should suffice for many different corporate finance research topics.</p>
+<p>Give it a try and, if you’ve found any problem or bug, please let me know at <a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>.</p>
+</div>
+</div>

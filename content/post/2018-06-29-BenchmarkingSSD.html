@@ -1,0 +1,137 @@
+---
+title: "Benchmarking a SSD drive in reading and writing files with R"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: "2018-06-29"
+tags: [R, SSD, benchmarking]
+categories: [R, SSD, benchmarking] 
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I recently bought a new computer for home and it came with two drives, one HDD and other SSD. The later is used for the OS and the former stores all of my personal files. From all computers I had, both home and work, this is definitely the fastest. While some of the merits are due to the newer CPUS and RAM, the SSD drive can make all the difference in file operations.</p>
+<p>My research usually deals with large files from financial markets. Being efficient in reading those files is key to my productivity. Given that, I was very curious in understanding how much I would benefit in speed when reading/writing files in my SSD drive instead of the HDD. For that, I wrote a simple function that will time a particular operation. The function will take as input the number of rows in the data (1..Inf), the type of function used to save the file (<em>rds</em>, <em>csv</em>, <em>fst</em>) and the type of drive (<em>HDD</em> or <em>SSD</em>). See next.</p>
+<pre class="r"><code>bench.fct &lt;- function(N = 2500000, type.file = &#39;rds&#39;, type.hd = &#39;HDD&#39;) {
+  # Function for timing read and write operations
+  #
+  # INPUT: N - Number of rows in dataframe to be read and write
+  #        type.file - format of output file (rds, csv, fst)
+  #        type.hd - where to save (hdd or ssd)
+  #
+  # OUTPUT: A dataframe with results
+  require(tidyverse)
+  require(fst)
+  
+  my.df &lt;- data_frame(x = runif(N),
+                      char.vec = sample(letters, size = N, 
+                                        replace = TRUE))
+  
+  path.file &lt;- switch(type.hd,
+                      &#39;SSD&#39; = &#39;~&#39;,
+                      &#39;HDD&#39; = &#39;/mnt/HDD/&#39;)
+  
+  my.file &lt;- file.path(path.file, 
+                       switch (type.file,
+                               &#39;rds-base&#39; = &#39;temp_rds.rds&#39;,
+                               &#39;rds-readr&#39; = &#39;temp_rds.rds&#39;,
+                               &#39;fst&#39; = &#39;temp_fst.fst&#39;,
+                               &#39;csv-readr&#39; = &#39;temp_csv.csv&#39;,
+                               &#39;csv-base&#39; = &#39;temp_csv.csv&#39;))
+  
+  if (type.file == &#39;rds-base&#39;) {
+    time.write &lt;- system.time(saveRDS(my.df, my.file, compress = FALSE))
+    time.read &lt;- system.time(readRDS(my.file))
+  } else if (type.file == &#39;rds-readr&#39;) {
+    time.write &lt;- system.time(write_rds(x = my.df, path =  my.file, compress = &#39;none&#39;))
+    time.read &lt;- system.time(read_rds(path = my.file ))
+  } else if (type.file == &#39;fst&#39;) {
+    time.write &lt;- system.time(write.fst(x = my.df, path = my.file))
+    time.read &lt;- system.time(read_fst(my.file))
+  } else if (type.file == &#39;csv-readr&#39;) {
+    time.write &lt;- system.time(write_csv(x = my.df, path = my.file))
+    time.read &lt;- system.time(read_csv(file = my.file, col_types = cols(x = col_double(),
+                                                                       char.vec = col_character())))
+  } else if (type.file == &#39;csv-base&#39;) {
+    time.write &lt;- system.time(write.csv(x = my.df, file = my.file))
+    time.read &lt;- system.time(read.csv(file = my.file))
+  }
+  
+  # clean up
+  file.remove(my.file)
+  
+  # save output
+  df.out &lt;- data_frame(type.file = type.file,
+                       type.hd = type.hd,
+                       N = N,
+                       type.time = c(&#39;write&#39;, 
+                                     &#39;read&#39;),
+                       times = c(time.write[3], 
+                                 time.read[3]))
+  
+  return(df.out)
+  
+}</code></pre>
+<p>Now that we have my function, its time to use it for all combinations between number of rows, the formats of the file and type of drive:</p>
+<pre class="r"><code>library(purrr)
+df.grid &lt;- expand.grid(N = seq(1, 500000, by = 50000), 
+                       type.file = c(&#39;rds-readr&#39;, &#39;rds-base&#39;, &#39;fst&#39;, &#39;csv-readr&#39;, &#39;csv-base&#39;), 
+                       type.hd = c(&#39;HDD&#39;, &#39;SSD&#39;), stringsAsFactors = F)
+
+l.out &lt;- pmap(list(N = df.grid$N,
+               type.file = df.grid$type.file,
+               type.hd = df.grid$type.hd), .f = bench.fct)</code></pre>
+<pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre class="r"><code>df.res &lt;- do.call(what = bind_rows, args = l.out)</code></pre>
+<p>Lets check the result in a nice plot:</p>
+<pre class="r"><code>library(ggplot2)
+
+p &lt;- ggplot(df.res, aes(x = N, y = times, linetype = type.hd)) + 
+  geom_line() + facet_grid(type.file ~ type.time)
+
+print(p)</code></pre>
+<p><img src="/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>As you can see, the <code>csv-base</code> format is messing with the y axis. Let’s remove it for better visualization:</p>
+<pre class="r"><code>library(ggplot2)
+
+p &lt;- ggplot(filter(df.res, !(type.file %in% c(&#39;csv-base&#39;))),
+            aes(x = N, y = times, linetype = type.hd)) + 
+  geom_line() + facet_grid(type.file ~ type.time)
+
+print(p)</code></pre>
+<p><img src="/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>When it comes to the file format, we learn:</p>
+<ul>
+<li><p><strong>By far, the <code>fst</code> format is the best</strong>. It takes less time to read and write than the others. However, it’s probably unfair to compare it to <code>csv</code> and <code>rds</code> as it uses the 16 cores of my computer.</p></li>
+<li><p><strong><code>readr</code> is a great package for writing and reading <em>csv</em> files</strong>. You can see a large difference of time from using the <code>base</code> functions. This is likely due to the use of low level functions to write and read the text files.</p></li>
+<li><p><strong>When using the <em>rds</em> format, the base function do not differ much from the <code>readr</code> functions</strong>.</p></li>
+</ul>
+<p>As for the effect of using SSD, its clear that it <strong>DOES NOT</strong> effect the time of reading and writing. The differences between using HDD and SSD looks like noise. Seeking to provide a more robust analysis, let’s formally test this hypothesis using a simple t-test for the means:</p>
+<pre class="r"><code>tab &lt;- df.res %&gt;%
+  group_by(type.file, type.time) %&gt;%
+  summarise(mean.HDD = mean(times[type.hd == &#39;HDD&#39;]),
+            mean.SSD = mean(times[type.hd == &#39;SSD&#39;]),
+            p.value = t.test(times[type.hd == &#39;SSD&#39;],
+                             times[type.hd == &#39;HDD&#39;])$p.value)
+
+
+print(tab)</code></pre>
+<pre><code>## # A tibble: 10 x 5
+## # Groups:   type.file [5]
+##    type.file type.time mean.HDD mean.SSD p.value
+##    &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+##  1 csv-base  read        0.381   0.307     0.562
+##  2 csv-base  write       0.457   0.453     0.981
+##  3 csv-readr read        0.148   0.144     0.922
+##  4 csv-readr write       0.0716  0.0732    0.942
+##  5 fst       read        0.0108  0.00630   0.343
+##  6 fst       write       0.0083  0.00800   0.890
+##  7 rds-base  read        0.0362  0.0373    0.921
+##  8 rds-base  write       0.0266  0.0278    0.882
+##  9 rds-readr read        0.0375  0.0367    0.943
+## 10 rds-readr write       0.0278  0.0279    0.991</code></pre>
+<p>As we can see, the null hypothesis of equal means easily fails to be rejected for almost all types of files and operations at 10%. The exception was for the <em>fst</em> format in a reading operation. In other words, statistically, it does not make any difference in time from using SSD or HDD to read or write files in different formats.</p>
+<p>I am very surprised by this result. Independently of the type of format, I expected a large difference as SSD drives are much faster within an OS. Am I missing something? Is this due to the OS being in the SSD? What you guys think?</p>

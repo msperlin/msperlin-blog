@@ -1,0 +1,22 @@
+---
+title: "A shiny interface to BatchGetSymbols"
+subtitle: "Download stock data from Yahoo Finance"
+author: "Marcelo S. Perlin"
+date: '2021-05-26'
+tags:
+- R
+- BatchGetSymbols
+- shiny
+categories:
+- R
+- BatchGetSymbols
+- shiny
+draft: no
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Hadley Wickham recently released an online version of <a href="https://mastering-shiny.org/">Mastering Shiny</a>. The book is great! If you haven’t read it, do it fast! On a side note, it is really amazing how much of <strong>good and curated content</strong> you can get for free in R. When I started programming back in 2007, the first step was buying a brand new – and sometimes expensive – book about the language. There were blogs and other sites, but most content was very basic and not curated, meaning that the posted code most of the time did not work. The new generation probably have no idea of how easy it is to start fresh on new code these days [I fell quite old writing this sentence :)].</p>
+<p>Well, this was a great opportunity for me to brush up my shiny skills. I learned shiny back in 2016 and can report on the development of the technology. I’m really impressed by the current state of shiny today. It is becoming very competitive against other data based dashboard technologies such as those using Python.</p>
+<p>The result of this learning sprint is <a href="https://www.msperlin.com/shiny/bgs/">bgs-shiny</a>, a shiny interface to package BatchGetSymbols. Within this application you can visualize and download price data from Yahoo Finance. In the background, every data point is live feed, fetched from Yahoo Finance. As usual, all code is available in <a href="https://github.com/msperlin/BatchGetSymbols-Shiny">Github</a>.</p>

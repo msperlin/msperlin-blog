@@ -1,0 +1,53 @@
+---
+title: 'BatchGetSymbols is now parallel!'
+subtitle: "and faaaaast"
+author: "Marcelo S. Perlin"
+date: '2019-04-13'
+draft: false
+tags: ["R", "BatchGetSymbols"]
+categories: ["R", "BatchGetSymbols"]
+---
+
+[BatchGetSymbols](https://github.com/msperlin/BatchGetSymbols) is my most downloaded package by any count. Computation time, however, has always been an issue. While downloading data for 10 or less stocks is fine, doing it for a large ammount of tickers, say the SP500 composition, gets very boring. 
+
+I'm glad to report that time is no longer an issue. Today I implemented a parallel option for BatchGetSymbols. If you have a high number of cores in your computer, you can seriously speep up the importation process. Importing SP500 compositition, over 500 stocks, is a breeze.
+
+Give a try. The new version is already available in Github:
+
+```{r, eval=FALSE}
+devtools::install_github('msperlin/BatchGetSymbols')
+```
+
+It should be in CRAN soon.
+
+
+## How to use parallel
+
+Very simple. Just set you parallel plan with `future::plan` and use input `do.parallel = TRUE` in  `BatchGetSymbols`. If you are not sure how many cores you have available, just run the following code to figure it out:
+
+```{r}
+future::availableCores()
+```
+
+
+
+```{r, cache=TRUE, message=FALSE}
+#devtools::install_github('msperlin/BatchGetSymbols')
+library(BatchGetSymbols)
+
+# get tickers from SP500
+df.sp500 <- GetSP500Stocks()
+tickers <- df.sp500$Tickers
+  
+future::plan(future::multisession, 
+             workers = 10) # use 10 cores (future::availableCores())
+
+# dowload data for 50 stocks  
+l.out <- BatchGetSymbols(tickers = tickers[1:50], 
+                         first.date = '2010-01-01', 
+                         last.date = '2019-01-01',
+                         do.parallel = TRUE, 
+                         do.cache = FALSE)
+
+glimpse(l.out)
+```

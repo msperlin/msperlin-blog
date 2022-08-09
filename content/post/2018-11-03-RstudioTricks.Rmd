@@ -1,0 +1,107 @@
+---
+title: "Some Useful Tricks in RStudio"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-11-03
+categories: ["R", "rstudio"]
+tags: ["R", "rstudio"]
+draft: false
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+
+I've been using Rstudio for a long time and I got some tricks to share. These are simple and useful commands and shortcuts that really help the productivity of my students. If you got a  suggestion of trick, use the comment section and I'll add it in this post.
+
+
+## Package `rstudioapi`
+
+When using Rstudio, package `rstudioapi` gives you lots of information about your session. The most useful one is the script location. You can use it to automatically change the working folder to where you have the file locally saved. 
+
+Function `rstudioapi::getActiveDocumentContext` gives you details about the file being currently edited in RStudio. Have a look:
+
+```{r, eval=FALSE}
+my.d <- rstudioapi::getActiveDocumentContext()
+print(my.d)
+```
+
+```{r, echo=FALSE}
+cat("Document Context: 
+- id:        'FA202F79'
+- path:      '~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd'
+- contents:  <69 rows>
+Document Selection:
+- [24, 6] -- [24, 6]: ''")
+```
+
+
+You can see that the file location is available in `path`. Let's grab it:
+
+```{r, eval=FALSE}
+my.file.location <- rstudioapi::getActiveDocumentContext()$path
+```
+
+```{r, include=FALSE}
+my.file.location <- '~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd'
+```
+
+Now, if we want the name of the directory, just call `dirname(my.file.location)`:
+
+```{r}
+my.dir <- dirname(my.file.location)
+print(my.dir)
+```
+
+So, if you want to change the working directory automatically to where the script is locally saved, just write:
+
+```{r, eval=FALSE}
+my.dir <- dirname(rstudioapi::getActiveDocumentContext()$path)
+setwd(my.dir)
+```
+
+This is very practical and I use it in all of my R scripts. If you copy the script to another folder, it will run without any directory problem. If you send the script to someone else within a zipped folder, he/she can run it without modifications as the working directory will change automatically.
+
+Be aware, however, this **only works in RStudio**. If you run the code without the IDE, in a bash script for example, package `rstudioapi` will not be available. In this case, you'll need to set the directory explicitly.
+
+
+## Dark theme for Rstudio
+
+A dark theme is a productivity life-changer if you spend a lot of time in front of a computer.  Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into "tools" -> "global options" -> "appearance". There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:
+
+![](/blog/img/rstudio-whitetheme.png) ![](/blog/img/rstudio-darktheme.png)
+
+Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!
+
+
+## Autocomplete (tab) is your friend!
+
+A commom misconception about programming is that you must memorize lot of names. This is far from the truth. You never need to memorize anything when using Rstudio! From function arguments to variable names and names of files, everything can be searched by pressing the _tab_ key on your keyboard. When using naming conventions for functions and objects, this becomes even more useful. For example, every dataframe in my code starts with "df", like in "df.prices", "df.tickers" and so on. When I'm looking for the name of a dataframe, I just write "df." and press _tab_. The result is a list of object names. 
+
+The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. [Check it out](https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab). 
+
+![Autocomplete for files](/blog/img/autocomplete_arquivos.png) 
+
+![Autocomplete for packages](/blog/img/autocomplete_pacotes.png) 
+
+## Section naming with `----`
+
+You can name a section in any R script in Rstudio using the textual clue `----`. This section will show up in the bottom left of the RStudio editor screen. When you want to jump to that section, just press the key. So, you can organized your code with sections like this:
+
+```{r}
+# Get data ----
+
+## code here
+
+# clean data ----
+
+## code here
+
+# report results ----
+
+## code here
+```
+
+
+

@@ -1,0 +1,72 @@
+---
+title: "Some Useful Tricks in RStudio"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-11-03
+categories: ["R", "rstudio"]
+tags: ["R", "rstudio"]
+draft: false
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I’ve been using Rstudio for a long time and I got some tricks to share. These are simple and useful commands and shortcuts that really help the productivity of my students. If you got a suggestion of trick, use the comment section and I’ll add it in this post.</p>
+<div id="package-rstudioapi" class="section level2">
+<h2>Package <code>rstudioapi</code></h2>
+<p>When using Rstudio, package <code>rstudioapi</code> gives you lots of information about your session. The most useful one is the script location. You can use it to automatically change the working folder to where you have the file locally saved.</p>
+<p>Function <code>rstudioapi::getActiveDocumentContext</code> gives you details about the file being currently edited in RStudio. Have a look:</p>
+<pre class="r"><code>my.d &lt;- rstudioapi::getActiveDocumentContext()
+print(my.d)</code></pre>
+<pre><code>## Document Context: 
+## - id:        &#39;FA202F79&#39;
+## - path:      &#39;~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd&#39;
+## - contents:  &lt;69 rows&gt;
+## Document Selection:
+## - [24, 6] -- [24, 6]: &#39;&#39;</code></pre>
+<p>You can see that the file location is available in <code>path</code>. Let’s grab it:</p>
+<pre class="r"><code>my.file.location &lt;- rstudioapi::getActiveDocumentContext()$path</code></pre>
+<p>Now, if we want the name of the directory, just call <code>dirname(my.file.location)</code>:</p>
+<pre class="r"><code>my.dir &lt;- dirname(my.file.location)
+print(my.dir)</code></pre>
+<pre><code>## [1] &quot;/home/msperlin/Dropbox/11-My Website/www.msperlin.com-blog/content/post&quot;</code></pre>
+<p>So, if you want to change the working directory automatically to where the script is locally saved, just write:</p>
+<pre class="r"><code>my.dir &lt;- dirname(rstudioapi::getActiveDocumentContext()$path)
+setwd(my.dir)</code></pre>
+<p>This is very practical and I use it in all of my R scripts. If you copy the script to another folder, it will run without any directory problem. If you send the script to someone else within a zipped folder, he/she can run it without modifications as the working directory will change automatically.</p>
+<p>Be aware, however, this <strong>only works in RStudio</strong>. If you run the code without the IDE, in a bash script for example, package <code>rstudioapi</code> will not be available. In this case, you’ll need to set the directory explicitly.</p>
+</div>
+<div id="dark-theme-for-rstudio" class="section level2">
+<h2>Dark theme for Rstudio</h2>
+<p>A dark theme is a productivity life-changer if you spend a lot of time in front of a computer. Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into “tools” -&gt; “global options” -&gt; “appearance”. There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:</p>
+<p><img src="/blog/img/rstudio-whitetheme.png" /> <img src="/blog/img/rstudio-darktheme.png" /></p>
+<p>Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!</p>
+</div>
+<div id="autocomplete-tab-is-your-friend" class="section level2">
+<h2>Autocomplete (tab) is your friend!</h2>
+<p>A commom misconception about programming is that you must memorize lot of names. This is far from the truth. You never need to memorize anything when using Rstudio! From function arguments to variable names and names of files, everything can be searched by pressing the <em>tab</em> key on your keyboard. When using naming conventions for functions and objects, this becomes even more useful. For example, every dataframe in my code starts with “df”, like in “df.prices”, “df.tickers” and so on. When I’m looking for the name of a dataframe, I just write “df.” and press <em>tab</em>. The result is a list of object names.</p>
+<p>The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. <a href="https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab">Check it out</a>.</p>
+<div class="figure">
+<img src="/blog/img/autocomplete_arquivos.png" alt="" />
+<p class="caption">Autocomplete for files</p>
+</div>
+<div class="figure">
+<img src="/blog/img/autocomplete_pacotes.png" alt="" />
+<p class="caption">Autocomplete for packages</p>
+</div>
+</div>
+<div id="section-naming-with-----" class="section level2">
+<h2>Section naming with <code>----</code></h2>
+<p>You can name a section in any R script in Rstudio using the textual clue <code>----</code>. This section will show up in the bottom left of the RStudio editor screen. When you want to jump to that section, just press the key. So, you can organized your code with sections like this:</p>
+<pre class="r"><code># Get data ----
+
+## code here
+
+# clean data ----
+
+## code here
+
+# report results ----
+
+## code here</code></pre>
+</div>

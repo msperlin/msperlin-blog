@@ -1,0 +1,8 @@
+build-last-errors="[]"
+build-last-errors-base-dir=""
+build-last-outputs="[{\"type\":0,\"output\":\"==> rmarkdown::render_site(encoding = 'UTF-8')\\n\\n\"},{\"type\":1,\"output\":\"Start building sites … \\n\"},{\"type\":1,\"output\":\"\\n                   | EN   \\n-------------------+------\\n  Pages            | 465  \\n  Paginator pages  |  31  \\n  Non-page files   | 167  \\n  Static files     |  82  \\n  Processed images |  56  \\n  Aliases          | 131  \\n  Sitemaps         |   1  \\n  Cleaned          |   0  \\n\\nTotal in 1960 ms\\n\"},{\"type\":2,\"output\":\"\\nOutput created: public/index.html\\n\"}]"
+compile_pdf_state="{\"tab_visible\":false,\"running\":false,\"target_file\":\"\",\"output\":\"\",\"errors\":[]}"
+files.monitored-path=""
+find-in-files-state="{\"handle\":\"\",\"input\":\"\",\"path\":\"\",\"regex\":false,\"ignoreCase\":false,\"results\":{\"file\":[],\"line\":[],\"lineValue\":[],\"matchOn\":[],\"matchOff\":[],\"replaceMatchOn\":[],\"replaceMatchOff\":[]},\"running\":false,\"replace\":false,\"preview\":false,\"gitFlag\":false,\"replacePattern\":\"\"}"
+imageDirtyState="1"
+saveActionState="0"

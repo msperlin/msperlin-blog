@@ -1,0 +1,38 @@
+---
+title: "Book slides - Analyzing Financial and Economic Data with R"
+author: "Marcelo S. Perlin"
+date: '2020-02-25'
+draft: false
+subtitle: ' '
+tags: ["R", "afedR"]
+categories: ["R", "afedR"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div class="alert alert-warning">
+<p>
+2021-02-28 – Important: this blog post is deprecated. With the <a href="https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/">last revision</a> in march 2021, the Rmd slides are no longer available within the book material.
+</p>
+</div>
+<p>The slides for my newly released book <a href="https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/">Analyzing Financial and Economic Data with R</a> are finally ready! I apologize for keep you guys waiting.</p>
+<p>The slides are available as independent .Rmd files for all book chapters including:</p>
+<pre><code>## character(0)</code></pre>
+<p>All content is released with a generous MIT license, so fell free to use and edit the files as you wish.</p>
+<p>You can download the slides and other book material with the following code:</p>
+<pre class="r"><code>if (!require(devtools)) install.packages(&quot;devtools&quot;)
+
+devtools::install_github(&#39;msperlin/afedR&#39;)
+
+# ignore warning messages (long paths..)
+afedR::afedR_get_book_files(path_to_copy = &#39;~&#39;)</code></pre>
+<p>Alternatively, you can download the files directly from <a href="https://github.com/msperlin/afedR/tree/master/inst/extdata">github</a>.</p>
+<p>The bundle also includes other teaching material that may help conduct a complete R tutorial:</p>
+<ul>
+<li><p>Solutions to end of chapter exercises</p></li>
+<li><p>All R Code used in the book</p></li>
+<li><p>Dynamic exercises (package exams)</p></li>
+<li><p>Data files</p></li>
+</ul>
+<p>If you liked the material, please consider purchasing the book and <strong>leaving your feedback at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a></strong>. Your oppinion is very important for promoting the book and help others learn more about R and RStudio. As an author, I certainly appreciate the gesture and will take it as a motivating factor for future editions of the book.</p>

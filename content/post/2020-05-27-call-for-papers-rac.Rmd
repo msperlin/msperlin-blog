@@ -1,0 +1,22 @@
+---
+title: "Call for papers on data reuse"
+author: "Marcelo S. Perlin"
+date: '2020-05-27'
+draft: no
+subtitle: ' '
+tags:
+- R
+- call for papers
+categories:
+- R
+- call for papers
+---
+
+Myself and Henrique Martins (PUC Rio) organized a call for papers on data reuse, for publication in [RAC -- Revista de Administração Contemporanea](https://rac.anpad.org.br/index.php/rac).  The deadline for submission is 10th october 2020, with expected publication date in july 2021.
+
+We will select quality papers that use data already published and shared in other scientific outlet to test new theories or present a tutorial article, helping students see how an econometric result was achieved in practice. 
+
+You can find more details about this call for papers in this [pdf file](/blog/files/CALL FOR PAPERS_RAC_2021_Data Reuse.pdf). I encourage everyone to submit their work. If you got any question, please let me know.
+
+
+

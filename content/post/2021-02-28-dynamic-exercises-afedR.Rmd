@@ -1,0 +1,180 @@
+---
+title: "Compiling Book Exercises to pdf | html | Moodle | Blackboard"
+author: "Marcelo S. Perlin"
+date: '2021-02-28'
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+draft: no
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, eval=TRUE)
+
+link_full_compiled_html <- 'https://www.msperlin.com/blog/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
+link_book_web <- 'https://www.msperlin.com/adfeR/'
+exams_link <- 'http://www.r-exams.org/'
+```
+
+The revised second edition of [Analylzing Financial and Economic Data with R](`r link_book_web`) presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the [`exams` format](`r exams_link`), meaning that any R tutor can export the same exercises to pdf, html or _e-learning_ platforms. In this post I'll show how to compile exercises to pdf, html, _Moodle_ and _blackboard_.
+
+
+# Installation 
+
+The first step is to install package `afedR` with `devtools`:
+
+```{r, eval=FALSE}
+devtools::install_github('msperlin/afedR')
+```
+
+Another requirement is a working Latex instalation. For that, use `tinytex`:
+
+```{r, eval=FALSE}
+tinytex::install_tinytex()
+```
+
+
+# Compiling Exercises
+
+## How it works?
+
+All book exercises in the `exams` format: each exercise is a .Rmd file containing code, exercise text and solution. The files themselves can be found in the installation directory of the package:
+
+```{r}
+eoc_dir <- afedR::get_EOC_dir()
+
+eoc_chapters <- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)
+```
+
+Each folder will have several exercises. Let's try one out:
+
+```{r}
+eoc_files <- fs::dir_ls(eoc_chapters[1])
+basename(eoc_files)
+```
+
+We can also read one of the files to show the strucuture of the exercise in code and text:
+
+```{r}
+readLines(eoc_files[1])
+```
+
+Basically, we define all sections of a question -- text, solution, alternatives -- using a .Rmd template. Again, you can find more details about using package `exams` in its own [website](`r exams_link`).
+
+Be aware that, all exams .rmd files available within `afedR` are self contained and you can export and compile them directly from `exams`. An easy way to copy all exercise files to your local folder is using function `afedR::path_to_copy`:
+
+```{r, message=TRUE}
+# copy to "documents" folder
+afedR::copy_book_files(path_to_copy = '~')
+```
+All book files -- data, code and exercises -- are now available at your "Documents" folder (shorcut of `~`).
+
+## Compiling to pdf
+
+For pdf compilation, you'll need:
+
+- name of students (will be printed in pdf)
+- students ids (I usually use their university card number)
+- Chapters to include
+- Exercise name
+- Course name
+
+And use the following code
+
+```{r, message=FALSE}
+library(afedR)
+
+names_students <- c('Michael Peterling', 'John Aspper', 'Mr. Beans')
+ids_students <- 1:length(names_students) # probably id card?
+chapters <- 1:3 # chapters from 1 to 13
+dir_output <- file.path(tempdir(), 'pdf-example')
+
+
+df_exams <- compile_pdf_exercises(students_names = names_students, 
+                                  students_ids = ids_students, 
+                                  chapters_to_include = chapters,
+                                  dir_out = dir_output)
+```
+
+The output of `compile_pdf_exercises` is a table with the correct answers for `schoice` and `num` type of questions:
+
+```{r}
+glimpse(df_exams)
+```
+
+
+After compilation, all pdf files are available at folder `dir_output`:
+
+```{r}
+fs::dir_ls(dir_output)
+```
+
+The final result will be  as follows:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/wVAd8Xr" data-context="false" ><a href="//imgur.com/a/wVAd8Xr"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+## Compiling to html
+
+You can also compile to a html file using `afedR::compile_html_exercises`:
+
+```{r, message=FALSE, eval=TRUE}
+library(afedR)
+
+names_students <- c('Michael Peterling', 'John Aspper', 'Mr. Beans')
+ids_students <- 1:length(names_students) # probably id card?
+chapters <- 1:3 # chapters from 1 to 13
+dir_output <- file.path(tempdir(), 'html-example')
+
+df_exams <- compile_html_exercises(students_names = names_students, 
+                                   students_ids = ids_students, 
+                                   chapters_to_include = chapters,
+                                   dir_out = dir_output)
+```
+
+An example of full compiled html file is available [here](`r link_full_compiled_html`).
+
+
+## Exporting to Moodle
+
+You can also export to _e-learning_ platforms such as Moodle. The process is quite simple as `exams` package does the heavy work:
+
+```{r}
+require(afedR)
+my_eoc_dir <- afedR::get_EOC_dir()
+
+available_chapters <- fs::dir_ls(my_eoc_dir)
+exercise_files <- fs::dir_ls(available_chapters[1])
+dir_output <- file.path(tempdir(), 'moodle-test')
+
+exams::exams2moodle(file = exercise_files, 
+                    name = 'TestingMoodle', 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)
+```
+
+You can later import this .xml file in your Moodle class. 
+
+## Exporting to Blackboard
+
+```{r}
+require(afedR)
+my_eoc_dir <- afedR::get_EOC_dir()
+
+available_chapters <- fs::dir_ls(my_eoc_dir)
+exercise_files <- fs::dir_ls(available_chapters[1])
+dir_output <- file.path(tempdir(), 'blackboard-test')
+
+exams::exams2blackboard(file = exercise_files, 
+                        name = 'TestingBlackBoard', 
+                        dir = dir_output)
+
+fs::dir_ls(dir_output)
+```
+
+This .zip file contains all exercises of chapter 01 and can be imported in your blackboard account. 

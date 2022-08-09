@@ -1,0 +1,137 @@
+---
+title: "Building and maintaining exams with dynamic content"
+subtitle: "An introduction to package exams"
+author: "Marcelo Perlin"
+date: 2017-01-30
+tags: [R, exams, RndTexExams]
+categories: [R, exams, RndTexExams]
+---
+
+
+
+<p>Part of my job as a researcher and teacher is to periodically apply and grade exams in my classroom. Being constantly in the shoes of an examiner, you soon quickly realize that students are clever in finding ways to do well in an exam without effort. These days, photos and pdf versions of past exams and exercises are shared online in facebook, whatsapp groups, instagram and what not. As weird as it may sound, the distribution of information in the digital era creates a problem for examiners. If you use the same exam from past year, it is likely that students will simply memorize the answers from a digital record. Moreover, some students will also cheat by looking for answers during the test. Either way, keeping the same exam over time and across students, is not advisable.</p>
+<p>This issue really bothered me. For large classes, there isn’t a way to evaluate the work of students as cost effective as online or printed exams. I’m strongly in favor of meritocracy in academia and I think that a grade in an exam should, on average, be good indicator of the knowledge that the students retained during coursework. Otherwise, what’s the point of doing all of it?</p>
+<p>In the past, I manually created different versions of questions and wrote new ones in order to avoid cheating and memorization of questions. But, year after year, it became clear to me that this was a time consuming task that took more energy than what I would like to invest. Besides teaching, I also do research and work on administrative issues within my department. Sometimes, specially around deadlines, you simply don’t have the time and mental energy to come up with different versions of an existing exam.</p>
+<p>Back in 2016 I decided to invest some to time to automatize this process and try to come up with an elegant solution. Since I had all my exams in a latex template called <code>examdesign</code>, I wrote package <a href="https://CRAN.R-project.org/package=RndTexExams">RndTexExams</a> that took as input a .tex file and created <code>n</code> versions of exams by randomly defining the order of questions, the answer list and textual content based on a simple markup language. If you know latex, it is basically a problem of finding regex patterns and restructuring a character object that is later saved in a new and compilable latex file.</p>
+<p>The package I wrote worked pretty well for me but, as with any first version of a software, it had missing features. The output was only a pdf file based on a template, it did not work with standard academic platforms such as Blackboard and Moodle and, the most problematic in my opinion, it was not designed to run embedded R code that could be parsed by <code>knitr</code>, like in a Rmarkdown file.</p>
+<p>This is when I tried out the package <a href="https://CRAN.R-project.org/package=exams">exams</a>. While my solution with <code>RndTexExams</code> was alright for a latex user, package exams is much better at solving the problem of dynamic content in exams. Using the <code>knitr</code> and <code>sweave</code> engines, the level of randomization and creation of dynamic content is really amazing. By combining R code (and all the capabilities of CRAN packages), you can do do anything your want in an exam. You can get information on the web, use completely different datasets for each exam and so on. The limit is set by your imagination.</p>
+<div id="an-example-of-exam-with-dynamic-content" class="section level2">
+<h2>An example of exam with dynamic content</h2>
+<p>As a quick example, I am going to show one question from the exercise chapter of my book. When it is ready, I will be serving the exercises with a web based shiny app, meaning that the reader will download a pdf file with unique questions that is processed in a shiny server.</p>
+<p>In this example questions, I’m asking the reader to use R to solve the following problem:</p>
+<pre><code>How many packages you can find today (2020-04-28) in CRAN?
+Use repository https://cloud.r-project.org/ for the solution.</code></pre>
+<p>The solution is pretty simple, all you need to do is to ask for the number of rows for the object output from a call to <code>available.packages()</code>. The reader can find the solution with the command <code>nrow(available.packages(repos='https://cloud.r-project.org/'))</code>.</p>
+<p>Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called <strong>Question.Rmd</strong>, available <a href="/blog/files/Question.Rmd">here</a>.</p>
+<pre class="r"><code>my.q.file &lt;- &#39;~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question.Rmd&#39;
+cat(paste0(readLines(my.q.file), collapse = &#39;\n&#39;))</code></pre>
+<pre><code>## ```{r data generation, echo = FALSE, results = &quot;hide&quot;}
+## #possible.repo &lt;- getCRANmirrors()$URL  # doenst work well for all repos
+## 
+## possible.repo &lt;- c(&#39;https://cloud.r-project.org/&#39;,
+##                   &#39;http://mirror.fcaglp.unlp.edu.ar/CRAN/&#39;,
+##                   &#39;http://cran-r.c3sl.ufpr.br/&#39;,
+##                   &#39;http://cran.stat.sfu.ca/&#39;,
+##                   &#39;https://mirrors.dotsrc.org/cran/&#39;,
+##                   &#39;https://mirrors.cicku.me/CRAN/&#39;,
+##                   &#39;https://cran.ism.ac.jp/&#39;)
+## 
+## my.repo &lt;- sample(possible.repo,1)
+## 
+## n.pkgs &lt;- nrow(available.packages(repos = my.repo))
+## 
+## sol.q &lt;- n.pkgs
+## rnd.vec &lt;- c(0, sample(-5000:-1,4))
+## 
+## my.answers &lt;- paste0(sol.q+rnd.vec, &#39; packages&#39;)
+## ```
+## 
+## Question
+## ========
+## 
+## How many packages you can find today (`r Sys.Date()`) in CRAN? 
+## 
+## Use repository `r my.repo` for the solution.
+## 
+## ```{r questionlist, echo = FALSE, results = &quot;asis&quot;}
+## exams::answerlist(my.answers, markup = &quot;markdown&quot;)
+## ```
+## 
+## Meta-information
+## ================
+## extype: schoice
+## exsolution: 10000
+## exname: numbero of cran pkgs
+## exshuffle: TRUE</code></pre>
+<p>For the last piece of code, notice that I’ve set the solution of the question in object <code>sol.q</code>. Later, in object <code>my.answers</code>, I use it together with a random vector of integers to create five alternative answers to the questions, where the first one is the correct. This operation results in the following objects:</p>
+<pre class="r"><code>my.repo &lt;- &#39;https://cloud.r-project.org/&#39;
+n.pkgs &lt;- nrow(available.packages(repos = my.repo))
+  
+sol.q &lt;- n.pkgs
+rnd.vec &lt;- c(0, sample(-5000:-1,4))
+  
+my.answers &lt;- paste0(sol.q+rnd.vec, &#39; packages&#39;)
+print(my.answers)</code></pre>
+<pre><code>## [1] &quot;15557 packages&quot; &quot;12845 packages&quot; &quot;13153 packages&quot; &quot;13913 packages&quot;
+## [5] &quot;13148 packages&quot;</code></pre>
+<p>To conclude the question, I simply use <code>Sys.Date()</code> to get the system’s date and later set the correct answers using function <code>answerlist</code>. Some metadata is also inserted at the last section of <code>Question.Rmd</code>. The line <code>exshuffle: TRUE</code> sets a random order of possible answers in each exam for this questions. Do notice that the solution is registered in line <code>exsolution: 10000</code>, where the 1 in 10000 means correct answer in the first element of <code>my.answers</code> and the 0s represent incorrect answers.</p>
+<p>Now that the file with content of the question is finished, let’s set some options and build the exam with <code>exams</code>. For simplicity, we will repeate the same question five times.</p>
+<pre class="r"><code>library(exams)
+
+my.f &lt;- my.q.file
+n.ver &lt;- 1
+name.exam &lt;- &#39;exam_sample&#39;
+my.dir &lt;- paste0(&#39;exam-out/&#39;)
+
+my.exam &lt;- exams2pdf(file = rep(my.f,5),
+                     n = n.ver, 
+                     dir = my.dir,
+                     name = name.exam, 
+                     verbose = TRUE)</code></pre>
+<pre><code>## Exams generation initialized.
+## 
+## Output directory: /home/msperlin/Desktop/testing/content/post/exam-out
+## Exercise directory: /home/msperlin/Desktop/testing/content/post
+## Supplement directory: /tmp/RtmpJtbGrM/file9e855ddbb636
+## Temporary directory: /tmp/RtmpJtbGrM/file9e85555c5ce9
+## Exercises: ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question
+## 
+## Generation of individual exams.
+## Exam 1: _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_1 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_2 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_3 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_4 (srt) ... w</code></pre>
+<pre><code>## Loading required namespace: tinytex</code></pre>
+<pre><code>##  ... done.</code></pre>
+<pre class="r"><code>f.out &lt;- paste0(my.dir,name.exam,&#39;1&#39;,&#39;.pdf&#39;)
+file.exists(f.out)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>The result of the previous code is a pdf file <a href="/blog/files/exam_sample1.pdf">pdf file</a> with the exam content.</p>
+<p>One interesting information from this post is that you can find a small difference in the number of packages in between the CRAN mirrors. My best guess is that they synchronize with the master server in different times of the day/week.</p>
+<p>Looking at the contents of the pdf file, clearly some things are missing from the exam, such as the title page and the instructions. You can add all the bells and whistles with the inputs of function <code>exams2pdf</code> or change it directly in the different file templates. One quick tip for new users is that the answer sheet can be found by looping over the values of the output from <code>exams2pdf</code>:</p>
+<pre class="r"><code>df.answer.key &lt;- data.frame()
+n.q &lt;- 5 # number of questions
+for (i.ver in seq(n.ver)){
+  
+  exam.now &lt;- my.exam[[i.ver]] 
+  
+  for (i.q in seq(n.q)){
+    
+    sol.now &lt;- letters[which(exam.now[[i.q]]$metainfo$solution)]
+    
+    temp &lt;- data.frame(i.ver = i.ver, i.q = i.q, solution = sol.now)
+    df.answer.key &lt;- rbind(df.answer.key, temp)  
+  }
+  
+}
+
+df.answer.key.wide &lt;- tidyr::spread(df.answer.key, key = i.q, value = solution)
+df.answer.key.wide</code></pre>
+<pre><code>##   i.ver 1 2 3 4 5
+## 1     1 a a a a a</code></pre>
+<p>By using package <code>exams2pdf</code>, I can code different questions in the <code>exams</code> format and not worry whether someone is going to copy it over and distribute it in the internet. Students may know the content of each question, but they will have to learn how to get to the correct answer in order to solve it for their exam. Cheating is also impossible since each student will have different versions and different answer sheets. If I have a class of 100 students, I will build 100 different exams, each one with unique answers.</p>
+<p>As for maintainability, the time value of my exam questions increases significantly. I can use them over and over, now that I can effortlessly create as many versions of it as I need. Since it is all based in R code, I can use the code from the class material in my exams. Going further, I can also automatically grade the exams using the internet (see the <a href="https://cran.r-project.org/web/packages/RndTexExams/vignettes/rte-vignette_creating_exams.html">vignette of <code>RndTexExams</code></a> for information on how to do that with Google spreadsheets.)</p>
+<p>In this post I only scratched the surface of <code>exams</code>. Adding to the description of its capabilities, you can <strong>export</strong> exams to standard academic systems such as Moodle, Blackboard and others. You can also print the exam in pdf, nops (a pdf that allows easy scanning), or html. If you know a bit of latex or html, it is easy to customize the templates to the needs of your particular exam.</p>
+<p>As with all technical things, not everything is perfect. In my oppinio, the main issue with the <code>exams</code> template is that requires some knowledge of R and Knitr. While this is Ok for most people reading this blog, it is not the case for the <em>average</em> professor. It may sound surprising to the quantitative inclined people, but the great majority of professors still use .docx and .xlsx files to write academic work such as articles and exams. Why they don’t use or learn better tools? Well, this is a long answer, best suited for another post.</p>
+<p>Package <code>exams</code> had a <strong>big and positive impact on how I do my work</strong>. Based on a large database of questions that I’ve built, I can create a new exam in 5 minutes and grade it for a large class in less than 1 minute. I am very thankful to its authors and this is one of the reasons why I love posting packages in CRAN. It is my way of giving it back to the community.</p>
+<p>Concluding, package <code>exams</code> is great and I believe that every examiner and professor should be using it. Thinking about the future, the template of questions in <code>exams</code> has the potential of setting the <strong>language of exams</strong>, a structure that could allow the user to output questions in any format he wants, just as you can use Markdown to output latex or word.</p>
+<p>Sharing questions in a collaborative platform, such as Quora, should be something for the developers (or R community) to think of. Questions could be ranked according to popular vote. Users could contribute by posting question files for other to use. Users would get a feedback on their work and, at the same time, be able to use other people questions. Students could also have access to it and independently study to a particular topic, by building custom made exams with randomized content.</p>
+<p>Summing up, if you are a teacher or examiner, I hope that this post convinces you to try out package <code>exams</code>.</p>
+</div>

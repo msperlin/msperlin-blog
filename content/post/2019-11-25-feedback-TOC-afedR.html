@@ -1,0 +1,61 @@
+---
+title: "Feedback on new book TOC (Table of Contents)"
+author: "Marcelo S. Perlin"
+date: '2019-11-25'
+draft: no
+subtitle: ''
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Back in 2017 I wrote the first international<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> edition of my book “<a href="https://www.msperlin.com/blog/publication/2017_book-pafdr-en/">Analyzing Financial and Economic Data with R</a>” (<a href="https://www.msperlin.com/pafdR/">online version</a>) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, <strong>I’m working in the new edition of the book</strong>, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages.</p>
+<p>The current TOC is available <a href="https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf">here</a>. Let me summarize the main changes from the previous edition:</p>
+<dl>
+<dt>New content with the tidyverse</dt>
+<dd><ul>
+<li>Total alignment with the tidyverse. Some base function are presented but priority is for readr, ggplot2, dplyr, stringr, purrr and so on.</li>
+<li>100+ pages of new content (a 25% overall increase from previous edition).</li>
+</ul>
+</dd>
+<dt>Teaching Material</dt>
+<dd><ul>
+<li>Static end of chapter exercises, with solutions publicly available in the internet;</li>
+<li>Slides for each chapter available in the internet;</li>
+<li>Dynamic 90+ exercises with the <a href="http://www.r-exams.org/"><code>exams</code> package</a>. This means you can create and grade randomized unique tests for your students (<strong>more on this in a future post</strong>);</li>
+</ul>
+</dd>
+<dt>Book package <code>afedR</code></dt>
+<dd><ul>
+<li>This package makes it easier to import book datasets, copy all content files and reproduce all code in the book. Available in <a href="https://github.com/msperlin/afedR">GitHub</a> only.</li>
+</ul>
+</dd>
+<dt>Three new chapters</dt>
+<dd><ul>
+<li><em>Cleaning and Structuring Financial and Economic Data</em> – How to clean financial and economic data by dealing with long/wide dataframes, outlier detection/removal and desinflating prices and indexes.</li>
+<li><em>Reporting Results</em> – Using <code>xtable</code> and <code>texreg</code> to report tables and models. Includes a special section on RMarkdown.</li>
+<li><em>Optimizing Code</em> – Profiling code for bottlenecks and using vectorization, <code>rcpp</code> and <code>memoise</code> to speed up R computations.</li>
+</ul>
+</dd>
+<dt>Two new packages</dt>
+<dd><ul>
+<li><code>simfinR</code> – grabs data from the <a href="https://simfin.com/">SimFin project</a>;</li>
+<li><code>GetQuandlData</code>– uses <a href="https://www.quandl.com/">Quandl</a> json api and caching for easier and faster data importation;</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Right now, I could use some feedback from the community</strong>. Have a look in the <a href="https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf">TOC</a> and let me know what you liked or disliked and if I missed something about using R in finance and economics. You can reach me in my email (<a href="emailto:marceloperlin@gmail.com">marceloperlin@gmail.com</a>) or using the comment section of this post.</p>
+<p>My expectation is to finish the book in early 2020. If you want to be notified when I release it, fill up this <a href="https://forms.gle/3x3mj2zzXqcqmT6x9">form</a> and I’ll email you when the book becomes available in Amazon.</p>
+<p>This book is a special and life-long project. I plan to keep improving it as long as I can. As for access to the content, I’ll follow the same pricing structure from previous edition: the ebook will sell for 9.99 USD in Amazon, the online version will have the first 6 chapters for free in the internet (see previous edition <a href="https://www.msperlin.com/pafdR/">here</a>.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>I also wrote a <a href="https://www.msperlin.com/padfeR/">local version</a>. written in portuguese.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>

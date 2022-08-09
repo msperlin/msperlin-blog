@@ -1,0 +1,86 @@
+---
+title: "Major update to BatchGetSymbols"
+subtitle: "Making it even easier to download and organize stock prices from Yahoo Finance"
+author: "Marcelo S. Perlin"
+date: 2018-01-22
+tags: [R, BatchGetSymbols, Yahoo finance]
+categories: [R, BatchGetSymbols, Yahoo finance]
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+I just released a long due update to package `BatchGetSymbols`. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:
+
+```{r, eval=FALSE}
+if (!require(devtools)) install.packages('devtools')
+devtools::install_github('msperlin/BatchGetSymbols')
+```
+
+The main innovations are:
+
+- **Clever cache system**: By default, every new download of data will be saved in a local file located in a directory chosen by user. Every new request of data is compared to the available local information. If data is missing, the function only downloads the piece of data that is missing. This make the call to function `BatchGetSymbols` a lot faster! When updating an existing dataset of prices, the function only downloads the  missing part of the data. 
+
+- **Returns calculation**: Function now returns a return vector in `df.tickers`. Returns are used a lot more than prices in research. No reason why they should be keep out of the output.
+
+- **Wide format**: Added function for converting data to the wide format. In some situations, such as portfolio analysis, the wide format makes a lot of sense and is required for some methodologies. 
+
+- **Ibovespa composition**: Added function for downloading current Ibovespa composition directly from Bovespa website.
+
+In the next chunks of code I show some of the innovations:
+
+```{r}
+library(BatchGetSymbols)
+
+# download Ibovespa stocks
+my.tickers <- GetSP500Stocks()$Tickers[1:5] # lets keep it light
+
+# set dates
+first.date <- '2017-01-01'
+last.date <- '2019-01-01'
+
+# set folder for cache system
+my.temp.cache.folder <- 'BGS_CACHE'
+
+# get data and time it
+time.nocache <- system.time({
+my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = FALSE)
+})
+
+time.withcache <- system.time({
+my.l <- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = TRUE)
+})
+
+
+cat('\nTime with no cache:', time.nocache['elapsed'])
+cat('\nTime with cache:', time.withcache['elapsed'])
+
+```
+
+Now let's check the default output with data in the long format:
+
+```{r}
+dplyr::glimpse(my.l)
+```
+
+And change the format of the long dataframe to wide:
+
+```{r}
+l.wide <- reshape.wide(my.l$df.tickers) 
+```
+
+Now we check the matrix of prices:
+
+```{r}
+print(head(l.wide$price.adjusted))
+```
+and matrix of returns:
+
+```{r}
+print(head(l.wide$ret.adjusted.prices))
+```
+
+

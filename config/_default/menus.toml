@@ -1,0 +1,119 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+[[main]]
+  name = "Publications"
+  url = "publication"
+  weight = 2
+
+[[main]]
+  name = "Books"
+  url = "publication/#5"
+  weight = 3
+
+[[main]]
+  name = "Blog"
+  url = "#posts"
+  identifier = 'blog'     
+  weight = 4
+
+[[main]]
+  name = "Posts"
+  url = "post/"
+  weight = 1
+  parent = 'blog'
+
+[[main]]
+  name = "Subscribe in RSS"
+  url = "subscribe_rss"
+  weight = 2
+  parent = 'blog'
+
+[[main]]
+  name = "Code"
+  url = "code/"
+  weight = 6
+  identifier = 'my_code'
+
+[[main]]
+  name = "R Code"
+  url = "code/r/"
+  weight = 1  
+  parent = 'my_code'
+
+[[main]]
+  name = "Shiny Web Apps"
+  url = "code/shiny/"
+  weight = 2  
+  parent = 'my_code'
+  
+[[main]]
+  name = "Matlab Code"
+  url = "code/matlab/"
+  weight = 3 
+  parent = 'my_code'
+  
+  
+[[main]]
+  name = "Data"
+  url = "data/"
+  weight = 7
+
+[[main]]
+  name = "Subscribe"
+  url = "subscribe_email"
+  weight = 8
+
+
+[[main]]
+  name = "Research & Talks"
+  url = "search"
+  weight = 9
+  identifier = "res_button"
+
+[[main]]
+  name = "Awards"
+  url = "research/awards"
+  weight = 1
+  parent = "res_button"
+
+[[main]]
+  name = "Coverage by News"
+  url = "research/on-the-news"
+  weight = 2
+  parent = "res_button"
+
+
+[[main]]
+  name = "Talks"
+  url = "talk"
+  weight = 2
+  parent = "res_button"
+
+[[main]]
+  name = "Others"
+  url = ""
+  weight = 10
+  identifier = "others_button"
+
+[[main]]
+  name = "R-Bloggers"
+  url = "https://www.r-bloggers.com"
+  parent = "others_button"
+  weight = 1
+
+[[main]]
+  name = "Search"
+  url = "#search"
+  parent = "others_button"
+  weight = 2
+  
+
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+# [[main]]
+#    name = "CV"
+#    url = "files/cv.pdf"
+#    weight = 70

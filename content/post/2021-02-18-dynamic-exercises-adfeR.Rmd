@@ -1,0 +1,114 @@
+---
+title: "Compilando Exercícios do Livro para pdf | html | Moodle | Blackboard"
+author: "Marcelo S. Perlin"
+date: '2021-02-18'
+tags:
+- R
+- adfeR
+categories:
+- R
+- adfeR
+draft: no
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = TRUE, eval=TRUE)
+
+link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
+link_full_compiled_html <- 'https://www.msperlin.com/blog/files/Introduction to R_John Wick_Ver 01.html'
+link_chapter_2_html_file <- 'https://www.msperlin.com/blog/files/Introduction to R_Roger Federer_Ver 01.html'
+link_book_page <- 'https://www.msperlin.com/blog/publication/2021_book-adfer-pt/'
+link_github <- 'https://github.com/msperlin/adfeR'
+link_book_web <- 'https://www.msperlin.com/adfeR/'
+```
+
+A terceira edição do livro [Análise de Dados Financeiros e Econômicos](`r link_book_page `) contém mais de 100 exercícios de final de capítulo, com todas soluções disponíveis na [página do livro](`r link_book_web`). Alternativamente, professores e instrutores podem compilar arquivos pdf dos exercícios para seus alunos com o pacote `adfeR`. 
+
+O primeiro passo é instalar o pacote via `devtools` e também o `exams`:
+
+```{r, eval=FALSE}
+devtools::install_github('msperlin/adfeR')
+```
+
+Outro requisito é a instalação do `tinytex` e Latex/texlive para a compilação em pdf:
+
+```{r, eval=FALSE}
+tinytex::install_tinytex()
+```
+
+
+## Como funciona?
+
+Todos exercícios do livro estão no formato do pacote `exams`. Cada exercício é um arquivo .Rmd contendo código, narrativa do exercício e a solução. Os arquivos em si podem ser encontrados no diretório de instalação do próprio pacote:
+
+```{r}
+eoc_dir <- adfeR::get_EOC_dir()
+
+eoc_chapters <- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)
+```
+
+Cada um dos diretórios acima possui diversos exercícios. Veja o caso do capítulo 01:
+
+```{r}
+basename(fs::dir_ls(eoc_chapters[1]))
+```
+
+
+## Exportando para pdf
+
+Para compilar para pdf os exercícios basta selecionar:
+
+- nome dos estudantes
+- id dos estudantes
+- capítulos para incluir
+
+e usar o código abaixo:
+
+```{r}
+library(adfeR)
+
+names_students <- c('Marcelo', 'Ricardo', 'Tarcizio')
+ids_students <- 1:length(names_students) # probably id card?
+chapters <- 1:3 # chapters from 1 to 13
+dir_output <- file.path(tempdir(), 'ExamsFiles')
+
+l_exams <- build_exercises(students_names = names_students, 
+                           students_ids = ids_students, 
+                           chapters_to_include = chapters,
+                           dir_out = dir_output)
+```
+
+Todos os arquivos pdfs estarão disponíveis na pasta `dir_output`:
+
+```{r}
+fs::dir_ls(dir_output)
+```
+
+O resultado final será conforme figura abaixo:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/62d4J1G" data-context="false" ><a href="//imgur.com/a/62d4J1G"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+## Exportando para o Moodle
+
+Para quem usa o Moodle ou outra plataforma de _e-learning_ (Blackboard, Canvas, etc), a exportação para estes formatos é bem simples, basta indicar os arquivos de exercícios e usar as funções do pacote `exams`:
+
+```{r}
+require(adfeR)
+my_eoc_dir <- adfeR::get_EOC_dir()
+
+available_chapters <- fs::dir_ls(my_eoc_dir)
+exercise_files <- fs::dir_ls(available_chapters[1])
+dir_output <- file.path(tempdir(), 'moodle-test')
+
+exams::exams2moodle(file = exercise_files, 
+                    name = 'TestingMoodle', 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)
+```
+
+Este arquivo .xml conterá todos os exercícios selecionados e pode ser facilmente importado no Moodle para ser aplicado aos alunos. 

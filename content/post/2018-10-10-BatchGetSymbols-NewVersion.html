@@ -1,0 +1,76 @@
+---
+title: "BatchGetSymbols 2.2"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-10-10
+categories: ["R", "BatchGetSymbols", "Finance"]
+tags: [R, BatchGetSymbols, Finance]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>One of the main requests I get for package <code>BatchGetSymbols</code> is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:</p>
+<pre class="r"><code>library(BatchGetSymbols)</code></pre>
+<pre><code>## Loading required package: rvest</code></pre>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## </code></pre>
+<pre class="r"><code>library(purrr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;purrr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:rvest&#39;:
+## 
+##     pluck</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+my.fct &lt;- function(my.freq) {
+  
+  df &lt;- BatchGetSymbols(tickers = c(&#39;GE&#39;), 
+                      first.date = &#39;2010-01-01&#39;,
+                      last.date = Sys.Date(), do.cache = FALSE,
+                      freq.data = my.freq)$df.tickers
+  
+  df$freq &lt;- my.freq
+
+  return(df)
+}
+
+my.possible.freq &lt;-  c(&#39;daily&#39;, &#39;weekly&#39;, &#39;monthly&#39;, &#39;yearly&#39;)
+
+df.allfreq &lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))</code></pre>
+<pre><code>## 
+## Running BatchGetSymbols for:</code></pre>
+<pre><code>## 
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | Good job!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | You got it!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | Feels good!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | You got it!</code></pre>
+<pre class="r"><code>p &lt;- ggplot(df.allfreq, aes(x=ref.date, y = price.adjusted)) + 
+  geom_point() + geom_line() + facet_grid(freq ~ ticker)
+
+print(p)</code></pre>
+<p><img src="/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

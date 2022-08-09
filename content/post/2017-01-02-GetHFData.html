@@ -1,0 +1,31 @@
+---
+title: "Using R to download high frequency trade data diretcly from Bovespa"
+author: "Marcelo S. Perlin"
+date: '2017-01-02'
+subtitle: Using package GetHFData
+tags:
+- R
+- GetHFData
+- B3
+- market microstructure
+- high frequency
+categories:
+- R
+- GetHFData
+- B3
+- market microstructure
+- high frequency
+---
+
+
+
+<p>Recently, Bovespa, the Brazilian financial exchange company, allowed external access to its <a href="ftp://ftp.bmf.com.br/">ftp site</a>. In this address one can find several information regarding the Brazilian financial system, including datasets with high frequency (tick by tick) trading data for three different markets: equity, options and BMF.</p>
+<p>Downloading and processing these files, however, can be exausting. The dataset is composed of zip files with the whole trading data, separated by day and market. These files are huge in size and processing or aggregating them in a usefull manner requires specific knowledge for the structure of the dataset.</p>
+<p>The package GetHFData make is easy to access this dataset directly by allowing the easy importation and aggregations of it. Based on this package the user can:</p>
+<ul>
+<li>Access the contents of the Bovespa ftp using function function <code>ghfd_get_ftp_contents</code></li>
+<li>Get the list of available ticker in the trading data using <code>ghfd_get_available_tickers_from_ftp</code></li>
+<li>Download individual files using <code>ghfd_download_file</code></li>
+<li>Download and process a batch of dates and assets codes with <code>ghfd_get_HF_data</code></li>
+</ul>
+<p>More details can be found in my <a href="https://ssrn.com/abstract=2824058">SSRN paper</a>.</p>

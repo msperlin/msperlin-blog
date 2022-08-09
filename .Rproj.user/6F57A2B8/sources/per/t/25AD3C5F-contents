@@ -1,0 +1,81 @@
+---
+title: "Looking back at 2020 and plans for 2021"
+author: "Marcelo S. Perlin"
+date: '2020-12-22'
+draft: false
+subtitle: ' '
+tags: ["R", "looking back"]
+categories: ["R", "personal"]
+---
+
+```{r, echo=FALSE}
+this_year <- 2020
+```
+
+
+Wow, what a **long** year! The pandemic affected everyone, changing the way we live and relate to one another. This was a year full of lessons and we must be thankful and be able to appreciate life even more. Events such as these show how little our "problems" are when put into perspective. 
+
+I'm lucky that, despite the lockdown, I was able to work from home this year. Lets have  a look at the highlights.
+
+---
+
+# Highlights of `r this_year`
+
+## Academic Papers
+
+This year I published and co-authored two academic papers:
+
+- [A Garch Tutorial in R - RAC](https://rac.anpad.org.br/index.php/rac/article/view/1420)
+- [Does algorithmic trading harm liquidity? Evidence from Brazil - NAJEF](https://linkinghub.elsevier.com/retrieve/pii/S1062940820301406)
+
+I also worked towards my paper pipeline in corporate finance, with the following papers, which are currently under review:
+
+- Financial Performance and Academic Titles of Advisers and Directors of Brazilian Companies
+- Boards and Gender for Brazilian Listed Companies
+- Description of Boards in Brazil
+
+
+## Books
+
+The second edition of my R book - [Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/publication/2020_book-afedr-en/) was published in January 2020. I spend most of 2019 working towards this edition and I'm very pleased with the result. The book improved a lot, with a more polished content. 
+
+I'm also happy to report that my two other books, [padfR](https://www.amazon.com.br/dp/B07DN4M357) and [pirf](https://www.amazon.com.br/dp/B07RR9K9PV), are receiving great reviews in Amazom.com.br. This is great news, motivating the future editions.
+
+
+## R Packages
+
+This year I "broke" package `GetDFPData` into two: `GetDFPData2` and `GetFREData`. Both are still in [Github](https://github.com/msperlin) but I'll soon release it to CRAN. You can read more about this decision [here](https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/).
+
+Additionally, I also wrote the book package `afedR`, which facilitates the reproducibility of all book examples. See more details about it [here](https://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/).
+
+
+---
+
+# Checking `r this_year -1`'s plans
+
+At the end of `r this_year-1`, my plans for `r this_year` [were](https://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/):
+
+Publish afedR (analyzing financial and economic data with R)
+: [Done! :)](https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/)
+
+Finish board papers
+: Almost Done. All papers are now in review and, hopefully, are going to be published soon. 
+
+Start "personal finance project"
+: Not done. This is an idea that I'm struggling with. I'm not really sure how to implement it and still have to figure out the details. 
+
+---
+
+# Plans for `r this_year+1`
+
+Publish new R/ggplot2 book (_Visualização de Dados com R_)
+: This book will be mostly about using `ggplot2` in data visualization. It will be written in portuguese and, if it comes out right and do well, I'll translate into english. I already got 2 chapters written, but still missing a lot of work and content. 
+Publish third edition of _Análise de Dados Financeiros e Econômicos com o R_
+: The portuguese version of my R book is already in its third edition and I'm very excited for this new edition. It will incorporate many changes from the english edition and more!
+
+Publish board papers
+: Soon. The three papers are in revision.
+
+
+
+

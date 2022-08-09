@@ -1,0 +1,62 @@
+library(tidyverse)
+library(purrr)
+library(fs)
+
+rm(list=ls())
+
+my_d <- dirname(rstudioapi::getActiveDocumentContext()$path)
+setwd(my_d)
+
+book_folder <- '../../01-Book Content (full)/'
+compilation_folder <- path(tempdir(), 'book-full-compile')
+output_dir <- 'book'
+eoc_dir <- '../../02-EOCE-Rmd/'
+eoc_temp <- path(dirname(compilation_folder), '02-EOCE-Rmd')
+
+compile_pdf <- TRUE
+compile_ebook <- TRUE
+
+compile_pdf <- FALSE
+#compile_ebook <- FALSE
+
+dir_create(output_dir)
+dir_create(compilation_folder)
+dir_create(eoc_temp)
+
+# copy files
+dir_copy(book_folder,
+         compilation_folder,
+         overwrite = TRUE)
+
+dir_copy(eoc_dir, eoc_temp,
+         overwrite = TRUE)
+
+
+# not html (html is done in its own folder)
+#rmarkdown::render_site(input = book_folder,
+#                      output_format = 'bookdown::bs4_book', encoding = 'UTF-8')
+
+if (compile_pdf){
+  rmarkdown::render_site(input = compilation_folder,
+                         output_format = 'bookdown::pdf_book',
+                         encoding = 'UTF-8')
+
+  book_file <- dir_ls(path(compilation_folder,'_book'), glob = '*.pdf')
+  file_copy(book_file, output_dir, overwrite = TRUE)
+
+  out_pdf <- path_wd(output_dir, basename(book_file))
+  system2(command = 'xdg-open', args = str_glue('"{out_pdf}"') )
+  
+}
+
+if (compile_ebook){
+  rmarkdown::render_site(input = compilation_folder,
+                         output_format = 'bookdown::epub_book',
+                         encoding = 'UTF-8')
+
+  book_file <- dir_ls(path(compilation_folder,'_book'), glob = '*.epub')
+  file_copy(book_file, output_dir, overwrite = TRUE)
+  
+  out_epub <- path_wd(output_dir, basename(book_file))
+  system2(command = 'xdg-open', args = str_glue('"{out_epub}"') )
+}

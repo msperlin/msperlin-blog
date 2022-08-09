@@ -1,0 +1,49 @@
+---
+title: "Feedback on new book TOC (Table of Contents)"
+author: "Marcelo S. Perlin"
+date: '2019-11-25'
+draft: no
+subtitle: ''
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache = TRUE)
+```
+
+Back in 2017 I wrote the first international^[I also wrote a [local version](https://www.msperlin.com/padfeR/). written in portuguese.] edition of my book "[Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/publication/2017_book-pafdr-en/)" ([online version](https://www.msperlin.com/pafdR/)) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, **I'm working in the new edition of the book**, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages. 
+
+The current TOC is available [here](https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf). Let me summarize the main changes from the previous edition:
+
+New content with the tidyverse
+: - Total alignment with the tidyverse. Some base function are presented but priority is for readr, ggplot2, dplyr, stringr, purrr and so on.
+- 100+ pages of new content (a 25% overall increase from previous edition).
+
+Teaching Material
+: - Static end of chapter exercises, with solutions publicly available in the internet; 
+- Slides for each chapter available in the internet;
+- Dynamic 90+ exercises with the [`exams` package](http://www.r-exams.org/). This means you can create and grade randomized unique tests for your students (**more on this in a future post**);
+
+Book package `afedR`
+: - This package makes it easier to import book datasets, copy all content files and reproduce all code in the book. Available in [GitHub](https://github.com/msperlin/afedR) only. 
+
+Three new chapters
+: - _Cleaning and Structuring Financial and Economic Data_ -- How to clean financial and economic data by dealing with long/wide dataframes, outlier detection/removal and desinflating prices and indexes.
+- _Reporting Results_ -- Using `xtable` and `texreg` to report tables and models. Includes a special section on RMarkdown.
+- _Optimizing Code_ -- Profiling code for bottlenecks and using vectorization, `rcpp` and `memoise` to speed up R computations.
+
+Two new packages
+: - `simfinR` -- grabs data from the [SimFin project](https://simfin.com/);
+- `GetQuandlData`-- uses [Quandl](https://www.quandl.com/) json api and caching for easier and faster data importation;
+
+**Right now, I could use some feedback from the community**. Have a look in the [TOC](https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf) and let me know what you liked or disliked and if I missed something about using R in finance and economics.  You can reach me in my email ([marceloperlin@gmail.com](emailto:marceloperlin@gmail.com)) or using the comment section of this post.
+
+My expectation is to finish the book in early 2020. If you want to be notified when I release it, fill up this [form](https://forms.gle/3x3mj2zzXqcqmT6x9) and I'll email you when the book becomes available in Amazon.
+
+This book is a special and life-long project. I plan to keep improving it as long as I can. As for access to the content, I'll follow the same pricing structure from previous edition: the ebook will sell for 9.99 USD in Amazon, the online version will have the first 6 chapters for free in the internet (see previous edition [here](https://www.msperlin.com/pafdR/).
+

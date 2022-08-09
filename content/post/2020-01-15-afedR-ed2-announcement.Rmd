@@ -1,0 +1,40 @@
+---
+title: "Book release - Analyzing Financial and Economic Data with R (2º edition)"
+author: "Marcelo S. Perlin"
+date: '2020-02-10'
+draft: false
+subtitle: ' '
+tags: ["R", "afedR"]
+categories: ["R", "afedR"]
+---
+
+```{block, type="alert alert-success"}
+2021-02-28 -- The book was revised in march 2021. See this [blog post](https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/) for details.
+```
+
+After a couple of unexpected delays, I am very pleased to announce the publication of the second edition of my book, **Analyzing Financial and Economic Data with R**. You can find it in Amazon as an [ebook](https://www.amazon.com/dp/B084LSNXMN) or [paperback](https://www.amazon.com/dp/171062731X). An online version is available [here](https://www.msperlin.com/afedR/). More details, including supplementary material,  are available in the [book webpage](https://www.msperlin.com/blog/publication/2020_book-afedr-en/).
+
+The first edition was released back in 2017 and it was a great journey working once again in this material. Many sections and chapters have been improved, along with new content. Here are the main changes:
+
+Alignment with the tidyverse
+: - Some base function are presented but priority is for `readr`, `ggplot2`, `dplyr`, `stringr`, `purrr` and so on.
+- 100+ pages of new content (a 25% overall increase from previous edition).
+
+Teaching Material
+: - Static end of chapter exercises, with solutions publicly available in the internet; 
+- Rmarkdown slides for each chapter;
+- Dynamic 90+ exercises with the [`exams` package](http://www.r-exams.org/). This means you can create and grade randomized unique tests for your students (see this [post](https://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/) for details);
+
+Book package `afedR`
+: - This package makes it easier to import book datasets, slides, functions and solutions for end-of-chapter exercises. Available in [GitHub](https://github.com/msperlin/afedR) only. See this [blog post](https://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/) for instructions on installation.
+
+Three new chapters
+: - _Cleaning and Structuring Financial and Economic Data_ -- How to clean financial and economic data by dealing with long/wide dataframes, outlier detection/removal and desinflating prices and indexes.
+- _Reporting Results_ -- Using `xtable` and `texreg` to report tables and models. Includes a special section about the RMarkdown technology.
+- _Optimizing Code_ -- Profiling code for bottlenecks and using vectorization, `rcpp` and `memoise` to speed up R computations.
+
+Two new packages in CRAN
+: - `simfinR` -- grabs corporate datasets from the [SimFin project](https://simfin.com/);
+- `GetQuandlData`-- uses [Quandl](https://www.quandl.com/) json api and caching for easier and faster data importation;
+
+If you liked the material, please consider purchasing it and **leaving your feedback at [Amazon](https://www.amazon.com/dp/B084LSNXMN)**. Your oppinion is very important for promoting the book and help others learn more about R and RStudio. As an author, I certainly appreciate the gesture and will take it as a motivating factor for future editions of the book. 

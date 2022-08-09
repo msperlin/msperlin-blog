@@ -1,0 +1,40 @@
+blogdown::serve_site()
+blogdown::build_site; blogdown::serve_site()
+blogdown::build_site(); blogdown::serve_site()
+blogdown::serve_site()
+blogdown::build_site(); blogdown::serve_site()
+blogdown::build_site()
+blogdown::serve_site()
+blogdown::build_site()
+my.blog.folder <- '~/Dropbox/11-My Website/01-msperlin.com/content/post/'
+post.files <- list.files(path = my.blog.folder, pattern = '.Rmd')
+post.files
+blogdown::build_site()
+my.blog.folder <- '~/Dropbox/11-My Website/01-msperlin.com/content/post/'
+post.files <- list.files(path = my.blog.folder, pattern = '.Rmd')
+post.files
+blogdown::build_site()
+blogdown::serve_site()
+blogdown::build_site()
+blogdown::serve_site()
+blogdown::build_site()
+blogdown::serve_site()
+name.companies <- c('PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS')
+first.date <- '2017-01-01'
+last.date <- '2020-01-01'
+inflation.index <- 'IPCA'
+df.reports <- gdfpd.GetDFPData(name.companies = name.companies,
+first.date = first.date,
+last.date = last.date)
+library(GetDFPData)
+library(tidyverse)
+name.companies <- c('PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS')
+first.date <- '2017-01-01'
+last.date <- '2020-01-01'
+inflation.index <- 'IPCA'
+df.reports <- gdfpd.GetDFPData(name.companies = name.companies,
+first.date = first.date,
+last.date = last.date)
+blogdown::serve_site()
+install.packages("glue")
+source('~/Dropbox/06-My Books/02-Analyzing Financial and Economic Data with R/Edition 02/05-R-Scripts/00-Compile-Book/01-Compile_book.R', echo=TRUE)

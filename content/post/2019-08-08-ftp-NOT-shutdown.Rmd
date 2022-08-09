@@ -1,0 +1,55 @@
+---
+title: 'B3 is NOT shutting down its ftp site, for now..'
+subtitle: "GetHFData still works!"
+author: "Marcelo S. Perlin"
+date: '2019-08-08'
+draft: false
+tags: ["R", "GetHFData"]  
+categories: ["R", "GetHFData"]
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache = TRUE, eval=FALSE)
+```
+
+**Update 2019-08-09: The shutdown is just postponed to 2019-11-14. See the official release [here](http://www.b3.com.br/pt_br/noticias/portais-8AE490C86BC98316016BDD1E7BDF14AB.htm?fbclid=IwAR1IY_ILkhkWwsBxFWH4pQEBx-OqxcEDxfmg22Ii5tep_dtzyKw9casag5o).**
+
+Surprise, surprise. B3's ftp site is still up and running. 
+
+Following previous [post](https://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/) regarding the shutdown of B3's ftp site and its impact over GetHFData, I'm happy to report that the site is up and running.  
+
+We can check it with code:
+
+```{r, message=FALSE, cache = TRUE}
+library(GetHFData)
+library(tidyverse)
+
+df.ftp <- ghfd_get_ftp_contents(type.market = 'equity')
+
+# check time difference
+max(df.ftp$dates) - min(df.ftp$dates)
+```
+
+Let's download some trade data:
+
+```{r, cache = TRUE}
+df.trades <- ghfd_get_HF_data(my.assets = 'PETR3', 
+                              type.market = 'equity', 
+                              first.date = max(df.ftp$dates)-3, 
+                              last.date = max(df.ftp$dates),
+                              type.data = 'trades', type.output = 'agg', 
+                              first.time =  '11:00:00', last.time = '18:00:00', dl.dir = tempdir()
+                              )
+```
+
+And check it out: 
+
+```{r}
+glimpse(df.trades)
+```
+
+Its working fine. The amount of data available at the ftp is more than necessary for research and class material. 
+
+I'm not really sure what happened. It could be a simple delay to the shutdown. Lets keep our fingers crossed. 
+
+

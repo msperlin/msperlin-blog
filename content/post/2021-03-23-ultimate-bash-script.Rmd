@@ -1,0 +1,85 @@
+---
+title: "A clever bash script for R Users"
+subtitle: "Installing software and R packages easily"
+author: "Marcelo S. Perlin"
+date: '2021-03-23'
+tags:
+- R
+- Linux Mint
+- Ubuntu
+- Bash
+categories:
+- R
+- Linux Mint
+- Ubuntu
+- Bash
+draft: no
+---
+
+Back in 2017 I wrote a [blog post](https://www.r-craft.org/r-news/simple-bash-script-for-a-fresh-install-of-r-and-its-dependencies-in-linux/) describing a simple bash script for installing R in a Ubuntu setup. The problem with this script, and many others found in the internet, is that they quickly become **obsolete** due to changes in Ubuntu, R and RStudio. For example, if Ubuntu version changes from "trusty" to "focal", the link to the CRAN ppa also changes. The same is true with RStudio, which does not provide installation by apt, only downloadable .deb files from its [website](https://rstudio.com/products/rstudio/download/).
+
+Today I manage to develop a clever [bash script](https://github.com/msperlin/UBUNTU-Fresh-Install/) that uses the internet and local files to find out the current version of all software. Using three different methods -- apt, snap and custom bash scripts -- the script installs all required software in its latest version. The script also installs **R packages** set in a .txt file and configures RStudio to a dark theme. The best part is that all code is **modular** and you can easily customize your installs by changing .txt files in each sub-folder. 
+
+You can find the bash script in [https://github.com/msperlin/UBUNTU-Fresh-Install](https://github.com/msperlin/UBUNTU-Fresh-Install).
+
+
+# How to use it
+
+1) Download the github repository as a [zip file](https://github.com/msperlin/UBUNTU-Fresh-Install/archive/refs/heads/main.zip)
+2) Unpack the zip file and check all .txt files in all sub-folders. Remove or add software/R packages as needed.
+3) Within a terminal, execute the main script:
+
+```
+./UBUNTU_Install-Bash.sh
+```
+
+4) type your sudo password and wait...
+
+
+# Installed Software
+
+The bash script includes the following software:
+
+## Using apt
+- libreoffice ([lastest](https://www.libreoffice.org/))
+- texstudio ([latest](https://www.texstudio.org/))
+- obstudio ([latest](https://obsproject.com/wiki/install-instructions#linux))
+- many others (see file `apt-to-install/list_to_install.txt)`
+
+## Using custom bash scripts
+- R ([latest](https://www.r-project.org/))
+- R Packages
+  - See file `R-pkgs/pkgs_to_install.txt`
+- RStudio ([latest](https://rstudio.com/)
+  - RStudio configuration -- color scheme, size font, .. (see file `Rstudio-Config/my-rstudio-prefs.json`). You can get your own Rstudio preference file locally at `~/.config/rstudio/rstudio-pref.json`.
+- Google Chrome ([latest](https://www.google.com/chrome/))
+
+## Using snap
+
+- Microsoft code ([latest by snap](https://snapcraft.io/code))
+
+
+# Generating R package list
+
+You can generate your own list of used R packages based on your existing code. For that, use the R code below, which will scan your files and retrieve all calls to existing packages. Do notice you'll need to change the base folder in `renv::dependencies`.
+
+```
+library(dplyr)
+
+my_r_dir <- 'YOUR-FOLDER-HERE'
+df <- renv::dependencies(my_r_dir)
+
+n_to_colect <- 50 # number of pkgs to collect (most to least frequent)
+
+tbl_pkgs <- df %>%
+  group_by(Package) %>%
+  count() %>%
+  arrange(-n) %>%
+  #view() %>%
+  ungroup() %>%
+  slice(1:n_to_colect)
+
+tbl_pkgs
+```
+
+

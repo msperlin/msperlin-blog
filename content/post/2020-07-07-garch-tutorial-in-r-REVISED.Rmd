@@ -1,0 +1,22 @@
+---
+title: "A GARCH Tutorial in R (revised)"
+author: "Marcelo S. Perlin"
+date: '2020-07-07'
+draft: no
+subtitle: ' '
+tags:
+- R
+- garch
+categories:
+- R
+- garch
+---
+
+**2020-07-22 Update: The final version of the paper is now published at [RAC](https://rac.anpad.org.br/index.php/rac/article/view/1420?fbclid=IwAR0D0N5RBmeX92sXY22r8RWPDjlVjM00p-DjuufSrYf9WgOf9JhOcGoUS1Q).**
+
+Back in May 2020, I started to work on a [new paper](https://www.msperlin.com/blog/post/2020-03-29-garch-tutorial-in-r/) regarding the use of Garch models in R. Today we finished the peer review process and finally got a final version of the [article](https://docs.google.com/document/d/1eHuKsp3-GokyjOwr0PZ_dNnVTzmSS4PCPMzI9LfUclI/edit?usp=sharing) and [code](https://github.com/msperlin/GARCH-RAC). I'm glad to report that the content improved significantly. 
+
+In a nutshell, the paper motivates GARCH models and presents an empirical application using R: given the recent COVID-19 crisis, we investigate the likelihood of Ibovespa index reach its peak value once again in the upcoming years. 
+
+All code and data used in the study is available in [GitHub](https://github.com/msperlin/GARCH-RAC), so fell free to download the zip file and play around. Likewise, you can run the same code at [RStudio Cloud](https://rstudio.cloud/project/1371589).
+

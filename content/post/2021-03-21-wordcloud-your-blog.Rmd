@@ -1,0 +1,64 @@
+---
+title: "wordcloud ??"
+subtitle: 'safd'
+author: "Marcelo S. Perlin"
+date: '2021-03-18'
+tags:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+categories:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+draft: yes
+---
+
+```{r}
+library(dplyr)
+my_url <- 'https://www.msperlin.com/blog/index.json'
+df_blog <- jsonlite::fromJSON(my_url)
+
+# get only posts
+df_blog <- df_blog %>%
+  filter(section == 'post')
+
+```
+
+
+```{r}
+library(purrr)
+all_subjects <- as.character(do.call(c, df_blog$categories))
+
+sort(table(all_subjects))
+```
+
+```{r}
+all_texts <- as.character(do.call(paste, as.list(df_blog$content)))
+
+stop_words <- c(stopwords::stopwords("en"),
+                'na', '$', 'can', 'lt', '=')
+
+library(tidyverse)
+freq_tab <- data_frame(text = all_texts) %>% 
+  mutate(text = tolower(text)) %>% 
+  mutate(text = str_remove_all(text, '[[:punct:]]')) %>% 
+  mutate(tokens = str_split(text, "\\s+")) %>%
+  unnest() %>% 
+  count(tokens) %>% 
+  filter(!tokens %in% stop_words) %>% 
+  mutate(freq = n / sum(n)) %>% 
+  arrange(desc(n))
+
+rm('all_texts')
+
+```
+
+```{r}
+wordcloud2::wordcloud2(freq_tab)
+```
+

@@ -1,0 +1,101 @@
+---
+title: "Looking back at 2019 and plans for 2020"
+author: "Marcelo S. Perlin"
+date: '2019-12-12'
+draft: false
+subtitle: ' '
+tags: ["R", "site"]
+categories: ["R", "site"]
+---
+
+I'm just about to leave for my vacation and, as usual, I'll write about the highlights of 2019 and my plans for the year to come. First, let's talk about my work in 2019.
+
+
+# Highlights of 2019
+
+The year of 2019 was not particularly fruitful in journal publications. I only had two: _Accessing Financial Reports and Corporate Events with GetDFPData_, [published in RBfin](http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/issue/view/4431) and _A consumer credit risk structural model based on affordability: balance at risk_ [published in JCR](https://www.risk.net/journal-of-credit-risk/6743521/a-consumer-credit-risk-structural-model-based-on-affordability-balance-at-risk). Both are papers I wrote back in 2017 and 2018 and not new articles. Most of the papers I worked this year will be published in 2020 or 2021.
+
+This year, I'm mostly proud of the publication of my book about investing in the fixed income markets  [Poupando e Investindo em Renda Fixa: Uma Abordagem Baseada em Dados](https://www.amazon.com.br/dp/B07RR9K9PV). This  was a special project, very different from the usual writing style of scientific research and, lots of fun to write. As a side effect, I learned a lot about the fixed income market in Brasil and it forced me to think objectively about a problem that is inherently subjective, personal finance and investing. Hopefully, in the future, I'll write another book about the stock market and real state investing, a topic that I'm also very interested. 
+
+My main project this year is the work in the second edition of my R book _Analyzing Financial and Economic Data with R_. It took a major part of my working weeks and weekends, but its coming together. Soon I'll be publishing it in Amazon. You can find more details about it in this  [previous post](https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/).
+
+In the programming side, I wrote two new CRAN packages in 2019: simfinR and GetQuandlData. Both are featured in the new edition of my R book (soon to be published). 
+
+
+# My blog posts in 2018
+
+Let's have a look at my blog posts so so far.
+
+```{r}
+my.blog.folder <- '~/Dropbox/11-My Website/01-msperlin.com/content/post/'
+post.files <- list.files(path = my.blog.folder, pattern = '.Rmd')
+
+post.files
+```
+
+The blog started in january of 2017 and, over time, I wrote `r length(post.files)` posts, around `r length(post.files)/(2020-2017)` per year. Let's get more information from the .Rmd files. I'll write function `read_blog_files` and use it for all post files.
+
+```{r, message=FALSE}
+read_blog_files <- function(f.in) {
+  require(tidyverse)
+  my.front.matter <- rmarkdown::yaml_front_matter(f.in)
+
+  df.out <- data_frame(post.title = my.front.matter$title,
+                       post.date = lubridate::ymd(my.front.matter$date),
+                       post.month = as.Date(format(post.date, '%Y-%m-01')),
+                       tags = paste0(my.front.matter$tags, collapse = ';'),
+                       categories = paste0(my.front.matter$categories, collapse = ';'),
+                       content = paste0(read_lines(f.in), collapse = ' '))
+
+  return(df.out)
+}
+
+df.posts <- dplyr::bind_rows(purrr::map(post.files, read_blog_files))
+
+glimpse(df.posts)
+
+```
+
+First, let's look at the frequency of posts over time.
+
+```{r}
+
+df.posts <- df.posts %>%
+  filter(post.date >= as.Date('2019-01-01'), 
+         post.date <= as.Date('2020-01-01'))
+
+print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat='count') +
+         theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+         labs(y = 'Number of posts', x = ''))
+
+```
+
+
+
+# Checking 2019's plans
+
+At the end of 2018, my plans for 2019  [were](https://www.msperlin.com/blog/post/2019-01-08-looking-back-2018/):
+
+New edition of "Analyzing Financial and Economic Data with R"
+: in progress!
+
+Work on my new book: "Investing For the Long Term " (provisory title)
+: [Done!](https://www.msperlin.com/blog/publication/2019_book-pirf/) The first idea was to write a book about investing in general. I soon realized I would not be able to complete such task within one year. So, I decided to first write about the fixed income market and later, perhaps, write about stock markets and real state. 
+
+Solidify my research agenda in Board Composition
+: In progress. I've got four papers in development, two already submitted and two in the pipeline. 
+
+
+# Plans for 2020
+
+Publish afedR (analyzing financial and economic data with R)
+: My expectation is to publish the book in the first months of the year. I believe it is quite doable, unless something unexpected happens. 
+
+Finish board papers
+: Also doable. The working papers are in a good shape and should be submitted soon. 
+
+Start "personal finance project"
+: I'm not yet sure how to call it, but I've got a couple of ideas for creating a project all about helping people with their finances. 
+
+
+

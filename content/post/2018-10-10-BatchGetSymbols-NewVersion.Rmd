@@ -1,0 +1,44 @@
+---
+title: "BatchGetSymbols 2.2"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-10-10
+categories: ["R", "BatchGetSymbols", "Finance"]
+tags: [R, BatchGetSymbols, Finance]
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+One of the main requests I get for package `BatchGetSymbols` is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let's check it out:
+
+```{r}
+library(BatchGetSymbols)
+library(purrr)
+library(ggplot2)
+
+my.fct <- function(my.freq) {
+  
+  df <- BatchGetSymbols(tickers = c('GE'), 
+                      first.date = '2010-01-01',
+                      last.date = Sys.Date(), do.cache = FALSE,
+                      freq.data = my.freq)$df.tickers
+  
+  df$freq <- my.freq
+
+  return(df)
+}
+
+my.possible.freq <-  c('daily', 'weekly', 'monthly', 'yearly')
+
+df.allfreq <- bind_rows(map(.x = my.possible.freq, .f = my.fct))
+
+p <- ggplot(df.allfreq, aes(x=ref.date, y = price.adjusted)) + 
+  geom_point() + geom_line() + facet_grid(freq ~ ticker)
+
+print(p)
+
+```
+
+

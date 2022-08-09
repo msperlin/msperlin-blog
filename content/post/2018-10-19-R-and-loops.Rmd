@@ -1,0 +1,186 @@
+---
+layout: post
+title: "Loops and Pizzas"
+subtitle: "An Introduction to Loops in R"
+author: "Marcelo S. Perlin"
+date: 2018-10-19
+categories: ["R", 'tutorial']
+tags: [R, loops, tutorial]
+---
+
+# Loops in R
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+First, if you are new to programming, you should know that loops are a way to tell the computer that you want to repeat some operation for a number of times. This is a very common task that can be found in many programming languages. For example, let's say you invited five friends for dinner at your home and the whole cost of four pizzas will be split evenly. Assume now that you **must** give instructions to a computer on calculating how much each one will pay at the end of dinner. For that, you need to sum up the individual tabs and divide by the number of people. Your instructions to the computer could be:  _start with a value of x = zero, take each individual pizza cost and sum it to x until all costs are processed, dividing the result by the number of friends at the end_. 
+
+The great thing about _loops_ is that the length of it is dynamically set. Using the previous example, if we had 500 friends (and a large dinner table!), we could use the same instructions for calculating the individual tabs. That means we can encapsulate a generic procedure for processing any given number of friends at dinner. With it, you have at your reach a tool for the execution of any sequential process. In other words, you are the boss of your computer and, as long as you can write it down clearly, you can set it to do any kind of repeated task for you. 
+
+Now, about the code, we could write the solution to the _pizza problem_  in R as: 
+
+```{r}
+pizza.costs <- c(50, 80, 30, 60) # each cost of pizza
+n.friends <- 5 # number of friends
+
+x <- 0 # set first cost to zero
+for (i.cost in pizza.costs) {
+  x <- x + i.cost # sum it up
+}
+
+x <- x/n.friends # divide for average per friend
+print(x)
+```
+
+Don't worry if you didn't understand the code. We'll get to the structure of a loop soon.
+
+Back to our case, each friend would pay `r x` for the meal. We can check the result against function `sum`:
+
+```{r}
+x == sum(pizza.costs)/n.friends
+```
+
+The output `TRUE` shows that the results are equal. 
+
+## The Structure of a Loop
+
+Knowing how to use loops can be a powerful ally in a complex data related problem. Let's talk more about how _loops_ are defined in R. The structure of a _loop_ in R follows:
+
+```{r eval=FALSE}
+for (i in i.vec){
+  ...
+}
+```
+
+In the previous code, command `for` indicates the beginning of a _loop_. Object `i` in `(i in i.vec)` is the iterator of the _loop_. This iterator will change its value in each iteration, taking each individual value contained in `i.vec`. Note the _loop_ is encapsulated by curly braces (`{}`). These are important, as they define where the _loop_ starts and where it ends. The indentation (use of bigger margins) is also important for visual cues, but not necessary. Consider the following practical example:
+
+```{r}
+# set seq
+my.seq <- seq(-5,5)
+
+# do loop
+for (i in my.seq){
+  cat(paste('\nThe value of i is',i))
+}
+```
+
+In the code, we created a sequence from -5 to 5 and presented a text for each element with the `cat` function. Notice how we also broke the prompt line with `'\n'`. The _loop_ starts with `i=-5`, execute command `cat(paste('\nThe value of i is', -5))`, proceed to the next iteration by setting `i=-4`, rerun the `cat` command, and so on. At its final iteration, the value of `i` is `5`.
+
+The iterated sequence in the _loop_ is not exclusive to numerical vectors. Any type of vector or list may be used. See next:
+
+```{r}
+# set char vec
+my.char.vec <- letters[1:5]
+
+# loop it!
+for (i.char in my.char.vec){
+  cat(paste('\nThe value of i.char is', i.char))
+}
+```  
+
+The same goes for `lists`:
+
+```{r, tidy=FALSE}
+# set list
+my.l <- list(x = 1:5, 
+             y = c('abc','dfg'), 
+             z = factor('A','B','C','D'))
+
+# loop list
+for (i.l in my.l){
+  
+  cat(paste0('\nThe class of i.l is ', class(i.l), '. '))
+  cat(paste0('The number of elements is ', length(i.l), '.'))
+  
+}
+```
+
+In the definition of _loops_, the iterator does not have to be the only object incremented in each iteration. We can create other objects and increment them using a simple sum operation. See next:
+
+```{r, tidy=FALSE}
+# set vec and iterators
+my.vec <- seq(1:5)
+my.x <- 5
+my.z <- 10
+
+for (i in my.vec){
+  # iterate "manually"
+  my.x <- my.x + 1
+  my.z <- my.z + 2
+  
+  cat('\nValue of i = ', i, 
+      ' | Value of my.x = ', my.x, 
+      ' | Value of my.z = ', my.z)
+}
+```
+
+Using nested _loops_, that is, a _loop_ inside of another _loop_ is also possible. See the following example, where we present all the elements of a matrix:
+
+```{r}
+# set matrix
+my.mat <- matrix(1:9, nrow = 3)
+
+# loop all values of matrix
+for (i in seq(1,nrow(my.mat))){
+  for (j in seq(1,ncol(my.mat))){
+    cat(paste0('\nElement [', i, ', ', j, '] = ', my.mat[i,j]))
+  }
+}
+```
+
+## A Real World Example
+
+Now, the computational needs of the real world is far more complex than dividing a dinner expense. A practical example of using _loops_ is processing data according to groups. Using an example from Finance, if we have a return dataset for several stocks and we want to calculate the average return  of each stock, we can use a _loop_ for that. In this example, we will use _Yahoo Finance_ data from three stocks: FB, GE and AA. The first step is downloading it with package `BatchGetSymbols`.
+
+
+```{r, tidy=FALSE}
+library(BatchGetSymbols)
+
+my.tickers <-  c('FB', 'GE', 'AA')
+
+df.stocks <- BatchGetSymbols(tickers = my.tickers, 
+                             first.date = '2012-01-01', 
+                             freq.data = 'yearly')[[2]]
+
+```
+
+It worked fine. Let's check the contents of the dataframe:
+
+```{r}
+dplyr::glimpse(df.stocks)
+```
+
+All financial data is there. Notice that the return series is available at column ret.adjusted.prices.
+
+Now we will use a loop to build a table with the mean return of each stock:
+
+```{r, tidy=FALSE}
+# find unique tickers in column ticker
+unique.tickers <- unique(df.stocks$ticker)
+
+# create empty df
+tab.out <- data.frame()
+
+# loop tickers
+for (i.ticker in unique.tickers){
+  
+  # create temp df with ticker i.ticker
+  temp <- df.stocks[df.stocks$ticker==i.ticker, ]
+  
+  # row bind i.ticker and mean.ret
+  tab.out <- rbind(tab.out, 
+                   data.frame(ticker = i.ticker,
+                              mean.ret = mean(temp$ret.adjusted.prices, na.rm = TRUE)))
+  
+}
+
+# print result
+print(tab.out)
+```
+
+In the code, we used function `unique` to find out the names of all the tickers in the dataset. Soon after, we create an empty _dataframe_ to save the results and a loop to filter the data of each stock sequentially and average its returns. At the end of the _loop_, we use function `rbind` to paste the results of each stock with the results of the main table. As you can see, we can use the data to perform group calculations with _loop_. 
+
+By now, I must be forward in saying that the previous loop is by no means the best way of performing the data operation. What we just did by loops is called a _split-apply-combine_ procedure. There are base function in R such as `tapply`, `split` and `lapply`/`sapply` that can do the same job but with a more intuitive and  functional approach. Going further, functions from package `tidyverse` can do the same procuedure with an even more intuitive approach. In  a future post I shall discuss this possibilities further. 
+
+I hope you guys liked the post. Got a question? Just drop it at the comment section.

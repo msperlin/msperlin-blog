@@ -1,0 +1,329 @@
+---
+title: "bookdown + exams + webex"
+subtitle: Compiling reproducible exercises for your book
+author: "Marcelo S. Perlin"
+date: '2021-03-18'
+tags:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+categories:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+draft: no
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>It’s been three years since I’ve been using package <code>bookdown</code> for compiling and distributing <a href="https://www.msperlin.com/blog/publication/#5">three different books</a> in Amazon and the <a href="https://www.msperlin.com/afedR/">web</a>. It helped me greatly in all my book projects and I’m always <strong>grateful</strong> to Yihui Xie for providing such a useful tool at the <a href="https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/">right time</a>.</p>
+<p>However, <code>bookdown</code> offers no support for chapter exercises of any sort. While you can write exercises in plain RMarkdown, it is not a good solution for a long term project such as a technical book. When writing the latest edition of <a href="https://www.msperlin.com/afedR/">Analyzing Financial and Economical Data with R</a>, I aimed for a work cycle where the 100 plus exercises and their solutions were reproducible and easier to maintain.</p>
+<p>Meanwhile, package <code>exams</code> provides a <a href="http://www.r-exams.org/">framework</a> to produce exercises in a reproducible setup, making it possible to export the exercises to any given format such as pdf or html, or even <em>e-learning</em> platforms such as Moodle and Blackboard. I use <code>exams</code> extensively in all my university classes and it works like a charm!</p>
+<p>So, while writing afedR, I worked towards finding a way to bring the two technologies closer to each other, which is what I’ll report in this blog post. Here are the main advantages of this setup:</p>
+<ul>
+<li>The content of book exercises, their solution and explanation in a single location (no more fidling with different folders).</li>
+<li>Dynamic output for html, with buttons and solutions available at a single click.</li>
+<li>Exportable exercises for classes (see this <a href="https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/">blog post</a>). You can export the same exercises to pdf or Moodle, for example.</li>
+</ul>
+<div id="bookdown-exams-webex" class="section level2">
+<h2><code>bookdown</code> + <code>exams</code> + <code>webex</code></h2>
+<p>First and foremost, the main part of the hack is to realize that any exercises in a .Rmd file <a href="https://stackoverflow.com/questions/62315622/using-r-exams-in-bookdown-document-especially-for-html-output/66012008#66012008">can be broken</a> into a list using <code>exams::xexams</code>. Let’s use an example from the book, with the first three exercises of chapter 01:</p>
+<pre class="r"><code># example from book 
+afedR::copy_book_files(path_to_copy = tempdir())</code></pre>
+<pre><code>## Copying data files files to /tmp/RtmpIs4EpM/afedR files/data</code></pre>
+<pre><code>##  37 files copied</code></pre>
+<pre><code>## Copying end-of-chapter (eoc) exercises with solutions to /tmp/RtmpIs4EpM/afedR files/eoc-exercises/</code></pre>
+<pre><code>##  99 files copied</code></pre>
+<pre><code>## Copying R code to /tmp/RtmpIs4EpM/afedR files/R-code</code></pre>
+<pre><code>##  15 files copied</code></pre>
+<pre class="r"><code># temp folder with exercises
+eoc_dir &lt;- file.path(tempdir(), &#39;afedR files/eoc-exercises/&#39;)
+
+# select exercises
+my_exercises &lt;- list.files(eoc_dir, pattern = &#39;*.Rmd&#39;, full.names = TRUE)
+my_exercises &lt;- my_exercises[1:3]
+
+# break it down
+my_l &lt;- exams::xexams(my_exercises)
+
+# check it
+dplyr::glimpse(my_l)</code></pre>
+<pre><code>## List of 1
+##  $ exam1:List of 3
+##   ..$ exercise1:List of 6
+##   .. ..$ question    : chr [1:3] &quot;&quot; &quot;The R language was developed based on what other programming language?&quot; &quot;&quot;
+##   .. ..$ questionlist: chr [1:5] &quot;C++&quot; &quot;Python&quot; &quot;Julia&quot; &quot;Javascript&quot; ...
+##   .. ..$ solution    : chr [1:2] &quot;&quot; &quot;Straight from the book, section **What is R**: \&quot;R is a modern version of S, a programming language originally &quot;| __truncated__
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &quot;names&quot;)= chr(0) 
+##   .. .. ..- attr(*, &quot;dir&quot;)= chr &quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise1&quot;
+##   ..$ exercise2:List of 6
+##   .. ..$ question    : chr [1:3] &quot;&quot; &quot;What are the names of the two authors of R?&quot; &quot;&quot;
+##   .. ..$ questionlist: chr [1:5] &quot;Linus Torvalds and Richard Stallman&quot; &quot;John Chambers and Robert Engle&quot; &quot;Roger Federer and Rafael Nadal&quot; &quot;Guido van Rossum and Bjarne Stroustrup&quot; ...
+##   .. ..$ solution    : chr [1:3] &quot;&quot; &quot;Straight from the book: \&quot;... The base code of R was developed by two academics, **Ross Ihaka** and **Robert Ge&quot;| __truncated__ &quot;&quot;
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &quot;names&quot;)= chr(0) 
+##   .. .. ..- attr(*, &quot;dir&quot;)= chr &quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise2&quot;
+##   ..$ exercise3:List of 6
+##   .. ..$ question    : chr [1:4] &quot;&quot; &quot;Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?&quot; &quot;&quot; &quot;&quot;
+##   .. ..$ questionlist: chr [1:5] &quot;It was designed for analyzing data and producing statistical output&quot; &quot;Easy to use&quot; &quot;Works on any plataform such as Windows, Unix, MacOS&quot; &quot;Makes it easy to write mobile apps&quot; ...
+##   .. ..$ solution    : chr [1:2] &quot;&quot; &quot;Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platfor&quot;| __truncated__
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &quot;names&quot;)= chr(0) 
+##   .. .. ..- attr(*, &quot;dir&quot;)= chr &quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise3&quot;</code></pre>
+<p>As an example, in this list you can see the main text of the question 01 in slot <code>l_out$exam1$exercise1$question</code>:</p>
+<pre class="r"><code>my_l$exam1$exercise1$question</code></pre>
+<pre><code>## [1] &quot;&quot;                                                                      
+## [2] &quot;The R language was developed based on what other programming language?&quot;
+## [3] &quot;&quot;</code></pre>
+<p>And the solution at <code>my_l$exam1$exercise1$solution</code></p>
+<pre class="r"><code>my_l$exam1$exercise1$solution</code></pre>
+<pre><code>## [1] &quot;&quot;                                                                                                                                                                                       
+## [2] &quot;Straight from the book, section **What is R**: \&quot;R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies).\&quot;&quot;</code></pre>
+<p>In my case, I wanted the html version of the book to have all the solutions hidden by a clickable button – just like in <code>webex</code> – while the pdf and ebook would only have the text of the questions. Here are the functions I used:</p>
+<pre class="r"><code>compile_eoc_exercises &lt;- function(files_in, type_doc) {
+  my_counter &lt;&lt;- 1
+
+  if (is.null(type_doc)) {
+    type_doc = &#39;html&#39;
+    #type_doc = &#39;latex&#39;
+  }
+
+  for (i_ex in files_in) {
+    exercise_to_html(i_ex, my_counter = my_counter,
+                     type_doc)
+
+    my_counter &lt;&lt;- my_counter +1
+  }
+
+  return(invisible(TRUE))
+}
+
+exercise_to_html &lt;- function(f_in, my_counter, type_doc) {
+
+  require(exams)
+  require(webex)
+  require(tidyverse)
+
+  text_pre_solution &lt;- paste0(&#39;To reach the same result, you must execute the code below. &#39;,
+                           &#39;For that, open a new R script in RStudio (Control+shift+N), &#39;,
+                           &#39;copy and paste the code, and execute it whole by pressing &#39;,
+                           &#39;Control+Shift+Enter or line by line with shortcut &#39;,
+                           &#39;Control+Enter.&#39;)
+
+  my_dir &lt;- file.path(tempdir(), basename(tempfile()))
+  dir.create(my_dir)
+
+  suppressMessages({
+  l_out &lt;- exams::xexams(f_in, driver = list(sweave = list(png = TRUE)),
+                         dir = my_dir)
+
+  })
+
+  exercise_text &lt;- paste0(l_out$exam1$exercise1$question, collapse = &#39;\n&#39;)
+  alternatives &lt;- l_out$exam1$exercise1$questionlist
+  correct &lt;- l_out$exam1$exercise1$metainfo$solution
+  solution &lt;- paste0(l_out$exam1$exercise1$solution,
+                     collapse = &#39;\n&#39;)
+  ex_type &lt;- l_out$exam1$exercise1$metainfo$type
+
+  if (type_doc %in% c(&#39;latex&#39;, &#39;epub3&#39;)) {
+
+    my_str &lt;- str_glue(&#39;\n\n {sprintf(&quot;%02d&quot;, my_counter)} - {exercise_text} \n\n &#39;)
+
+    if (ex_type == &#39;schoice&#39;) {
+      n_alternatives &lt;- length(alternatives)
+
+      for (i_alt in seq(1, n_alternatives)) {
+        my_str &lt;- paste0(my_str,
+                         letters[i_alt],&#39;) &#39;, alternatives[i_alt],
+                         &#39;\n&#39;)
+      }
+
+    }
+
+    cat(my_str)
+
+    return(invisible(TRUE))
+
+  } else if (type_doc == &#39;html&#39;) {
+
+    if (ex_type == &#39;schoice&#39;) {
+      vec_mcq &lt;- sample(
+        c(alternatives[!correct],
+          answer = alternatives[correct])
+      )
+
+      my_answers_text &lt;- str_glue(&#39;&lt;br&gt; Solution: {mcq(vec_mcq)}&#39;)
+      numeric_sol &lt;- alternatives[correct]
+      text_sol &lt;- str_glue(&#39;The solution is {numeric_sol}. {text_pre_solution}&#39;)
+
+    } else if (ex_type == &#39;num&#39;) {
+
+      numeric_sol &lt;- correct
+      my_answers_text &lt;- str_glue(&#39;&lt;br&gt;&lt;br&gt; Your Answer: {fitb(correct)}&#39;)
+      text_sol &lt;- str_glue(&#39;The solution is {numeric_sol}. {text_pre_solution}&#39;)
+
+    } else if (ex_type == &#39;string&#39;) {
+      my_answers_text &lt;- &#39;&#39;
+      numeric_sol &lt;- &#39;&#39;
+
+      if (stringr::str_detect(solution,
+                              &#39;```text&#39;)) {
+        text_sol &lt;- paste0(&#39;In order to execute the code, open a new R script in RStudio (Control+shift+N), &#39;,
+                           &#39;copy and paste the code, and execute it whole by pressing &#39;,
+                           &#39;Control+Shift+Enter or line by line with shortcut &#39;,
+                           &#39;Control+Enter.&#39;)
+
+      } else {
+        text_sol &lt;- &#39;&#39;
+      }
+
+    }
+
+    my_str &lt;- paste0(&#39;\n\n &lt;hr&gt; \n&#39;,
+                     webex::total_correct(), &#39;\n&#39;,
+                     &#39;### Q.&#39;, my_counter, &#39;{-} \n&#39;,
+                     exercise_text, &#39;\n&#39;,
+                       my_answers_text)
+
+    temp_id &lt;- basename(tempfile(pattern = &#39;collapse_&#39;))
+    sol_str &lt;- str_glue(
+      &#39; &lt;div style=&quot;text-align: left; margin-top: 2px; padding: 13px 0 10px 0;&quot;&gt;&lt;p&gt;&lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#{temp_id}&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;collapseExample&quot;&gt;
+    Solution
+  &lt;/button&gt; &lt;/p&gt; &lt;/div&gt;
+
+&lt;div class=&quot;collapse&quot; id=&quot;{temp_id}&quot;&gt;
+{text_sol}
+  &lt;div class=&quot;card card-body&quot;&gt;
+    {solution}
+  &lt;/div&gt;
+&lt;/div&gt;&#39;)
+
+    cat(paste0(my_str, &#39;\n&#39; ,
+               sol_str))
+
+  }
+
+  return(invisible(TRUE))
+
+}</code></pre>
+<div id="html-exercises" class="section level3">
+<h3>Html Exercises</h3>
+<p>The html output for the selected three exercises is given next. Do notice that the correct solution is <strong>not highlighted</strong> in this blog post due to the lack of css and javascript. In the <a href="https://www.msperlin.com/afedR/introduction.html#exercises">final result</a> you’ll see that it works correctly. Also, you’ll need to set <code>results='asis'</code> in the knitr options of the chunk (the code output pure html).</p>
+<pre class="r"><code>compile_eoc_exercises(my_exercises, type_doc = &#39;html&#39;)</code></pre>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.1" class="section level3 unnumbered">
+<h3>Q.1</h3>
+<p>The R language was developed based on what other programming language?</p>
+<br> Solution: <select class='solveme' data-answer='["S"]'> <option></option> <option>Julia</option> <option>Javascript</option> <option>C++</option> <option>S</option> <option>Python</option></select>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_4e096b9ef65" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_4e096b9ef65" class="collapse">
+The solution is S. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+Straight from the book, section <strong>What is R</strong>: “R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies).”
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.2" class="section level3 unnumbered">
+<h3>Q.2</h3>
+<p>What are the names of the two authors of R?</p>
+<br> Solution: <select class='solveme' data-answer='["Ross Ihaka and Robert Gentleman"]'> <option></option> <option>Linus Torvalds and Richard Stallman</option> <option>John Chambers and Robert Engle</option> <option>Roger Federer and Rafael Nadal</option> <option>Guido van Rossum and Bjarne Stroustrup</option> <option>Ross Ihaka and Robert Gentleman</option></select>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_4e0956ac53c2" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_4e0956ac53c2" class="collapse">
+The solution is Ross Ihaka and Robert Gentleman. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+<p>Straight from the book: “… The base code of R was developed by two academics, <strong>Ross Ihaka</strong> and <strong>Robert Gentleman</strong>, resulting in the programming platform we have today.”.</p>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.3" class="section level3 unnumbered">
+<h3>Q.3</h3>
+<p>Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?</p>
+<br> Solution: <select class='solveme' data-answer='["It was designed for analyzing data and producing statistical output"]'> <option></option> <option>Easy to use</option> <option>It was designed for analyzing data and producing statistical output</option> <option>Makes it easy to write mobile apps</option> <option>Quick code execution</option> <option>Works on any plataform such as Windows, Unix, MacOS</option></select>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_4e0916478a7b" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_4e0916478a7b" class="collapse">
+The solution is It was designed for analyzing data and producing statistical output. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platform. Although other languages also allow data analysis, it is in R where this process is supported by a wide range of specialized packages.
+</div>
+</div>
+</div>
+<div id="pdfebook-exercises" class="section level3">
+<h3>Pdf/Ebook Exercises</h3>
+<p>And for latex (pdf) and epub3 (ebook), the result is:</p>
+<pre class="r"><code>compile_eoc_exercises(my_exercises, type_doc = &#39;latex&#39;)</code></pre>
+<p>01 -
+The R language was developed based on what other programming language?</p>
+<ol style="list-style-type: lower-alpha">
+<li>C++</li>
+<li>S</li>
+<li>Javascript</li>
+<li>Julia</li>
+<li>Python</li>
+</ol>
+<p>02 -
+What are the names of the two authors of R?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Guido van Rossum and Bjarne Stroustrup</li>
+<li>John Chambers and Robert Engle</li>
+<li>Roger Federer and Rafael Nadal</li>
+<li>Ross Ihaka and Robert Gentleman</li>
+<li>Linus Torvalds and Richard Stallman</li>
+</ol>
+<p>03 -
+Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Works on any plataform such as Windows, Unix, MacOS</li>
+<li>Easy to use</li>
+<li>Quick code execution</li>
+<li>Makes it easy to write mobile apps</li>
+<li>It was designed for analyzing data and producing statistical output</li>
+</ol>
+<p>As you can see, it works great. So, at the end of each chapter I simply called function <code>compile_eoc_exercises()</code> with the knit chunk options <code>results='asis'</code> and <code>echo=FALSE</code>. Moreover, object <code>my_engine</code> is set as <code>my_engine &lt;- knitr:::pandoc_to()</code>, which will figure out the format within the compilation of the book:</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/lCDuvZg" data-context="false">
+<a href="//imgur.com/a/lCDuvZg"></a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>Its is amazing how much we can accomplish by learning and mixing different technologies. In this case, I used R, Latex, html, javascript and css to bundle reproducible and dynamic exercises for my book. You can find examples of the final output in <a href="https://www.msperlin.com/afedR/introduction.html#exercises">html</a>, <a href="https://www.msperlin.com/afedR/afedR_ed02-ONLINE.pdf">pdf</a> and <a href="https://www.msperlin.com/afedR/afedR_ed02-ONLINE.epub">ebook</a>.</p>
+<p>If you’re trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used <a href="https://www.msperlin.com/blog/post/my_javascript.js">my_javascript.js</a> and <a href="https://www.msperlin.com/blog/post/style_html.css">style_html.css</a>.</p>
+</div>

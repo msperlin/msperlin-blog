@@ -1,0 +1,378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>Introduction to R-John Wick </title>
+<style type="text/css">
+body{font-family:Arial;}
+</style>
+
+<meta charset="UTF-8">
+
+<script type="text/javascript"   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+</head>
+
+<body>
+
+<br>
+<div style="background-color:#cccccc;color:black;padding:15px; border-style: groove">
+
+ <h3>Information about Exercise</h3>
+ 
+ <!--
+<br>
+<a href="https://www.msperlin.com/blog/publication/2020_book-afedr-en/"><img src="https://i.imgur.com/0iqeAGw.jpg" title="Book Cover" style="width:150px;height:200px" /></a>
+<br>
+-->
+
+<p>Class Name: R Workshop </p>
+<p>Exercise Name: Introduction to R </p> 
+<p>Student Name: John Wick </p> 
+<p>Student Version: 2 </p>
+<p>Number of questions: 11 </p>
+<p>Date and time of compilation: 2019-12-02 14:10:36 at Dell-Desktop </p>
+
+<br>
+
+<h3>Supplement Material:</h3>
+
+<p><a href="https://www.msperlin.com/blog/publication/2020_book-afedr-en/"> Analyzing Financial and Economic Data with R </a>.</p>
+
+<br>
+
+<h3>Notes:</h3>
+
+<ul>
+    <li>All exercises displayed here part of the book "Analyzing Financial and Economic Data with R", available in <a href = "https://www.msperlin.com/blog/publication/2020_book-afedr-en/">Amazon.com</a>.
+    </li>
+    
+
+    <li>
+        All data files required for solving the exercises are available with Github package <code>afedR</code>. So, first install the package with command <code>devtools::install_github('msperlin/afedR")</code> and, as an example for reading a table from file "example.rds", simply type:
+
+        <p> 
+            <code>df <- readRDS(afedR::afedR_get_data_file('example.rds'))</code>
+        </p> 
+    </li>
+  </ul>
+
+</div>
+
+<p> </p>
+
+<div style="background-color:#d9d9d9;color:black;padding:15px; border-style: groove">
+
+
+
+<h3>Exercises</h3>
+
+<ol>
+<li>
+
+<p>What is the name of the function that shows the representation of an object in R’s prompt ?</p>
+<br/>
+<ol type="a">
+<li>
+print
+</li>
+<li>
+as.Date.POSIXlt
+</li>
+<li>
+Sys.time
+</li>
+<li>
+scale.default
+</li>
+<li>
+cat
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>From the list of file extensions presented below, what is the most likely file extension to be used with function source()?</p>
+<br/>
+<ol type="a">
+<li>
+.csv
+</li>
+<li>
+.Rmd
+</li>
+<li>
+.Rproj
+</li>
+<li>
+.R
+</li>
+<li>
+.RData
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>In a particular part of our code we used function <em>load</em>. What is extension of the file used as input in this function?</p>
+<br/>
+<ol type="a">
+<li>
+.Rproj
+</li>
+<li>
+.Rmd
+</li>
+<li>
+.RData
+</li>
+<li>
+.R
+</li>
+<li>
+.csv
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>Consider the following code.</p>
+<pre><code>
+my.idx <- -41:77
+x <- my.idx[4]
+y <- my.idx[length(my.idx)-2]
+</code></pre>
+<p>Without the execution of the code, what is the content of objects x and y? ?</p>
+<br/>
+<ol type="a">
+<li>
+x = -38, y = 75
+</li>
+<li>
+x = 75, y = -38
+</li>
+<li>
+x = -33, y = 65
+</li>
+<li>
+x = -26, y = 87
+</li>
+<li>
+x = -40, y = 85
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>The following code was executed in R.</p>
+<pre><code>
+my.vec <- runif(100)
+</code></pre>
+<p>Which of the following commands will result in an error?</p>
+<br/>
+<ol type="a">
+<li>
+my.vec + runif(100)
+</li>
+<li>
+my.vec*‘a’
+</li>
+<li>
+my.vec[101]
+</li>
+<li>
+my.vec[-1]
+</li>
+<li>
+my.vec + runif(101)
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>Consider the execution of the following R code:</p>
+<pre><code>
+rm(list = ls())
+x=1:100
+y=2:100
+my.objs <- ls()
+</code></pre>
+<p>Which of the following commands will replicate the contents of <em>my.objs</em>?</p>
+<br/>
+<ol type="a">
+<li>
+x
+</li>
+<li>
+NA
+</li>
+<li>
+c(‘x’, ‘y’)
+</li>
+<li>
+y
+</li>
+<li>
+c(‘my.objs’)
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>Consider the following matrix M:</p>
+<pre><code>##             [,1]      [,2]       [,3]      [,4]       [,5]
+##  [1,] 0.06008533 0.2251444 0.41830558 0.2758326 0.47646038
+##  [2,] 0.02936167 0.8339095 0.85871269 0.1176288 0.80894802
+##  [3,] 0.97308695 0.9227484 0.53681107 0.3521711 0.15154930
+##  [4,] 0.55413609 0.2635854 0.88749661 0.5706267 0.61608720
+##  [5,] 0.35141193 0.7252120 0.62529309 0.5374274 0.20117577
+##  [6,] 0.31846808 0.8642402 0.96078895 0.7187306 0.53611502
+##  [7,] 0.55800411 0.6480051 0.26482990 0.8299533 0.83696086
+##  [8,] 0.92802590 0.9536172 0.92313977 0.1589584 0.06788695
+##  [9,] 0.61730091 0.4593647 0.08488172 0.7129616 0.81419610
+## [10,] 0.64824987 0.4058497 0.35233302 0.9478404 0.66728826</code></pre>
+<p>If we created a new object called sol.q with the code:</p>
+<pre><code>
+my.nrows <- nrow(M)
+my.ncols <- ncol(M)
+sol.q <- M[my.ncols-1,my.ncols]
+</pre>
+<p></code></p>
+<p>What would be its contents ? (You should be able to find the solution without any coding).</p>
+<br/>
+<ol type="a">
+<li>
+0.554136094171554
+</li>
+<li>
+0.625293087912723
+</li>
+<li>
+0.625293087912723
+</li>
+<li>
+0.0600853317882866
+</li>
+<li>
+0.616087201051414
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>Consider the creation of the following matrix M:</p>
+<pre><code>##           [,1]      [,2]      [,3]
+## [1,] 0.4895910 0.7946093 0.5972314
+## [2,] 0.6883237 0.3392691 0.9339385
+## [3,] 0.5777122 0.6480635 0.3834089
+## [4,] 0.9264828 0.3573940 0.1665579
+## [5,] 0.8255376 0.9617958 0.8307341</code></pre>
+<p>If we executed in R the commands <em>dim(M)[1]</em>, <em>ncol(M)</em> and <em>length(M)</em> in that exact order, what would be the result?</p>
+<br/>
+<ol type="a">
+<li>
+15, -3, 16
+</li>
+<li>
+5, 3, 15
+</li>
+<li>
+3, 2, 15
+</li>
+<li>
+9, -2, 16
+</li>
+<li>
+14, -4, 16
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>If we executed the following code in R, what would be the result?</p>
+<pre><code>
+my.f <- list.files(path = 'data', pattern = '*.csv',full.names = TRUE)
+</code></pre>
+<br/>
+<ol type="a">
+<li>
+Object <em>my.f</em> will hold all objects from namespace <em>data</em>
+</li>
+<li>
+The call to <em>list.files</em> will look for all filenames that start with <em>data</em>
+</li>
+<li>
+The object will return all files from folder <em>data</em>
+</li>
+<li>
+Object <em>my.f</em> will hold all filenames in folder <em>data</em> that have the <em>.csv</em> extension. It will also display the names of the subfolders
+</li>
+<li>
+The object <em>my.f</em> will show the number of packages in CRAN in next week, 2019-12-09
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>A student executed the following R code:</p>
+<pre class="text"><code>set.seed(my.seed)
+y &lt;- sample(1:10, 3)
+y &lt;- y[c(1,3)]
+x &lt;- y[2]</code></pre>
+<p>If my.seed = 36, what is the content of object <em>x</em>?</p>
+<br/>
+<ol type="a">
+<li>
+4
+</li>
+<li>
+5
+</li>
+<li>
+NA
+</li>
+<li>
+8
+</li>
+<li>
+5
+</li>
+</ol>
+<br/>
+</li>
+<li>
+
+<p>If you are working in a directory of your computer called “C:/MyCode” and want to change the directory to a subfolder called “data”, which of the following commands will do that?</p>
+<br/>
+<ol type="a">
+<li>
+getwd(paste(getwd(),‘data’))
+</li>
+<li>
+setwd(paste0(getwd(),‘/data’))
+</li>
+<li>
+setwd(getwd())
+</li>
+<li>
+getwd(paste0(setwd(),‘data’))
+</li>
+<li>
+setwd(paste(getwd(),‘/data’))
+</li>
+</ol>
+<br/>
+</li>
+</ol>
+
+</div> 
+</body>
+</html>

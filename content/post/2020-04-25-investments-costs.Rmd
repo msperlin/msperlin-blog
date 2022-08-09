@@ -1,0 +1,98 @@
+---
+title: "Investments Costs"
+author: "Marcelo S. Perlin"
+date: '2020-04-25'
+draft: yes
+subtitle: ' '
+tags:
+- R
+- GetCVMData
+categories:
+- R
+- GetCVMData
+---
+
+
+Investing is hard. 
+People often 
+
+
+
+```{r, eval=FALSE}
+get_perf <- function(starting_cash = 1, 
+                     perc_perf = 0.2, 
+                     perc_manag = 0.02, 
+                     manager_skill_down = 0.8,
+                     manager_skill_up = 1.2) {
+  
+  require(BatchGetSymbols)
+  
+  df_sp500 <- BatchGetSymbols(tickers = '^GSPC', 
+                              first.date = '1950-01-01', last.date = Sys.Date())[[2]]
+  
+  df_invest <- df_sp500 %>%
+    mutate(ref_year = lubridate::year(ref.date)) %>%
+    group_by(ref_year) %>%
+    summarise(last_price = last(price.adjusted)) %>%
+    mutate(ret = last_price/lag(last_price) - 1)
+  
+  df_out <- tibble()
+  port_value <- starting_cash
+  invest_value <- starting_cash
+  for (i_year in df_invest$ref_year[2:nrow(df_invest)]) {
+    
+    idx <- which(i_year == df_invest$ref_year)
+    ret_year <- df_invest$ret[idx]
+    invest_value <- invest_value*(1 + ret_year)
+
+    fund_return <- (ret_year>0)*manager_skill_up*ret_year + 
+      (ret_year<=0)*manager_skill_down*ret_year
+    
+    bench_cost <- (fund_return > 0)*(fund_return - ret_year)*perc_perf*port_value
+    management_cost <- port_value*perc_manag
+    
+    port_value <- port_value*(1+fund_return) - bench_cost - management_cost
+    
+    df_out <- bind_rows(df_out, tibble(i_year, 
+                                       ret_investment = ret_year,
+                                       fund_return,
+                                       bench_cost,
+                                       management_cost,
+                                       fund_cost = bench_cost + management_cost,
+                                       port_value, 
+                                       invest_value))
+    
+  }
+  
+  df_tab <- tibble(perc_perf, 
+                   perc_manag,
+                   manager_skill_down,
+                   manager_skill_up,
+                   total_ret_asset = last(df_out$invest_value)/starting_cash-1,
+                   total_fund_return = last(cumprod(1+df_out$fund_return)) - 1,
+                   total_ret_portfolio = last(df_out$port_value)/starting_cash-1,
+                   total_cash_fund_cost = sum(df_out$fund_cost),
+                   total_cash_investor = last(port_value),
+                   CAGR_asset = (1+total_ret_asset)^(1/nrow(df_out))-1,
+                   CAGR_fund = (1+total_fund_return)^(1/nrow(df_out))-1,
+                   CAGR_portfolio = (1+total_ret_portfolio)^(1/nrow(df_out))-1
+                   )
+                   
+  return(df_tab)
+  
+}
+
+perc_perf <- 0.2
+perc_manag <- 0.02
+bench <- 0.05
+starting_cash <- 1000
+manager_skill_down <- 0.5
+manager_skill_up <- 1.5
+
+df_tab <- get_perf(starting_cash = starting_cash , 
+                   perc_perf = perc_perf, 
+                   perc_manag = perc_manag, 
+                   manager_skill_down = manager_skill_down,
+                   manager_skill_up = manager_skill_up)
+
+```

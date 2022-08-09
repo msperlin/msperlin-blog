@@ -1,0 +1,111 @@
+---
+title: "Studying CRAN package names"
+author: "Marcelo Perlin"
+date: '2017-05-09'
+subtitle: ''
+tags:
+- R
+- CRAN
+- package names
+categories:
+- R
+- CRAN
+- package names
+---
+
+
+
+<p>Setting a name for a CRAN package is an intimate process. Out of an infinite range of possibilities, an idea comes for a package and you spend at least a couple of days writing up and testing your code before submitting to CRAN. Once you set the name of the package, you cannot change it. Your choice index your effort and, it shouldn’t be a surprise that the name of the package can improve its impact.</p>
+<p>Looking at <a href="https://cran.r-project.org/web/packages/available_packages_by_date.html">package names</a>, one strategy that I commonly observe is to use small words, a verb or noun, and add the letter R to it. A good example is <code>dplyr</code>. Letter <code>d</code> stands for dataframe, ply is just a tool, and R is, well, you know. In a conventional sense, the name of this popular tool is informative and easy to remember. As always, the extremes are never good. A couple of bad examples of package naming are <code>A3</code>, <code>AF</code>, <code>BB</code> and so on. Googling the package name is definitely not helpful. On the other end, package <code>samplesizelogisticcasecontrol</code> provides a lot of information but it is plain unattractive!</p>
+<p>Another strategy that I also find interesting is developers using names that, on first sight, are completely unrelated to the purpose of the package. But, there is a not so obvious link. One example is package <code>sandwich</code>. At first sight, I challenge anyone to figure out what it does. This is an econometric package that computes robust standard errors in a regression model. These robust estimates are also called <em>sandwich</em> estimators because the formula <a href="http://gosset.wharton.upenn.edu/teaching/541/sandwich_estimator.html">looks like a sandwich</a>. But, you only know that if you studied a bit of econometric theory. This strategy works because it is easier to remember things that surprise us. Another great example is package <code>janitor</code>. I’m sure the you already suspects that it has something do to with data cleaning. And you are right! The message of the name is effortless and it works! The author even got the privilege of using letter R in the name.</p>
+<p>While I can always hand pick good and bad examples, let’s dig deeper. In this post, we will study the names of packages available in CRAN by comparing them to the whole English vocabulary. We are going use the following datasets:</p>
+<ul>
+<li>List of CRAN package, available with function <code>available.packages()</code>.</li>
+<li>List of English words, available at <a href="http://wordnet.princeton.edu/wordnet/download/standoff/">WordNet database</a>. This is a comprehensive database of English words that I once used in a <a href="http://onlinelibrary.wiley.com/doi/10.1002/for.2446/full">paper</a>. It contains several tables, including all possible words from the English language.</li>
+</ul>
+<p>First, let’s have a look at the distribution of size (number of characters) for all packages available in CRAN:</p>
+<pre class="r"><code>library(dplyr)
+library(ggplot2)
+
+# get data
+df.pkgs &lt;- as.data.frame(available.packages(repos = &#39;https://cloud.r-project.org/&#39;)) %&gt;%
+  mutate(Package = as.character(Package),
+         n.char = nchar(Package)) %&gt;% 
+  rename(pkg = Package) %&gt;%
+  select(pkg, n.char)
+
+# plot it!
+p &lt;- ggplot(df.pkgs, aes(x=n.char)) +
+  geom_histogram(binwidth = 1)
+print(p)</code></pre>
+<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>As I suspected, the names of CRAN packages are usually small, with an average of 5-6 characters. We have a couple of packages with more than 25 characters. Let’s see their names:</p>
+<pre class="r"><code>df.pkgs$pkg[df.pkgs$n.char&gt;25]</code></pre>
+<pre><code>##  [1] &quot;AnglerCreelSurveySimulation&quot;      &quot;BipartiteModularityMaximization&quot; 
+##  [3] &quot;BoutrosLab.plotting.general&quot;      &quot;easyDifferentialGeneCoexpression&quot;
+##  [5] &quot;factset.analyticsapi.engines&quot;     &quot;factset.protobuf.stachextensions&quot;
+##  [7] &quot;FractalParameterEstimation&quot;       &quot;GeneralisedCovarianceMeasure&quot;    
+##  [9] &quot;GreedyExperimentalDesignJARs&quot;     &quot;ig.vancouver.2014.topcolour&quot;     
+## [11] &quot;image.CornerDetectionHarris&quot;      &quot;MulvariateRandomForestVarImp&quot;    
+## [13] &quot;NegativeControlOutcomeAdjustment&quot; &quot;particle.swarm.optimisation&quot;     
+## [15] &quot;paws.application.integration&quot;     &quot;RcmdrPlugin.sutteForecastR&quot;      
+## [17] &quot;ResidentialEnergyConsumption&quot;     &quot;RoughSetKnowledgeReduction&quot;      
+## [19] &quot;samplesizelogisticcasecontrol&quot;    &quot;sarp.snowprofile.alignment&quot;      
+## [21] &quot;SuperpixelImageSegmentation&quot;      &quot;wyz.code.offensiveProgramming&quot;</code></pre>
+<p>I am sorry for the authors, but, in my opinion, I’m sure we could find better names. I am also sorry for those who are using these packages but do not use the <a href="https://msperlin.github.io/pafdR/basicoperations.html#using-code-completion-with-tab">autocomplete tool</a> of RStudio and need to type the loooooooooong names.</p>
+<p>As for my hypothesis that CRAN package have short names, let’s compare the distribution of package names against all words in the English language. For that, let’s load the <a href="http://sourceforge.net/projects/wnsql/files/wnsql3/sqlite/3.1_snapshot/sqlite-31_snapshot.db.zip/download">WordNet database</a> and do some calculations:</p>
+<pre class="r"><code>library(RSQLite)
+library(stringr)
+
+# get data
+conn &lt;- dbConnect(drv = SQLite(), &#39;wordnet/sqlite-31_snapshot.db&#39;)
+words &lt;- dbReadTable(conn, &#39;wordsXsensesXsynsets&#39;) %&gt;%
+  select(lemma)
+
+# some are duplicate (same word, different types)
+words &lt;- unique(words)
+words$nchar &lt;- nchar(words$lemma)
+
+# set df to plot
+df.to.plot &lt;- data.frame(n.char = c(df.pkgs$n.char, words$nchar), 
+                         source.char = c(rep(&#39;CRAN pkgs&#39;, nrow(df.pkgs)),
+                                         rep(&#39;English Vocabulary&#39;, nrow(words))))
+
+
+p &lt;- ggplot(df.to.plot, aes(x=n.char, color=source.char )) +
+  geom_density(size=1) + coord_cartesian(xlim=c(0, 40))
+
+print(p)</code></pre>
+<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>As I suspected, the distributions are very different. There is no need to apply a formal test as the visual evidence is clear: CRAN package have a tendency for shorter names.</p>
+<p>Now, let’s look at the distribution of used letters in relative terms:</p>
+<pre class="r"><code>library(scales)
+
+temp &lt;- str_split(str_to_upper(df.pkgs$pkg), &#39;&#39;)
+all.chars &lt;- do.call(what = c,args = temp)
+char.counts.pkg &lt;- table(all.chars)
+
+temp &lt;- str_split(str_to_upper(words$lemma), &#39;&#39;)
+all.chars &lt;- do.call(what = c,args = temp)
+char.counts.words &lt;- table(all.chars)
+
+df.to.plot &lt;- data.frame(perc.count = c(char.counts.pkg/sum(char.counts.pkg), 
+                                   char.counts.words/sum(char.counts.words)),
+                         char = c(names(char.counts.pkg),
+                                  names(char.counts.words)),
+                         source.char = c(rep(&#39;CRAN pkgs&#39;, length(char.counts.pkg)),
+                                         rep(&#39;WordNet&#39;, length(char.counts.words))))
+
+# only keep LETTERS
+idx &lt;- df.to.plot$char %in% LETTERS
+df.to.plot &lt;- df.to.plot[idx, ]
+
+p &lt;- ggplot(df.to.plot, aes(x=char, y = perc.count, fill=source.char,width=.5)) +
+  geom_col(position = &#39;dodge&#39;) + scale_y_continuous(labels = percent_format())  
+
+print(p)</code></pre>
+<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The result is really interesting! I was expecting far more differences in the relative use of characters. Not surprisingly, letter R is more used in package naming than in the English vocabulary. Still, the difference is not that large. Given that R is the name of the programming language, I was expecting a much greater proportion of R characters. My intuition was clearly wrong! In comparison, letters P and M have more difference in relative terms than letter R. I’m really not sure why that is. Overall, it is pretty clear the use of characters in the names of packages follow the distribution of words in the English language.</p>
+<p>While the distribution of letter is similar, we find just a few package with names exactly as in the English language. For all 18699 packages found in CRAN, only 1260 are an exact match of all 146625 unique words in the English vocabulary.</p>
+<p>Summing up, our data analysis shows that the names of packages are usually shorter than the words in the English language. However, when looking at distribution of used characters and editing distances, it is pretty clear that the names are based on the English language, usually with a few modifications of a base word.</p>
+<p>I hope you enjoyed this post.</p>

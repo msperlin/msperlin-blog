@@ -1,0 +1,19 @@
+---
+title: "GetDFPData Ver 1.4"
+author: "Marcelo S. Perlin"
+date: '2019-01-12'
+draft: false
+subtitle: ' '
+tags: ["R", "GetDFPData"]
+categories: ["R", "GetDFPData"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I just released a major update to package GetDFPData. Here are the main changes:</p>
+<p><strong>Naming conventions for caching system are improved so that it reflects different versions of FRE and DFP files</strong>. This means the old caching system no longer works. If you have built yourself your own cache folder with many companies, do clean up the cache by deleting all folders. Run your code again and it will rebuild all files. Unfortinatelly this is a “brute force”, but necessary step. The code and data is now explicit about the version of downloaded files. If a company updates its FRE files, for example, the package will detect it and download and read the new information.</p>
+<p><strong>Fixed issue with dates in FRE</strong>. Many people reported that the dates from the FRE tables did not match the ones in the website. The reason is that the FRE column “ref.date” was set as (year.fre -1)-12-31. This made sense for many of the FRE tables, but not all. The idea was to use column ref.date to bind the DFP and FRE datasets together. In order to be more transparent about this choice, a new column “year.fre” is added to all FRE data. It contains the original year of the FRE file. This way the user will always know where the FRE datasets are coming from.</p>
+<p><strong>Many improvements</strong>. Bugs were chased and fixed. The code is now more mantainable and runs with more smoothly.</p>
+<p>The new version is already available at github and should be in CRAN in a few days.</p>
+<p>The datasets from the <a href="https://www.msperlin.com/shiny/GetDFPData/">shinny version</a> are also updated with this new dataset.</p>

@@ -1,0 +1,203 @@
+---
+title: 'New package: simfinR'
+author: "Marcelo S. Perlin"
+date: '2019-11-01'
+draft: no
+subtitle: Fetching corporate financial information and adjusted stock prices from
+  the SimFin project
+tags:
+- R
+- simfinR
+categories:
+- R
+- simfinR
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache = TRUE)
+```
+
+## Introduction
+
+In my [latest post](https://www.msperlin.com/blog/post/2019-10-16-new-package-getedgardata/) I wrote about package GetEdgarData, which downloaded structured data from the SEC. I've been working on this project and soon realized that the available data at the SEC/DERA section is not complete. For example, all Q4 statements are missing. This seems to be the way all exchanges release the financial documents. I've found the same problem here in the Brazilian exchange. 
+
+It came to my attention that there is an alternative way of fetching corporate data and adjusted prices, the [SimFin project](https://simfin.com/). From its own website:
+
+    Our core goal is to make financial data as freely available as possible because we believe that  having the right tools for investing/research shouldn't be the privilege of those that can afford to spend thousands of dollars per year on data.
+    
+The platform is free with a daily limit of 2000 api calls. This is not bad and should suffice for most users. If you need more calls, the [premium version](https://simfin.com/simfin-plus) is just 10 euros a month, a fraction of what other data vendors usually request. 
+
+Package `simfinR`, available in [Github](https://github.com/msperlin/simfinR/) and soon in CRAN, facilitates all calls to the simfin API. It first makes sure the requested data exists and only then calls the api. As usual, all api queries are saved locally using package `memoise`. This means that the second time you ask for a particular data about a company/year, the function will load a local copy, and will not call the web api.  
+
+Package `GetEdgarData`, however, will be discontinued. I'll keep the files in [Github](https://github.com/msperlin/GetEdgarData/) but will no longer develop it. It takes a lot of time to write and maintain R packages, and I fell that simfinR has far more potential. 
+
+As mentioned before, both new packages, [GetQuandlData](https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/) and simfinR will be part of my next book,  "Analyzing Financial and Economic Data with R", which should be released in early 2020. 
+
+
+## Installation
+
+```{r, eval=FALSE}
+# not in CRAN yet (need to test it further)
+#install.packages('simfinR')
+
+# from Github
+devtools::install_github('msperlin/simfinR')
+```
+
+
+### Example 01 - Apples Quarterly Net Profit
+
+The first step in using `simfinR` is finding information about available companies:
+
+```{r}
+library(simfinR)
+library(tidyverse)
+
+# You need to get your own api key at https://simfin.com/
+my_api_key <- readLines('~/Dropbox/98-pass_and_bash/.api_key_simfin.txt')
+
+# get info
+df_info_companies <- simfinR_get_available_companies(my_api_key)
+
+# check it
+glimpse(df_info_companies)
+```
+
+We find information about `r nrow(df_info_companies)` companies. Digging deeper we find that the simfin id of Apple is 111052. Let's use it to download the annual financial information since 2009. 
+
+```{r}
+id_companies <- 111052 # id of APPLE INC
+type_statements <- 'pl' # profit/loss
+periods = 'FY' # final year
+years = 2009:2018
+
+df_fin_FY <- simfinR_get_fin_statements(id_companies,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+glimpse(df_fin_FY)
+```
+
+And now we plot the results of the "Net Income" (profit/loss) for all years:
+
+```{r}
+net_income <- df_fin_FY %>% 
+              filter(acc_name == 'Net Income')
+
+p <- ggplot(net_income,
+            aes(x = ref_date, y = acc_value)) +
+  geom_col()  + 
+  labs(title = 'Yearly Profit of APPLE INC',
+       x = '',
+       y = 'Yearly Profit',
+       subtitle = '',
+       caption = 'Data from simfin <https://simfin.com/>') + 
+  theme_bw()
+
+print(p)
+```
+
+Not bad!
+
+We can also grab data for all quarters:
+
+```{r}
+type_statements <- 'pl' # profit/loss
+periods = c('Q1', 'Q2', 'Q3', 'Q4') # final year
+years = 2009:2018
+
+df_fin_quarters <- simfinR_get_fin_statements(id_companies,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+glimpse(df_fin_quarters)
+```
+
+And plot the results:
+
+```{r}
+net_income <- df_fin_quarters %>% 
+              filter(acc_name == 'Net Income')
+
+p <- ggplot(net_income,
+            aes(x = period, y = acc_value)) +
+  geom_col() + facet_grid(~year, scales = 'free') + 
+  labs(title = 'Quarterly Profit of APPLE INC',
+       x = 'Quarters',
+       y = 'Net Profit') + 
+  theme_bw()
+
+print(p)
+```
+
+Nice and impressive profit record. The first quarter (Q1) seems to present the best performance, probably due to end of year holidays. 
+
+
+### Example 02 - Quarterly Net Profit of Many Companies
+
+Package `simfinR` can also fetch information for many companies in a single call. Let's run another example by selecting four random companies and creating the same previous graph:
+
+```{r, cache=TRUE}
+set.seed(5)
+my_ids <- sample(df_info_companies$simId, 4)
+type_statements <- 'pl' # profit/loss
+periods = 'FY' # final year
+years = 2010:2018
+
+df_fin <- simfinR_get_fin_statements(id_companies = my_ids,
+                                     type_statements = type_statements,
+                                     periods = periods,
+                                     year = years,
+                                     api_key = my_api_key)
+
+net_income <- df_fin %>% 
+              filter(acc_name == 'Net Income')
+
+p <- ggplot(net_income,
+            aes(x = ref_date, y = acc_value)) +
+  geom_col() + 
+  labs(title = 'Annual Profit/Loss of Four Companies',
+       x = '',
+       y = 'Net Profit/Loss') + 
+  facet_wrap(~company_name, scales = 'free_y') + 
+  theme_bw()
+
+print(p)
+```
+
+
+### Example 03: Fetching price data
+
+The simfin project also provides adjusted prices of stocks. Have a look:
+
+```{r}
+set.seed(5)
+my_ids <- sample(df_info_companies$simId, 4)
+type_statements <- 'pl' # profit/loss
+periods = 'FY' # final year
+years = 2009:2018
+
+df_price <- simfinR_get_price_data(id_companies = my_ids,
+                                     api_key = my_api_key)
+
+
+p <- ggplot(df_price,
+            aes(x = ref_date, y = close_adj)) +
+  geom_line() + 
+  labs(title = 'Adjusted stock prices for four companies',
+       x = '',
+       y = 'Adjusted Stock Prices') + 
+  facet_wrap(~company_name, scales = 'free_y') + 
+  theme_bw()
+
+print(p)
+```
+
+As you can see, the data is comprehensive and should suffice for many different corporate finance research topics.
+
+Give it a try and, if you've found any problem or bug, please let me know at <marceloperlin@gmail.com>.
+    

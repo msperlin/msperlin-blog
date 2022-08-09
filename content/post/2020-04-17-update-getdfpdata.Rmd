@@ -1,0 +1,42 @@
+---
+title: "Update on GetDFPData tables -- 2019's DFP and FRE data"
+author: "Marcelo S. Perlin"
+date: '2020-04-17'
+draft: no
+subtitle: ' '
+tags:
+- R
+- GetDFPData
+categories:
+- R
+- GetDFPData
+---
+
+After battling B3's website for days, I finally managed to gather a master table for all corporate data. I'm happy to report that the 2019's data is now included in GetDFPData, the CRAN package and [shiny interface](https://www.msperlin.com/shiny/GetDFPData/). This includes new financial statements and company's FRE data. 
+
+I also want to use this update to formally thank everyone that made a donation in the [shiny website](https://www.msperlin.com/shiny/GetDFPData/). Your donation is not only helping paying for the bills of the server but increasing my motivation for working further in this project.  
+
+As for R code with then new dataset, let's give it a try:
+
+```{r, eval=FALSE, cache=TRUE}
+library(GetDFPData)
+library(tidyverse)
+
+name.companies <- c('PETRÓLEO BRASILEIRO  S.A.  - PETROBRAS')
+
+first.date <- '2017-01-01'
+last.date <- '2020-01-01'
+inflation.index <- 'IPCA'
+
+df.reports <- gdfpd.GetDFPData(name.companies = name.companies,
+                               first.date = first.date,
+                               last.date = last.date)
+
+glimpse(df.reports)
+```
+
+
+
+
+
+

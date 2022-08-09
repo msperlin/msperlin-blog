@@ -1,0 +1,120 @@
+---
+title: "GetDFPData2 available in CRAN!"
+author: "Marcelo S. Perlin"
+date: '2021-04-02'
+tags:
+- R
+- GetDFPData2
+categories:
+- R
+- GetDFPData2
+draft: false
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>After testing the package extensivelly, <code>GetDFPData2</code> is finally available in CRAN. <code>GetDFPData2</code> is the second and backwards incompatible version of <code>GetDPFData</code>, a R package for downloading annual financial reports from B3, the Brazilian financial exchange. Unlike its first iteration, <code>GetDFPData2</code> imports data using a database of csv files from <a href="http://dados.cvm.gov.br/dados/CIA_ABERTA/">CVM</a>, which makes it execution much faster than its predecessor. However, the output is slightly different.</p>
+<p>A shiny app – web interface – is also available at <a href="https://www.msperlin.com/shiny/GetDFPData2/">https://www.msperlin.com/shiny/GetDFPData2/</a>.</p>
+<p>The previous version, <code>GetDFPData</code>, is deprecated and will not be developed any further. <a href="https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/">All efforts</a> goes to <code>GetDFPData2</code> and <code>GetFREData</code> (soon in CRAN).</p>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<pre class="r"><code># available in cran (stable)
+install.packages(&#39;GetDFPData2&#39;)
+
+# github (dev version)
+devtools::install_github(&#39;msperlin/GetDFPData2&#39;)</code></pre>
+</div>
+<div id="examples-of-usage" class="section level1">
+<h1>Examples of Usage</h1>
+<div id="information-about-available-companies" class="section level2">
+<h2>Information about available companies</h2>
+<pre class="r"><code>library(GetDFPData2)
+
+# information about companies
+df_info &lt;- get_info_companies(tempdir())</code></pre>
+<pre><code>## Fetching info on B3 companies</code></pre>
+<pre><code>##  Dowloading file from CVM</code></pre>
+<pre><code>##  File not found, downloading it..</code></pre>
+<pre><code>##  Success</code></pre>
+<pre><code>##  Reading file from CVM</code></pre>
+<pre><code>##  Saving cache data</code></pre>
+<pre><code>##  Got 2331 lines for 2290 companies [Actives = 648 Inactives = 1653]</code></pre>
+<pre class="r"><code>print(df_info )</code></pre>
+<pre><code>## # A tibble: 2,331 x 44
+##    CD_CVM DENOM_SOCIAL    DENOM_COMERC   SETOR_ATIV  PF_PJ CNPJ  DT_REG DT_CONST
+##     &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   
+##  1  25224 2W ENERGIA S.A. &lt;NA&gt;           Construção… PJ    8773… 29/10… 23/03/2…
+##  2  21954 3A COMPANHIA S… TRIPLO A  COM… Securitiza… PJ    1139… 08/03… 03/11/2…
+##  3  25291 3R PETROLEUM O… &lt;NA&gt;           Petróleo e… PJ    1209… 09/11… 08/06/2…
+##  4  16330 521 PARTICIPAÇ… 521 PARTICIPA… Emp. Adm. … PJ    1547… 11/07… 30/07/1…
+##  5  16284 524 PARTICIPAÇ… 524 PARTICIPA… Emp. Adm. … PJ    1851… 30/05… 02/04/1…
+##  6  16349 525 PARTICIPAÇ… 525 PARTICIPA… Emp. Adm. … PJ    1919… 16/07… 02/04/1…
+##  7     35 A J RENNER SA … A J RENNER     Emp. Adm. … PJ    9265… 24/06… &lt;NA&gt;    
+##  8  16802 A.P. PARTICIPA… A.P. PARTICIP… Emp. Adm. … PJ    2288… 21/01… 14/12/1…
+##  9  13307 ABC DADOS E IN… ABC COMPUTADO… Máquinas, … PJ    2164… 03/06… &lt;NA&gt;    
+## 10  16934 ABC SUPERMERCA… ABC SUPERMERC… Comércio (… PJ    2258… 27/02… 30/09/1…
+## # … with 2,321 more rows, and 36 more variables: DT_CANCEL &lt;chr&gt;,
+## #   MOTIVO_CANCEL &lt;chr&gt;, SIT_REG &lt;chr&gt;, DT_INI_SIT &lt;chr&gt;, SIT_EMISSOR &lt;chr&gt;,
+## #   DT_INI_SIT_EMISSOR &lt;chr&gt;, CATEG_REG &lt;chr&gt;, DT_INI_CATEG &lt;chr&gt;,
+## #   AUDITOR &lt;chr&gt;, CNPJ_AUDITOR &lt;dbl&gt;, TP_ENDER &lt;chr&gt;, LOGRADOURO &lt;chr&gt;,
+## #   COMPL &lt;chr&gt;, BAIRRO &lt;chr&gt;, CIDADE &lt;chr&gt;, UF &lt;chr&gt;, PAIS &lt;chr&gt;,
+## #   CD_POSTAL &lt;lgl&gt;, TEL &lt;chr&gt;, FAX &lt;chr&gt;, EMAIL &lt;chr&gt;, TP_RESP &lt;chr&gt;,
+## #   RESP &lt;chr&gt;, DT_INI_RESP &lt;chr&gt;, LOGRADOURO_RESP &lt;chr&gt;, COMPL_RESP &lt;chr&gt;,
+## #   BAIRRO_RESP &lt;chr&gt;, CIDADE_RESP &lt;chr&gt;, UF_RESP &lt;chr&gt;, PAIS_RESP &lt;chr&gt;,
+## #   CEP_RESP &lt;dbl&gt;, TEL_RESP &lt;chr&gt;, FAX_RESP &lt;chr&gt;, EMAIL_RESP &lt;chr&gt;,
+## #   TP_MERC &lt;chr&gt;, cnpj_number &lt;dbl&gt;</code></pre>
+</div>
+<div id="searching-for-companies" class="section level2">
+<h2>Searching for companies</h2>
+<pre class="r"><code>search_company(&#39;grendene&#39;, cache_folder = tempdir())</code></pre>
+<pre><code>## Fetching info on B3 companies</code></pre>
+<pre><code>##  Found cache file. Loading data..</code></pre>
+<pre><code>##  Got 2331 lines for 2290 companies [Actives = 648 Inactives = 1653]</code></pre>
+<pre><code>## Found 1 companies:</code></pre>
+<pre><code>## GRENDENE SA | situation = ATIVO | sector = Têxtil e Vestuário | CD_CVM = 19615</code></pre>
+</div>
+<div id="downloading-annual-financial-reports" class="section level2">
+<h2>Downloading Annual Financial Reports</h2>
+<pre class="r"><code># downloading DFP data
+l_dfp &lt;- get_dfp_data(companies_cvm_codes = 19615, 
+                      use_memoise = FALSE,
+                      clean_data = TRUE,
+                      cache_folder = tempdir(), # use local folder in live code
+                      type_docs = c(&#39;DRE&#39;), 
+                      type_format = &#39;con&#39;,
+                      first_year = 2019, 
+                      last_year = 2020)</code></pre>
+<pre><code>##  Dowloading dfp_cia_aberta_2019.zip</code></pre>
+<pre><code>##  File not found, downloading it..</code></pre>
+<pre><code>##  Success</code></pre>
+<pre><code>##      Unzipping</code></pre>
+<pre><code>##      Reading dfp_cia_aberta_DRE_con_2019.csv | Cleaning table
+##      Got 30 rows | 1 companies
+##  Dowloading dfp_cia_aberta_2020.zip
+##  File not found, downloading it..
+##  Success
+##      Unzipping
+##      Reading dfp_cia_aberta_DRE_con_2020.csv | Cleaning table
+##      Got 32 rows | 1 companies</code></pre>
+<pre class="r"><code>str(l_dfp)</code></pre>
+<pre><code>## List of 1
+##  $ DF Consolidado - Demonstração do Resultado: tibble[,16] [62 × 16] (S3: tbl_df/tbl/data.frame)
+##   ..$ CNPJ_CIA    : chr [1:62] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ CD_CVM      : num [1:62] 19615 19615 19615 19615 19615 ...
+##   ..$ DT_REFER    : Date[1:62], format: &quot;2019-12-31&quot; &quot;2019-12-31&quot; ...
+##   ..$ DT_INI_EXERC: Date[1:62], format: &quot;2019-01-01&quot; &quot;2019-01-01&quot; ...
+##   ..$ DT_FIM_EXERC: Date[1:62], format: &quot;2019-12-31&quot; &quot;2019-12-31&quot; ...
+##   ..$ DENOM_CIA   : chr [1:62] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ VERSAO      : num [1:62] 2 2 2 2 2 2 2 2 2 2 ...
+##   ..$ GRUPO_DFP   : chr [1:62] &quot;DF Consolidado - Demonstração do Resultado&quot; &quot;DF Consolidado - Demonstração do Resultado&quot; &quot;DF Consolidado - Demonstração do Resultado&quot; &quot;DF Consolidado - Demonstração do Resultado&quot; ...
+##   ..$ MOEDA       : chr [1:62] &quot;REAL&quot; &quot;REAL&quot; &quot;REAL&quot; &quot;REAL&quot; ...
+##   ..$ ESCALA_MOEDA: chr [1:62] &quot;MIL&quot; &quot;MIL&quot; &quot;MIL&quot; &quot;MIL&quot; ...
+##   ..$ ORDEM_EXERC : chr [1:62] &quot;ÚLTIMO&quot; &quot;ÚLTIMO&quot; &quot;ÚLTIMO&quot; &quot;ÚLTIMO&quot; ...
+##   ..$ CD_CONTA    : chr [1:62] &quot;3.01&quot; &quot;3.02&quot; &quot;3.03&quot; &quot;3.04&quot; ...
+##   ..$ DS_CONTA    : chr [1:62] &quot;Receita de Venda de Bens e/ou Serviços&quot; &quot;Custo dos Bens e/ou Serviços Vendidos&quot; &quot;Resultado Bruto&quot; &quot;Despesas/Receitas Operacionais&quot; ...
+##   ..$ VL_CONTA    : num [1:62] 2071034 -1126511 944523 -590995 -530825 ...
+##   ..$ COLUNA_DF   : logi [1:62] NA NA NA NA NA NA ...
+##   ..$ source_file : chr [1:62] &quot;dfp_cia_aberta_DRE_con_2019.csv&quot; &quot;dfp_cia_aberta_DRE_con_2019.csv&quot; &quot;dfp_cia_aberta_DRE_con_2019.csv&quot; &quot;dfp_cia_aberta_DRE_con_2019.csv&quot; ...</code></pre>
+</div>
+</div>

@@ -1,0 +1,67 @@
+---
+title: 'New package: GetBCBData'
+subtitle: "Importing datasets from BCB (Banco Central do Brasil)"
+author: "Marcelo S. Perlin"
+date: '2019-04-15'
+draft: false
+tags: ["R", "GetBCBData"]
+categories: ["R", "GetBCBData"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>The Central Bank of Brazil (BCB) offers access to the SGS system (sistema gerenciador de series temporais) with a official API available <a href="http://www.bcb.gov.br/?sgs">here</a>.</p>
+<p>Over time, I find myself using more and more of the available datasets in my regular research and studies. Last weekend I decided to write my own API package that would make my life (and others) a lot easier.</p>
+<p>Package GetBCBData can fetch data efficiently and rapidly:</p>
+<ul>
+<li>Use of a caching system with package <code>memoise</code> to speed up repeated requests of data;</li>
+<li>Users can utilize all cores of the machine (parallel computing) when fetching a large batch of time series;</li>
+<li>Allows the choice for format output: long (row oriented, tidy data) or wide (column oriented)</li>
+<li>Error handling internally. Even if requested series does not exist, the function will still return all results.</li>
+</ul>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<pre class="r"><code># CRAN (official release) - IN CHECK
+install.packages(&#39;GetBCBData&#39;)
+
+# Github (dev version)
+devtools::install_github(&#39;msperlin/GetBCBData&#39;)</code></pre>
+</div>
+<div id="a-simple-example" class="section level2">
+<h2>A simple example</h2>
+<p>Let’s have a look at unemployment rates around the world. After searching for the ids in the <a href="http://www.bcb.gov.br/?sgs">SGS system</a>, we find the ids for 6 countries and set it as input <code>id</code>.</p>
+<p>Now, let’s download the data with <code>GetBCBData</code>:</p>
+<pre class="r"><code>#devtools::install_github(&#39;msperlin/GetBCBData&#39;)
+
+library(GetBCBData)
+library(tidyverse)
+
+my.countries &lt;- c(&#39;Germany&#39;, &#39;Canada&#39;, &#39;USA&#39;, 
+                  &#39;France&#39;, &#39;Italy&#39;, &#39;Japan&#39;)
+
+my.ids &lt;- c(3785:3790)
+
+names(my.ids) &lt;- paste0(&#39;Unemp. rate - &#39;, my.countries)
+
+df.bcb &lt;- gbcbd_get_series(id = my.ids ,
+                           first.date = &#39;2000-01-01&#39;,
+                           last.date = Sys.Date())
+
+glimpse(df.bcb)</code></pre>
+<pre><code>## Rows: 1,196
+## Columns: 4
+## $ ref.date    &lt;date&gt; 2000-01-01, 2000-02-01, 2000-03-01, 2000-04-01, 2000-05-…
+## $ value       &lt;dbl&gt; 8.2, 8.1, 8.1, 8.0, 8.0, 8.0, 7.9, 7.9, 7.9, 7.8, 7.8, 7.…
+## $ id.num      &lt;int&gt; 3785, 3785, 3785, 3785, 3785, 3785, 3785, 3785, 3785, 378…
+## $ series.name &lt;chr&gt; &quot;Unemp. rate - Germany&quot;, &quot;Unemp. rate - Germany&quot;, &quot;Unemp.…</code></pre>
+<pre class="r"><code>p &lt;- ggplot(df.bcb, aes(x = ref.date, y = value) ) +
+  geom_line() + 
+  labs(title = &#39;Unemploymnent Rates Around the World&#39;, 
+       subtitle = paste0(min(df.bcb$ref.date), &#39; to &#39;, max(df.bcb$ref.date)),
+       x = &#39;&#39;, y = &#39;Percentage*100&#39;) + facet_wrap(~series.name)
+
+
+print(p)</code></pre>
+<p><img src="/blog/post/2019-04-15-GetBCBData_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>

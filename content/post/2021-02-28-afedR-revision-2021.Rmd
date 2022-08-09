@@ -1,0 +1,36 @@
+---
+title: 'Revision of book "Analyzing Financial and Economic Data with R"'
+author: "Marcelo S. Perlin"
+date: '2021-02-28'
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+draft: no
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, eval=TRUE)
+
+link_full_compiled_html <- 'https://www.msperlin.com/blog/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
+link_book_web_adfeR <- 'https://www.msperlin.com/adfeR/'
+link_book_web_afedR <- 'https://www.msperlin.com/afedR/'
+exams_link <- 'http://www.r-exams.org/'
+amazon_link <- 'https://www.amazon.com/dp/B084LSNXMN'
+link_blog_dyn_exerc <- 'https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/'
+```
+
+I recently launched the third edition of my [portuguese R book (adfeR-pt-br)](`r link_book_web_adfeR`), with many due changes from the [international version (afedR-en)](`r link_book_web_afedR`). To make it clear, the second edition of afedR (en) was ahead in content and the third edition of adfeR (pt-br) closed that gap. 
+
+But, as it usually is with a time evolving platform such as R, the code in afedR-en changed with the deprecation and arrival of new functions and packages. In order to keep the content up to date, I published a **revision of the book** in [Amazon](`r amazon_link`) and its [web version](`r link_book_web_afedR`). 
+
+This revision is not only for fixing broken code but also improves other important aspects of the book including ebook/html templates and end-of-chapter exercises. Here are the main changes:
+
+- Improved and consistent css template for html and ebook.
+- Over 100 end of chapter exercises. The exercises within the book are in the `exams` format and can be exported to _e-learning_ platforms. Check out this [blog post](`r link_blog_dyn_exerc`) for details.
+- To help the reader with topics that don't quite fit with the main text, new text boxes with important and cautionary messages were implemented in all formats. 
+- New hardcover format is available at Amazon.
+
+The R books are a lifelong project and I plan to keep improving the work as much as possible over the next years. I'm happy to see that, just like good wine, the content of the book only gets better with the passage of time.

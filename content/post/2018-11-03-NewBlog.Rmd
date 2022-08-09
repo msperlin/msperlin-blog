@@ -1,0 +1,30 @@
+---
+title: "New blog site: From Jekyll to Hugo"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-11-03
+categories: ["R", "site"]
+tags: ["R", "site"]
+draft: false
+---
+
+I while ago I [wrote about purchasing my own webserver in digital ocean and hosting my shinny applications](https://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/). Last week I finally got some time to migrate my blog from [Github](https://msperlin.github.io/) to my new domain, [www.msperlin.com](https://www.msperlin.com/blog). While doing that, I also decided to change the technology behind making the blog, from Jekyll to Hugo. Here are my reasons.
+
+[Jekyll](https://jekyllrb.com/) is great for making simple static sites, specially with this [template](https://deanattali.com/beautiful-jekyll/) from Dean Attali. It was easy to set it up and host it in [Github](https://msperlin.github.io/). My problems with this configuration are:
+
+- With Jekyll,  all posts in the blog are created as .md files and not as original .Rmd. For every post with R code I had to compile the .Rmd file to  .md and manually add figures and other files to the site directory. In Hugo, and using blogdown, I can compile it directly from Rmarkdown (.Rmd).
+
+- The Jekyll template in msperlin.github.io is very clean and simple. This is exactly what I needed at the time. Hugo's template [academic](https://sourcethemes.com/academic/) is specially made for academics and offers lots of new functionalities. 
+
+- The github internet address doesn't fell very profissional. I know this can personal opinion but a custom url tells me that the author has spend some time and money to set its webpage  properly.
+
+- There is a lag between writing changes in files and seeing it live in msperlin.github.io. This can get annoying. With my own domain, all changes are instantaneous.
+
+Hosting the static website in www.msperlin.com is very easy. I wrote a simple bash script that compiles the site locally using `blogdown::build_site()` and copy all files to my server with ssh. Going further, I also added documentation about my CRAN packages using `pkgdown`. See an example for PkgsFromFiles [here](https://www.msperlin.com/blog/docs/PkgsFromFiles/). 
+
+I am very pleased with this setup and I hope that I won't need to change it in the next couple of years. The transition is a lot of work! I had to recompile all Rmd posts and copy and paste all other textual content. 
+
+If you are a teacher or researcher, you **really** should look into [Hugo-Academic](https://sourcethemes.com/academic/). This is specially true if you use R, as you can integrate you Rmd files with blogdown. 
+
+
+ 

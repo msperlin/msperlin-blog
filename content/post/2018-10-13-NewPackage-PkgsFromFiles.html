@@ -1,0 +1,164 @@
+---
+title: "New package in CRAN: PkgsFromFiles"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: '2018-10-13'
+image:
+  caption: '/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png'
+  focal_point: ''
+categories: [R, PkgsFromFiles]   
+tags: [R, PkgsFromFiles]   
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Its been a while since I develop a CRAN package and this weekend I decided
+to work on a idea I had some time ago. The result is package
+<code>PkgsFromFiles</code>.</p>
+<p>When working with different computers at home or work, one of the
+problems I have is installing missing packages across different
+computers. As an example, a script that works in my <strong>work computer</strong> may
+not work in my <strong>home computer</strong>. This is specially annoying when I have a
+fresh install of the operating system or R. In this case, I must
+manually install all packages, case by case. Instead of focusing on the
+script at hand, I spend considerable time finding and installing missing
+packages. When using laptops for teaching R, many times I had to wait
+for the installation of a package before continuing the class. With my
+new package, PkgsFromFiles, I can scan any folder of my computer and
+install all necessary packages <strong>before</strong> using them, as we will soon
+learn.</p>
+<p>One of the available solutions to this problem is to use package
+<a href="https://CRAN.R-project.org/package=pacman">pacman</a>. It includes
+function <code>p_load</code> that will check if a package is available and, if not,
+install it from CRAN. However, for me, I like using <code>library</code> and
+<code>require</code> as it is consistent with my code format. Also, in a fresh R
+install, I rather install all my required packages in a single run so
+that I don’t have to wait later.</p>
+<p>Package PkgsFromFiles solves this issue by finding and parsing all R
+related files (.R, .Rmd, .Rnw) from a given folder. It finds all calls
+to library() and require() and installs all packages that are not
+available locally.</p>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<pre class="r"><code># from cran (soon!)
+install.packages(&#39;PkgsFromFiles&#39;)
+
+# from github
+if (!require(devtools)) install.packages(&#39;devtools&#39;)
+devtools::install_github(&#39;msperlin/PkgsFromFiles&#39;)</code></pre>
+</div>
+<div id="usage" class="section level1">
+<h1>Usage</h1>
+<p>The main function of the package is <code>pff_find_and_install_pkgs</code>, which will search and install missing packages from R files at a given directory. As an example, we’ll use my research folder from Dropbox. It contains all R scripts I have ever used in my research work. Let’s try it out:</p>
+<pre class="r"><code># Evaluation is disable so it passes CRAN CHECKS, but you should be able to run it in your computer
+library(PkgsFromFiles)
+
+# target folder
+my.dir &lt;- &#39;~/Dropbox/01-Pesquisa/&#39;
+
+df &lt;- pff_find_and_install_pkgs(folder.in = my.dir)</code></pre>
+<pre><code>## 
+## Searching folder  ~/Dropbox/01-Pesquisa/
+##  Found 74 files in 18 folders
+##       R Scripts: 72 files
+##       Rmarkdown files: 2 files
+##       Sweave files: 0 files</code></pre>
+<pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## 
+## Checking available pkgs from https://cloud.r-project.org
+## Checking and installing missing pkgs
+## Installing rvest Already installed
+## Installing tidyverse Already installed
+## Installing furrr Already installed
+## Installing XML   Already installed
+## Installing fst   Already installed
+## Installing stringr   Already installed
+## Installing lubridate Already installed
+## Installing ggplot2   Already installed
+## Installing GetDFPData    Already installed
+## Installing genderBR  Already installed
+## Installing purrr Already installed
+## Installing xlsx  Already installed
+## Installing sandwich  Already installed
+## Installing stargazer Already installed
+## Installing Hmisc Already installed
+## Installing plm   Already installed
+## Installing lmtest    Already installed
+## Installing MatchIt   Already installed
+## Installing devtools  Already installed
+## Installing RSelenium Already installed
+## Installing GetLattesData Already installed
+## Installing xtable    Already installed
+## Installing httr  Already installed
+## Installing parallel  Installation failed, pkg not in CRAN
+## Installing BatchGetSymbols   Already installed
+## Installing readxl    Already installed
+## Installing RSQLite   Already installed
+## Installing pbapply   Already installed
+## Installing ggmap Already installed
+## Installing memoise   Already installed
+## Installing gganimate Already installed
+## Installing texreg    Already installed
+## Installing pglm  Already installed
+## Installing estimatr  Already installed
+## Installing AER   Already installed
+## Installing quantreg  Already installed
+## Installing nnet  Already installed
+## Installing simfinR   Already installed
+## Installing fGarch    Already installed
+## Installing MTS   Already installed
+## Installing DescTools Already installed
+## 
+## Summary:
+##  Found 40 packages already installed
+##  Had to install 0 packages
+##  Installation failed for 1 packages
+##      1 due to package not being found in CRAN
+##      0 due to missing dependencies or other problems
+## 
+## Check output dataframe for more details about failed packages</code></pre>
+<p>As you can see, function <code>pff_find_and_install_pkgs</code> will find all R related files recursively in the given folder. In this case, I have all packages locally so no installation was required. A summary in text is shown at the end of execution.</p>
+<p>The output of the function is a dataframe with the details of the operation. Have a look:</p>
+<pre class="r"><code>dplyr::glimpse(df)</code></pre>
+<pre><code>## Rows: 41
+## Columns: 3
+## $ pkg            &lt;chr&gt; &quot;rvest&quot;, &quot;tidyverse&quot;, &quot;furrr&quot;, &quot;XML&quot;, &quot;fst&quot;, &quot;stringr&quot;…
+## $ status.message &lt;chr&gt; &quot;Already installed&quot;, &quot;Already installed&quot;, &quot;Already ins…
+## $ installation   &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, …</code></pre>
+<p>The package also includes function <code>pff_find_R_files_from_folder</code>, which will find all packages used in R related files from a given folder. It outputs a dataframe with several information about packages used in the found scripts.</p>
+<pre class="r"><code>df.files &lt;- pff_find_R_files_from_folder(folder.in = my.dir)</code></pre>
+<pre><code>## 
+## Searching folder  ~/Dropbox/01-Pesquisa/
+##  Found 74 files in 18 folders
+##       R Scripts: 72 files
+##       Rmarkdown files: 2 files
+##       Sweave files: 0 files</code></pre>
+<pre class="r"><code>dplyr::glimpse(df.files)</code></pre>
+<pre><code>## Rows: 74
+## Columns: 5
+## $ files      &lt;chr&gt; &quot;/home/msperlin/Dropbox/01-Pesquisa//01-Working Papers/01-…
+## $ file.names &lt;chr&gt; &quot;01-01_S-unzip_affiliation_tables.R&quot;, &quot;01-02_S-read_affili…
+## $ extensions &lt;chr&gt; &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;R&quot;…
+## $ pkgs       &lt;chr&gt; &quot;rvest ; tidyverse ; furrr ; XML&quot;, &quot;tidyverse ; furrr ; fs…
+## $ n.pkgs     &lt;int&gt; 4, 3, 8, 6, 6, 6, 8, 8, 8, 1, 1, 8, 8, 8, 4, 1, 7, 9, 4, 8…</code></pre>
+<p>I also wrote a simple function for plotting the most used packages for a given folder:</p>
+<pre class="r"><code># target folder
+my.dir &lt;- &#39;~/Dropbox/01-Pesquisa/&#39;
+
+# plot most used pkgs
+p &lt;- pff_plot_summary_pkgs(folder.in = my.dir)</code></pre>
+<pre><code>## 
+## Searching folder  ~/Dropbox/01-Pesquisa/
+##  Found 74 files in 18 folders
+##       R Scripts: 72 files
+##       Rmarkdown files: 2 files
+##       Sweave files: 0 files</code></pre>
+<pre class="r"><code>print(p)</code></pre>
+<p><img src="/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>As you can see, I’m a big fan of the <code>tidyverse</code>!</p>
+<p>Hope you guys find the package useful! Fell free to send any question to the comment section of the post or my email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>).</p>
+</div>

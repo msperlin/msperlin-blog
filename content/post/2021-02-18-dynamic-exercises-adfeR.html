@@ -1,0 +1,119 @@
+---
+title: "Compilando Exercícios do Livro para pdf | html | Moodle | Blackboard"
+author: "Marcelo S. Perlin"
+date: '2021-02-18'
+tags:
+- R
+- adfeR
+categories:
+- R
+- adfeR
+draft: no
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>A terceira edição do livro <a href="https://www.msperlin.com/blog/publication/2021_book-adfer-pt/">Análise de Dados Financeiros e Econômicos</a> contém mais de 100 exercícios de final de capítulo, com todas soluções disponíveis na <a href="https://www.msperlin.com/adfeR/">página do livro</a>. Alternativamente, professores e instrutores podem compilar arquivos pdf dos exercícios para seus alunos com o pacote <code>adfeR</code>.</p>
+<p>O primeiro passo é instalar o pacote via <code>devtools</code> e também o <code>exams</code>:</p>
+<pre class="r"><code>devtools::install_github(&#39;msperlin/adfeR&#39;)</code></pre>
+<p>Outro requisito é a instalação do <code>tinytex</code> e Latex/texlive para a compilação em pdf:</p>
+<pre class="r"><code>tinytex::install_tinytex()</code></pre>
+<div id="como-funciona" class="section level2">
+<h2>Como funciona?</h2>
+<p>Todos exercícios do livro estão no formato do pacote <code>exams</code>. Cada exercício é um arquivo .Rmd contendo código, narrativa do exercício e a solução. Os arquivos em si podem ser encontrados no diretório de instalação do próprio pacote:</p>
+<pre class="r"><code>eoc_dir &lt;- adfeR::get_EOC_dir()
+
+eoc_chapters &lt;- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)</code></pre>
+<pre><code>##  [1] &quot;Cap01-Introducao&quot;                   &quot;Cap02-Operacoes-Basicas&quot;           
+##  [3] &quot;Cap03-Scripts-Pesquisa&quot;             &quot;Cap04-Import-Local&quot;                
+##  [5] &quot;Cap05-Import-Internet&quot;              &quot;Cap06-Objetos-Armazenamento&quot;       
+##  [7] &quot;Cap07-Objetos-Basicos&quot;              &quot;Cap08-Programacao&quot;                 
+##  [9] &quot;Cap09-Limpeza-e-estruturacao-dados&quot; &quot;Cap10-Figuras&quot;                     
+## [11] &quot;Cap11-Modelagem&quot;                    &quot;Cap12-Reportando&quot;                  
+## [13] &quot;Cap13-Otimizacao&quot;</code></pre>
+<p>Cada um dos diretórios acima possui diversos exercícios. Veja o caso do capítulo 01:</p>
+<pre class="r"><code>basename(fs::dir_ls(eoc_chapters[1]))</code></pre>
+<pre><code>##  [1] &quot;adfeR_Cap-01_01_SPLUS.Rmd&quot;            
+##  [2] &quot;adfeR_Cap-01_02_Autores-R.Rmd&quot;        
+##  [3] &quot;adfeR_Cap-01_03_diferencial-R.Rmd&quot;    
+##  [4] &quot;adfeR_Cap-01_04_nome-R.Rmd&quot;           
+##  [5] &quot;adfeR_Cap-01_05_sobre-R.Rmd&quot;          
+##  [6] &quot;adfeR_Cap-01_06_Tecnologias-R.Rmd&quot;    
+##  [7] &quot;adfeR_Cap-01_07_rtools.Rmd&quot;           
+##  [8] &quot;adfeR_Cap-01_08_Grupos.Rmd&quot;           
+##  [9] &quot;adfeR_Cap-01_09_RBloggers.Rmd&quot;        
+## [10] &quot;adfeR_Cap-01_10_Infraestrutura-TI.Rmd&quot;</code></pre>
+</div>
+<div id="exportando-para-pdf" class="section level2">
+<h2>Exportando para pdf</h2>
+<p>Para compilar para pdf os exercícios basta selecionar:</p>
+<ul>
+<li>nome dos estudantes</li>
+<li>id dos estudantes</li>
+<li>capítulos para incluir</li>
+</ul>
+<p>e usar o código abaixo:</p>
+<pre class="r"><code>library(adfeR)</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>names_students &lt;- c(&#39;Marcelo&#39;, &#39;Ricardo&#39;, &#39;Tarcizio&#39;)
+ids_students &lt;- 1:length(names_students) # probably id card?
+chapters &lt;- 1:3 # chapters from 1 to 13
+dir_output &lt;- file.path(tempdir(), &#39;ExamsFiles&#39;)
+
+l_exams &lt;- build_exercises(students_names = names_students, 
+                           students_ids = ids_students, 
+                           chapters_to_include = chapters,
+                           dir_out = dir_output)</code></pre>
+<pre><code>## Building exercise for Marcelo</code></pre>
+<pre><code>##  Adding content to tex</code></pre>
+<pre><code>##  Building pdf</code></pre>
+<pre><code>## Loading required namespace: tinytex</code></pre>
+<pre><code>##  Copying final pdf</code></pre>
+<pre><code>## Building exercise for Ricardo</code></pre>
+<pre><code>##  Adding content to tex</code></pre>
+<pre><code>##  Building pdf</code></pre>
+<pre><code>##  Copying final pdf</code></pre>
+<pre><code>## Building exercise for Tarcizio</code></pre>
+<pre><code>##  Adding content to tex</code></pre>
+<pre><code>##  Building pdf</code></pre>
+<pre><code>##  Copying final pdf</code></pre>
+<pre><code>## All exam files are available at folder &quot;/tmp/RtmpboHyLI/ExamsFiles&quot;.</code></pre>
+<p>Todos os arquivos pdfs estarão disponíveis na pasta <code>dir_output</code>:</p>
+<pre class="r"><code>fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpboHyLI/ExamsFiles/Exercicios Teste_Ver 01_Marcelo.pdf
+## /tmp/RtmpboHyLI/ExamsFiles/Exercicios Teste_Ver 02_Ricardo.pdf
+## /tmp/RtmpboHyLI/ExamsFiles/Exercicios Teste_Ver 03_Tarcizio.pdf</code></pre>
+<p>O resultado final será conforme figura abaixo:</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/62d4J1G" data-context="false">
+<a href="//imgur.com/a/62d4J1G"></a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
+<div id="exportando-para-o-moodle" class="section level2">
+<h2>Exportando para o Moodle</h2>
+<p>Para quem usa o Moodle ou outra plataforma de <em>e-learning</em> (Blackboard, Canvas, etc), a exportação para estes formatos é bem simples, basta indicar os arquivos de exercícios e usar as funções do pacote <code>exams</code>:</p>
+<pre class="r"><code>require(adfeR)
+my_eoc_dir &lt;- adfeR::get_EOC_dir()
+
+available_chapters &lt;- fs::dir_ls(my_eoc_dir)
+exercise_files &lt;- fs::dir_ls(available_chapters[1])
+dir_output &lt;- file.path(tempdir(), &#39;moodle-test&#39;)
+
+exams::exams2moodle(file = exercise_files, 
+                    name = &#39;TestingMoodle&#39;, 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpboHyLI/moodle-test/TestingMoodle.xml</code></pre>
+<p>Este arquivo .xml conterá todos os exercícios selecionados e pode ser facilmente importado no Moodle para ser aplicado aos alunos.</p>
+</div>

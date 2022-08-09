@@ -1,0 +1,59 @@
+---
+title: "My experience in switching from Windows 10 to Linux Mint"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: "2017-08-12"
+categories: ["Linux"]
+tags: [Linux]
+draft: false
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Its been 8 months since I switched from Windows 10 to Linux Mint. In this post I’ll talk about my experience as a scholar and R user in the transition.</p>
+<p>My work is, simply put, to communicate ideas. A typical day of work is a mixture of writing research papers, creating classroom material and admin tasks. Most of my work happens in front of a computer.</p>
+<p>Without a doubt, my greatest asset are my computer files. I reuse them over and over. Every new research script is a new version of something I’ve done in the past. The same for class slides and exercises. At each iteration, I add new material and update information. Said that, one problem in using Windows software is the proprietary format of Office packages. Once my Office license expired late 2016, I quick realized that I was not able to work on my files the same way I did before. While there are alternatives to Office products and online platforms, they don’t work out of the box in all cases. As an example, if you have a ppt presentation with many figures, it is likely that you’ll have to resize them individually when opening it in Libreoffice. So, by using Office, my work was trapped in that format.</p>
+<p>Another problem with Windows is the amount of resources it needs to run. I have an old laptop that is just unworkable in Windows 10 due to its low specs. My desktop computer at work was also becaming slower. By switching to a less resource demanding operational system, I am able to work with low end computers and use them for a few more years. Maintaining windows systems is also a hassle. Every other year I needed to format, reinstall all software, download all dropbox files. If you have three or more computer to maintain, it become a burden to carry.</p>
+<p>On the other side, I have been extremely impressed by what open source communities can build. After embracing R from a background in Matlab, <a href="http://www.msperlin.com/blog/books/">writing a book about R</a>, I’m constantly overwhelmed by the high quality work that open source communities do. If you do not know, Linux Mint and others are all free operations systems, developed by a large group of people that don’t necessarily make a living out of it.</p>
+<p>After some research, I decided to go with <a href="https://www.linuxmint.com/">Linux Mint</a> due to its large ammount of users and my previous positive experience. Others distributions worth looking are <a href="https://www.debian.org/">Debian</a> and <a href="https://www.ubuntu.com/">Ubuntu</a>. There are many more. You can find a lot of information about available Linux distributions and its popularity in <a href="https://distrowatch.com/">Distro Watch</a>.</p>
+<div id="the-positive-side" class="section level2">
+<h2>The positive side</h2>
+<ul>
+<li><p><strong>My R code is the same</strong>. The only change I had to make in the code is pathwise. While in Windows you use <code>C:/Documents</code>, in Linux is <code>/home/msperlin/Documents</code>.</p></li>
+<li><p><strong>External R packages dependencies are easy to install</strong>. Some R package that depend on external software can be installed using bash command <code>apt</code>. For example, package readxl can be installed with terminal command <code>sudo apt install r-cran-readxl</code>. Any external dependency to readxl that is missing in the computer will also be installed. This is very handy when you have R packages with heavy dependencies.</p></li>
+<li><p><strong>Linux Mint is blazing fast</strong> ! My boot up is very quick and I’m able to start working fast.</p></li>
+<li><p><strong>It looks beautiful</strong>. I know this is personal opinion, but I fell the Cinnamon desktop looks better than Windows 10.</p></li>
+<li><p><strong>The system is very stable</strong>. I never had any system problem such as the blue screen of Windows. I’m used to leave my linux based computer running code 5 to 10 hours straight without any problem.</p></li>
+<li><p><strong>Everything can be done from the terminal, if you want to</strong>. One of the good things about Linux Mint is that everything can be changed from the terminal as the whole configuration of the system are stored in editable text files. As an example, I wrote a simple bash script that installs all software that I need for work. You can write a bash script to configure the computer anyway you want. If you buy a new computer, just run the bash script and it will be exactly how you want it.</p></li>
+<li><p><strong>Software is always up to date</strong>. It is simple to keep all software running the latest version using apt tools and the terminal. All you need to do is to call <code>sudo apt update</code> and <code>sudo apt upgrade</code> in the terminal. If you have many computers, it is very easy to keep then running the same version of software. The closest you can find for Windows is <a href="https://chocolatey.org/">Chocolatey</a>, which, unfortunately, did not work well for me.</p></li>
+</ul>
+</div>
+<div id="the-negative-side" class="section level2">
+<h2>The negative side</h2>
+<ul>
+<li><p><strong>Collaborating with Office users</strong>. Using LibreOffice I can, most of the time, open and edit Word/Excel files. But, if you have a more complicated file, there are going to be problems. My solution to this is to always be <em>charmingly</em> annoying and convince others to use Latex or LibreOffice. If they don’t want to, well, we will not collaborate. I’m aware of the luck I have in this option. Most people don’t get to chose who they work with.</p></li>
+<li><p><strong>Relearn all software</strong>. I used Windows for so many years that I knew by heart how to use its software. I had to relearn many things. I’ve found a good website, <a href="http://alternativeto.net/">AlternativeTo</a> that can help a lot. So far, I can’t name a Windows software that is not replaceable in Linux. Next I describe what I use in Linux to do most of my work:</p></li>
+</ul>
+<p>Writing research articles: Latex (textudio + texlive)
+Writing other documents: Writer (libreoffice), kate, Atom
+Spreadsheets: Calc (libreoffice)
+Slides: Impress (libreoffice), Latex beamer and RMarkdown
+Data Analysis: R+RStudio and Python+Spyder (ocasionally),
+Data storage: SQLITE, csv files, rds and fst
+Remote access: RealVnc
+Browser: Chrome</p>
+<p><strong>Small number of games</strong>. Occasionally, I used to play some computer games in the weekend. That, is no longer the case. While there has been an advance in the game front with Linux+Steam, most titles simply don’t come to Linux.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>I’m very happy with my choice and advise everyone to make the switch. I’m more productive in Linux than I was in Windows. But, the transition is not easy. You’ll need to learn many new things. Be confident that the positive payoff vastly outweigh the costs.</p>
+<p>I hope this post gives some pointers for those considering making the change. You can find <a href="https://www.google.com.br/search?q=how+to+install+linux+mint&amp;oq=how+to+install+linux+mint&amp;aqs=chrome..69i57l2j69i60l3j69i59.2670j0j4&amp;sourceid=chrome&amp;ie=UTF-8">many tutorials</a> in the internet about how to install and use Linux Mint.</p>
+<p>A couple of good ideas from Eric Jacobsen (comments section) before you start out:</p>
+<ul>
+<li><p>You can use VirtualBox to easily try out Linux Mint or other distributions before settling on one and investing the time to set it up.</p></li>
+<li><p>You can install XFCE desktop environment on the Cinnamon distribution, for lighter resource usage. (Cinnamon and XFCE are both desktop environments. Try on virtualbox first if desired.) The login page allows you to specify which of the installed desktop environment to use, so it is easy to switch between them.</p></li>
+<li><p>Note that Mint is derived from Ubuntu, which is derived from Debian, thus Mint uses the Debian package manager. This is pretty important because you may be using it a lot, and Mint benefits from packages created for Ubuntu and Debian.</p></li>
+<li><p>An alternative to installing TeX packages is using ShareLaTex or Overleaf to use TeX online.</p></li>
+</ul>
+</div>

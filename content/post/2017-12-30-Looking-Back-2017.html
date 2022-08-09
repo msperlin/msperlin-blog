@@ -1,0 +1,63 @@
+---
+title: "Looking back in 2017 and plans for 2018"
+subtitle: " "
+author: "Marcelo S. Perlin"
+date: 2017-12-30
+tags: [R, blog, jekyll]
+categories: [R, blog, jekyll]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="my-blog-in-2017" class="section level1">
+<h1>My blog in 2017</h1>
+<p>As we come close to the end of 2017, its time to look back. This has been a great year for me in many ways. This blog started as a way to write short pieces about using R for finance and promote my <a href="https://sites.google.com/view/pafdR/home">book</a> in an organic way. Today, I’m very happy with my decision. Discovering and trying new writing styles keeps my interest very much alive. Academic research is very strict on what you can write and publish. It is satisfying to see that I can promote my work and have an impact in different ways, not only through the publication of academic papers.</p>
+<p>My blog is build using a <a href="https://deanattali.com/beautiful-jekyll/">Jekyll template</a>, meaning the whole site, including individual posts, is built and controlled with editable text files and Github. All files related to posts follow the same structure, meaning I can easily gather the textual data and organize it in a nice <code>tibble</code>. Let’s first have a look in all post files:</p>
+<pre class="r"><code>post.folder &lt;- &#39;~/GitRepo/msperlin.github.io/_posts/&#39;
+
+my.f.posts &lt;- list.files(post.folder, full.names = TRUE)
+my.f.posts</code></pre>
+<pre><code>## character(0)</code></pre>
+<p>I posted 0 posts during 2017. Notice how all dates are in the beginning of the file name. I can easily convert that to a <code>Date</code> object using <code>as.Date</code>. Let’s organize it all in a nice <code>tibble</code>.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
+## ✔ tibble  3.1.0     ✔ dplyr   1.0.4
+## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+## ✔ readr   1.4.0     ✔ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>df.posts &lt;- tibble(ref.date = as.Date(basename(my.f.posts)),
+                   ref.month = format(ref.date, &#39;%m&#39;), 
+                   content = sapply(my.f.posts, function(x) paste0(readLines(x), collapse = &#39;\n&#39;) ),
+                   char.length = nchar(content)) %&gt;%  # includes output code in length calculation..
+  filter(ref.date &gt; as.Date(&#39;2017-01-01&#39;) | ref.date &lt; as.Date(&#39;2018-01-01&#39;) ) # not really necessary but keep it for future
+
+glimpse(df.posts)</code></pre>
+<pre><code>## Rows: 0
+## Columns: 4
+## $ ref.date    &lt;date&gt; 
+## $ ref.month   &lt;chr&gt; 
+## $ content     &lt;named list&gt; []
+## $ char.length &lt;int&gt;</code></pre>
+<p>Fist, let’s look at the frequency of posts by month:</p>
+<pre class="r"><code>print( ggplot(df.posts, aes(x = ref.month)) + geom_histogram(stat=&#39;count&#39;)) </code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
+<p><img src="/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>It is not accidental that january was the month with the highest number of posts. This is when I had material reserved for the book. June and July (0!) were the worst months as I traveled a lot. In June I attended R and Finance in Chicago, SER in Rio de Janeiro and in July I was visiting Goethe University in Germany for the whole month. On average, I created 0 posts per month overall, which fells quite alright. I hope I can keep that pace for the upcoming years.</p>
+<p>As for the length of posts, below we can see a nice pattern for its distribution conditional on the months of the year.</p>
+<pre class="r"><code>print(ggplot(df.posts, aes(x=ref.month, y = char.length)) + geom_boxplot())</code></pre>
+<p><img src="/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>I was not very productive from may to august, writing a few and short posts, when comparing to other months. This was probably due to my travels.</p>
+</div>
+<div id="plans-for-2018" class="section level1">
+<h1>Plans for 2018</h1>
+<p>Despite the usual effort in research and teaching, my plans for 2018 are:</p>
+<ul>
+<li><p><strong>Work on the second edition of the <a href="https://sites.google.com/view/r-financas/">portuguese book</a></strong>. It significantly lags the english version in content and this need to be fixed. I already have some ideas laid out for new chapters and new packages to cover. I’ll write more about this update as soon as I have it figured out.</p></li>
+<li><p><strong>Start a portal for financial data in Brazil</strong>. I want to make it easy for people to visualize and download organized financial data, specially those without programming experience. It will include the usual datasets such as prices in equity/bond/derivative markets for various frequencies, historical yield curves, financial statements of companies, and so on. The idea is to offer the datasets in various file formats, facilitating its use in research.</p></li>
+</ul>
+<p>That’s it. If you got this far, happy new year! Enjoy your family and the holidays!</p>
+</div>

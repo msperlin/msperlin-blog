@@ -1,0 +1,230 @@
+---
+title: "bookdown + exams + webex"
+subtitle: Compiling reproducible exercises for your book
+author: "Marcelo S. Perlin"
+date: '2021-03-18'
+tags:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+categories:
+- R
+- afedR
+- exams
+- bookdown
+- webex
+draft: no
+---
+
+It's been three years since I've been using package `bookdown` for compiling and distributing [three different books](https://www.msperlin.com/blog/publication/#5) in Amazon and the [web](https://www.msperlin.com/afedR/). It helped me greatly in all my book projects and I'm always **grateful** to Yihui Xie for providing such a useful tool at the [right time](https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/). 
+
+However, `bookdown` offers no support for chapter exercises of any sort. While you can write exercises in plain RMarkdown, it is not a good solution for a long term project such as a technical book. When writing the latest edition of [Analyzing Financial and Economical Data with R](https://www.msperlin.com/afedR/), I aimed for a  work cycle where the 100 plus exercises and their solutions were reproducible and easier to maintain. 
+
+Meanwhile, package `exams` provides a [framework](http://www.r-exams.org/) to produce exercises in a reproducible setup, making it possible to export the exercises to any given format such as pdf or html, or even _e-learning_ platforms such as Moodle and Blackboard. I use `exams` extensively in all my university classes and it works like a charm! 
+
+So, while writing afedR, I worked towards finding a way to bring the two technologies closer to each other, which is what I'll report in this blog post. Here are the main advantages of this setup:
+
+- The content of book exercises, their solution and explanation in a single location (no more fidling with different folders).
+- Dynamic output for html, with buttons and solutions available at a single click. 
+- Exportable exercises for classes (see this [blog post](https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/)). You can export the same exercises to pdf or Moodle, for example. 
+
+
+## `bookdown` + `exams` + `webex` 
+
+First and foremost, the main part of the hack is to realize that any exercises in a .Rmd file [can be broken](https://stackoverflow.com/questions/62315622/using-r-exams-in-bookdown-document-especially-for-html-output/66012008#66012008) into a list using `exams::xexams`. Let's use an example from the book, with the first three exercises of chapter 01:
+
+```{r}
+# example from book 
+afedR::copy_book_files(path_to_copy = tempdir())
+
+# temp folder with exercises
+eoc_dir <- file.path(tempdir(), 'afedR files/eoc-exercises/')
+
+# select exercises
+my_exercises <- list.files(eoc_dir, pattern = '*.Rmd', full.names = TRUE)
+my_exercises <- my_exercises[1:3]
+
+# break it down
+my_l <- exams::xexams(my_exercises)
+
+# check it
+dplyr::glimpse(my_l)
+```
+
+As an example, in this list you can see the main text of the question 01 in slot `l_out$exam1$exercise1$question`:
+
+```{r}
+my_l$exam1$exercise1$question
+```
+
+And the solution at `my_l$exam1$exercise1$solution`
+
+```{r}
+my_l$exam1$exercise1$solution
+```
+
+In my case, I wanted the html version of the book to have all the solutions hidden by a clickable button -- just like in `webex` --  while the pdf and ebook would only have the text of the questions. Here are the functions I used:
+
+```{r}
+compile_eoc_exercises <- function(files_in, type_doc) {
+  my_counter <<- 1
+
+  if (is.null(type_doc)) {
+    type_doc = 'html'
+    #type_doc = 'latex'
+  }
+
+  for (i_ex in files_in) {
+    exercise_to_html(i_ex, my_counter = my_counter,
+                     type_doc)
+
+    my_counter <<- my_counter +1
+  }
+
+  return(invisible(TRUE))
+}
+
+exercise_to_html <- function(f_in, my_counter, type_doc) {
+
+  require(exams)
+  require(webex)
+  require(tidyverse)
+
+  text_pre_solution <- paste0('To reach the same result, you must execute the code below. ',
+                           'For that, open a new R script in RStudio (Control+shift+N), ',
+                           'copy and paste the code, and execute it whole by pressing ',
+                           'Control+Shift+Enter or line by line with shortcut ',
+                           'Control+Enter.')
+
+  my_dir <- file.path(tempdir(), basename(tempfile()))
+  dir.create(my_dir)
+
+  suppressMessages({
+  l_out <- exams::xexams(f_in, driver = list(sweave = list(png = TRUE)),
+                         dir = my_dir)
+
+  })
+
+  exercise_text <- paste0(l_out$exam1$exercise1$question, collapse = '\n')
+  alternatives <- l_out$exam1$exercise1$questionlist
+  correct <- l_out$exam1$exercise1$metainfo$solution
+  solution <- paste0(l_out$exam1$exercise1$solution,
+                     collapse = '\n')
+  ex_type <- l_out$exam1$exercise1$metainfo$type
+
+  if (type_doc %in% c('latex', 'epub3')) {
+
+    my_str <- str_glue('\n\n {sprintf("%02d", my_counter)} - {exercise_text} \n\n ')
+
+    if (ex_type == 'schoice') {
+      n_alternatives <- length(alternatives)
+
+      for (i_alt in seq(1, n_alternatives)) {
+        my_str <- paste0(my_str,
+                         letters[i_alt],') ', alternatives[i_alt],
+                         '\n')
+      }
+
+    }
+
+    cat(my_str)
+
+    return(invisible(TRUE))
+
+  } else if (type_doc == 'html') {
+
+    if (ex_type == 'schoice') {
+      vec_mcq <- sample(
+        c(alternatives[!correct],
+          answer = alternatives[correct])
+      )
+
+      my_answers_text <- str_glue('<br> Solution: {mcq(vec_mcq)}')
+      numeric_sol <- alternatives[correct]
+      text_sol <- str_glue('The solution is {numeric_sol}. {text_pre_solution}')
+
+    } else if (ex_type == 'num') {
+
+      numeric_sol <- correct
+      my_answers_text <- str_glue('<br><br> Your Answer: {fitb(correct)}')
+      text_sol <- str_glue('The solution is {numeric_sol}. {text_pre_solution}')
+
+    } else if (ex_type == 'string') {
+      my_answers_text <- ''
+      numeric_sol <- ''
+
+      if (stringr::str_detect(solution,
+                              '```text')) {
+        text_sol <- paste0('In order to execute the code, open a new R script in RStudio (Control+shift+N), ',
+                           'copy and paste the code, and execute it whole by pressing ',
+                           'Control+Shift+Enter or line by line with shortcut ',
+                           'Control+Enter.')
+
+      } else {
+        text_sol <- ''
+      }
+
+    }
+
+
+    my_str <- paste0('\n\n <hr> \n',
+                     webex::total_correct(), '\n',
+                     '### Q.', my_counter, '{-} \n',
+                     exercise_text, '\n',
+                       my_answers_text)
+
+
+    temp_id <- basename(tempfile(pattern = 'collapse_'))
+    sol_str <- str_glue(
+      ' <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;"><p><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{temp_id}" aria-expanded="false" aria-controls="collapseExample">
+    Solution
+  </button> </p> </div>
+
+<div class="collapse" id="{temp_id}">
+{text_sol}
+  <div class="card card-body">
+    {solution}
+  </div>
+</div>')
+
+    cat(paste0(my_str, '\n' ,
+               sol_str))
+
+  }
+
+  return(invisible(TRUE))
+
+}
+```
+
+
+### Html Exercises 
+
+The html output for the selected three exercises is given next. Do notice that the correct solution is **not highlighted** in this blog post due to the lack of css and javascript. In the [final result](https://www.msperlin.com/afedR/introduction.html#exercises) you'll see that it works correctly. Also, you'll need to set `results='asis'` in the knitr options of the chunk (the code output pure html).
+
+```{r, results='asis', message=FALSE}
+compile_eoc_exercises(my_exercises, type_doc = 'html')
+```
+
+
+### Pdf/Ebook Exercises 
+
+And for latex (pdf) and epub3 (ebook), the result is:
+
+```{r, results='asis', message=FALSE}
+compile_eoc_exercises(my_exercises, type_doc = 'latex')
+```
+
+As you can see, it works great. So, at the end of each chapter I simply called function `compile_eoc_exercises()` with the knit chunk options `results='asis'` and `echo=FALSE`. Moreover, object `my_engine` is set as `my_engine <- knitr:::pandoc_to()`, which will figure out the format within the compilation of the book:
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/lCDuvZg" data-context="false" ><a href="//imgur.com/a/lCDuvZg"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+## Conclusion
+
+Its is amazing how much we can accomplish by learning and mixing different technologies. In this case, I used R, Latex, html, javascript and css to bundle reproducible and dynamic exercises for my book. You can find examples of the final output in [html](https://www.msperlin.com/afedR/introduction.html#exercises), [pdf](https://www.msperlin.com/afedR/afedR_ed02-ONLINE.pdf) and [ebook](https://www.msperlin.com/afedR/afedR_ed02-ONLINE.epub). 
+
+If you're trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used [my_javascript.js](https://www.msperlin.com/blog/post/my_javascript.js) and [style_html.css](https://www.msperlin.com/blog/post/style_html.css). 
+

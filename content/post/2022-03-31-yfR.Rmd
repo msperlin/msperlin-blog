@@ -1,0 +1,210 @@
+---
+title: "New R package yfR"
+author: "Marcelo S. Perlin"
+date: '2022-03-31'
+subtitle: Facilitating download of stock data from Yahoo Finance
+tags:
+- R
+- yfR
+- BatchGetSymbols
+categories:
+- R
+- yfR
+- BatchGetSymbols
+draft: no
+---
+
+Package [BatchGetSymbols](https://github.com/msperlin/BatchGetSymbols) facilitates importation of Yahoo Finance data directly into R and is one of my most popular R packages, with over 100k installations since conception (around 2500 downloads per month). However, I developed BatchGetSymbols back in 2016, with many bad structural choices from my part. 
+
+For years I wanted to improved the code but always restrained myself because I did not want to mess up the execution of other people's code that was based on BatchGetSymbols. In order to implement all the breaking changes and move forward with the package, I decided to develop a **new** (and fresh) package called yfR.
+
+Today I'm releasing the first version of yfR (not yeat in CRAN). This in a major upgrade on BatchGetSymbols, with many backwards-incompatible changes. 
+
+# Motivation
+
+`yfR` is the second and backwards-incompatible version of [BatchGetSymbols](https://CRAN.R-project.org/package=BatchGetSymbols). In a nutshell, it provides access to daily stock prices from [Yahoo Finance](https://finance.yahoo.com/), a vast repository with financial data around the globe. Yahoo Finance cover a large number of markets and assets, being used extensively for importing price datasets used in academic research and teaching. 
+
+Package `yfR` is based on [quantmod](https://www.quantmod.com/) and used its main function for fetching data from Yahoo Finance. The main innovation in `yfR` is in the organization of the imported financial data and using local caching system and parallel computing for speeding up large scale download of datasets from Yahoo Finance.
+
+See full documentation [here](https://github.com/msperlin/yfR).
+
+## Features
+
+- Fetchs daily/weekly/monthly/annual stock prices/returns from yahoo finance and outputs a dataframe (tibble) in the long format (stacked data);
+
+- A new feature called "collections" facilitates download of multiple tickers from a particular market/index. You can, for example, download data for all stocks in the SP500 index with a simple call to `yf_collection_get()`;
+
+- A session-persistent smart cache system is available by default. This means that the data is saved locally and only missing portions are downloaded, if needed.
+
+- All dates are compared to a benchmark ticker such as SP500 and, whenever an individual asset does not have a sufficient number of dates, the software drops it from the output. This means you can choose to ignore tickers with high number of missing dates.
+
+- A customized function called `yf_convert_to_wide()` can transform the long dataframe into a wide format (tickers as columns), much used in portfolio optimization. The output is a list where each element is a different target variable (prices, returns, volumes).
+
+- Parallel computing with package `furrr` is available, speeding up the data importation process.
+
+
+## Differences from [BatchGetSymbols](https://github.com/msperlin/BatchGetSymbols)
+
+Package `BatchgetSymbols` was developed back in 2016, with many bad structural choices from my part. Since then, I learned more about R and its ecosystem, resulting in better and more maintainable code. However, it is impossible to keep compatibility with the changes I wanted to make, which is why I decided to develop a new (and fresh) package. 
+
+Here are the main differences between `yfR` (new) and `BatchGetSymbols` (old): 
+
+- All input arguments are now formatted as "snake_case" and not "dot.case". For example, the argument for the first date of data importation in `yfR::yf_get()` is `first_date`, and not `first.date` as used in  `BatchGetSymbols::BatchGetSymbols`.
+
+- All function have been renamed for a common API notation. For example, `BatchGetSymbols::BatchGetSymbols` is now `yfR::yf_get()`. Likewise, the function for fetching collections is `yfR::yf_collection_get()`.
+
+- The output of `yfR::yf_get()` is always a tibble with the price data (and not a list as in `BatchGetSymbols::BatchGetSymbols`). If one wants the tibble with a summary of the importing process, it is available as an attribute of the output (see function `base::attributes`)
+
+- A new feature called "collection", which allows for easy download of a collection of tickers. For example, you can download price data for all components of the SP500 by simply calling `yfR::yf_collection_get("SP500")`.
+
+- New and prettier status messages using package `cli`
+
+You can find more details at its github repo: 
+
+https://github.com/msperlin/yfR
+
+
+## Installation
+
+```
+# CRAN (not yet available)
+#install.packages('yfR')
+
+# Github (dev version)
+devtools::install_github('msperlin/yfR')
+```
+
+
+## Examples
+
+### Fetching a single stock price
+
+```{r, results='hold'}
+library(yfR)
+
+# set options for algorithm
+my_ticker <- 'FB'
+first_date <- Sys.Date() - 30
+last_date <- Sys.Date()
+
+# fetch data
+df_yf <- yf_get(tickers = my_ticker, 
+                first_date = first_date,
+                last_date = last_date)
+
+# output is a tibble with data
+head(df_yf)
+```
+
+
+### Fetching many stock prices
+
+```{r}
+library(yfR)
+library(ggplot2)
+
+my_ticker <- c('FB', 'GM', 'MMM')
+first_date <- Sys.Date() - 100
+last_date <- Sys.Date()
+
+df_yf_multiple <- yf_get(tickers = my_ticker, 
+                         first_date = first_date,
+                         last_date = last_date)
+
+
+p <- ggplot(df_yf_multiple, 
+            aes(x = ref_date, y = price_adjusted,
+                color = ticker)) + 
+  geom_line()
+
+print(p)
+
+```
+
+
+### Fetching collections of prices
+
+Collections are just a bundle of tickers pre-organized in the package. For example, collection `SP500` represents the current composition of the SP500 index. 
+
+```{r, eval=FALSE}
+library(yfR)
+
+df_yf <- yf_collection_get("SP500", 
+                           first_date = Sys.Date() - 30,
+                           last_date = Sys.Date())
+
+head(df_yf)
+```
+
+
+### Fetching daily/weekly/monthly/yearly price data 
+
+```{r}
+library(yfR)
+library(ggplot2)
+library(dplyr)
+
+my_ticker <- 'GE'
+first_date <- '2010-01-01'
+last_date <- Sys.Date()
+
+df_dailly <- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = 'daily') |>
+  mutate(freq = 'daily')
+
+
+df_weekly <- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = 'weekly') |>
+  mutate(freq = 'weekly')
+
+df_monthly <- yf_get(tickers = my_ticker, 
+                     first_date, last_date, 
+                     freq_data = 'monthly') |>
+  mutate(freq = 'monthly')
+
+df_yearly <- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = 'yearly') |>
+  mutate(freq = 'yearly')
+
+df_allfreq <- bind_rows(
+  list(df_dailly, df_weekly, df_monthly, df_yearly)
+) |>
+  mutate(freq = factor(freq, 
+                       levels = c('daily', 
+                                  'weekly',
+                                  'monthly',
+                                  'yearly'))) # make sure the order in plot is right
+
+p <- ggplot(df_allfreq, aes(x=ref_date, y = price_adjusted)) + 
+  geom_point() + geom_line() + facet_grid(freq ~ ticker) + 
+  theme_minimal() + 
+  labs(x = '', y = 'Adjusted Prices')
+
+print(p)
+```
+
+
+### Changing format to wide
+
+```{r}
+library(yfR)
+library(ggplot2)
+
+my_ticker <- c('FB', 'GM', 'MMM')
+first_date <- Sys.Date() - 100
+last_date <- Sys.Date()
+
+df_yf_multiple <- yf_get(tickers = my_ticker, 
+                         first_date = first_date,
+                         last_date = last_date)
+
+l_wide <- yf_convert_to_wide(df_yf_multiple)
+
+prices_wide <- l_wide$price_adjusted
+
+head(prices_wide)
+```
+

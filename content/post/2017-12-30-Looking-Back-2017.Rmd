@@ -1,0 +1,64 @@
+---
+title: "Looking back in 2017 and plans for 2018"
+subtitle: " "
+author: "Marcelo S. Perlin"
+date: 2017-12-30
+tags: [R, blog, jekyll]
+categories: [R, blog, jekyll]
+---
+
+# My blog in 2017
+
+As we come close to the end of 2017, its time to look back. This has been a great year for me in many ways. This blog started as a way to write short pieces about using R for finance and promote my [book](https://sites.google.com/view/pafdR/home) in an organic way. Today, I'm very happy with my decision. Discovering and trying new writing styles keeps my interest very much alive. Academic research is very strict on what you can write and publish. It is satisfying to see that I can promote my work and have an impact in different ways, not only through the publication of academic papers. 
+
+My blog is build using a [Jekyll template](https://deanattali.com/beautiful-jekyll/), meaning the whole site, including individual posts, is built and controlled with editable text files and Github.  All files related to posts follow the same structure, meaning I can easily gather the textual data and organize it in a nice `tibble`. Let's first have a look in all post files:
+
+
+```{r}
+post.folder <- '~/GitRepo/msperlin.github.io/_posts/'
+
+my.f.posts <- list.files(post.folder, full.names = TRUE)
+my.f.posts
+```
+
+I posted `r length(my.f.posts)` posts during 2017. Notice how all dates are in the beginning of the file name. I can easily convert that to a `Date` object using `as.Date`. Let's organize it all in a nice `tibble`.
+
+```{r}
+library(tidyverse)
+
+df.posts <- tibble(ref.date = as.Date(basename(my.f.posts)),
+                   ref.month = format(ref.date, '%m'), 
+                   content = sapply(my.f.posts, function(x) paste0(readLines(x), collapse = '\n') ),
+                   char.length = nchar(content)) %>%  # includes output code in length calculation..
+  filter(ref.date > as.Date('2017-01-01') | ref.date < as.Date('2018-01-01') ) # not really necessary but keep it for future
+
+glimpse(df.posts)
+```
+
+Fist, let's look at the frequency of posts by month:
+
+```{r}
+print( ggplot(df.posts, aes(x = ref.month)) + geom_histogram(stat='count')) 
+```
+
+It is not accidental that january was the month with the highest number of posts. This is when I had material reserved for the book. June and July (0!) were the worst months as I traveled a lot.  In June I attended R and Finance in Chicago, SER in Rio de Janeiro and in July I was visiting Goethe University in Germany for the whole month. On average, I created `r nrow(df.posts)/12` posts per month overall, which fells quite alright. I hope I can keep that pace for the upcoming years.
+
+As for the length of posts, below we can see a nice pattern for its distribution conditional on the months of the year.   
+
+```{r}
+print(ggplot(df.posts, aes(x=ref.month, y = char.length)) + geom_boxplot())
+```
+
+I was not very productive from may to august, writing a few and short posts, when comparing to other months. This was probably due to my travels.
+
+# Plans for 2018
+
+Despite the usual effort in research and teaching, my plans for 2018 are:
+
+- **Work on the second edition of the [portuguese book](https://sites.google.com/view/r-financas/)**. It significantly lags the english version in content and this need to be fixed. I already have some ideas laid out for new chapters and new packages to cover. I'll write more about this update as soon as I have it figured out.
+
+- **Start a portal for financial data in Brazil**. I want to make it easy for people to visualize and download organized financial data, specially those without programming experience. It will include the usual datasets such as prices in equity/bond/derivative markets for various frequencies, historical yield curves, financial statements of companies, and so on. The idea is to offer the datasets in various file formats, facilitating its use in research.
+
+That's it. If you got this far, happy new year! Enjoy your family and the holidays! 
+
+

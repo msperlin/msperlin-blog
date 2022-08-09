@@ -1,0 +1,205 @@
+---
+title: 'Can you turn 1500 USD into 1.000.430 USD by investing in the stock market for three years?'
+subtitle: "The Bettina Case"
+author: "Marcelo S. Perlin"
+date: '2019-03-23'
+draft: false
+tags: ["R", "investments"]
+categories: ["R", "investments"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/blog/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>In the last few weeks we’ve seen a great deal of controversy in Brazil regarding financial investments. Too keep it short, <em>Empiricus</em>, an ad-based company that massively sells online courses and subscriptions, posted a YouTube ad where a young girl, Bettina, <a href="https://canaltech.com.br/memes/entenda-o-caso-bettina-a-jovem-tia-patinhas-brasileira-que-virou-meme-135035/">says the following</a>:</p>
+<pre><code>Hi, I&#39;m Bettina, I am 22 years old and, starting with R$ 1,500, I now own R$ 1,042,000 of  accumulated wealth.</code></pre>
+<p>She later explains that she <em>earned</em> the money by investing in the stock market over three years. For my international audience, the proposed investment is equivalent of turning 394 dolars into 263169.2 dolars over a three year period.</p>
+<p>Anyone with a economics or business background will easily spot that the financial returns stated in the ad is simply not possible. Even if Bettina is a very good investor, reaching this level of returns over a three year period in the stock market is unheard of. The yearly rate of return of the investment is equal to 774% per year. The monthly rate proposed in the ad is equivalent to 20% per month.</p>
+<p>Giving perspective, Buffet, one of the greatest long term investor of all times, has reached the approximate rate of 19% <strong>per year</strong>, around 1.46% per month. So, Bettina is either a financial genius that, with only 22 years old, was able to beat <em>Buffet</em> in its own game, or the ad is not fully committed to the truth. To be fair, even if we took the difference of inflation rates between Brazil and US into account, the difference is still very impressive and misleading.</p>
+<p><a href="https://twitter.com/samydana/status/1107104905205039104">Others</a> have pointed out that if you compound these return over time, the result will be economically unrealistic. See next what happens to R$ 1.500 if we assume that you can replicate the alledged investment return of Bettina (774% per year) over a 10 year period.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-3">Table 1: </span>Compounding returns for Bettina
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Number of years
+</th>
+<th style="text-align:left;">
+Investiment value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+R$ 13.103,89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+R$ 114.474,71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+R$ 1.000.043,00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+R$ 8.736.305,50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+R$ 76.319.752,11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+R$ 666.724.001,23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+R$ 5.824.454.109,93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+R$ 50.882.022.569,93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+R$ 444.501.780.243,15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+R$ 3.883.136.374.301,74
+</td>
+</tr>
+</tbody>
+</table>
+<p>If Bettina is a genius and can replicate her result over the years, she will be a billionaire in 7 years and a trillionaire in 10. If she waited one more year, she could even buy the whole country if she wanted to. The current GDP of Brazil is around 2 trillion USD (7.5 trillion in R$). She can easily reach this amount of cash in 12 years or more.</p>
+<p>But lets go further in this endeavor. Let’s stop being skeptic about her returns and see whether its possible to achieve such returns in the stock market. As you can expect, I’m taking a data based approach. I’ll compare the returns of Bettina to <em>GodBot</em>, a computer algorithm that can perfectly predict stock prices.</p>
+<p>First, let’s download some stock data from B3, the Brazilian stock exchange.</p>
+<pre class="r"><code>library(BatchGetSymbols)
+
+df.ibov &lt;- GetIbovStocks()
+
+my.tickers &lt;- paste0(df.ibov$tickers, &#39;.SA&#39;)
+
+df.stocks &lt;- BatchGetSymbols(tickers = my.tickers,
+                            first.date = &#39;2010-01-01&#39;, 
+                            last.date = &#39;2019-01-01&#39;, 
+                            cache.folder = &#39;~/.mem_cache/BGS_Cache&#39;)[[2]]</code></pre>
+<p>My god bot has a single and simple rule:</p>
+<ul>
+<li>For each month, it will always invest 100% in the stock with the highest return for the month</li>
+</ul>
+<p>Next we code this <em>bot</em> using <code>tidyverse</code>:</p>
+<pre class="r"><code>library(tidyverse)
+
+res.inv &lt;- df.stocks %&gt;%
+ mutate(ref.month = as.Date(format(ref.date, &#39;%Y-%m-01&#39;))) %&gt;%
+ group_by(ref.month, ticker) %&gt;%
+ summarise(ret.month = last(price.adjusted)/first(price.adjusted) - 1) %&gt;%
+ group_by(ref.month) %&gt;%
+ summarise(best.ticker = ticker[which.max(ret.month)],
+           best.return = ret.month[which.max(ret.month)])</code></pre>
+<p>Now, let’s have a look in those returns:</p>
+<pre class="r"><code>library(ggplot2)
+
+# bettinas returns
+initial.cash &lt;- 1500
+last.cash &lt;- 1000043
+my.T &lt;- 3 # years
+
+r.aa &lt;- (last.cash/initial.cash)^(1/3) -1 
+r.am &lt;- (last.cash/initial.cash)^(1/(3*12)) -1 
+
+p &lt;- ggplot(res.inv, aes(x = ref.month, y = best.return)) + 
+ geom_col() + 
+ geom_hline(yintercept =r.am, color = &#39;red&#39;, size =1.5) + 
+ labs(x = &#39;Time&#39;, y = &#39;Monthly Returns&#39;,
+      title = &#39;Monthly Returns of Bettina and GodBot&#39;,
+      subtitle = paste0(&#39;- This plot shows the &quot;alleged&quot; returns from Bettina against a perfect predictor \n for the BR stock market\n&#39;,
+                        &#39;- The horizontal red line represents the return of Bettina (19.79% monthly)&#39;),
+      caption = &#39;www.msperlin.com/blog&#39;
+       ) + 
+ scale_y_continuous(labels = scales::percent)
+
+p</code></pre>
+<p><img src="/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>As you can see, Bettina did good with a constant monthly return of 20%. But, <em>GodBot</em> is better. Bettina is clearly missing something out!</p>
+<p>When looking at the nominal value of the investment, the effect of compound returns explodes the value of the portfolio.</p>
+<pre class="r"><code>library(tidyr)
+
+format.cash &lt;- function(x) {
+ require(scales)
+
+ x.formatted &lt;- dollar(x,
+                       prefix = &#39;R$ &#39;,
+                       decimal.mark = &#39;,&#39;,
+                       big.mark = &#39;.&#39;,
+                       largest_with_cents = Inf)
+
+ return(x.formatted)
+}
+
+df.cumret &lt;- res.inv %&gt;%
+ mutate(cumret.godbot = initial.cash*cumprod(1+res.inv$best.return),
+        cumret.bettina =initial.cash*cumprod(1+rep(r.am, n())) ) %&gt;%
+ select(-best.ticker, -best.return)
+
+df.to.plot &lt;- gather(df.cumret, &#39;Investor&#39;, &quot;Value&quot;, -ref.month )
+
+p &lt;- ggplot(df.to.plot, aes(x = ref.month, y = Value, color = Investor)) + 
+ geom_line(size =2) + 
+ labs(x = &#39;Time&#39;, 
+      y = &#39;Value of Return&#39;,
+      title = &#39;Accumulated Value of Portfolio&#39;,
+      subtitle = &#39;This figure shows the value of accumulated return for Bettina in comparison to GodBot, a perfect predictor of stock markets&#39;) + 
+ scale_y_continuous(labels = format.cash)
+
+p</code></pre>
+<p><img src="/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The results show that Bettina’s returns are possible. All you need to do is to perfectly predict, for each month, which stock will do best in the market. If you haven’t sensed my irony, let me be crystal clear: <strong>Market prices are impossible to predict</strong>. The result I just showed you is only possible in my computer. No one will ever be able to replicate it in practice.</p>
+<p>The ad from <em>Empiricus</em> is very misleading. In my opinion as a finance professor, the real problem in this episode is that the great majority of the Brazilian population is not financially educated. Many people <strong>will believe</strong> that is legally possible to reach a 20% return over a month.</p>
+<p>I’ve seen countless cases of financial pyramids, usually tied to some exotic cryptocurrency, to rise and shortly burn here in Brazil. This is specially – and sadly – most frequent in the poorer areas of the country. Those that follow <em>Empiricus</em> advice will soon learn its lesson. Making money in short run in stocks is very difficult.</p>
+<p>Unfortunately, every disapointed person that followed <em>Empiricus</em> advice is never going back to investing in financial markets. They will miss what is probably the greatest system ever designed for investing and passively creating wealth in the long run.</p>

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>afedR | msperlin</title>
+    <link>http://www.msperlin.com/blog/category/afedr/</link>
+      <atom:link href="http://www.msperlin.com/blog/category/afedr/index.xml" rel="self" type="application/rss+xml" />
+    <description>afedR</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <title>afedR</title>
+      <link>http://www.msperlin.com/blog/category/afedr/</link>
+    </image>
+    
+    <item>
+      <title>bookdown &#43; exams &#43; webex</title>
+      <link>http://www.msperlin.com/blog/post/2021-03-18-bookdown_and_exams/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2021-03-18-bookdown_and_exams/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;It’s been three years since I’ve been using package &lt;code&gt;bookdown&lt;/code&gt; for compiling and distributing &lt;a href=&#34;https://www.msperlin.com/blog/publication/#5&#34;&gt;three different books&lt;/a&gt; in Amazon and the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web&lt;/a&gt;. It helped me greatly in all my book projects and I’m always &lt;strong&gt;grateful&lt;/strong&gt; to Yihui Xie for providing such a useful tool at the &lt;a href=&#34;https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/&#34;&gt;right time&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;However, &lt;code&gt;bookdown&lt;/code&gt; offers no support for chapter exercises of any sort. While you can write exercises in plain RMarkdown, it is not a good solution for a long term project such as a technical book. When writing the latest edition of &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;Analyzing Financial and Economical Data with R&lt;/a&gt;, I aimed for a work cycle where the 100 plus exercises and their solutions were reproducible and easier to maintain.&lt;/p&gt;
+&lt;p&gt;Meanwhile, package &lt;code&gt;exams&lt;/code&gt; provides a &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;framework&lt;/a&gt; to produce exercises in a reproducible setup, making it possible to export the exercises to any given format such as pdf or html, or even &lt;em&gt;e-learning&lt;/em&gt; platforms such as Moodle and Blackboard. I use &lt;code&gt;exams&lt;/code&gt; extensively in all my university classes and it works like a charm!&lt;/p&gt;
+&lt;p&gt;So, while writing afedR, I worked towards finding a way to bring the two technologies closer to each other, which is what I’ll report in this blog post. Here are the main advantages of this setup:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The content of book exercises, their solution and explanation in a single location (no more fidling with different folders).&lt;/li&gt;
+&lt;li&gt;Dynamic output for html, with buttons and solutions available at a single click.&lt;/li&gt;
+&lt;li&gt;Exportable exercises for classes (see this &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;blog post&lt;/a&gt;). You can export the same exercises to pdf or Moodle, for example.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;bookdown-exams-webex&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;code&gt;bookdown&lt;/code&gt; + &lt;code&gt;exams&lt;/code&gt; + &lt;code&gt;webex&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;First and foremost, the main part of the hack is to realize that any exercises in a .Rmd file &lt;a href=&#34;https://stackoverflow.com/questions/62315622/using-r-exams-in-bookdown-document-especially-for-html-output/66012008#66012008&#34;&gt;can be broken&lt;/a&gt; into a list using &lt;code&gt;exams::xexams&lt;/code&gt;. Let’s use an example from the book, with the first three exercises of chapter 01:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# example from book 
+afedR::copy_book_files(path_to_copy = tempdir())&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying data files files to /tmp/RtmpIs4EpM/afedR files/data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  37 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying end-of-chapter (eoc) exercises with solutions to /tmp/RtmpIs4EpM/afedR files/eoc-exercises/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  99 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying R code to /tmp/RtmpIs4EpM/afedR files/R-code&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  15 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# temp folder with exercises
+eoc_dir &amp;lt;- file.path(tempdir(), &amp;#39;afedR files/eoc-exercises/&amp;#39;)
+
+# select exercises
+my_exercises &amp;lt;- list.files(eoc_dir, pattern = &amp;#39;*.Rmd&amp;#39;, full.names = TRUE)
+my_exercises &amp;lt;- my_exercises[1:3]
+
+# break it down
+my_l &amp;lt;- exams::xexams(my_exercises)
+
+# check it
+dplyr::glimpse(my_l)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## List of 1
+##  $ exam1:List of 3
+##   ..$ exercise1:List of 6
+##   .. ..$ question    : chr [1:3] &amp;quot;&amp;quot; &amp;quot;The R language was developed based on what other programming language?&amp;quot; &amp;quot;&amp;quot;
+##   .. ..$ questionlist: chr [1:5] &amp;quot;C++&amp;quot; &amp;quot;Python&amp;quot; &amp;quot;Julia&amp;quot; &amp;quot;Javascript&amp;quot; ...
+##   .. ..$ solution    : chr [1:2] &amp;quot;&amp;quot; &amp;quot;Straight from the book, section **What is R**: \&amp;quot;R is a modern version of S, a programming language originally &amp;quot;| __truncated__
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr(0) 
+##   .. .. ..- attr(*, &amp;quot;dir&amp;quot;)= chr &amp;quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise1&amp;quot;
+##   ..$ exercise2:List of 6
+##   .. ..$ question    : chr [1:3] &amp;quot;&amp;quot; &amp;quot;What are the names of the two authors of R?&amp;quot; &amp;quot;&amp;quot;
+##   .. ..$ questionlist: chr [1:5] &amp;quot;Linus Torvalds and Richard Stallman&amp;quot; &amp;quot;John Chambers and Robert Engle&amp;quot; &amp;quot;Roger Federer and Rafael Nadal&amp;quot; &amp;quot;Guido van Rossum and Bjarne Stroustrup&amp;quot; ...
+##   .. ..$ solution    : chr [1:3] &amp;quot;&amp;quot; &amp;quot;Straight from the book: \&amp;quot;... The base code of R was developed by two academics, **Ross Ihaka** and **Robert Ge&amp;quot;| __truncated__ &amp;quot;&amp;quot;
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr(0) 
+##   .. .. ..- attr(*, &amp;quot;dir&amp;quot;)= chr &amp;quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise2&amp;quot;
+##   ..$ exercise3:List of 6
+##   .. ..$ question    : chr [1:4] &amp;quot;&amp;quot; &amp;quot;Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?&amp;quot; &amp;quot;&amp;quot; &amp;quot;&amp;quot;
+##   .. ..$ questionlist: chr [1:5] &amp;quot;It was designed for analyzing data and producing statistical output&amp;quot; &amp;quot;Easy to use&amp;quot; &amp;quot;Works on any plataform such as Windows, Unix, MacOS&amp;quot; &amp;quot;Makes it easy to write mobile apps&amp;quot; ...
+##   .. ..$ solution    : chr [1:2] &amp;quot;&amp;quot; &amp;quot;Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platfor&amp;quot;| __truncated__
+##   .. ..$ solutionlist: NULL
+##   .. ..$ metainfo    :List of 18
+##   .. ..$ supplements : Named chr(0) 
+##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr(0) 
+##   .. .. ..- attr(*, &amp;quot;dir&amp;quot;)= chr &amp;quot;/tmp/RtmpIs4EpM/file4e094f974499/exam1/exercise3&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As an example, in this list you can see the main text of the question 01 in slot &lt;code&gt;l_out$exam1$exercise1$question&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_l$exam1$exercise1$question&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;&amp;quot;                                                                      
+## [2] &amp;quot;The R language was developed based on what other programming language?&amp;quot;
+## [3] &amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the solution at &lt;code&gt;my_l$exam1$exercise1$solution&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_l$exam1$exercise1$solution&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [2] &amp;quot;Straight from the book, section **What is R**: \&amp;quot;R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;amp;T, now Lucent Technologies).\&amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In my case, I wanted the html version of the book to have all the solutions hidden by a clickable button – just like in &lt;code&gt;webex&lt;/code&gt; – while the pdf and ebook would only have the text of the questions. Here are the functions I used:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;compile_eoc_exercises &amp;lt;- function(files_in, type_doc) {
+  my_counter &amp;lt;&amp;lt;- 1
+
+  if (is.null(type_doc)) {
+    type_doc = &amp;#39;html&amp;#39;
+    #type_doc = &amp;#39;latex&amp;#39;
+  }
+
+  for (i_ex in files_in) {
+    exercise_to_html(i_ex, my_counter = my_counter,
+                     type_doc)
+
+    my_counter &amp;lt;&amp;lt;- my_counter +1
+  }
+
+  return(invisible(TRUE))
+}
+
+exercise_to_html &amp;lt;- function(f_in, my_counter, type_doc) {
+
+  require(exams)
+  require(webex)
+  require(tidyverse)
+
+  text_pre_solution &amp;lt;- paste0(&amp;#39;To reach the same result, you must execute the code below. &amp;#39;,
+                           &amp;#39;For that, open a new R script in RStudio (Control+shift+N), &amp;#39;,
+                           &amp;#39;copy and paste the code, and execute it whole by pressing &amp;#39;,
+                           &amp;#39;Control+Shift+Enter or line by line with shortcut &amp;#39;,
+                           &amp;#39;Control+Enter.&amp;#39;)
+
+  my_dir &amp;lt;- file.path(tempdir(), basename(tempfile()))
+  dir.create(my_dir)
+
+  suppressMessages({
+  l_out &amp;lt;- exams::xexams(f_in, driver = list(sweave = list(png = TRUE)),
+                         dir = my_dir)
+
+  })
+
+  exercise_text &amp;lt;- paste0(l_out$exam1$exercise1$question, collapse = &amp;#39;\n&amp;#39;)
+  alternatives &amp;lt;- l_out$exam1$exercise1$questionlist
+  correct &amp;lt;- l_out$exam1$exercise1$metainfo$solution
+  solution &amp;lt;- paste0(l_out$exam1$exercise1$solution,
+                     collapse = &amp;#39;\n&amp;#39;)
+  ex_type &amp;lt;- l_out$exam1$exercise1$metainfo$type
+
+  if (type_doc %in% c(&amp;#39;latex&amp;#39;, &amp;#39;epub3&amp;#39;)) {
+
+    my_str &amp;lt;- str_glue(&amp;#39;\n\n {sprintf(&amp;quot;%02d&amp;quot;, my_counter)} - {exercise_text} \n\n &amp;#39;)
+
+    if (ex_type == &amp;#39;schoice&amp;#39;) {
+      n_alternatives &amp;lt;- length(alternatives)
+
+      for (i_alt in seq(1, n_alternatives)) {
+        my_str &amp;lt;- paste0(my_str,
+                         letters[i_alt],&amp;#39;) &amp;#39;, alternatives[i_alt],
+                         &amp;#39;\n&amp;#39;)
+      }
+
+    }
+
+    cat(my_str)
+
+    return(invisible(TRUE))
+
+  } else if (type_doc == &amp;#39;html&amp;#39;) {
+
+    if (ex_type == &amp;#39;schoice&amp;#39;) {
+      vec_mcq &amp;lt;- sample(
+        c(alternatives[!correct],
+          answer = alternatives[correct])
+      )
+
+      my_answers_text &amp;lt;- str_glue(&amp;#39;&amp;lt;br&amp;gt; Solution: {mcq(vec_mcq)}&amp;#39;)
+      numeric_sol &amp;lt;- alternatives[correct]
+      text_sol &amp;lt;- str_glue(&amp;#39;The solution is {numeric_sol}. {text_pre_solution}&amp;#39;)
+
+    } else if (ex_type == &amp;#39;num&amp;#39;) {
+
+      numeric_sol &amp;lt;- correct
+      my_answers_text &amp;lt;- str_glue(&amp;#39;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt; Your Answer: {fitb(correct)}&amp;#39;)
+      text_sol &amp;lt;- str_glue(&amp;#39;The solution is {numeric_sol}. {text_pre_solution}&amp;#39;)
+
+    } else if (ex_type == &amp;#39;string&amp;#39;) {
+      my_answers_text &amp;lt;- &amp;#39;&amp;#39;
+      numeric_sol &amp;lt;- &amp;#39;&amp;#39;
+
+      if (stringr::str_detect(solution,
+                              &amp;#39;```text&amp;#39;)) {
+        text_sol &amp;lt;- paste0(&amp;#39;In order to execute the code, open a new R script in RStudio (Control+shift+N), &amp;#39;,
+                           &amp;#39;copy and paste the code, and execute it whole by pressing &amp;#39;,
+                           &amp;#39;Control+Shift+Enter or line by line with shortcut &amp;#39;,
+                           &amp;#39;Control+Enter.&amp;#39;)
+
+      } else {
+        text_sol &amp;lt;- &amp;#39;&amp;#39;
+      }
+
+    }
+
+    my_str &amp;lt;- paste0(&amp;#39;\n\n &amp;lt;hr&amp;gt; \n&amp;#39;,
+                     webex::total_correct(), &amp;#39;\n&amp;#39;,
+                     &amp;#39;### Q.&amp;#39;, my_counter, &amp;#39;{-} \n&amp;#39;,
+                     exercise_text, &amp;#39;\n&amp;#39;,
+                       my_answers_text)
+
+    temp_id &amp;lt;- basename(tempfile(pattern = &amp;#39;collapse_&amp;#39;))
+    sol_str &amp;lt;- str_glue(
+      &amp;#39; &amp;lt;div style=&amp;quot;text-align: left; margin-top: 2px; padding: 13px 0 10px 0;&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;button class=&amp;quot;btn btn-primary&amp;quot; type=&amp;quot;button&amp;quot; data-toggle=&amp;quot;collapse&amp;quot; data-target=&amp;quot;#{temp_id}&amp;quot; aria-expanded=&amp;quot;false&amp;quot; aria-controls=&amp;quot;collapseExample&amp;quot;&amp;gt;
+    Solution
+  &amp;lt;/button&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&amp;quot;collapse&amp;quot; id=&amp;quot;{temp_id}&amp;quot;&amp;gt;
+{text_sol}
+  &amp;lt;div class=&amp;quot;card card-body&amp;quot;&amp;gt;
+    {solution}
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;#39;)
+
+    cat(paste0(my_str, &amp;#39;\n&amp;#39; ,
+               sol_str))
+
+  }
+
+  return(invisible(TRUE))
+
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;html-exercises&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Html Exercises&lt;/h3&gt;
+&lt;p&gt;The html output for the selected three exercises is given next. Do notice that the correct solution is &lt;strong&gt;not highlighted&lt;/strong&gt; in this blog post due to the lack of css and javascript. In the &lt;a href=&#34;https://www.msperlin.com/afedR/introduction.html#exercises&#34;&gt;final result&lt;/a&gt; you’ll see that it works correctly. Also, you’ll need to set &lt;code&gt;results=&#39;asis&#39;&lt;/code&gt; in the knitr options of the chunk (the code output pure html).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;compile_eoc_exercises(my_exercises, type_doc = &amp;#39;html&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span id=&#34;total_correct&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;q.1&#34; class=&#34;section level3 unnumbered&#34;&gt;
+&lt;h3&gt;Q.1&lt;/h3&gt;
+&lt;p&gt;The R language was developed based on what other programming language?&lt;/p&gt;
+&lt;br&gt; Solution: &lt;select class=&#39;solveme&#39; data-answer=&#39;[&#34;S&#34;]&#39;&gt; &lt;option&gt;&lt;/option&gt; &lt;option&gt;Julia&lt;/option&gt; &lt;option&gt;Javascript&lt;/option&gt; &lt;option&gt;C++&lt;/option&gt; &lt;option&gt;S&lt;/option&gt; &lt;option&gt;Python&lt;/option&gt;&lt;/select&gt;
+&lt;div style=&#34;text-align: left; margin-top: 2px; padding: 13px 0 10px 0;&#34;&gt;
+&lt;p&gt;
+&lt;button class=&#34;btn btn-primary&#34; type=&#34;button&#34; data-toggle=&#34;collapse&#34; data-target=&#34;#collapse_4e096b9ef65&#34; aria-expanded=&#34;false&#34; aria-controls=&#34;collapseExample&#34;&gt;
+Solution
+&lt;/button&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;collapse_4e096b9ef65&#34; class=&#34;collapse&#34;&gt;
+The solution is S. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+&lt;div class=&#34;card card-body&#34;&gt;
+Straight from the book, section &lt;strong&gt;What is R&lt;/strong&gt;: “R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;amp;T, now Lucent Technologies).”
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span id=&#34;total_correct&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;q.2&#34; class=&#34;section level3 unnumbered&#34;&gt;
+&lt;h3&gt;Q.2&lt;/h3&gt;
+&lt;p&gt;What are the names of the two authors of R?&lt;/p&gt;
+&lt;br&gt; Solution: &lt;select class=&#39;solveme&#39; data-answer=&#39;[&#34;Ross Ihaka and Robert Gentleman&#34;]&#39;&gt; &lt;option&gt;&lt;/option&gt; &lt;option&gt;Linus Torvalds and Richard Stallman&lt;/option&gt; &lt;option&gt;John Chambers and Robert Engle&lt;/option&gt; &lt;option&gt;Roger Federer and Rafael Nadal&lt;/option&gt; &lt;option&gt;Guido van Rossum and Bjarne Stroustrup&lt;/option&gt; &lt;option&gt;Ross Ihaka and Robert Gentleman&lt;/option&gt;&lt;/select&gt;
+&lt;div style=&#34;text-align: left; margin-top: 2px; padding: 13px 0 10px 0;&#34;&gt;
+&lt;p&gt;
+&lt;button class=&#34;btn btn-primary&#34; type=&#34;button&#34; data-toggle=&#34;collapse&#34; data-target=&#34;#collapse_4e0956ac53c2&#34; aria-expanded=&#34;false&#34; aria-controls=&#34;collapseExample&#34;&gt;
+Solution
+&lt;/button&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;collapse_4e0956ac53c2&#34; class=&#34;collapse&#34;&gt;
+The solution is Ross Ihaka and Robert Gentleman. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+&lt;div class=&#34;card card-body&#34;&gt;
+&lt;p&gt;Straight from the book: “… The base code of R was developed by two academics, &lt;strong&gt;Ross Ihaka&lt;/strong&gt; and &lt;strong&gt;Robert Gentleman&lt;/strong&gt;, resulting in the programming platform we have today.”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;span id=&#34;total_correct&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;q.3&#34; class=&#34;section level3 unnumbered&#34;&gt;
+&lt;h3&gt;Q.3&lt;/h3&gt;
+&lt;p&gt;Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?&lt;/p&gt;
+&lt;br&gt; Solution: &lt;select class=&#39;solveme&#39; data-answer=&#39;[&#34;It was designed for analyzing data and producing statistical output&#34;]&#39;&gt; &lt;option&gt;&lt;/option&gt; &lt;option&gt;Easy to use&lt;/option&gt; &lt;option&gt;It was designed for analyzing data and producing statistical output&lt;/option&gt; &lt;option&gt;Makes it easy to write mobile apps&lt;/option&gt; &lt;option&gt;Quick code execution&lt;/option&gt; &lt;option&gt;Works on any plataform such as Windows, Unix, MacOS&lt;/option&gt;&lt;/select&gt;
+&lt;div style=&#34;text-align: left; margin-top: 2px; padding: 13px 0 10px 0;&#34;&gt;
+&lt;p&gt;
+&lt;button class=&#34;btn btn-primary&#34; type=&#34;button&#34; data-toggle=&#34;collapse&#34; data-target=&#34;#collapse_4e0916478a7b&#34; aria-expanded=&#34;false&#34; aria-controls=&#34;collapseExample&#34;&gt;
+Solution
+&lt;/button&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;collapse_4e0916478a7b&#34; class=&#34;collapse&#34;&gt;
+The solution is It was designed for analyzing data and producing statistical output. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+&lt;div class=&#34;card card-body&#34;&gt;
+Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platform. Although other languages also allow data analysis, it is in R where this process is supported by a wide range of specialized packages.
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pdfebook-exercises&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pdf/Ebook Exercises&lt;/h3&gt;
+&lt;p&gt;And for latex (pdf) and epub3 (ebook), the result is:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;compile_eoc_exercises(my_exercises, type_doc = &amp;#39;latex&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;01 -
+The R language was developed based on what other programming language?&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;S&lt;/li&gt;
+&lt;li&gt;Javascript&lt;/li&gt;
+&lt;li&gt;Julia&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;02 -
+What are the names of the two authors of R?&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Guido van Rossum and Bjarne Stroustrup&lt;/li&gt;
+&lt;li&gt;John Chambers and Robert Engle&lt;/li&gt;
+&lt;li&gt;Roger Federer and Rafael Nadal&lt;/li&gt;
+&lt;li&gt;Ross Ihaka and Robert Gentleman&lt;/li&gt;
+&lt;li&gt;Linus Torvalds and Richard Stallman&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;03 -
+Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: lower-alpha&#34;&gt;
+&lt;li&gt;Works on any plataform such as Windows, Unix, MacOS&lt;/li&gt;
+&lt;li&gt;Easy to use&lt;/li&gt;
+&lt;li&gt;Quick code execution&lt;/li&gt;
+&lt;li&gt;Makes it easy to write mobile apps&lt;/li&gt;
+&lt;li&gt;It was designed for analyzing data and producing statistical output&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As you can see, it works great. So, at the end of each chapter I simply called function &lt;code&gt;compile_eoc_exercises()&lt;/code&gt; with the knit chunk options &lt;code&gt;results=&#39;asis&#39;&lt;/code&gt; and &lt;code&gt;echo=FALSE&lt;/code&gt;. Moreover, object &lt;code&gt;my_engine&lt;/code&gt; is set as &lt;code&gt;my_engine &amp;lt;- knitr:::pandoc_to()&lt;/code&gt;, which will figure out the format within the compilation of the book:&lt;/p&gt;
+&lt;blockquote class=&#34;imgur-embed-pub&#34; lang=&#34;en&#34; data-id=&#34;a/lCDuvZg&#34; data-context=&#34;false&#34;&gt;
+&lt;a href=&#34;//imgur.com/a/lCDuvZg&#34;&gt;&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;//s.imgur.com/min/embed.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Its is amazing how much we can accomplish by learning and mixing different technologies. In this case, I used R, Latex, html, javascript and css to bundle reproducible and dynamic exercises for my book. You can find examples of the final output in &lt;a href=&#34;https://www.msperlin.com/afedR/introduction.html#exercises&#34;&gt;html&lt;/a&gt;, &lt;a href=&#34;https://www.msperlin.com/afedR/afedR_ed02-ONLINE.pdf&#34;&gt;pdf&lt;/a&gt; and &lt;a href=&#34;https://www.msperlin.com/afedR/afedR_ed02-ONLINE.epub&#34;&gt;ebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used &lt;a href=&#34;https://www.msperlin.com/blog/post/my_javascript.js&#34;&gt;my_javascript.js&lt;/a&gt; and &lt;a href=&#34;https://www.msperlin.com/blog/post/style_html.css&#34;&gt;style_html.css&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Compiling Book Exercises to pdf | html | Moodle | Blackboard</title>
+      <link>http://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The revised second edition of &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;Analylzing Financial and Economic Data with R&lt;/a&gt; presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;&lt;code&gt;exams&lt;/code&gt; format&lt;/a&gt;, meaning that any R tutor can export the same exercises to pdf, html or &lt;em&gt;e-learning&lt;/em&gt; platforms. In this post I’ll show how to compile exercises to pdf, html, &lt;em&gt;Moodle&lt;/em&gt; and &lt;em&gt;blackboard&lt;/em&gt;.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Installation&lt;/h1&gt;
+&lt;p&gt;The first step is to install package &lt;code&gt;afedR&lt;/code&gt; with &lt;code&gt;devtools&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;msperlin/afedR&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another requirement is a working Latex instalation. For that, use &lt;code&gt;tinytex&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tinytex::install_tinytex()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compiling-exercises&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Compiling Exercises&lt;/h1&gt;
+&lt;div id=&#34;how-it-works&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How it works?&lt;/h2&gt;
+&lt;p&gt;All book exercises in the &lt;code&gt;exams&lt;/code&gt; format: each exercise is a .Rmd file containing code, exercise text and solution. The files themselves can be found in the installation directory of the package:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;eoc_dir &amp;lt;- afedR::get_EOC_dir()
+
+eoc_chapters &amp;lt;- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Chapter01-Introduction&amp;quot;             &amp;quot;Chapter02-Basic-Operations&amp;quot;        
+##  [3] &amp;quot;Chapter03-Research-Scripts&amp;quot;         &amp;quot;Chapter04-Import-Local&amp;quot;            
+##  [5] &amp;quot;Chapter05-Import-Internet&amp;quot;          &amp;quot;Chapter06-Dataframes-and-Others&amp;quot;   
+##  [7] &amp;quot;Chapter07-Basic-Classes&amp;quot;            &amp;quot;Chapter08-Programming&amp;quot;             
+##  [9] &amp;quot;Chapter09-Cleaning-and-Structuring&amp;quot; &amp;quot;Chapter10-Figures&amp;quot;                 
+## [11] &amp;quot;Chapter11-FinEcon&amp;quot;                  &amp;quot;Chapter12-Reporting&amp;quot;               
+## [13] &amp;quot;Chapter13-Optimizing-Code&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each folder will have several exercises. Let’s try one out:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;eoc_files &amp;lt;- fs::dir_ls(eoc_chapters[1])
+basename(eoc_files)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;afedR_Chap-01_01_SPLUS.Rmd&amp;quot;            
+##  [2] &amp;quot;afedR_Chap-01_02_Authors-R.Rmd&amp;quot;        
+##  [3] &amp;quot;afedR_Chap-01_03_About-R.Rmd&amp;quot;          
+##  [4] &amp;quot;afedR_Chap-01_04_name-R.Rmd&amp;quot;           
+##  [5] &amp;quot;afedR_Chap-01_05_about-R.Rmd&amp;quot;          
+##  [6] &amp;quot;afedR_Chap-01_06_Tecnology-R.Rmd&amp;quot;      
+##  [7] &amp;quot;afedR_Chap-01_07_rtools.Rmd&amp;quot;           
+##  [8] &amp;quot;afedR_Chap-01_08_Groups.Rmd&amp;quot;           
+##  [9] &amp;quot;afedR_Chap-01_09_RBloggers.Rmd&amp;quot;        
+## [10] &amp;quot;afedR_Chap-01_10_Infrastructure-TI.Rmd&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also read one of the files to show the strucuture of the exercise in code and text:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;readLines(eoc_files[1])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;```{r datageneration, echo = FALSE, results = \&amp;quot;hide\&amp;quot;}&amp;quot;                                                                                                                                
+##  [2] &amp;quot;my_answers &amp;lt;- c(&amp;#39;S&amp;#39;, &amp;quot;                                                                                                                                                                  
+##  [3] &amp;quot;                &amp;#39;C++&amp;#39;,&amp;quot;                                                                                                                                                                 
+##  [4] &amp;quot;                &amp;#39;Python&amp;#39;,&amp;quot;                                                                                                                                                              
+##  [5] &amp;quot;                &amp;#39;Julia&amp;#39;,&amp;quot;                                                                                                                                                               
+##  [6] &amp;quot;                &amp;#39;Javascript&amp;#39;)&amp;quot;                                                                                                                                                          
+##  [7] &amp;quot;&amp;quot;                                                                                                                                                                                       
+##  [8] &amp;quot;#check_answers(my_answers)&amp;quot;                                                                                                                                                             
+##  [9] &amp;quot;```&amp;quot;                                                                                                                                                                                    
+## [10] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [11] &amp;quot;Question&amp;quot;                                                                                                                                                                               
+## [12] &amp;quot;========&amp;quot;                                                                                                                                                                               
+## [13] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [14] &amp;quot;The R language was developed based on what other programming language?&amp;quot;                                                                                                                 
+## [15] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [16] &amp;quot;```{r questionlist, echo = FALSE, results = \&amp;quot;asis\&amp;quot;}&amp;quot;                                                                                                                                  
+## [17] &amp;quot;exams::answerlist(my_answers, markup = \&amp;quot;markdown\&amp;quot;)&amp;quot;                                                                                                                                   
+## [18] &amp;quot;```&amp;quot;                                                                                                                                                                                    
+## [19] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [20] &amp;quot;Solution&amp;quot;                                                                                                                                                                               
+## [21] &amp;quot;================&amp;quot;                                                                                                                                                                       
+## [22] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [23] &amp;quot;Straight from the book, section **What is R**: \&amp;quot;R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;amp;T, now Lucent Technologies).\&amp;quot;&amp;quot;
+## [24] &amp;quot;&amp;quot;                                                                                                                                                                                       
+## [25] &amp;quot;Meta-information&amp;quot;                                                                                                                                                                       
+## [26] &amp;quot;================&amp;quot;                                                                                                                                                                       
+## [27] &amp;quot;extype: schoice&amp;quot;                                                                                                                                                                        
+## [28] &amp;quot;exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`&amp;quot;                                                                                                     
+## [29] &amp;quot;exname: \&amp;quot;S PLUS\&amp;quot;&amp;quot;                                                                                                                                                                     
+## [30] &amp;quot;exshuffle: TRUE&amp;quot;                                                                                                                                                                        
+## [31] &amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Basically, we define all sections of a question – text, solution, alternatives – using a .Rmd template. Again, you can find more details about using package &lt;code&gt;exams&lt;/code&gt; in its own &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Be aware that, all exams .rmd files available within &lt;code&gt;afedR&lt;/code&gt; are self contained and you can export and compile them directly from &lt;code&gt;exams&lt;/code&gt;. An easy way to copy all exercise files to your local folder is using function &lt;code&gt;afedR::path_to_copy&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# copy to &amp;quot;documents&amp;quot; folder
+afedR::copy_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying data files files to ~/afedR files/data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  37 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying end-of-chapter (eoc) exercises with solutions to ~/afedR files/eoc-exercises/&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  99 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Copying R code to ~/afedR files/R-code&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  15 files copied&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All book files – data, code and exercises – are now available at your “Documents” folder (shorcut of &lt;code&gt;~&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compiling-to-pdf&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compiling to pdf&lt;/h2&gt;
+&lt;p&gt;For pdf compilation, you’ll need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;name of students (will be printed in pdf)&lt;/li&gt;
+&lt;li&gt;students ids (I usually use their university card number)&lt;/li&gt;
+&lt;li&gt;Chapters to include&lt;/li&gt;
+&lt;li&gt;Exercise name&lt;/li&gt;
+&lt;li&gt;Course name&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And use the following code&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(afedR)
+
+names_students &amp;lt;- c(&amp;#39;Michael Peterling&amp;#39;, &amp;#39;John Aspper&amp;#39;, &amp;#39;Mr. Beans&amp;#39;)
+ids_students &amp;lt;- 1:length(names_students) # probably id card?
+chapters &amp;lt;- 1:3 # chapters from 1 to 13
+dir_output &amp;lt;- file.path(tempdir(), &amp;#39;pdf-example&amp;#39;)
+
+
+df_exams &amp;lt;- compile_pdf_exercises(students_names = names_students, 
+                                  students_ids = ids_students, 
+                                  chapters_to_include = chapters,
+                                  dir_out = dir_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The output of &lt;code&gt;compile_pdf_exercises&lt;/code&gt; is a table with the correct answers for &lt;code&gt;schoice&lt;/code&gt; and &lt;code&gt;num&lt;/code&gt; type of questions:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;glimpse(df_exams)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 69
+## Columns: 4
+## $ i_name   &amp;lt;chr&amp;gt; &amp;quot;Michael Peterling&amp;quot;, &amp;quot;Michael Peterling&amp;quot;, &amp;quot;Michael Peterling&amp;quot;…
+## $ i_ver    &amp;lt;int&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ i_q      &amp;lt;int&amp;gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
+## $ solution &amp;lt;chr&amp;gt; &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;b&amp;quot;, NA, &amp;quot;a&amp;quot;, NA, NA, NA, NA, NA, NA, NA,…&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After compilation, all pdf files are available at folder &lt;code&gt;dir_output&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 01_Michael Peterling.pdf
+## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 02_John Aspper.pdf
+## /tmp/RtmpuI4IpQ/pdf-example/Sample Exercise_Ver 03_Mr. Beans.pdf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The final result will be as follows:&lt;/p&gt;
+&lt;blockquote class=&#34;imgur-embed-pub&#34; lang=&#34;en&#34; data-id=&#34;a/wVAd8Xr&#34; data-context=&#34;false&#34;&gt;
+&lt;a href=&#34;//imgur.com/a/wVAd8Xr&#34;&gt;&lt;/a&gt;
+&lt;/blockquote&gt;
+&lt;script async src=&#34;//s.imgur.com/min/embed.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;compiling-to-html&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Compiling to html&lt;/h2&gt;
+&lt;p&gt;You can also compile to a html file using &lt;code&gt;afedR::compile_html_exercises&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(afedR)
+
+names_students &amp;lt;- c(&amp;#39;Michael Peterling&amp;#39;, &amp;#39;John Aspper&amp;#39;, &amp;#39;Mr. Beans&amp;#39;)
+ids_students &amp;lt;- 1:length(names_students) # probably id card?
+chapters &amp;lt;- 1:3 # chapters from 1 to 13
+dir_output &amp;lt;- file.path(tempdir(), &amp;#39;html-example&amp;#39;)
+
+df_exams &amp;lt;- compile_html_exercises(students_names = names_students, 
+                                   students_ids = ids_students, 
+                                   chapters_to_include = chapters,
+                                   dir_out = dir_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Exams generation initialized.
+## 
+## Output directory: /tmp/RtmpuI4IpQ/exams files file6d236c2d8ef2
+## Exercise directory: /mnt/HDD/Dropbox/05-My Website/01-msperlin.com/content/post
+## Supplement directory: /tmp/RtmpuI4IpQ/file6d23249571af
+## Temporary directory: /tmp/RtmpuI4IpQ/file6d2338a774fc
+## Exercises: /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_01_SPLUS, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_02_Authors-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_03_About-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_04_name-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_05_about-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_06_Tecnology-R, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_07_rtools, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_08_Groups, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_09_RBloggers, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter01-Introduction/afedR_Chap-01_10_Infrastructure-TI, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_01_Basic, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_02_Basic, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_03_getwd, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_04_download, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_05_unzip, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_06_installpkgs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_07_filespkgs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_08_installpkgs2, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_09_installpkgs3-cranlogs, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_10_devtools, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter02-Basic-Operations/afedR_Chap-02_11_files-in-computer, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter03-Research-Scripts/afedR_Chap-03_01_pesquisa, /home/msperlin/R/x86_64-pc-linux-gnu-library/4.0/afedR/extdata/exams_files/02-EOCE-Rmd/Chapter03-Research-Scripts/afedR_Chap-03_02_folders
+## 
+## Generation of individual exams.
+## Exam 1: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.
+## Exam 2: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.
+## Exam 3: _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_01_SPLUS (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_02_Authors-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_03_About-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_04_name-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_05_about-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_06_Tecnology-R (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_07_rtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_08_Groups (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_09_RBloggers (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter01-Introduction_afedR_Chap-01_10_Infrastructure-TI (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_01_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_02_Basic (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_03_getwd (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_04_download (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_05_unzip (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_06_installpkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_07_filespkgs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_08_installpkgs2 (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_09_installpkgs3-cranlogs (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_10_devtools (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter02-Basic-Operations_afedR_Chap-02_11_files-in-computer (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_01_pesquisa (srt) _home_msperlin_R_x86_64-pc-linux-gnu-library_4.0_afedR_extdata_exams_files_02-EOCE-Rmd_Chapter03-Research-Scripts_afedR_Chap-03_02_folders (srt) ... w ... done.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An example of full compiled html file is available &lt;a href=&#34;https://www.msperlin.com/blog/files/afedr-files/Introduction%20to%20R_Robert%20Engle_Ver%2003.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exporting-to-moodle&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exporting to Moodle&lt;/h2&gt;
+&lt;p&gt;You can also export to &lt;em&gt;e-learning&lt;/em&gt; platforms such as Moodle. The process is quite simple as &lt;code&gt;exams&lt;/code&gt; package does the heavy work:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(afedR)
+my_eoc_dir &amp;lt;- afedR::get_EOC_dir()
+
+available_chapters &amp;lt;- fs::dir_ls(my_eoc_dir)
+exercise_files &amp;lt;- fs::dir_ls(available_chapters[1])
+dir_output &amp;lt;- file.path(tempdir(), &amp;#39;moodle-test&amp;#39;)
+
+exams::exams2moodle(file = exercise_files, 
+                    name = &amp;#39;TestingMoodle&amp;#39;, 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## /tmp/RtmpuI4IpQ/moodle-test/TestingMoodle.xml&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can later import this .xml file in your Moodle class.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exporting-to-blackboard&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exporting to Blackboard&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;require(afedR)
+my_eoc_dir &amp;lt;- afedR::get_EOC_dir()
+
+available_chapters &amp;lt;- fs::dir_ls(my_eoc_dir)
+exercise_files &amp;lt;- fs::dir_ls(available_chapters[1])
+dir_output &amp;lt;- file.path(tempdir(), &amp;#39;blackboard-test&amp;#39;)
+
+exams::exams2blackboard(file = exercise_files, 
+                        name = &amp;#39;TestingBlackBoard&amp;#39;, 
+                        dir = dir_output)
+
+fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## /tmp/RtmpuI4IpQ/blackboard-test/TestingBlackBoard.zip&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This .zip file contains all exercises of chapter 01 and can be imported in your blackboard account.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Revision of book &#34;Analyzing Financial and Economic Data with R&#34;</title>
+      <link>http://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I recently launched the third edition of my &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;portuguese R book (adfeR-pt-br)&lt;/a&gt;, with many due changes from the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;international version (afedR-en)&lt;/a&gt;. To make it clear, the second edition of afedR (en) was ahead in content and the third edition of adfeR (pt-br) closed that gap.&lt;/p&gt;
+&lt;p&gt;But, as it usually is with a time evolving platform such as R, the code in afedR-en changed with the deprecation and arrival of new functions and packages. In order to keep the content up to date, I published a &lt;strong&gt;revision of the book&lt;/strong&gt; in &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;Amazon&lt;/a&gt; and its &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web version&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This revision is not only for fixing broken code but also improves other important aspects of the book including ebook/html templates and end-of-chapter exercises. Here are the main changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved and consistent css template for html and ebook.&lt;/li&gt;
+&lt;li&gt;Over 100 end of chapter exercises. The exercises within the book are in the &lt;code&gt;exams&lt;/code&gt; format and can be exported to &lt;em&gt;e-learning&lt;/em&gt; platforms. Check out this &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;blog post&lt;/a&gt; for details.&lt;/li&gt;
+&lt;li&gt;To help the reader with topics that don’t quite fit with the main text, new text boxes with important and cautionary messages were implemented in all formats.&lt;/li&gt;
+&lt;li&gt;New hardcover format is available at Amazon.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The R books are a lifelong project and I plan to keep improving the work as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with the passage of time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book slides - Analyzing Financial and Economic Data with R</title>
+      <link>http://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+&lt;p&gt;
+2021-02-28 – Important: this blog post is deprecated. With the &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/&#34;&gt;last revision&lt;/a&gt; in march 2021, the Rmd slides are no longer available within the book material.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The slides for my newly released book &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt; are finally ready! I apologize for keep you guys waiting.&lt;/p&gt;
+&lt;p&gt;The slides are available as independent .Rmd files for all book chapters including:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## character(0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All content is released with a generous MIT license, so fell free to use and edit the files as you wish.&lt;/p&gt;
+&lt;p&gt;You can download the slides and other book material with the following code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if (!require(devtools)) install.packages(&amp;quot;devtools&amp;quot;)
+
+devtools::install_github(&amp;#39;msperlin/afedR&amp;#39;)
+
+# ignore warning messages (long paths..)
+afedR::afedR_get_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alternatively, you can download the files directly from &lt;a href=&#34;https://github.com/msperlin/afedR/tree/master/inst/extdata&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The bundle also includes other teaching material that may help conduct a complete R tutorial:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Solutions to end of chapter exercises&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All R Code used in the book&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dynamic exercises (package exams)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Data files&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you liked the material, please consider purchasing the book and &lt;strong&gt;leaving your feedback at &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;Amazon&lt;/a&gt;&lt;/strong&gt;. Your oppinion is very important for promoting the book and help others learn more about R and RStudio. As an author, I certainly appreciate the gesture and will take it as a motivating factor for future editions of the book.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Book release - Analyzing Financial and Economic Data with R (2º edition)</title>
+      <link>http://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/</link>
+      <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;alert alert-success&#34;&gt;
+&lt;p&gt;
+2021-02-28 – The book was revised in march 2021. See this &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/&#34;&gt;blog post&lt;/a&gt; for details.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;After a couple of unexpected delays, I am very pleased to announce the publication of the second edition of my book, &lt;strong&gt;Analyzing Financial and Economic Data with R&lt;/strong&gt;. You can find it in Amazon as an &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;ebook&lt;/a&gt; or &lt;a href=&#34;https://www.amazon.com/dp/171062731X&#34;&gt;paperback&lt;/a&gt;. An online version is available &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;here&lt;/a&gt;. More details, including supplementary material, are available in the &lt;a href=&#34;https://www.msperlin.com/blog/publication/2020_book-afedr-en/&#34;&gt;book webpage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The first edition was released back in 2017 and it was a great journey working once again in this material. Many sections and chapters have been improved, along with new content. Here are the main changes:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Alignment with the tidyverse&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;Some base function are presented but priority is for &lt;code&gt;readr&lt;/code&gt;, &lt;code&gt;ggplot2&lt;/code&gt;, &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;stringr&lt;/code&gt;, &lt;code&gt;purrr&lt;/code&gt; and so on.&lt;/li&gt;
+&lt;li&gt;100+ pages of new content (a 25% overall increase from previous edition).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Teaching Material&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;Static end of chapter exercises, with solutions publicly available in the internet;&lt;/li&gt;
+&lt;li&gt;Rmarkdown slides for each chapter;&lt;/li&gt;
+&lt;li&gt;Dynamic 90+ exercises with the &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;&lt;code&gt;exams&lt;/code&gt; package&lt;/a&gt;. This means you can create and grade randomized unique tests for your students (see this &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/&#34;&gt;post&lt;/a&gt; for details);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Book package &lt;code&gt;afedR&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;This package makes it easier to import book datasets, slides, functions and solutions for end-of-chapter exercises. Available in &lt;a href=&#34;https://github.com/msperlin/afedR&#34;&gt;GitHub&lt;/a&gt; only. See this &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/&#34;&gt;blog post&lt;/a&gt; for instructions on installation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Three new chapters&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Cleaning and Structuring Financial and Economic Data&lt;/em&gt; – How to clean financial and economic data by dealing with long/wide dataframes, outlier detection/removal and desinflating prices and indexes.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Reporting Results&lt;/em&gt; – Using &lt;code&gt;xtable&lt;/code&gt; and &lt;code&gt;texreg&lt;/code&gt; to report tables and models. Includes a special section about the RMarkdown technology.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optimizing Code&lt;/em&gt; – Profiling code for bottlenecks and using vectorization, &lt;code&gt;rcpp&lt;/code&gt; and &lt;code&gt;memoise&lt;/code&gt; to speed up R computations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Two new packages in CRAN&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;simfinR&lt;/code&gt; – grabs corporate datasets from the &lt;a href=&#34;https://simfin.com/&#34;&gt;SimFin project&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GetQuandlData&lt;/code&gt;– uses &lt;a href=&#34;https://www.quandl.com/&#34;&gt;Quandl&lt;/a&gt; json api and caching for easier and faster data importation;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;If you liked the material, please consider purchasing it and &lt;strong&gt;leaving your feedback at &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;Amazon&lt;/a&gt;&lt;/strong&gt;. Your oppinion is very important for promoting the book and help others learn more about R and RStudio. As an author, I certainly appreciate the gesture and will take it as a motivating factor for future editions of the book.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Static and Dynamic Book Exercises with R</title>
+      <link>http://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+&lt;p&gt;
+This post is deprecated due to changes in package code. See the new post in &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;this link&lt;/a&gt;.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In the new edition of my R book, to be released in early 2020 (see &lt;a href=&#34;https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf&#34;&gt;current TOC&lt;/a&gt;, &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/&#34;&gt;new packages&lt;/a&gt; and &lt;a href=&#34;https://forms.gle/3x3mj2zzXqcqmT6x9&#34;&gt;notification form&lt;/a&gt;), I’m giving special attention to its use in the classroom. For that, I’ve created class slides and R exercises in the static and dynamic form. All the extra content will be freely available in the internet and distributed with package &lt;code&gt;afedR&lt;/code&gt;. Anyone can use it, without the need of purchasing the book (but off course it would help).&lt;/p&gt;
+&lt;p&gt;To access the files, first install the package from Github with &lt;code&gt;devtools&lt;/code&gt; (ignore warning messages about long paths):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;msperlin/afedR&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can copy all book content to a local folder using the following function:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_tempdir &amp;lt;- tempdir()
+afedR::afedR_get_book_files(path_to_copy = my_tempdir)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The static exercises for all chapters are available in the &lt;code&gt;afedR files/eoc-exercises&lt;/code&gt; folder:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;list.files(file.path(my_tempdir, &amp;#39;afedR files/eoc-exercises/&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Every .Rmd file is self-contained and should compile without any problems in your computer.&lt;/p&gt;
+&lt;p&gt;Now, the real benefit of the package is in the &lt;strong&gt;dynamic R exercises&lt;/strong&gt; you can create with package &lt;code&gt;exams&lt;/code&gt;. &lt;a href=&#34;https://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/&#34;&gt;Back in 2017&lt;/a&gt; I already talked about my admiration and use of &lt;code&gt;exams&lt;/code&gt; in all of my university classes. In short, you can use &lt;code&gt;exams&lt;/code&gt; to create an unique version of a exercise for each student by randomizing numbers and text. All questions are written in .Rmd/.Rnw files and, since its all RMarkdown code, you can make it as dynamic as possible. The amount of hours it saved me so far in creating and grading exams is unbelievable! I even changed the structure of all my classes to a more activity-oriented coursework based on single-choice exercises. The feedback I get from the students has been very positive.&lt;/p&gt;
+&lt;p&gt;As a result of using &lt;code&gt;exams&lt;/code&gt; for many years, I wrote a significant database of R single-choice questions that I use in my university courses. It amounts to 91 questions, covering R basics, functions, class objects, programming, econometrics, and much more. All of these exam questions are included in the package and I’ll add more with time. You can find all of them in a compiled html file in this &lt;a href=&#34;https://www.msperlin.com/blog/files/Introduction%20to%20R_John%20Wick_Ver%2001.html&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;creating-a-dynamic-exam&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Creating a Dynamic Exam&lt;/h2&gt;
+&lt;p&gt;Creating a dynamic R exam is simple. All you need is the names of all students among other options. Function &lt;code&gt;afedR_build_exam&lt;/code&gt; will grab all exercise templates, compile each exam, and output a different .html file for each student. Have a look at a reproducible example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(afedR)
+library(tidyverse)
+
+set.seed(1)
+
+student_names &amp;lt;- c(&amp;#39;Roger Federer&amp;#39;, &amp;#39;John Wick&amp;#39;, &amp;#39;Robert Engle&amp;#39;, 
+                   &amp;#39;Getulio Vargas&amp;#39;, &amp;#39;Mario Quintana&amp;#39;, &amp;#39;Elis Regina&amp;#39;) 
+my_ids &amp;lt;- c(sample(seq(length(student_names)))) # ids (usually a numeric and unique symbol given by the university)
+class_name &amp;lt;- &amp;#39;R Workshop&amp;#39;
+exercise_name &amp;lt;- &amp;#39;Introduction to R&amp;#39;
+temp_dir &amp;lt;- file.path(tempdir(), &amp;#39;html exams&amp;#39;) # where to create exam files
+
+l_out &amp;lt;- afedR_build_exam(students_names = student_names, 
+                          students_ids = my_ids, 
+                          class_name = class_name, 
+                          exercise_name = &amp;#39;Introduction to R&amp;#39;,
+                          chapters_to_include = 2, # single chapter for simplicity (it goes from 1-13)
+                          dir_out = temp_dir)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Done. All exams files are available in folder &lt;code&gt;temp_dir&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;list.files(temp_dir)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As an example of html output, file &lt;code&gt;Introduction to R_Roger Federer_Ver 01.html&lt;/code&gt; is available in this &lt;a href=&#34;https://www.msperlin.com/blog/files/Introduction%20to%20R_Roger%20Federer_Ver%2001.html&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Going further, the output of &lt;code&gt;afedR_build_exam&lt;/code&gt; is a list that includes the correct answers for each student/question:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l_out$answer_key)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can use this table for grading all exams. Currently I use &lt;a href=&#34;https://www.google.com/forms/about/&#34;&gt;Google Forms&lt;/a&gt; to register student’s answers with an online questionnaire. This helps because I can turn all answers in a single Google Spreadsheet, import it in R with package &lt;code&gt;googlesheets4&lt;/code&gt;, and effortlessly grade all exams in a R script. Soon, in another post, I’ll write about my detailed workflow in using &lt;code&gt;exams&lt;/code&gt; with Google Forms and Google Classroom.&lt;/p&gt;
+&lt;p&gt;I hope this content helps all R instructions around the world. But, it is a work in progress. If you find any issue, please let me know by &lt;a href=&#34;emailto:marceloperlin@gmail.com&#34;&gt;email&lt;/a&gt; or posting an issue event at the &lt;a href=&#34;https://github.com/msperlin/afedR&#34;&gt;github code&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The book is finally reaching its final version&lt;/strong&gt; and I’m very excited about it. Its been a long journey. You can find more details about the new book &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/&#34;&gt;here&lt;/a&gt;. If you want to be notified about the publication, just sign this &lt;a href=&#34;https://forms.gle/3x3mj2zzXqcqmT6x9&#34;&gt;form&lt;/a&gt; and I’ll email you as soon as the book becomes available.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Feedback on new book TOC (Table of Contents)</title>
+      <link>http://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/</link>
+      <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/</guid>
+      <description>
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Back in 2017 I wrote the first international&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; edition of my book “&lt;a href=&#34;https://www.msperlin.com/blog/publication/2017_book-pafdr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt;” (&lt;a href=&#34;https://www.msperlin.com/pafdR/&#34;&gt;online version&lt;/a&gt;) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, &lt;strong&gt;I’m working in the new edition of the book&lt;/strong&gt;, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages.&lt;/p&gt;
+&lt;p&gt;The current TOC is available &lt;a href=&#34;https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf&#34;&gt;here&lt;/a&gt;. Let me summarize the main changes from the previous edition:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;New content with the tidyverse&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;Total alignment with the tidyverse. Some base function are presented but priority is for readr, ggplot2, dplyr, stringr, purrr and so on.&lt;/li&gt;
+&lt;li&gt;100+ pages of new content (a 25% overall increase from previous edition).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Teaching Material&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;Static end of chapter exercises, with solutions publicly available in the internet;&lt;/li&gt;
+&lt;li&gt;Slides for each chapter available in the internet;&lt;/li&gt;
+&lt;li&gt;Dynamic 90+ exercises with the &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;&lt;code&gt;exams&lt;/code&gt; package&lt;/a&gt;. This means you can create and grade randomized unique tests for your students (&lt;strong&gt;more on this in a future post&lt;/strong&gt;);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Book package &lt;code&gt;afedR&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;This package makes it easier to import book datasets, copy all content files and reproduce all code in the book. Available in &lt;a href=&#34;https://github.com/msperlin/afedR&#34;&gt;GitHub&lt;/a&gt; only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Three new chapters&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Cleaning and Structuring Financial and Economic Data&lt;/em&gt; – How to clean financial and economic data by dealing with long/wide dataframes, outlier detection/removal and desinflating prices and indexes.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Reporting Results&lt;/em&gt; – Using &lt;code&gt;xtable&lt;/code&gt; and &lt;code&gt;texreg&lt;/code&gt; to report tables and models. Includes a special section on RMarkdown.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optimizing Code&lt;/em&gt; – Profiling code for bottlenecks and using vectorization, &lt;code&gt;rcpp&lt;/code&gt; and &lt;code&gt;memoise&lt;/code&gt; to speed up R computations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Two new packages&lt;/dt&gt;
+&lt;dd&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;simfinR&lt;/code&gt; – grabs data from the &lt;a href=&#34;https://simfin.com/&#34;&gt;SimFin project&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GetQuandlData&lt;/code&gt;– uses &lt;a href=&#34;https://www.quandl.com/&#34;&gt;Quandl&lt;/a&gt; json api and caching for easier and faster data importation;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;strong&gt;Right now, I could use some feedback from the community&lt;/strong&gt;. Have a look in the &lt;a href=&#34;https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf&#34;&gt;TOC&lt;/a&gt; and let me know what you liked or disliked and if I missed something about using R in finance and economics. You can reach me in my email (&lt;a href=&#34;emailto:marceloperlin@gmail.com&#34;&gt;marceloperlin@gmail.com&lt;/a&gt;) or using the comment section of this post.&lt;/p&gt;
+&lt;p&gt;My expectation is to finish the book in early 2020. If you want to be notified when I release it, fill up this &lt;a href=&#34;https://forms.gle/3x3mj2zzXqcqmT6x9&#34;&gt;form&lt;/a&gt; and I’ll email you when the book becomes available in Amazon.&lt;/p&gt;
+&lt;p&gt;This book is a special and life-long project. I plan to keep improving it as long as I can. As for access to the content, I’ll follow the same pricing structure from previous edition: the ebook will sell for 9.99 USD in Amazon, the online version will have the first 6 chapters for free in the internet (see previous edition &lt;a href=&#34;https://www.msperlin.com/pafdR/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;I also wrote a &lt;a href=&#34;https://www.msperlin.com/padfeR/&#34;&gt;local version&lt;/a&gt;. written in portuguese.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

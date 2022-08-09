@@ -1,0 +1,124 @@
+---
+title: 'New package: GetEdgarData'
+subtitle: "Fetching financial information from the SEC"
+author: "Marcelo S. Perlin"
+date: '2019-10-16'
+draft: false
+tags: ["R", "GetEdgarData"]  
+categories: ["R", "GetEdgarData"]
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(message = FALSE, cache = TRUE, eval=FALSE)
+```
+
+
+## Introduction
+
+**As of 2019-10-31, this package is discontinued and will not longer be updated. See [this post](https://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/) for more details about the alternative, package simfinR.**
+
+Every company traded in the US stock market must report its quarterly and yearly documents to the SEC and the public in general. This includes its accounting statements (10-K, 10-K) and any other corporate event that is relevant to investors. 
+
+[Edgar](https://www.sec.gov/edgar/searchedgar/companysearch.html) is the interface where we can search for a company's filling information. By looking up a company's CIK code, one can find all previous filling information. A complete list of available forms can be found in this [link](https://www.sec.gov/forms).
+
+Package `GetEdgarData` allows the user import the financial documents from such fillings directly into R. Unlike other packages, the information is not taken from the filling's xml files, but the [structured datasets](https://www.sec.gov/dera/data) at the DERA (Division of Economic and Risk Analysis) section . This means we can import a large amount of structured financial data very quickly. The downside is that the available data starts at 2009. 
+
+Like many other packages I've wrote for data grabbing, the queries are saved locally using package `memoise`. This means that the second time you ask for a particular year of data, the function will load a local copy, and will not download the data again. 
+
+Both new packages, `GetEdgarData` and `GetQuandlData` ([blog post](https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/)) are going to be part of the second edition of my book "Analyzing Financial Data with R" (see first edition [here](https://www.msperlin.com/pafdR/)). My expectation is to publish the new book in early 2020.
+
+
+## Installation
+
+```{r, eval=FALSE}
+# not in CRAN yet (need to test it further)
+#install.packages('GetEdgarData')
+
+# from github
+devtools::install_github('msperlin/GetEdgarData')
+```
+
+
+### Example 01 - Apples Quarterly Net Profit
+
+The first step in using `GetEdgarData` is finding information about available companies:
+
+```{r, eval=FALSE}
+library(GetEdgarData)
+library(tidyverse)
+
+my_year <- 2018
+type_form <- '10-K'
+
+df_info <- get_info_companies(years = my_year, 
+                              type_data = 'yearly', 
+                              type_form = type_form)
+
+glimpse(df_info)
+```
+
+We find information about `nrow(df_info)` companies for the `type_form` documents in the year of `my_year`. Digging deeper we find that the official name of Apple is 'APPLE INC'. Let's use it to download the financial information since 2009. 
+
+```{r, eval=FALSE}
+my_company <- 'APPLE INC'
+my_years <- 2009:2018
+type_data <- 'quarterly'
+
+df_fin_reports <- get_edgar_fin_data(companies = my_company,
+                                     years = my_years,
+                                     type_data = type_data)
+
+glimpse(df_fin_reports)
+```
+
+And now we filter for the net income (id tag = 'NetIncomeLoss') and plot the resulting dataframe:
+
+```{r}
+net_income <- df_fin_reports %>%
+  filter(tag == 'NetIncomeLoss')
+
+p <- ggplot(net_income, 
+            aes(x = ref_date, y = value_ref)) +
+  geom_col() + 
+  labs(title = 'APPLE Quarterly Net Income (10-Q)',
+       subtitle = paste0(min(my_years), ' - ', max(my_years)),
+       x = '',
+       y = 'Net Income ($)',
+       caption = paste0('Data from EDGAR <https://www.sec.gov/edgar/searchedgar/companysearch.html>', '\n',
+                        'Downloaded with package GetEdgarData') )
+
+print(p)
+```
+
+
+### Example 02 - Quarterly Net Profit of Many Companies
+
+The package is really handy for fetching information for many companies. This is due to the fact that the SEC/DERA stores data of all companies by year and the package creates a local cache of the resulting data. This means that, by fetching data for one company, we indirectly have information for all companies.  
+
+Let's see an example by selecting four random companies and creating the same previous graph:
+
+```{r}
+set.seed(5)
+my_companies <- sample(df_info$current_name, 4)
+my_years <- 2009:2018
+type_data <- 'quarterly'
+
+net_income <- get_edgar_fin_data(companies = my_companies,
+                                 years = my_years,
+                                 type_data = type_data) %>%
+  filter(tag == 'NetIncomeLoss')
+
+p <- ggplot(net_income, 
+            aes(x = ref_date, y = value_ref)) +
+  geom_col() + facet_wrap(~current_name, scales = 'free') + 
+  labs(title = 'Quarterly Net Income for Four Random companies',
+       subtitle = paste0(min(my_years), ' - ', max(my_years)),
+       x = '',
+       y = 'Net Income ($)',
+       caption = paste0('Data from EDGAR <https://www.sec.gov/edgar/searchedgar/companysearch.html>', '\n',
+                        'Downloaded in R with package GetEdgarData') )
+
+print(p)
+```
+
+Give it a try and, if you've found any problem or bug, let me know at <marceloperlin@gmail.com>.

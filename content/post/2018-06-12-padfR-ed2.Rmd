@@ -1,0 +1,35 @@
+---
+title: 'Second Edition of "Processamento e Analise de Dados Financeiros e Econômicos com o R"'
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: 2018-06-12
+tags: [R, book]
+categories: [R, book]
+---
+
+```{block, type="alert alert-success"}
+IMPORTANT: The third edition of the book was released in 2021 -- more details in this [link](https://www.msperlin.com/blog/publication/2021_book-adfer-pt/)
+```
+
+It is with great pleasure that I announce the second edition of the portuguese version of my book, Processing and Analyzing Financial Data with R. This edition updates the material significantly. The portuguese version is now not only in par with the [international version of the book](https://www.amazon.com/dp/B084LSNXMN), but much more!
+
+Here are the main changes:
+
+- The structure of chapters changed towards the stages of a research, from obtaining the raw data, cleaning it, manipulating it and, finally, reporting tables and figures.
+
+- Many new additions of packages for obtaining data, including my own and from other authors. 
+
+- Added new chapter for reporting results, exporting tables and also including a whole section about using Rmarkdown.
+
+- Alignment with the tidyverse. I have no doubt that the packages from the tidyverse are here to stay. While the native function are presented, there is an emphasis in using the tidyverse, specially in reading local data, manipulating dataframes and functional programming. 
+
+- Exercises are available at the end of each chapter, including hard questions that will challenge your programming ability.
+
+You can find the new edition of the book in [Amazon](https://www.amazon.com.br/dp/B08WNC27ZY). See this [section](/blog/books) for more details. As usual, an online (and free) version of the book is available at [http://www.msperlin.com/padfeR/](http://www.msperlin.com/padfeR/).
+
+It was a lot of work (and fun) to write the new edition. I'm very happy with the result. I hope you enjoy it!
+
+Best,
+
+
+

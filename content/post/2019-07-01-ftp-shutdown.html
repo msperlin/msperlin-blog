@@ -1,0 +1,21 @@
+---
+title: 'B3 is shutting down its ftp site'
+subtitle: "Impact in CRAN packages"
+author: "Marcelo S. Perlin"
+date: '2019-07-01'
+draft: false
+tags: ["R", "GetHFData"]
+categories: ["R", "GetHFData"]
+---
+
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><strong>Well, bad news travels fast. </strong></p>
+<p>Over the last couple of weeks I’ve been receiving a couple of emails regarding B3’s <a href="http://www.b3.com.br/data/files/40/76/60/59/745666102F630666AC094EA8/CE%20018-2019%20-%20Prorroga%C3%A7%C3%A3o%20do%20Prazo%20de%20Desativa%C3%A7%C3%A3o%20do%20Servior%20FTP.pdf">decision</a> of shutting down its <a href="ftp://ftp.bmf.com.br/">ftp site</a>. More specifically, users are eager to know how it will impact my data grabbing packages in CRAN. I’ll use this post to explain the situation for everyone.</p>
+<p>The only package affected directly will be <code>GetHFData</code>, which uses the ftp site for downloading the raw zipped files with trades and quotes. The main function will no longer work as all internet files are not available. However, the function that reads the local files, <code>GetHFData::ghfd_read_file()</code>, will still work as long as you have the files available in your computer.</p>
+<p>Soon I’ll release an update to <code>GetHFData</code> that will bypass the ftp checking process. Users will be able to load up the code with local files. Btw, before anyone asks, I’m not aware of any other site that distributes the zipped files. In this topic, everyone should know that B3’s web policy does not allow the redistribution of their data.</p>
+<p>As for my personal opinion on the event, B3 is a private company and can do whatever they want with their data. In fact, it is standard for many international exchanges to sell their high-frequency trade&amp;quote data. However, I fell that they could still offer a free sample of past raw data for students and researchers, keeping <code>GetHFData</code> alive. I’m not sure how this would hurt their business. In fact, it is easy to argue that the “free” training would help them.</p>
+<p>On the research side, studying microstructure of the Brazilian financial market will become even more difficult now, without easy access to the datasets.</p>
+<p>As a clever stoic man once said, we should only worry about things we can control.</p>
+<p>Life (and research) goes on..</p>

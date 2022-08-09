@@ -1,0 +1,104 @@
+---
+title: "New package in CRAN: PkgsFromFiles"
+subtitle: ""
+author: "Marcelo S. Perlin"
+date: '2018-10-13'
+image:
+  caption: '/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png'
+  focal_point: ''
+categories: [R, PkgsFromFiles]   
+tags: [R, PkgsFromFiles]   
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+
+Its been a while since I develop a CRAN package and this weekend I decided
+to work on a idea I had some time ago. The result is package
+`PkgsFromFiles`.
+
+When working with different computers at home or work, one of the
+problems I have is installing missing packages across different
+computers. As an example, a script that works in my **work computer** may
+not work in my **home computer**. This is specially annoying when I have a
+fresh install of the operating system or R. In this case, I must
+manually install all packages, case by case. Instead of focusing on the
+script at hand, I spend considerable time finding and installing missing
+packages. When using laptops for teaching R, many times I had to wait
+for the installation of a package before continuing the class. With my
+new package, PkgsFromFiles, I can scan any folder of my computer and
+install all necessary packages **before** using them, as we will soon
+learn.
+
+One of the available solutions to this problem is to use package
+[pacman](https://CRAN.R-project.org/package=pacman). It includes
+function `p_load` that will check if a package is available and, if not,
+install it from CRAN. However, for me, I like using `library` and
+`require` as it is consistent with my code format. Also, in a fresh R
+install, I rather install all my required packages in a single run so
+that I don't have to wait later.
+
+Package PkgsFromFiles solves this issue by finding and parsing all R
+related files (.R, .Rmd, .Rnw) from a given folder. It finds all calls
+to library() and require() and installs all packages that are not
+available locally.
+
+# Installation
+
+```{r, eval=FALSE}
+# from cran (soon!)
+install.packages('PkgsFromFiles')
+
+# from github
+if (!require(devtools)) install.packages('devtools')
+devtools::install_github('msperlin/PkgsFromFiles')
+```
+
+# Usage
+
+The main function of the package is `pff_find_and_install_pkgs`, which will search and install missing packages from R files at a given directory. As an example, we'll use my research folder from Dropbox. It contains all R scripts I have ever used in my research work. Let's try it out:
+
+
+```{r}
+# Evaluation is disable so it passes CRAN CHECKS, but you should be able to run it in your computer
+library(PkgsFromFiles)
+
+# target folder
+my.dir <- '~/Dropbox/01-Pesquisa/'
+
+df <- pff_find_and_install_pkgs(folder.in = my.dir)
+
+```
+
+As you can see, function `pff_find_and_install_pkgs` will find all R related files recursively in the given folder. In this case, I have all packages locally so no installation was required. A summary in text is shown at the end of execution. 
+
+The output of the function is a dataframe with the details of the operation. Have a look:
+
+```{r}
+dplyr::glimpse(df)
+```
+
+The package also includes function `pff_find_R_files_from_folder`, which will find all packages used in R related files from a given folder. It outputs a dataframe with several information about packages used in the found scripts. 
+
+```{r}
+df.files <- pff_find_R_files_from_folder(folder.in = my.dir)
+dplyr::glimpse(df.files)
+```
+
+I also wrote a simple function for plotting the most used packages for a given folder:
+
+```{r}
+# target folder
+my.dir <- '~/Dropbox/01-Pesquisa/'
+
+# plot most used pkgs
+p <- pff_plot_summary_pkgs(folder.in = my.dir)
+print(p)
+
+```
+
+As you can see, I'm a big fan of the `tidyverse`!
+
+Hope you guys find the package useful! Fell free to send any question to the comment section of the post or my email (marceloperlin@gmail.com).  

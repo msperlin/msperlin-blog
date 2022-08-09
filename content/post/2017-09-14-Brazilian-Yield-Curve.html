@@ -1,0 +1,45 @@
+---
+title: "The Brazilian Yield Curve"
+subtitle: "An update to package GetTDData"
+author: "Marcelo Perlin"
+date: 2017-09-14
+tags: [R, yield curve, GetTDData]
+categories: [R, yield curve, GetTDData]
+---
+
+
+
+<p>The latest version of <code>GetTDData</code> offers function <code>get.yield.curve</code> to download the current Brazilian yield curve directly from <a href="http://www.anbima.com.br/est_termo/CZ.asp">Anbima</a>. The yield curve is a financial tool that, based on current prices of fixed income instruments, shows how the market perceives the future real, nominal and inflation returns. You can find more details regarding the use and definition of a yield curve in <a href="http://www.investopedia.com/terms/y/yieldcurve.asp">Investopedia</a>.</p>
+<p>Unfortunately, function <code>get.yield.curve</code> only downloads the <strong>current</strong> yield curve from the website. Data for historical curves over five business days are not available in Anbima website.</p>
+<p>The new version of <code>GetTDData</code> is available in github and CRAN:</p>
+<pre class="r"><code>#from CRAN
+install.packages(&#39;GetTDData&#39;)
+
+# From github
+devtools::install_github(&#39;msperlin/GetTDData&#39;)</code></pre>
+<div id="the-current-brazilian-yield-curve" class="section level1">
+<h1>The current Brazilian yield curve</h1>
+<p>Downloading the yield curve is easy, all you need is to di us call function <code>get.yield.curve</code> without any argument:</p>
+<pre class="r"><code>library(GetTDData)
+
+df.yield &lt;- get.yield.curve()  
+str(df.yield)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    111 obs. of  5 variables:
+##  $ n.biz.days  : num  126 252 378 504 630 ...
+##  $ type        : chr  &quot;real_return&quot; &quot;real_return&quot; &quot;real_return&quot; &quot;real_return&quot; ...
+##  $ value       : num  3.89 2.05 1.98 2.28 2.6 ...
+##  $ ref.date    : Date, format: &quot;2020-08-31&quot; &quot;2021-01-04&quot; ...
+##  $ current.date: Date, format: &quot;2020-04-27&quot; &quot;2020-04-27&quot; ...</code></pre>
+<p>The result is a dataframe in the long format containing data for the yield curve of real, nominal and inflation returns. Let’s plot it!</p>
+<pre class="r"><code>library(ggplot2)
+
+p &lt;- ggplot(df.yield, aes(x=ref.date, y = value) ) +
+  geom_line(size=1) + geom_point() + facet_grid(~type, scales = &#39;free&#39;) + 
+  labs(title = paste0(&#39;The current Brazilian Yield Curve &#39;),
+       subtitle = paste0(&#39;Date: &#39;, df.yield$current.date[1]))     
+
+print(p)  </code></pre>
+<p><img src="/blog/post/2017-09-14-Brazilian-Yield-Curve_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The expected inflation in Brazil seems to be stable. Market expectation is for an inflation around 5% a year in 2024. This level is quite low when compared to our <a href="https://tradingeconomics.com/brazil/inflation-cpi">history</a>. As for future nominal interest rate, market expects another drop in the interest rate level in 2019. This is in line with the latest report from <a href="http://www.bcb.gov.br/?ATACOPOM">COPOM</a>, the Brazilian comittee of monetary policy. Real returns also seems to be stable and low, around 5%. Again, this is one of the lowest levels of real returns in our economy.</p>
+<p>I’m very optimistic (and very biased as I love my country!) regarding the future of the Brazilian economy. I hope we can keep these low levels of interest rate and inflation in order to foment comsumption, jobs and overall economic well-being.</p>
+</div>

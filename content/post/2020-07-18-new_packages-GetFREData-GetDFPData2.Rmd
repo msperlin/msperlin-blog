@@ -1,0 +1,92 @@
+---
+title: 'New Packages: GetDFPdata = GetDFPData2 + GetFREData'
+author: "Marcelo S. Perlin"
+date: '2020-07-18'
+subtitle: ' '
+tags:
+- R
+- GetFREData
+- GetDFPData2
+categories:
+- R
+- GetFREData
+- GetDFPData2
+draft: no
+---
+
+Back in 2017 I wrote the first version of package GetDFPData, along with a  [paper](http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/78654) describing the code and providing an empirical application. 
+
+However, maintaining the package over the  years has been frustrating. The code is becoming increasingly complex, much due to the fact that it handles FRE and DFP data in a single package. Execution speed for large scale importation -- many years and many companies -- is not reasonable. In top of that, B3's website is unstable as a source of data and it seems it will stay like that for a long time. 
+
+Additionally, back in april 2020 (see this [blog post](https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/)), I started to work with CVM data from its [ftp site](http://dados.cvm.gov.br/dados/CIA_ABERTA/). The experience has been great. The data is solid, matching all B3's numbers, with easy and fast access. For example, I can download 10 years of financial data for all available companies in less than 10 minutes. 
+
+After some considerable thought, I'm convinced that is much easier to maintain two separate packages, instead of combining both in a single module such as in `GetDFPData`. With that, I'm releasing two new packages: `GetDFPData2`,  and `GetFREData`.
+
+The first, `GetDFPData2` (previously called [GetCVMData](https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/)), is a backwards incompatible version of `GetDFPData`, using the CVM ftp site as it source and focusing in one purpose: downloading annual and quarterly financial reports.  The second, `GetFREData` only imports corporate data from the FRE system. 
+
+## Installation
+
+```{r, eval=FALSE}
+# not in CRAN, install from github
+devtools::install_github('msperlin/GetDFPData2')
+```
+
+```{r, eval=FALSE}
+# not in CRAN, install from github
+devtools::install_github('msperlin/GetFREData')
+```
+
+## Examples of Usage
+
+### GetDFPData2
+
+```{r, message=FALSE, cache=FALSE}
+library(GetDFPData2)
+library(tidyverse)
+
+# information about companies
+df_info <- get_info_companies(tempdir())
+df_info 
+
+search_company('grendene')
+
+# downloading DFP data
+l_dfp <- get_dfp_data(companies_cvm_codes = 19615, 
+                      use_memoise = FALSE,
+                      clean_data = TRUE,
+                      type_docs = c('DRE'), 
+                      type_format = 'con',
+                      first_year = 2010, 
+                      last_year = 2020)
+
+glimpse(l_dfp)
+
+dre_annual <- l_dfp$`DF Consolidado - Demonstração do Resultado`
+
+p <- ggplot(dre_annual %>%
+              filter(DS_CONTA == 'Lucro/Prejuízo Consolidado do Período'), 
+            aes(x = DT_REFER, y = VL_CONTA)) + 
+  geom_col() +
+  facet_wrap(~DENOM_CIA, scales = 'free') + 
+  theme_bw()
+
+p
+```
+
+### GetFREData
+
+```{r, message=FALSE}
+library(GetFREData)
+library(tidyverse)
+
+l_fre <- get_fre_data(companies_cvm_codes = 19615,
+                      fre_to_read = 'last',
+                      first_year = 2018,
+                      last_year = 2020)
+
+glimpse(l_fre)
+```
+
+
+
+
