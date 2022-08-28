@@ -27,6 +27,4 @@ Here you can find web applications built with Shiny/R for different academic pro
 
 [PIRF](https://www.msperlin.com/shiny/PIRF/) - Shiny app for book _Poupando e Investindo em Renda Fixa_.
 
-[Panela-Tennis](https://msperlin.shinyapps.io/PanelaTenis/) - This is a personal project for a dashboard of tennis matches in my club, [Sogipa](https://www.sogipa.com.br/web/). All data is collect with a [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfmDsMe9d-pNOsBZHxQeQJEsp0KoCzTAJLAmnQaKHMffUxG8A/viewform). Only double matches (four people in court) are included.
-
 [bgs-shiny](https://www.msperlin.com/shiny/bgs/) -- Provides a web interface to R package BatchGetSymbols, allowing the user to download parsed data from Yahoo Finance, along with other analytical plots.

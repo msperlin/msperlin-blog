@@ -354,7 +354,7 @@
 
     
     <div class="d-none d-lg-inline-flex">
-      <a class="navbar-brand" href="/blog/">msperlin</a>
+      <a class="navbar-brand" href="/">msperlin</a>
     </div>
     
 
@@ -367,7 +367,7 @@
 
     
     <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-      <a class="navbar-brand" href="/blog/">msperlin</a>
+      <a class="navbar-brand" href="/">msperlin</a>
     </div>
     
 
@@ -624,7 +624,7 @@
         
           Introduction Quandl is one of the best platforms for finding and downloading financial and economic time series. The collection of free databases is solid and I use it intensively in my research and class material.
 But, a couple of things from the native package Quandl always bothered me:
- Multiple data is always returned in the wide (column oriented) format (why??); No local caching of data; No control for importing error and status; Not easy to work within the tidyverse collection of packages  As you suspect, I decided to tackle the problem over the weekend.
+Multiple data is always returned in the wide (column oriented) format (why??); No local caching of data; No control for importing error and status; Not easy to work within the tidyverse collection of packages As you suspect, I decided to tackle the problem over the weekend.
         
       </div>
     </div>
@@ -641,7 +641,7 @@ Surprise, surprise. B3’s ftp site is still up and running.
 Following previous post regarding the shutdown of B3’s ftp site and its impact over GetHFData, I’m happy to report that the site is up and running.
 We can check it with code:
 library(GetHFData) library(tidyverse) df.ftp &lt;- ghfd_get_ftp_contents(type.market = &#39;equity&#39;) # check time difference max(df.ftp$dates) - min(df.ftp$dates) Let’s download some trade data:
-df.trades &lt;- ghfd_get_HF_data(my.assets = &#39;PETR3&#39;, type.market = &#39;equity&#39;, first.date = max(df.ftp$dates)-3, last.date = max(df.
+df.trades &lt;- ghfd_get_HF_data(my.assets = &#39;PETR3&#39;, type.market = &#39;equity&#39;, first.date = max(df.ftp$dates)-3, last.date = max(df.ftp$dates), type.
         
       </div>
     </div>
@@ -653,8 +653,7 @@ df.trades &lt;- ghfd_get_HF_data(my.assets = &#39;PETR3&#39;, type.market = &#39
       <h2><a href="/blog/post/2019-07-01-ftp-shutdown/" >B3 is shutting down its ftp site</a></h2>
       <div class="article-style">
         
-          Well, bad news travels fast. 
-Over the last couple of weeks I’ve been receiving a couple of emails regarding B3’s decision of shutting down its ftp site. More specifically, users are eager to know how it will impact my data grabbing packages in CRAN. I’ll use this post to explain the situation for everyone.
+          Well, bad news travels fast. Over the last couple of weeks I’ve been receiving a couple of emails regarding B3’s decision of shutting down its ftp site. More specifically, users are eager to know how it will impact my data grabbing packages in CRAN. I’ll use this post to explain the situation for everyone.
 The only package affected directly will be GetHFData, which uses the ftp site for downloading the raw zipped files with trades and quotes. The main function will no longer work as all internet files are not available.
         
       </div>
@@ -669,7 +668,7 @@ The only package affected directly will be GetHFData, which uses the ftp site fo
         
           One of the investment concepts that every long term investor should know is the effect of consistency over corporate performance. The main idea is that older and profitable companies are likely to continue to be profitable and even improve its performance in the upcoming years. Likewise, companies with constant losses are likely to continue in the same path.
 This idea is related to the Lindy Effect. Quoting directly from wikipedia:
- The Lindy effect is a theory that the future life expectancy of some non-perishable things like a technology or an idea is proportional to their current age, so that every additional period of survival implies a longer remaining life expectancy.
+The Lindy effect is a theory that the future life expectancy of some non-perishable things like a technology or an idea is proportional to their current age, so that every additional period of survival implies a longer remaining life expectancy.
         
       </div>
     </div>
@@ -695,6 +694,7 @@ What I learned from experience is that software choice is a group decision. It i
       <div class="article-style">
         
           One of the subjects that I teach in my undergraduate finance class is the relationship between risk and expected returns. In short, the riskier the investment, more returns should be expected by the investor. It is not a difficult argument to make. All that you need to understand is to remember that people are not naive in financial markets. Whenever they make a big gamble, the rewards should also be large. Rational investors, on theory, would not invest in risky stocks that are likelly to yield low returns.
+Going further, one the arguments I make to support this idea is looking at historical data.
         
       </div>
     </div>
@@ -709,7 +709,7 @@ What I learned from experience is that software choice is a group decision. It i
           The Central Bank of Brazil (BCB) offers access to the SGS system (sistema gerenciador de series temporais) with a official API available here.
 Over time, I find myself using more and more of the available datasets in my regular research and studies. Last weekend I decided to write my own API package that would make my life (and others) a lot easier.
 Package GetBCBData can fetch data efficiently and rapidly:
- Use of a caching system with package memoise to speed up repeated requests of data; Users can utilize all cores of the machine (parallel computing) when fetching a large batch of time series; Allows the choice for format output: long (row oriented, tidy data) or wide (column oriented) Error handling internally.
+Use of a caching system with package memoise to speed up repeated requests of data; Users can utilize all cores of the machine (parallel computing) when fetching a large batch of time series; Allows the choice for format output: long (row oriented, tidy data) or wide (column oriented) Error handling internally.
         
       </div>
     </div>
@@ -748,9 +748,9 @@ Hi, I&#39;m Bettina, I am 22 years old and, starting with R$ 1,500, I now own R$
       <div class="article-style">
         
           I received many messages regarding my book promotion (see previous post ). I’ll use this post to answer the most frequent questions:
- Does the paperback edition have a discount?
+Does the paperback edition have a discount?
 No. The price drop is only valid for the ebook edition but not by choice. Unfortunately, Amazon does not let me do countdown promotions for the paperback edition.
-So, in favor of those, like myself, that like the smell of a fresh book page, I manually dropped the price of the paperback to 17.99 USD (it was 24.99 USD).
+So, in favor of those, like myself, that like the smell of a fresh book page, I manually dropped the price of the paperback to 17.99 USD (it was 24.99 USD). Printings costs are heavy, which is why I can’t go all the way to a 50% discount.
         
       </div>
     </div>
@@ -813,7 +813,7 @@ So, in favor of those, like myself, that like the smell of a fresh book page, I 
     
     
     <script>
-      const search_config = {"indexURI":"/blog/index.json","minLength":1,"threshold":0.3};
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
       const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
       const content_type = {
         'post': "Posts",
@@ -874,7 +874,7 @@ So, in favor of those, like myself, that like the smell of a fresh book page, I 
     
     
     
-    <script src="/blog/js/academic.min.3f7586c7514cad916a4601bab2af59c9.js"></script>
+    <script src="/blog/js/academic.min.9393c87ec980e85bccf7cf21c9a8162e.js"></script>
 
     
 

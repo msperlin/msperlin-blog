@@ -2,7 +2,7 @@
 
 export RSTUDIO_PANDOC=/usr/lib/rstudio/bin/pandoc
 
-MYDIR="/home/msperlin/Dropbox/05-websites/01-msperlin.com"
+MYDIR="/home/msperlin/GitRepo/02-sites/msperlin-blog"
 PATHBOOK="$MYDIR/public/" 
 
 rm -r "$PATHBOOK"
