@@ -11,6 +11,27 @@
     <loc>http://www.msperlin.com/blog/code/shiny/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://www.msperlin.com/blog/publication-type/5/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/authors/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/author/marcelo-s.-perlin/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/publication_types/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/publication/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/publication/2022_book-vdr/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://www.msperlin.com/blog/categories/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,9 +39,6 @@
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/category/data/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/tag/r/</loc>
@@ -38,19 +56,10 @@
     <loc>http://www.msperlin.com/blog/publication-type/2/</loc>
     <lastmod>2022-04-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://www.msperlin.com/blog/authors/</loc>
-    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://www.msperlin.com/blog/author/denis-boreinstein/</loc>
     <lastmod>2022-04-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/author/marcelo-s.-perlin/</loc>
-    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/publication_types/</loc>
-    <lastmod>2022-04-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/publication/</loc>
     <lastmod>2022-04-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/author/takeyoshi-imasato/</loc>
@@ -200,13 +209,7 @@
     <loc>http://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</loc>
     <lastmod>2021-02-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://www.msperlin.com/blog/publication-type/5/</loc>
-    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://www.msperlin.com/blog/publication/2021_book-adfer-pt/</loc>
-    <lastmod>2021-02-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/author/marcelo-s.-perlin/</loc>
     <lastmod>2021-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/talk/2021-02-01-garch-rac/</loc>

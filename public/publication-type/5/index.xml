@@ -5,12 +5,52 @@
     <link>http://www.msperlin.com/blog/publication-type/5/</link>
       <atom:link href="http://www.msperlin.com/blog/publication-type/5/index.xml" rel="self" type="application/rss+xml" />
     <description>5</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 15 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>5</title>
       <link>http://www.msperlin.com/blog/publication-type/5/</link>
     </image>
+    
+    <item>
+      <title>Visualização de Dados com o R</title>
+      <link>http://www.msperlin.com/blog/publication/2022_book-vdr/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/publication/2022_book-vdr/</guid>
+      <description>&lt;h3 id=&#34;descrição&#34;&gt;Descrição&lt;/h3&gt;
+&lt;p&gt;Este livro é uma extensão da minha outra obra, Análise de Dados Financeiros e Econômicos com o R. Aqui escrevo sobre tudo aquilo que aprendi sobre visualização de dados  em mais de doze anos de carreira como professor, pesquisador e consultor da área de finanças e economia. O conteúdo do livro percorre sobre os seguintes pontos:&lt;/p&gt;
+&lt;ul&gt; 
+    &lt;li&gt; 
+        &lt;b&gt;Princípios e componentes&lt;/b&gt;: Nos capítulos e 02 discutiremos princípios e componentes visuais de um gráfico de dados. Discutiremos elementos centrais e independentes da plataforma de programação, ou seja, podes aplicar os mesmos princípios para gráficos produzidos em Python/matplotlib, por exemplo.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Visualização de Dados com o R&lt;/b&gt;:  No capítulo 04 discutiremos o uso do R e módulo &lt;b&gt;ggplot2&lt;/b&gt; para a criação de gráficos baseados em dados. Aprenderemos sobre o sistema de camadas, adição de elementos textuais, canais de visualização e, por fim, exportação de figuras.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Mapas&lt;/b&gt;: No capítulo 05 veremos ecossistema de módulos do R para a criação de mapas geográficos, incluindo a importação de dados cartográficos do IBGE e Google maps.&lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Programação com o ggplot2&lt;/b&gt;: No capítulo final aprenderemos a automatizar tarefas cotidianas na criação de figuras baseadas em dados, tal como criação e exportação serializada de figuras com diferentes temas e paletas de cores.
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    Todo o material do neste livro, incluindo gráficos e código, é aberto ao público e reproduzível. Para facilitar a importação dos dados, construí um módulo do R chamado &lt;b&gt;vdr&lt;/b&gt;, o qual pode ser instalado de forma prática e fácil. Este pacote contém todos os dados e funções usados no livro. Com ele será possível importar dados para a sua sessão do R e rodar todos os exemplos no seu próprio computador.
+&lt;/p&gt;
+&lt;h3 id=&#34;onde-comprar&#34;&gt;Onde Comprar&lt;/h3&gt;
+&lt;p&gt;Podes comprar o livro na Amazon no formato 
+&lt;a href=&#34;TODO&#34;&gt;ebook&lt;/a&gt;, 
+&lt;a href=&#34;TODO&#34;&gt;paperback (impresso capa comum)&lt;/a&gt; e 
+&lt;a href=&#34;TODO&#34;&gt;hardcover (impresso capa dura)&lt;/a&gt;. A versão online do livro, com os primeiros sete capítulos, está disponível em 
+&lt;a href=&#34;https://www.msperlin.com/vdr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.msperlin.com/vdr/&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;citação&#34;&gt;Citação&lt;/h3&gt;
+&lt;p&gt;Podes citar o livro como:&lt;/p&gt;
+&lt;p&gt;Perlin, M. S. Visualização de Dados com o R. Primeira Edição, Porto Alegre: Marcelo S. Perlin (publicação independente), 2022.&lt;/p&gt;
+&lt;h3 id=&#34;material-suplementar&#34;&gt;Material Suplementar&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.msperlin.com/vdr/vdr-eoc-solutions.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;01-Soluções de Exercícios&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/msperlin/vdr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;02-Pacote vdr&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)</title>
