@@ -16,7 +16,7 @@ R -e "setwd('$MYDIR'); blogdown::build_site(build_rmd = FALSE)"
 date_str=`date +"%Y%m%d %H%M%S"`
 
 git add .
-git commit -m "compilation at $date_str"
+git commit -m "site compilation at $date_str"
 git push
 
 SSHDEST="msperlin@45.55.76.185:~/blog"
