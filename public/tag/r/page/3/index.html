@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="http://www.msperlin.com/blog/img/portrait.jpg">
   <meta property="twitter:image" content="http://www.msperlin.com/blog/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-04-07T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2022-10-22T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,19 @@
     
     
     <div>
+      <h2><a href="/blog/post/2020-04-20-new-package-getcvmdata/" >New R package: GetCVMData</a></h2>
+      <div class="article-style">
+        
+          2020-07-18: Package GetCVMData is now named GetDFPData2. See this post for details. The old code in GetCVMData is still in Github but will no longer be developed. Package GetCVMData is an alternative to GetDFPData. Both have the same objective: fetch corporate data of Brazilian companies trading at B3, but diverge in their source. While GetDFPData imports data directly from the DFP and FRE systems, GetCVMData uses the CVM ftp site for grabbing compiled .csv files.
+When doing large scale importations, GetDFPData fells sluggish due to the parsing of large xml files.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/blog/post/2020-04-17-update-getdfpdata/" >Update on GetDFPData tables -- 2019&#39;s DFP and FRE data</a></h2>
       <div class="article-style">
         
@@ -731,19 +744,6 @@ It came to my attention that there is an alternative way of fetching corporate d
           Introduction As of 2019-10-31, this package is discontinued and will not longer be updated. See this post for more details about the alternative, package simfinR.
 Every company traded in the US stock market must report its quarterly and yearly documents to the SEC and the public in general. This includes its accounting statements (10-K, 10-K) and any other corporate event that is relevant to investors.
 Edgar is the interface where we can search for a company’s filling information. By looking up a company’s CIK code, one can find all previous filling information.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/blog/post/2019-10-12-support-getdfpdata-shiny/" >Help support GetDFPData</a></h2>
-      <div class="article-style">
-        
-          The shiny version of GetDFPData is currently hosted in a private server at DigitalOcean. A problem with the basic (5 USD) server I was using is with the low amount of available memory (RAM and HD). With that, I had to limit all xlsx queries for the data, otherwise the shiny app would ran out of memory. After upgrading R in the server, the xlsx option was no longer working.
-Today I tried all tricks in the book for keeping the 5 USD server and get the code to work.
         
       </div>
     </div>

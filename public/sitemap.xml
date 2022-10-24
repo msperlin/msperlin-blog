@@ -11,6 +11,30 @@
     <loc>http://www.msperlin.com/blog/code/shiny/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://www.msperlin.com/blog/categories/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/tag/r/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/category/r/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/tags/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/tag/vdr/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://www.msperlin.com/blog/category/vdr/</loc>
+    <lastmod>2022-10-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://www.msperlin.com/blog/publication-type/5/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,9 +42,6 @@
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/author/marcelo-s.-perlin/</loc>
-    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/publication_types/</loc>
@@ -32,22 +53,10 @@
     <loc>http://www.msperlin.com/blog/publication/2022_book-vdr/</loc>
     <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://www.msperlin.com/blog/categories/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://www.msperlin.com/blog/tag/data/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/category/data/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/tag/r/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/category/r/</loc>
-    <lastmod>2022-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://www.msperlin.com/blog/tags/</loc>
     <lastmod>2022-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://www.msperlin.com/blog/post/2022-04-07-update-on-data/</loc>

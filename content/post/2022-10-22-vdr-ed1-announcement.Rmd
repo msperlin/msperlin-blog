@@ -1,0 +1,27 @@
+---
+title: 'NEW BOOK: Visualização de Dados com o R (in portuguese)'
+author: "Marcelo S. Perlin"
+date: "2022-10-22"
+draft: no
+subtitle: ' '
+tags:
+- R
+- vdr
+categories:
+- R
+- vdr
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = TRUE, cache = TRUE, eval=TRUE)
+```
+
+It is with great pleasure that I officially announce the publication of my book **Visualização de Dados com o R**. The content of the book is an extension of chapter 10 of [afedR](https://www.msperlin.com/afedR/). The book is written in portuguese and available at Amazon and online:
+
+- [ebook](https://www.amazon.com.br/dp/B0BK2V4HTB)
+- [paperback](https://www.amazon.com/dp/B0BJYJQ92Q) 
+- [hardcover](https://www.amazon.com/dp/B0BJYMHWLN) 
+- [Online version (chapters 01-03)](https://www.msperlin.com/vdr/)
+
+You can find more details in its own [blog page](https://www.msperlin.com/blog/publication/2022_book-vdr/).
+

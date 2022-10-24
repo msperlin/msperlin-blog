@@ -30,6 +30,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/msperlin
+- icon: youtube
+  icon_pack: fab
+  link: https://www.youtube.com/channel/UCHKHbPczFcP4Mn3j5oxtrvw
 superuser: true
 title: Marcelo S. Perlin
 user_groups:
@@ -38,11 +41,11 @@ user_groups:
 ---
 
 <div class="alert alert-danger">
-  I recently published the revised second edition of my R book "Analyzing Financial and Economic Data with R". See this <a href = "https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/">blog post</a> for more details.
+  A primeira edição do livro <strong>Visualização de Dados com o R</strong> foi recém lançada! Veja mais detalhes neste <a href = "https://www.msperlin.com/blog/publication/2022_book-vdr/">post</a> do blog.
 </div>
 
 <div class="alert alert-info">
-  A terceira edição do livro "Análise de Dados Financeiros e Econômicos com o R" foi recém lançada. Maiores detalhes no <a href = "https://www.msperlin.com/blog/publication/2021_book-adfer-pt/">site</a>.
+  A terceira edição do livro <strong>Análise de Dados Financeiros e Econômicos com o R</strong> foi recém lançada. Maiores detalhes no <a href = "https://www.msperlin.com/blog/publication/2021_book-adfer-pt/">site</a>.
 </div>
 
 I'm an associate professor of Finance at Federal University of Rio Grande do Sul (UFRGS), south of Brazil. Details about my past and current work are available in section [Publications](/blog/publication) and [Code](/blog/code). My CV is available as [pdf](/blog/files/cv.pdf) and [Lattes link](http://lattes.cnpq.br/3262699324398819). 

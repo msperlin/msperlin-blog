@@ -36,10 +36,16 @@
     Todo o material do neste livro, incluindo gráficos e código, é aberto ao público e reproduzível. Para facilitar a importação dos dados, construí um módulo do R chamado &lt;b&gt;vdr&lt;/b&gt;, o qual pode ser instalado de forma prática e fácil. Este pacote contém todos os dados e funções usados no livro. Com ele será possível importar dados para a sua sessão do R e rodar todos os exemplos no seu próprio computador.
 &lt;/p&gt;
 &lt;h3 id=&#34;onde-comprar&#34;&gt;Onde Comprar&lt;/h3&gt;
-&lt;p&gt;Podes comprar o livro na Amazon no formato 
-&lt;a href=&#34;TODO&#34;&gt;ebook&lt;/a&gt;, 
-&lt;a href=&#34;TODO&#34;&gt;paperback (impresso capa comum)&lt;/a&gt; e 
-&lt;a href=&#34;TODO&#34;&gt;hardcover (impresso capa dura)&lt;/a&gt;. A versão online do livro, com os primeiros sete capítulos, está disponível em 
+&lt;p&gt;Podes comprar o livro na Amazon nos seguintes formatos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com.br/dp/B0BK2V4HTB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com/dp/B0BJYJQ92Q&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paperback (impresso capa comum)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com/dp/B0BJYMHWLN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hardcover (impresso capa dura)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A versão online do livro, com os primeiros sete capítulos, está disponível em 
 &lt;a href=&#34;https://www.msperlin.com/vdr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.msperlin.com/vdr/&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;citação&#34;&gt;Citação&lt;/h3&gt;
 &lt;p&gt;Podes citar o livro como:&lt;/p&gt;

@@ -5,12 +5,31 @@
     <link>http://www.msperlin.com/blog/</link>
       <atom:link href="http://www.msperlin.com/blog/index.xml" rel="self" type="application/rss+xml" />
     <description>msperlin</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 22 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>msperlin</title>
       <link>http://www.msperlin.com/blog/</link>
     </image>
+    
+    <item>
+      <title>NEW BOOK: Visualização de Dados com o R (in portuguese)</title>
+      <link>http://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</link>
+      <pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>http://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</guid>
+      <description>
+
+
+&lt;p&gt;It is with great pleasure that I officially announce the publication of my book &lt;strong&gt;Visualização de Dados com o R&lt;/strong&gt;. The content of the book is an extension of chapter 10 of &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;afedR&lt;/a&gt;. The book is written in portuguese and available at Amazon and online:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com.br/dp/B0BK2V4HTB&#34;&gt;ebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/dp/B0BJYJQ92Q&#34;&gt;paperback&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/dp/B0BJYMHWLN&#34;&gt;hardcover&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.msperlin.com/vdr/&#34;&gt;Online version (chapters 01-03)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find more details in its own &lt;a href=&#34;https://www.msperlin.com/blog/publication/2022_book-vdr/&#34;&gt;blog page&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Visualização de Dados com o R</title>
@@ -36,10 +55,16 @@
     Todo o material do neste livro, incluindo gráficos e código, é aberto ao público e reproduzível. Para facilitar a importação dos dados, construí um módulo do R chamado &lt;b&gt;vdr&lt;/b&gt;, o qual pode ser instalado de forma prática e fácil. Este pacote contém todos os dados e funções usados no livro. Com ele será possível importar dados para a sua sessão do R e rodar todos os exemplos no seu próprio computador.
 &lt;/p&gt;
 &lt;h3 id=&#34;onde-comprar&#34;&gt;Onde Comprar&lt;/h3&gt;
-&lt;p&gt;Podes comprar o livro na Amazon no formato 
-&lt;a href=&#34;TODO&#34;&gt;ebook&lt;/a&gt;, 
-&lt;a href=&#34;TODO&#34;&gt;paperback (impresso capa comum)&lt;/a&gt; e 
-&lt;a href=&#34;TODO&#34;&gt;hardcover (impresso capa dura)&lt;/a&gt;. A versão online do livro, com os primeiros sete capítulos, está disponível em 
+&lt;p&gt;Podes comprar o livro na Amazon nos seguintes formatos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com.br/dp/B0BK2V4HTB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com/dp/B0BJYJQ92Q&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paperback (impresso capa comum)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;https://www.amazon.com/dp/B0BJYMHWLN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;hardcover (impresso capa dura)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A versão online do livro, com os primeiros sete capítulos, está disponível em 
 &lt;a href=&#34;https://www.msperlin.com/vdr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.msperlin.com/vdr/&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;citação&#34;&gt;Citação&lt;/h3&gt;
 &lt;p&gt;Podes citar o livro como:&lt;/p&gt;

@@ -17,8 +17,7 @@ publication_types:
 publishDate: "2021-02-15T00:00:00"
 title: Visualização de Dados com o R
 url_code: ""
-url_dataset: "TODO"
-url_pdf: "TODO"
+url_pdf: "https://www.amazon.com.br/dp/B0BK2V4HTB"
 url_poster: ""
 url_project: ""
 url_slides: ""
@@ -50,7 +49,13 @@ url_video: ""
 
 ### Onde Comprar
 
-Podes comprar o livro na Amazon no formato [ebook](TODO), [paperback (impresso capa comum)](TODO) e [hardcover (impresso capa dura)](TODO). A versão online do livro, com os primeiros sete capítulos, está disponível em [https://www.msperlin.com/vdr/](https://www.msperlin.com/vdr/).
+Podes comprar o livro na Amazon nos seguintes formatos:
+
+- [ebook](https://www.amazon.com.br/dp/B0BK2V4HTB)
+- [paperback (impresso capa comum)](https://www.amazon.com/dp/B0BJYJQ92Q) 
+- [hardcover (impresso capa dura)](https://www.amazon.com/dp/B0BJYMHWLN)
+
+A versão online do livro, com os primeiros sete capítulos, está disponível em [https://www.msperlin.com/vdr/](https://www.msperlin.com/vdr/).
 
 ### Citação
 
