@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetDFPData2 | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/getdfpdata2/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/getdfpdata2/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/category/getdfpdata2/</link>
+      <atom:link href="http://www.msperlin.com/category/getdfpdata2/index.xml" rel="self" type="application/rss+xml" />
     <description>GetDFPData2</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>GetDFPData2</title>
-      <link>http://www.msperlin.com/blog/category/getdfpdata2/</link>
+      <link>http://www.msperlin.com/category/getdfpdata2/</link>
     </image>
     
     <item>
       <title>GetDFPData2 available in CRAN!</title>
-      <link>http://www.msperlin.com/blog/post/2021-04-02-getdfpdata2-on-cran/</link>
+      <link>http://www.msperlin.com/post/2021-04-02-getdfpdata2-on-cran/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-04-02-getdfpdata2-on-cran/</guid>
+      <guid>http://www.msperlin.com/post/2021-04-02-getdfpdata2-on-cran/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After testing the package extensivelly, &lt;code&gt;GetDFPData2&lt;/code&gt; is finally available in CRAN. &lt;code&gt;GetDFPData2&lt;/code&gt; is the second and backwards incompatible version of &lt;code&gt;GetDPFData&lt;/code&gt;, a R package for downloading annual financial reports from B3, the Brazilian financial exchange. Unlike its first iteration, &lt;code&gt;GetDFPData2&lt;/code&gt; imports data using a database of csv files from &lt;a href=&#34;http://dados.cvm.gov.br/dados/CIA_ABERTA/&#34;&gt;CVM&lt;/a&gt;, which makes it execution much faster than its predecessor. However, the output is slightly different.&lt;/p&gt;
@@ -130,11 +130,11 @@ l_dfp &amp;lt;- get_dfp_data(companies_cvm_codes = 19615,
     
     <item>
       <title>Update on the Shiny/Web Interface of GetDFPData2</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-06-getdfpdata2-web/</link>
+      <link>http://www.msperlin.com/post/2021-03-06-getdfpdata2-web/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-06-getdfpdata2-web/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-06-getdfpdata2-web/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;code&gt;GetDFPData&lt;/code&gt; is an academic project to provide free and unrestricted access to financial reports from B3, the brazilian exchange.
@@ -148,9 +148,9 @@ l_dfp &amp;lt;- get_dfp_data(companies_cvm_codes = 19615,
     
     <item>
       <title>New Packages: GetDFPdata = GetDFPData2 &#43; GetFREData</title>
-      <link>http://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/</link>
+      <link>http://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/</guid>
+      <guid>http://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/</guid>
       <description>
 
 
@@ -236,7 +236,7 @@ p &amp;lt;- ggplot(dre_annual %&amp;gt;%
   theme_bw()
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;getfredata&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;GetFREData&lt;/h3&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Researches | msperlin</title>
-    <link>http://www.msperlin.com/blog/research/</link>
-      <atom:link href="http://www.msperlin.com/blog/research/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/research/</link>
+      <atom:link href="http://www.msperlin.com/research/index.xml" rel="self" type="application/rss+xml" />
     <description>Researches</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Researches</title>
-      <link>http://www.msperlin.com/blog/research/</link>
+      <link>http://www.msperlin.com/research/</link>
     </image>
     
     <item>
       <title>Coverage by News</title>
-      <link>http://www.msperlin.com/blog/research/on-the-news/</link>
+      <link>http://www.msperlin.com/research/on-the-news/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/research/on-the-news/</guid>
+      <guid>http://www.msperlin.com/research/on-the-news/</guid>
       <description>&lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -41,9 +41,9 @@
     
     <item>
       <title>Research Awards</title>
-      <link>http://www.msperlin.com/blog/research/awards/</link>
+      <link>http://www.msperlin.com/research/awards/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/research/awards/</guid>
+      <guid>http://www.msperlin.com/research/awards/</guid>
       <description>&lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Article &amp;ldquo;Is predatory publishing a real threat? Evidence from a large database study&amp;rdquo; in the top 5% of all research outputs scored by Altmetric. 

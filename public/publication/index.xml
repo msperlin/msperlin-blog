@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | msperlin</title>
-    <link>http://www.msperlin.com/blog/publication/</link>
-      <atom:link href="http://www.msperlin.com/blog/publication/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/publication/</link>
+      <atom:link href="http://www.msperlin.com/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Publications</title>
-      <link>http://www.msperlin.com/blog/publication/</link>
+      <link>http://www.msperlin.com/publication/</link>
     </image>
     
     <item>
       <title>Visualização de Dados com o R</title>
-      <link>http://www.msperlin.com/blog/publication/2022_book-vdr/</link>
+      <link>http://www.msperlin.com/publication/2022_book-vdr/</link>
       <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2022_book-vdr/</guid>
+      <guid>http://www.msperlin.com/publication/2022_book-vdr/</guid>
       <description>&lt;h3 id=&#34;descrição&#34;&gt;Descrição&lt;/h3&gt;
 &lt;p&gt;Este livro é uma extensão da minha outra obra, Análise de Dados Financeiros e Econômicos com o R. Aqui escrevo sobre tudo aquilo que aprendi sobre visualização de dados  em mais de doze anos de carreira como professor, pesquisador e consultor da área de finanças e economia. O conteúdo do livro percorre sobre os seguintes pontos:&lt;/p&gt;
 &lt;ul&gt; 
@@ -60,25 +60,25 @@
     
     <item>
       <title>The Academic Inbreeding Controversy: Analysis and Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2022_joi-inbreeding/</link>
+      <link>http://www.msperlin.com/publication/2022_joi-inbreeding/</link>
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2022_joi-inbreeding/</guid>
+      <guid>http://www.msperlin.com/publication/2022_joi-inbreeding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Board gender diversity: performance and risk of Brazilian firms</title>
-      <link>http://www.msperlin.com/blog/publication/2021_gm-boards/</link>
+      <link>http://www.msperlin.com/publication/2021_gm-boards/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2021_gm-boards/</guid>
+      <guid>http://www.msperlin.com/publication/2021_gm-boards/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)</title>
-      <link>http://www.msperlin.com/blog/publication/2021_book-adfer-pt/</link>
+      <link>http://www.msperlin.com/publication/2021_book-adfer-pt/</link>
       <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2021_book-adfer-pt/</guid>
+      <guid>http://www.msperlin.com/publication/2021_book-adfer-pt/</guid>
       <description>&lt;h3 id=&#34;descrição&#34;&gt;Descrição&lt;/h3&gt;
 &lt;p&gt;Este livro introduz o leitor ao uso do &lt;strong&gt;R e RStudio&lt;/strong&gt; como plataforma de análise de dados financeiros e econômicos. O livro apresenta toda a base de conhecimento necessária para utilizar o R, desde a sua instalação até a criação de códigos de pesquisa. O livro está organizado com exemplos práticos de uso do código que contextualizam e facilitam o aprendizado em cada etapa do processo.&lt;/p&gt;
 &lt;h3 id=&#34;onde-comprar&#34;&gt;Onde Comprar&lt;/h3&gt;
@@ -125,25 +125,25 @@
     
     <item>
       <title>A GARCH Tutorial with R</title>
-      <link>http://www.msperlin.com/blog/publication/2020_rac-garch/</link>
+      <link>http://www.msperlin.com/publication/2020_rac-garch/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2020_rac-garch/</guid>
+      <guid>http://www.msperlin.com/publication/2020_rac-garch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Does algorithmic trading harm liquidity? Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2020_najef-hf-liquidity/</link>
+      <link>http://www.msperlin.com/publication/2020_najef-hf-liquidity/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2020_najef-hf-liquidity/</guid>
+      <guid>http://www.msperlin.com/publication/2020_najef-hf-liquidity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analyzing Financial and Economic Data with R (Second Edition)</title>
-      <link>http://www.msperlin.com/blog/publication/2020_book-afedr-en/</link>
+      <link>http://www.msperlin.com/publication/2020_book-afedr-en/</link>
       <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2020_book-afedr-en/</guid>
+      <guid>http://www.msperlin.com/publication/2020_book-afedr-en/</guid>
       <description>&lt;h3 id=&#34;where-to-buy-it&#34;&gt;Where to buy it&lt;/h3&gt;
 &lt;p&gt;You can purchase the book from Amazon as an 
 &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt; or 
@@ -200,25 +200,25 @@
     
     <item>
       <title>Accessing Financial Reports and Corporate Events with GetDFPData</title>
-      <link>http://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</link>
+      <link>http://www.msperlin.com/publication/2019_rbfin-getdfpdata/</link>
       <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</guid>
+      <guid>http://www.msperlin.com/publication/2019_rbfin-getdfpdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A consumer credit risk structural model based on affordability: balance at risk</title>
-      <link>http://www.msperlin.com/blog/publication/2019_jcr-bar/</link>
+      <link>http://www.msperlin.com/publication/2019_jcr-bar/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2019_jcr-bar/</guid>
+      <guid>http://www.msperlin.com/publication/2019_jcr-bar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Poupando e Investindo em Renda Fixa: Uma Abordagem Baseada em Dados</title>
-      <link>http://www.msperlin.com/blog/publication/2019_book-pirf/</link>
+      <link>http://www.msperlin.com/publication/2019_book-pirf/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2019_book-pirf/</guid>
+      <guid>http://www.msperlin.com/publication/2019_book-pirf/</guid>
       <description>&lt;h3 id=&#34;descrição&#34;&gt;Descrição&lt;/h3&gt;
 &lt;p&gt;Este livro apresenta uma forma de investir com foco no longo prazo, resiliência e na qualidade de vida do investidor. Contrário a crença popular, investir para o longo prazo é fácil e &lt;strong&gt;pode ser feito por qualquer pessoa com vontade de aprender&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;O grande diferencial da obra é o uso frequente de dados financeiros reais para entender melhor como o mercado de renda fixa funciona, os efeitos dos tributos e custos operacionais, e quais são as melhores opções para o investidor pessoa física. Cada capítulo do livro apresenta e analisa os principais produtos disponíveis na renda fixa: produtos bancários (CDBs, LCA, entre outros), Tesouro Direto (Prefixado, IPCA+, SELIC), fundos de renda fixa e debêntures.&lt;/p&gt;
@@ -243,176 +243,176 @@
     
     <item>
       <title>Is predatory publishing a real threat? Evidence from a large database study</title>
-      <link>http://www.msperlin.com/blog/publication/2018_scientometrics-predatory/</link>
+      <link>http://www.msperlin.com/publication/2018_scientometrics-predatory/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2018_scientometrics-predatory/</guid>
+      <guid>http://www.msperlin.com/publication/2018_scientometrics-predatory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lotka’s law for the Brazilian scientific output published in journals</title>
-      <link>http://www.msperlin.com/blog/publication/2018_jis-lotka/</link>
+      <link>http://www.msperlin.com/publication/2018_jis-lotka/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2018_jis-lotka/</guid>
+      <guid>http://www.msperlin.com/publication/2018_jis-lotka/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Análise de Integração Financeira entre o Mercado Acionário Brasileiro e o Argentino: Uma Abordagem Dinâmica</title>
-      <link>http://www.msperlin.com/blog/publication/2017_rbfin-contegrationbrazilargentina/</link>
+      <link>http://www.msperlin.com/publication/2017_rbfin-contegrationbrazilargentina/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_rbfin-contegrationbrazilargentina/</guid>
+      <guid>http://www.msperlin.com/publication/2017_rbfin-contegrationbrazilargentina/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Análise do Perfil dos Acadêmicos e de suas Publicações Científicas em Administração</title>
-      <link>http://www.msperlin.com/blog/publication/2017_rac-perfilacademicos/</link>
+      <link>http://www.msperlin.com/publication/2017_rac-perfilacademicos/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_rac-perfilacademicos/</guid>
+      <guid>http://www.msperlin.com/publication/2017_rac-perfilacademicos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Can we predict the financial markets based on Google&#39;s search queries?</title>
-      <link>http://www.msperlin.com/blog/publication/2017_jf-gtrends/</link>
+      <link>http://www.msperlin.com/publication/2017_jf-gtrends/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_jf-gtrends/</guid>
+      <guid>http://www.msperlin.com/publication/2017_jf-gtrends/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Mispricing in the odd lots market in Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2017_najef-mispricing-odd-lots/</link>
+      <link>http://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_najef-mispricing-odd-lots/</guid>
+      <guid>http://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</guid>
       <description></description>
     </item>
     
     <item>
       <title>O poder preditivo de pesquisas na internet sobre o mercado financeiro brasileiro</title>
-      <link>http://www.msperlin.com/blog/publication/2017_ram-pesquisasgoogle/</link>
+      <link>http://www.msperlin.com/publication/2017_ram-pesquisasgoogle/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_ram-pesquisasgoogle/</guid>
+      <guid>http://www.msperlin.com/publication/2017_ram-pesquisasgoogle/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Portfolio management using realized covariances: Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</link>
+      <link>http://www.msperlin.com/publication/2017_economia-portfoliomanagement/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</guid>
+      <guid>http://www.msperlin.com/publication/2017_economia-portfoliomanagement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Brazilian scientific output published in journals: A study based on a large CV database</title>
-      <link>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
+      <link>http://www.msperlin.com/publication/2017_ji-brazilianscientificoutput/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
+      <guid>http://www.msperlin.com/publication/2017_ji-brazilianscientificoutput/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>A Microestrutura do Tesouro Direto: Sazonalidade do Fluxo de Ordens e a Formação de Spreads</title>
-      <link>http://www.msperlin.com/blog/publication/2016_economiaaplicada-microestruturatd/</link>
+      <link>http://www.msperlin.com/publication/2016_economiaaplicada-microestruturatd/</link>
       <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2016_economiaaplicada-microestruturatd/</guid>
+      <guid>http://www.msperlin.com/publication/2016_economiaaplicada-microestruturatd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Multistage Stochastic Programming Asset-Liability Management Model - An Application to the Brazilian Pension Fund Industry</title>
-      <link>http://www.msperlin.com/blog/publication/2016_oe-multistagestochasticprogramming/</link>
+      <link>http://www.msperlin.com/publication/2016_oe-multistagestochasticprogramming/</link>
       <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2016_oe-multistagestochasticprogramming/</guid>
+      <guid>http://www.msperlin.com/publication/2016_oe-multistagestochasticprogramming/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>GetHFData: A R package for downloading and aggregating high frequency trading data from Bovespa</title>
-      <link>http://www.msperlin.com/blog/publication/2016_rbfin-gethfdata/</link>
+      <link>http://www.msperlin.com/publication/2016_rbfin-gethfdata/</link>
       <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2016_rbfin-gethfdata/</guid>
+      <guid>http://www.msperlin.com/publication/2016_rbfin-gethfdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A Estratégia de pares no Mercado Acionário Brasileiro: O Impacto da Frequência de Dados</title>
-      <link>http://www.msperlin.com/blog/publication/2015_ram-estrategiapares/</link>
+      <link>http://www.msperlin.com/publication/2015_ram-estrategiapares/</link>
       <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2015_ram-estrategiapares/</guid>
+      <guid>http://www.msperlin.com/publication/2015_ram-estrategiapares/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Os pesquisadores, as publicações e os periódicos da área de Finanças no Brasil: Uma análise com base em currículos da plataforma Lattes.</title>
-      <link>http://www.msperlin.com/blog/publication/2015_rbfin-pesquisadoresfinancasbr/</link>
+      <link>http://www.msperlin.com/publication/2015_rbfin-pesquisadoresfinancasbr/</link>
       <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2015_rbfin-pesquisadoresfinancasbr/</guid>
+      <guid>http://www.msperlin.com/publication/2015_rbfin-pesquisadoresfinancasbr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>On the Performance of the Tick Test</title>
-      <link>http://www.msperlin.com/blog/publication/2014_qref-ticktest/</link>
+      <link>http://www.msperlin.com/publication/2014_qref-ticktest/</link>
       <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2014_qref-ticktest/</guid>
+      <guid>http://www.msperlin.com/publication/2014_qref-ticktest/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Comunalidades na Liquidez – Evidências e Comportamento Intradiário para o Mercado Brasileiro</title>
-      <link>http://www.msperlin.com/blog/publication/2013_rbfin-comunalidadeliquidez/</link>
+      <link>http://www.msperlin.com/publication/2013_rbfin-comunalidadeliquidez/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2013_rbfin-comunalidadeliquidez/</guid>
+      <guid>http://www.msperlin.com/publication/2013_rbfin-comunalidadeliquidez/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Os Efeitos da Introdução de Agentes de Liquidez no Mercado Acionário Brasileiro</title>
-      <link>http://www.msperlin.com/blog/publication/2013_rbfin-formadoresmercado/</link>
+      <link>http://www.msperlin.com/publication/2013_rbfin-formadoresmercado/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2013_rbfin-formadoresmercado/</guid>
+      <guid>http://www.msperlin.com/publication/2013_rbfin-formadoresmercado/</guid>
       <description></description>
     </item>
     
     <item>
       <title>System-Wide liquidity risk in the UK’s large-value payment system: an empirical analysis</title>
-      <link>http://www.msperlin.com/blog/publication/2011_bewps-chaps/</link>
+      <link>http://www.msperlin.com/publication/2011_bewps-chaps/</link>
       <pubDate>Fri, 01 Jul 2011 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2011_bewps-chaps/</guid>
+      <guid>http://www.msperlin.com/publication/2011_bewps-chaps/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Evaluation of pairs-trading strategy at the Brazilian financial market</title>
-      <link>http://www.msperlin.com/blog/publication/2009_jdhf-pairstrading/</link>
+      <link>http://www.msperlin.com/publication/2009_jdhf-pairstrading/</link>
       <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2009_jdhf-pairstrading/</guid>
+      <guid>http://www.msperlin.com/publication/2009_jdhf-pairstrading/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Non Linear Modelling in the Brazilian Market: Evaluating the Forecasting Performance of the NN (Univariate Nearest Neighbour) and SNN (Simultaneous Nearest Neighbour) Forecasting Algorithm</title>
-      <link>http://www.msperlin.com/blog/publication/2007_read-nn/</link>
+      <link>http://www.msperlin.com/publication/2007_read-nn/</link>
       <pubDate>Sun, 01 Jul 2007 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2007_read-nn/</guid>
+      <guid>http://www.msperlin.com/publication/2007_read-nn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teoria do Caos aplicada aos Contratos de Café no Mercado de Derivativos</title>
-      <link>http://www.msperlin.com/blog/publication/2006_read-caos/</link>
+      <link>http://www.msperlin.com/publication/2006_read-caos/</link>
       <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2006_read-caos/</guid>
+      <guid>http://www.msperlin.com/publication/2006_read-caos/</guid>
       <description></description>
     </item>
     

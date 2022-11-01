@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guilherme V. Moura | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/guilherme-v.-moura/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/guilherme-v.-moura/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/author/guilherme-v.-moura/</link>
+      <atom:link href="http://www.msperlin.com/author/guilherme-v.-moura/index.xml" rel="self" type="application/rss+xml" />
     <description>Guilherme V. Moura</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Guilherme V. Moura</title>
-      <link>http://www.msperlin.com/blog/author/guilherme-v.-moura/</link>
+      <link>http://www.msperlin.com/author/guilherme-v.-moura/</link>
     </image>
     
     <item>
       <title>Portfolio management using realized covariances: Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</link>
+      <link>http://www.msperlin.com/publication/2017_economia-portfoliomanagement/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</guid>
+      <guid>http://www.msperlin.com/publication/2017_economia-portfoliomanagement/</guid>
       <description></description>
     </item>
     

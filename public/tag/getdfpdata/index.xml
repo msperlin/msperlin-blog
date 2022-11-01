@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetDFPData | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/getdfpdata/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/getdfpdata/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/tag/getdfpdata/</link>
+      <atom:link href="http://www.msperlin.com/tag/getdfpdata/index.xml" rel="self" type="application/rss+xml" />
     <description>GetDFPData</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 17 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>GetDFPData</title>
-      <link>http://www.msperlin.com/blog/tag/getdfpdata/</link>
+      <link>http://www.msperlin.com/tag/getdfpdata/</link>
     </image>
     
     <item>
       <title>Update on GetDFPData tables -- 2019&#39;s DFP and FRE data</title>
-      <link>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</link>
+      <link>http://www.msperlin.com/post/2020-04-17-update-getdfpdata/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</guid>
+      <guid>http://www.msperlin.com/post/2020-04-17-update-getdfpdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After battling B3’s website for days, I finally managed to gather a master table for all corporate data. I’m happy to report that the 2019’s data is now included in GetDFPData, the CRAN package and &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny interface&lt;/a&gt;. This includes new financial statements and company’s FRE data.&lt;/p&gt;
@@ -43,11 +43,11 @@ glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Help support GetDFPData</title>
-      <link>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</link>
+      <link>http://www.msperlin.com/post/2019-10-12-support-getdfpdata-shiny/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</guid>
+      <guid>http://www.msperlin.com/post/2019-10-12-support-getdfpdata-shiny/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny version of GetDFPData&lt;/a&gt; is currently hosted in a private server at DigitalOcean. A problem with the basic (5 USD) server I was using is with the low amount of available memory (RAM and HD). With that, I had to limit all xlsx queries for the data, otherwise the shiny app would ran out of memory. After upgrading R in the server, the xlsx option was no longer working.&lt;/p&gt;
@@ -59,11 +59,11 @@ glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>GetDFPData Ver 1.4</title>
-      <link>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</link>
+      <link>http://www.msperlin.com/post/2019-01-12-getdfpdata-ver14/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</guid>
+      <guid>http://www.msperlin.com/post/2019-01-12-getdfpdata-ver14/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I just released a major update to package GetDFPData. Here are the main changes:&lt;/p&gt;
@@ -77,11 +77,11 @@ glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Package GetDFPData</title>
-      <link>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</link>
+      <link>http://www.msperlin.com/post/2017-12-06-package-getdfpdata/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</guid>
+      <guid>http://www.msperlin.com/post/2017-12-06-package-getdfpdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;

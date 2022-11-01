@@ -2,54 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Takeyoshi Imasato | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/takeyoshi-imasato/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/takeyoshi-imasato/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/author/takeyoshi-imasato/</link>
+      <atom:link href="http://www.msperlin.com/author/takeyoshi-imasato/index.xml" rel="self" type="application/rss+xml" />
     <description>Takeyoshi Imasato</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Takeyoshi Imasato</title>
-      <link>http://www.msperlin.com/blog/author/takeyoshi-imasato/</link>
+      <link>http://www.msperlin.com/author/takeyoshi-imasato/</link>
     </image>
     
     <item>
       <title>The Academic Inbreeding Controversy: Analysis and Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2022_joi-inbreeding/</link>
+      <link>http://www.msperlin.com/publication/2022_joi-inbreeding/</link>
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2022_joi-inbreeding/</guid>
+      <guid>http://www.msperlin.com/publication/2022_joi-inbreeding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Is predatory publishing a real threat? Evidence from a large database study</title>
-      <link>http://www.msperlin.com/blog/publication/2018_scientometrics-predatory/</link>
+      <link>http://www.msperlin.com/publication/2018_scientometrics-predatory/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2018_scientometrics-predatory/</guid>
+      <guid>http://www.msperlin.com/publication/2018_scientometrics-predatory/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Lotka’s law for the Brazilian scientific output published in journals</title>
-      <link>http://www.msperlin.com/blog/publication/2018_jis-lotka/</link>
+      <link>http://www.msperlin.com/publication/2018_jis-lotka/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2018_jis-lotka/</guid>
+      <guid>http://www.msperlin.com/publication/2018_jis-lotka/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Análise do Perfil dos Acadêmicos e de suas Publicações Científicas em Administração</title>
-      <link>http://www.msperlin.com/blog/publication/2017_rac-perfilacademicos/</link>
+      <link>http://www.msperlin.com/publication/2017_rac-perfilacademicos/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_rac-perfilacademicos/</guid>
+      <guid>http://www.msperlin.com/publication/2017_rac-perfilacademicos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Brazilian scientific output published in journals: A study based on a large CV database</title>
-      <link>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
+      <link>http://www.msperlin.com/publication/2017_ji-brazilianscientificoutput/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
+      <guid>http://www.msperlin.com/publication/2017_ji-brazilianscientificoutput/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>

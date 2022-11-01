@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/r/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/tag/r/</link>
+      <atom:link href="http://www.msperlin.com/tag/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 22 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>R</title>
-      <link>http://www.msperlin.com/blog/tag/r/</link>
+      <link>http://www.msperlin.com/tag/r/</link>
     </image>
     
     <item>
       <title>NEW BOOK: Visualização de Dados com o R (in portuguese)</title>
-      <link>http://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</link>
+      <link>http://www.msperlin.com/post/2022-10-22-vdr-ed1-announcement/</link>
       <pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</guid>
+      <guid>http://www.msperlin.com/post/2022-10-22-vdr-ed1-announcement/</guid>
       <description>
 
 
@@ -33,9 +33,9 @@
     
     <item>
       <title>Update of compiled datasets (2022)</title>
-      <link>http://www.msperlin.com/blog/post/2022-04-07-update-on-data/</link>
+      <link>http://www.msperlin.com/post/2022-04-07-update-on-data/</link>
       <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2022-04-07-update-on-data/</guid>
+      <guid>http://www.msperlin.com/post/2022-04-07-update-on-data/</guid>
       <description>
 
 
@@ -87,9 +87,9 @@
     
     <item>
       <title>New R package yfR</title>
-      <link>http://www.msperlin.com/blog/post/2022-03-31-yfr/</link>
+      <link>http://www.msperlin.com/post/2022-03-31-yfr/</link>
       <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2022-03-31-yfr/</guid>
+      <guid>http://www.msperlin.com/post/2022-03-31-yfr/</guid>
       <description>
 
 
@@ -215,7 +215,7 @@ df_yf_multiple &amp;lt;- yf_get(tickers = my_ticker,
   geom_line()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;fetching-collections-of-prices&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Fetching collections of prices&lt;/h3&gt;
@@ -317,7 +317,7 @@ p &amp;lt;- ggplot(df_allfreq, aes(x=ref_date, y = price_adjusted)) +
   labs(x = &amp;#39;&amp;#39;, y = &amp;#39;Adjusted Prices&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;changing-format-to-wide&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Changing format to wide&lt;/h3&gt;
@@ -373,11 +373,11 @@ head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>A shiny interface to BatchGetSymbols</title>
-      <link>http://www.msperlin.com/blog/post/2021-05-26-bgs-shiny/</link>
+      <link>http://www.msperlin.com/post/2021-05-26-bgs-shiny/</link>
       <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-05-26-bgs-shiny/</guid>
+      <guid>http://www.msperlin.com/post/2021-05-26-bgs-shiny/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Hadley Wickham recently released an online version of &lt;a href=&#34;https://mastering-shiny.org/&#34;&gt;Mastering Shiny&lt;/a&gt;. The book is great! If you haven’t read it, do it fast! On a side note, it is really amazing how much of &lt;strong&gt;good and curated content&lt;/strong&gt; you can get for free in R. When I started programming back in 2007, the first step was buying a brand new – and sometimes expensive – book about the language. There were blogs and other sites, but most content was very basic and not curated, meaning that the posted code most of the time did not work. The new generation probably have no idea of how easy it is to start fresh on new code these days [I fell quite old writing this sentence :)].&lt;/p&gt;
@@ -388,11 +388,11 @@ head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Update of compiled datasets</title>
-      <link>http://www.msperlin.com/blog/post/2021-04-09-update-on-data/</link>
+      <link>http://www.msperlin.com/post/2021-04-09-update-on-data/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-04-09-update-on-data/</guid>
+      <guid>http://www.msperlin.com/post/2021-04-09-update-on-data/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Back in 2020 I started to compile and share financial data in &lt;a href=&#34;https://dataverse.harvard.edu/dataverse/msperlin&#34;&gt;dataverse&lt;/a&gt;. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.&lt;/p&gt;
@@ -450,11 +450,11 @@ head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>GetFREData available in CRAN!</title>
-      <link>http://www.msperlin.com/blog/post/2021-04-06-getfredata-on-cran/</link>
+      <link>http://www.msperlin.com/post/2021-04-06-getfredata-on-cran/</link>
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-04-06-getfredata-on-cran/</guid>
+      <guid>http://www.msperlin.com/post/2021-04-06-getfredata-on-cran/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m happy to report that package &lt;code&gt;GetFREData&lt;/code&gt; is now available in CRAN. This R package serves as an interface to &lt;strong&gt;all&lt;/strong&gt; corporate datasets available in the FRE system, a vast and &lt;strong&gt;official&lt;/strong&gt; repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its &lt;a href=&#34;https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=102618&amp;amp;CodigoTipoInstituicao=2&#34;&gt;web interface&lt;/a&gt;.&lt;/p&gt;
@@ -832,11 +832,11 @@ library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>GetDFPData2 available in CRAN!</title>
-      <link>http://www.msperlin.com/blog/post/2021-04-02-getdfpdata2-on-cran/</link>
+      <link>http://www.msperlin.com/post/2021-04-02-getdfpdata2-on-cran/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-04-02-getdfpdata2-on-cran/</guid>
+      <guid>http://www.msperlin.com/post/2021-04-02-getdfpdata2-on-cran/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After testing the package extensivelly, &lt;code&gt;GetDFPData2&lt;/code&gt; is finally available in CRAN. &lt;code&gt;GetDFPData2&lt;/code&gt; is the second and backwards incompatible version of &lt;code&gt;GetDPFData&lt;/code&gt;, a R package for downloading annual financial reports from B3, the Brazilian financial exchange. Unlike its first iteration, &lt;code&gt;GetDFPData2&lt;/code&gt; imports data using a database of csv files from &lt;a href=&#34;http://dados.cvm.gov.br/dados/CIA_ABERTA/&#34;&gt;CVM&lt;/a&gt;, which makes it execution much faster than its predecessor. However, the output is slightly different.&lt;/p&gt;
@@ -948,11 +948,11 @@ l_dfp &amp;lt;- get_dfp_data(companies_cvm_codes = 19615,
     
     <item>
       <title>A clever bash script for R Users</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-23-ultimate-bash-script/</link>
+      <link>http://www.msperlin.com/post/2021-03-23-ultimate-bash-script/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-23-ultimate-bash-script/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-23-ultimate-bash-script/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Back in 2017 I wrote a &lt;a href=&#34;https://www.r-craft.org/r-news/simple-bash-script-for-a-fresh-install-of-r-and-its-dependencies-in-linux/&#34;&gt;blog post&lt;/a&gt; describing a simple bash script for installing R in a Ubuntu setup. The problem with this script, and many others found in the internet, is that they quickly become &lt;strong&gt;obsolete&lt;/strong&gt; due to changes in Ubuntu, R and RStudio. For example, if Ubuntu version changes from “trusty” to “focal”, the link to the CRAN ppa also changes. The same is true with RStudio, which does not provide installation by apt, only downloadable .deb files from its &lt;a href=&#34;https://rstudio.com/products/rstudio/download/&#34;&gt;website&lt;/a&gt;.&lt;/p&gt;
@@ -1029,11 +1029,11 @@ tbl_pkgs&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>bookdown &#43; exams &#43; webex</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-18-bookdown_and_exams/</link>
+      <link>http://www.msperlin.com/post/2021-03-18-bookdown_and_exams/</link>
       <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-18-bookdown_and_exams/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-18-bookdown_and_exams/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;It’s been three years since I’ve been using package &lt;code&gt;bookdown&lt;/code&gt; for compiling and distributing &lt;a href=&#34;https://www.msperlin.com/blog/publication/#5&#34;&gt;three different books&lt;/a&gt; in Amazon and the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web&lt;/a&gt;. It helped me greatly in all my book projects and I’m always &lt;strong&gt;grateful&lt;/strong&gt; to Yihui Xie for providing such a useful tool at the &lt;a href=&#34;https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/&#34;&gt;right time&lt;/a&gt;.&lt;/p&gt;
@@ -1347,11 +1347,11 @@ Why is R special when comparing to other programming languages, such as Python, 
     
     <item>
       <title>Ten years as a professor -- six advices to young academics</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-10-advices-young-academics/</link>
+      <link>http://www.msperlin.com/post/2021-03-10-advices-young-academics/</link>
       <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-10-advices-young-academics/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-10-advices-young-academics/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In the 18th of march 2021 I’ll complete exactly ten years since finishing my PhD and taking a professorship position at UFRGS, south of Brazil. In this post I’ll write about what I learned during this period and, hopefully, help other academics that are just starting out.&lt;/p&gt;
@@ -1415,11 +1415,11 @@ Why is R special when comparing to other programming languages, such as Python, 
     
     <item>
       <title>Update on the Shiny/Web Interface of GetDFPData2</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-06-getdfpdata2-web/</link>
+      <link>http://www.msperlin.com/post/2021-03-06-getdfpdata2-web/</link>
       <pubDate>Sat, 06 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-06-getdfpdata2-web/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-06-getdfpdata2-web/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;code&gt;GetDFPData&lt;/code&gt; is an academic project to provide free and unrestricted access to financial reports from B3, the brazilian exchange.
@@ -1433,11 +1433,11 @@ Why is R special when comparing to other programming languages, such as Python, 
     
     <item>
       <title>Compiling Book Exercises to pdf | html | Moodle | Blackboard</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/</link>
+      <link>http://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/</link>
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/</guid>
+      <guid>http://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The revised second edition of &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;Analylzing Financial and Economic Data with R&lt;/a&gt; presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;&lt;code&gt;exams&lt;/code&gt; format&lt;/a&gt;, meaning that any R tutor can export the same exercises to pdf, html or &lt;em&gt;e-learning&lt;/em&gt; platforms. In this post I’ll show how to compile exercises to pdf, html, &lt;em&gt;Moodle&lt;/em&gt; and &lt;em&gt;blackboard&lt;/em&gt;.&lt;/p&gt;
@@ -1633,11 +1633,11 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Revision of book &#34;Analyzing Financial and Economic Data with R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/</link>
+      <link>http://www.msperlin.com/post/2021-02-28-afedr-revision-2021/</link>
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/</guid>
+      <guid>http://www.msperlin.com/post/2021-02-28-afedr-revision-2021/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I recently launched the third edition of my &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;portuguese R book (adfeR-pt-br)&lt;/a&gt;, with many due changes from the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;international version (afedR-en)&lt;/a&gt;. To make it clear, the second edition of afedR (en) was ahead in content and the third edition of adfeR (pt-br) closed that gap.&lt;/p&gt;
@@ -1655,11 +1655,11 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>LANÇAMENTO - Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</link>
+      <link>http://www.msperlin.com/post/2021-02-20-adfer-ed3-announcement/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</guid>
+      <guid>http://www.msperlin.com/post/2021-02-20-adfer-ed3-announcement/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;É com muito prazer que comunico o lançamento oficial da &lt;strong&gt;terceira edição&lt;/strong&gt; do livro &lt;strong&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/strong&gt;. Encontrarás a obra na Amazon.com.br como um &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;ebook&lt;/a&gt; ou &lt;a href=&#34;https://www.amazon.com/dp/B08WP8CCDB&#34;&gt;livro impresso&lt;/a&gt;. A versão online do livro com os primeiros sete capítulos está disponível neste &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;link&lt;/a&gt;. Maiores detalhes, incluindo material suplementar, encontram-se na &lt;a href=&#34;https://www.msperlin.com/blog/publication/2021_book-adfer-pt/&#34;&gt;página do livro&lt;/a&gt;.&lt;/p&gt;
@@ -1678,11 +1678,11 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Compilando Exercícios do Livro para pdf | html | Moodle | Blackboard</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</link>
+      <link>http://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/</link>
       <pubDate>Thu, 18 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</guid>
+      <guid>http://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;A terceira edição do livro &lt;a href=&#34;https://www.msperlin.com/blog/publication/2021_book-adfer-pt/&#34;&gt;Análise de Dados Financeiros e Econômicos&lt;/a&gt; contém mais de 100 exercícios de final de capítulo, com todas soluções disponíveis na &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;página do livro&lt;/a&gt;. Alternativamente, professores e instrutores podem compilar arquivos pdf dos exercícios para seus alunos com o pacote &lt;code&gt;adfeR&lt;/code&gt;.&lt;/p&gt;
@@ -1793,11 +1793,11 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Looking back at 2020 and plans for 2021</title>
-      <link>http://www.msperlin.com/blog/post/2020-12-22-looking-back-2020/</link>
+      <link>http://www.msperlin.com/post/2020-12-22-looking-back-2020/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-12-22-looking-back-2020/</guid>
+      <guid>http://www.msperlin.com/post/2020-12-22-looking-back-2020/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Wow, what a &lt;strong&gt;long&lt;/strong&gt; year! The pandemic affected everyone, changing the way we live and relate to one another. This was a year full of lessons and we must be thankful and be able to appreciate life even more. Events such as these show how little our “problems” are when put into perspective.&lt;/p&gt;
@@ -1869,9 +1869,9 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New Packages: GetDFPdata = GetDFPData2 &#43; GetFREData</title>
-      <link>http://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/</link>
+      <link>http://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/</link>
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/</guid>
+      <guid>http://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/</guid>
       <description>
 
 
@@ -1957,7 +1957,7 @@ p &amp;lt;- ggplot(dre_annual %&amp;gt;%
   theme_bw()
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;getfredata&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;GetFREData&lt;/h3&gt;
@@ -2274,11 +2274,11 @@ glimpse(l_fre)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>A GARCH Tutorial in R (revised)</title>
-      <link>http://www.msperlin.com/blog/post/2020-07-07-garch-tutorial-in-r-revised/</link>
+      <link>http://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-07-07-garch-tutorial-in-r-revised/</guid>
+      <guid>http://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;2020-07-22 Update: The final version of the paper is now published at &lt;a href=&#34;https://rac.anpad.org.br/index.php/rac/article/view/1420?fbclid=IwAR0D0N5RBmeX92sXY22r8RWPDjlVjM00p-DjuufSrYf9WgOf9JhOcGoUS1Q&#34;&gt;RAC&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
@@ -2290,25 +2290,25 @@ glimpse(l_fre)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Call for papers on data reuse</title>
-      <link>http://www.msperlin.com/blog/post/2020-05-27-call-for-papers-rac/</link>
+      <link>http://www.msperlin.com/post/2020-05-27-call-for-papers-rac/</link>
       <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-05-27-call-for-papers-rac/</guid>
+      <guid>http://www.msperlin.com/post/2020-05-27-call-for-papers-rac/</guid>
       <description>
 
 
 &lt;p&gt;Myself and Henrique Martins (PUC Rio) organized a call for papers on data reuse, for publication in &lt;a href=&#34;https://rac.anpad.org.br/index.php/rac&#34;&gt;RAC – Revista de Administração Contemporanea&lt;/a&gt;. The deadline for submission is 10th october 2020, with expected publication date in july 2021.&lt;/p&gt;
 &lt;p&gt;We will select quality papers that use data already published and shared in other scientific outlet to test new theories or present a tutorial article, helping students see how an econometric result was achieved in practice.&lt;/p&gt;
-&lt;p&gt;You can find more details about this call for papers in this &lt;a href=&#34;http://www.msperlin.com/blog/blog/files/CALL%20FOR%20PAPERS_RAC_2021_Data%20Reuse.pdf&#34;&gt;pdf file&lt;/a&gt;. I encourage everyone to submit their work. If you got any question, please let me know.&lt;/p&gt;
+&lt;p&gt;You can find more details about this call for papers in this &lt;a href=&#34;http://www.msperlin.com/blog/files/CALL%20FOR%20PAPERS_RAC_2021_Data%20Reuse.pdf&#34;&gt;pdf file&lt;/a&gt;. I encourage everyone to submit their work. If you got any question, please let me know.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Financial Datasets Available in the Website</title>
-      <link>http://www.msperlin.com/blog/post/2020-04-20-free-compiled-data-in-site/</link>
+      <link>http://www.msperlin.com/post/2020-04-20-free-compiled-data-in-site/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-04-20-free-compiled-data-in-site/</guid>
+      <guid>http://www.msperlin.com/post/2020-04-20-free-compiled-data-in-site/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’ve been researching financial data for over 10 years and gathered a great deal of compiled tables. Most of these comes from my R packages and have been used for creating class material, doing &lt;a href=&#34;https://www.msperlin.com/blog/publication/&#34;&gt;research&lt;/a&gt; and even &lt;a href=&#34;https://www.msperlin.com/blog/publication/2019_book-pirf/&#34;&gt;writing a book&lt;/a&gt;. These files were mostly found in many copies across different projects.&lt;/p&gt;
@@ -2320,11 +2320,11 @@ glimpse(l_fre)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New R package: GetCVMData</title>
-      <link>http://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/</link>
+      <link>http://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/</guid>
+      <guid>http://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -2395,11 +2395,11 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Update on GetDFPData tables -- 2019&#39;s DFP and FRE data</title>
-      <link>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</link>
+      <link>http://www.msperlin.com/post/2020-04-17-update-getdfpdata/</link>
       <pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-04-17-update-getdfpdata/</guid>
+      <guid>http://www.msperlin.com/post/2020-04-17-update-getdfpdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;After battling B3’s website for days, I finally managed to gather a master table for all corporate data. I’m happy to report that the 2019’s data is now included in GetDFPData, the CRAN package and &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny interface&lt;/a&gt;. This includes new financial statements and company’s FRE data.&lt;/p&gt;
@@ -2424,11 +2424,11 @@ glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>A GARCH Tutorial in R</title>
-      <link>http://www.msperlin.com/blog/post/2020-03-29-garch-tutorial-in-r/</link>
+      <link>http://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</link>
       <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-03-29-garch-tutorial-in-r/</guid>
+      <guid>http://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Myself, Mauro Mastella, Daniel Vancin and Henrique Ramos, just finished a tutorial paper about GARCH models in R and I believe it is a good content for those learning financial econometrics. You can find the full paper in this &lt;a href=&#34;https://docs.google.com/document/d/1BcIFoM25haxWIVtQfzMMGPnPG--gTt2f3XhGJlSHQus/edit?usp=sharing&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
@@ -2441,11 +2441,11 @@ glimpse(df.reports)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Book slides - Analyzing Financial and Economic Data with R</title>
-      <link>http://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/</link>
+      <link>http://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/</guid>
+      <guid>http://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -2478,11 +2478,11 @@ afedR::afedR_get_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;
     
     <item>
       <title>Book release - Analyzing Financial and Economic Data with R (2º edition)</title>
-      <link>http://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/</link>
+      <link>http://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/</link>
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/</guid>
+      <guid>http://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34;&gt;
@@ -2531,11 +2531,11 @@ afedR::afedR_get_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;
     
     <item>
       <title>Looking back at 2019 and plans for 2020</title>
-      <link>http://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/</link>
+      <link>http://www.msperlin.com/post/2019-12-15-looking-back-2019/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/</guid>
+      <guid>http://www.msperlin.com/post/2019-12-15-looking-back-2019/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m just about to leave for my vacation and, as usual, I’ll write about the highlights of 2019 and my plans for the year to come. First, let’s talk about my work in 2019.&lt;/p&gt;
@@ -2692,7 +2692,7 @@ print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&amp;#39;coun
          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
          labs(y = &amp;#39;Number of posts&amp;#39;, x = &amp;#39;&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-12-15-Looking-Back-2019_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-12-15-Looking-Back-2019_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;checking-2019s-plans&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Checking 2019’s plans&lt;/h1&gt;
@@ -2728,11 +2728,11 @@ print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&amp;#39;coun
     
     <item>
       <title>Static and Dynamic Book Exercises with R</title>
-      <link>http://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/</link>
+      <link>http://www.msperlin.com/post/2019-12-02-dynamic-exercises-afedr/</link>
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-12-02-dynamic-exercises-afedr/</guid>
+      <guid>http://www.msperlin.com/post/2019-12-02-dynamic-exercises-afedr/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -2786,11 +2786,11 @@ l_out &amp;lt;- afedR_build_exam(students_names = student_names,
     
     <item>
       <title>Feedback on new book TOC (Table of Contents)</title>
-      <link>http://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/</link>
+      <link>http://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/</guid>
+      <guid>http://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Back in 2017 I wrote the first international&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; edition of my book “&lt;a href=&#34;https://www.msperlin.com/blog/publication/2017_book-pafdr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt;” (&lt;a href=&#34;https://www.msperlin.com/pafdR/&#34;&gt;online version&lt;/a&gt;) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, &lt;strong&gt;I’m working in the new edition of the book&lt;/strong&gt;, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages.&lt;/p&gt;
@@ -2842,11 +2842,11 @@ l_out &amp;lt;- afedR_build_exam(students_names = student_names,
     
     <item>
       <title>New package: simfinR</title>
-      <link>http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</link>
+      <link>http://www.msperlin.com/post/2019-11-01-new-package-simfinr/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</guid>
+      <guid>http://www.msperlin.com/post/2019-11-01-new-package-simfinr/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -2928,7 +2928,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Not bad!&lt;/p&gt;
 &lt;p&gt;We can also grab data for all quarters:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;type_statements &amp;lt;- &amp;#39;pl&amp;#39; # profit/loss
@@ -2970,7 +2970,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Nice and impressive profit record. The first quarter (Q1) seems to present the best performance, probably due to end of year holidays.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-02---quarterly-net-profit-of-many-companies&#34; class=&#34;section level3&#34;&gt;
@@ -3001,7 +3001,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-03-fetching-price-data&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Example 03: Fetching price data&lt;/h3&gt;
@@ -3026,7 +3026,7 @@ p &amp;lt;- ggplot(df_price,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, the data is comprehensive and should suffice for many different corporate finance research topics.&lt;/p&gt;
 &lt;p&gt;Give it a try and, if you’ve found any problem or bug, please let me know at &lt;a href=&#34;mailto:marceloperlin@gmail.com&#34; class=&#34;email&#34;&gt;marceloperlin@gmail.com&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -3036,11 +3036,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New package: GetEdgarData</title>
-      <link>http://www.msperlin.com/blog/post/2019-10-16-new-package-getedgardata/</link>
+      <link>http://www.msperlin.com/post/2019-10-16-new-package-getedgardata/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-10-16-new-package-getedgardata/</guid>
+      <guid>http://www.msperlin.com/post/2019-10-16-new-package-getedgardata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -3132,11 +3132,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Help support GetDFPData</title>
-      <link>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</link>
+      <link>http://www.msperlin.com/post/2019-10-12-support-getdfpdata-shiny/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-10-12-support-getdfpdata-shiny/</guid>
+      <guid>http://www.msperlin.com/post/2019-10-12-support-getdfpdata-shiny/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The &lt;a href=&#34;https://www.msperlin.com/shiny/GetDFPData/&#34;&gt;shiny version of GetDFPData&lt;/a&gt; is currently hosted in a private server at DigitalOcean. A problem with the basic (5 USD) server I was using is with the low amount of available memory (RAM and HD). With that, I had to limit all xlsx queries for the data, otherwise the shiny app would ran out of memory. After upgrading R in the server, the xlsx option was no longer working.&lt;/p&gt;
@@ -3148,11 +3148,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New package: GetQuandlData</title>
-      <link>http://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/</link>
+      <link>http://www.msperlin.com/post/2019-10-01-new-package-getquandldata/</link>
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/</guid>
+      <guid>http://www.msperlin.com/post/2019-10-01-new-package-getquandldata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -3258,11 +3258,11 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>B3 is NOT shutting down its ftp site, for now..</title>
-      <link>http://www.msperlin.com/blog/post/2019-08-08-ftp-not-shutdown/</link>
+      <link>http://www.msperlin.com/post/2019-08-08-ftp-not-shutdown/</link>
       <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-08-08-ftp-not-shutdown/</guid>
+      <guid>http://www.msperlin.com/post/2019-08-08-ftp-not-shutdown/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;Update 2019-08-09: The shutdown is just postponed to 2019-11-14. See the official release &lt;a href=&#34;http://www.b3.com.br/pt_br/noticias/portais-8AE490C86BC98316016BDD1E7BDF14AB.htm?fbclid=IwAR1IY_ILkhkWwsBxFWH4pQEBx-OqxcEDxfmg22Ii5tep_dtzyKw9casag5o&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
@@ -3293,11 +3293,11 @@ max(df.ftp$dates) - min(df.ftp$dates)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>B3 is shutting down its ftp site</title>
-      <link>http://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/</link>
+      <link>http://www.msperlin.com/post/2019-07-01-ftp-shutdown/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/</guid>
+      <guid>http://www.msperlin.com/post/2019-07-01-ftp-shutdown/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;Well, bad news travels fast. &lt;/strong&gt;&lt;/p&gt;
@@ -3313,11 +3313,11 @@ max(df.ftp$dates) - min(df.ftp$dates)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>The Effect of Consistency on Corporate Net Income</title>
-      <link>http://www.msperlin.com/blog/post/2019-05-20-lindy-effect/</link>
+      <link>http://www.msperlin.com/post/2019-05-20-lindy-effect/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-05-20-lindy-effect/</guid>
+      <guid>http://www.msperlin.com/post/2019-05-20-lindy-effect/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the investment concepts that every long term investor should know is the effect of consistency over corporate performance. The main idea is that older and profitable companies are likely to continue to be profitable and even improve its performance in the upcoming years. Likewise, companies with constant losses are likely to continue in the same path.&lt;/p&gt;
@@ -3439,7 +3439,7 @@ tab &amp;lt;- tab.test %&amp;gt;%
   guides(shape=guide_legend(nrow=2,byrow=TRUE))
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-20-Lindy-Effect_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-20-Lindy-Effect_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Let me summarize the main conclusions from the plot:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Time is an ally to the profit of the company. &lt;strong&gt;The more consistent the company was in producing profit in the past, higher the chances of a profit in the future&lt;/strong&gt;.&lt;/li&gt;
@@ -3460,11 +3460,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>R usage in Brazil</title>
-      <link>http://www.msperlin.com/blog/post/2019-05-17-r-in-brazil/</link>
+      <link>http://www.msperlin.com/post/2019-05-17-r-in-brazil/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-05-17-r-in-brazil/</guid>
+      <guid>http://www.msperlin.com/post/2019-05-17-r-in-brazil/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m using R for at least five years and always been curious about its usage in Brazil. I see some minor personal evidence that the number of users is increasing over time. My &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;book in portuguese&lt;/a&gt; is steadily increasing its sales, and I’ve been receiving far more emails about my &lt;a href=&#34;https://www.crantastic.org/authors/5303&#34;&gt;R packages&lt;/a&gt;. Conference are also booming. Every year there are at least two or three R conferences in Brazil.&lt;/p&gt;
@@ -3508,7 +3508,7 @@ p &amp;lt;- ggplot(data = df_by_day, aes(y = n,
   scale_color_grey(start = 0.8, end = 0.2 )
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The number of downloads is steadily increasing over time. The new releases of R also seems to explain the outliers in the dataset. Let’s clean it a bit by decreasing the frequency and calculating the number of downloads per month, instead of by day.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_month &amp;lt;- df.dls %&amp;gt;%
   group_by(ref.month = lubridate::ymd(format(date, &amp;#39;%Y-%m-01&amp;#39;))) %&amp;gt;%
@@ -3526,7 +3526,7 @@ p &amp;lt;- ggplot(data = df_by_month, aes(y = n,
 
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Much better! Overall, R downloads average about 910.7 per month, with a monthly compound rate of 6%. It means that, each month, the number of downloads is increasing by 6% from previous month.&lt;/p&gt;
 &lt;p&gt;The data also includes information about the operating system. Let’s check its distribution:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_os &amp;lt;- df.dls %&amp;gt;%
@@ -3545,7 +3545,7 @@ p &amp;lt;- ggplot(df_by_os, aes(x = os, y = n)) +
        subtitle = &amp;#39;Data from Rstudio logs &amp;lt;http://cran-logs.rstudio.com/&amp;gt;&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Not unexpectedly, Windows is the winner! I’m very surprised to see that Mac OS presents more downloads than Linux. With an unfavorable exchange rate and many import taxes, the price of a Mac computer — desktop or laptop — are exorbitantly expensive in Brazil. This tells a lot about the purchase power of R users.&lt;/p&gt;
 &lt;p&gt;I hope you liked this post. Next time I’ll analyze the logs of package installation in Brazil.&lt;/p&gt;
 </description>
@@ -3553,11 +3553,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Risk and return for B3</title>
-      <link>http://www.msperlin.com/blog/post/2019-05-01-meanvariance/</link>
+      <link>http://www.msperlin.com/post/2019-05-01-meanvariance/</link>
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-05-01-meanvariance/</guid>
+      <guid>http://www.msperlin.com/post/2019-05-01-meanvariance/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the subjects that I teach in my undergraduate finance class is the relationship between risk and expected returns. In short, the riskier the investment, more returns should be &lt;strong&gt;expected&lt;/strong&gt; by the investor. It is not a difficult argument to make. All that you need to understand is to remember that people are not naive in financial markets. Whenever they make a big gamble, the rewards should also be large. Rational investors, on theory, would not invest in risky stocks that are likelly to yield low returns.&lt;/p&gt;
@@ -3628,7 +3628,7 @@ p &amp;lt;- ggplot(tab.stocks, aes(x = sd.ret, y = mean.ret, group = ticker)) +
   scale_y_continuous(labels = scales::percent)  
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-01-MeanVariance_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-01-MeanVariance_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Looks pretty! What do we learn?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Overall, most of the stocks did better than the risk free rate (CDI);&lt;/p&gt;&lt;/li&gt;
@@ -3640,11 +3640,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New package: GetBCBData</title>
-      <link>http://www.msperlin.com/blog/post/2019-04-15-getbcbdata/</link>
+      <link>http://www.msperlin.com/post/2019-04-15-getbcbdata/</link>
       <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-04-15-getbcbdata/</guid>
+      <guid>http://www.msperlin.com/post/2019-04-15-getbcbdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The Central Bank of Brazil (BCB) offers access to the SGS system (sistema gerenciador de series temporais) with a official API available &lt;a href=&#34;http://www.bcb.gov.br/?sgs&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -3699,18 +3699,18 @@ glimpse(df.bcb)&lt;/code&gt;&lt;/pre&gt;
 
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-04-15-GetBCBData_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-04-15-GetBCBData_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>BatchGetSymbols is now parallel!</title>
-      <link>http://www.msperlin.com/blog/post/2019-04-13-parallel-batchgetsymbols/</link>
+      <link>http://www.msperlin.com/post/2019-04-13-parallel-batchgetsymbols/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-04-13-parallel-batchgetsymbols/</guid>
+      <guid>http://www.msperlin.com/post/2019-04-13-parallel-batchgetsymbols/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/msperlin/BatchGetSymbols&#34;&gt;BatchGetSymbols&lt;/a&gt; is my most downloaded package by any count. Computation time, however, has always been an issue. While downloading data for 10 or less stocks is fine, doing it for a large ammount of tickers, say the SP500 composition, gets very boring.&lt;/p&gt;
@@ -3771,12 +3771,12 @@ l.out &amp;lt;- BatchGetSymbols(tickers = tickers[1:50],
     
     <item>
       <title>Can you turn 1500 USD into 1.000.430 USD by investing in the stock market for three years?</title>
-      <link>http://www.msperlin.com/blog/post/2019-03-23-bettina-case/</link>
+      <link>http://www.msperlin.com/post/2019-03-23-bettina-case/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-03-23-bettina-case/</guid>
+      <guid>http://www.msperlin.com/post/2019-03-23-bettina-case/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In the last few weeks we’ve seen a great deal of controversy in Brazil regarding financial investments. Too keep it short, &lt;em&gt;Empiricus&lt;/em&gt;, an ad-based company that massively sells online courses and subscriptions, posted a YouTube ad where a young girl, Bettina, &lt;a href=&#34;https://canaltech.com.br/memes/entenda-o-caso-bettina-a-jovem-tia-patinhas-brasileira-que-virou-meme-135035/&#34;&gt;says the following&lt;/a&gt;:&lt;/p&gt;
@@ -3932,7 +3932,7 @@ p &amp;lt;- ggplot(res.inv, aes(x = ref.month, y = best.return)) +
  scale_y_continuous(labels = scales::percent)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, Bettina did good with a constant monthly return of 20%. But, &lt;em&gt;GodBot&lt;/em&gt; is better. Bettina is clearly missing something out!&lt;/p&gt;
 &lt;p&gt;When looking at the nominal value of the investment, the effect of compound returns explodes the value of the portfolio.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
@@ -3965,7 +3965,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x = ref.month, y = Value, color = Investor)) 
  scale_y_continuous(labels = format.cash)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The results show that Bettina’s returns are possible. All you need to do is to perfectly predict, for each month, which stock will do best in the market. If you haven’t sensed my irony, let me be crystal clear: &lt;strong&gt;Market prices are impossible to predict&lt;/strong&gt;. The result I just showed you is only possible in my computer. No one will ever be able to replicate it in practice.&lt;/p&gt;
 &lt;p&gt;The ad from &lt;em&gt;Empiricus&lt;/em&gt; is very misleading. In my opinion as a finance professor, the real problem in this episode is that the great majority of the Brazilian population is not financially educated. Many people &lt;strong&gt;will believe&lt;/strong&gt; that is legally possible to reach a 20% return over a month.&lt;/p&gt;
 &lt;p&gt;I’ve seen countless cases of financial pyramids, usually tied to some exotic cryptocurrency, to rise and shortly burn here in Brazil. This is specially – and sadly – most frequent in the poorer areas of the country. Those that follow &lt;em&gt;Empiricus&lt;/em&gt; advice will soon learn its lesson. Making money in short run in stocks is very difficult.&lt;/p&gt;
@@ -3975,11 +3975,11 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>(2/2) Book promotion (paperback edition) - &#34;Processing and Analyzing Financial Data with R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</link>
+      <link>http://www.msperlin.com/post/2019-03-10-pafdr-promotion_2/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</guid>
+      <guid>http://www.msperlin.com/post/2019-03-10-pafdr-promotion_2/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I received many messages regarding my &lt;a href=&#34;https://www.amazon.com/dp/B071DTSCPS&#34;&gt;book promotion&lt;/a&gt; (see &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/&#34;&gt;previous post&lt;/a&gt; ). I’ll use this post to answer the most frequent questions:&lt;/p&gt;
@@ -3997,14 +3997,14 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Book promotion - &#34;Processing and Analyzing Financial Data with R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</link>
+      <link>http://www.msperlin.com/post/2019-03-09-pafdr-promotion/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</guid>
+      <guid>http://www.msperlin.com/post/2019-03-09-pafdr-promotion/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/CAPADigital_FinancialDataR.jpg&#34; style=&#34;width:30.0%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/img/CAPADigital_FinancialDataR.jpg&#34; style=&#34;width:30.0%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I recently did a book promotion for my &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;R book in portuguese&lt;/a&gt; and it was a big sucess!&lt;/p&gt;
 &lt;p&gt;My english book is now being sold with the same promotion. You can purchase it with a 50% discount if you buy it on the 10th day of march. See it &lt;a href=&#34;https://www.amazon.com/dp/B071DTSCPS&#34;&gt;here&lt;/a&gt;. The discount will be valid throughout the week, with daily price increases.&lt;/p&gt;
 &lt;p&gt;If you want to learn more about R and its use in Finance and Economics, this book is a great opportunity.&lt;/p&gt;
@@ -4016,11 +4016,11 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>GetDFPData Ver 1.4</title>
-      <link>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</link>
+      <link>http://www.msperlin.com/post/2019-01-12-getdfpdata-ver14/</link>
       <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-01-12-getdfpdata-ver14/</guid>
+      <guid>http://www.msperlin.com/post/2019-01-12-getdfpdata-ver14/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I just released a major update to package GetDFPData. Here are the main changes:&lt;/p&gt;
@@ -4034,11 +4034,11 @@ p&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Looking back at 2018 and plans for 2019</title>
-      <link>http://www.msperlin.com/blog/post/2019-01-08-looking-back-2018/</link>
+      <link>http://www.msperlin.com/post/2019-01-08-looking-back-2018/</link>
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-01-08-looking-back-2018/</guid>
+      <guid>http://www.msperlin.com/post/2019-01-08-looking-back-2018/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;At the end of every year I plan to write about the highlight of the current year and set plans for the future. First, let’s talk about my work in 2018.&lt;/p&gt;
@@ -4206,7 +4206,7 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&amp;#39
          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
          labs(y = &amp;#39;Number of posts&amp;#39;, x = &amp;#39;&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Seems to average about once a month. The blank spaces show that I did not write for a couple of months.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;checking-2018s-plans&#34; class=&#34;section level1&#34;&gt;
@@ -4242,11 +4242,11 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&amp;#39
     
     <item>
       <title>New blog site: From Jekyll to Hugo</title>
-      <link>http://www.msperlin.com/blog/post/2018-11-03-newblog/</link>
+      <link>http://www.msperlin.com/post/2018-11-03-newblog/</link>
       <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-11-03-newblog/</guid>
+      <guid>http://www.msperlin.com/post/2018-11-03-newblog/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I while ago I &lt;a href=&#34;https://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/&#34;&gt;wrote about purchasing my own webserver in digital ocean and hosting my shinny applications&lt;/a&gt;. Last week I finally got some time to migrate my blog from &lt;a href=&#34;https://msperlin.github.io/&#34;&gt;Github&lt;/a&gt; to my new domain, &lt;a href=&#34;https://www.msperlin.com/blog&#34;&gt;www.msperlin.com&lt;/a&gt;. While doing that, I also decided to change the technology behind making the blog, from Jekyll to Hugo. Here are my reasons.&lt;/p&gt;
@@ -4265,11 +4265,11 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&amp;#39
     
     <item>
       <title>Some Useful Tricks in RStudio</title>
-      <link>http://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</link>
+      <link>http://www.msperlin.com/post/2018-11-03-rstudiotricks/</link>
       <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</guid>
+      <guid>http://www.msperlin.com/post/2018-11-03-rstudiotricks/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’ve been using Rstudio for a long time and I got some tricks to share. These are simple and useful commands and shortcuts that really help the productivity of my students. If you got a suggestion of trick, use the comment section and I’ll add it in this post.&lt;/p&gt;
@@ -4300,7 +4300,7 @@ setwd(my.dir)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;dark-theme-for-rstudio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Dark theme for Rstudio&lt;/h2&gt;
 &lt;p&gt;A dark theme is a productivity life-changer if you spend a lot of time in front of a computer. Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into “tools” -&amp;gt; “global options” -&amp;gt; “appearance”. There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/rstudio-whitetheme.png&#34; /&gt; &lt;img src=&#34;http://www.msperlin.com/blog/blog/img/rstudio-darktheme.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/img/rstudio-whitetheme.png&#34; /&gt; &lt;img src=&#34;http://www.msperlin.com/blog/img/rstudio-darktheme.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;autocomplete-tab-is-your-friend&#34; class=&#34;section level2&#34;&gt;
@@ -4308,11 +4308,11 @@ setwd(my.dir)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A commom misconception about programming is that you must memorize lot of names. This is far from the truth. You never need to memorize anything when using Rstudio! From function arguments to variable names and names of files, everything can be searched by pressing the &lt;em&gt;tab&lt;/em&gt; key on your keyboard. When using naming conventions for functions and objects, this becomes even more useful. For example, every dataframe in my code starts with “df”, like in “df.prices”, “df.tickers” and so on. When I’m looking for the name of a dataframe, I just write “df.” and press &lt;em&gt;tab&lt;/em&gt;. The result is a list of object names.&lt;/p&gt;
 &lt;p&gt;The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. &lt;a href=&#34;https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab&#34;&gt;Check it out&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/autocomplete_arquivos.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://www.msperlin.com/blog/img/autocomplete_arquivos.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Autocomplete for files&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/autocomplete_pacotes.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://www.msperlin.com/blog/img/autocomplete_pacotes.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Autocomplete for packages&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4336,11 +4336,11 @@ setwd(my.dir)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Loops and Pizzas</title>
-      <link>http://www.msperlin.com/blog/post/2018-10-19-r-and-loops/</link>
+      <link>http://www.msperlin.com/post/2018-10-19-r-and-loops/</link>
       <pubDate>Fri, 19 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-10-19-r-and-loops/</guid>
+      <guid>http://www.msperlin.com/post/2018-10-19-r-and-loops/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;loops-in-r&#34; class=&#34;section level1&#34;&gt;
@@ -4545,11 +4545,11 @@ print(tab.out)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>New package in CRAN: PkgsFromFiles</title>
-      <link>http://www.msperlin.com/blog/post/2018-10-13-newpackage-pkgsfromfiles/</link>
+      <link>http://www.msperlin.com/post/2018-10-13-newpackage-pkgsfromfiles/</link>
       <pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-10-13-newpackage-pkgsfromfiles/</guid>
+      <guid>http://www.msperlin.com/post/2018-10-13-newpackage-pkgsfromfiles/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Its been a while since I develop a CRAN package and this weekend I decided
@@ -4697,7 +4697,7 @@ p &amp;lt;- pff_plot_summary_pkgs(folder.in = my.dir)&lt;/code&gt;&lt;/pre&gt;
 ##       Rmarkdown files: 2 files
 ##       Sweave files: 0 files&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, I’m a big fan of the &lt;code&gt;tidyverse&lt;/code&gt;!&lt;/p&gt;
 &lt;p&gt;Hope you guys find the package useful! Fell free to send any question to the comment section of the post or my email (&lt;a href=&#34;mailto:marceloperlin@gmail.com&#34; class=&#34;email&#34;&gt;marceloperlin@gmail.com&lt;/a&gt;).&lt;/p&gt;
 &lt;/div&gt;
@@ -4706,11 +4706,11 @@ p &amp;lt;- pff_plot_summary_pkgs(folder.in = my.dir)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Update to GetLattesData</title>
-      <link>http://www.msperlin.com/blog/post/2018-10-11-update-getlattesdata/</link>
+      <link>http://www.msperlin.com/post/2018-10-11-update-getlattesdata/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-10-11-update-getlattesdata/</guid>
+      <guid>http://www.msperlin.com/post/2018-10-11-update-getlattesdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Last year I released &lt;code&gt;GetLattesData&lt;/code&gt;. This package is very handy for anyone that researches bibliometric data of Brazilian scholars. You could easily import the whole academic history of any researcher registered at the platform. More details about Lattes and &lt;code&gt;GetLattesData&lt;/code&gt; in the this &lt;a href=&#34;https://msperlin.github.io/2017-09-04-Package-GetLattesData/&#34;&gt;post&lt;/a&gt;.&lt;/p&gt;
@@ -4796,7 +4796,7 @@ p &amp;lt;- ggplot(tpublic.published, aes(x = qualis)) +
   geom_bar(position = &amp;#39;identity&amp;#39;) + facet_wrap(~name) +
   labs(x = paste0(&amp;#39;Qualis: &amp;#39;, field.qualis))
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-10-11-Update-GetLattesData_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-10-11-Update-GetLattesData_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can also use &lt;code&gt;dplyr&lt;/code&gt; to do some simple assessment of academic productivity:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## 
@@ -4856,11 +4856,11 @@ knitr::kable(my.tab)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>BatchGetSymbols 2.2</title>
-      <link>http://www.msperlin.com/blog/post/2018-10-10-batchgetsymbols-newversion/</link>
+      <link>http://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-10-10-batchgetsymbols-newversion/</guid>
+      <guid>http://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the main requests I get for package &lt;code&gt;BatchGetSymbols&lt;/code&gt; is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:&lt;/p&gt;
@@ -4926,17 +4926,17 @@ df.allfreq &amp;lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))&lt;/code
   geom_point() + geom_line() + facet_grid(freq ~ ticker)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Benchmarking a SSD drive in reading and writing files with R</title>
-      <link>http://www.msperlin.com/blog/post/2018-06-29-benchmarkingssd/</link>
+      <link>http://www.msperlin.com/post/2018-06-29-benchmarkingssd/</link>
       <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-06-29-benchmarkingssd/</guid>
+      <guid>http://www.msperlin.com/post/2018-06-29-benchmarkingssd/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I recently bought a new computer for home and it came with two drives, one HDD and other SSD. The later is used for the OS and the former stores all of my personal files. From all computers I had, both home and work, this is definitely the fastest. While some of the merits are due to the newer CPUS and RAM, the SSD drive can make all the difference in file operations.&lt;/p&gt;
@@ -5022,7 +5022,7 @@ p &amp;lt;- ggplot(df.res, aes(x = N, y = times, linetype = type.hd)) +
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, the &lt;code&gt;csv-base&lt;/code&gt; format is messing with the y axis. Let’s remove it for better visualization:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 
@@ -5031,7 +5031,7 @@ p &amp;lt;- ggplot(filter(df.res, !(type.file %in% c(&amp;#39;csv-base&amp;#39;)
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;When it comes to the file format, we learn:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;By far, the &lt;code&gt;fst&lt;/code&gt; format is the best&lt;/strong&gt;. It takes less time to read and write than the others. However, it’s probably unfair to compare it to &lt;code&gt;csv&lt;/code&gt; and &lt;code&gt;rds&lt;/code&gt; as it uses the 16 cores of my computer.&lt;/p&gt;&lt;/li&gt;
@@ -5069,11 +5069,11 @@ print(tab)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Second Edition of &#34;Processamento e Analise de Dados Financeiros e Econômicos com o R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</link>
+      <link>http://www.msperlin.com/post/2018-06-12-padfr-ed2/</link>
       <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</guid>
+      <guid>http://www.msperlin.com/post/2018-06-12-padfr-ed2/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34;&gt;
@@ -5090,7 +5090,7 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
 &lt;li&gt;&lt;p&gt;Alignment with the tidyverse. I have no doubt that the packages from the tidyverse are here to stay. While the native function are presented, there is an emphasis in using the tidyverse, specially in reading local data, manipulating dataframes and functional programming.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Exercises are available at the end of each chapter, including hard questions that will challenge your programming ability.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can find the new edition of the book in &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;Amazon&lt;/a&gt;. See this &lt;a href=&#34;http://www.msperlin.com/blog/blog/books&#34;&gt;section&lt;/a&gt; for more details. As usual, an online (and free) version of the book is available at &lt;a href=&#34;http://www.msperlin.com/padfeR/&#34;&gt;http://www.msperlin.com/padfeR/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can find the new edition of the book in &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;Amazon&lt;/a&gt;. See this &lt;a href=&#34;http://www.msperlin.com/blog/books&#34;&gt;section&lt;/a&gt; for more details. As usual, an online (and free) version of the book is available at &lt;a href=&#34;http://www.msperlin.com/padfeR/&#34;&gt;http://www.msperlin.com/padfeR/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It was a lot of work (and fun) to write the new edition. I’m very happy with the result. I hope you enjoy it!&lt;/p&gt;
 &lt;p&gt;Best,&lt;/p&gt;
 </description>
@@ -5098,11 +5098,11 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
     
     <item>
       <title>Investing for the Long Run</title>
-      <link>http://www.msperlin.com/blog/post/2018-05-12-investing-long-run/</link>
+      <link>http://www.msperlin.com/post/2018-05-12-investing-long-run/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-05-12-investing-long-run/</guid>
+      <guid>http://www.msperlin.com/post/2018-05-12-investing-long-run/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I often get asked about how to invest in the stock market. Not surprisingly, this has been a common topic in my classes. Brazil is experiencing a big change in its financial scenario. Historically, fixed income instruments paid a large premium over the stock market and that is no longer the case. Interest rates are low, without the pressure from inflation. This means a more sustainable scenario for low-interest rates in the future. Without the premium in the fixed income market, people turn to the stock market.&lt;/p&gt;
@@ -5111,7 +5111,7 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
 &lt;p&gt;I read many books before starting to invest and one of the most interesting tables I’ve found portrays the relationship between investment horizon and profitability. The idea is that the more time you hold a stock or index, higher the chance of a profit. The table, originally from Taleb’s &lt;em&gt;Fooled by Randomness&lt;/em&gt;, is as follows.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://imgur.com/a/d5VnMaF&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;My problem with the table is that it seems pretty off. My experience tells me that a 67% chance of positive return every month seems exaggerated. If that was the case, making money in the stock market would be easy. Digging deeper, I found out that the data behind the table is simulated and, therefore, doesn’t really give good an estimate about the improvement in the probability of profits as a function of the investment horizon.&lt;/p&gt;
-&lt;p&gt;As you probably suspect, I decided to tackle the problem using real data and R. I wrote a simple &lt;a href=&#34;http://www.msperlin.com/blog/content/others/fct_invest_horizon.R&#34;&gt;function&lt;/a&gt; that will grab data, simulate investments of different horizons many times and plot the results. Let’s try it for the SP500 index:&lt;/p&gt;
+&lt;p&gt;As you probably suspect, I decided to tackle the problem using real data and R. I wrote a simple &lt;a href=&#34;http://www.msperlin.com/content/others/fct_invest_horizon.R&#34;&gt;function&lt;/a&gt; that will grab data, simulate investments of different horizons many times and plot the results. Let’s try it for the SP500 index:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;#39;fct_invest_horizon.R&amp;#39;)
 
 my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
@@ -5132,9 +5132,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As the investment horizon increases, the chances of a positive return increases. This result suggests that, if you invest for more than 13 years, it is very unlikely that you’ll see a negative return. When looking at the distribution of total returns by the horizon, we find that it increases significantly with time. Someone that invested for 50 years is likely to receive a 2500% return on the investment.&lt;/p&gt;
 &lt;p&gt;With input input &lt;code&gt;rf.year&lt;/code&gt; we can also set a desired rate of return. Let’s try it with 5% return per year, with is pretty standard for financial markets.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
@@ -5152,7 +5152,7 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, the curve of probabilities has a lower slope, meaning that you need more time investing in the SP500 index to guarantee a return of more than 5% a year.&lt;/p&gt;
 &lt;p&gt;Now, let’s try the same setup for Berkshire stock (BRK-A). This is Buffet’s company and looking at its share price we can have a good understanding of how successful Buffet has been as a BH (&lt;em&gt;buy and hold&lt;/em&gt;) investor.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;BRK-A&amp;#39; # ticker from yahoo finance
@@ -5170,9 +5170,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well, needless to say that, historically, Buffet has done very well in his investments! If you bought the stock and kept it for more 1 year, there is a 70% chance that you got a profit.&lt;/p&gt;
 &lt;p&gt;I hope this post convinced you to start investing. The results are clear, its better to start as early as possible.&lt;/p&gt;
 </description>
@@ -5180,11 +5180,11 @@ print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Predatory Journals and R</title>
-      <link>http://www.msperlin.com/blog/post/2018-04-22-predatory-scientometrics/</link>
+      <link>http://www.msperlin.com/post/2018-04-22-predatory-scientometrics/</link>
       <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-04-22-predatory-scientometrics/</guid>
+      <guid>http://www.msperlin.com/post/2018-04-22-predatory-scientometrics/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;My paper about the penetration of predatory journals in Brazil, &lt;strong&gt;Is predatory publishing a real threat? Evidence from a large database study&lt;/strong&gt;, just got &lt;a href=&#34;https://link.springer.com/article/10.1007/s11192-018-2750-6?wt_mc=Internal.Event.1.SEM.ArticleAuthorOnlineFirst&#34;&gt;published in Scientometrics!&lt;/a&gt;. The working paper version is available in &lt;a href=&#34;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3067958&#34;&gt;SSRN&lt;/a&gt;.&lt;/p&gt;
@@ -5198,11 +5198,11 @@ print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Writing papers about packages</title>
-      <link>http://www.msperlin.com/blog/post/2018-03-16-writing_papers_about_pkgs/</link>
+      <link>http://www.msperlin.com/post/2018-03-16-writing_papers_about_pkgs/</link>
       <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-03-16-writing_papers_about_pkgs/</guid>
+      <guid>http://www.msperlin.com/post/2018-03-16-writing_papers_about_pkgs/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Back in 2007 I wrote a &lt;a href=&#34;https://github.com/msperlin/MS_Regress-Matlab&#34;&gt;Matlab package&lt;/a&gt; for estimating regime switching models. I was just starting to learn to code and this project was my way of doing it. After publishing it in FEX (Matlab file exchange site), I got so many repeated questions on my email that eventually I realized it would be easier to write a manual for people to read. Some time and effort would be spend writing it, but less time replying to repeated questions on my email.&lt;/p&gt;
@@ -5223,11 +5223,11 @@ print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Major update to BatchGetSymbols</title>
-      <link>http://www.msperlin.com/blog/post/2018-01-22-update-batchgetsymbols/</link>
+      <link>http://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-01-22-update-batchgetsymbols/</guid>
+      <guid>http://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I just released a long due update to package &lt;code&gt;BatchGetSymbols&lt;/code&gt;. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:&lt;/p&gt;
@@ -5353,11 +5353,11 @@ my.l &amp;lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date,
     
     <item>
       <title>Looking back in 2017 and plans for 2018</title>
-      <link>http://www.msperlin.com/blog/post/2017-12-30-looking-back-2017/</link>
+      <link>http://www.msperlin.com/post/2017-12-30-looking-back-2017/</link>
       <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-12-30-looking-back-2017/</guid>
+      <guid>http://www.msperlin.com/post/2017-12-30-looking-back-2017/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;my-blog-in-2017&#34; class=&#34;section level1&#34;&gt;
@@ -5395,11 +5395,11 @@ glimpse(df.posts)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Fist, let’s look at the frequency of posts by month:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print( ggplot(df.posts, aes(x = ref.month)) + geom_histogram(stat=&amp;#39;count&amp;#39;)) &lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It is not accidental that january was the month with the highest number of posts. This is when I had material reserved for the book. June and July (0!) were the worst months as I traveled a lot. In June I attended R and Finance in Chicago, SER in Rio de Janeiro and in July I was visiting Goethe University in Germany for the whole month. On average, I created 0 posts per month overall, which fells quite alright. I hope I can keep that pace for the upcoming years.&lt;/p&gt;
 &lt;p&gt;As for the length of posts, below we can see a nice pattern for its distribution conditional on the months of the year.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(ggplot(df.posts, aes(x=ref.month, y = char.length)) + geom_boxplot())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I was not very productive from may to august, writing a few and short posts, when comparing to other months. This was probably due to my travels.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;plans-for-2018&#34; class=&#34;section level1&#34;&gt;
@@ -5416,11 +5416,11 @@ glimpse(df.posts)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Serving shiny apps in the internet with your own server</title>
-      <link>http://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/</link>
+      <link>http://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/</guid>
+      <guid>http://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In this post I’ll share my experience in setting up my own virtual server for hosting shiny applications in &lt;a href=&#34;https://www.digitalocean.com/&#34;&gt;Digital Ocean&lt;/a&gt;. First, context. I’m working in a academic project where we build a package for accessing financial data and corporate events directly from B3, the Brazilian financial exchange. The objective is to set a reproducible standard and facilite data acquisition of a large, and very interesting, dataset. The result is GetDFPData. Since many researchers and students in Brazil are not knowledgeable in R, we needed to make it easier for people to use the software. A shiny app hosted in the internet is perfect for that. The app is available at &lt;a href=&#34;http://www.msperlin.com/shiny/GetDFPData/&#34;&gt;http://www.msperlin.com/shiny/GetDFPData/&lt;/a&gt;.&lt;/p&gt;
@@ -5432,11 +5432,11 @@ glimpse(df.posts)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Package GetDFPData</title>
-      <link>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</link>
+      <link>http://www.msperlin.com/post/2017-12-06-package-getdfpdata/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/</guid>
+      <guid>http://www.msperlin.com/post/2017-12-06-package-getdfpdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -5556,9 +5556,9 @@ gdfpd.export.DFP.data(df.reports = df.reports,
     
     <item>
       <title>The Brazilian Yield Curve</title>
-      <link>http://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</link>
+      <link>http://www.msperlin.com/post/2017-09-14-brazilian-yield-curve/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</guid>
+      <guid>http://www.msperlin.com/post/2017-09-14-brazilian-yield-curve/</guid>
       <description>
 
 
@@ -5592,7 +5592,7 @@ p &amp;lt;- ggplot(df.yield, aes(x=ref.date, y = value) ) +
        subtitle = paste0(&amp;#39;Date: &amp;#39;, df.yield$current.date[1]))     
 
 print(p)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-09-14-Brazilian-Yield-Curve_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-09-14-Brazilian-Yield-Curve_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The expected inflation in Brazil seems to be stable. Market expectation is for an inflation around 5% a year in 2024. This level is quite low when compared to our &lt;a href=&#34;https://tradingeconomics.com/brazil/inflation-cpi&#34;&gt;history&lt;/a&gt;. As for future nominal interest rate, market expects another drop in the interest rate level in 2019. This is in line with the latest report from &lt;a href=&#34;http://www.bcb.gov.br/?ATACOPOM&#34;&gt;COPOM&lt;/a&gt;, the Brazilian comittee of monetary policy. Real returns also seems to be stable and low, around 5%. Again, this is one of the lowest levels of real returns in our economy.&lt;/p&gt;
 &lt;p&gt;I’m very optimistic (and very biased as I love my country!) regarding the future of the Brazilian economy. I hope we can keep these low levels of interest rate and inflation in order to foment comsumption, jobs and overall economic well-being.&lt;/p&gt;
 &lt;/div&gt;
@@ -5601,9 +5601,9 @@ print(p)  &lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Looking forward to RFinance - Chicago</title>
-      <link>http://www.msperlin.com/blog/post/2017-05-15-r-finance/</link>
+      <link>http://www.msperlin.com/post/2017-05-15-r-finance/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-05-15-r-finance/</guid>
+      <guid>http://www.msperlin.com/post/2017-05-15-r-finance/</guid>
       <description>
 
 
@@ -5615,9 +5615,9 @@ print(p)  &lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Studying CRAN package names</title>
-      <link>http://www.msperlin.com/blog/post/2017-05-09-studying-pkg-names/</link>
+      <link>http://www.msperlin.com/post/2017-05-09-studying-pkg-names/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-05-09-studying-pkg-names/</guid>
+      <guid>http://www.msperlin.com/post/2017-05-09-studying-pkg-names/</guid>
       <description>
 
 
@@ -5644,7 +5644,7 @@ df.pkgs &amp;lt;- as.data.frame(available.packages(repos = &amp;#39;https://clou
 p &amp;lt;- ggplot(df.pkgs, aes(x=n.char)) +
   geom_histogram(binwidth = 1)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As I suspected, the names of CRAN packages are usually small, with an average of 5-6 characters. We have a couple of packages with more than 25 characters. Let’s see their names:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.pkgs$pkg[df.pkgs$n.char&amp;gt;25]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;AnglerCreelSurveySimulation&amp;quot;      &amp;quot;BipartiteModularityMaximization&amp;quot; 
@@ -5682,7 +5682,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x=n.char, color=source.char )) +
   geom_density(size=1) + coord_cartesian(xlim=c(0, 40))
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As I suspected, the distributions are very different. There is no need to apply a formal test as the visual evidence is clear: CRAN package have a tendency for shorter names.&lt;/p&gt;
 &lt;p&gt;Now, let’s look at the distribution of used letters in relative terms:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(scales)
@@ -5710,7 +5710,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x=char, y = perc.count, fill=source.char,widt
   geom_col(position = &amp;#39;dodge&amp;#39;) + scale_y_continuous(labels = percent_format())  
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The result is really interesting! I was expecting far more differences in the relative use of characters. Not surprisingly, letter R is more used in package naming than in the English vocabulary. Still, the difference is not that large. Given that R is the name of the programming language, I was expecting a much greater proportion of R characters. My intuition was clearly wrong! In comparison, letters P and M have more difference in relative terms than letter R. I’m really not sure why that is. Overall, it is pretty clear the use of characters in the names of packages follow the distribution of words in the English language.&lt;/p&gt;
 &lt;p&gt;While the distribution of letter is similar, we find just a few package with names exactly as in the English language. For all 18699 packages found in CRAN, only 1260 are an exact match of all 146625 unique words in the English vocabulary.&lt;/p&gt;
 &lt;p&gt;Summing up, our data analysis shows that the names of packages are usually shorter than the words in the English language. However, when looking at distribution of used characters and editing distances, it is pretty clear that the names are based on the English language, usually with a few modifications of a base word.&lt;/p&gt;
@@ -5720,9 +5720,9 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>My Book about using R in Finance</title>
-      <link>http://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</link>
+      <link>http://www.msperlin.com/post/2017-05-04-pafdr-is-out/</link>
       <pubDate>Thu, 04 May 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</guid>
+      <guid>http://www.msperlin.com/post/2017-05-04-pafdr-is-out/</guid>
       <description>
 
 
@@ -5733,9 +5733,9 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Can we predict stock prices with Prophet?</title>
-      <link>http://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</link>
+      <link>http://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</guid>
+      <guid>http://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</guid>
       <description>
 
 
@@ -5894,7 +5894,7 @@ p &amp;lt;- ggplot(my.result, aes(x=factor(nfor),
 p &amp;lt;- p + geom_boxplot()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We do find some positive dependency. As the horizon increases, the forecasting algorithm makes more mistakes. Surprisingly, this pattern is not found for &lt;code&gt;nfor=5&lt;/code&gt; and &lt;code&gt;nfor=4&lt;/code&gt;. It might be interesting to add more data and check if this effect is robust.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;encopassing-test&#34; class=&#34;section level2&#34;&gt;
@@ -5976,7 +5976,7 @@ p &amp;lt;- p + geom_vline(aes(xintercept =  my.profit),size=2)
 p &amp;lt;- p + labs(x=&amp;#39;Returns from random trading signals&amp;#39;)
 print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The previous histogram shows the total return from randomnly generated signals in 10^{4} simulations. The vertical line is the result from using &lt;code&gt;prophet&lt;/code&gt;. As you can see, it is a bit higher than the average of the distribution. The total return from &lt;code&gt;prophet&lt;/code&gt; is lower than the return of the naive strategy in 99.72 percent of the simulations. This is not a bad result. But, notice that we didnt add trading or liquidity costs to the analysis, which will make the total returns worse.&lt;/p&gt;
 &lt;p&gt;The main results of this simple study are clear: &lt;strong&gt;&lt;code&gt;prophet&lt;/code&gt; is bad at point forecasts for returns, specially for longer horizons, but does quite better in directional predictions&lt;/strong&gt;. It might be interesting to test it further, with more data, adding trading costs, other forecasting setups, and see if the results hold.&lt;/p&gt;
 &lt;/div&gt;
@@ -5985,11 +5985,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Writing a R book and self-publishing it in Amazon</title>
-      <link>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</link>
+      <link>http://www.msperlin.com/post/2017-02-16-writing-a-book/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</guid>
+      <guid>http://www.msperlin.com/post/2017-02-16-writing-a-book/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Many people, including my university colleagues and friends, have asked me about the process of writing a book and self publishing it in Amazon. You can find the details about the english version of the book &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.msperlin.com/blog/books/&#34;&gt;here&lt;/a&gt;. Given so much interest, I’m going to report the whole process in this post.&lt;/p&gt;
@@ -6005,7 +6005,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;After 6 months of work, I had a first readable version of the book. This is when I started to investigate how to turn a latex file into an ebook file. To my surprise, this is not easy! It could be the case that I had lots of code and figures from the compilation. I tried all the existing software and, to my frustration, it just didn’t work. When I didn’t got an error message that stopped the conversion, the resulting &lt;em&gt;epub&lt;/em&gt; file look awful in the kindle reader. The warning and error messages from the latex2ebook compiler also didn’t help a lot.&lt;/p&gt;
 &lt;p&gt;By looking for solutions in the internet and with a bit of luck, I’ve found that Yihui Xie had just published his &lt;a href=&#34;https://bookdown.org/&#34;&gt;bookdown package&lt;/a&gt;. I tried out the first chapters and it worked perfectly! The great thing about &lt;code&gt;bookdown&lt;/code&gt; is that you can output to pdf, html or epub with the same files. I was very happy that, finally, I would be able to get all formats that I needed in a single platform. I’m not going to go into the details about how to use &lt;code&gt;bookdown&lt;/code&gt;. You can find the official tutorial &lt;a href=&#34;https://bookdown.org/yihui/bookdown/&#34;&gt;here&lt;/a&gt;. It is worth to point out that the written content is just RMarkdown so, if you know latex, you’ll fell right at home. So, here I go again, switching a whole book from latex to Rmarkdown.&lt;/p&gt;
 &lt;p&gt;The only feature in &lt;code&gt;bookdown&lt;/code&gt; that didn’t work out of the box was the equation in the kindle format. The formulas just didn’t print well. The weird part is that they looked fine in any other ebook reader, but not in Kindle. Apparently, there is no solution for this problem besides using figure files for the equations. What I did to solve it was to use R switches within the book so that the epub compilation used a figure file created in &lt;a href=&#34;https://www.codecogs.com/latex/eqneditor.php&#34;&gt;codecogs&lt;/a&gt; and the latex/html compilation used the normal code for equations. See here an example of code for the first equation in chapter 9.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, I used a switch in the &lt;code&gt;knitr&lt;/code&gt; command as in &lt;code&gt;include=identical(knitr:::pandoc_to(), &#39;epub3&#39;)&lt;/code&gt; to run each code conditional to the type of output. As for inline equations, I just used straight text to indicate coefficients such as &lt;em&gt;beta&lt;/em&gt;, &lt;em&gt;alpha&lt;/em&gt;. I know I could have used the same strategy, but I didn’t fell the need since there were so few inline equations in the text.&lt;/p&gt;
 &lt;p&gt;After switching to bookdown, I added a couple more chapters in the following months. A comment here is that I tried writing in RStudio but it didn’t worked out for me. Perhaps it was due to the large files I was handling, but it felt really clunky, slow and not reactive. Also, the grammar check system in Rstudio needs a lot of work. I tried going back to Texstudio but it didn’t had support for markdown highlighting. I then switched software by doing the writing in &lt;a href=&#34;https://notepad-plus-plus.org/&#34;&gt;notepad++&lt;/a&gt; + &lt;a href=&#34;https://github.com/Edditoria/markdown_npp&#34;&gt;markdown extension&lt;/a&gt; and only used RStudio to compile the book. If you haven’t tried notepad++, give it a go. I really like it and I find myself using it more and more.&lt;/p&gt;
 &lt;/div&gt;
@@ -6023,7 +6023,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;p&gt;Cover - The cover is processed as a figure file (.jpg). An important information here is that you need to define the size of you book and the number of pages at this stage. In my case, I used a 7x11 inches configuration for 200+ pages. It looks quite nice. Have a look:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;My Book and my spanish Iguana!&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Beautiful cover! Isn’t it? Once you have the figure file, you just add it to the &lt;em&gt;book creator&lt;/em&gt; system in amazon. At this stage, you will also need a summary about the book and its author and a picture for the back cover of the printed version.&lt;/p&gt;
@@ -6065,9 +6065,9 @@ Marcelo.&lt;/p&gt;
     
     <item>
       <title>Using R to study tennis players</title>
-      <link>http://www.msperlin.com/blog/post/2017-02-13-r-and-tennis-players/</link>
+      <link>http://www.msperlin.com/post/2017-02-13-r-and-tennis-players/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-02-13-r-and-tennis-players/</guid>
+      <guid>http://www.msperlin.com/post/2017-02-13-r-and-tennis-players/</guid>
       <description>
 
 
@@ -6528,7 +6528,7 @@ p &amp;lt;- p + geom_point() + geom_smooth()
 p &amp;lt;- p + facet_grid(surface~Name)
 p &amp;lt;- p + ylim(c(0.25,1)) + xlim(c(2005,2016))
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1440&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1440&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can see a few patterns. First, the winning consistency of top ten player is higher in hard courts. For example, look at Murray and Djokovic. It is easier for them to keep the same proportion of wins in hard courts than it is in clay. My best guess is that hard courts are more predictable and the ball is faster and bounces lower, making it easier for top players to hit winners and other point-finishing strokes such as drop shots. Be aware that this could also be due to the different number of matches in each court. We could test the difference of volatility statistically but I rather keep the analysis simple and visual.&lt;/p&gt;
 &lt;p&gt;Also, not surprisingly, Nadal, &lt;a href=&#34;https://www.youtube.com/watch?v=7mknZrjakM8&#34;&gt;the king of clay&lt;/a&gt;, presents the highest winning percentage in clay, before 2012. His game strategy uses strength and heavy top spin balls that are difficult to counter. See &lt;a href=&#34;https://www.quora.com/Why-is-Nadal-so-dominant-on-clay&#34;&gt;here&lt;/a&gt; for a more detailed analysis on why he is so dominant on clay. The bad side of his strategy and type of play is that it is based heavily on his muscular strength. As his age increases, it is difficult to maintain the same level. This explains the increased proportion of defeats after 2012.&lt;/p&gt;
 &lt;p&gt;The effect of age is also perceived for Roger Federer. But, given that his style of play is not based just on strength, I think that he can still beat a lot of players. Just look at the his recent title win at the 2017 Australian open.&lt;/p&gt;
@@ -6605,7 +6605,7 @@ name.player&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot winnign percentages
 p &amp;lt;- plot.winning.perc(name.player, df.matches)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From this list, the youngest Brazilian player, and with most potential in my opinion, is Thiago Monteiro. He is 22 and has lots of time to improve his game. In 2016 he beated Tsonga in a great match &lt;a href=&#34;http://www.atpworldtour.com/en/news/monteiro-upsets-tsonga-in-rio-de-janeiro&#34;&gt;here in Brazil&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;the-records-of-guga-gustavo-kurten&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The records of Guga (Gustavo Kurten)&lt;/h2&gt;
@@ -6616,7 +6616,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 
 p &amp;lt;- plot.winning.perc(name.player, df.matches, min.year = 1990)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, a winning journey until 2001, when losses start to accumulate.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conlusion&#34; class=&#34;section level2&#34;&gt;
@@ -6631,9 +6631,9 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Building and maintaining exams with dynamic content</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</link>
+      <link>http://www.msperlin.com/post/2017-01-30-exams-with-dynamic-content/</link>
       <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</guid>
+      <guid>http://www.msperlin.com/post/2017-01-30-exams-with-dynamic-content/</guid>
       <description>
 
 
@@ -6650,7 +6650,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;How many packages you can find today (2020-04-28) in CRAN?
 Use repository https://cloud.r-project.org/ for the solution.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The solution is pretty simple, all you need to do is to ask for the number of rows for the object output from a call to &lt;code&gt;available.packages()&lt;/code&gt;. The reader can find the solution with the command &lt;code&gt;nrow(available.packages(repos=&#39;https://cloud.r-project.org/&#39;))&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called &lt;strong&gt;Question.Rmd&lt;/strong&gt;, available &lt;a href=&#34;http://www.msperlin.com/blog/blog/files/Question.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called &lt;strong&gt;Question.Rmd&lt;/strong&gt;, available &lt;a href=&#34;http://www.msperlin.com/blog/files/Question.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.q.file &amp;lt;- &amp;#39;~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question.Rmd&amp;#39;
 cat(paste0(readLines(my.q.file), collapse = &amp;#39;\n&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ```{r data generation, echo = FALSE, results = &amp;quot;hide&amp;quot;}
@@ -6731,7 +6731,7 @@ my.exam &amp;lt;- exams2pdf(file = rep(my.f,5),
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;f.out &amp;lt;- paste0(my.dir,name.exam,&amp;#39;1&amp;#39;,&amp;#39;.pdf&amp;#39;)
 file.exists(f.out)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The result of the previous code is a pdf file &lt;a href=&#34;http://www.msperlin.com/blog/blog/files/exam_sample1.pdf&#34;&gt;pdf file&lt;/a&gt; with the exam content.&lt;/p&gt;
+&lt;p&gt;The result of the previous code is a pdf file &lt;a href=&#34;http://www.msperlin.com/blog/files/exam_sample1.pdf&#34;&gt;pdf file&lt;/a&gt; with the exam content.&lt;/p&gt;
 &lt;p&gt;One interesting information from this post is that you can find a small difference in the number of packages in between the CRAN mirrors. My best guess is that they synchronize with the master server in different times of the day/week.&lt;/p&gt;
 &lt;p&gt;Looking at the contents of the pdf file, clearly some things are missing from the exam, such as the title page and the instructions. You can add all the bells and whistles with the inputs of function &lt;code&gt;exams2pdf&lt;/code&gt; or change it directly in the different file templates. One quick tip for new users is that the answer sheet can be found by looping over the values of the output from &lt;code&gt;exams2pdf&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.answer.key &amp;lt;- data.frame()
@@ -6768,9 +6768,9 @@ df.answer.key.wide&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>How to calculate betas (systematic risk) for a large number of stocks</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-15-calculatingbetas/</link>
+      <link>http://www.msperlin.com/post/2017-01-15-calculatingbetas/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-15-calculatingbetas/</guid>
+      <guid>http://www.msperlin.com/post/2017-01-15-calculatingbetas/</guid>
       <description>
 
 
@@ -6860,7 +6860,7 @@ p &amp;lt;- ggplot(df.stocks, aes(x=ref.date, y=price.adjusted)) +
   geom_line() + facet_wrap(~ticker, scales = &amp;#39;free&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Again, we see that all prices seems to be Ok. This is one of the advantages of working with adjusted (and not closing) prices from yahoo finance. Artificial effects in the dataset such as ex-dividend prices, splits and inplits are already taken into account and the result is a smooth series without any breaks.&lt;/p&gt;
 &lt;p&gt;The final step in preparing the data is to add a column with the returns of the market index. This is not strictly necessary but I really like to keep things organized in a tabular way. Since we will match each vector of returns of the stocks to a vector of returns of the market index, it makes sense to &lt;em&gt;synchronize&lt;/em&gt; the rows in the data.frame. First, we isolate the data for the market index in object &lt;code&gt;df.MktIdx&lt;/code&gt; and use function &lt;code&gt;match&lt;/code&gt; to make an index that matches the dates between the assets and the market index. We later use this index to build a new column in &lt;code&gt;df.stocks&lt;/code&gt;. See the next code:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.MktIdx &amp;lt;- df.stocks[df.stocks$ticker==ticker.MktIdx, ]
@@ -7099,9 +7099,9 @@ beta.tab &amp;lt;- df.stocks %&amp;gt;%
     
     <item>
       <title>Using R to download high frequency trade data diretcly from Bovespa</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
+      <link>http://www.msperlin.com/post/2017-01-02-gethfdata/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
+      <guid>http://www.msperlin.com/post/2017-01-02-gethfdata/</guid>
       <description>
 
 
@@ -7120,9 +7120,9 @@ beta.tab &amp;lt;- df.stocks %&amp;gt;%
     
     <item>
       <title>Research Awards</title>
-      <link>http://www.msperlin.com/blog/research/awards/</link>
+      <link>http://www.msperlin.com/research/awards/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/research/awards/</guid>
+      <guid>http://www.msperlin.com/research/awards/</guid>
       <description>&lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Article &amp;ldquo;Is predatory publishing a real threat? Evidence from a large database study&amp;rdquo; in the top 5% of all research outputs scored by Altmetric. 

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/linux/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/linux/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/tag/linux/</link>
+      <atom:link href="http://www.msperlin.com/tag/linux/index.xml" rel="self" type="application/rss+xml" />
     <description>Linux</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 12 Aug 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Linux</title>
-      <link>http://www.msperlin.com/blog/tag/linux/</link>
+      <link>http://www.msperlin.com/tag/linux/</link>
     </image>
     
     <item>
       <title>My experience in switching from Windows 10 to Linux Mint</title>
-      <link>http://www.msperlin.com/blog/post/2017-08-12-switching-to-linux/</link>
+      <link>http://www.msperlin.com/post/2017-08-12-switching-to-linux/</link>
       <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-08-12-switching-to-linux/</guid>
+      <guid>http://www.msperlin.com/post/2017-08-12-switching-to-linux/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Its been 8 months since I switched from Windows 10 to Linux Mint. In this post I’ll talk about my experience as a scholar and R user in the transition.&lt;/p&gt;

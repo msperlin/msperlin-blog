@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R in finance | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/r-in-finance/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/r-in-finance/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/tag/r-in-finance/</link>
+      <atom:link href="http://www.msperlin.com/tag/r-in-finance/index.xml" rel="self" type="application/rss+xml" />
     <description>R in finance</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 15 May 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>R in finance</title>
-      <link>http://www.msperlin.com/blog/tag/r-in-finance/</link>
+      <link>http://www.msperlin.com/tag/r-in-finance/</link>
     </image>
     
     <item>
       <title>Looking forward to RFinance - Chicago</title>
-      <link>http://www.msperlin.com/blog/post/2017-05-15-r-finance/</link>
+      <link>http://www.msperlin.com/post/2017-05-15-r-finance/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-05-15-r-finance/</guid>
+      <guid>http://www.msperlin.com/post/2017-05-15-r-finance/</guid>
       <description>
 
 

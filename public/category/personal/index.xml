@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>personal | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/personal/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/personal/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/category/personal/</link>
+      <atom:link href="http://www.msperlin.com/category/personal/index.xml" rel="self" type="application/rss+xml" />
     <description>personal</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Wed, 10 Mar 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>personal</title>
-      <link>http://www.msperlin.com/blog/category/personal/</link>
+      <link>http://www.msperlin.com/category/personal/</link>
     </image>
     
     <item>
       <title>Ten years as a professor -- six advices to young academics</title>
-      <link>http://www.msperlin.com/blog/post/2021-03-10-advices-young-academics/</link>
+      <link>http://www.msperlin.com/post/2021-03-10-advices-young-academics/</link>
       <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-03-10-advices-young-academics/</guid>
+      <guid>http://www.msperlin.com/post/2021-03-10-advices-young-academics/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In the 18th of march 2021 I’ll complete exactly ten years since finishing my PhD and taking a professorship position at UFRGS, south of Brazil. In this post I’ll write about what I learned during this period and, hopefully, help other academics that are just starting out.&lt;/p&gt;
@@ -82,11 +82,11 @@
     
     <item>
       <title>Looking back at 2020 and plans for 2021</title>
-      <link>http://www.msperlin.com/blog/post/2020-12-22-looking-back-2020/</link>
+      <link>http://www.msperlin.com/post/2020-12-22-looking-back-2020/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-12-22-looking-back-2020/</guid>
+      <guid>http://www.msperlin.com/post/2020-12-22-looking-back-2020/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Wow, what a &lt;strong&gt;long&lt;/strong&gt; year! The pandemic affected everyone, changing the way we live and relate to one another. This was a year full of lessons and we must be thankful and be able to appreciate life even more. Events such as these show how little our “problems” are when put into perspective.&lt;/p&gt;

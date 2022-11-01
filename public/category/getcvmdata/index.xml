@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetCVMData | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/getcvmdata/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/getcvmdata/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/category/getcvmdata/</link>
+      <atom:link href="http://www.msperlin.com/category/getcvmdata/index.xml" rel="self" type="application/rss+xml" />
     <description>GetCVMData</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>GetCVMData</title>
-      <link>http://www.msperlin.com/blog/category/getcvmdata/</link>
+      <link>http://www.msperlin.com/category/getcvmdata/</link>
     </image>
     
     <item>
       <title>New R package: GetCVMData</title>
-      <link>http://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/</link>
+      <link>http://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/</guid>
+      <guid>http://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marcelo B. Righi | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/marcelo-b.-righi/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/marcelo-b.-righi/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/author/marcelo-b.-righi/</link>
+      <atom:link href="http://www.msperlin.com/author/marcelo-b.-righi/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcelo B. Righi</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>Marcelo B. Righi</title>
-      <link>http://www.msperlin.com/blog/author/marcelo-b.-righi/</link>
+      <link>http://www.msperlin.com/author/marcelo-b.-righi/</link>
     </image>
     
     <item>
       <title>Mispricing in the odd lots market in Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2017_najef-mispricing-odd-lots/</link>
+      <link>http://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_najef-mispricing-odd-lots/</guid>
+      <guid>http://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</guid>
       <description></description>
     </item>
     

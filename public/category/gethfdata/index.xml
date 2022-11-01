@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetHFData | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/gethfdata/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/gethfdata/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/category/gethfdata/</link>
+      <atom:link href="http://www.msperlin.com/category/gethfdata/index.xml" rel="self" type="application/rss+xml" />
     <description>GetHFData</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 08 Aug 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/img/portrait.jpg</url>
       <title>GetHFData</title>
-      <link>http://www.msperlin.com/blog/category/gethfdata/</link>
+      <link>http://www.msperlin.com/category/gethfdata/</link>
     </image>
     
     <item>
       <title>B3 is NOT shutting down its ftp site, for now..</title>
-      <link>http://www.msperlin.com/blog/post/2019-08-08-ftp-not-shutdown/</link>
+      <link>http://www.msperlin.com/post/2019-08-08-ftp-not-shutdown/</link>
       <pubDate>Thu, 08 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-08-08-ftp-not-shutdown/</guid>
+      <guid>http://www.msperlin.com/post/2019-08-08-ftp-not-shutdown/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;Update 2019-08-09: The shutdown is just postponed to 2019-11-14. See the official release &lt;a href=&#34;http://www.b3.com.br/pt_br/noticias/portais-8AE490C86BC98316016BDD1E7BDF14AB.htm?fbclid=IwAR1IY_ILkhkWwsBxFWH4pQEBx-OqxcEDxfmg22Ii5tep_dtzyKw9casag5o&#34;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
@@ -49,11 +49,11 @@ max(df.ftp$dates) - min(df.ftp$dates)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>B3 is shutting down its ftp site</title>
-      <link>http://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/</link>
+      <link>http://www.msperlin.com/post/2019-07-01-ftp-shutdown/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/</guid>
+      <guid>http://www.msperlin.com/post/2019-07-01-ftp-shutdown/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;Well, bad news travels fast. &lt;/strong&gt;&lt;/p&gt;
@@ -69,9 +69,9 @@ max(df.ftp$dates) - min(df.ftp$dates)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Using R to download high frequency trade data diretcly from Bovespa</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
+      <link>http://www.msperlin.com/post/2017-01-02-gethfdata/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
+      <guid>http://www.msperlin.com/post/2017-01-02-gethfdata/</guid>
       <description>
 
 
