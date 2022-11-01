@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>high frequency | msperlin</title>
-    <link>http://www.msperlin.com/tag/high-frequency/</link>
-      <atom:link href="http://www.msperlin.com/tag/high-frequency/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/tag/high-frequency/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/high-frequency/index.xml" rel="self" type="application/rss+xml" />
     <description>high frequency</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 02 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>high frequency</title>
-      <link>http://www.msperlin.com/tag/high-frequency/</link>
+      <link>http://www.msperlin.com/blog/tag/high-frequency/</link>
     </image>
     
     <item>
       <title>Using R to download high frequency trade data diretcly from Bovespa</title>
-      <link>http://www.msperlin.com/post/2017-01-02-gethfdata/</link>
+      <link>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2017-01-02-gethfdata/</guid>
+      <guid>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
       <description>
 
 

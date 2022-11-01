@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brazil | msperlin</title>
-    <link>http://www.msperlin.com/tag/brazil/</link>
-      <atom:link href="http://www.msperlin.com/tag/brazil/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/tag/brazil/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/brazil/index.xml" rel="self" type="application/rss+xml" />
     <description>Brazil</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Brazil</title>
-      <link>http://www.msperlin.com/tag/brazil/</link>
+      <link>http://www.msperlin.com/blog/tag/brazil/</link>
     </image>
     
     <item>
       <title>R usage in Brazil</title>
-      <link>http://www.msperlin.com/post/2019-05-17-r-in-brazil/</link>
+      <link>http://www.msperlin.com/blog/post/2019-05-17-r-in-brazil/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2019-05-17-r-in-brazil/</guid>
+      <guid>http://www.msperlin.com/blog/post/2019-05-17-r-in-brazil/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m using R for at least five years and always been curious about its usage in Brazil. I see some minor personal evidence that the number of users is increasing over time. My &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;book in portuguese&lt;/a&gt; is steadily increasing its sales, and I’ve been receiving far more emails about my &lt;a href=&#34;https://www.crantastic.org/authors/5303&#34;&gt;R packages&lt;/a&gt;. Conference are also booming. Every year there are at least two or three R conferences in Brazil.&lt;/p&gt;
@@ -62,7 +62,7 @@ p &amp;lt;- ggplot(data = df_by_day, aes(y = n,
   scale_color_grey(start = 0.8, end = 0.2 )
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The number of downloads is steadily increasing over time. The new releases of R also seems to explain the outliers in the dataset. Let’s clean it a bit by decreasing the frequency and calculating the number of downloads per month, instead of by day.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_month &amp;lt;- df.dls %&amp;gt;%
   group_by(ref.month = lubridate::ymd(format(date, &amp;#39;%Y-%m-01&amp;#39;))) %&amp;gt;%
@@ -80,7 +80,7 @@ p &amp;lt;- ggplot(data = df_by_month, aes(y = n,
 
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Much better! Overall, R downloads average about 910.7 per month, with a monthly compound rate of 6%. It means that, each month, the number of downloads is increasing by 6% from previous month.&lt;/p&gt;
 &lt;p&gt;The data also includes information about the operating system. Let’s check its distribution:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_os &amp;lt;- df.dls %&amp;gt;%
@@ -99,7 +99,7 @@ p &amp;lt;- ggplot(df_by_os, aes(x = os, y = n)) +
        subtitle = &amp;#39;Data from Rstudio logs &amp;lt;http://cran-logs.rstudio.com/&amp;gt;&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Not unexpectedly, Windows is the winner! I’m very surprised to see that Mac OS presents more downloads than Linux. With an unfavorable exchange rate and many import taxes, the price of a Mac computer — desktop or laptop — are exorbitantly expensive in Brazil. This tells a lot about the purchase power of R users.&lt;/p&gt;
 &lt;p&gt;I hope you liked this post. Next time I’ll analyze the logs of package installation in Brazil.&lt;/p&gt;
 </description>

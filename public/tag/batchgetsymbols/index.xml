@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BatchGetSymbols | msperlin</title>
-    <link>http://www.msperlin.com/tag/batchgetsymbols/</link>
-      <atom:link href="http://www.msperlin.com/tag/batchgetsymbols/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/tag/batchgetsymbols/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/batchgetsymbols/index.xml" rel="self" type="application/rss+xml" />
     <description>BatchGetSymbols</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>BatchGetSymbols</title>
-      <link>http://www.msperlin.com/tag/batchgetsymbols/</link>
+      <link>http://www.msperlin.com/blog/tag/batchgetsymbols/</link>
     </image>
     
     <item>
       <title>New R package yfR</title>
-      <link>http://www.msperlin.com/post/2022-03-31-yfr/</link>
+      <link>http://www.msperlin.com/blog/post/2022-03-31-yfr/</link>
       <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2022-03-31-yfr/</guid>
+      <guid>http://www.msperlin.com/blog/post/2022-03-31-yfr/</guid>
       <description>
 
 
@@ -142,7 +142,7 @@ df_yf_multiple &amp;lt;- yf_get(tickers = my_ticker,
   geom_line()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;fetching-collections-of-prices&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Fetching collections of prices&lt;/h3&gt;
@@ -244,7 +244,7 @@ p &amp;lt;- ggplot(df_allfreq, aes(x=ref_date, y = price_adjusted)) +
   labs(x = &amp;#39;&amp;#39;, y = &amp;#39;Adjusted Prices&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;changing-format-to-wide&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Changing format to wide&lt;/h3&gt;
@@ -300,11 +300,11 @@ head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>A shiny interface to BatchGetSymbols</title>
-      <link>http://www.msperlin.com/post/2021-05-26-bgs-shiny/</link>
+      <link>http://www.msperlin.com/blog/post/2021-05-26-bgs-shiny/</link>
       <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2021-05-26-bgs-shiny/</guid>
+      <guid>http://www.msperlin.com/blog/post/2021-05-26-bgs-shiny/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Hadley Wickham recently released an online version of &lt;a href=&#34;https://mastering-shiny.org/&#34;&gt;Mastering Shiny&lt;/a&gt;. The book is great! If you haven’t read it, do it fast! On a side note, it is really amazing how much of &lt;strong&gt;good and curated content&lt;/strong&gt; you can get for free in R. When I started programming back in 2007, the first step was buying a brand new – and sometimes expensive – book about the language. There were blogs and other sites, but most content was very basic and not curated, meaning that the posted code most of the time did not work. The new generation probably have no idea of how easy it is to start fresh on new code these days [I fell quite old writing this sentence :)].&lt;/p&gt;
@@ -315,11 +315,11 @@ head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Risk and return for B3</title>
-      <link>http://www.msperlin.com/post/2019-05-01-meanvariance/</link>
+      <link>http://www.msperlin.com/blog/post/2019-05-01-meanvariance/</link>
       <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2019-05-01-meanvariance/</guid>
+      <guid>http://www.msperlin.com/blog/post/2019-05-01-meanvariance/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the subjects that I teach in my undergraduate finance class is the relationship between risk and expected returns. In short, the riskier the investment, more returns should be &lt;strong&gt;expected&lt;/strong&gt; by the investor. It is not a difficult argument to make. All that you need to understand is to remember that people are not naive in financial markets. Whenever they make a big gamble, the rewards should also be large. Rational investors, on theory, would not invest in risky stocks that are likelly to yield low returns.&lt;/p&gt;
@@ -390,7 +390,7 @@ p &amp;lt;- ggplot(tab.stocks, aes(x = sd.ret, y = mean.ret, group = ticker)) +
   scale_y_continuous(labels = scales::percent)  
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-01-MeanVariance_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-01-MeanVariance_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Looks pretty! What do we learn?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Overall, most of the stocks did better than the risk free rate (CDI);&lt;/p&gt;&lt;/li&gt;
@@ -402,11 +402,11 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>BatchGetSymbols is now parallel!</title>
-      <link>http://www.msperlin.com/post/2019-04-13-parallel-batchgetsymbols/</link>
+      <link>http://www.msperlin.com/blog/post/2019-04-13-parallel-batchgetsymbols/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2019-04-13-parallel-batchgetsymbols/</guid>
+      <guid>http://www.msperlin.com/blog/post/2019-04-13-parallel-batchgetsymbols/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/msperlin/BatchGetSymbols&#34;&gt;BatchGetSymbols&lt;/a&gt; is my most downloaded package by any count. Computation time, however, has always been an issue. While downloading data for 10 or less stocks is fine, doing it for a large ammount of tickers, say the SP500 composition, gets very boring.&lt;/p&gt;
@@ -467,11 +467,11 @@ l.out &amp;lt;- BatchGetSymbols(tickers = tickers[1:50],
     
     <item>
       <title>BatchGetSymbols 2.2</title>
-      <link>http://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</link>
+      <link>http://www.msperlin.com/blog/post/2018-10-10-batchgetsymbols-newversion/</link>
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</guid>
+      <guid>http://www.msperlin.com/blog/post/2018-10-10-batchgetsymbols-newversion/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the main requests I get for package &lt;code&gt;BatchGetSymbols&lt;/code&gt; is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:&lt;/p&gt;
@@ -537,17 +537,17 @@ df.allfreq &amp;lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))&lt;/code
   geom_point() + geom_line() + facet_grid(freq ~ ticker)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Investing for the Long Run</title>
-      <link>http://www.msperlin.com/post/2018-05-12-investing-long-run/</link>
+      <link>http://www.msperlin.com/blog/post/2018-05-12-investing-long-run/</link>
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2018-05-12-investing-long-run/</guid>
+      <guid>http://www.msperlin.com/blog/post/2018-05-12-investing-long-run/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I often get asked about how to invest in the stock market. Not surprisingly, this has been a common topic in my classes. Brazil is experiencing a big change in its financial scenario. Historically, fixed income instruments paid a large premium over the stock market and that is no longer the case. Interest rates are low, without the pressure from inflation. This means a more sustainable scenario for low-interest rates in the future. Without the premium in the fixed income market, people turn to the stock market.&lt;/p&gt;
@@ -556,7 +556,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;I read many books before starting to invest and one of the most interesting tables I’ve found portrays the relationship between investment horizon and profitability. The idea is that the more time you hold a stock or index, higher the chance of a profit. The table, originally from Taleb’s &lt;em&gt;Fooled by Randomness&lt;/em&gt;, is as follows.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://imgur.com/a/d5VnMaF&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;My problem with the table is that it seems pretty off. My experience tells me that a 67% chance of positive return every month seems exaggerated. If that was the case, making money in the stock market would be easy. Digging deeper, I found out that the data behind the table is simulated and, therefore, doesn’t really give good an estimate about the improvement in the probability of profits as a function of the investment horizon.&lt;/p&gt;
-&lt;p&gt;As you probably suspect, I decided to tackle the problem using real data and R. I wrote a simple &lt;a href=&#34;http://www.msperlin.com/content/others/fct_invest_horizon.R&#34;&gt;function&lt;/a&gt; that will grab data, simulate investments of different horizons many times and plot the results. Let’s try it for the SP500 index:&lt;/p&gt;
+&lt;p&gt;As you probably suspect, I decided to tackle the problem using real data and R. I wrote a simple &lt;a href=&#34;http://www.msperlin.com/blog/content/others/fct_invest_horizon.R&#34;&gt;function&lt;/a&gt; that will grab data, simulate investments of different horizons many times and plot the results. Let’s try it for the SP500 index:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;#39;fct_invest_horizon.R&amp;#39;)
 
 my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
@@ -577,9 +577,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As the investment horizon increases, the chances of a positive return increases. This result suggests that, if you invest for more than 13 years, it is very unlikely that you’ll see a negative return. When looking at the distribution of total returns by the horizon, we find that it increases significantly with time. Someone that invested for 50 years is likely to receive a 2500% return on the investment.&lt;/p&gt;
 &lt;p&gt;With input input &lt;code&gt;rf.year&lt;/code&gt; we can also set a desired rate of return. Let’s try it with 5% return per year, with is pretty standard for financial markets.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
@@ -597,7 +597,7 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, the curve of probabilities has a lower slope, meaning that you need more time investing in the SP500 index to guarantee a return of more than 5% a year.&lt;/p&gt;
 &lt;p&gt;Now, let’s try the same setup for Berkshire stock (BRK-A). This is Buffet’s company and looking at its share price we can have a good understanding of how successful Buffet has been as a BH (&lt;em&gt;buy and hold&lt;/em&gt;) investor.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;BRK-A&amp;#39; # ticker from yahoo finance
@@ -615,9 +615,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well, needless to say that, historically, Buffet has done very well in his investments! If you bought the stock and kept it for more 1 year, there is a 70% chance that you got a profit.&lt;/p&gt;
 &lt;p&gt;I hope this post convinced you to start investing. The results are clear, its better to start as early as possible.&lt;/p&gt;
 </description>
@@ -625,11 +625,11 @@ print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Major update to BatchGetSymbols</title>
-      <link>http://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</link>
+      <link>http://www.msperlin.com/blog/post/2018-01-22-update-batchgetsymbols/</link>
       <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</guid>
+      <guid>http://www.msperlin.com/blog/post/2018-01-22-update-batchgetsymbols/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I just released a long due update to package &lt;code&gt;BatchGetSymbols&lt;/code&gt;. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:&lt;/p&gt;
@@ -755,9 +755,9 @@ my.l &amp;lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date,
     
     <item>
       <title>Can we predict stock prices with Prophet?</title>
-      <link>http://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</link>
+      <link>http://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</guid>
+      <guid>http://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</guid>
       <description>
 
 
@@ -916,7 +916,7 @@ p &amp;lt;- ggplot(my.result, aes(x=factor(nfor),
 p &amp;lt;- p + geom_boxplot()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We do find some positive dependency. As the horizon increases, the forecasting algorithm makes more mistakes. Surprisingly, this pattern is not found for &lt;code&gt;nfor=5&lt;/code&gt; and &lt;code&gt;nfor=4&lt;/code&gt;. It might be interesting to add more data and check if this effect is robust.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;encopassing-test&#34; class=&#34;section level2&#34;&gt;
@@ -998,7 +998,7 @@ p &amp;lt;- p + geom_vline(aes(xintercept =  my.profit),size=2)
 p &amp;lt;- p + labs(x=&amp;#39;Returns from random trading signals&amp;#39;)
 print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The previous histogram shows the total return from randomnly generated signals in 10^{4} simulations. The vertical line is the result from using &lt;code&gt;prophet&lt;/code&gt;. As you can see, it is a bit higher than the average of the distribution. The total return from &lt;code&gt;prophet&lt;/code&gt; is lower than the return of the naive strategy in 99.72 percent of the simulations. This is not a bad result. But, notice that we didnt add trading or liquidity costs to the analysis, which will make the total returns worse.&lt;/p&gt;
 &lt;p&gt;The main results of this simple study are clear: &lt;strong&gt;&lt;code&gt;prophet&lt;/code&gt; is bad at point forecasts for returns, specially for longer horizons, but does quite better in directional predictions&lt;/strong&gt;. It might be interesting to test it further, with more data, adding trading costs, other forecasting setups, and see if the results hold.&lt;/p&gt;
 &lt;/div&gt;

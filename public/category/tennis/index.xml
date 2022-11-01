@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tennis | msperlin</title>
-    <link>http://www.msperlin.com/category/tennis/</link>
-      <atom:link href="http://www.msperlin.com/category/tennis/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/category/tennis/</link>
+      <atom:link href="http://www.msperlin.com/blog/category/tennis/index.xml" rel="self" type="application/rss+xml" />
     <description>tennis</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 13 Feb 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>tennis</title>
-      <link>http://www.msperlin.com/category/tennis/</link>
+      <link>http://www.msperlin.com/blog/category/tennis/</link>
     </image>
     
     <item>
       <title>Using R to study tennis players</title>
-      <link>http://www.msperlin.com/post/2017-02-13-r-and-tennis-players/</link>
+      <link>http://www.msperlin.com/blog/post/2017-02-13-r-and-tennis-players/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2017-02-13-r-and-tennis-players/</guid>
+      <guid>http://www.msperlin.com/blog/post/2017-02-13-r-and-tennis-players/</guid>
       <description>
 
 
@@ -477,7 +477,7 @@ p &amp;lt;- p + geom_point() + geom_smooth()
 p &amp;lt;- p + facet_grid(surface~Name)
 p &amp;lt;- p + ylim(c(0.25,1)) + xlim(c(2005,2016))
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1440&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;1440&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can see a few patterns. First, the winning consistency of top ten player is higher in hard courts. For example, look at Murray and Djokovic. It is easier for them to keep the same proportion of wins in hard courts than it is in clay. My best guess is that hard courts are more predictable and the ball is faster and bounces lower, making it easier for top players to hit winners and other point-finishing strokes such as drop shots. Be aware that this could also be due to the different number of matches in each court. We could test the difference of volatility statistically but I rather keep the analysis simple and visual.&lt;/p&gt;
 &lt;p&gt;Also, not surprisingly, Nadal, &lt;a href=&#34;https://www.youtube.com/watch?v=7mknZrjakM8&#34;&gt;the king of clay&lt;/a&gt;, presents the highest winning percentage in clay, before 2012. His game strategy uses strength and heavy top spin balls that are difficult to counter. See &lt;a href=&#34;https://www.quora.com/Why-is-Nadal-so-dominant-on-clay&#34;&gt;here&lt;/a&gt; for a more detailed analysis on why he is so dominant on clay. The bad side of his strategy and type of play is that it is based heavily on his muscular strength. As his age increases, it is difficult to maintain the same level. This explains the increased proportion of defeats after 2012.&lt;/p&gt;
 &lt;p&gt;The effect of age is also perceived for Roger Federer. But, given that his style of play is not based just on strength, I think that he can still beat a lot of players. Just look at the his recent title win at the 2017 Australian open.&lt;/p&gt;
@@ -554,7 +554,7 @@ name.player&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot winnign percentages
 p &amp;lt;- plot.winning.perc(name.player, df.matches)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;From this list, the youngest Brazilian player, and with most potential in my opinion, is Thiago Monteiro. He is 22 and has lots of time to improve his game. In 2016 he beated Tsonga in a great match &lt;a href=&#34;http://www.atpworldtour.com/en/news/monteiro-upsets-tsonga-in-rio-de-janeiro&#34;&gt;here in Brazil&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;the-records-of-guga-gustavo-kurten&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The records of Guga (Gustavo Kurten)&lt;/h2&gt;
@@ -565,7 +565,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 
 p &amp;lt;- plot.winning.perc(name.player, df.matches, min.year = 1990)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, a winning journey until 2001, when losses start to accumulate.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;conlusion&#34; class=&#34;section level2&#34;&gt;

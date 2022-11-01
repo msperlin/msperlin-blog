@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>investments | msperlin</title>
-    <link>http://www.msperlin.com/tag/investments/</link>
-      <atom:link href="http://www.msperlin.com/tag/investments/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/tag/investments/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/investments/index.xml" rel="self" type="application/rss+xml" />
     <description>investments</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>investments</title>
-      <link>http://www.msperlin.com/tag/investments/</link>
+      <link>http://www.msperlin.com/blog/tag/investments/</link>
     </image>
     
     <item>
       <title>The Effect of Consistency on Corporate Net Income</title>
-      <link>http://www.msperlin.com/post/2019-05-20-lindy-effect/</link>
+      <link>http://www.msperlin.com/blog/post/2019-05-20-lindy-effect/</link>
       <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2019-05-20-lindy-effect/</guid>
+      <guid>http://www.msperlin.com/blog/post/2019-05-20-lindy-effect/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the investment concepts that every long term investor should know is the effect of consistency over corporate performance. The main idea is that older and profitable companies are likely to continue to be profitable and even improve its performance in the upcoming years. Likewise, companies with constant losses are likely to continue in the same path.&lt;/p&gt;
@@ -140,7 +140,7 @@ tab &amp;lt;- tab.test %&amp;gt;%
   guides(shape=guide_legend(nrow=2,byrow=TRUE))
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-05-20-Lindy-Effect_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-05-20-Lindy-Effect_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Let me summarize the main conclusions from the plot:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Time is an ally to the profit of the company. &lt;strong&gt;The more consistent the company was in producing profit in the past, higher the chances of a profit in the future&lt;/strong&gt;.&lt;/li&gt;
@@ -161,12 +161,12 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Can you turn 1500 USD into 1.000.430 USD by investing in the stock market for three years?</title>
-      <link>http://www.msperlin.com/post/2019-03-23-bettina-case/</link>
+      <link>http://www.msperlin.com/blog/post/2019-03-23-bettina-case/</link>
       <pubDate>Sat, 23 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2019-03-23-bettina-case/</guid>
+      <guid>http://www.msperlin.com/blog/post/2019-03-23-bettina-case/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;http://www.msperlin.com/blog/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In the last few weeks we’ve seen a great deal of controversy in Brazil regarding financial investments. Too keep it short, &lt;em&gt;Empiricus&lt;/em&gt;, an ad-based company that massively sells online courses and subscriptions, posted a YouTube ad where a young girl, Bettina, &lt;a href=&#34;https://canaltech.com.br/memes/entenda-o-caso-bettina-a-jovem-tia-patinhas-brasileira-que-virou-meme-135035/&#34;&gt;says the following&lt;/a&gt;:&lt;/p&gt;
@@ -322,7 +322,7 @@ p &amp;lt;- ggplot(res.inv, aes(x = ref.month, y = best.return)) +
  scale_y_continuous(labels = scales::percent)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, Bettina did good with a constant monthly return of 20%. But, &lt;em&gt;GodBot&lt;/em&gt; is better. Bettina is clearly missing something out!&lt;/p&gt;
 &lt;p&gt;When looking at the nominal value of the investment, the effect of compound returns explodes the value of the portfolio.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyr)
@@ -355,7 +355,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x = ref.month, y = Value, color = Investor)) 
  scale_y_continuous(labels = format.cash)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The results show that Bettina’s returns are possible. All you need to do is to perfectly predict, for each month, which stock will do best in the market. If you haven’t sensed my irony, let me be crystal clear: &lt;strong&gt;Market prices are impossible to predict&lt;/strong&gt;. The result I just showed you is only possible in my computer. No one will ever be able to replicate it in practice.&lt;/p&gt;
 &lt;p&gt;The ad from &lt;em&gt;Empiricus&lt;/em&gt; is very misleading. In my opinion as a finance professor, the real problem in this episode is that the great majority of the Brazilian population is not financially educated. Many people &lt;strong&gt;will believe&lt;/strong&gt; that is legally possible to reach a 20% return over a month.&lt;/p&gt;
 &lt;p&gt;I’ve seen countless cases of financial pyramids, usually tied to some exotic cryptocurrency, to rise and shortly burn here in Brazil. This is specially – and sadly – most frequent in the poorer areas of the country. Those that follow &lt;em&gt;Empiricus&lt;/em&gt; advice will soon learn its lesson. Making money in short run in stocks is very difficult.&lt;/p&gt;

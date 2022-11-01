@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>about me | msperlin</title>
-    <link>http://www.msperlin.com/tag/about-me/</link>
-      <atom:link href="http://www.msperlin.com/tag/about-me/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.msperlin.com/blog/tag/about-me/</link>
+      <atom:link href="http://www.msperlin.com/blog/tag/about-me/index.xml" rel="self" type="application/rss+xml" />
     <description>about me</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/img/portrait.jpg</url>
+      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>about me</title>
-      <link>http://www.msperlin.com/tag/about-me/</link>
+      <link>http://www.msperlin.com/blog/tag/about-me/</link>
     </image>
     
     <item>
       <title>My first post!</title>
-      <link>http://www.msperlin.com/post/2017-01-01-first-post/</link>
+      <link>http://www.msperlin.com/blog/post/2017-01-01-first-post/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/post/2017-01-01-first-post/</guid>
+      <guid>http://www.msperlin.com/blog/post/2017-01-01-first-post/</guid>
       <description>
 
 
