@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | msperlin</title>
-    <link>http://www.msperlin.com/blog/authors/</link>
-      <atom:link href="http://www.msperlin.com/blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/authors/</link>
+      <atom:link href="https://www.msperlin.com/blog/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Authors</title>
-      <link>http://www.msperlin.com/blog/authors/</link>
+      <link>https://www.msperlin.com/blog/authors/</link>
     </image>
     
   </channel>

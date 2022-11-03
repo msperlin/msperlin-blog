@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rstudio | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/rstudio/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/category/rstudio/</link>
+      <atom:link href="https://www.msperlin.com/blog/category/rstudio/index.xml" rel="self" type="application/rss+xml" />
     <description>rstudio</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 03 Nov 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>rstudio</title>
-      <link>http://www.msperlin.com/blog/category/rstudio/</link>
+      <link>https://www.msperlin.com/blog/category/rstudio/</link>
     </image>
     
     <item>
       <title>Some Useful Tricks in RStudio</title>
-      <link>http://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</link>
+      <link>https://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</link>
       <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</guid>
+      <guid>https://www.msperlin.com/blog/post/2018-11-03-rstudiotricks/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’ve been using Rstudio for a long time and I got some tricks to share. These are simple and useful commands and shortcuts that really help the productivity of my students. If you got a suggestion of trick, use the comment section and I’ll add it in this post.&lt;/p&gt;
@@ -49,7 +49,7 @@ setwd(my.dir)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;dark-theme-for-rstudio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Dark theme for Rstudio&lt;/h2&gt;
 &lt;p&gt;A dark theme is a productivity life-changer if you spend a lot of time in front of a computer. Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into “tools” -&amp;gt; “global options” -&amp;gt; “appearance”. There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/rstudio-whitetheme.png&#34; /&gt; &lt;img src=&#34;http://www.msperlin.com/blog/blog/img/rstudio-darktheme.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/img/rstudio-whitetheme.png&#34; /&gt; &lt;img src=&#34;https://www.msperlin.com/blog/blog/img/rstudio-darktheme.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;autocomplete-tab-is-your-friend&#34; class=&#34;section level2&#34;&gt;
@@ -57,11 +57,11 @@ setwd(my.dir)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;A commom misconception about programming is that you must memorize lot of names. This is far from the truth. You never need to memorize anything when using Rstudio! From function arguments to variable names and names of files, everything can be searched by pressing the &lt;em&gt;tab&lt;/em&gt; key on your keyboard. When using naming conventions for functions and objects, this becomes even more useful. For example, every dataframe in my code starts with “df”, like in “df.prices”, “df.tickers” and so on. When I’m looking for the name of a dataframe, I just write “df.” and press &lt;em&gt;tab&lt;/em&gt;. The result is a list of object names.&lt;/p&gt;
 &lt;p&gt;The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. &lt;a href=&#34;https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab&#34;&gt;Check it out&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/autocomplete_arquivos.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.msperlin.com/blog/blog/img/autocomplete_arquivos.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Autocomplete for files&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/autocomplete_pacotes.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.msperlin.com/blog/blog/img/autocomplete_pacotes.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Autocomplete for packages&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;

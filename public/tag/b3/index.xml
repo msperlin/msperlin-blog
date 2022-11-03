@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>B3 | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/b3/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/b3/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/tag/b3/</link>
+      <atom:link href="https://www.msperlin.com/blog/tag/b3/index.xml" rel="self" type="application/rss+xml" />
     <description>B3</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 02 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>B3</title>
-      <link>http://www.msperlin.com/blog/tag/b3/</link>
+      <link>https://www.msperlin.com/blog/tag/b3/</link>
     </image>
     
     <item>
       <title>Using R to download high frequency trade data diretcly from Bovespa</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
+      <link>https://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
       <description>
 
 

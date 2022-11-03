@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tiago P. Filomena | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/tiago-p.-filomena/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/tiago-p.-filomena/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/author/tiago-p.-filomena/</link>
+      <atom:link href="https://www.msperlin.com/blog/author/tiago-p.-filomena/index.xml" rel="self" type="application/rss+xml" />
     <description>Tiago P. Filomena</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 18 Jun 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Tiago P. Filomena</title>
-      <link>http://www.msperlin.com/blog/author/tiago-p.-filomena/</link>
+      <link>https://www.msperlin.com/blog/author/tiago-p.-filomena/</link>
     </image>
     
     <item>
       <title>A consumer credit risk structural model based on affordability: balance at risk</title>
-      <link>http://www.msperlin.com/blog/publication/2019_jcr-bar/</link>
+      <link>https://www.msperlin.com/blog/publication/2019_jcr-bar/</link>
       <pubDate>Tue, 18 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2019_jcr-bar/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2019_jcr-bar/</guid>
       <description></description>
     </item>
     

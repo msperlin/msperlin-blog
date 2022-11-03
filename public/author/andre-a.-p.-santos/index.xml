@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>André A. P. Santos | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/andre-a.-p.-santos/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/andre-a.-p.-santos/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/author/andre-a.-p.-santos/</link>
+      <atom:link href="https://www.msperlin.com/blog/author/andre-a.-p.-santos/index.xml" rel="self" type="application/rss+xml" />
     <description>André A. P. Santos</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>André A. P. Santos</title>
-      <link>http://www.msperlin.com/blog/author/andre-a.-p.-santos/</link>
+      <link>https://www.msperlin.com/blog/author/andre-a.-p.-santos/</link>
     </image>
     
     <item>
       <title>Can we predict the financial markets based on Google&#39;s search queries?</title>
-      <link>http://www.msperlin.com/blog/publication/2017_jf-gtrends/</link>
+      <link>https://www.msperlin.com/blog/publication/2017_jf-gtrends/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_jf-gtrends/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2017_jf-gtrends/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Portfolio management using realized covariances: Evidence from Brazil</title>
-      <link>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</link>
+      <link>https://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2017_economia-portfoliomanagement/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Brazilian scientific output published in journals: A study based on a large CV database</title>
-      <link>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
+      <link>https://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>self-publish | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/self-publish/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/self-publish/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/category/self-publish/</link>
+      <atom:link href="https://www.msperlin.com/blog/category/self-publish/index.xml" rel="self" type="application/rss+xml" />
     <description>self-publish</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>self-publish</title>
-      <link>http://www.msperlin.com/blog/category/self-publish/</link>
+      <link>https://www.msperlin.com/blog/category/self-publish/</link>
     </image>
     
     <item>
       <title>Writing a R book and self-publishing it in Amazon</title>
-      <link>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</link>
+      <link>https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Many people, including my university colleagues and friends, have asked me about the process of writing a book and self publishing it in Amazon. You can find the details about the english version of the book &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.msperlin.com/blog/books/&#34;&gt;here&lt;/a&gt;. Given so much interest, I’m going to report the whole process in this post.&lt;/p&gt;
@@ -34,7 +34,7 @@
 &lt;p&gt;After 6 months of work, I had a first readable version of the book. This is when I started to investigate how to turn a latex file into an ebook file. To my surprise, this is not easy! It could be the case that I had lots of code and figures from the compilation. I tried all the existing software and, to my frustration, it just didn’t work. When I didn’t got an error message that stopped the conversion, the resulting &lt;em&gt;epub&lt;/em&gt; file look awful in the kindle reader. The warning and error messages from the latex2ebook compiler also didn’t help a lot.&lt;/p&gt;
 &lt;p&gt;By looking for solutions in the internet and with a bit of luck, I’ve found that Yihui Xie had just published his &lt;a href=&#34;https://bookdown.org/&#34;&gt;bookdown package&lt;/a&gt;. I tried out the first chapters and it worked perfectly! The great thing about &lt;code&gt;bookdown&lt;/code&gt; is that you can output to pdf, html or epub with the same files. I was very happy that, finally, I would be able to get all formats that I needed in a single platform. I’m not going to go into the details about how to use &lt;code&gt;bookdown&lt;/code&gt;. You can find the official tutorial &lt;a href=&#34;https://bookdown.org/yihui/bookdown/&#34;&gt;here&lt;/a&gt;. It is worth to point out that the written content is just RMarkdown so, if you know latex, you’ll fell right at home. So, here I go again, switching a whole book from latex to Rmarkdown.&lt;/p&gt;
 &lt;p&gt;The only feature in &lt;code&gt;bookdown&lt;/code&gt; that didn’t work out of the box was the equation in the kindle format. The formulas just didn’t print well. The weird part is that they looked fine in any other ebook reader, but not in Kindle. Apparently, there is no solution for this problem besides using figure files for the equations. What I did to solve it was to use R switches within the book so that the epub compilation used a figure file created in &lt;a href=&#34;https://www.codecogs.com/latex/eqneditor.php&#34;&gt;codecogs&lt;/a&gt; and the latex/html compilation used the normal code for equations. See here an example of code for the first equation in chapter 9.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, I used a switch in the &lt;code&gt;knitr&lt;/code&gt; command as in &lt;code&gt;include=identical(knitr:::pandoc_to(), &#39;epub3&#39;)&lt;/code&gt; to run each code conditional to the type of output. As for inline equations, I just used straight text to indicate coefficients such as &lt;em&gt;beta&lt;/em&gt;, &lt;em&gt;alpha&lt;/em&gt;. I know I could have used the same strategy, but I didn’t fell the need since there were so few inline equations in the text.&lt;/p&gt;
 &lt;p&gt;After switching to bookdown, I added a couple more chapters in the following months. A comment here is that I tried writing in RStudio but it didn’t worked out for me. Perhaps it was due to the large files I was handling, but it felt really clunky, slow and not reactive. Also, the grammar check system in Rstudio needs a lot of work. I tried going back to Texstudio but it didn’t had support for markdown highlighting. I then switched software by doing the writing in &lt;a href=&#34;https://notepad-plus-plus.org/&#34;&gt;notepad++&lt;/a&gt; + &lt;a href=&#34;https://github.com/Edditoria/markdown_npp&#34;&gt;markdown extension&lt;/a&gt; and only used RStudio to compile the book. If you haven’t tried notepad++, give it a go. I really like it and I find myself using it more and more.&lt;/p&gt;
 &lt;/div&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;&lt;p&gt;Cover - The cover is processed as a figure file (.jpg). An important information here is that you need to define the size of you book and the number of pages at this stage. In my case, I used a 7x11 inches configuration for 200+ pages. It looks quite nice. Have a look:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;My Book and my spanish Iguana!&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Beautiful cover! Isn’t it? Once you have the figure file, you just add it to the &lt;em&gt;book creator&lt;/em&gt; system in amazon. At this stage, you will also need a summary about the book and its author and a picture for the back cover of the printed version.&lt;/p&gt;

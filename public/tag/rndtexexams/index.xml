@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RndTexExams | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/rndtexexams/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/rndtexexams/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/tag/rndtexexams/</link>
+      <atom:link href="https://www.msperlin.com/blog/tag/rndtexexams/index.xml" rel="self" type="application/rss+xml" />
     <description>RndTexExams</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 30 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>RndTexExams</title>
-      <link>http://www.msperlin.com/blog/tag/rndtexexams/</link>
+      <link>https://www.msperlin.com/blog/tag/rndtexexams/</link>
     </image>
     
     <item>
       <title>Building and maintaining exams with dynamic content</title>
-      <link>http://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</link>
+      <link>https://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</link>
       <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/</guid>
       <description>
 
 
@@ -33,7 +33,7 @@
 &lt;pre&gt;&lt;code&gt;How many packages you can find today (2020-04-28) in CRAN?
 Use repository https://cloud.r-project.org/ for the solution.&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The solution is pretty simple, all you need to do is to ask for the number of rows for the object output from a call to &lt;code&gt;available.packages()&lt;/code&gt;. The reader can find the solution with the command &lt;code&gt;nrow(available.packages(repos=&#39;https://cloud.r-project.org/&#39;))&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called &lt;strong&gt;Question.Rmd&lt;/strong&gt;, available &lt;a href=&#34;http://www.msperlin.com/blog/blog/files/Question.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called &lt;strong&gt;Question.Rmd&lt;/strong&gt;, available &lt;a href=&#34;https://www.msperlin.com/blog/blog/files/Question.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.q.file &amp;lt;- &amp;#39;~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question.Rmd&amp;#39;
 cat(paste0(readLines(my.q.file), collapse = &amp;#39;\n&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## ```{r data generation, echo = FALSE, results = &amp;quot;hide&amp;quot;}
@@ -114,7 +114,7 @@ my.exam &amp;lt;- exams2pdf(file = rep(my.f,5),
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;f.out &amp;lt;- paste0(my.dir,name.exam,&amp;#39;1&amp;#39;,&amp;#39;.pdf&amp;#39;)
 file.exists(f.out)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The result of the previous code is a pdf file &lt;a href=&#34;http://www.msperlin.com/blog/blog/files/exam_sample1.pdf&#34;&gt;pdf file&lt;/a&gt; with the exam content.&lt;/p&gt;
+&lt;p&gt;The result of the previous code is a pdf file &lt;a href=&#34;https://www.msperlin.com/blog/blog/files/exam_sample1.pdf&#34;&gt;pdf file&lt;/a&gt; with the exam content.&lt;/p&gt;
 &lt;p&gt;One interesting information from this post is that you can find a small difference in the number of packages in between the CRAN mirrors. My best guess is that they synchronize with the master server in different times of the day/week.&lt;/p&gt;
 &lt;p&gt;Looking at the contents of the pdf file, clearly some things are missing from the exam, such as the title page and the instructions. You can add all the bells and whistles with the inputs of function &lt;code&gt;exams2pdf&lt;/code&gt; or change it directly in the different file templates. One quick tip for new users is that the answer sheet can be found by looping over the values of the output from &lt;code&gt;exams2pdf&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.answer.key &amp;lt;- data.frame()

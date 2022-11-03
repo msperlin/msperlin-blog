@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Daniel Vancin | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/daniel-vancin/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/daniel-vancin/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/author/daniel-vancin/</link>
+      <atom:link href="https://www.msperlin.com/blog/author/daniel-vancin/index.xml" rel="self" type="application/rss+xml" />
     <description>Daniel Vancin</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Daniel Vancin</title>
-      <link>http://www.msperlin.com/blog/author/daniel-vancin/</link>
+      <link>https://www.msperlin.com/blog/author/daniel-vancin/</link>
     </image>
     
     <item>
       <title>Board gender diversity: performance and risk of Brazilian firms</title>
-      <link>http://www.msperlin.com/blog/publication/2021_gm-boards/</link>
+      <link>https://www.msperlin.com/blog/publication/2021_gm-boards/</link>
       <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2021_gm-boards/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2021_gm-boards/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A GARCH Tutorial with R</title>
-      <link>http://www.msperlin.com/blog/publication/2020_rac-garch/</link>
+      <link>https://www.msperlin.com/blog/publication/2020_rac-garch/</link>
       <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2020_rac-garch/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2020_rac-garch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Accessing Financial Reports and Corporate Events with GetDFPData</title>
-      <link>http://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</link>
+      <link>https://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</link>
       <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2019_rbfin-getdfpdata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Acadêmicos Compensam? O Efeito da Titulação e Produção Cientı́fica no Desempenho das Empresas Brasileiras</title>
-      <link>http://www.msperlin.com/blog/talk/2019-07-04-ebfin-boards-and-lattes/</link>
+      <link>https://www.msperlin.com/blog/talk/2019-07-04-ebfin-boards-and-lattes/</link>
       <pubDate>Thu, 04 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/talk/2019-07-04-ebfin-boards-and-lattes/</guid>
+      <guid>https://www.msperlin.com/blog/talk/2019-07-04-ebfin-boards-and-lattes/</guid>
       <description>&lt;h3 id=&#34;slides&#34;&gt;Slides&lt;/h3&gt;
 &lt;iframe src=&#34;https://docs.google.com/presentation/d/e/2PACX-1vRy6tVXmgAxB9wlu9wt0dyUEN8p5WtkN91GUwbbkkMaXVWYMDx026H8BpFolij7wpArH-idTLwK591W/embed?start=false&amp;loop=false&amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;&lt;/iframe&gt;
 </description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetTDData | msperlin</title>
-    <link>http://www.msperlin.com/blog/tag/gettddata/</link>
-      <atom:link href="http://www.msperlin.com/blog/tag/gettddata/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/tag/gettddata/</link>
+      <atom:link href="https://www.msperlin.com/blog/tag/gettddata/index.xml" rel="self" type="application/rss+xml" />
     <description>GetTDData</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>GetTDData</title>
-      <link>http://www.msperlin.com/blog/tag/gettddata/</link>
+      <link>https://www.msperlin.com/blog/tag/gettddata/</link>
     </image>
     
     <item>
       <title>The Brazilian Yield Curve</title>
-      <link>http://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</link>
+      <link>https://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-09-14-brazilian-yield-curve/</guid>
       <description>
 
 
@@ -50,7 +50,7 @@ p &amp;lt;- ggplot(df.yield, aes(x=ref.date, y = value) ) +
        subtitle = paste0(&amp;#39;Date: &amp;#39;, df.yield$current.date[1]))     
 
 print(p)  &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-09-14-Brazilian-Yield-Curve_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-09-14-Brazilian-Yield-Curve_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The expected inflation in Brazil seems to be stable. Market expectation is for an inflation around 5% a year in 2024. This level is quite low when compared to our &lt;a href=&#34;https://tradingeconomics.com/brazil/inflation-cpi&#34;&gt;history&lt;/a&gt;. As for future nominal interest rate, market expects another drop in the interest rate level in 2019. This is in line with the latest report from &lt;a href=&#34;http://www.bcb.gov.br/?ATACOPOM&#34;&gt;COPOM&lt;/a&gt;, the Brazilian comittee of monetary policy. Real returns also seems to be stable and low, around 5%. Again, this is one of the lowest levels of real returns in our economy.&lt;/p&gt;
 &lt;p&gt;I’m very optimistic (and very biased as I love my country!) regarding the future of the Brazilian economy. I hope we can keep these low levels of interest rate and inflation in order to foment comsumption, jobs and overall economic well-being.&lt;/p&gt;
 &lt;/div&gt;

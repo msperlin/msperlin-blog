@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paulo Sérgio Ceretta | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/paulo-sergio-ceretta/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/paulo-sergio-ceretta/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/author/paulo-sergio-ceretta/</link>
+      <atom:link href="https://www.msperlin.com/blog/author/paulo-sergio-ceretta/index.xml" rel="self" type="application/rss+xml" />
     <description>Paulo Sérgio Ceretta</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 01 Jul 2007 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Paulo Sérgio Ceretta</title>
-      <link>http://www.msperlin.com/blog/author/paulo-sergio-ceretta/</link>
+      <link>https://www.msperlin.com/blog/author/paulo-sergio-ceretta/</link>
     </image>
     
     <item>
       <title>Non Linear Modelling in the Brazilian Market: Evaluating the Forecasting Performance of the NN (Univariate Nearest Neighbour) and SNN (Simultaneous Nearest Neighbour) Forecasting Algorithm</title>
-      <link>http://www.msperlin.com/blog/publication/2007_read-nn/</link>
+      <link>https://www.msperlin.com/blog/publication/2007_read-nn/</link>
       <pubDate>Sun, 01 Jul 2007 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2007_read-nn/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2007_read-nn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Teoria do Caos aplicada aos Contratos de Café no Mercado de Derivativos</title>
-      <link>http://www.msperlin.com/blog/publication/2006_read-caos/</link>
+      <link>https://www.msperlin.com/blog/publication/2006_read-caos/</link>
       <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2006_read-caos/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2006_read-caos/</guid>
       <description></description>
     </item>
     

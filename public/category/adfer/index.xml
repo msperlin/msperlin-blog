@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>adfeR | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/adfer/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/adfer/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/category/adfer/</link>
+      <atom:link href="https://www.msperlin.com/blog/category/adfer/index.xml" rel="self" type="application/rss+xml" />
     <description>adfeR</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>adfeR</title>
-      <link>http://www.msperlin.com/blog/category/adfer/</link>
+      <link>https://www.msperlin.com/blog/category/adfer/</link>
     </image>
     
     <item>
       <title>LANÇAMENTO - Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</link>
+      <link>https://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</guid>
+      <guid>https://www.msperlin.com/blog/post/2021-02-20-adfer-ed3-announcement/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;É com muito prazer que comunico o lançamento oficial da &lt;strong&gt;terceira edição&lt;/strong&gt; do livro &lt;strong&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/strong&gt;. Encontrarás a obra na Amazon.com.br como um &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;ebook&lt;/a&gt; ou &lt;a href=&#34;https://www.amazon.com/dp/B08WP8CCDB&#34;&gt;livro impresso&lt;/a&gt;. A versão online do livro com os primeiros sete capítulos está disponível neste &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;link&lt;/a&gt;. Maiores detalhes, incluindo material suplementar, encontram-se na &lt;a href=&#34;https://www.msperlin.com/blog/publication/2021_book-adfer-pt/&#34;&gt;página do livro&lt;/a&gt;.&lt;/p&gt;
@@ -37,11 +37,11 @@
     
     <item>
       <title>Compilando Exercícios do Livro para pdf | html | Moodle | Blackboard</title>
-      <link>http://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</link>
+      <link>https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</link>
       <pubDate>Thu, 18 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</guid>
+      <guid>https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;A terceira edição do livro &lt;a href=&#34;https://www.msperlin.com/blog/publication/2021_book-adfer-pt/&#34;&gt;Análise de Dados Financeiros e Econômicos&lt;/a&gt; contém mais de 100 exercícios de final de capítulo, com todas soluções disponíveis na &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;página do livro&lt;/a&gt;. Alternativamente, professores e instrutores podem compilar arquivos pdf dos exercícios para seus alunos com o pacote &lt;code&gt;adfeR&lt;/code&gt;.&lt;/p&gt;

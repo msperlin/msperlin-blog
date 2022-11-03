@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Code | msperlin</title>
-    <link>http://www.msperlin.com/blog/code/r/</link>
-      <atom:link href="http://www.msperlin.com/blog/code/r/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/code/r/</link>
+      <atom:link href="https://www.msperlin.com/blog/code/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R Code</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>R Code</title>
-      <link>http://www.msperlin.com/blog/code/r/</link>
+      <link>https://www.msperlin.com/blog/code/r/</link>
     </image>
     
   </channel>

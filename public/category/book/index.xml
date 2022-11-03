@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>book | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/book/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/book/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/category/book/</link>
+      <atom:link href="https://www.msperlin.com/blog/category/book/index.xml" rel="self" type="application/rss+xml" />
     <description>book</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>book</title>
-      <link>http://www.msperlin.com/blog/category/book/</link>
+      <link>https://www.msperlin.com/blog/category/book/</link>
     </image>
     
     <item>
       <title>(2/2) Book promotion (paperback edition) - &#34;Processing and Analyzing Financial Data with R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</link>
+      <link>https://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</guid>
+      <guid>https://www.msperlin.com/blog/post/2019-03-10-pafdr-promotion_2/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I received many messages regarding my &lt;a href=&#34;https://www.amazon.com/dp/B071DTSCPS&#34;&gt;book promotion&lt;/a&gt; (see &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/&#34;&gt;previous post&lt;/a&gt; ). I’ll use this post to answer the most frequent questions:&lt;/p&gt;
@@ -36,14 +36,14 @@
     
     <item>
       <title>Book promotion - &#34;Processing and Analyzing Financial Data with R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</link>
+      <link>https://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</guid>
+      <guid>https://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/img/CAPADigital_FinancialDataR.jpg&#34; style=&#34;width:30.0%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/img/CAPADigital_FinancialDataR.jpg&#34; style=&#34;width:30.0%&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I recently did a book promotion for my &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;R book in portuguese&lt;/a&gt; and it was a big sucess!&lt;/p&gt;
 &lt;p&gt;My english book is now being sold with the same promotion. You can purchase it with a 50% discount if you buy it on the 10th day of march. See it &lt;a href=&#34;https://www.amazon.com/dp/B071DTSCPS&#34;&gt;here&lt;/a&gt;. The discount will be valid throughout the week, with daily price increases.&lt;/p&gt;
 &lt;p&gt;If you want to learn more about R and its use in Finance and Economics, this book is a great opportunity.&lt;/p&gt;
@@ -55,11 +55,11 @@
     
     <item>
       <title>Second Edition of &#34;Processamento e Analise de Dados Financeiros e Econômicos com o R&#34;</title>
-      <link>http://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</link>
+      <link>https://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</link>
       <pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</guid>
+      <guid>https://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34;&gt;
@@ -76,7 +76,7 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
 &lt;li&gt;&lt;p&gt;Alignment with the tidyverse. I have no doubt that the packages from the tidyverse are here to stay. While the native function are presented, there is an emphasis in using the tidyverse, specially in reading local data, manipulating dataframes and functional programming.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Exercises are available at the end of each chapter, including hard questions that will challenge your programming ability.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You can find the new edition of the book in &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;Amazon&lt;/a&gt;. See this &lt;a href=&#34;http://www.msperlin.com/blog/blog/books&#34;&gt;section&lt;/a&gt; for more details. As usual, an online (and free) version of the book is available at &lt;a href=&#34;http://www.msperlin.com/padfeR/&#34;&gt;http://www.msperlin.com/padfeR/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can find the new edition of the book in &lt;a href=&#34;https://www.amazon.com.br/dp/B08WNC27ZY&#34;&gt;Amazon&lt;/a&gt;. See this &lt;a href=&#34;https://www.msperlin.com/blog/blog/books&#34;&gt;section&lt;/a&gt; for more details. As usual, an online (and free) version of the book is available at &lt;a href=&#34;http://www.msperlin.com/padfeR/&#34;&gt;http://www.msperlin.com/padfeR/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It was a lot of work (and fun) to write the new edition. I’m very happy with the result. I hope you enjoy it!&lt;/p&gt;
 &lt;p&gt;Best,&lt;/p&gt;
 </description>
@@ -84,9 +84,9 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
     
     <item>
       <title>My Book about using R in Finance</title>
-      <link>http://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</link>
+      <link>https://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</link>
       <pubDate>Thu, 04 May 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-05-04-pafdr-is-out/</guid>
       <description>
 
 
@@ -97,11 +97,11 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
     
     <item>
       <title>Writing a R book and self-publishing it in Amazon</title>
-      <link>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</link>
+      <link>https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</guid>
+      <guid>https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Many people, including my university colleagues and friends, have asked me about the process of writing a book and self publishing it in Amazon. You can find the details about the english version of the book &lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.msperlin.com/blog/books/&#34;&gt;here&lt;/a&gt;. Given so much interest, I’m going to report the whole process in this post.&lt;/p&gt;
@@ -117,7 +117,7 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
 &lt;p&gt;After 6 months of work, I had a first readable version of the book. This is when I started to investigate how to turn a latex file into an ebook file. To my surprise, this is not easy! It could be the case that I had lots of code and figures from the compilation. I tried all the existing software and, to my frustration, it just didn’t work. When I didn’t got an error message that stopped the conversion, the resulting &lt;em&gt;epub&lt;/em&gt; file look awful in the kindle reader. The warning and error messages from the latex2ebook compiler also didn’t help a lot.&lt;/p&gt;
 &lt;p&gt;By looking for solutions in the internet and with a bit of luck, I’ve found that Yihui Xie had just published his &lt;a href=&#34;https://bookdown.org/&#34;&gt;bookdown package&lt;/a&gt;. I tried out the first chapters and it worked perfectly! The great thing about &lt;code&gt;bookdown&lt;/code&gt; is that you can output to pdf, html or epub with the same files. I was very happy that, finally, I would be able to get all formats that I needed in a single platform. I’m not going to go into the details about how to use &lt;code&gt;bookdown&lt;/code&gt;. You can find the official tutorial &lt;a href=&#34;https://bookdown.org/yihui/bookdown/&#34;&gt;here&lt;/a&gt;. It is worth to point out that the written content is just RMarkdown so, if you know latex, you’ll fell right at home. So, here I go again, switching a whole book from latex to Rmarkdown.&lt;/p&gt;
 &lt;p&gt;The only feature in &lt;code&gt;bookdown&lt;/code&gt; that didn’t work out of the box was the equation in the kindle format. The formulas just didn’t print well. The weird part is that they looked fine in any other ebook reader, but not in Kindle. Apparently, there is no solution for this problem besides using figure files for the equations. What I did to solve it was to use R switches within the book so that the epub compilation used a figure file created in &lt;a href=&#34;https://www.codecogs.com/latex/eqneditor.php&#34;&gt;codecogs&lt;/a&gt; and the latex/html compilation used the normal code for equations. See here an example of code for the first equation in chapter 9.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, I used a switch in the &lt;code&gt;knitr&lt;/code&gt; command as in &lt;code&gt;include=identical(knitr:::pandoc_to(), &#39;epub3&#39;)&lt;/code&gt; to run each code conditional to the type of output. As for inline equations, I just used straight text to indicate coefficients such as &lt;em&gt;beta&lt;/em&gt;, &lt;em&gt;alpha&lt;/em&gt;. I know I could have used the same strategy, but I didn’t fell the need since there were so few inline equations in the text.&lt;/p&gt;
 &lt;p&gt;After switching to bookdown, I added a couple more chapters in the following months. A comment here is that I tried writing in RStudio but it didn’t worked out for me. Perhaps it was due to the large files I was handling, but it felt really clunky, slow and not reactive. Also, the grammar check system in Rstudio needs a lot of work. I tried going back to Texstudio but it didn’t had support for markdown highlighting. I then switched software by doing the writing in &lt;a href=&#34;https://notepad-plus-plus.org/&#34;&gt;notepad++&lt;/a&gt; + &lt;a href=&#34;https://github.com/Edditoria/markdown_npp&#34;&gt;markdown extension&lt;/a&gt; and only used RStudio to compile the book. If you haven’t tried notepad++, give it a go. I really like it and I find myself using it more and more.&lt;/p&gt;
 &lt;/div&gt;
@@ -135,7 +135,7 @@ IMPORTANT: The third edition of the book was released in 2021 – more details i
 &lt;li&gt;&lt;p&gt;Cover - The cover is processed as a figure file (.jpg). An important information here is that you need to define the size of you book and the number of pages at this stage. In my case, I used a 7x11 inches configuration for 200+ pages. It looks quite nice. Have a look:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;My Book and my spanish Iguana!&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Beautiful cover! Isn’t it? Once you have the figure file, you just add it to the &lt;em&gt;book creator&lt;/em&gt; system in amazon. At this stage, you will also need a summary about the book and its author and a picture for the back cover of the printed version.&lt;/p&gt;

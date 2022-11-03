@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>simfinR | msperlin</title>
-    <link>http://www.msperlin.com/blog/category/simfinr/</link>
-      <atom:link href="http://www.msperlin.com/blog/category/simfinr/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/category/simfinr/</link>
+      <atom:link href="https://www.msperlin.com/blog/category/simfinr/index.xml" rel="self" type="application/rss+xml" />
     <description>simfinR</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>simfinR</title>
-      <link>http://www.msperlin.com/blog/category/simfinr/</link>
+      <link>https://www.msperlin.com/blog/category/simfinr/</link>
     </image>
     
     <item>
       <title>New package: simfinR</title>
-      <link>http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</link>
+      <link>https://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</guid>
+      <guid>https://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/</guid>
       <description>
-&lt;script src=&#34;http://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
@@ -100,7 +100,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Not bad!&lt;/p&gt;
 &lt;p&gt;We can also grab data for all quarters:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;type_statements &amp;lt;- &amp;#39;pl&amp;#39; # profit/loss
@@ -142,7 +142,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Nice and impressive profit record. The first quarter (Q1) seems to present the best performance, probably due to end of year holidays.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-02---quarterly-net-profit-of-many-companies&#34; class=&#34;section level3&#34;&gt;
@@ -173,7 +173,7 @@ p &amp;lt;- ggplot(net_income,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-03-fetching-price-data&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Example 03: Fetching price data&lt;/h3&gt;
@@ -198,7 +198,7 @@ p &amp;lt;- ggplot(df_price,
   theme_bw()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2019-11-01-new-package-simfinR_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, the data is comprehensive and should suffice for many different corporate finance research topics.&lt;/p&gt;
 &lt;p&gt;Give it a try and, if you’ve found any problem or bug, please let me know at &lt;a href=&#34;mailto:marceloperlin@gmail.com&#34; class=&#34;email&#34;&gt;marceloperlin@gmail.com&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;

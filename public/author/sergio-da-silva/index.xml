@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sergio da Silva | msperlin</title>
-    <link>http://www.msperlin.com/blog/author/sergio-da-silva/</link>
-      <atom:link href="http://www.msperlin.com/blog/author/sergio-da-silva/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/blog/author/sergio-da-silva/</link>
+      <atom:link href="https://www.msperlin.com/blog/author/sergio-da-silva/index.xml" rel="self" type="application/rss+xml" />
     <description>Sergio da Silva</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
       <title>Sergio da Silva</title>
-      <link>http://www.msperlin.com/blog/author/sergio-da-silva/</link>
+      <link>https://www.msperlin.com/blog/author/sergio-da-silva/</link>
     </image>
     
     <item>
       <title>Lotka’s law for the Brazilian scientific output published in journals</title>
-      <link>http://www.msperlin.com/blog/publication/2018_jis-lotka/</link>
+      <link>https://www.msperlin.com/blog/publication/2018_jis-lotka/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2018_jis-lotka/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2018_jis-lotka/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>The Brazilian scientific output published in journals: A study based on a large CV database</title>
-      <link>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
+      <link>https://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</link>
       <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
-      <guid>http://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
+      <guid>https://www.msperlin.com/blog/publication/2017_ji-brazilianscientificoutput/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
