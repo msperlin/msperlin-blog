@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>market microstructure | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/market-microstructure/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/market-microstructure/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/market-microstructure/</link>
+      <atom:link href="https://www.msperlin.com/tag/market-microstructure/index.xml" rel="self" type="application/rss+xml" />
     <description>market microstructure</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Mon, 02 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>market microstructure</title>
-      <link>https://www.msperlin.com/blog/tag/market-microstructure/</link>
+      <link>https://www.msperlin.com/tag/market-microstructure/</link>
     </image>
     
     <item>
       <title>Using R to download high frequency trade data diretcly from Bovespa</title>
-      <link>https://www.msperlin.com/blog/post/2017-01-02-gethfdata/</link>
+      <link>https://www.msperlin.com/post/2017-01-02-gethfdata/</link>
       <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2017-01-02-gethfdata/</guid>
+      <guid>https://www.msperlin.com/post/2017-01-02-gethfdata/</guid>
       <description>
 
 

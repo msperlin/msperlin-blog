@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vdr | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/vdr/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/vdr/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/vdr/</link>
+      <atom:link href="https://www.msperlin.com/tag/vdr/index.xml" rel="self" type="application/rss+xml" />
     <description>vdr</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 22 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>vdr</title>
-      <link>https://www.msperlin.com/blog/tag/vdr/</link>
+      <link>https://www.msperlin.com/tag/vdr/</link>
     </image>
     
     <item>
       <title>NEW BOOK: Visualização de Dados com o R (in portuguese)</title>
-      <link>https://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</link>
+      <link>https://www.msperlin.com/post/2022-10-22-vdr-ed1-announcement/</link>
       <pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2022-10-22-vdr-ed1-announcement/</guid>
+      <guid>https://www.msperlin.com/post/2022-10-22-vdr-ed1-announcement/</guid>
       <description>
 
 

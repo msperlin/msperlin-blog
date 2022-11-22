@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>prophet | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/prophet/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/prophet/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/prophet/</link>
+      <atom:link href="https://www.msperlin.com/tag/prophet/index.xml" rel="self" type="application/rss+xml" />
     <description>prophet</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>prophet</title>
-      <link>https://www.msperlin.com/blog/tag/prophet/</link>
+      <link>https://www.msperlin.com/tag/prophet/</link>
     </image>
     
     <item>
       <title>Can we predict stock prices with Prophet?</title>
-      <link>https://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</link>
+      <link>https://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2017-03-05-prophet-and_stock-market/</guid>
+      <guid>https://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</guid>
       <description>
 
 
@@ -175,7 +175,7 @@ p &amp;lt;- ggplot(my.result, aes(x=factor(nfor),
 p &amp;lt;- p + geom_boxplot()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We do find some positive dependency. As the horizon increases, the forecasting algorithm makes more mistakes. Surprisingly, this pattern is not found for &lt;code&gt;nfor=5&lt;/code&gt; and &lt;code&gt;nfor=4&lt;/code&gt;. It might be interesting to add more data and check if this effect is robust.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;encopassing-test&#34; class=&#34;section level2&#34;&gt;
@@ -257,7 +257,7 @@ p &amp;lt;- p + geom_vline(aes(xintercept =  my.profit),size=2)
 p &amp;lt;- p + labs(x=&amp;#39;Returns from random trading signals&amp;#39;)
 print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The previous histogram shows the total return from randomnly generated signals in 10^{4} simulations. The vertical line is the result from using &lt;code&gt;prophet&lt;/code&gt;. As you can see, it is a bit higher than the average of the distribution. The total return from &lt;code&gt;prophet&lt;/code&gt; is lower than the return of the naive strategy in 99.72 percent of the simulations. This is not a bad result. But, notice that we didnt add trading or liquidity costs to the analysis, which will make the total returns worse.&lt;/p&gt;
 &lt;p&gt;The main results of this simple study are clear: &lt;strong&gt;&lt;code&gt;prophet&lt;/code&gt; is bad at point forecasts for returns, specially for longer horizons, but does quite better in directional predictions&lt;/strong&gt;. It might be interesting to test it further, with more data, adding trading costs, other forecasting setups, and see if the results hold.&lt;/p&gt;
 &lt;/div&gt;

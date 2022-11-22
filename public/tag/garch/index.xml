@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>garch | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/garch/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/garch/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/garch/</link>
+      <atom:link href="https://www.msperlin.com/tag/garch/index.xml" rel="self" type="application/rss+xml" />
     <description>garch</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>garch</title>
-      <link>https://www.msperlin.com/blog/tag/garch/</link>
+      <link>https://www.msperlin.com/tag/garch/</link>
     </image>
     
     <item>
       <title>A GARCH Tutorial in R (revised)</title>
-      <link>https://www.msperlin.com/blog/post/2020-07-07-garch-tutorial-in-r-revised/</link>
+      <link>https://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2020-07-07-garch-tutorial-in-r-revised/</guid>
+      <guid>https://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;&lt;strong&gt;2020-07-22 Update: The final version of the paper is now published at &lt;a href=&#34;https://rac.anpad.org.br/index.php/rac/article/view/1420?fbclid=IwAR0D0N5RBmeX92sXY22r8RWPDjlVjM00p-DjuufSrYf9WgOf9JhOcGoUS1Q&#34;&gt;RAC&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
@@ -30,11 +30,11 @@
     
     <item>
       <title>A GARCH Tutorial in R</title>
-      <link>https://www.msperlin.com/blog/post/2020-03-29-garch-tutorial-in-r/</link>
+      <link>https://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</link>
       <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2020-03-29-garch-tutorial-in-r/</guid>
+      <guid>https://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Myself, Mauro Mastella, Daniel Vancin and Henrique Ramos, just finished a tutorial paper about GARCH models in R and I believe it is a good content for those learning financial econometrics. You can find the full paper in this &lt;a href=&#34;https://docs.google.com/document/d/1BcIFoM25haxWIVtQfzMMGPnPG--gTt2f3XhGJlSHQus/edit?usp=sharing&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;

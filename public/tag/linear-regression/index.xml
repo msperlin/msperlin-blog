@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linear regression | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/linear-regression/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/linear-regression/</link>
+      <atom:link href="https://www.msperlin.com/tag/linear-regression/index.xml" rel="self" type="application/rss+xml" />
     <description>linear regression</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>linear regression</title>
-      <link>https://www.msperlin.com/blog/tag/linear-regression/</link>
+      <link>https://www.msperlin.com/tag/linear-regression/</link>
     </image>
     
     <item>
       <title>How to calculate betas (systematic risk) for a large number of stocks</title>
-      <link>https://www.msperlin.com/blog/post/2017-01-15-calculatingbetas/</link>
+      <link>https://www.msperlin.com/post/2017-01-15-calculatingbetas/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2017-01-15-calculatingbetas/</guid>
+      <guid>https://www.msperlin.com/post/2017-01-15-calculatingbetas/</guid>
       <description>
 
 
@@ -106,7 +106,7 @@ p &amp;lt;- ggplot(df.stocks, aes(x=ref.date, y=price.adjusted)) +
   geom_line() + facet_wrap(~ticker, scales = &amp;#39;free&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Again, we see that all prices seems to be Ok. This is one of the advantages of working with adjusted (and not closing) prices from yahoo finance. Artificial effects in the dataset such as ex-dividend prices, splits and inplits are already taken into account and the result is a smooth series without any breaks.&lt;/p&gt;
 &lt;p&gt;The final step in preparing the data is to add a column with the returns of the market index. This is not strictly necessary but I really like to keep things organized in a tabular way. Since we will match each vector of returns of the stocks to a vector of returns of the market index, it makes sense to &lt;em&gt;synchronize&lt;/em&gt; the rows in the data.frame. First, we isolate the data for the market index in object &lt;code&gt;df.MktIdx&lt;/code&gt; and use function &lt;code&gt;match&lt;/code&gt; to make an index that matches the dates between the assets and the market index. We later use this index to build a new column in &lt;code&gt;df.stocks&lt;/code&gt;. See the next code:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.MktIdx &amp;lt;- df.stocks[df.stocks$ticker==ticker.MktIdx, ]

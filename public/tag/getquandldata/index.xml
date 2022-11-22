@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GetQuandlData | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/getquandldata/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/getquandldata/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/getquandldata/</link>
+      <atom:link href="https://www.msperlin.com/tag/getquandldata/index.xml" rel="self" type="application/rss+xml" />
     <description>GetQuandlData</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>GetQuandlData</title>
-      <link>https://www.msperlin.com/blog/tag/getquandldata/</link>
+      <link>https://www.msperlin.com/tag/getquandldata/</link>
     </image>
     
     <item>
       <title>New package: GetQuandlData</title>
-      <link>https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/</link>
+      <link>https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/</link>
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/</guid>
+      <guid>https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;

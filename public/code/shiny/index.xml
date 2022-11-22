@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shiny Apps | msperlin</title>
-    <link>https://www.msperlin.com/blog/code/shiny/</link>
-      <atom:link href="https://www.msperlin.com/blog/code/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/code/shiny/</link>
+      <atom:link href="https://www.msperlin.com/code/shiny/index.xml" rel="self" type="application/rss+xml" />
     <description>Shiny Apps</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Shiny Apps</title>
-      <link>https://www.msperlin.com/blog/code/shiny/</link>
+      <link>https://www.msperlin.com/code/shiny/</link>
     </image>
     
   </channel>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSD | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/ssd/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/ssd/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/ssd/</link>
+      <atom:link href="https://www.msperlin.com/tag/ssd/index.xml" rel="self" type="application/rss+xml" />
     <description>SSD</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Fri, 29 Jun 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>SSD</title>
-      <link>https://www.msperlin.com/blog/tag/ssd/</link>
+      <link>https://www.msperlin.com/tag/ssd/</link>
     </image>
     
     <item>
       <title>Benchmarking a SSD drive in reading and writing files with R</title>
-      <link>https://www.msperlin.com/blog/post/2018-06-29-benchmarkingssd/</link>
+      <link>https://www.msperlin.com/post/2018-06-29-benchmarkingssd/</link>
       <pubDate>Fri, 29 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2018-06-29-benchmarkingssd/</guid>
+      <guid>https://www.msperlin.com/post/2018-06-29-benchmarkingssd/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I recently bought a new computer for home and it came with two drives, one HDD and other SSD. The later is used for the OS and the former stores all of my personal files. From all computers I had, both home and work, this is definitely the fastest. While some of the merits are due to the newer CPUS and RAM, the SSD drive can make all the difference in file operations.&lt;/p&gt;
@@ -104,7 +104,7 @@ p &amp;lt;- ggplot(df.res, aes(x = N, y = times, linetype = type.hd)) +
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, the &lt;code&gt;csv-base&lt;/code&gt; format is messing with the y axis. Let’s remove it for better visualization:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 
@@ -113,7 +113,7 @@ p &amp;lt;- ggplot(filter(df.res, !(type.file %in% c(&amp;#39;csv-base&amp;#39;)
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;When it comes to the file format, we learn:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;By far, the &lt;code&gt;fst&lt;/code&gt; format is the best&lt;/strong&gt;. It takes less time to read and write than the others. However, it’s probably unfair to compare it to &lt;code&gt;csv&lt;/code&gt; and &lt;code&gt;rds&lt;/code&gt; as it uses the 16 cores of my computer.&lt;/p&gt;&lt;/li&gt;

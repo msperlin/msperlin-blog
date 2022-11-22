@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>package names | msperlin</title>
-    <link>https://www.msperlin.com/blog/category/package-names/</link>
-      <atom:link href="https://www.msperlin.com/blog/category/package-names/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/category/package-names/</link>
+      <atom:link href="https://www.msperlin.com/category/package-names/index.xml" rel="self" type="application/rss+xml" />
     <description>package names</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 09 May 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>package names</title>
-      <link>https://www.msperlin.com/blog/category/package-names/</link>
+      <link>https://www.msperlin.com/category/package-names/</link>
     </image>
     
     <item>
       <title>Studying CRAN package names</title>
-      <link>https://www.msperlin.com/blog/post/2017-05-09-studying-pkg-names/</link>
+      <link>https://www.msperlin.com/post/2017-05-09-studying-pkg-names/</link>
       <pubDate>Tue, 09 May 2017 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2017-05-09-studying-pkg-names/</guid>
+      <guid>https://www.msperlin.com/post/2017-05-09-studying-pkg-names/</guid>
       <description>
 
 
@@ -43,7 +43,7 @@ df.pkgs &amp;lt;- as.data.frame(available.packages(repos = &amp;#39;https://clou
 p &amp;lt;- ggplot(df.pkgs, aes(x=n.char)) +
   geom_histogram(binwidth = 1)
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As I suspected, the names of CRAN packages are usually small, with an average of 5-6 characters. We have a couple of packages with more than 25 characters. Let’s see their names:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.pkgs$pkg[df.pkgs$n.char&amp;gt;25]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;AnglerCreelSurveySimulation&amp;quot;      &amp;quot;BipartiteModularityMaximization&amp;quot; 
@@ -81,7 +81,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x=n.char, color=source.char )) +
   geom_density(size=1) + coord_cartesian(xlim=c(0, 40))
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As I suspected, the distributions are very different. There is no need to apply a formal test as the visual evidence is clear: CRAN package have a tendency for shorter names.&lt;/p&gt;
 &lt;p&gt;Now, let’s look at the distribution of used letters in relative terms:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(scales)
@@ -109,7 +109,7 @@ p &amp;lt;- ggplot(df.to.plot, aes(x=char, y = perc.count, fill=source.char,widt
   geom_col(position = &amp;#39;dodge&amp;#39;) + scale_y_continuous(labels = percent_format())  
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The result is really interesting! I was expecting far more differences in the relative use of characters. Not surprisingly, letter R is more used in package naming than in the English vocabulary. Still, the difference is not that large. Given that R is the name of the programming language, I was expecting a much greater proportion of R characters. My intuition was clearly wrong! In comparison, letters P and M have more difference in relative terms than letter R. I’m really not sure why that is. Overall, it is pretty clear the use of characters in the names of packages follow the distribution of words in the English language.&lt;/p&gt;
 &lt;p&gt;While the distribution of letter is similar, we find just a few package with names exactly as in the English language. For all 18699 packages found in CRAN, only 1260 are an exact match of all 146625 unique words in the English vocabulary.&lt;/p&gt;
 &lt;p&gt;Summing up, our data analysis shows that the names of packages are usually shorter than the words in the English language. However, when looking at distribution of used characters and editing distances, it is pretty clear that the names are based on the English language, usually with a few modifications of a base word.&lt;/p&gt;

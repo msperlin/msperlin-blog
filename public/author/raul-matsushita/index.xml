@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raul Matsushita | msperlin</title>
-    <link>https://www.msperlin.com/blog/author/raul-matsushita/</link>
-      <atom:link href="https://www.msperlin.com/blog/author/raul-matsushita/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/author/raul-matsushita/</link>
+      <atom:link href="https://www.msperlin.com/author/raul-matsushita/index.xml" rel="self" type="application/rss+xml" />
     <description>Raul Matsushita</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Raul Matsushita</title>
-      <link>https://www.msperlin.com/blog/author/raul-matsushita/</link>
+      <link>https://www.msperlin.com/author/raul-matsushita/</link>
     </image>
     
     <item>
       <title>Lotka’s law for the Brazilian scientific output published in journals</title>
-      <link>https://www.msperlin.com/blog/publication/2018_jis-lotka/</link>
+      <link>https://www.msperlin.com/publication/2018_jis-lotka/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/publication/2018_jis-lotka/</guid>
+      <guid>https://www.msperlin.com/publication/2018_jis-lotka/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PkgsFromFiles | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/pkgsfromfiles/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/pkgsfromfiles/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/pkgsfromfiles/</link>
+      <atom:link href="https://www.msperlin.com/tag/pkgsfromfiles/index.xml" rel="self" type="application/rss+xml" />
     <description>PkgsFromFiles</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sat, 13 Oct 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>PkgsFromFiles</title>
-      <link>https://www.msperlin.com/blog/tag/pkgsfromfiles/</link>
+      <link>https://www.msperlin.com/tag/pkgsfromfiles/</link>
     </image>
     
     <item>
       <title>New package in CRAN: PkgsFromFiles</title>
-      <link>https://www.msperlin.com/blog/post/2018-10-13-newpackage-pkgsfromfiles/</link>
+      <link>https://www.msperlin.com/post/2018-10-13-newpackage-pkgsfromfiles/</link>
       <pubDate>Sat, 13 Oct 2018 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2018-10-13-newpackage-pkgsfromfiles/</guid>
+      <guid>https://www.msperlin.com/post/2018-10-13-newpackage-pkgsfromfiles/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Its been a while since I develop a CRAN package and this weekend I decided
@@ -166,7 +166,7 @@ p &amp;lt;- pff_plot_summary_pkgs(folder.in = my.dir)&lt;/code&gt;&lt;/pre&gt;
 ##       Rmarkdown files: 2 files
 ##       Sweave files: 0 files&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-10-13-NewPackage-PkgsFromFiles_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As you can see, I’m a big fan of the &lt;code&gt;tidyverse&lt;/code&gt;!&lt;/p&gt;
 &lt;p&gt;Hope you guys find the package useful! Fell free to send any question to the comment section of the post or my email (&lt;a href=&#34;mailto:marceloperlin@gmail.com&#34; class=&#34;email&#34;&gt;marceloperlin@gmail.com&lt;/a&gt;).&lt;/p&gt;
 &lt;/div&gt;

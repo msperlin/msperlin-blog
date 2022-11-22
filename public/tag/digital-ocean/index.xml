@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>digital ocean | msperlin</title>
-    <link>https://www.msperlin.com/blog/tag/digital-ocean/</link>
-      <atom:link href="https://www.msperlin.com/blog/tag/digital-ocean/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://www.msperlin.com/tag/digital-ocean/</link>
+      <atom:link href="https://www.msperlin.com/tag/digital-ocean/index.xml" rel="self" type="application/rss+xml" />
     <description>digital ocean</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://www.msperlin.com/blog/img/portrait.jpg</url>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>digital ocean</title>
-      <link>https://www.msperlin.com/blog/tag/digital-ocean/</link>
+      <link>https://www.msperlin.com/tag/digital-ocean/</link>
     </image>
     
     <item>
       <title>Serving shiny apps in the internet with your own server</title>
-      <link>https://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/</link>
+      <link>https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/</guid>
+      <guid>https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;In this post I’ll share my experience in setting up my own virtual server for hosting shiny applications in &lt;a href=&#34;https://www.digitalocean.com/&#34;&gt;Digital Ocean&lt;/a&gt;. First, context. I’m working in a academic project where we build a package for accessing financial data and corporate events directly from B3, the Brazilian financial exchange. The objective is to set a reproducible standard and facilite data acquisition of a large, and very interesting, dataset. The result is GetDFPData. Since many researchers and students in Brazil are not knowledgeable in R, we needed to make it easier for people to use the software. A shiny app hosted in the internet is perfect for that. The app is available at &lt;a href=&#34;http://www.msperlin.com/shiny/GetDFPData/&#34;&gt;http://www.msperlin.com/shiny/GetDFPData/&lt;/a&gt;.&lt;/p&gt;
