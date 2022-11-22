@@ -39,7 +39,7 @@ tags = []
 
 # Links (optional).
 url_pdf = ""
-url_slides = "https://www.msperlin.com/blog/my-slides/Slides-Dados-Internet-no-R.html"
+url_slides = "https://www.msperlin.com/my-slides/Slides-Dados-Internet-no-R.html"
 url_video = ""
 url_code = ""
 

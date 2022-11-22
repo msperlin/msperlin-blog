@@ -10,10 +10,10 @@ categories: ["R", "afedR"]
 
 
 ```{block, type='alert alert-warning'}
-2021-02-28 -- Important: this blog post is deprecated. With the [last revision](https://www.msperlin.com/blog/post/2021-02-28-afedr-revision-2021/) in march 2021, the Rmd slides are no longer available within the book material.
+2021-02-28 -- Important: this blog post is deprecated. With the [last revision](https://www.msperlin.com/post/2021-02-28-afedr-revision-2021/) in march 2021, the Rmd slides are no longer available within the book material.
 ```
 
-The slides for my newly released book [Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/) are finally ready! I apologize for keep you guys waiting. 
+The slides for my newly released book [Analyzing Financial and Economic Data with R](https://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/) are finally ready! I apologize for keep you guys waiting. 
 
 The slides are available as independent .Rmd files for all book chapters including: 
 

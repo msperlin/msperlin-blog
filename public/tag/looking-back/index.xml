@@ -42,22 +42,22 @@
 &lt;/div&gt;
 &lt;div id=&#34;books&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Books&lt;/h2&gt;
-&lt;p&gt;The second edition of my R book - &lt;a href=&#34;https://www.msperlin.com/blog/publication/2020_book-afedr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt; was published in January 2020. I spend most of 2019 working towards this edition and I’m very pleased with the result. The book improved a lot, with a more polished content.&lt;/p&gt;
+&lt;p&gt;The second edition of my R book - &lt;a href=&#34;https://www.msperlin.com/publication/2020_book-afedr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt; was published in January 2020. I spend most of 2019 working towards this edition and I’m very pleased with the result. The book improved a lot, with a more polished content.&lt;/p&gt;
 &lt;p&gt;I’m also happy to report that my two other books, &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;padfR&lt;/a&gt; and &lt;a href=&#34;https://www.amazon.com.br/dp/B07RR9K9PV&#34;&gt;pirf&lt;/a&gt;, are receiving great reviews in Amazon.com.br. This is great news, motivating the future editions.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;r-packages&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;R Packages&lt;/h2&gt;
-&lt;p&gt;This year I “broke” package &lt;code&gt;GetDFPData&lt;/code&gt; into two: &lt;code&gt;GetDFPData2&lt;/code&gt; and &lt;code&gt;GetFREData&lt;/code&gt;. Both are still in &lt;a href=&#34;https://github.com/msperlin&#34;&gt;Github&lt;/a&gt; but I’ll soon release it to CRAN. You can read more about this decision &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Additionally, I also wrote the book package &lt;code&gt;afedR&lt;/code&gt;, which facilitates the reproducibility of all book examples. See more details about it &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This year I “broke” package &lt;code&gt;GetDFPData&lt;/code&gt; into two: &lt;code&gt;GetDFPData2&lt;/code&gt; and &lt;code&gt;GetFREData&lt;/code&gt;. Both are still in &lt;a href=&#34;https://github.com/msperlin&#34;&gt;Github&lt;/a&gt; but I’ll soon release it to CRAN. You can read more about this decision &lt;a href=&#34;https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Additionally, I also wrote the book package &lt;code&gt;afedR&lt;/code&gt;, which facilitates the reproducibility of all book examples. See more details about it &lt;a href=&#34;https://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;checking-2019s-plans&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Checking 2019’s plans&lt;/h1&gt;
-&lt;p&gt;At the end of 2019, my plans for 2020 &lt;a href=&#34;https://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;At the end of 2019, my plans for 2020 &lt;a href=&#34;https://www.msperlin.com/post/2019-12-15-looking-back-2019/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
 &lt;dl&gt;
 &lt;dt&gt;Publish afedR (analyzing financial and economic data with R)&lt;/dt&gt;
-&lt;dd&gt;&lt;a href=&#34;https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/&#34;&gt;Done! :)&lt;/a&gt;
+&lt;dd&gt;&lt;a href=&#34;https://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/&#34;&gt;Done! :)&lt;/a&gt;
 &lt;/dd&gt;
 &lt;dt&gt;Finish board papers&lt;/dt&gt;
 &lt;dd&gt;Almost Done. All papers are now in review and, hopefully, are going to be published soon.

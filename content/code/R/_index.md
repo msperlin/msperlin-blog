@@ -67,10 +67,10 @@ fMarkovSwitching ([R-forge](https://rdrr.io/rforge/fMarkovSwitching/))
 ## Book packages
 
 afedR ([Github](https://github.com/msperlin/afedR) only)
-: Book Companion for [Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/publication/2020_book-afedr-en/), including functions for downloading datasets, exercises and code.
+: Book Companion for [Analyzing Financial and Economic Data with R](https://www.msperlin.com/publication/2020_book-afedr-en/), including functions for downloading datasets, exercises and code.
 
 adfeR ([Github](https://github.com/msperlin/adfeR) only)
-: Book Companion for [Análise de Dados Financeiros e Econômicos com o R](https://www.msperlin.com/blog/publication/2021_book-adfer-pt/), including functions for downloading datasets, exercises and code.
+: Book Companion for [Análise de Dados Financeiros e Econômicos com o R](https://www.msperlin.com/publication/2021_book-adfer-pt/), including functions for downloading datasets, exercises and code.
 
 ---
 

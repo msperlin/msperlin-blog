@@ -15,16 +15,16 @@ categories:
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(message = FALSE, cache = TRUE, eval=FALSE)
 
-link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
-link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_toc <- 'https://www.msperlin.com/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/'
 link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
-link_full_compiled_html <- 'https://www.msperlin.com/blog/files/Introduction to R_John Wick_Ver 01.html'
-link_chapter_2_html_file <- 'https://www.msperlin.com/blog/files/Introduction to R_Roger Federer_Ver 01.html'
+link_full_compiled_html <- 'https://www.msperlin.com/files/Introduction to R_John Wick_Ver 01.html'
+link_chapter_2_html_file <- 'https://www.msperlin.com/files/Introduction to R_Roger Federer_Ver 01.html'
 link_github <- 'https://github.com/msperlin/afedR'
 ```
 
 ```{block, type='alert alert-warning'}
-This post is deprecated due to changes in package code. See the new post in [this link](https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/).
+This post is deprecated due to changes in package code. See the new post in [this link](https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/).
 ```
 
 In the new edition of my R book, to be released in early 2020 (see [current TOC](`r link_toc`), [new packages](`r link_previous_post`) and [notification form ](`r link_notification`)), I'm giving special attention to its use in the classroom. For that, I've created class slides and R exercises in the static and dynamic form. All the extra content will be freely available in the internet and distributed with package `afedR`. Anyone can use it, without the need of purchasing the book (but off course it would help).
@@ -50,7 +50,7 @@ list.files(file.path(my_tempdir, 'afedR files/eoc-exercises/'))
 
 Every .Rmd file is self-contained and should compile without any problems in your computer. 
 
-Now, the real benefit of the package is in the **dynamic R exercises** you can create with package `exams`. [Back in 2017](https://www.msperlin.com/blog/post/2017-01-30-exams-with-dynamic-content/) I already talked about my admiration and use of `exams` in all of my university classes. In short, you can use `exams` to create an unique version of a exercise for each student by randomizing numbers and text. All questions are written in .Rmd/.Rnw files and, since its all RMarkdown code, you can make it as dynamic as possible. The amount of hours it saved me so far in creating and grading exams is unbelievable! I even changed the structure of all my classes to a more activity-oriented coursework based on single-choice exercises. The feedback I get from the students has been very positive. 
+Now, the real benefit of the package is in the **dynamic R exercises** you can create with package `exams`. [Back in 2017](https://www.msperlin.com/post/2017-01-30-exams-with-dynamic-content/) I already talked about my admiration and use of `exams` in all of my university classes. In short, you can use `exams` to create an unique version of a exercise for each student by randomizing numbers and text. All questions are written in .Rmd/.Rnw files and, since its all RMarkdown code, you can make it as dynamic as possible. The amount of hours it saved me so far in creating and grading exams is unbelievable! I even changed the structure of all my classes to a more activity-oriented coursework based on single-choice exercises. The feedback I get from the students has been very positive. 
 
 As a result of using `exams` for many years, I wrote a significant database of R single-choice questions that I use in my university courses. It amounts to 91 questions, covering R basics, functions, class objects, programming, econometrics, and much more. All of these exam questions are included in the package and I'll add more with time. You can find all of them in a compiled html file in this [link](`r link_full_compiled_html`).
 

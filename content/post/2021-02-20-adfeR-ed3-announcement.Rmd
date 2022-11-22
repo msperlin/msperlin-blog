@@ -11,16 +11,16 @@ categories: ["R", "adfeR"]
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(message = TRUE, cache = TRUE, eval=TRUE)
 
-link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
-link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_toc <- 'https://www.msperlin.com/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/'
 link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
 
-link_book_page <- 'https://www.msperlin.com/blog/publication/2021_book-adfer-pt/'
+link_book_page <- 'https://www.msperlin.com/publication/2021_book-adfer-pt/'
 link_github <- 'https://github.com/msperlin/adfeR'
 link_web_book <- 'https://www.msperlin.com/adfeR/'
 link_amazon_ebook <- 'https://www.amazon.com.br/dp/B08WNC27ZY'
 link_amazon_print <- 'https://www.amazon.com/dp/B08WP8CCDB'
-link_post_exercises <- 'https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/'
+link_post_exercises <- 'https://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/'
 ```
 
 

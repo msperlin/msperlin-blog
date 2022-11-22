@@ -10,7 +10,7 @@ categories:
 - R
 ---
 
-I've been researching financial data for over 10 years and gathered a great deal of compiled tables. Most of these comes from my R packages and have been used for creating class material, doing [research](https://www.msperlin.com/blog/publication/) and even [writing a book](https://www.msperlin.com/blog/publication/2019_book-pirf/). These files were mostly found in many copies across different projects. 
+I've been researching financial data for over 10 years and gathered a great deal of compiled tables. Most of these comes from my R packages and have been used for creating class material, doing [research](https://www.msperlin.com/publication/) and even [writing a book](https://www.msperlin.com/publication/2019_book-pirf/). These files were mostly found in many copies across different projects. 
 
 Last week I started to organize and centralize all my data files and noticed how valuable these tables could be for other researchers and teachers. 
 

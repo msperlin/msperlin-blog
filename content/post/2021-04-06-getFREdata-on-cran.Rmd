@@ -28,7 +28,7 @@ The R package fetches data from the [CVM ftp](http://dados.cvm.gov.br/dados/CIA_
 - Dividends details
 
 
-Historical parsed data between 2010 and 2019 is available for download in my [personal site](https://www.msperlin.com/blog/data/).
+Historical parsed data between 2010 and 2019 is available for download in my [personal site](https://www.msperlin.com/data/).
 
 
 ## Installation

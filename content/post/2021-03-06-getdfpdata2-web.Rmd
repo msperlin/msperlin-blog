@@ -18,7 +18,7 @@ link_shiny <- 'https://www.msperlin.com/shiny/GetDFPData/'
 ```
 
 `GetDFPData` is an academic project to provide free and unrestricted access to financial reports from B3, the brazilian exchange. 
-[Back in 2020](https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/) I split the code of `GetDFDData` into two distinct packages: `GetDFPData2` and `GetFREData`. In short, I've found a new data source at CVM (comissão valores mobiliários) that is much easier to work than B3's site. While the code in `GetDFPData2` is becoming stable and will soon be released in CRAN, the [shiny app](https://www.msperlin.com/shiny/GetDFPData/) was missing this important update. 
+[Back in 2020](https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/) I split the code of `GetDFDData` into two distinct packages: `GetDFPData2` and `GetFREData`. In short, I've found a new data source at CVM (comissão valores mobiliários) that is much easier to work than B3's site. While the code in `GetDFPData2` is becoming stable and will soon be released in CRAN, the [shiny app](https://www.msperlin.com/shiny/GetDFPData/) was missing this important update. 
 
 Finally got some free time to work on the shinny app once again. The main change is that the underlying code is fully based on GetDFPData2, i.e., the data output is exactly the same as using an R session. Previous version used cached data from `GetDFPData`, which meant that every year I had to recompile and feed the new data to the app. This choice was not accidental as previous version of the package took a long time to parse all xml files from B3. The new version executes data importation very quickly, allowing for a web interface in a modest server such as mine. 
 

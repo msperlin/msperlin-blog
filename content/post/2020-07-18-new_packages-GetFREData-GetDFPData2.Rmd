@@ -18,11 +18,11 @@ Back in 2017 I wrote the first version of package GetDFPData, along with a  [pap
 
 However, maintaining the package over the  years has been frustrating. The code is becoming increasingly complex, much due to the fact that it handles FRE and DFP data in a single package. Execution speed for large scale importation -- many years and many companies -- is not reasonable. In top of that, B3's website is unstable as a source of data and it seems it will stay like that for a long time. 
 
-Additionally, back in april 2020 (see this [blog post](https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/)), I started to work with CVM data from its [ftp site](http://dados.cvm.gov.br/dados/CIA_ABERTA/). The experience has been great. The data is solid, matching all B3's numbers, with easy and fast access. For example, I can download 10 years of financial data for all available companies in less than 10 minutes. 
+Additionally, back in april 2020 (see this [blog post](https://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/)), I started to work with CVM data from its [ftp site](http://dados.cvm.gov.br/dados/CIA_ABERTA/). The experience has been great. The data is solid, matching all B3's numbers, with easy and fast access. For example, I can download 10 years of financial data for all available companies in less than 10 minutes. 
 
 After some considerable thought, I'm convinced that is much easier to maintain two separate packages, instead of combining both in a single module such as in `GetDFPData`. With that, I'm releasing two new packages: `GetDFPData2`,  and `GetFREData`.
 
-The first, `GetDFPData2` (previously called [GetCVMData](https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/)), is a backwards incompatible version of `GetDFPData`, using the CVM ftp site as it source and focusing in one purpose: downloading annual and quarterly financial reports.  The second, `GetFREData` only imports corporate data from the FRE system. 
+The first, `GetDFPData2` (previously called [GetCVMData](https://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/)), is a backwards incompatible version of `GetDFPData`, using the CVM ftp site as it source and focusing in one purpose: downloading annual and quarterly financial reports.  The second, `GetFREData` only imports corporate data from the FRE system. 
 
 ## Installation
 

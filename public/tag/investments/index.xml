@@ -129,7 +129,7 @@ tab &amp;lt;- tab.test %&amp;gt;%
        subtitle = str_c(&amp;#39;The plot shows the probability of observing a future profit/loss given a number \n&amp;#39;,
                         &amp;#39; of consecutive profits/losses. See details in \n&amp;#39;,
                         &amp;#39; &amp;lt;https://en.wikipedia.org/wiki/Lindy_effect&amp;gt;&amp;#39;),
-       caption = str_c(&amp;#39;Made by Marcelo S. Perlin (www.msperlin.com/blog)\n&amp;#39;,
+       caption = str_c(&amp;#39;Made by Marcelo S. Perlin (www.msperlin.com)\n&amp;#39;,
                        &amp;#39;The data covers net income of Brazilian companies from 2000 to 2019&amp;#39;) ) + 
   scale_y_continuous(labels = scales::percent, 
                      breaks = seq(0, 1, by = 0.1), limits = c(0,1)) + 
@@ -149,7 +149,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Companies with repeated decreases in its net income are more likely to turn an increase than to continue to decrease (see line at bottom of chart). Notice also that the code can’t find cases for a company with nine or more year of decreases in profit to exist. These are the companies that were bought or bankrupted.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The message from the data and the analysis is clear. &lt;strong&gt;In the corporate world, financial inertia is the rule, not the exception&lt;/strong&gt;. Good and profitable companies continue to be good and profitable enterprises, while bad and unprofitable companies also continue in the same path.&lt;/p&gt;
-&lt;p&gt;From the investment point of view, &lt;strong&gt;the results suggests that time is a friend of the investor&lt;/strong&gt;. Overall, companies tend to improve its earnings. This corroborates the results from a &lt;a href=&#34;https://www.msperlin.com/blog/post/2018-05-12-investing-long-run/&#34;&gt;previous post&lt;/a&gt;, where I analyzed the effect of the investment holding period over nominal and real returns to the investor. In short, the more time you stay in the market, the better.&lt;/p&gt;
+&lt;p&gt;From the investment point of view, &lt;strong&gt;the results suggests that time is a friend of the investor&lt;/strong&gt;. Overall, companies tend to improve its earnings. This corroborates the results from a &lt;a href=&#34;https://www.msperlin.com/post/2018-05-12-investing-long-run/&#34;&gt;previous post&lt;/a&gt;, where I analyzed the effect of the investment holding period over nominal and real returns to the investor. In short, the more time you stay in the market, the better.&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -317,7 +317,7 @@ p &amp;lt;- ggplot(res.inv, aes(x = ref.month, y = best.return)) +
       title = &amp;#39;Monthly Returns of Bettina and GodBot&amp;#39;,
       subtitle = paste0(&amp;#39;- This plot shows the &amp;quot;alleged&amp;quot; returns from Bettina against a perfect predictor \n for the BR stock market\n&amp;#39;,
                         &amp;#39;- The horizontal red line represents the return of Bettina (19.79% monthly)&amp;#39;),
-      caption = &amp;#39;www.msperlin.com/blog&amp;#39;
+      caption = &amp;#39;www.msperlin.com&amp;#39;
        ) + 
  scale_y_continuous(labels = scales::percent)
 

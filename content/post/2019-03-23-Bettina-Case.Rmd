@@ -165,7 +165,7 @@ p <- ggplot(res.inv, aes(x = ref.month, y = best.return)) +
       title = 'Monthly Returns of Bettina and GodBot',
       subtitle = paste0('- This plot shows the "alleged" returns from Bettina against a perfect predictor \n for the BR stock market\n',
                         '- The horizontal red line represents the return of Bettina (19.79% monthly)'),
-      caption = 'www.msperlin.com/blog'
+      caption = 'www.msperlin.com'
        ) + 
  scale_y_continuous(labels = scales::percent)
 

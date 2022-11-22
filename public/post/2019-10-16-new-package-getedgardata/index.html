@@ -730,12 +730,12 @@ Edgar is the interface where we can search for a company’s filling information
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p><strong>As of 2019-10-31, this package is discontinued and will not longer be updated. See <a href="https://www.msperlin.com/blog/post/2019-11-01-new-package-simfinr/">this post</a> for more details about the alternative, package simfinR.</strong></p>
+<p><strong>As of 2019-10-31, this package is discontinued and will not longer be updated. See <a href="https://www.msperlin.com/post/2019-11-01-new-package-simfinr/">this post</a> for more details about the alternative, package simfinR.</strong></p>
 <p>Every company traded in the US stock market must report its quarterly and yearly documents to the SEC and the public in general. This includes its accounting statements (10-K, 10-K) and any other corporate event that is relevant to investors.</p>
 <p><a href="https://www.sec.gov/edgar/searchedgar/companysearch.html">Edgar</a> is the interface where we can search for a company’s filling information. By looking up a company’s CIK code, one can find all previous filling information. A complete list of available forms can be found in this <a href="https://www.sec.gov/forms">link</a>.</p>
 <p>Package <code>GetEdgarData</code> allows the user import the financial documents from such fillings directly into R. Unlike other packages, the information is not taken from the filling’s xml files, but the <a href="https://www.sec.gov/dera/data">structured datasets</a> at the DERA (Division of Economic and Risk Analysis) section . This means we can import a large amount of structured financial data very quickly. The downside is that the available data starts at 2009.</p>
 <p>Like many other packages I’ve wrote for data grabbing, the queries are saved locally using package <code>memoise</code>. This means that the second time you ask for a particular year of data, the function will load a local copy, and will not download the data again.</p>
-<p>Both new packages, <code>GetEdgarData</code> and <code>GetQuandlData</code> (<a href="https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/">blog post</a>) are going to be part of the second edition of my book “Analyzing Financial Data with R” (see first edition <a href="https://www.msperlin.com/pafdR/">here</a>). My expectation is to publish the new book in early 2020.</p>
+<p>Both new packages, <code>GetEdgarData</code> and <code>GetQuandlData</code> (<a href="https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/">blog post</a>) are going to be part of the second edition of my book “Analyzing Financial Data with R” (see first edition <a href="https://www.msperlin.com/pafdR/">here</a>). My expectation is to publish the new book in early 2020.</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>

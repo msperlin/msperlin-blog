@@ -16,7 +16,7 @@ knitr::opts_chunk$set(message = FALSE, cache = TRUE, eval=FALSE)
 
 Surprise, surprise. B3's ftp site is still up and running. 
 
-Following previous [post](https://www.msperlin.com/blog/post/2019-07-01-ftp-shutdown/) regarding the shutdown of B3's ftp site and its impact over GetHFData, I'm happy to report that the site is up and running.  
+Following previous [post](https://www.msperlin.com/post/2019-07-01-ftp-shutdown/) regarding the shutdown of B3's ftp site and its impact over GetHFData, I'm happy to report that the site is up and running.  
 
 We can check it with code:
 

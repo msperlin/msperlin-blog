@@ -36,7 +36,7 @@
 &lt;li&gt;Auditing details&lt;/li&gt;
 &lt;li&gt;Dividends details&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Historical parsed data between 2010 and 2019 is available for download in my &lt;a href=&#34;https://www.msperlin.com/blog/data/&#34;&gt;personal site&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Historical parsed data between 2010 and 2019 is available for download in my &lt;a href=&#34;https://www.msperlin.com/data/&#34;&gt;personal site&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# CRAN (stable)
@@ -404,9 +404,9 @@ library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Back in 2017 I wrote the first version of package GetDFPData, along with a &lt;a href=&#34;http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/78654&#34;&gt;paper&lt;/a&gt; describing the code and providing an empirical application.&lt;/p&gt;
 &lt;p&gt;However, maintaining the package over the years has been frustrating. The code is becoming increasingly complex, much due to the fact that it handles FRE and DFP data in a single package. Execution speed for large scale importation – many years and many companies – is not reasonable. In top of that, B3’s website is unstable as a source of data and it seems it will stay like that for a long time.&lt;/p&gt;
-&lt;p&gt;Additionally, back in april 2020 (see this &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/&#34;&gt;blog post&lt;/a&gt;), I started to work with CVM data from its &lt;a href=&#34;http://dados.cvm.gov.br/dados/CIA_ABERTA/&#34;&gt;ftp site&lt;/a&gt;. The experience has been great. The data is solid, matching all B3’s numbers, with easy and fast access. For example, I can download 10 years of financial data for all available companies in less than 10 minutes.&lt;/p&gt;
+&lt;p&gt;Additionally, back in april 2020 (see this &lt;a href=&#34;https://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/&#34;&gt;blog post&lt;/a&gt;), I started to work with CVM data from its &lt;a href=&#34;http://dados.cvm.gov.br/dados/CIA_ABERTA/&#34;&gt;ftp site&lt;/a&gt;. The experience has been great. The data is solid, matching all B3’s numbers, with easy and fast access. For example, I can download 10 years of financial data for all available companies in less than 10 minutes.&lt;/p&gt;
 &lt;p&gt;After some considerable thought, I’m convinced that is much easier to maintain two separate packages, instead of combining both in a single module such as in &lt;code&gt;GetDFPData&lt;/code&gt;. With that, I’m releasing two new packages: &lt;code&gt;GetDFPData2&lt;/code&gt;, and &lt;code&gt;GetFREData&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The first, &lt;code&gt;GetDFPData2&lt;/code&gt; (previously called &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-04-20-new-package-getcvmdata/&#34;&gt;GetCVMData&lt;/a&gt;), is a backwards incompatible version of &lt;code&gt;GetDFPData&lt;/code&gt;, using the CVM ftp site as it source and focusing in one purpose: downloading annual and quarterly financial reports. The second, &lt;code&gt;GetFREData&lt;/code&gt; only imports corporate data from the FRE system.&lt;/p&gt;
+&lt;p&gt;The first, &lt;code&gt;GetDFPData2&lt;/code&gt; (previously called &lt;a href=&#34;https://www.msperlin.com/post/2020-04-20-new-package-getcvmdata/&#34;&gt;GetCVMData&lt;/a&gt;), is a backwards incompatible version of &lt;code&gt;GetDFPData&lt;/code&gt;, using the CVM ftp site as it source and focusing in one purpose: downloading annual and quarterly financial reports. The second, &lt;code&gt;GetFREData&lt;/code&gt; only imports corporate data from the FRE system.&lt;/p&gt;
 &lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Installation&lt;/h2&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# not in CRAN, install from github

@@ -14,12 +14,12 @@ draft: no
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(message = FALSE, eval=TRUE)
 
-link_full_compiled_html <- 'https://www.msperlin.com/blog/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
+link_full_compiled_html <- 'https://www.msperlin.com/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
 link_book_web_adfeR <- 'https://www.msperlin.com/adfeR/'
 link_book_web_afedR <- 'https://www.msperlin.com/afedR/'
 exams_link <- 'http://www.r-exams.org/'
 amazon_link <- 'https://www.amazon.com/dp/B084LSNXMN'
-link_blog_dyn_exerc <- 'https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/'
+link_blog_dyn_exerc <- 'https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/'
 ```
 
 I recently launched the third edition of my [portuguese R book (adfeR-pt-br)](`r link_book_web_adfeR`), with many due changes from the [international version (afedR-en)](`r link_book_web_afedR`). To make it clear, the second edition of afedR (en) was ahead in content and the third edition of adfeR (pt-br) closed that gap. 

@@ -63,13 +63,13 @@ This is what you'll learn from this book:
 
 [02-Solutions to end of chapter exercises](https://www.msperlin.com/afedR/)
 
-[03-Compiling book exercises to pdf, html or _e-learning_ platforms](https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/)
+[03-Compiling book exercises to pdf, html or _e-learning_ platforms](https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/)
 
 [04-Book package in Github](https://github.com/msperlin/afedR)
 
-[05-Data, Code and Exercises](https://www.msperlin.com/blog/files/afedr-files/afedR-code-and-data.zip)
+[05-Data, Code and Exercises](https://www.msperlin.com/files/afedr-files/afedR-code-and-data.zip)
 
-[06-Table of Contents](https://www.msperlin.com/blog/files/afedr-files/TOC_afedR_ed2.pdf)
+[06-Table of Contents](https://www.msperlin.com/files/afedr-files/TOC_afedR_ed2.pdf)
 
 
 ### Book Links

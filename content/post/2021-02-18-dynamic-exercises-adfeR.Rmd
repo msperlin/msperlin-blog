@@ -14,12 +14,12 @@ draft: no
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(message = TRUE, eval=TRUE)
 
-link_toc <- 'https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf'
-link_previous_post <- 'https://www.msperlin.com/blog/post/2019-11-25-feedback-toc-afedr/'
+link_toc <- 'https://www.msperlin.com/files/afedr-files/afedR-TOC-2019-11-25.pdf'
+link_previous_post <- 'https://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/'
 link_notification <- 'https://forms.gle/3x3mj2zzXqcqmT6x9'
-link_full_compiled_html <- 'https://www.msperlin.com/blog/files/Introduction to R_John Wick_Ver 01.html'
-link_chapter_2_html_file <- 'https://www.msperlin.com/blog/files/Introduction to R_Roger Federer_Ver 01.html'
-link_book_page <- 'https://www.msperlin.com/blog/publication/2021_book-adfer-pt/'
+link_full_compiled_html <- 'https://www.msperlin.com/files/Introduction to R_John Wick_Ver 01.html'
+link_chapter_2_html_file <- 'https://www.msperlin.com/files/Introduction to R_Roger Federer_Ver 01.html'
+link_book_page <- 'https://www.msperlin.com/publication/2021_book-adfer-pt/'
 link_github <- 'https://github.com/msperlin/adfeR'
 link_book_web <- 'https://www.msperlin.com/adfeR/'
 ```

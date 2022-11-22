@@ -12,9 +12,9 @@ At the end of every year I plan to write about the highlight of the current year
 
 # Highlights of 2018
 
-Research wise, my scientometrics paper [Is predatory publishing a real threat? Evidence from a large database study](https://www.msperlin.com/blog/publication/2018_scientometrics-predatory/) was featured in many [news outlets](https://www.msperlin.com/blog/research/on-the-news/). Its [altmetric page](https://springeropen.altmetric.com/details/38773966) is doing great, with over 1100 downloads and featured at top 5% of **all** research output measured by altmetric. This is, by far, the most impactful research piece I ever wrote. Its rewarding to see my work featured in the local and international media.
+Research wise, my scientometrics paper [Is predatory publishing a real threat? Evidence from a large database study](https://www.msperlin.com/publication/2018_scientometrics-predatory/) was featured in many [news outlets](https://www.msperlin.com/research/on-the-news/). Its [altmetric page](https://springeropen.altmetric.com/details/38773966) is doing great, with over 1100 downloads and featured at top 5% of **all** research output measured by altmetric. This is, by far, the most impactful research piece I ever wrote. Its rewarding to see my work featured in the local and international media.
 
-This year I also released the first version of [GetDFPData](https://www.msperlin.com/blog/post/2017-12-06-package-getdfpdata/), a R package for accessing a large database of financial information from B3, the Brazilian exchange. I'm glad to report that many people are using it for their own research. I can see the number of visits in the web interface and the frequent emails I get about the package. The feedback from other researchers has been great but, off course, there are always ways to improve the code. I've been constantly developing it over time. 
+This year I also released the first version of [GetDFPData](https://www.msperlin.com/post/2017-12-06-package-getdfpdata/), a R package for accessing a large database of financial information from B3, the Brazilian exchange. I'm glad to report that many people are using it for their own research. I can see the number of visits in the web interface and the frequent emails I get about the package. The feedback from other researchers has been great but, off course, there are always ways to improve the code. I've been constantly developing it over time. 
 
 The GetDFPData package also had an impact in my own research. I've always been biased towards the topic of capital markets and now I'm doing research in corporate finance, mostly due to the new access to a large database of corporate events. Currently, I have three paper initiatives in analyzing the effect of boards formation towards financial performance of Brazilian companies. These will likely probably be published in 2019 or 2020.
 
@@ -25,7 +25,7 @@ Overall, 2018 was a great year. I'm always thankful for having the opportunity o
 
 # My blog posts in 2018
 
-In november I changed the technology behind my blog from [Jekyll to Hugo](https://www.msperlin.com/blog/post/2018-11-03-newblog/). Can't stress enough how much I'm liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.
+In november I changed the technology behind my blog from [Jekyll to Hugo](https://www.msperlin.com/post/2018-11-03-newblog/). Can't stress enough how much I'm liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.
 
 First, let's see how many posts I have so far.
 
@@ -79,11 +79,11 @@ Seems to average about once a month. The blank spaces show that I did not write 
 
 # Checking 2018's plans
 
-In the end of 2017 my plans for 2018  [were](https://www.msperlin.com/blog/post/2017-12-30-looking-back-2017/):
+In the end of 2017 my plans for 2018  [were](https://www.msperlin.com/post/2017-12-30-looking-back-2017/):
 
 **Work on the second edition of the [portuguese book](https://sites.google.com/view/r-financas/)**.
 
-Done! I'm glad to report that the second edition of the book was [published in June 2018](https://www.msperlin.com/blog/post/2018-06-12-padfr-ed2/). It was great to review the book and add several new chapters and sections. As I mentioned in the publication post, this is the largest and longest project I ever worked and it is very satisfying to see it develop over time. Even more satisfying is to receive positive feedback of readers that are reading and using the book to learn to code in R! Many teachers in Economics and Business are also starting to use it in the classroom.
+Done! I'm glad to report that the second edition of the book was [published in June 2018](https://www.msperlin.com/post/2018-06-12-padfr-ed2/). It was great to review the book and add several new chapters and sections. As I mentioned in the publication post, this is the largest and longest project I ever worked and it is very satisfying to see it develop over time. Even more satisfying is to receive positive feedback of readers that are reading and using the book to learn to code in R! Many teachers in Economics and Business are also starting to use it in the classroom.
 
 The book will continue to be update every couple of years. One of the greatest things about R, among many others, is that the language is continually evolving and changing. I have no doubt that there will always be new material to write about.
 
@@ -97,7 +97,7 @@ Unfortunately this project did not launch. I wrote a couple of R scripts for fet
 
 **New edition of "Processing and Analyzing Financial Data with R"**
 
-The international version of my book [pafdR](https://www.msperlin.com/blog/publication/2017_book-pafdr-en/) was published in january 2017. I fell its time to update it with the new chapters and structure from the second edition in portuguese. There are many improvements to the book, with an emphasis in the tidyverse universe.
+The international version of my book [pafdR](https://www.msperlin.com/publication/2017_book-pafdr-en/) was published in january 2017. I fell its time to update it with the new chapters and structure from the second edition in portuguese. There are many improvements to the book, with an emphasis in the tidyverse universe.
 
 
 **Work on my new book: "Investing For the Long Term " (provisory title)**

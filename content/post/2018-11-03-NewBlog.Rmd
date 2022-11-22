@@ -8,7 +8,7 @@ tags: ["R", "site"]
 draft: false
 ---
 
-I while ago I [wrote about purchasing my own webserver in digital ocean and hosting my shinny applications](https://www.msperlin.com/blog/post/2017-12-13-serving-shiny-apps-internet/). Last week I finally got some time to migrate my blog from [Github](https://msperlin.github.io/) to my new domain, [www.msperlin.com](https://www.msperlin.com/blog). While doing that, I also decided to change the technology behind making the blog, from Jekyll to Hugo. Here are my reasons.
+I while ago I [wrote about purchasing my own webserver in digital ocean and hosting my shinny applications](https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/). Last week I finally got some time to migrate my blog from [Github](https://msperlin.github.io/) to my new domain, [www.msperlin.com](https://www.msperlin.com). While doing that, I also decided to change the technology behind making the blog, from Jekyll to Hugo. Here are my reasons.
 
 [Jekyll](https://jekyllrb.com/) is great for making simple static sites, specially with this [template](https://deanattali.com/beautiful-jekyll/) from Dean Attali. It was easy to set it up and host it in [Github](https://msperlin.github.io/). My problems with this configuration are:
 
@@ -20,7 +20,7 @@ I while ago I [wrote about purchasing my own webserver in digital ocean and host
 
 - There is a lag between writing changes in files and seeing it live in msperlin.github.io. This can get annoying. With my own domain, all changes are instantaneous.
 
-Hosting the static website in www.msperlin.com is very easy. I wrote a simple bash script that compiles the site locally using `blogdown::build_site()` and copy all files to my server with ssh. Going further, I also added documentation about my CRAN packages using `pkgdown`. See an example for PkgsFromFiles [here](https://www.msperlin.com/blog/docs/PkgsFromFiles/). 
+Hosting the static website in www.msperlin.com is very easy. I wrote a simple bash script that compiles the site locally using `blogdown::build_site()` and copy all files to my server with ssh. Going further, I also added documentation about my CRAN packages using `pkgdown`. See an example for PkgsFromFiles [here](https://www.msperlin.com/docs/PkgsFromFiles/). 
 
 I am very pleased with this setup and I hope that I won't need to change it in the next couple of years. The transition is a lot of work! I had to recompile all Rmd posts and copy and paste all other textual content. 
 

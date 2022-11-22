@@ -8,7 +8,7 @@ categories: [R, book]
 ---
 
 ```{block, type="alert alert-success"}
-IMPORTANT: The third edition of the book was released in 2021 -- more details in this [link](https://www.msperlin.com/blog/publication/2021_book-adfer-pt/)
+IMPORTANT: The third edition of the book was released in 2021 -- more details in this [link](https://www.msperlin.com/publication/2021_book-adfer-pt/)
 ```
 
 It is with great pleasure that I announce the second edition of the portuguese version of my book, Processing and Analyzing Financial Data with R. This edition updates the material significantly. The portuguese version is now not only in par with the [international version of the book](https://www.amazon.com/dp/B084LSNXMN), but much more!

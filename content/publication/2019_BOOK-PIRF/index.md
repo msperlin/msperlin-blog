@@ -55,5 +55,5 @@ A versão online do livro, com os três primeiros capítulos disponibilizados de
 
 O material também é acompanhado por um **aplicativo web disponível** ao público, onde é possível simular o investimento e resgate líquido de vários produtos da renda fixa. Acesse o aplicativo [aqui](https://www.msperlin.com/shiny/PIRF/).
 
-O apêndice técnico online da obra está disponibilizado [aqui](https://www.msperlin.com/blog/files/Apendice_PIRF.pdf).
+O apêndice técnico online da obra está disponibilizado [aqui](https://www.msperlin.com/files/Apendice_PIRF.pdf).
 

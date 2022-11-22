@@ -17,7 +17,7 @@ My english book is now being sold with the same promotion. You can purchase it w
 
 If you want to learn more about R and its use in Finance and Economics, this book is a great opportunity.
 
-You can find more details about the book, including datasets, R code and all that good stuff [here](https://www.msperlin.com/blog/publication/2017_book-pafdr-en/). An online and public version with the first 7 chapters is available in this [link](https://www.msperlin.com/pafdR/).
+You can find more details about the book, including datasets, R code and all that good stuff [here](https://www.msperlin.com/publication/2017_book-pafdr-en/). An online and public version with the first 7 chapters is available in this [link](https://www.msperlin.com/pafdR/).
 
 If you liked the work (or not), please provide a honest review at Amazon.com. As an author, I certainly apreciate it and will use the feedback for the next edition of the book. 
 

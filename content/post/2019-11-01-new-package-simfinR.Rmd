@@ -19,7 +19,7 @@ knitr::opts_chunk$set(message = FALSE, cache = TRUE)
 
 ## Introduction
 
-In my [latest post](https://www.msperlin.com/blog/post/2019-10-16-new-package-getedgardata/) I wrote about package GetEdgarData, which downloaded structured data from the SEC. I've been working on this project and soon realized that the available data at the SEC/DERA section is not complete. For example, all Q4 statements are missing. This seems to be the way all exchanges release the financial documents. I've found the same problem here in the Brazilian exchange. 
+In my [latest post](https://www.msperlin.com/post/2019-10-16-new-package-getedgardata/) I wrote about package GetEdgarData, which downloaded structured data from the SEC. I've been working on this project and soon realized that the available data at the SEC/DERA section is not complete. For example, all Q4 statements are missing. This seems to be the way all exchanges release the financial documents. I've found the same problem here in the Brazilian exchange. 
 
 It came to my attention that there is an alternative way of fetching corporate data and adjusted prices, the [SimFin project](https://simfin.com/). From its own website:
 
@@ -31,7 +31,7 @@ Package `simfinR`, available in [Github](https://github.com/msperlin/simfinR/) a
 
 Package `GetEdgarData`, however, will be discontinued. I'll keep the files in [Github](https://github.com/msperlin/GetEdgarData/) but will no longer develop it. It takes a lot of time to write and maintain R packages, and I fell that simfinR has far more potential. 
 
-As mentioned before, both new packages, [GetQuandlData](https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/) and simfinR will be part of my next book,  "Analyzing Financial and Economic Data with R", which should be released in early 2020. 
+As mentioned before, both new packages, [GetQuandlData](https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/) and simfinR will be part of my next book,  "Analyzing Financial and Economic Data with R", which should be released in early 2020. 
 
 
 ## Installation

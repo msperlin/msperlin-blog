@@ -21,14 +21,14 @@
 &lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;It’s been three years since I’ve been using package &lt;code&gt;bookdown&lt;/code&gt; for compiling and distributing &lt;a href=&#34;https://www.msperlin.com/blog/publication/#5&#34;&gt;three different books&lt;/a&gt; in Amazon and the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web&lt;/a&gt;. It helped me greatly in all my book projects and I’m always &lt;strong&gt;grateful&lt;/strong&gt; to Yihui Xie for providing such a useful tool at the &lt;a href=&#34;https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/&#34;&gt;right time&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It’s been three years since I’ve been using package &lt;code&gt;bookdown&lt;/code&gt; for compiling and distributing &lt;a href=&#34;https://www.msperlin.com/publication/#5&#34;&gt;three different books&lt;/a&gt; in Amazon and the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web&lt;/a&gt;. It helped me greatly in all my book projects and I’m always &lt;strong&gt;grateful&lt;/strong&gt; to Yihui Xie for providing such a useful tool at the &lt;a href=&#34;https://www.msperlin.com/post/2017-02-16-writing-a-book/&#34;&gt;right time&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;However, &lt;code&gt;bookdown&lt;/code&gt; offers no support for chapter exercises of any sort. While you can write exercises in plain RMarkdown, it is not a good solution for a long term project such as a technical book. When writing the latest edition of &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;Analyzing Financial and Economical Data with R&lt;/a&gt;, I aimed for a work cycle where the 100 plus exercises and their solutions were reproducible and easier to maintain.&lt;/p&gt;
 &lt;p&gt;Meanwhile, package &lt;code&gt;exams&lt;/code&gt; provides a &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;framework&lt;/a&gt; to produce exercises in a reproducible setup, making it possible to export the exercises to any given format such as pdf or html, or even &lt;em&gt;e-learning&lt;/em&gt; platforms such as Moodle and Blackboard. I use &lt;code&gt;exams&lt;/code&gt; extensively in all my university classes and it works like a charm!&lt;/p&gt;
 &lt;p&gt;So, while writing afedR, I worked towards finding a way to bring the two technologies closer to each other, which is what I’ll report in this blog post. Here are the main advantages of this setup:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The content of book exercises, their solution and explanation in a single location (no more fidling with different folders).&lt;/li&gt;
 &lt;li&gt;Dynamic output for html, with buttons and solutions available at a single click.&lt;/li&gt;
-&lt;li&gt;Exportable exercises for classes (see this &lt;a href=&#34;https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;blog post&lt;/a&gt;). You can export the same exercises to pdf or Moodle, for example.&lt;/li&gt;
+&lt;li&gt;Exportable exercises for classes (see this &lt;a href=&#34;https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;blog post&lt;/a&gt;). You can export the same exercises to pdf or Moodle, for example.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;bookdown-exams-webex&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;&lt;code&gt;bookdown&lt;/code&gt; + &lt;code&gt;exams&lt;/code&gt; + &lt;code&gt;webex&lt;/code&gt;&lt;/h2&gt;
@@ -325,7 +325,7 @@ Why is R special when comparing to other programming languages, such as Python, 
 &lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Its is amazing how much we can accomplish by learning and mixing different technologies. In this case, I used R, Latex, html, javascript and css to bundle reproducible and dynamic exercises for my book. You can find examples of the final output in &lt;a href=&#34;https://www.msperlin.com/afedR/introduction.html#exercises&#34;&gt;html&lt;/a&gt;, &lt;a href=&#34;https://www.msperlin.com/afedR/afedR_ed02-ONLINE.pdf&#34;&gt;pdf&lt;/a&gt; and &lt;a href=&#34;https://www.msperlin.com/afedR/afedR_ed02-ONLINE.epub&#34;&gt;ebook&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you’re trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used &lt;a href=&#34;https://www.msperlin.com/blog/post/my_javascript.js&#34;&gt;my_javascript.js&lt;/a&gt; and &lt;a href=&#34;https://www.msperlin.com/blog/post/style_html.css&#34;&gt;style_html.css&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you’re trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used &lt;a href=&#34;https://www.msperlin.com/post/my_javascript.js&#34;&gt;my_javascript.js&lt;/a&gt; and &lt;a href=&#34;https://www.msperlin.com/post/style_html.css&#34;&gt;style_html.css&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>

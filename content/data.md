@@ -48,6 +48,6 @@ All hosted data will be updated at least once a year.
 
 ### How to Support 
 
-I often get asked about how to support the release of the parsed data files. First, buying one of [my books](https://www.msperlin.com/blog/publication/#5) and donating a copy to your local library is a great way of contributing. Alternatively, you can make a single or continuous donation to project [GetDFPData2](https://www.msperlin.com/shiny/GetDFPData2/) using Paypal (instructions at link).
+I often get asked about how to support the release of the parsed data files. First, buying one of [my books](https://www.msperlin.com/publication/#5) and donating a copy to your local library is a great way of contributing. Alternatively, you can make a single or continuous donation to project [GetDFPData2](https://www.msperlin.com/shiny/GetDFPData2/) using Paypal (instructions at link).
 
 ---

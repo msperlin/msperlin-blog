@@ -17,7 +17,7 @@ publication_types:
 publishDate: "2021-02-15T00:00:00"
 title: Análise de Dados Financeiros e Econômicos com o R (Terceira Edição)
 url_code: ""
-url_dataset: "https://www.msperlin.com/blog/files/adfer-files/adfeR-code-and-data.zip"
+url_dataset: "https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip"
 url_pdf: "https://www.amazon.com.br/dp/B08WNC27ZY"
 url_poster: ""
 url_project: ""
@@ -45,9 +45,9 @@ Perlin, M. S. Análise de Dados Financeiros com o R. Terceira Edição, Porto Al
 
 [01-Soluções de Exercícios](http://www.msperlin.com/adfeR/)
 
-[02-Dados e Código](https://www.msperlin.com/blog/files/adfer-files/adfeR-code-and-data.zip)
+[02-Dados e Código](https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip)
 
-[03-Sumário](https://www.msperlin.com/blog/files/adfer-files/TOC-adfeR-ed3.pdf)
+[03-Sumário](https://www.msperlin.com/files/adfer-files/TOC-adfeR-ed3.pdf)
 
 [04-Grupo do Facebook](https://www.facebook.com/groups/2881945072053445) - Para atualizações e **solucionar dúvidas** sobre o conteúdo do livro.
 

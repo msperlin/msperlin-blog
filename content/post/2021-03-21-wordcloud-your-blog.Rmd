@@ -20,7 +20,7 @@ draft: yes
 
 ```{r}
 library(dplyr)
-my_url <- 'https://www.msperlin.com/blog/index.json'
+my_url <- 'https://www.msperlin.com/index.json'
 df_blog <- jsonlite::fromJSON(my_url)
 
 # get only posts

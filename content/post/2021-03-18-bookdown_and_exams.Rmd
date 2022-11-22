@@ -18,7 +18,7 @@ categories:
 draft: no
 ---
 
-It's been three years since I've been using package `bookdown` for compiling and distributing [three different books](https://www.msperlin.com/blog/publication/#5) in Amazon and the [web](https://www.msperlin.com/afedR/). It helped me greatly in all my book projects and I'm always **grateful** to Yihui Xie for providing such a useful tool at the [right time](https://www.msperlin.com/blog/post/2017-02-16-writing-a-book/). 
+It's been three years since I've been using package `bookdown` for compiling and distributing [three different books](https://www.msperlin.com/publication/#5) in Amazon and the [web](https://www.msperlin.com/afedR/). It helped me greatly in all my book projects and I'm always **grateful** to Yihui Xie for providing such a useful tool at the [right time](https://www.msperlin.com/post/2017-02-16-writing-a-book/). 
 
 However, `bookdown` offers no support for chapter exercises of any sort. While you can write exercises in plain RMarkdown, it is not a good solution for a long term project such as a technical book. When writing the latest edition of [Analyzing Financial and Economical Data with R](https://www.msperlin.com/afedR/), I aimed for a  work cycle where the 100 plus exercises and their solutions were reproducible and easier to maintain. 
 
@@ -28,7 +28,7 @@ So, while writing afedR, I worked towards finding a way to bring the two technol
 
 - The content of book exercises, their solution and explanation in a single location (no more fidling with different folders).
 - Dynamic output for html, with buttons and solutions available at a single click. 
-- Exportable exercises for classes (see this [blog post](https://www.msperlin.com/blog/post/2021-02-28-dynamic-exercises-afedr/)). You can export the same exercises to pdf or Moodle, for example. 
+- Exportable exercises for classes (see this [blog post](https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/)). You can export the same exercises to pdf or Moodle, for example. 
 
 
 ## `bookdown` + `exams` + `webex` 
@@ -226,5 +226,5 @@ As you can see, it works great. So, at the end of each chapter I simply called f
 
 Its is amazing how much we can accomplish by learning and mixing different technologies. In this case, I used R, Latex, html, javascript and css to bundle reproducible and dynamic exercises for my book. You can find examples of the final output in [html](https://www.msperlin.com/afedR/introduction.html#exercises), [pdf](https://www.msperlin.com/afedR/afedR_ed02-ONLINE.pdf) and [ebook](https://www.msperlin.com/afedR/afedR_ed02-ONLINE.epub). 
 
-If you're trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used [my_javascript.js](https://www.msperlin.com/blog/post/my_javascript.js) and [style_html.css](https://www.msperlin.com/blog/post/style_html.css). 
+If you're trying it for you own book, make sure to add the correct .js and .css files to the html compilation. In my case, I used [my_javascript.js](https://www.msperlin.com/post/my_javascript.js) and [style_html.css](https://www.msperlin.com/post/style_html.css). 
 

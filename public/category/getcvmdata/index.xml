@@ -23,11 +23,11 @@
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
 &lt;p&gt;
-2020-07-18: Package GetCVMData is now named GetDFPData2. See &lt;a href=&#34;https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;this post&lt;/a&gt; for details. The old code in &lt;code&gt;GetCVMData&lt;/code&gt; is still in Github but will no longer be developed.
+2020-07-18: Package GetCVMData is now named GetDFPData2. See &lt;a href=&#34;https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;this post&lt;/a&gt; for details. The old code in &lt;code&gt;GetCVMData&lt;/code&gt; is still in Github but will no longer be developed.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Package &lt;code&gt;GetCVMData&lt;/code&gt; is an alternative to &lt;code&gt;GetDFPData&lt;/code&gt;. Both have the same objective: fetch corporate data of Brazilian companies trading at B3, but diverge in their source. While &lt;code&gt;GetDFPData&lt;/code&gt; imports data directly from the DFP and FRE systems, &lt;code&gt;GetCVMData&lt;/code&gt; uses the &lt;a href=&#34;http://dados.cvm.gov.br/dados/CIA_ABERTA/&#34;&gt;CVM ftp site&lt;/a&gt; for grabbing compiled .csv files.&lt;/p&gt;
-&lt;p&gt;When doing large scale importations, &lt;code&gt;GetDFPData&lt;/code&gt; fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my &lt;a href=&#34;https://www.msperlin.com/blog/data/data/&#34;&gt;data page&lt;/a&gt; takes around six hours of execution using 10 cores of my home computer.&lt;/p&gt;
+&lt;p&gt;When doing large scale importations, &lt;code&gt;GetDFPData&lt;/code&gt; fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my &lt;a href=&#34;https://www.msperlin.com/data/data/&#34;&gt;data page&lt;/a&gt; takes around six hours of execution using 10 cores of my home computer.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;GetCVMData&lt;/code&gt; is lean and fast. Since the data is already parsed in csv files, all the code does is organize the files, download and read. For comparison, all DFP documents, annual financial reports, available in CVM can be imported in less than 1 minute. Additionally, &lt;code&gt;GetCVMData&lt;/code&gt; can also parse ITR (quarterly) data, which was not available in &lt;code&gt;GetDFPData&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;However, be aware that the output data is not the same. I kept all original column names from CVM and some information, such as tickers, are not available in &lt;code&gt;GetCVMData&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Here’s an example of usage:&lt;/p&gt;

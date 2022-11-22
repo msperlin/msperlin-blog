@@ -37,26 +37,26 @@ I also worked towards my paper pipeline in corporate finance, with the following
 
 ## Books
 
-The second edition of my R book - [Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/publication/2020_book-afedr-en/) was published in January 2020. I spend most of 2019 working towards this edition and I'm very pleased with the result. The book improved a lot, with a more polished content. 
+The second edition of my R book - [Analyzing Financial and Economic Data with R](https://www.msperlin.com/publication/2020_book-afedr-en/) was published in January 2020. I spend most of 2019 working towards this edition and I'm very pleased with the result. The book improved a lot, with a more polished content. 
 
 I'm also happy to report that my two other books, [padfR](https://www.amazon.com.br/dp/B07DN4M357) and [pirf](https://www.amazon.com.br/dp/B07RR9K9PV), are receiving great reviews in Amazon.com.br. This is great news, motivating the future editions.
 
 
 ## R Packages
 
-This year I "broke" package `GetDFPData` into two: `GetDFPData2` and `GetFREData`. Both are still in [Github](https://github.com/msperlin) but I'll soon release it to CRAN. You can read more about this decision [here](https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/).
+This year I "broke" package `GetDFPData` into two: `GetDFPData2` and `GetFREData`. Both are still in [Github](https://github.com/msperlin) but I'll soon release it to CRAN. You can read more about this decision [here](https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/).
 
-Additionally, I also wrote the book package `afedR`, which facilitates the reproducibility of all book examples. See more details about it [here](https://www.msperlin.com/blog/post/2020-02-25-afedr-ed2-slides-available/).
+Additionally, I also wrote the book package `afedR`, which facilitates the reproducibility of all book examples. See more details about it [here](https://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/).
 
 
 ---
 
 # Checking `r this_year -1`'s plans
 
-At the end of `r this_year-1`, my plans for `r this_year` [were](https://www.msperlin.com/blog/post/2019-12-15-looking-back-2019/):
+At the end of `r this_year-1`, my plans for `r this_year` [were](https://www.msperlin.com/post/2019-12-15-looking-back-2019/):
 
 Publish afedR (analyzing financial and economic data with R)
-: [Done! :)](https://www.msperlin.com/blog/post/2020-01-15-afedr-ed2-announcement/)
+: [Done! :)](https://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/)
 
 Finish board papers
 : Almost Done. All papers are now in review and, hopefully, are going to be published soon. 

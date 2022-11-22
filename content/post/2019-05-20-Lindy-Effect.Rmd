@@ -123,7 +123,7 @@ p <- ggplot(tab %>%
        subtitle = str_c('The plot shows the probability of observing a future profit/loss given a number \n',
                         ' of consecutive profits/losses. See details in \n',
                         ' <https://en.wikipedia.org/wiki/Lindy_effect>'),
-       caption = str_c('Made by Marcelo S. Perlin (www.msperlin.com/blog)\n',
+       caption = str_c('Made by Marcelo S. Perlin (www.msperlin.com)\n',
                        'The data covers net income of Brazilian companies from 2000 to 2019') ) + 
   scale_y_continuous(labels = scales::percent, 
                      breaks = seq(0, 1, by = 0.1), limits = c(0,1)) + 
@@ -145,4 +145,4 @@ Let me summarize the main conclusions from the plot:
 
 The message from the data and the analysis is clear. **In the corporate world, financial inertia is the rule, not the exception**. Good and profitable companies continue to be good and profitable enterprises, while bad and unprofitable companies also continue in the same path. 
 
-From the investment point of view, **the results suggests that time is a friend of the investor**. Overall, companies tend to improve its earnings. This corroborates the results from a [previous post](https://www.msperlin.com/blog/post/2018-05-12-investing-long-run/), where I analyzed the effect of the investment holding period over nominal and real returns to the investor. In short, the more time you stay in the market, the better. 
+From the investment point of view, **the results suggests that time is a friend of the investor**. Overall, companies tend to improve its earnings. This corroborates the results from a [previous post](https://www.msperlin.com/post/2018-05-12-investing-long-run/), where I analyzed the effect of the investment holding period over nominal and real returns to the investor. In short, the more time you stay in the market, the better. 

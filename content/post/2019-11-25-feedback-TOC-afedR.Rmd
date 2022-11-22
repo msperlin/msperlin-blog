@@ -16,9 +16,9 @@ categories:
 knitr::opts_chunk$set(message = FALSE, cache = TRUE)
 ```
 
-Back in 2017 I wrote the first international^[I also wrote a [local version](https://www.msperlin.com/padfeR/). written in portuguese.] edition of my book "[Analyzing Financial and Economic Data with R](https://www.msperlin.com/blog/publication/2017_book-pafdr-en/)" ([online version](https://www.msperlin.com/pafdR/)) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, **I'm working in the new edition of the book**, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages. 
+Back in 2017 I wrote the first international^[I also wrote a [local version](https://www.msperlin.com/padfeR/). written in portuguese.] edition of my book "[Analyzing Financial and Economic Data with R](https://www.msperlin.com/publication/2017_book-pafdr-en/)" ([online version](https://www.msperlin.com/pafdR/)) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, **I'm working in the new edition of the book**, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages. 
 
-The current TOC is available [here](https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf). Let me summarize the main changes from the previous edition:
+The current TOC is available [here](https://www.msperlin.com/files/afedr-files/afedR-TOC-2019-11-25.pdf). Let me summarize the main changes from the previous edition:
 
 New content with the tidyverse
 : - Total alignment with the tidyverse. Some base function are presented but priority is for readr, ggplot2, dplyr, stringr, purrr and so on.
@@ -41,7 +41,7 @@ Two new packages
 : - `simfinR` -- grabs data from the [SimFin project](https://simfin.com/);
 - `GetQuandlData`-- uses [Quandl](https://www.quandl.com/) json api and caching for easier and faster data importation;
 
-**Right now, I could use some feedback from the community**. Have a look in the [TOC](https://www.msperlin.com/blog/files/afedr-files/afedR-TOC-2019-11-25.pdf) and let me know what you liked or disliked and if I missed something about using R in finance and economics.  You can reach me in my email ([marceloperlin@gmail.com](emailto:marceloperlin@gmail.com)) or using the comment section of this post.
+**Right now, I could use some feedback from the community**. Have a look in the [TOC](https://www.msperlin.com/files/afedr-files/afedR-TOC-2019-11-25.pdf) and let me know what you liked or disliked and if I missed something about using R in finance and economics.  You can reach me in my email ([marceloperlin@gmail.com](emailto:marceloperlin@gmail.com)) or using the comment section of this post.
 
 My expectation is to finish the book in early 2020. If you want to be notified when I release it, fill up this [form](https://forms.gle/3x3mj2zzXqcqmT6x9) and I'll email you when the book becomes available in Amazon.
 

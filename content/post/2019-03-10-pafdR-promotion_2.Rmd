@@ -8,7 +8,7 @@ tags: ["R", "book"]
 categories: ["R", "book"]
 ---
 
-I received many messages regarding my [book promotion](https://www.amazon.com/dp/B071DTSCPS) (see [previous post](https://www.msperlin.com/blog/post/2019-03-09-pafdr-promotion/) ). I'll use this post to answer the most frequent questions:
+I received many messages regarding my [book promotion](https://www.amazon.com/dp/B071DTSCPS) (see [previous post](https://www.msperlin.com/post/2019-03-09-pafdr-promotion/) ). I'll use this post to answer the most frequent questions:
 
 &nbsp;
 

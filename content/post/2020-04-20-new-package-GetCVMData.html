@@ -17,11 +17,11 @@ categories:
 
 <div class="alert alert-warning">
 <p>
-2020-07-18: Package GetCVMData is now named GetDFPData2. See <a href="https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/">this post</a> for details. The old code in <code>GetCVMData</code> is still in Github but will no longer be developed.
+2020-07-18: Package GetCVMData is now named GetDFPData2. See <a href="https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/">this post</a> for details. The old code in <code>GetCVMData</code> is still in Github but will no longer be developed.
 </p>
 </div>
 <p>Package <code>GetCVMData</code> is an alternative to <code>GetDFPData</code>. Both have the same objective: fetch corporate data of Brazilian companies trading at B3, but diverge in their source. While <code>GetDFPData</code> imports data directly from the DFP and FRE systems, <code>GetCVMData</code> uses the <a href="http://dados.cvm.gov.br/dados/CIA_ABERTA/">CVM ftp site</a> for grabbing compiled .csv files.</p>
-<p>When doing large scale importations, <code>GetDFPData</code> fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my <a href="https://www.msperlin.com/blog/data/data/">data page</a> takes around six hours of execution using 10 cores of my home computer.</p>
+<p>When doing large scale importations, <code>GetDFPData</code> fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my <a href="https://www.msperlin.com/data/data/">data page</a> takes around six hours of execution using 10 cores of my home computer.</p>
 <p><code>GetCVMData</code> is lean and fast. Since the data is already parsed in csv files, all the code does is organize the files, download and read. For comparison, all DFP documents, annual financial reports, available in CVM can be imported in less than 1 minute. Additionally, <code>GetCVMData</code> can also parse ITR (quarterly) data, which was not available in <code>GetDFPData</code>.</p>
 <p>However, be aware that the output data is not the same. I kept all original column names from CVM and some information, such as tickers, are not available in <code>GetCVMData</code>.</p>
 <p>Here’s an example of usage:</p>

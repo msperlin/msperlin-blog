@@ -14,7 +14,7 @@ draft: no
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(message = FALSE, eval=TRUE)
 
-link_full_compiled_html <- 'https://www.msperlin.com/blog/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
+link_full_compiled_html <- 'https://www.msperlin.com/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
 link_book_web <- 'https://www.msperlin.com/adfeR/'
 exams_link <- 'http://www.r-exams.org/'
 ```

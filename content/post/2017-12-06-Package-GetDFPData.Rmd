@@ -12,7 +12,7 @@ knitr::opts_chunk$set(cache=TRUE, eval=FALSE)
 ```
 
 ```{block, type="alert alert-warning"}
-Package `GetDFPData` is being substituted by `GetDFPData2`. See this [blog post](https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/) for details. 
+Package `GetDFPData` is being substituted by `GetDFPData2`. See this [blog post](https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/) for details. 
 ```
 
 Financial statements of companies traded at B3 (formerly Bovespa), the Brazilian stock exchange, are available in its [website](http://www.bmfbovespa.com.br/). Accessing the data for a single company is straightforward. In the website one can find a simple interface for accessing this dataset. An example is given [here](https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=67775&CodigoTipoInstituicao=2). However, gathering and organizing the data for a large scale research, with many companies and many dates, is painful. Financial reports must be downloaded or copied individually and later aggregated. Changes in the accounting format thoughout time can make this process slow, unreliable and irreproducible.

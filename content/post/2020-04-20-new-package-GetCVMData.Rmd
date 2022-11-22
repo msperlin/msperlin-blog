@@ -17,12 +17,12 @@ knitr::opts_chunk$set(message = FALSE, cache = TRUE)
 ```
 
 ```{block, type='alert alert-warning'}
-2020-07-18: Package GetCVMData is now named GetDFPData2. See [this post](https://www.msperlin.com/blog/post/2020-07-18-new_packages-getfredata-getdfpdata2/) for details. The old code in `GetCVMData` is still in Github but will no longer be developed.
+2020-07-18: Package GetCVMData is now named GetDFPData2. See [this post](https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/) for details. The old code in `GetCVMData` is still in Github but will no longer be developed.
 ```
 
 Package `GetCVMData` is an alternative to `GetDFPData`. Both have the same objective: fetch corporate data of Brazilian companies trading at B3, but diverge in their source. While `GetDFPData` imports data directly from the DFP and FRE systems, `GetCVMData` uses the [CVM ftp site](http://dados.cvm.gov.br/dados/CIA_ABERTA/) for grabbing compiled .csv files.
 
-When doing large scale importations, `GetDFPData` fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my [data page](https://www.msperlin.com/blog/data/data/) takes around six hours of execution using 10 cores of my home computer.
+When doing large scale importations, `GetDFPData` fells sluggish due to the parsing of large xml files. As an example, building the dataset available in my [data page](https://www.msperlin.com/data/data/) takes around six hours of execution using 10 cores of my home computer.
 
 `GetCVMData` is lean and fast. Since the data is already parsed in csv files, all the code does is organize the files, download and read. For comparison, all DFP documents, annual financial reports, available in CVM can be imported in less than 1 minute. Additionally, `GetCVMData` can also parse ITR (quarterly) data, which was not available in `GetDFPData`.
 
