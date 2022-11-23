@@ -7,7 +7,7 @@
 <title>Capítulo 5 Importação de Dados via Pacotes | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');  Uma das grandes vantagens de se utilizar o R é...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 5 Importação de Dados via Pacotes | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -247,15 +247,15 @@ Importa dados do sistema FRE – Formulário de Referência – da bolsa Brasile
 <span class="header-section-number">5.1</span> Pacote <code>GetQuandlData</code><a class="anchor" aria-label="anchor" href="#quandl"><i class="fas fa-link"></i></a>
 </h2>
 <p><em>Quandl</em> é um repositório de dados abrangente, fornecendo acesso a uma série de tabelas gratuitas e pagas disponibilizadas por diversas instituições de pesquisa. Como ponto inicial, recomendo fortemente que você navegue nas tabelas disponíveis no <a href="https://www.quandl.com/">site da Quandl</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.quandl.com/" class="uri"&gt;https://www.quandl.com/&lt;/a&gt;&lt;/p&gt;'><sup>18</sup></a>. Verás que uma grande proporção dos repositórios de dados abertos em economia e finanças também estão disponíveis no Quandl. </p>
-<p>Pacote <code>Quandl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-Quandl" role="doc-biblioref">Raymond McTaggart, Gergely Daroczi, and Clement Leung 2021</a>)</span> é a extensão oficial oferecida pela empresa e disponível no CRAN. No entanto, o pacote tem alguns problemas quanto a estrutura de dados de saída<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Veja &lt;a href="https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/"&gt;postagem no blog&lt;/a&gt;&lt;/p&gt;'><sup>19</sup></a> e, para resolver, escrevi o meu próprio pacote <code>GetQuandlData</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-GetQuandlData" role="doc-biblioref">M. S. Perlin 2019</a>)</span>. O diferencial de <code>GetQuandlData</code> é a saída de dados já estruturados, prontos para uma posterior análise.</p>
+<p>Pacote <code>Quandl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-Quandl" role="doc-biblioref">Raymond McTaggart, Gergely Daroczi, and Clement Leung 2021</a>)</span> é a extensão oficial oferecida pela empresa e disponível no CRAN. No entanto, o pacote tem alguns problemas quanto a estrutura de dados de saída<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Veja &lt;a href="https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/"&gt;postagem no blog&lt;/a&gt;&lt;/p&gt;'><sup>19</sup></a> e, para resolver, escrevi o meu próprio pacote <code>GetQuandlData</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-GetQuandlData" role="doc-biblioref">M. S. Perlin 2019</a>)</span>. O diferencial de <code>GetQuandlData</code> é a saída de dados já estruturados, prontos para uma posterior análise.</p>
 <p>A <strong>primeira e obrigatória</strong> etapa no uso de <code>GetQuandlData</code> é registrar o usuário no <a href="https://www.quandl.com/">site</a>. Logo em seguida, vá para <em>Account Settings</em> e procure pela seção <em>You API Key</em>. Este local deve mostrar uma senha, tal como <code>Asv8Ac7zuZzJSCGxynfG</code>. Copie o texto para a área de transferência (<em>control + c</em>) e, no R, defina um objeto de contendo o conteúdo copiado da seguinte maneira:</p>
-<div class="sourceCode" id="cb278"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb272"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set FAKE api key to quandl</span></span>
 <span><span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">'Asv8Ac7zuZzJSCGxynfG'</span></span></code></pre></div>
 <p>Essa chave API é exclusiva para cada usuário e a apresentada aqui <strong>não funcionará no seu computador</strong>. Você precisará obter sua própria chave de API para executar os exemplos do livro. Depois de encontrar e definir sua chave, vá para o <a href="https://www.quandl.com/search">site do Quandl</a> e use a caixa de pesquisa para procurar o símbolo da série temporal de interesse.</p>
 <p>Como exemplo, usaremos dados do <a href="https://www.quandl.com/data/LBMA/GOLD-Gold-Price-London-Fixing">preço do ouro</a> no mercado Londrino. O código para esta série no Quandl é <code>'LBMA/GOLD'</code>. Observe que a estrutura de um identificador de tabelas no Quandl é sempre a mesma, com o nome do banco de dados primeiro e o nome da tabela depois, separados por uma barra (/).</p>
 <p>Agora, com a chave API e o identificador da tabela, usamos a função <code>get_Quandl_series</code> para baixar os dados de 1980-01-01 a 2021-01-01: </p>
-<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb273"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetQuandlData/">GetQuandlData</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
@@ -287,7 +287,7 @@ R&gt; $ id_quandl   &lt;chr&gt; "LBMA/GOLD", "LBMA/GOLD", "LBMA/GOLD",…</code>
 <p>Para verificar os dados, vamos criar um gráfico com os preços do ouro ao longo do tempo. Aqui, usaremos o pacote <code>ggplot2</code> para criar a figura. Por enquanto você não precisa se preocupar com o código de criação de gráficos. Teremos o capítulo <a href="figuras.html#figuras">10</a> inteiro dedicado ao tópico.</p>
 <div class="inline-figure"><img src="adfeR_pt_ed03-ONLINE_files/figure-html/unnamed-chunk-171-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>De modo geral, os preços do ouro permaneceram relativamente estáveis entre 1980 e 2000, atingindo um pico após 2010. Uma possível explicação é a maior demanda por ativos mais seguros, como o ouro, após a crise financeira de 2009. No entanto, o ouro nunca foi um investimento eficiente a longo prazo. Para mostrar isso, vamos calcular seu retorno anual composto de 1980-01-02 a 2022-08-03:</p>
-<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb275"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># sort the rows</span></span>
 <span><span class="va">df_quandl</span> <span class="op">&lt;-</span> <span class="va">df_quandl</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>USD <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">`USD (AM)`</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -307,7 +307,7 @@ R&gt; $ id_quandl   &lt;chr&gt; "LBMA/GOLD", "LBMA/GOLD", "LBMA/GOLD",…</code>
 <span class="header-section-number">5.1.1</span> Importando Múltiplas Séries<a class="anchor" aria-label="anchor" href="#importando-m%C3%BAltiplas-s%C3%A9ries"><i class="fas fa-link"></i></a>
 </h3>
 <p>Ao solicitar várias séries temporais do Quandl, pacote <code>GetQuandlData</code> empilha todos os dados em um único <code>dataframe</code>, tornando mais fácil trabalhar com as ferramentas do <code>tidyverse</code>. Como exemplo, vamos olhar para o banco de dados <code>RATEINF</code>, o qual contém séries temporais das taxas de inflação ao redor do mundo. Primeiro, precisamos ver quais são os conjuntos de dados disponíveis:</p>
-<div class="sourceCode" id="cb283"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetQuandlData/">GetQuandlData</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
@@ -323,13 +323,13 @@ R&gt; Columns: 8
 R&gt; $ code         &lt;chr&gt; "CPI_ARG", "CPI_AUS", "CPI_CAN", "CPI…
 R&gt; $ name         &lt;chr&gt; "Consumer Price Index - Argentina", "…
 R&gt; $ description  &lt;chr&gt; "Please visit &lt;a href=http://www.rate…
-R&gt; $ refreshed_at &lt;dttm&gt; 2020-10-10 02:03:32, 2022-08-06 02:0…
+R&gt; $ refreshed_at &lt;dttm&gt; 2020-10-10 02:03:32, 2022-11-19 02:0…
 R&gt; $ from_date    &lt;date&gt; 1988-01-31, 1948-09-30, 1989-01-31, …
-R&gt; $ to_date      &lt;date&gt; 2013-12-31, 2022-06-30, 2022-06-30, …
+R&gt; $ to_date      &lt;date&gt; 2013-12-31, 2022-09-30, 2022-10-31, …
 R&gt; $ quandl_code  &lt;chr&gt; "RATEINF/CPI_ARG", "RATEINF/CPI_AUS",…
 R&gt; $ quandl_db    &lt;chr&gt; "RATEINF", "RATEINF", "RATEINF", "RAT…</code></pre>
 <p>Coluna <code>name</code> contém a descrição das tabelas com os seguintes nomes:</p>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb279"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_db</span><span class="op">$</span><span class="va">name</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] "Consumer Price Index - Argentina"  
 R&gt;  [2] "Consumer Price Index - Australia"  
@@ -358,7 +358,7 @@ R&gt; [24] "Inflation YOY - New Zealand"
 R&gt; [25] "Inflation YOY - Russia"            
 R&gt; [26] "Inflation YOY - USA"</code></pre>
 <p>O que estamos buscando são as séries <code>'Inflation YOY - *'</code>, as quais contém a inflação ano-ao-ano (<em>Year On Year</em> – <em>YOY</em>) de diferentes países. Vamos agora filtrar o <code>dataframe</code> para manter apenas as séries de inflação anual para quatro países selecionados:</p>
-<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">selected_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Inflation YOY - USA'</span>,</span>
 <span>                     <span class="st">'Inflation YOY - Canada'</span>,</span>
 <span>                     <span class="st">'Inflation YOY - Euro Area'</span>,</span>
@@ -368,7 +368,7 @@ R&gt; [26] "Inflation YOY - USA"</code></pre>
 <span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="va">df_db</span><span class="op">$</span><span class="va">name</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">selected_series</span></span>
 <span><span class="va">df_db</span> <span class="op">&lt;-</span> <span class="va">df_db</span><span class="op">[</span><span class="va">idx</span>, <span class="op">]</span></span></code></pre></div>
 <p>Agora importamos as séries usando <code>get_Quandl_series</code>:</p>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_id</span> <span class="op">&lt;-</span> <span class="va">df_db</span><span class="op">$</span><span class="va">quandl_code</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_id</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">df_db</span><span class="op">$</span><span class="va">name</span></span>
 <span><span class="va">first_date</span> <span class="op">&lt;-</span> <span class="st">'2010-01-01'</span></span>
@@ -421,7 +421,7 @@ entrada <code>cache.folder</code>.
 <p>Na chamada da função <code>BatchGetSymbols</code>, utilizamos um valor de <code>0.95</code> (95%) para o <em>input</em> <code>thresh.bad.data</code> e <code>'^BVSP'</code> para <code>bench.ticker</code>. Isso faz com que a função compare as datas obtidas para cada ativo em relação ao nosso <em>benchmark</em>, o índice Ibovespa, cujo <em>ticker</em> no <em>Yahoo Finance</em> é <code>^BVSP</code>. Se, durante o processo de importação, uma ação individual não apresenta mais de 95% de casos válidos em relação ao <em>benchmark</em>, esta é retirada da saída.</p>
 <p>
 </p>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">BatchGetSymbols</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -456,7 +456,7 @@ prejudicar os usuários, os nomes das entradas foram mantidos.
 </p>
 </div>
 <p>Voltando ao nosso exemplo, função <code>BatchGetSymbols</code> retorna uma lista com dois elementos: um <code>dataframe</code> com o resultado do processo de importação – <code>df_control</code> – e outro <code>dataframe</code> com os dados das ações – <code>df_tickers</code>. Vamos checar o conteúdo do primeiro dataframe.</p>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print result of download process</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">l_out</span><span class="op">$</span><span class="va">df.control</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 × 6
@@ -470,28 +470,28 @@ R&gt; # … with abbreviated variable names ¹​perc.benchmark.dates,
 R&gt; #   ²​threshold.decision</code></pre>
 <p>Objeto <code>df.control</code> mostra que todos <em>tickers</em> foram válidos, com um total de 246 observações para cada ativo. Note que as datas batem 100% com o Ibovespa (coluna <code>perc.benchmark.dates</code>).</p>
 <p>Quanto aos dados financeiros, esses estão contidos em <code>l_out$df.tickers</code>:</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb287"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print df_tickers</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">l_out</span><span class="op">$</span><span class="va">df.tickers</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 984
 R&gt; Columns: 10
-R&gt; $ price.open          &lt;dbl&gt; 29.20, 26.84, 27.03, 26.26, 26…
-R&gt; $ price.high          &lt;dbl&gt; 29.24, 27.63, 27.31, 26.87, 26…
-R&gt; $ price.low           &lt;dbl&gt; 28.24, 26.45, 26.65, 26.13, 26…
-R&gt; $ price.close         &lt;dbl&gt; 28.64, 27.03, 26.79, 26.64, 26…
-R&gt; $ volume              &lt;dbl&gt; 101262100, 93623700, 86103100,…
-R&gt; $ price.adjusted      &lt;dbl&gt; 19.73697, 19.73690, 19.56166, …
-R&gt; $ ref.date            &lt;date&gt; 2021-08-16, 2021-08-17, 2021-…
+R&gt; $ price.open          &lt;dbl&gt; 29.36, 29.30, 29.84, 26.99, 28…
+R&gt; $ price.high          &lt;dbl&gt; 29.82, 29.64, 30.67, 28.49, 28…
+R&gt; $ price.low           &lt;dbl&gt; 28.81, 28.86, 29.48, 26.20, 28…
+R&gt; $ price.close         &lt;dbl&gt; 29.47, 29.43, 29.60, 28.36, 28…
+R&gt; $ volume              &lt;dbl&gt; 84672200, 129384600, 135078600…
+R&gt; $ price.adjusted      &lt;dbl&gt; 15.33113, 15.31032, 15.39875, …
+R&gt; $ ref.date            &lt;date&gt; 2021-11-29, 2021-11-30, 2021-…
 R&gt; $ ticker              &lt;chr&gt; "PETR4.SA", "PETR4.SA", "PETR4…
-R&gt; $ ret.adjusted.prices &lt;dbl&gt; NA, -3.293312e-06, -8.879053e-…
-R&gt; $ ret.closing.prices  &lt;dbl&gt; NA, -0.056215016, -0.008879023…</code></pre>
+R&gt; $ ret.adjusted.prices &lt;dbl&gt; NA, -0.0013573042, 0.005776432…
+R&gt; $ ret.closing.prices  &lt;dbl&gt; NA, -0.0013572786, 0.005776418…</code></pre>
 <p>Como esperado, a informação sobre preços, retornos e volumes está lá, com as devidas classes de colunas: <em>dbl</em> (<em>double</em>) para valores numéricos e <em>date</em> para as datas. Observe que uma coluna chamada <code>ticker</code> também está incluída. Essa indica em que linhas da tabela os dados de uma ação começam e terminam. Mais tarde, no capítulo <a href="limpando-estruturando.html#limpando-estruturando">9</a>, usaremos essa coluna para fazer diversos cálculos para cada ação.</p>
 <div id="baixando-dados-da-composição-do-ibovespa" class="section level3" number="5.2.1">
 <h3>
 <span class="header-section-number">5.2.1</span> Baixando Dados da Composição do Ibovespa<a class="anchor" aria-label="anchor" href="#baixando-dados-da-composi%C3%A7%C3%A3o-do-ibovespa"><i class="fas fa-link"></i></a>
 </h3>
 <p>Outra função útil do pacote é <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/GetIbovStocks.html">BatchGetSymbols::GetIbovStocks</a></code>, a qual importa a composição atual do índice Ibovespa diretamente do site da B3. Esse índice é um termômetro do mercado local e as ações que o compõem são selecionadas devido sua alta negociabilidade. Portanto, sequenciando o uso de <code>GetIbovStocks</code> e <code>BatchGetSymbols</code>, podemos facilmente baixar uma volumosa quantidade de dados de ações para o mercado Brasileiro. Considere o seguinte fragmento de código, onde realizamos essa operação: </p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">BatchGetSymbols</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set tickers</span></span>
@@ -538,7 +538,7 @@ ajustamentos que ações individuais.
 <p>Arquivos com informações sobre preços e retornos de títulos emitidos pelo governo brasileiro podem ser baixados manualmente no site do <a href="https://www.tesourodireto.com.br/">Tesouro Nacional</a>. O tesouro direto é um tipo especial de mercado onde pessoa física pode comprar e vender dívida pública. Os contratos de dívida vendidos na plataforma são bastante populares devido a atratividade das taxas de retorno e a alta liquidez oferecida ao investidor comum.</p>
 <p>Pacote <code>GetTDData</code> importa os dados das planilhas em Excel do site do Tesouro Nacional e os organiza. O resultado é um <code>dataframe</code> com dados empilhados. Como exemplo, vamos baixar dados de um título prefixado do tipo LTN com vencimento em 2021-01-01. Esse é o tipo de contrato de dívida mais simples que o governo brasileiro emite, não pagando nenhum cupom<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;O cupom é um pagamento intermediário pago periodicamente durante a validade do contrato financeiro.&lt;/p&gt;"><sup>20</sup></a> durante sua validade e, na data de vencimento, retorna 1.000 R$ ao comprador. Para baixar os dados da internet, basta usar o código a seguir:</p>
 <p> </p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetTDData/">GetTDData</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">asset_codes</span> <span class="op">&lt;-</span> <span class="st">'LTN'</span>   <span class="co"># Identifier of assets</span></span>
@@ -550,10 +550,10 @@ ajustamentos que ações individuais.
 <span><span class="co"># read files</span></span>
 <span><span class="va">df_TD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://msperlin.github.io/GetTDData/reference/read.TD.files.html">read.TD.files</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Vamos checar o conteúdo do dataframe:</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check content</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_TD</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; Rows: 24,373
+<pre><code>R&gt; Rows: 24,733
 R&gt; Columns: 5
 R&gt; $ ref.date   &lt;date&gt; 2002-03-18, 2002-03-19, 2002-03-20, 20…
 R&gt; $ yield.bid  &lt;dbl&gt; 0.1977, 0.1975, 0.1967, 0.2005, 0.1983,…
@@ -566,7 +566,7 @@ R&gt; $ matur.date &lt;date&gt; 2004-01-07, 2004-01-07, 2004-01-07, 20…</code>
 <div class="inline-figure"><img src="adfeR_pt_ed03-ONLINE_files/figure-html/unnamed-chunk-189-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Os retornos do título tiveram forte queda ao longo dos anos. Este resultado é esperado pois o juros do mercado – taxa SELIC – caiu bastante nos últimos cinco anos.</p>
 <p>As funções do <code>GetTDData</code> também funcionam com vários argumentos como <code>asset.codes</code> e <code>maturity</code>. Suponhamos que desejamos visualizar todos os preços de todos os prazos disponíveis para títulos do tipo LTN a partir de 2010. Tudo o que precisamos fazer é adicionar o valor <code>NULL</code> ao argumento <code>maturity</code> e filtrar as datas:</p>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetTDData/">GetTDData</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">asset_codes</span> <span class="op">&lt;-</span> <span class="st">'LTN'</span>   <span class="co"># Name of asset</span></span>
@@ -587,7 +587,7 @@ R&gt; $ matur.date &lt;date&gt; 2004-01-07, 2004-01-07, 2004-01-07, 20…</code>
 <p>Note como todos contratos do tipo LTN terminam com valor R$ 1.000 em sua data de expiração e possuem uma dinâmica linear de crescimento de preço ao longo do tempo.</p>
 <p>Outra funcionalidade do pacote <code>GetTDData</code> é o acesso a curva de juros atual do sistema financeiro brasileiro diretamente do <a href="https://www.anbima.com.br/pt_br/informar/curvas-de-juros-fechamento.htm">site da Anbima</a>. Para isso, basta utilizar a função <code>get.yield.curve</code>:</p>
 <p></p>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetTDData/">GetTDData</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get yield curve</span></span>
@@ -595,13 +595,13 @@ R&gt; $ matur.date &lt;date&gt; 2004-01-07, 2004-01-07, 2004-01-07, 20…</code>
 <span></span>
 <span><span class="co"># check result</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_yield</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; Rows: 115
+<pre><code>R&gt; Rows: 114
 R&gt; Columns: 5
 R&gt; $ n.biz.days   &lt;dbl&gt; 126, 252, 378, 504, 630, 756, 882, 10…
 R&gt; $ type         &lt;chr&gt; "real_return", "real_return", "real_r…
-R&gt; $ value        &lt;dbl&gt; 9.0698, 7.0460, 6.3672, 6.0140, 5.807…
-R&gt; $ ref.date     &lt;date&gt; 2023-02-07, 2023-08-10, 2024-02-14, …
-R&gt; $ current.date &lt;date&gt; 2022-08-09, 2022-08-09, 2022-08-09, …</code></pre>
+R&gt; $ value        &lt;dbl&gt; 6.1355, 6.6490, 6.7057, 6.6214, 6.512…
+R&gt; $ ref.date     &lt;date&gt; 2023-05-24, 2023-11-23, 2024-05-27, …
+R&gt; $ current.date &lt;date&gt; 2022-11-22, 2022-11-22, 2022-11-22, …</code></pre>
 <p>Os dados incluem a curva de juros nominal, juros real e da inflação. Para melhor visualizar as informações, vamos plotá-las em um gráfico:</p>
 <div class="inline-figure"><img src="adfeR_pt_ed03-ONLINE_files/figure-html/unnamed-chunk-193-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>A curva de juros é uma ferramente utilizada no mercado financeiro com o propósito de representar graficamente a expectatica do mercado sobre juros futuro. Baseada nos preços dos títulos públicos, calcula-se e extrapola-se o juros implícito para cada período futuro. Uma curva ascendente, o formato esperado, indica que é mais caro (maior o juro) tomar dinheiro emprestado no longo prazo.</p>
@@ -613,7 +613,7 @@ R&gt; $ current.date &lt;date&gt; 2022-08-09, 2022-08-09, 2022-08-09, …</code>
 <p>O Banco Central Brasileiro (BCB) disponibiliza em seu <a href="https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries">Sistema de Séries Temporais (SGS)</a> uma vasta quantidade de tabelas relativas a economia do Brasil. Mais importante, estas tabelas são atualizadas constantemente e o acesso é gratuito e sem necessidade de registro.</p>
 <p>Como um exemplo, vamos usar o pacote para estudar a inadimplência de crédito no sistema financeiro Brasileiro. O primeiro passo no uso de <code>GetBCBData</code> é procurar o símbolo da série de interesse. Acessando o <a href="https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries">sistema de séries temporais do BCB</a>, vemos que o código identificador para o percentual total de inandimplência no Brasil é 21082.</p>
 <p>No código, basta indicar a série de interesse e o período de tempo desejado:</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetBCBData/">GetBCBData</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -628,11 +628,11 @@ R&gt; $ current.date &lt;date&gt; 2022-08-09, 2022-08-09, 2022-08-09, …</code>
 <span>                            use.memoise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
 R&gt; Fetching perc_default [21082] from BCB-SGS from Online API 
-R&gt;   Found 134 observations</code></pre>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+R&gt;   Found 139 observations</code></pre>
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check it</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_cred</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; Rows: 134
+<pre><code>R&gt; Rows: 139
 R&gt; Columns: 4
 R&gt; $ ref.date    &lt;date&gt; 2011-03-01, 2011-04-01, 2011-05-01, 2…
 R&gt; $ value       &lt;dbl&gt; 3.17, 3.24, 3.37, 3.32, 3.42, 3.45, 3.…
@@ -641,7 +641,7 @@ R&gt; $ series.name &lt;chr&gt; "perc_default", "perc_default", "perc_…</code>
 <p>Note que indicamos o nome da coluna na própria definição da entrada <code>id</code>. Assim, coluna <code>series.name</code> toma o nome de <code>perc.default</code>. Esta configuração é importante pois irá diferenciar os dados no caso da importação de diversas séries diferentes. O gráfico apresentado a seguir mostra o valor da série no tempo:</p>
 <div class="inline-figure"><img src="adfeR_pt_ed03-ONLINE_files/figure-html/unnamed-chunk-195-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>Como podemos ver, a percentagem de inadimplência aumentou a partir de 2015. Para ter uma idéia mais clara do problema, vamos incluir no gráfico a percentagem para pessoa física e pessoa jurídica. Olhando novamente o sistema do BCB, vemos que o símbolos de interesse são 21083 e 21084, respectivamente. O próximo código baixa os dados das duas séries.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set ids</span></span>
 <span><span class="va">id.series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>credit_default_people <span class="op">=</span> <span class="fl">21083</span>,</span>
 <span>               credit_default_companies <span class="op">=</span> <span class="fl">21084</span><span class="op">)</span></span>
@@ -654,13 +654,13 @@ R&gt; $ series.name &lt;chr&gt; "perc_default", "perc_default", "perc_…</code>
 <span>                            use.memoise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
 R&gt; Fetching credit_default_people [21083] from BCB-SGS from Online API 
-R&gt;   Found 134 observations
+R&gt;   Found 139 observations
 R&gt; Fetching credit_default_companies [21084] from BCB-SGS from Online API 
-R&gt;   Found 134 observations</code></pre>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+R&gt;   Found 139 observations</code></pre>
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check output</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_cred</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; Rows: 268
+<pre><code>R&gt; Rows: 278
 R&gt; Columns: 4
 R&gt; $ ref.date    &lt;date&gt; 2011-03-01, 2011-04-01, 2011-05-01, 2…
 R&gt; $ value       &lt;dbl&gt; 1.96, 2.04, 2.15, 2.09, 2.18, 2.15, 2.…
@@ -693,12 +693,11 @@ Excel ou um arquivo compactado com vários arquivos <em>csv</em>.
 </p>
 <p>
 Saiba também que dados históricos completos e atualizados a partir de
-2010 do DFP e ITR estão disponibilizados na seção <a href="https://www.msperlin.com/blog/data/">Data</a> do meu site
-pessoal.
+2010 do DFP e ITR estão disponibilizados na seção <a href="https://www.msperlin.com/data/">Data</a> do meu site pessoal.
 </p>
 </div>
 <p>O ponto de partida no uso de <code>GetDFPData2</code> é baixar informações atuais sobre empresas disponíveis. O acesso a tabela é possível com a função <code>get_info_companies</code>: </p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetDFPData2/">GetDFPData2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get info for companies in B3</span></span>
@@ -709,8 +708,8 @@ pessoal.
 <pre><code>R&gt;  Success</code></pre>
 <pre><code>R&gt;  Reading file from CVM</code></pre>
 <pre><code>R&gt;  Saving cache data</code></pre>
-<pre><code>R&gt;  Got 2547 lines for 2413 companies [Actives = 693 Inactives = 1732]</code></pre>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<pre><code>R&gt;  Got 2559 lines for 2425 companies [Actives = 701 Inactives = 1736]</code></pre>
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">df_info</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] "CNPJ"               "DENOM_SOCIAL"      
@@ -737,20 +736,27 @@ R&gt; [41] "DDD_TEL_RESP"       "TEL_RESP"
 R&gt; [43] "DDD_FAX_RESP"       "FAX_RESP"          
 R&gt; [45] "EMAIL_RESP"         "CNPJ_AUDITOR"      
 R&gt; [47] "AUDITOR"</code></pre>
-<p>Essa tabela disponibiliza os identificadores numéricos das empresas, setores de atividades, atual segmento de governança, <em>tickers</em> negociados na bolsa e situação atual (ativa ou não). O número atual de empresas ativas e inativas, a partir de 2022-08-10, está disponível na coluna <code>SIT_REG</code>. Observa-se 778 empresas ativas e 1768 canceladas. Essa é uma excelente fonte de informação para um estudo exploratório. Pode-se facilmente filtrar empresas para datas, setores, <em>tickers</em> ou segmentos de governança corporativa.</p>
+<p>Essa tabela disponibiliza os identificadores numéricos das empresas, setores de atividades, atual segmento de governança, <em>tickers</em> negociados na bolsa e situação atual (ativa ou não). O número atual de empresas ativas e inativas, a partir de 2022-11-23, está disponível na coluna <code>SIT_REG</code>. Observa-se 786 empresas ativas e 1771 canceladas. Essa é uma excelente fonte de informação para um estudo exploratório. Pode-se facilmente filtrar empresas para datas, setores, <em>tickers</em> ou segmentos de governança corporativa.</p>
 <p>Toda empresa no banco de dados é identificada pelo seu número único da CVM. Função <code>search_company</code> permite que o usuário procure o identificador de uma empresa através de seu nome. Dado um texto de entrada – o nome da empresa –, a função procurará uma correspondência parcial com os nomes de todas as empresas disponíveis no banco de dados. Em seu uso, caracteres latinos e maiúsculas e minúsculas são ignorados. Vamos encontrar o nome oficial nome da Grendene, uma das maiores empresas do Brasil. Para isso, basta usar o comando <code>search_company('grendene')</code>.</p>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_search</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GetDFPData2/man/search_company.html">search_company</a></span><span class="op">(</span><span class="st">'grendene'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">df_search</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; # A tibble: 1 × 3
-R&gt;   CD_CVM DENOM_SOCIAL SIT_REG
-R&gt;    &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;  
-R&gt; 1  19615 GRENDENE SA  ATIVO</code></pre>
+<pre><code>R&gt; # A tibble: 1 × 47
+R&gt;   CNPJ      DENOM…¹ DENOM…² DT_REG     DT_CONST   DT_CANCEL
+R&gt;   &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;     &lt;date&gt;   
+R&gt; 1 89.850.3… GRENDE… GRENDE… 2004-10-26 1971-02-25 NA       
+R&gt; # … with 41 more variables: MOTIVO_CANCEL &lt;chr&gt;,
+R&gt; #   SIT_REG &lt;chr&gt;, DT_INI_SIT &lt;date&gt;, CD_CVM &lt;dbl&gt;,
+R&gt; #   SETOR_ATIV &lt;chr&gt;, TP_MERC &lt;chr&gt;, CATEG_REG &lt;chr&gt;,
+R&gt; #   DT_INI_CATEG &lt;date&gt;, SIT_EMISSOR &lt;chr&gt;,
+R&gt; #   DT_INI_SIT_EMISSOR &lt;date&gt;, CONTROLE_ACIONARIO &lt;chr&gt;,
+R&gt; #   TP_ENDER &lt;chr&gt;, LOGRADOURO &lt;chr&gt;, COMPL &lt;chr&gt;,
+R&gt; #   BAIRRO &lt;chr&gt;, MUN &lt;chr&gt;, UF &lt;chr&gt;, PAIS &lt;chr&gt;, …</code></pre>
 <p>Vemos que existe um registro para a Grendene: “GRENDENE SA”, com código identificador equivalente a 19615. </p>
 <p>Com o identificador da empresa disponível, usamos a função principal do pacote, <code>get_dfp_data</code>, para baixar os dados. Definimos o nome oficial da empresa como entrada <code>companies_cvm_codes</code> e o período de tempo como entradas <code>first_year</code> e <code>last_year</code>.</p>
 <p></p>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetDFPData2/">GetDFPData2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -790,7 +796,7 @@ Primeiro ano para os dados
 </dd>
 </dl>
 <p>O objeto resultante de <code>get_dfp_data</code> é uma <code>lista</code> com diversas tabelas. Vamos dar uma olhada no conteúdo de <code>l_dfp</code> ao buscar os nomes dos itens da lista, limitando o número de caracteres:</p>
-<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_sub.html">str_sub</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">l_dfp</span><span class="op">)</span>, <span class="fl">1</span>, <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "DF Consolidado - Balanço Patrimonial Ati"
 R&gt; [2] "DF Consolidado - Balanço Patrimonial Pas"
@@ -799,7 +805,7 @@ R&gt; [4] "DF Consolidado - Demonstração de Valor A"
 R&gt; [5] "DF Consolidado - Demonstração do Fluxo d"
 R&gt; [6] "DF Consolidado - Demonstração do Resulta"</code></pre>
 <p>Como podemos ver, os dados retornados são vastos. Cada item da lista em <code>l_dfp</code> é um tabela indexada ao tempo. A explicação de cada coluna não cabe aqui mas, para fins de exemplo, vamos dar uma olhada no balanço patrimonial da empresa, disponível em <code>l_dfp$"DF Consolidado - Balanço Patrimonial Ativo"</code>:</p>
-<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># save assets in df</span></span>
 <span><span class="va">fr_assets</span> <span class="op">&lt;-</span> <span class="va">l_dfp</span><span class="op">$</span><span class="va">`DF Consolidado - Balanço Patrimonial Ativo`</span></span>
 <span></span>
@@ -824,12 +830,12 @@ R&gt; $ VL_CONTA     &lt;dbl&gt; 3576008, 2846997, 30119, 1537477, 836…
 R&gt; $ COLUNA_DF    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
 R&gt; $ source_file  &lt;chr&gt; "dfp_cia_aberta_BPA_con_2017.csv", "d…</code></pre>
 <p>A exportação dos dados para o Excel também é fácil, basta usar função <code><a href="https://rdrr.io/pkg/GetDFPData2/man/export_xlsx.html">GetDFPData2::export_xlsx</a></code>: </p>
-<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">temp_xlsx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">'.xlsx'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/GetDFPData2/man/export_xlsx.html">export_xlsx</a></span><span class="op">(</span>l_dfp <span class="op">=</span> <span class="va">l_dfp</span>, f_xlsx <span class="op">=</span> <span class="va">temp_xlsx</span><span class="op">)</span></span></code></pre></div>
 <p>O arquivo Excel resultante conterá cada tabela de <code>l_dpf</code> em uma aba diferente da planilha, com uma truncagem nos nomes. Podemos checar o resultado com função <code><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">readxl::excel_sheets</a></code>:</p>
-<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">excel_sheets</a></span><span class="op">(</span><span class="va">temp_xlsx</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "DF Consolidado - Balanço Pat"  
 R&gt; [2] "DF Consolidado - Balanço Pat_1"
@@ -844,7 +850,7 @@ R&gt; [6] "DF Consolidado - Demonstraçã_3"</code></pre>
 </h2>
 <p>O pacote <code>GetFREData</code> importa dados do sistema FRE – Formulário de Referência – da bolsa Brasileira, incluindo eventos e informações corporativas tal como composição do conselho e diretoria, remuneração dos conselhos, entre outras.</p>
 <p>A estrutura de uso e a saída das funções de <code>GetFREData</code> são muito semelhante as do pacote <code>GetDFPData2</code>. Veja a seguir um exemplo de uso.</p>
-<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/msperlin/GetFREData/">GetFREData</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set options</span></span>
@@ -857,7 +863,7 @@ R&gt; [6] "DF Consolidado - Demonstraçã_3"</code></pre>
 <span>                      first_year <span class="op">=</span> <span class="va">first_year</span>,</span>
 <span>                      last_year <span class="op">=</span> <span class="va">last_year</span><span class="op">)</span></span></code></pre></div>
 <p>Note que o tempo de execução de <code>get_fre_data</code> é significativo. Isto deve-se ao <em>download</em> e leitura dos arquivos do sistema FRE direto da bolsa. Cada tabela do FRE é importada na lista de saída:</p>
-<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">l_fre</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] "df_stockholders"            
 R&gt;  [2] "df_capital"                 
@@ -881,7 +887,7 @@ R&gt; [19] "df_stocks_details"
 R&gt; [20] "df_dividends_details"       
 R&gt; [21] "df_intangible_details"</code></pre>
 <p>Por exemplo, vamos verificar conteúdo da tabela <code>df_board_composition</code>, a qual contém informações sobre os componentes dos conselhos das empresas:</p>
-<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">l_fre</span><span class="op">$</span><span class="va">df_board_composition</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 59
 R&gt; Columns: 22
@@ -938,16 +944,10 @@ entrada <code>fre_to_read</code>.
 Pacote construído e mantido pela equipe da <a href="http://portal.fgv.br/en">FGV</a>. Permite o acesso aos dados do BCB (Banco Central do Brasil) e IBGE (Instituto Brasileiro de Geografia e Estatística). Também inclui ferramentas para a administração, análise e manipulação dos dados em relatórios técnicos.
 </dd>
 <dt>
-<code>simfinR</code> <span class="citation">(<a href="#ref-R-simfinR" role="doc-biblioref"><strong>R-simfinR?</strong></a>)</span>
+<code>simfinapi</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-simfinapi" role="doc-biblioref">Gomolka 2021</a>)</span>
 </dt>
 <dd>
 Pacote para acesso ao projeto <a href="https://simfin.com/">simfin</a>, incluindo dados financeiros de diversas empresas internacionais. O acesso livre é restrito a um número de chamadas diárias.
-</dd>
-<dt>
-<code>TFX</code> <span class="citation">(<a href="#ref-R-TFX" role="doc-biblioref"><strong>R-TFX?</strong></a>)</span>
-</dt>
-<dd>
-Permite acesso aos dados do mercado de câmbio via <a href="https://www.truefx.com/">True FX</a>.
 </dd>
 </dl>
 </div>
@@ -963,7 +963,7 @@ Permite acesso aos dados do mercado de câmbio via <a href="https://www.truefx.c
 Permite acesso aos dados da <a href="https://www.bloomberg.com/">Bloomberg</a>, sendo necessário uma conta comercial.
 </dd>
 <dt>
-<code>IBrokers</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-IBrokers" role="doc-biblioref">Ryan 2022</a>)</span>
+<code>IBrokers</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-IBrokers" role="doc-biblioref">Ryan and Ulrich 2022a</a>)</span>
 </dt>
 <dd>
 API para o acesso aos dados da <a href="https://www.interactivebrokers.com/en/home.php">Interactive Brokers</a>. Também é necessário uma conta comercial.
@@ -997,11 +997,11 @@ Figura 5.2: Encontrando o xpath da tabela
 </p>
 </div>
 <p>Aqui, o texto copiado é:</p>
-<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">'//*[@id="mw-content-text"]/table[1]/thead/tr/th[2]'</span></span></code></pre></div>
 <p>Este é o endereço do cabeçalho da tabela. Para todo o conteúdo da tabela, incluindo cabeçalho, linhas e colunas, precisamos definir um nível superior da árvore. Isso é equivalente ao endereço <code>//*[@id =" mw-content-text"]/table[1]</code>.</p>
-<p>Agora que temos a localização do que queremos, vamos carregar o pacote <code>rvest</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-rvest" role="doc-biblioref">Wickham 2021</a>)</span> e usar as funções <code>read_html</code>, <code>html_nodes</code> e<code>html_table</code> para importar a tabela desejada para o R: </p>
-<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<p>Agora que temos a localização do que queremos, vamos carregar o pacote <code>rvest</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-rvest" role="doc-biblioref">Wickham 2022a</a>)</span> e usar as funções <code>read_html</code>, <code>html_nodes</code> e<code>html_table</code> para importar a tabela desejada para o R: </p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set url and xpath</span></span>
@@ -1047,29 +1047,35 @@ R&gt; $ Founded               &lt;chr&gt; "1902", "1916", "1888", "201…</code>
 <div id="q.1-4" class="section level3 unnumbered">
 <h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-4"><i class="fas fa-link"></i></a>
 </h3>
-Utilizando pacote <code>BatchGetSymbols</code>, baixe os dados diários da ação MDIA3 no <em>Yahoo Finance</em> para o período entre 2019 e 2020. Qual o preço <strong>não ajustado de fechamento (coluna <code>price.close</code>)</strong> mais baixo no período analisado? Dica: todas ações brasileiras tem o prefixo “.SA” em seu ticker do Yahoo Finance. Portanto, as ações ordinárias da fabricante de massas MDias são representadas pelo símbolo MDIA3.SA.
-<br><br> Resposta: <input class="webex-solveme nospaces" size="5" data-answer='["32.18"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>Using the <code>yfR</code> package, download daily data for ticker TSLA from <em>Yahoo Finance</em> for the period between 2019-01-01 and 2020-03-02. What is the lowest <strong>unadjusted closing price (column <code>price_close</code>)</strong> in the analyzed period?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">21.45756</option>
+<option value="">13.51713</option>
+<option value="">18.81075</option>
+<option value="">16.16394</option>
+<option value="answer">11.93133</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985ccefefd" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf500bdcf" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985ccefefd" class="collapse">
-A solução é 32.18. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div id="collapse_11cf500bdcf" class="collapse">
+A solução é 11.93133. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code>possible_tickers &lt;- c('META', "TSLA", "MMM", "GE")
+ticker &lt;- sample(possible_tickers, 1)
+first_date &lt;- as.Date('2019-01-01')
+last_date  &lt;- sample(
+  seq(first_date+50, Sys.Date()-10, by = '1 day'),
+  1)
 
-ticker &lt;- 'MDIA3.SA'
-first_date &lt;- '2019-01-01'
-last_date  &lt;- '2020-01-01'
+df_prices &lt;- yfR::yf_get(tickers = ticker, 
+                         first_date = first_date, 
+                         last_date = last_date)
 
-df_prices &lt;- BatchGetSymbols(tickers = ticker, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
-
-my_sol &lt;- min(df_prices$price.close, 
-                 na.rm = TRUE)</a></code></pre>
+my_sol &lt;- min(df_prices$price_close, 
+              na.rm = TRUE)</code></pre>
 </div>
 </div>
 <hr>
@@ -1078,23 +1084,68 @@ my_sol &lt;- min(df_prices$price.close,
 <div id="q.2-4" class="section level3 unnumbered">
 <h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-4"><i class="fas fa-link"></i></a>
 </h3>
-<p>Utilize pacote <code>GetBCBData</code> para baixar dados do IPCA mensal entre 2010-01-01 e 2020-12-31. Para os dados importados, qual é a data com o maior valor mensal de inflação?</p>
+<p>If you have not already done so, create a profile on the <a href="https://www.quandl.com/">Quandl website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.quandl.com/" class="uri"&gt;https://www.quandl.com/&lt;/a&gt;&lt;/p&gt;'><sup>22</sup></a> and download the arabica coffee price data (id = CEPEA/COFFEE_A) in the CEPEA database (Center for Advanced Studies in Applied Economics) between 2010-01-01 and 2019-09-27. What is the maximum price found?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">2018-02-01</option>
-<option value="">2010-03-01</option>
-<option value="">2017-12-01</option>
-<option value="answer">2020-12-01</option>
-<option value="">2019-05-01</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">$462.96</option>
+<option value="">$614.59</option>
+<option value="">$538.78</option>
+<option value="">$387.15</option>
+<option value="answer">$349.39</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98418c3d18" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf16ceb999" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98418c3d18" class="collapse">
+<div id="collapse_11cf16ceb999" class="collapse">
+A solução é $349.39. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div class="card card-body">
+<pre><code><a href="https://github.com/msperlin/GetQuandlData/">library(GetQuandlData)
+
+id_series &lt;- c('CEPEA/COFFEE_A')
+
+# set api key (make sure you got your own!)
+my_api_key &lt;- readLines('~/GDrive/98-pass-and-bash/.quandl_api.txt')
+
+first_date &lt;- as.Date('2010-01-01')
+last_date &lt;- sample(
+  seq(first_date + 50, 
+      Sys.Date(), by = '1 day'),
+  1)
+
+df_coffee &lt;- get_Quandl_series(id_in = id_series, 
+                               first_date = first_date,
+                               last_date = last_date,
+                               api_key = my_api_key,
+                               do_cache = TRUE)
+
+# find max
+my_sol &lt;- max(as.numeric(df_coffee$`Cash Price US$`))</a></code></pre>
+</div>
+</div>
+<hr>
+<p><span id="webex-total_correct"></span></p>
+</div>
+<div id="q.3-3" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Utilize pacote <code>GetBCBData</code> para baixar dados do IPCA mensal entre 2010-01-01 e 2020-12-31. Para os dados importados, qual é a data com o maior valor mensal de inflação?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">2018-11-01</option>
+<option value="">2018-10-01</option>
+<option value="">2018-02-01</option>
+<option value="answer">2020-12-01</option>
+<option value="">2014-08-01</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2cbaeb41" aria-expanded="false" aria-controls="collapseExample">
+Solução
+</button>
+</p>
+</div>
+<div id="collapse_11cf2cbaeb41" class="collapse">
 A solução é 2020-12-01. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://github.com/msperlin/GetBCBData/">library(GetBCBData)
+<pre><code><a href="https://github.com/msperlin/GetBCBData/">library(GetBCBData)
 
 id_series &lt;- '433'
 first_date &lt;- '2010-01-01'
@@ -1111,80 +1162,38 @@ my_sol &lt;-  df_ipca$ref.date[which.max(df_ipca$value)]</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-3" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-3"><i class="fas fa-link"></i></a>
-</h3>
-<p>Utilizando função <code><a href="https://rdrr.io/pkg/GetDFPData2/man/get_info_companies.html">GetDFPData2::get_info_companies</a></code>, baixe informações sobre as ações negociadas na B3. Qual é a empresa <strong>ativa</strong> (veja coluna <code>SIT_REG</code>) mais antiga da amostra de acordo com sua data de registro (coluna <code>DT_REG</code>)?</p>
-<br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">SÃO CARLOS EMPREENDS E PARTICIPAÇÕES S.A</option>
-<option value="answer">ROMI S.A.</option>
-<option value="">BRASKEM S.A.</option>
-<option value="">KALUNGA S.A.</option>
-<option value="">PORTO SEGURO SA</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98107fd341" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e98107fd341" class="collapse">
-A solução é ROMI S.A.. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code><a href="https://github.com/msperlin/GetDFPData2/">library(GetDFPData2)
-
-df_info &lt;- get_info_companies() %&gt;%
-  filter(SIT_REG == 'ATIVO')
-
-#glimpse(df_info)
-
-# Oldest company
-idx &lt;- which.min(lubridate::ymd(df_info$DT_REG))
-my_sol &lt;- df_info$DENOM_SOCIAL[idx]</a></code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
 <div id="q.4-3" class="section level3 unnumbered">
 <h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Usando pacote <code>GetDFPData2</code>, baixe os demostrativos financeiros consolidados da empresa Petrobrás para o ano de 2019. Qual foi o seu lucro líquido no final do exercício (x1000)?</p>
+<p>Use function <code><a href="https://rdrr.io/pkg/simfinapi/man/sfa_get_entities.html">simfinapi::sfa_get_entities</a></code> to import data about all available companies in <a href="https://simfin.com">Simfin</a>. How many companies do you find?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">R$45.630.228,00</option>
-<option value="">R$64.048.463,00</option>
-<option value="">R$54.839.346,00</option>
-<option value="">R$73.257.580,00</option>
-<option value="answer">R$40.970.000,00</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">8382</option>
+<option value="answer">3229</option>
+<option value="">5153</option>
+<option value="">2552</option>
+<option value="">1465</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9823891b6c" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf71388165" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9823891b6c" class="collapse">
-A solução é R$40.970.000,00. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div id="collapse_11cf71388165" class="collapse">
+A solução é 3229. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://github.com/msperlin/GetDFPData2/">library(GetDFPData2)
+<pre><code><a href="https://github.com/msperlin/simfinR/">library(simfinR)
 library(tidyverse)
 
-my_company &lt;- 'Petrobrás'
+# set api key - make sure you got your own at https://simfin.com/data/access/api
+my_api_key &lt;- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
 
-search_company(my_company)
+df_info &lt;- simfinapi::sfa_get_entities(api_key = my_api_key, 
+                                       cache_dir = tempdir())
 
-my_id &lt;- 9512
-my_year &lt;- 2019
+# check it
+n_companies &lt;- n_distinct(df_info$simfin_id)
 
-l_dfp &lt;- get_dfp_data(companies_cvm_codes = my_id, 
-                      type_format = 'con',
-                      first_year = my_year,
-                      last_year  = my_year)
-
-df_dre &lt;- l_dfp$`DF Consolidado - Demonstração do Resultado` %&gt;%
-  filter(DT_REFER == max(DT_REFER))
-
-# last profit
-acc_id &lt;- "3.11"
-my_sol &lt;- df_dre$VL_CONTA[df_dre$CD_CONTA == acc_id]</a></code></pre>
+my_sol &lt;- n_companies</a></code></pre>
 </div>
 </div>
 <hr>
@@ -1193,30 +1202,208 @@ my_sol &lt;- df_dre$VL_CONTA[df_dre$CD_CONTA == acc_id]</a></code></pre>
 <div id="q.5-3" class="section level3 unnumbered">
 <h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Com base no pacote <code>GetTDData</code>, baixe dados para títulos do tipo LTN (Letras Financeiras do Tesouro). Qual o preço mais baixo para o título “LTN 010121”?</p>
-<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>With package <code>simfinapi</code>, download the PnL (profit and loss) statement for FY (final year) data for id = 134979) for year 2019. What is the latest “Net Income” of the company?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="answer">$76,930,000</option>
+<option value="">$11,110,183</option>
+<option value="">$55,274,533</option>
+<option value="">$40,553,083</option>
+<option value="">$25,831,633</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98473f659c" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf4cf0e49c" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98473f659c" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf4cf0e49c" class="collapse">
+A solução é $76,930,000. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://github.com/msperlin/GetTDData/">library(GetTDData)
-library(dplyr)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
-download.TD.data(asset.codes = 'LTN')
+# set api key - make sure you got your own at https://simfin.com/data/access/api
+my_api_key &lt;- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
 
-df_TD &lt;- read.TD.files()
+df_info &lt;- simfinapi::sfa_get_entities(api_key = my_api_key, 
+                                       cache_dir = tempdir())
 
-my_td_asset &lt;- 'LTN 010121'
+company_id &lt;- sample(df_info$simfin_id, 1)
+type_statements &lt;- 'pl' # profit/loss
+periods = 'FY' # final year
+year = sample(2015:2020, 1)
 
-df_TD &lt;- df_TD %&gt;%
-  filter(asset.code == my_td_asset)
+df_pl &lt;- simfinapi::sfa_get_statement(simfin_id = company_id, 
+                             statement = 'pl', 
+                             fyear = year, api_key = my_api_key,
+                             cache_dir = tempdir())
 
-my_sol &lt;- min(df_TD$price.bid)</a></code></pre>
+my_sol &lt;- df_pl$net_income</a></code></pre>
+</div>
+</div>
+<hr>
+<p><span id="webex-total_correct"></span></p>
+</div>
+<div id="q.6-3" class="section level3 unnumbered">
+<h3>Q.6<a class="anchor" aria-label="anchor" href="#q.6-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using again the <code>yfR</code> package, download data between 2019-01-01 and 2021-05-30 for the following tickers:</p>
+<ul>
+<li>AAPL: Apple Inc</li>
+<li>BAC: Bank of America Corporation</li>
+<li>GE: General Electric Company</li>
+<li>TSLA: Tesla, Inc.</li>
+<li>SNAP: Snap Inc.</li>
+</ul>
+<p>Using the <strong>adjusted closing price</strong> column, what company provided higher return to the stock holder during the analyzed period?</p>
+<p>Tip: this is an advanced exercise that will require some coding. To solve it, check out function <code>split</code> to split the dataframe of price data and <code>lapply</code> to map a function to each dataframe.</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">TSLA</option>
+<option value="answer">SNAP</option>
+<option value="">BAC</option>
+<option value="">AAPL</option>
+<option value="">GE</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf77505d30" aria-expanded="false" aria-controls="collapseExample">
+Solução
+</button>
+</p>
+</div>
+<div id="collapse_11cf77505d30" class="collapse">
+A solução é SNAP. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div class="card card-body">
+<pre><code>first_date &lt;- as.Date('2019-01-01')
+last_date  &lt;- sample(
+  seq(first_date+50, Sys.Date()-10, by = '1 day'),
+  1)
+
+my_tickers &lt;- c('AAPL', 'BAC', 
+                'GE', 'TSLA',
+                'SNAP')
+
+df_prices &lt;- yfR::yf_get(tickers = my_tickers, 
+                         first_date = first_date, 
+                         last_date = last_date)
+
+split_l &lt;- split(df_prices, df_prices$ticker)
+
+my_fct &lt;- function(df_in) {
+  price_vec &lt;- df_in$price_adjusted
+  ticker_in &lt;- df_in$ticker[1]
+  
+  total_ret &lt;- last(price_vec)/first(price_vec) - 1
+  
+  return(tibble(ticker = ticker_in,
+                total_ret = total_ret))
+}
+
+df_results &lt;- bind_rows(
+  lapply(split_l, my_fct)
+)
+
+winner &lt;- df_results$ticker[which.max(df_results$total_ret)]
+
+my_sol &lt;- winner</code></pre>
+</div>
+</div>
+<hr>
+<p><span id="webex-total_correct"></span></p>
+</div>
+<div id="q.7-3" class="section level3 unnumbered">
+<h3>Q.7<a class="anchor" aria-label="anchor" href="#q.7-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using package <code>GetDFPData2</code>, download the main table with all available companies. What is the number of active companies currently available?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">1986</option>
+<option value="">353</option>
+<option value="">1200</option>
+<option value="">573</option>
+<option value="answer">786</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf5ffee31e" aria-expanded="false" aria-controls="collapseExample">
+Solução
+</button>
+</p>
+</div>
+<div id="collapse_11cf5ffee31e" class="collapse">
+A solução é 786. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div class="card card-body">
+<pre><code>df_info &lt;- GetDFPData2::get_info_companies() |&gt;
+  dplyr::filter(SIT_REG == "ATIVO")
+
+my_sol &lt;- nrow(df_info)</code></pre>
+</div>
+</div>
+<hr>
+<p><span id="webex-total_correct"></span></p>
+</div>
+<div id="q.8-2" class="section level3 unnumbered">
+<h3>Q.8<a class="anchor" aria-label="anchor" href="#q.8-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using package <code>GetDFPData2</code>, download net income data (consolidated) for all companies in the year of 2019. What is the sum of profit/loss (in thousands, code 3.11 in DFP) for all companies?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="answer">$671,404,363</option>
+<option value="">$515,670,717</option>
+<option value="">$310,949,685</option>
+<option value="">$1,833,169,063</option>
+<option value="">$1,161,764,700</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf3791fe5d" aria-expanded="false" aria-controls="collapseExample">
+Solução
+</button>
+</p>
+</div>
+<div id="collapse_11cf3791fe5d" class="collapse">
+A solução é $671,404,363. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div class="card card-body">
+<pre><code>df_info &lt;- GetDFPData2::get_info_companies() |&gt;
+  dplyr::filter(SIT_REG == "ATIVO")
+
+year &lt;- sample(2015:(lubridate::year(Sys.Date())-1), 1)
+
+l_dfp &lt;- GetDFPData2::get_dfp_data(first_year = year, 
+                                   last_year = year)
+
+ni &lt;- l_dfp$`DF Consolidado - Demonstração do Resultado` |&gt;
+  dplyr::filter(CD_CONTA == "3.11")
+
+my_sol &lt;- sum(ni$VL_CONTA)</code></pre>
+</div>
+</div>
+<hr>
+<p><span id="webex-total_correct"></span></p>
+</div>
+<div id="q.9-2" class="section level3 unnumbered">
+<h3>Q.9<a class="anchor" aria-label="anchor" href="#q.9-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using package <code>GetTDData</code>, download all available data for debt contract of type LTN (<em>pré-fixados</em>).</p>
+<p>What is the maximum yield (column <em>yield.bid</em>) found for for contract LTN 010118?</p>
+<br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">22.9%</option>
+<option value="answer">16.7%</option>
+<option value="">19.3%</option>
+<option value="">26.4%</option>
+<option value="">29.9%</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf5bccd257" aria-expanded="false" aria-controls="collapseExample">
+Solução
+</button>
+</p>
+</div>
+<div id="collapse_11cf5bccd257" class="collapse">
+A solução é 16.7%. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div class="card card-body">
+<pre><code>my_temp_path &lt;- fs::path_temp('TD')
+GetTDData::download.TD.data(asset.codes = "LTN", 
+                            dl.folder = my_temp_path)
+
+df_td &lt;- GetTDData::read.TD.files(dl.folder = my_temp_path)
+
+available_assets &lt;- unique(df_td$asset.code)
+my_asset &lt;- sample(available_assets, 1)
+
+df_asset &lt;- df_td |&gt;
+  dplyr::filter(asset.code == my_asset)
+
+my_sol &lt;- max(df_asset$yield.bid)</code></pre>
 </div>
 </div>
 
@@ -1277,6 +1464,10 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#q.3-3">Q.3</a></li>
 <li><a class="nav-link" href="#q.4-3">Q.4</a></li>
 <li><a class="nav-link" href="#q.5-3">Q.5</a></li>
+<li><a class="nav-link" href="#q.6-3">Q.6</a></li>
+<li><a class="nav-link" href="#q.7-3">Q.7</a></li>
+<li><a class="nav-link" href="#q.8-2">Q.8</a></li>
+<li><a class="nav-link" href="#q.9-2">Q.9</a></li>
 </ul>
 </li>
 </ul>
@@ -1295,7 +1486,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

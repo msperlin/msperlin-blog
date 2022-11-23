@@ -7,7 +7,7 @@
 <title>Capítulo 11 Econometria Financeira com o R | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 11 Econometria Financeira com o R | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -539,11 +539,11 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-10" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-10"><i class="fas fa-link"></i></a>
+<div id="q.1-9" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Simule o seguinte processo linear no R:</p>
-<pre class="text"><code>set.seed(5)
+<pre><code>set.seed(5)
 
 # number of obs
 n_row &lt;- 100
@@ -565,15 +565,15 @@ y &lt;- my_alpha + my_beta*x + rnorm(n_row)</code></pre>
 <option value="answer">0.6331</option>
 <option value="">1.5038</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98408377b8" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2572ee2f" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98408377b8" class="collapse">
+<div id="collapse_11cf2572ee2f" class="collapse">
 A solução é 0.6331. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code>set.seed(5)
+<pre><code>set.seed(5)
 
 # number of obs
 n_row &lt;- 100
@@ -600,8 +600,8 @@ my_sol &lt;- coef(my_lm)[2]</code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-10" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-10"><i class="fas fa-link"></i></a>
+<div id="q.2-9" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilizando pacote <code>car</code>, teste a hipótese conjunta de que o valor de alpha é igual a 1.5 e beta igual a 0.5. Qual o valor do teste F resultante?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
@@ -611,15 +611,15 @@ my_sol &lt;- coef(my_lm)[2]</code></pre>
 <option value="">23.335</option>
 <option value="answer">16.967</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9847d635e2" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf42100747" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9847d635e2" class="collapse">
+<div id="collapse_11cf42100747" class="collapse">
 A solução é 16.967. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code>set.seed(5)
+<pre><code>set.seed(5)
 
 # number of obs
 n_row &lt;- 100
@@ -663,22 +663,21 @@ my_sol &lt;- my_waldtest$F[2]</code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-9" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-9"><i class="fas fa-link"></i></a>
+<div id="q.3-8" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilize pacote <code>gvlma</code> para testar as premissas do OLS para o modelo estimado anteriormente. O modelo passa em todos os testes? Em caso negativo, aumente o valor de <code>n_row</code> para 1000 e tente novamente. O aumento do número de observações do modelo impactou no teste das premissas? De que forma?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e987e231d37" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf652812db" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e987e231d37" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf652812db" class="collapse">
 <div class="card card-body">
 <p>O modelo estimado não passou todos os testes. De fato, nem o aumento do número de observações na simulação resultou em aprovação do modelo em todos os quesitos.</p>
-<pre class="text"><code>set.seed(5)
+<pre><code>set.seed(5)
 
 # number of obs
 n_row &lt;- 1000
@@ -711,21 +710,20 @@ summary(gvmodel)</code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.4-9" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-9"><i class="fas fa-link"></i></a>
+<div id="q.4-8" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilize função <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/GetSP500Stocks.html">BatchGetSymbols::GetSP500Stocks</a></code> para baixar dados de todas ações pertencentes ao atual índice SP500 para os últimos três anos. Usando o SP500 como o índice de mercado, calcule o beta para cada uma das ações. Apresente o histograma dos <em>betas</em> estimados. Note que os retornos do SP500 (<code>'^GSPC'</code>) não estão disponíveis na base de dados original e devem ser baixados e agregados a base de dados original.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98488abb28" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf404a5570" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98488abb28" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf404a5570" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- GetSP500Stocks()$Tickers
@@ -775,21 +773,20 @@ print(p)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.5-9" class="section level3 unnumbered">
-<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-9"><i class="fas fa-link"></i></a>
+<div id="q.5-8" class="section level3 unnumbered">
+<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para os dados importados anteriormente, estime uma versão em dados de painel para o modelo de mercado (beta). Nesta versão, cada ação possui um intercepto diferente, porém compartilham o mesmo beta. O beta estimado é significativo a 5%?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985939b870" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2df941d" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985939b870" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf2df941d" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- GetSP500Stocks()$Tickers
@@ -829,15 +826,14 @@ print(summary(my_pdm))</a></code></pre>
 <p>Utilizando as funções do tidyverse, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">dplyr::group_by</a></code> e <code><a href="https://dplyr.tidyverse.org/reference/do.html">dplyr::do</a></code>, estime um modelo ARIMA para os retornos de cada ação dos dados importados no exercício do SP500. No mesmo <code>dataframe</code> de saída, crie uma nova coluna com a previsão em <em>t+1</em> de cada modelo. Qual ação possui maior expectativa de retorno para <em>t+1</em>?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984466ae2d" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf61cfdab" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e984466ae2d" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf61cfdab" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- GetSP500Stocks()$Tickers
@@ -876,15 +872,14 @@ print(my_tab$ticker[idx])</a></code></pre>
 <p>No mesmo código utilizado na questão anterior, adicione uma nova coluna-lista com a estimação de um modelo ARMA(1,0)-GARCH(1,1) para os retornos de cada ação. Adicione outra coluna com a previsão de volatilidade (desvio padrão) em <em>t+1</em>. Ao dividir o retorno esperado calculado no item anterior pelo risco previsto, temos um índice de direção do mercado, onde aquelas ações com maior valor de índice apresentam maior retorno esperado por menor risco. Qual ação é mais atrativa e possui maior valor deste índice?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9866317ba4" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf4f103dd7" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9866317ba4" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf4f103dd7" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- GetSP500Stocks()$Tickers
@@ -928,15 +923,14 @@ print(tab_models$ticker[idx])</a></code></pre>
 <p>Para a mesma base de dados do SP500, selecione 4 ações aleatoriamente e estime um modelo de mudança de regime markoviano equivalente ao apresentado no item <a href="modelos.html#mudanca-regime">11.6</a> para cada ação. Utilize função <code>plot</code> para apresentar o gráfico das probabilidades suavizadas e salve cada figura em uma pasta chamada <code>'fig'</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9873bb714a" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf7252d158" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9873bb714a" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf7252d158" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- GetSP500Stocks()$Tickers
@@ -1064,11 +1058,11 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#trabalhando-com-diversos-modelos"><span class="header-section-number">11.7</span> Trabalhando com Diversos Modelos</a></li>
 <li>
 <a class="nav-link" href="#exerc-modelos"><span class="header-section-number">11.8</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-10">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-10">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-9">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-9">Q.4</a></li>
-<li><a class="nav-link" href="#q.5-9">Q.5</a></li>
+<li><a class="nav-link" href="#q.1-9">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-9">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-8">Q.3</a></li>
+<li><a class="nav-link" href="#q.4-8">Q.4</a></li>
+<li><a class="nav-link" href="#q.5-8">Q.5</a></li>
 <li><a class="nav-link" href="#q.6-8">Q.6</a></li>
 <li><a class="nav-link" href="#q.7-8">Q.7</a></li>
 <li><a class="nav-link" href="#q.8-6">Q.8</a></li>
@@ -1090,7 +1084,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

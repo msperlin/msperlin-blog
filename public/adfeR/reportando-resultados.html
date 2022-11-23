@@ -7,7 +7,7 @@
 <title>Capítulo 12 Reportando Resultados e Criando Relatórios | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 12 Reportando Resultados e Criando Relatórios | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -259,21 +259,20 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-11" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-11"><i class="fas fa-link"></i></a>
+<div id="q.1-10" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>Observe os dados disponíveis no arquivo <code>grunfeld.csv</code>. Importe os dados no R e monte uma tabela descritiva das variáveis. Essa tabela deve oferecer informações suficientes para o leitor entender os dados. Utilize pacote <code>xtable</code> para reportar a mesma no formato <em>LaTeX</em> ou Word/Writer.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e987e27b9c2" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf47b6d3a7" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e987e27b9c2" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf47b6d3a7" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_url &lt;- 'https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv'
 
@@ -299,21 +298,20 @@ readr::read_lines(my_tex_file)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-11" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-11"><i class="fas fa-link"></i></a>
+<div id="q.2-10" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilizando função <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/GetSP500Stocks.html">BatchGetSymbols::GetSP500Stocks</a></code>, selecione 4 ações aleatoriamente e baixe os dados de preços ajustados para os últimos três anos. Estime um modelo ARIMA(1, 0, 1) para cada ação e reporte o resultado na tela do R com função <code><a href="https://rdrr.io/pkg/texreg/man/screenreg.html">texreg::screenreg</a></code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e982c186e02" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf18f33ede" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e982c186e02" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf18f33ede" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- sample(GetSP500Stocks()$Tickers, 4)
@@ -342,18 +340,18 @@ screenreg(my_tab$my_arima)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-10" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-10"><i class="fas fa-link"></i></a>
+<div id="q.3-9" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Crie um novo relatório em <em>Rmarkdown</em> contemplando os dois exercícios anteriores. Compile o relatório em html e abra o mesmo no seu <em>browser</em>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e981754fc30" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf10caee0" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e981754fc30" class="collapse">
+<div id="collapse_11cf10caee0" class="collapse">
 <div class="card card-body">
 Veja seção “Criando Relatórios com o <em>RMarkdown</em>” do capítulo.
 </div>
@@ -394,9 +392,9 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#criando-relat%C3%B3rios-com-o-rmarkdown"><span class="header-section-number">12.3</span> Criando Relatórios com o RMarkdown</a></li>
 <li>
 <a class="nav-link" href="#exerc-reportando-resultados"><span class="header-section-number">12.4</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-11">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-11">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-10">Q.3</a></li>
+<li><a class="nav-link" href="#q.1-10">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-10">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-9">Q.3</a></li>
 </ul>
 </li>
 </ul>
@@ -415,7 +413,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

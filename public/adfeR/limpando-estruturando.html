@@ -7,7 +7,7 @@
 <title>Capítulo 9 Estruturando e Limpando Dados | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 9 Estruturando e Limpando Dados | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -301,11 +301,11 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-8" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-8"><i class="fas fa-link"></i></a>
+<div id="q.1-7" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Considere o <code>dataframe</code> criado com o código a seguir:</p>
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_N &lt;- 100
 
@@ -320,12 +320,12 @@ print(df)</a></code></pre>
 <p>O formato do <code>dataframe</code> é longo ou largo? Explique sua resposta.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9873ef779e" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf1e1355c3" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9873ef779e" class="collapse">
+<div id="collapse_11cf1e1355c3" class="collapse">
 <div class="card card-body">
 <p>O formato é longo: temos dados empilhados para duas ações diferentes. Note que, com a adição de novas tickers, a tabela cresce com novas linhas. Novas variáveis podem ser facilmente adicionadas com novas colunas.</p>
 </div>
@@ -333,11 +333,11 @@ Solução
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-8" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-8"><i class="fas fa-link"></i></a>
+<div id="q.2-7" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Modifique o formato do <code>dataframe</code> anterior, de longo para largo ou vice-versa.</p>
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_N &lt;- 100
 
@@ -351,15 +351,14 @@ df &lt;- bind_rows(tibble(ticker = rep('STOCK 1', my_N),
 print(df)</a></code></pre>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e981fc36b79" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2a766093" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e981fc36b79" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf2a766093" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_N &lt;- 100
 
@@ -384,11 +383,11 @@ print(df_wide)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-7" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-7"><i class="fas fa-link"></i></a>
+<div id="q.3-6" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Considere a seguinte lista:</p>
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_l &lt;- list(df1 = tibble(x = 1:100, y = runif(100)),
              df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),
@@ -396,16 +395,15 @@ my_l &lt;- list(df1 = tibble(x = 1:100, y = runif(100)),
 <p>Agrege todos <code>dataframes</code> em <code>my_l</code> para um objeto único usando funções <code>do.call</code> ou <code><a href="https://dplyr.tidyverse.org/reference/bind.html">dplyr::bind_rows</a></code>. O que aconteceu com os dados de <code>df1</code> onde colunas <code>v</code> e <code>z</code> não existem?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9827a101b6" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf8dc1789" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9827a101b6" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf8dc1789" class="collapse">
 <div class="card card-body">
 <p>Quando <code>bind_rows</code> não encontra a mesma coluna na junção de tabelas diferentes, os dados faltantes são definidos como <code>NAs</code>. Veja a seguir:</p>
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_l &lt;- list(df1 = tibble(x = 1:100, y = runif(100)),
              df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),
@@ -427,26 +425,26 @@ print(bind_df1)
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.4-7" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-7"><i class="fas fa-link"></i></a>
+<div id="q.4-6" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilize pacote <code>BatchGetSymbols</code> para baixar os dados do índice SP500 (<code>'^GSPC'</code>) desde 1950-01-01 até 2021-01-01. Quais é a soma dos 5 maiores retornos positivos do índice?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="answer">0.50138</option>
-<option value="">0.38701</option>
-<option value="">0.16674</option>
-<option value="">0.05661</option>
-<option value="">0.27688</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="answer">0.5014</option>
+<option value="">0.6770</option>
+<option value="">0.8568</option>
+<option value="">0.5871</option>
+<option value="">0.7669</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e982457c9a3" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf4e455051" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e982457c9a3" class="collapse">
-A solução é 0.50138. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div id="collapse_11cf4e455051" class="collapse">
+A solução é 0.5014. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 ticker &lt;- '^GSPC'
 first_date &lt;- '1950-01-01'
@@ -470,26 +468,26 @@ my_sol &lt;- sum(tab$top5_positive)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.5-7" class="section level3 unnumbered">
-<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-7"><i class="fas fa-link"></i></a>
+<div id="q.5-6" class="section level3 unnumbered">
+<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use função <code>replace_outliers</code> (veja seção <a href="limpando-estruturando.html#fct-replace">9.3</a>), criada neste capítulo, para remover <em>outliers</em> de todas as colunas numéricas dos dados do SP500 importados anteriormente com <code>my_prob = 0.025</code>. Quantas linhas foram perdidas neste processo de limpeza?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="answer">7282</option>
-<option value="">18005</option>
-<option value="">1843</option>
-<option value="">10723</option>
-<option value="">4729</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">4326</option>
+<option value="">2848</option>
+<option value="">1370</option>
+<option value="">5805</option>
+<option value="answer">7281</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9830c3adf6" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf51f9ea1f" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9830c3adf6" class="collapse">
-A solução é 7282. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div id="collapse_11cf51f9ea1f" class="collapse">
+A solução é 7281. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(purrr)
 
 ticker &lt;- '^GSPC'
@@ -541,15 +539,14 @@ my_sol &lt;- nrow_1 - nrow_2</a></code></pre>
 <p>Use a função <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/BatchGetSymbols.html">BatchGetSymbols::BatchGetSymbols</a></code> para baixar os preços do índice FTSE (<code>'^FTSE'</code>) de 2010-01-01 até 2021-01-01. Em seguida, reconstrua os dados na frequência anual, definindo cada valor do ano como sendo a última observação do período. Dica: veja a função <code>dplyr::summary_all</code> para uma forma funcional de agregar todas as colunas de um <code>dataframe</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e986e4e851a" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf107e31f3" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e986e4e851a" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf107e31f3" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 ticker &lt;- '^FTSE'
 
@@ -578,15 +575,14 @@ print(df_FTSE_yearly)</a></code></pre>
 <p>Use os mesmos dados diários do FTSE e reconstrua os dados na frequência mensal, novamente utilizando a última observação do período.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985570706e" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf508985c5" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985570706e" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf508985c5" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 ticker &lt;- '^FTSE'
 
@@ -614,21 +610,21 @@ print(df_FTSE_monthly)</a></code></pre>
 </h3>
 <p>Para os mesmos dados diários do FTSE, verifique as datas e preços das 20 maiores quedas de preços. Se, para cada um desses casos, um investidor comprasse o índice no preço das maiores quedas e o mantivesse por 30 dias, qual seria seu retorno nominal médio por transação?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">0,32%</option>
-<option value="">0,85%</option>
-<option value="">1,38%</option>
-<option value="">1,92%</option>
-<option value="answer">2,53%</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">4,42%</option>
+<option value="answer">2,53%</option>
+<option value="">3,94%</option>
+<option value="">2,98%</option>
+<option value="">3,46%</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984533a699" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2f333b9a" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e984533a699" class="collapse">
+<div id="collapse_11cf2f333b9a" class="collapse">
 A solução é 2,53%. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 library(BatchGetSymbols)
 
 ticker &lt;- '^FTSE'
@@ -720,11 +716,11 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#modificando-a-frequ%C3%AAncia-temporal-dos-dados"><span class="header-section-number">9.5</span> Modificando a Frequência Temporal dos Dados</a></li>
 <li>
 <a class="nav-link" href="#exerc-limpando-estruturando"><span class="header-section-number">9.6</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-8">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-8">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-7">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-7">Q.4</a></li>
-<li><a class="nav-link" href="#q.5-7">Q.5</a></li>
+<li><a class="nav-link" href="#q.1-7">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-7">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-6">Q.3</a></li>
+<li><a class="nav-link" href="#q.4-6">Q.4</a></li>
+<li><a class="nav-link" href="#q.5-6">Q.5</a></li>
 <li><a class="nav-link" href="#q.6-6">Q.6</a></li>
 <li><a class="nav-link" href="#q.7-6">Q.7</a></li>
 <li><a class="nav-link" href="#q.8-5">Q.8</a></li>
@@ -746,7 +742,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

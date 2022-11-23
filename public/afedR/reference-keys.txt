@@ -97,7 +97,7 @@ package-batchgetsymbols
 package-simfinr
 example-01---apple-inc-annual-profit
 example-02---quarterly-net-profit-of-many-companies
-example-03-fetching-price-data
+example-03---fetching-price-data
 package-tidyquant
 package-rbitcoin
 other-packages

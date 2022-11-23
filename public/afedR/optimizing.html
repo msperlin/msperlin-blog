@@ -6,111 +6,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 Optimizing Code | Analyzing Financial and Economic Data with R - Online Edition</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script>
-  
-      /* update total correct if #total_correct exists */
-      update_total_correct = function() {
-        if (t = document.getElementById("total_correct")) {
-          t.innerHTML =
-            document.getElementsByClassName("correct").length + " of " +
-            document.getElementsByClassName("solveme").length + " correct";
-        }
-      }
-      
-      /* solution button toggling function */
-      b_func = function() {
-        var cl = this.parentElement.classList;
-        if (cl.contains('open')) {
-          cl.remove("open");
-        } else {
-          cl.add("open");
-        }
-      }
-      
-      /* function for checking solveme answers */
-      solveme_func = function(e) {
-        var real_answers = JSON.parse(this.dataset.answer);
-        var my_answer = this.value;
-        var cl = this.classList;
-        if (cl.contains("ignorecase")) {
-          my_answer = my_answer.toLowerCase();
-        }
-        if (cl.contains("nospaces")) {
-          my_answer = my_answer.replace(/ /g, "");
+<meta name="description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
+<meta property="og:title" content="Chapter 13 Optimizing Code | Analyzing Financial and Economic Data with R - Online Edition">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/figs/CAPAdigital-AnalyzinDataR.jpg">
+<meta property="og:description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 Optimizing Code | Analyzing Financial and Economic Data with R - Online Edition">
+<meta name="twitter:description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
+<meta name="twitter:image" content="/figs/CAPAdigital-AnalyzinDataR.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
+
+        /* update total correct if #total_correct exists */
+        update_total_correct = function() {
+          if (t = document.getElementById("total_correct")) {
+            t.innerHTML =
+              document.getElementsByClassName("correct").length + " of " +
+              document.getElementsByClassName("solveme").length + " correct";
+          }
         }
         
-        if (my_answer !== "" & real_answers.includes(my_answer)) {
-          cl.add("correct");
-        } else {
-          cl.remove("correct");
+        /* solution button toggling function */
+        b_func = function() {
+          var cl = this.parentElement.classList;
+          if (cl.contains('open')) {
+            cl.remove("open");
+          } else {
+            cl.add("open");
+          }
         }
-      
-        // match numeric answers within a specified tolerance
-        if(this.dataset.tol > 0){
-          var tol = JSON.parse(this.dataset.tol);  
-          var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-          if (matches.reduce((a, b) => a + b, 0) > 0) {
+        
+        /* function for checking solveme answers */
+        solveme_func = function(e) {
+          var real_answers = JSON.parse(this.dataset.answer);
+          var my_answer = this.value;
+          var cl = this.classList;
+          if (cl.contains("ignorecase")) {
+            my_answer = my_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            my_answer = my_answer.replace(/ /g, "");
+          }
+          
+          if (my_answer !== "" & real_answers.includes(my_answer)) {
             cl.add("correct");
           } else {
             cl.remove("correct");
-          }  
-        }
-      
-        // added regex bit
-        if (cl.contains("regex")){
-          answer_regex = RegExp(real_answers.join("|"))
-          if (answer_regex.test(my_answer)) {
-            cl.add("correct");
-          }  
-        }
-        
-        update_total_correct();
-      }
-      
-      window.onload = function() {
-        /* set up solution buttons */
-        var buttons = document.getElementsByTagName("button");
-      
-        for (var i = 0; i < buttons.length; i++) {
-          if (buttons[i].parentElement.classList.contains('solution')) {
-            buttons[i].onclick = b_func;
           }
-        }
         
-        /* set up solveme inputs */
-        var solveme = document.getElementsByClassName("solveme");
-      
-        for (var i = 0; i < solveme.length; i++) {
-          /* make sure input boxes don't auto-anything */
-          solveme[i].setAttribute("autocomplete","off");
-          solveme[i].setAttribute("autocorrect", "off");
-          solveme[i].setAttribute("autocapitalize", "off"); 
-          solveme[i].setAttribute("spellcheck", "false");
-          solveme[i].value = "";
+          // match numeric answers within a specified tolerance
+          if(this.dataset.tol > 0){
+            var tol = JSON.parse(this.dataset.tol);  
+            var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+            if (matches.reduce((a, b) => a + b, 0) > 0) {
+              cl.add("correct");
+            } else {
+              cl.remove("correct");
+            }  
+          }
+        
+          // added regex bit
+          if (cl.contains("regex")){
+            answer_regex = RegExp(real_answers.join("|"))
+            if (answer_regex.test(my_answer)) {
+              cl.add("correct");
+            }  
+          }
           
-          /* adjust answer for ignorecase or nospaces */
-          var cl = solveme[i].classList;
-          var real_answer = solveme[i].dataset.answer;
-          if (cl.contains("ignorecase")) {
-            real_answer = real_answer.toLowerCase();
-          }
-          if (cl.contains("nospaces")) {
-            real_answer = real_answer.replace(/ /g, "");
-          }
-          solveme[i].dataset.answer = real_answer;
-          
-          /* attach checking function */
-          solveme[i].onkeyup = solveme_func;
-          solveme[i].onchange = solveme_func;
+          update_total_correct();
         }
         
-        update_total_correct();
-      }
-      
-      </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="css/style_html.css">
+        window.onload = function() {
+          /* set up solution buttons */
+          var buttons = document.getElementsByTagName("button");
+        
+          for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i].parentElement.classList.contains('solution')) {
+              buttons[i].onclick = b_func;
+            }
+          }
+          
+          /* set up solveme inputs */
+          var solveme = document.getElementsByClassName("solveme");
+        
+          for (var i = 0; i < solveme.length; i++) {
+            /* make sure input boxes don't auto-anything */
+            solveme[i].setAttribute("autocomplete","off");
+            solveme[i].setAttribute("autocorrect", "off");
+            solveme[i].setAttribute("autocapitalize", "off"); 
+            solveme[i].setAttribute("spellcheck", "false");
+            solveme[i].value = "";
+            
+            /* adjust answer for ignorecase or nospaces */
+            var cl = solveme[i].classList;
+            var real_answer = solveme[i].dataset.answer;
+            if (cl.contains("ignorecase")) {
+              real_answer = real_answer.toLowerCase();
+            }
+            if (cl.contains("nospaces")) {
+              real_answer = real_answer.replace(/ /g, "");
+            }
+            solveme[i].dataset.answer = real_answer;
+            
+            /* attach checking function */
+            solveme[i].onkeyup = solveme_func;
+            solveme[i].onchange = solveme_func;
+          }
+          
+          update_total_correct();
+        }
+        
+        </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="css/style_html.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -172,126 +208,203 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-89690212-2');
-</script><div id="optimizing" class="section level1">
+</script><div id="optimizing" class="section level1" number="13">
 <h1>
 <span class="header-section-number">13</span> Optimizing Code<a class="anchor" aria-label="anchor" href="#optimizing"><i class="fas fa-link"></i></a>
 </h1>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
-<div id="optimizing-your-programming-time" class="section level2">
+<div id="optimizing-your-programming-time" class="section level2" number="13.1">
 <h2>
 <span class="header-section-number">13.1</span> Optimizing your Programming Time<a class="anchor" aria-label="anchor" href="#optimizing-your-programming-time"><i class="fas fa-link"></i></a>
 </h2>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
-<div id="optimizing-code-speed" class="section level2">
+<div id="optimizing-code-speed" class="section level2" number="13.2">
 <h2>
 <span class="header-section-number">13.2</span> Optimizing Code Speed<a class="anchor" aria-label="anchor" href="#optimizing-code-speed"><i class="fas fa-link"></i></a>
 </h2>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
-<div id="profiling-code" class="section level3">
+<div id="profiling-code" class="section level3" number="13.2.1">
 <h3>
 <span class="header-section-number">13.2.1</span> Profiling Code<a class="anchor" aria-label="anchor" href="#profiling-code"><i class="fas fa-link"></i></a>
 </h3>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
-<div id="simple-strategies-to-improve-code-speed" class="section level3">
+<div id="simple-strategies-to-improve-code-speed" class="section level3" number="13.2.2">
 <h3>
 <span class="header-section-number">13.2.2</span> Simple Strategies to Improve Code Speed<a class="anchor" aria-label="anchor" href="#simple-strategies-to-improve-code-speed"><i class="fas fa-link"></i></a>
 </h3>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
-<div id="use-vector-operations" class="section level4">
+<div id="use-vector-operations" class="section level4" number="13.2.2.1">
 <h4>
 <span class="header-section-number">13.2.2.1</span> Use Vector Operations<a class="anchor" aria-label="anchor" href="#use-vector-operations"><i class="fas fa-link"></i></a>
 </h4>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
-<div id="repetitive-binding-of-dataframes" class="section level4">
+<div id="repetitive-binding-of-dataframes" class="section level4" number="13.2.2.2">
 <h4>
 <span class="header-section-number">13.2.2.2</span> Repetitive binding of <code>dataframes</code><a class="anchor" aria-label="anchor" href="#repetitive-binding-of-dataframes"><i class="fas fa-link"></i></a>
 </h4>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
 </div>
-<div id="using-c-code-package-rcpp" class="section level3">
+<div id="using-c-code-package-rcpp" class="section level3" number="13.2.3">
 <h3>
 <span class="header-section-number">13.2.3</span> Using C++ code (package <code>Rcpp</code>)<a class="anchor" aria-label="anchor" href="#using-c-code-package-rcpp"><i class="fas fa-link"></i></a>
 </h3>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
-<div id="using-cache-package-memoise" class="section level3">
+<div id="using-cache-package-memoise" class="section level3" number="13.2.4">
 <h3>
 <span class="header-section-number">13.2.4</span> Using cache (package <code>memoise</code>)<a class="anchor" aria-label="anchor" href="#using-cache-package-memoise"><i class="fas fa-link"></i></a>
 </h3>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
-<div id="using-parallel-processing-package-furrr" class="section level4">
+<div id="using-parallel-processing-package-furrr" class="section level4" number="13.2.4.1">
 <h4>
 <span class="header-section-number">13.2.4.1</span> Using parallel processing (package <code>furrr</code>)<a class="anchor" aria-label="anchor" href="#using-parallel-processing-package-furrr"><i class="fas fa-link"></i></a>
 </h4>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="exercises-15" class="section level2">
+<div id="exercises-15" class="section level2" number="13.3">
 <h2>
 <span class="header-section-number">13.3</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-15"><i class="fas fa-link"></i></a>
 </h2>
 <div class="pleasebuyit">
 <p>
-You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+You reached the end of the online version of <em>Analyzing Financial
+and Economic Data with R</em>. The full content of the book can be
+acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a>
+for less than ten dollars. Purchasing this book is a great way of
+supporting this and other projects of the <a href="https://www.msperlin.com/">author</a>. If you are satisfied with
+the content, please leave your feedback at Amazon or by email
+(<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep
+improving it based on the received feedback.
 </p>
 </div>
 </div>
-<div id="exercises-16" class="section level2">
+<div id="exercises-16" class="section level2" number="13.4">
 <h2>
 <span class="header-section-number">13.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-16"><i class="fas fa-link"></i></a>
 </h2>
 <hr>
-<p><span id="total_correct"></span></p>
+<p><span id="webex-total_correct"></span></p>
 <div id="q.1-12" class="section level3 unnumbered">
 <h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-12"><i class="fas fa-link"></i></a>
 </h3>
 <p>Consider the following code:</p>
-<pre class="text"><code><a href="http://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 library(forecast)
 library(BatchGetSymbols)
 
@@ -304,15 +417,14 @@ summary(my_arima)</a></code></pre>
 <p>Use functions <code>Rprof</code> and <code>profvis</code> to identify the bottleneck of the code. Which line number is taking the longest execution time?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa02e1f80cf" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_e0629b9c197" aria-expanded="false" aria-controls="collapseExample">
 Solution
 </button>
 </p>
 </div>
-<div id="collapse_3aa02e1f80cf" class="collapse">
-In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div id="collapse_e0629b9c197" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="http://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 library(BatchGetSymbols)
 library(fGarch)
 library(profvis)
@@ -345,7 +457,7 @@ browseURL(temp_html)</a></code></pre>
 </div>
 </div>
 <hr>
-<p><span id="total_correct"></span></p>
+<p><span id="webex-total_correct"></span></p>
 </div>
 <div id="q.2-12" class="section level3 unnumbered">
 <h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-12"><i class="fas fa-link"></i></a>
@@ -353,15 +465,14 @@ browseURL(temp_html)</a></code></pre>
 <p>Use the <code>Rcpp</code> package to write a C++ language function that will add elements of two numerical vectors. The output must be another vector of the same size and with elements equivalent to the <code>x + y</code> operation. Use the <code>identical</code> function to test that all elements of both vectors are equal.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa07897d0c5" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_e069f90f3a" aria-expanded="false" aria-controls="collapseExample">
 Solution
 </button>
 </p>
 </div>
-<div id="collapse_3aa07897d0c5" class="collapse">
-In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div id="collapse_e069f90f3a" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="http://www.rcpp.org">library(Rcpp)
+<pre><code><a href="https://www.rcpp.org">library(Rcpp)
 
 cppFunction('Rcpp::NumericVector sum_vectors_C(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -384,24 +495,23 @@ identical(sol_C, sol_R)</a></code></pre>
 </div>
 </div>
 <hr>
-<p><span id="total_correct"></span></p>
+<p><span id="webex-total_correct"></span></p>
 </div>
 <div id="q.3-11" class="section level3 unnumbered">
 <h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-11"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use the <code>tictoc</code> package to compare the performance of the previous function with the native operator <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, and a loop-based version with the pre-allocation of the result vector. Which alternative has the shortest execution time and why? Does the <code>Rcpp</code> version beat the loop version?</p>
+<p>Use the <code>tictoc</code> package to compare the performance of the previous function with the native operator <code>+</code>, and a loop-based version with the pre-allocation of the result vector. Which alternative has the shortest execution time and why? Does the <code>Rcpp</code> version beat the loop version?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa041f6c47b" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_e061eb8badc" aria-expanded="false" aria-controls="collapseExample">
 Solution
 </button>
 </p>
 </div>
-<div id="collapse_3aa041f6c47b" class="collapse">
-In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div id="collapse_e061eb8badc" class="collapse">
 <div class="card card-body">
-<p>The best way to add vectors is with the native operator <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, which is already optimized for fast executions.</p>
-<pre class="text"><code><a href="http://www.rcpp.org">library(Rcpp)
+<p>The best way to add vectors is with the native operator <code>+</code>, which is already optimized for fast executions.</p>
+<pre><code><a href="https://www.rcpp.org">library(Rcpp)
 
 cppFunction('Rcpp::NumericVector sum_vectors_C(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -441,7 +551,7 @@ toc()</a></code></pre>
 </div>
 </div>
 <hr>
-<p><span id="total_correct"></span></p>
+<p><span id="webex-total_correct"></span></p>
 </div>
 <div id="q.4-10" class="section level3 unnumbered">
 <h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-10"><i class="fas fa-link"></i></a>
@@ -449,15 +559,14 @@ toc()</a></code></pre>
 <p>Use the <code>memoise</code> package to create a memorized version of function <code><a href="https://rdrr.io/pkg/Quandl/man/Quandl.html">Quandl::Quandl</a></code>. Use the new function to import data about the United States Consumer Price Index (quandl code <code>'FRED/DDOE01USA086NWDB'</code>). How much percentage speed gain do you get from the second call to the memorized version?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa0335b4779" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_e0677872ac4" aria-expanded="false" aria-controls="collapseExample">
 Solution
 </button>
 </p>
 </div>
-<div id="collapse_3aa0335b4779" class="collapse">
-In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div id="collapse_e0677872ac4" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://github.com/quandl/quandl-r">library(Quandl)
+<pre><code><a href="https://github.com/quandl/quandl-r">library(Quandl)
 library(memoise)
 library(tictoc)
 
@@ -502,6 +611,7 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript>
+                            
   <div class="chapter-nav">
 <div class="prev"><a href="reporting.html"><span class="header-section-number">12</span> Reporting Results</a></div>
 <div class="next"><a href="references.html">References</a></div>
@@ -543,7 +653,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2021-03-30.</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -556,13 +666,29 @@ s.setAttribute('data-timestamp', +new Date());
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

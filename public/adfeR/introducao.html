@@ -7,7 +7,7 @@
 <title>Capítulo 1 Introdução | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');  Na era digital, informação é abundante e de...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 1 Introdução | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -331,7 +331,7 @@ a possibilidade de problemas de compatibilidade.
 <p>Sugiro também o uso da versão <a href="https://www.msperlin.com/adfeR">web do livro</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.msperlin.com/adfeR" class="uri"&gt;https://www.msperlin.com/adfeR&lt;/a&gt;&lt;/p&gt;'><sup>8</sup></a>, a qual permite que os código de exemplo sejam copiados direto para a sua sessão do R. Assim, perderás menos tempo digitando código, sobrando tempo para o estudo.</p>
 <p>Aprender a programar em uma nova linguagem é como aprender uma língua estrangeira: o uso no dia-a-dia é de extrema importância para criar fluência. Sempre que possível, teste o código no seu computador e <em>brinque</em> com o mesmo, modificando os exemplos dados e verificando o efeito das modificações nas saídas do programa. Procure sempre entender como a rotina estudada pode ajudar na solução de um problema seu. Cada capítulo apresenta no seu final uma lista de exercícios, incluindo questões do tipo desafio. Podes testar as suas habilidades de programação resolvendo as atividades propostas. Vale relembrar que todo o código deste livro está disponibilizado na internet. Não precisas, portanto, escrever o código diretamente do livro. Podes copiar e colar do código fonte disponibilizado no site.</p>
 <p>No decorrer da obra, toda demonstração de código terá duas partes: o código em si e sua saída do R. Essa saída nada mais é do que o resultado dos comandos na tela do programa. Todas as entradas e saídas de código serão sinalizadas no texto com um formato especial. Veja o exemplo a seguir:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create a list</span></span>
 <span><span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>var1 <span class="op">=</span> <span class="st">'abc'</span>, var2 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
 <span></span>
@@ -345,7 +345,7 @@ R&gt; [1] 1 2 3 4 5</code></pre>
 <p>No caso anterior, os textos <code>L &lt;- list(var1 = 'abc', var2 = 1:5)</code> e <code>print(L)</code> são os códigos de entrada. A saída do programa é a apresentação na tela dos elementos de <code>x</code>, com o símbolo antecessor <code>R&gt;</code>. Por enquanto não se preocupe em entender e reproduzir o código utilizado acima. Iremos tratar disso no próximo capítulo.</p>
 <p>Note que faço uso da língua inglesa no código, tanto para a nomeação de objetos quanto para os comentários. Isso não é acidental. O uso da língua inglesa facilita o desenvolvimento de código ao evitar caracteres latinos, além de ser uma das línguas mais utilizadas no mundo. Portanto, é importante já ir se acostumando com esse formato. O vocabulário necessário, porém, é limitado. De forma alguma precisarás ter fluência em inglês para entender o código.</p>
 <p>O código também pode ser espacialmente organizado usando novas linhas. Esse é um procedimento comum em torno de argumentos de funções. O próximo pedaço de código é equivalente ao anterior, e executará exatamente da mesma maneira. Observe como usei uma nova linha para alinhar verticalmente os argumentos da função <code>list</code>. Você verá em breve que, ao longo do livro, esse tipo de alinhamento vertical é constantemente usado em códigos longos. Afinal, o código tem que necessariamente caber na página do livro.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create a list</span></span>
 <span><span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>var1 <span class="op">=</span> <span class="st">'abc'</span>,</span>
 <span>          var2 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
@@ -370,18 +370,18 @@ R&gt; [1] 1 2 3 4 5</code></pre>
 </h3>
 <p>A linguagem R foi desenvolvida com base em qual outra linguagem de programação?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">Julia</option>
 <option value="">Python</option>
 <option value="">Javascript</option>
-<option value="answer">S</option>
-<option value="">C++</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">Julia</option>
+<option value="">C++</option>
+<option value="answer">S</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9885d3225" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf4bc1b0e9" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9885d3225" class="collapse">
+<div id="collapse_11cf4bc1b0e9" class="collapse">
 A solução é S. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 Direto do livro: “O código base do R foi inspirado na linguagem S, inicialmente criada no laboratório da Bell/AT&amp;T por John Chambers e seus colegas”.
@@ -396,17 +396,17 @@ Direto do livro: “O código base do R foi inspirado na linguagem S, inicialmen
 <p>Qual o nome dos dois autores do R?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
 <option value="">Linus Torvalds e Richard Stallman</option>
-<option value="">John Chambers e Robert Engle</option>
-<option value="">Guido van Rossum e Bjarne Stroustrup</option>
 <option value="answer">Ross Ihaka e Robert Gentleman</option>
-<option value="">Roger Federer e Rafael Nadal</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">Roger Federer e Rafael Nadal</option>
+<option value="">John Chambers e Robert Engle</option>
+<option value="">Guido van Rossum e Bjarne Stroustrup</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98190b8924" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf68372b2d" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98190b8924" class="collapse">
+<div id="collapse_11cf68372b2d" class="collapse">
 A solução é Ross Ihaka e Robert Gentleman. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 Direto do livro: “… Esse código foi reaproveitado por dois acadêmicos, <strong>Ross Ihaka e Robert Gentleman</strong>, resultando na plataforma de programação que temos hoje”.
@@ -420,18 +420,18 @@ Direto do livro: “… Esse código foi reaproveitado por dois acadêmicos, <st
 </h3>
 <p>Qual o principal diferencial do R em relação a outras linguagens de programação, tal como Python, C++, javascript e demais?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
+<option value="">Execução rápida de códigos</option>
 <option value="">Facilita o desenvolvimento de aplicativos web</option>
-<option value="">Facilidade de uso geral</option>
 <option value="">Desenvolvimento mobile</option>
 <option value="answer">Facilita a análise de dados</option>
-<option value="">Execução rápida de códigos</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">Facilidade de uso geral</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985a6669ef" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cffbb1729" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985a6669ef" class="collapse">
+<div id="collapse_11cffbb1729" class="collapse">
 A solução é Facilita a análise de dados. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 Sem dúvida, o principal diferencial da linguagem R é a facilidade com que dados podem ser analisados na plataforma. Apesar de outras linguagens também possibilitarem a análise de dados, é no R onde esse processo é suportado por uma ampla gama de pacotes especializados.
@@ -445,18 +445,18 @@ Sem dúvida, o principal diferencial da linguagem R é a facilidade com que dado
 </h3>
 <p>Qual a razão para o nome da linguagem de programação ser R?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">R = Reausable code.</option>
-<option value="">Uma letra foi sorteada e o resultado foi R.</option>
 <option value="">Era a única letra ainda não usada como linguagem de programação.</option>
-<option value="">A mãe de um dos autores se chamada Renata e, por isso, ele homenageou-a com o nome R.</option>
-<option value="answer">Compartilhamento da letra R por seus autores.</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">Uma letra foi sorteada e o resultado foi R.</option>
+<option value="answer">Compartilhamento da letra R por seus autores.</option>
+<option value="">R = Reausable code.</option>
+<option value="">A mãe de um dos autores se chamada Renata e, por isso, ele homenageou-a com o nome R.</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9833066ee5" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf71edb02b" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9833066ee5" class="collapse">
+<div id="collapse_11cf71edb02b" class="collapse">
 A solução é Compartilhamento da letra R por seus autores.. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 A letra R foi escolhida devido ao seu uso na primeira letra dos dois autores da plataforma.
@@ -470,23 +470,23 @@ A letra R foi escolhida devido ao seu uso na primeira letra dos dois autores da 
 </h3>
 <p>Sobre o R, considere as seguintes alternativas:</p>
 <p>I - O R foi desenvolvido em 2018 e é um projeto inovador e instável;</p>
-<p>II - O RStudio é uma interface ao R, aumentando a produtividade do analista;</p>
-<p>III - O R tem compatibilidade com diferentes linguagens de programação;</p>
+<p>II - O RStudio é uma linguagem de programação alternativa ao R;</p>
+<p>III - O R não tem compatibilidade com diferentes linguagens de programação;</p>
 <p>Quais alternativas estão corretas?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="answer">FALSE, TRUE, TRUE</option>
-<option value="">TRUE, FALSE, FALSE</option>
-<option value="">TRUE, TRUE, TRUE</option>
 <option value="">FALSE, TRUE, FALSE</option>
-<option value="">FALSE, FALSE, TRUE</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">FALSE, FALSE, TRUE</option>
+<option value="">FALSE, TRUE, TRUE</option>
+<option value="answer">FALSE, FALSE, FALSE</option>
+<option value="">TRUE, FALSE, TRUE</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e983f68558" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2c92ac9f" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e983f68558" class="collapse">
-A solução é FALSE, TRUE, TRUE. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
+<div id="collapse_11cf2c92ac9f" class="collapse">
+A solução é FALSE, FALSE, FALSE. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 Veja seção “Por que Escolher o R” no capítulo “Introdução”.
 </div>
@@ -500,12 +500,12 @@ Veja seção “Por que Escolher o R” no capítulo “Introdução”.
 <p>Assim que tiver R e RStudio instalado, dirija-se ao <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">site de pacotes do CRAN</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html" class="uri"&gt;https://cloud.r-project.org/web/packages/available_packages_by_date.html&lt;/a&gt;&lt;/p&gt;'><sup>9</sup></a> e procure por tecnologias que usas no seu trabalho. Por exemplo, se usas <a href="https://www.google.com/sheets/about/">Planilhas do Google (Sheets)</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.google.com/sheets/about/" class="uri"&gt;https://www.google.com/sheets/about/&lt;/a&gt;&lt;/p&gt;'><sup>10</sup></a> ostensivamente no seu trabalho, logo descobrirá que existe um pacote no CRAN que interage com planilhas na nuvem.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98af3e2d6" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf64d99554" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98af3e2d6" class="collapse">
+<div id="collapse_11cf64d99554" class="collapse">
 <div class="card card-body">
 <p>No meu trabalho uso muito os dados do Tesouro Direto para criar e manter material da aula de finanças na graduação. Pois bem, no CRAN é possível encontrar o pacote <a href="https://cloud.r-project.org/web/packages/GetTDData/index.html">GetTDData</a>, o qual importa e organiza os dados do Tesouro Direto. Sou viesado para falar, afinal eu desenvolvi o pacote, mas ele facilitou bastante a atualização e exportação desses dados a cada semestre. Basta rodar um código e todos minhas tabelas e figuras são atualizadas!</p>
 </div>
@@ -518,18 +518,18 @@ Solução
 </h3>
 <p>No <a href="https://cloud.r-project.org/bin/windows/">site</a> de instalação do R no Windows é possível instalar também o aplicativo Rtools. Para que ele serve?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">Fazer café (?).</option>
 <option value="answer">Compilação de pacotes.</option>
-<option value="">Compilar relatórios técnicos!</option>
 <option value="">Criar gráficos.</option>
-<option value="">Construir páginas na web.</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">Compilar relatórios técnicos!</option>
+<option value="">Construir páginas na web.</option>
+<option value="">Fazer café (?).</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9829779bf3" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf4dda1522" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9829779bf3" class="collapse">
+<div id="collapse_11cf4dda1522" class="collapse">
 A solução é Compilação de pacotes.. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
 <p>O Rtools é uma extensão do R particular ao Windows. Este serve para compilar pacotes a partir do código fonte e é um requisito para quem desenvolve pacotes. Para o usuário comum, porém, também recomenda-se a instalação do Rtools pois alguns pacotes requerem tal compilação.</p>
@@ -545,12 +545,12 @@ A solução é Compilação de pacotes.. Para chegar no resultado anterior, deve
 <p>Use o <a href="https://www.google.com/search?q=R+groups+in+my+city">Google</a> para pesquisar por grupos de R em sua região. Verifique se os encontros são frequentes e, caso não tiver um impedimento maior, vá para um desses encontros e faça novos amigos.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9812690efa" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf46cbd81f" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9812690efa" class="collapse">
+<div id="collapse_11cf46cbd81f" class="collapse">
 <div class="card card-body">
 <p>Não é incomum que programadores tenham certa tendência a introversão. Certamente este foi meu caso no início de carreira. Mas, saiba que timidez é um estado não-permanente, um mecanismo de defesa criado pela sua própria cabeça! Da mesma forma que melhorará em algum esporte quanto mais vezes o praticar, menos tímido será quanto mais vezes buscar se expressar.</p>
 <p>A triste (ou não) realidade para os tímidos é que comunicação é parte fundamental do jogo profissional e é uma forma de manter uma rede de relacionamento. Quanto mais pessoas conhecerem o seu trabalho e sua personalidade, melhor. Talvez uma pessoa que conheceste em um desses grupos pode lhe indicar para vaga ou projeto futuro. Assim, resumindo, o que você realmente tem a perder indo a um desses encontros?</p>
@@ -565,12 +565,12 @@ Solução
 <p>Dirija-se ao site do <a href="https://www.r-bloggers.com/">RBloggers</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.r-bloggers.com/" class="uri"&gt;https://www.r-bloggers.com/&lt;/a&gt;&lt;/p&gt;'><sup>11</sup></a> e procure por um tópico do seu interesse, tal como futebol (<em>soccer</em>) ou investimentos (<em>investments</em>). Leia pelo menos três artigos encontrados.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9870328b1d" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf58230567" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9870328b1d" class="collapse">
+<div id="collapse_11cf58230567" class="collapse">
 <div class="card card-body">
 <p>Particularmente, sou apaixonado pelo esporte de tênis. No site do RBloggers encontrei os seguintes artigos misturando R e tennis:</p>
 <p><a href="https://www.r-bloggers.com/2017/02/using-r-to-study-the-evolution-of-tennis/">Using R to study the evolution of Tennis</a></p>
@@ -587,12 +587,12 @@ Solução
 <p>Caso trabalhe em uma instituição com infrainstrutura de dados, converse com o encarregado do IT e busque entender quais são as tecnologias empregadas. Verifique se, através do R, é possível ter acesso a todas tabelas dos bancos de dados. Por enquanto não existe necessidade de escrever código, ainda. Apenas verifique se esta possibilidade existe.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984361ecf7" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf13ef3b30" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e984361ecf7" class="collapse">
+<div id="collapse_11cf13ef3b30" class="collapse">
 <div class="card card-body">
 <p>Na universidade temos acesso a diferentes repositórios pagos para dados financeiros. Infelizmente, nenhum deles oferece algum tipo de API para comunicação com o R. De fato, este foi um dos motivadores para a escrita dos pacotes de obtenção de dados financeiros de forma gratuita.</p>
 </div>
@@ -666,7 +666,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
