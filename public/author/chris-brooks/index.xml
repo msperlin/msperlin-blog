@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chris Brooks | msperlin</title>
+    <link>https://www.msperlin.com/author/chris-brooks/</link>
+      <atom:link href="https://www.msperlin.com/author/chris-brooks/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chris Brooks</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 01 Jul 2014 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Chris Brooks</title>
+      <link>https://www.msperlin.com/author/chris-brooks/</link>
+    </image>
+    
+    <item>
+      <title>On the Performance of the Tick Test</title>
+      <link>https://www.msperlin.com/publication/2014_qref-ticktest/</link>
+      <pubDate>Tue, 01 Jul 2014 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2014_qref-ticktest/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

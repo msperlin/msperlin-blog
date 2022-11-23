@@ -1,0 +1,1718 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Marcelo S. Perlin">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="In the previous post about tennis, we studied how changes in ball’s composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository and look at the players winning records in ATP matches.
+The data I’m again using the great repository of tennis data of Jeff Sackmann. In this case, however, I’m using the ATP repository that contains ATP match data since 1968 until today. Again, I thank Jeff Sackmann for making this dataset publicly available.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-89690212-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@msperlin">
+  <meta property="twitter:creator" content="@msperlin">
+  
+  <meta property="og:site_name" content="msperlin">
+  <meta property="og:url" content="https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/">
+  <meta property="og:title" content="Using R to study tennis players | msperlin">
+  <meta property="og:description" content="In the previous post about tennis, we studied how changes in ball’s composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository and look at the players winning records in ATP matches.
+The data I’m again using the great repository of tennis data of Jeff Sackmann. In this case, however, I’m using the ATP repository that contains ATP match data since 1968 until today. Again, I thank Jeff Sackmann for making this dataset publicly available."><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
+  <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2017-02-13T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2017-02-13T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/"
+  },
+  "headline": "Using R to study tennis players",
+  
+  "datePublished": "2017-02-13T00:00:00Z",
+  "dateModified": "2017-02-13T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Marcelo S. Perlin"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "msperlin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.msperlin.com/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "In the previous post about tennis, we studied how changes in ball’s composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository and look at the players winning records in ATP matches.\nThe data I’m again using the great repository of tennis data of Jeff Sackmann. In this case, however, I’m using the ATP repository that contains ATP match data since 1968 until today. Again, I thank Jeff Sackmann for making this dataset publicly available."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Using R to study tennis players | msperlin</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/#5"><span>Books</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Blog</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/post/"><span>Posts</span></a>
+            
+              <a class="dropdown-item" href="/subscribe_rss"><span>Subscribe in RSS</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Code</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/code/r/"><span>R Code</span></a>
+            
+              <a class="dropdown-item" href="/code/shiny/"><span>Shiny Web Apps</span></a>
+            
+              <a class="dropdown-item" href="/code/matlab/"><span>Matlab Code</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/data/"><span>Data</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/subscribe_email"><span>Subscribe</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Research & Talks</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/research/awards"><span>Awards</span></a>
+            
+              <a class="dropdown-item" href="/research/on-the-news"><span>Coverage by News</span></a>
+            
+              <a class="dropdown-item" href="/talk"><span>Talks</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Others</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="https://www.r-bloggers.com"><span>R-Bloggers</span></a>
+            
+              <a class="dropdown-item" href="/#search"><span>Search</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Using R to study tennis players</h1>
+
+  
+  <p class="page-subtitle">Looking at winning records of ATP top players and Brazilian tennists</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    2017-02-13
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    18 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2017-02-13-r-and-tennis-players/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a>, <a href="/category/tennis/">tennis</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+
+<p>In the previous post about tennis, we studied how changes in ball’s composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository and look at the players winning records in ATP matches.</p>
+<div id="the-data" class="section level2">
+<h2>The data</h2>
+<p>I’m again using the great repository of tennis data of <a href="https://github.com/JeffSackmann/">Jeff Sackmann</a>. In this case, however, I’m using the <a href="https://github.com/JeffSackmann/tennis_atp">ATP repository</a> that contains ATP match data since 1968 until today. Again, I thank Jeff Sackmann for making this dataset publicly available.</p>
+<p>First, let’s download and unzip the dataset. This is a large file with 35MB and it takes some time.</p>
+<pre class="r"><code>zip.file &lt;- &#39;TennisData_ATP.zip&#39;
+
+# download file
+if (!file.exists(zip.file)){
+  download.file(&#39;https://github.com/JeffSackmann/tennis_atp/archive/master.zip&#39;, destfile = zip.file)
+  
+}
+
+# unzip it
+dir.out &lt;- &#39;tennis_atp-master/&#39;
+if (!dir.exists(dir.out)) unzip(zip.file)</code></pre>
+<p>Lets have a look at the contents of the zip file.</p>
+<pre class="r"><code>my.f &lt;- list.files(dir.out, pattern = &#39;*.csv&#39;, full.names = T)
+print(my.f)</code></pre>
+<pre><code>##   [1] &quot;tennis_atp-master//atp_matches_1968.csv&quot;           
+##   [2] &quot;tennis_atp-master//atp_matches_1969.csv&quot;           
+##   [3] &quot;tennis_atp-master//atp_matches_1970.csv&quot;           
+##   [4] &quot;tennis_atp-master//atp_matches_1971.csv&quot;           
+##   [5] &quot;tennis_atp-master//atp_matches_1972.csv&quot;           
+##   [6] &quot;tennis_atp-master//atp_matches_1973.csv&quot;           
+##   [7] &quot;tennis_atp-master//atp_matches_1974.csv&quot;           
+##   [8] &quot;tennis_atp-master//atp_matches_1975.csv&quot;           
+##   [9] &quot;tennis_atp-master//atp_matches_1976.csv&quot;           
+##  [10] &quot;tennis_atp-master//atp_matches_1977.csv&quot;           
+##  [11] &quot;tennis_atp-master//atp_matches_1978.csv&quot;           
+##  [12] &quot;tennis_atp-master//atp_matches_1979.csv&quot;           
+##  [13] &quot;tennis_atp-master//atp_matches_1980.csv&quot;           
+##  [14] &quot;tennis_atp-master//atp_matches_1981.csv&quot;           
+##  [15] &quot;tennis_atp-master//atp_matches_1982.csv&quot;           
+##  [16] &quot;tennis_atp-master//atp_matches_1983.csv&quot;           
+##  [17] &quot;tennis_atp-master//atp_matches_1984.csv&quot;           
+##  [18] &quot;tennis_atp-master//atp_matches_1985.csv&quot;           
+##  [19] &quot;tennis_atp-master//atp_matches_1986.csv&quot;           
+##  [20] &quot;tennis_atp-master//atp_matches_1987.csv&quot;           
+##  [21] &quot;tennis_atp-master//atp_matches_1988.csv&quot;           
+##  [22] &quot;tennis_atp-master//atp_matches_1989.csv&quot;           
+##  [23] &quot;tennis_atp-master//atp_matches_1990.csv&quot;           
+##  [24] &quot;tennis_atp-master//atp_matches_1991.csv&quot;           
+##  [25] &quot;tennis_atp-master//atp_matches_1992.csv&quot;           
+##  [26] &quot;tennis_atp-master//atp_matches_1993.csv&quot;           
+##  [27] &quot;tennis_atp-master//atp_matches_1994.csv&quot;           
+##  [28] &quot;tennis_atp-master//atp_matches_1995.csv&quot;           
+##  [29] &quot;tennis_atp-master//atp_matches_1996.csv&quot;           
+##  [30] &quot;tennis_atp-master//atp_matches_1997.csv&quot;           
+##  [31] &quot;tennis_atp-master//atp_matches_1998.csv&quot;           
+##  [32] &quot;tennis_atp-master//atp_matches_1999.csv&quot;           
+##  [33] &quot;tennis_atp-master//atp_matches_2000.csv&quot;           
+##  [34] &quot;tennis_atp-master//atp_matches_2001.csv&quot;           
+##  [35] &quot;tennis_atp-master//atp_matches_2002.csv&quot;           
+##  [36] &quot;tennis_atp-master//atp_matches_2003.csv&quot;           
+##  [37] &quot;tennis_atp-master//atp_matches_2004.csv&quot;           
+##  [38] &quot;tennis_atp-master//atp_matches_2005.csv&quot;           
+##  [39] &quot;tennis_atp-master//atp_matches_2006.csv&quot;           
+##  [40] &quot;tennis_atp-master//atp_matches_2007.csv&quot;           
+##  [41] &quot;tennis_atp-master//atp_matches_2008.csv&quot;           
+##  [42] &quot;tennis_atp-master//atp_matches_2009.csv&quot;           
+##  [43] &quot;tennis_atp-master//atp_matches_2010.csv&quot;           
+##  [44] &quot;tennis_atp-master//atp_matches_2011.csv&quot;           
+##  [45] &quot;tennis_atp-master//atp_matches_2012.csv&quot;           
+##  [46] &quot;tennis_atp-master//atp_matches_2013.csv&quot;           
+##  [47] &quot;tennis_atp-master//atp_matches_2014.csv&quot;           
+##  [48] &quot;tennis_atp-master//atp_matches_2015.csv&quot;           
+##  [49] &quot;tennis_atp-master//atp_matches_2016.csv&quot;           
+##  [50] &quot;tennis_atp-master//atp_matches_2017.csv&quot;           
+##  [51] &quot;tennis_atp-master//atp_matches_2018.csv&quot;           
+##  [52] &quot;tennis_atp-master//atp_matches_2019.csv&quot;           
+##  [53] &quot;tennis_atp-master//atp_matches_futures_1991.csv&quot;   
+##  [54] &quot;tennis_atp-master//atp_matches_futures_1992.csv&quot;   
+##  [55] &quot;tennis_atp-master//atp_matches_futures_1993.csv&quot;   
+##  [56] &quot;tennis_atp-master//atp_matches_futures_1994.csv&quot;   
+##  [57] &quot;tennis_atp-master//atp_matches_futures_1995.csv&quot;   
+##  [58] &quot;tennis_atp-master//atp_matches_futures_1996.csv&quot;   
+##  [59] &quot;tennis_atp-master//atp_matches_futures_1997.csv&quot;   
+##  [60] &quot;tennis_atp-master//atp_matches_futures_1998.csv&quot;   
+##  [61] &quot;tennis_atp-master//atp_matches_futures_1999.csv&quot;   
+##  [62] &quot;tennis_atp-master//atp_matches_futures_2000.csv&quot;   
+##  [63] &quot;tennis_atp-master//atp_matches_futures_2001.csv&quot;   
+##  [64] &quot;tennis_atp-master//atp_matches_futures_2002.csv&quot;   
+##  [65] &quot;tennis_atp-master//atp_matches_futures_2003.csv&quot;   
+##  [66] &quot;tennis_atp-master//atp_matches_futures_2004.csv&quot;   
+##  [67] &quot;tennis_atp-master//atp_matches_futures_2005.csv&quot;   
+##  [68] &quot;tennis_atp-master//atp_matches_futures_2006.csv&quot;   
+##  [69] &quot;tennis_atp-master//atp_matches_futures_2007.csv&quot;   
+##  [70] &quot;tennis_atp-master//atp_matches_futures_2008.csv&quot;   
+##  [71] &quot;tennis_atp-master//atp_matches_futures_2009.csv&quot;   
+##  [72] &quot;tennis_atp-master//atp_matches_futures_2010.csv&quot;   
+##  [73] &quot;tennis_atp-master//atp_matches_futures_2011.csv&quot;   
+##  [74] &quot;tennis_atp-master//atp_matches_futures_2012.csv&quot;   
+##  [75] &quot;tennis_atp-master//atp_matches_futures_2013.csv&quot;   
+##  [76] &quot;tennis_atp-master//atp_matches_futures_2014.csv&quot;   
+##  [77] &quot;tennis_atp-master//atp_matches_futures_2015.csv&quot;   
+##  [78] &quot;tennis_atp-master//atp_matches_futures_2016.csv&quot;   
+##  [79] &quot;tennis_atp-master//atp_matches_futures_2017.csv&quot;   
+##  [80] &quot;tennis_atp-master//atp_matches_futures_2018.csv&quot;   
+##  [81] &quot;tennis_atp-master//atp_matches_futures_2019.csv&quot;   
+##  [82] &quot;tennis_atp-master//atp_matches_qual_chall_1978.csv&quot;
+##  [83] &quot;tennis_atp-master//atp_matches_qual_chall_1979.csv&quot;
+##  [84] &quot;tennis_atp-master//atp_matches_qual_chall_1980.csv&quot;
+##  [85] &quot;tennis_atp-master//atp_matches_qual_chall_1981.csv&quot;
+##  [86] &quot;tennis_atp-master//atp_matches_qual_chall_1982.csv&quot;
+##  [87] &quot;tennis_atp-master//atp_matches_qual_chall_1983.csv&quot;
+##  [88] &quot;tennis_atp-master//atp_matches_qual_chall_1984.csv&quot;
+##  [89] &quot;tennis_atp-master//atp_matches_qual_chall_1985.csv&quot;
+##  [90] &quot;tennis_atp-master//atp_matches_qual_chall_1986.csv&quot;
+##  [91] &quot;tennis_atp-master//atp_matches_qual_chall_1987.csv&quot;
+##  [92] &quot;tennis_atp-master//atp_matches_qual_chall_1988.csv&quot;
+##  [93] &quot;tennis_atp-master//atp_matches_qual_chall_1989.csv&quot;
+##  [94] &quot;tennis_atp-master//atp_matches_qual_chall_1990.csv&quot;
+##  [95] &quot;tennis_atp-master//atp_matches_qual_chall_1991.csv&quot;
+##  [96] &quot;tennis_atp-master//atp_matches_qual_chall_1992.csv&quot;
+##  [97] &quot;tennis_atp-master//atp_matches_qual_chall_1993.csv&quot;
+##  [98] &quot;tennis_atp-master//atp_matches_qual_chall_1994.csv&quot;
+##  [99] &quot;tennis_atp-master//atp_matches_qual_chall_1995.csv&quot;
+## [100] &quot;tennis_atp-master//atp_matches_qual_chall_1996.csv&quot;
+## [101] &quot;tennis_atp-master//atp_matches_qual_chall_1997.csv&quot;
+## [102] &quot;tennis_atp-master//atp_matches_qual_chall_1998.csv&quot;
+## [103] &quot;tennis_atp-master//atp_matches_qual_chall_1999.csv&quot;
+## [104] &quot;tennis_atp-master//atp_matches_qual_chall_2000.csv&quot;
+## [105] &quot;tennis_atp-master//atp_matches_qual_chall_2001.csv&quot;
+## [106] &quot;tennis_atp-master//atp_matches_qual_chall_2002.csv&quot;
+## [107] &quot;tennis_atp-master//atp_matches_qual_chall_2003.csv&quot;
+## [108] &quot;tennis_atp-master//atp_matches_qual_chall_2004.csv&quot;
+## [109] &quot;tennis_atp-master//atp_matches_qual_chall_2005.csv&quot;
+## [110] &quot;tennis_atp-master//atp_matches_qual_chall_2006.csv&quot;
+## [111] &quot;tennis_atp-master//atp_matches_qual_chall_2007.csv&quot;
+## [112] &quot;tennis_atp-master//atp_matches_qual_chall_2008.csv&quot;
+## [113] &quot;tennis_atp-master//atp_matches_qual_chall_2009.csv&quot;
+## [114] &quot;tennis_atp-master//atp_matches_qual_chall_2010.csv&quot;
+## [115] &quot;tennis_atp-master//atp_matches_qual_chall_2011.csv&quot;
+## [116] &quot;tennis_atp-master//atp_matches_qual_chall_2012.csv&quot;
+## [117] &quot;tennis_atp-master//atp_matches_qual_chall_2013.csv&quot;
+## [118] &quot;tennis_atp-master//atp_matches_qual_chall_2014.csv&quot;
+## [119] &quot;tennis_atp-master//atp_matches_qual_chall_2015.csv&quot;
+## [120] &quot;tennis_atp-master//atp_matches_qual_chall_2016.csv&quot;
+## [121] &quot;tennis_atp-master//atp_matches_qual_chall_2017.csv&quot;
+## [122] &quot;tennis_atp-master//atp_matches_qual_chall_2018.csv&quot;
+## [123] &quot;tennis_atp-master//atp_matches_qual_chall_2019.csv&quot;
+## [124] &quot;tennis_atp-master//atp_players.csv&quot;                
+## [125] &quot;tennis_atp-master//atp_rankings_00s.csv&quot;           
+## [126] &quot;tennis_atp-master//atp_rankings_10s.csv&quot;           
+## [127] &quot;tennis_atp-master//atp_rankings_70s.csv&quot;           
+## [128] &quot;tennis_atp-master//atp_rankings_80s.csv&quot;           
+## [129] &quot;tennis_atp-master//atp_rankings_90s.csv&quot;           
+## [130] &quot;tennis_atp-master//atp_rankings_current.csv&quot;</code></pre>
+<p>Again, same as with the other post, we see a lot of files. The names are quite suggesting and it is clear that not all files contains matches data. Let’s restrict the analysis just for the files with the string <code>atp_matches</code>. This includes main matches, qualifications and futures games.</p>
+<pre class="r"><code>library(stringr)
+
+# restrict just for main atp matches
+my.f &lt;- my.f[str_detect(my.f, &#39;matches&#39;)]
+my.f</code></pre>
+<pre><code>##   [1] &quot;tennis_atp-master//atp_matches_1968.csv&quot;           
+##   [2] &quot;tennis_atp-master//atp_matches_1969.csv&quot;           
+##   [3] &quot;tennis_atp-master//atp_matches_1970.csv&quot;           
+##   [4] &quot;tennis_atp-master//atp_matches_1971.csv&quot;           
+##   [5] &quot;tennis_atp-master//atp_matches_1972.csv&quot;           
+##   [6] &quot;tennis_atp-master//atp_matches_1973.csv&quot;           
+##   [7] &quot;tennis_atp-master//atp_matches_1974.csv&quot;           
+##   [8] &quot;tennis_atp-master//atp_matches_1975.csv&quot;           
+##   [9] &quot;tennis_atp-master//atp_matches_1976.csv&quot;           
+##  [10] &quot;tennis_atp-master//atp_matches_1977.csv&quot;           
+##  [11] &quot;tennis_atp-master//atp_matches_1978.csv&quot;           
+##  [12] &quot;tennis_atp-master//atp_matches_1979.csv&quot;           
+##  [13] &quot;tennis_atp-master//atp_matches_1980.csv&quot;           
+##  [14] &quot;tennis_atp-master//atp_matches_1981.csv&quot;           
+##  [15] &quot;tennis_atp-master//atp_matches_1982.csv&quot;           
+##  [16] &quot;tennis_atp-master//atp_matches_1983.csv&quot;           
+##  [17] &quot;tennis_atp-master//atp_matches_1984.csv&quot;           
+##  [18] &quot;tennis_atp-master//atp_matches_1985.csv&quot;           
+##  [19] &quot;tennis_atp-master//atp_matches_1986.csv&quot;           
+##  [20] &quot;tennis_atp-master//atp_matches_1987.csv&quot;           
+##  [21] &quot;tennis_atp-master//atp_matches_1988.csv&quot;           
+##  [22] &quot;tennis_atp-master//atp_matches_1989.csv&quot;           
+##  [23] &quot;tennis_atp-master//atp_matches_1990.csv&quot;           
+##  [24] &quot;tennis_atp-master//atp_matches_1991.csv&quot;           
+##  [25] &quot;tennis_atp-master//atp_matches_1992.csv&quot;           
+##  [26] &quot;tennis_atp-master//atp_matches_1993.csv&quot;           
+##  [27] &quot;tennis_atp-master//atp_matches_1994.csv&quot;           
+##  [28] &quot;tennis_atp-master//atp_matches_1995.csv&quot;           
+##  [29] &quot;tennis_atp-master//atp_matches_1996.csv&quot;           
+##  [30] &quot;tennis_atp-master//atp_matches_1997.csv&quot;           
+##  [31] &quot;tennis_atp-master//atp_matches_1998.csv&quot;           
+##  [32] &quot;tennis_atp-master//atp_matches_1999.csv&quot;           
+##  [33] &quot;tennis_atp-master//atp_matches_2000.csv&quot;           
+##  [34] &quot;tennis_atp-master//atp_matches_2001.csv&quot;           
+##  [35] &quot;tennis_atp-master//atp_matches_2002.csv&quot;           
+##  [36] &quot;tennis_atp-master//atp_matches_2003.csv&quot;           
+##  [37] &quot;tennis_atp-master//atp_matches_2004.csv&quot;           
+##  [38] &quot;tennis_atp-master//atp_matches_2005.csv&quot;           
+##  [39] &quot;tennis_atp-master//atp_matches_2006.csv&quot;           
+##  [40] &quot;tennis_atp-master//atp_matches_2007.csv&quot;           
+##  [41] &quot;tennis_atp-master//atp_matches_2008.csv&quot;           
+##  [42] &quot;tennis_atp-master//atp_matches_2009.csv&quot;           
+##  [43] &quot;tennis_atp-master//atp_matches_2010.csv&quot;           
+##  [44] &quot;tennis_atp-master//atp_matches_2011.csv&quot;           
+##  [45] &quot;tennis_atp-master//atp_matches_2012.csv&quot;           
+##  [46] &quot;tennis_atp-master//atp_matches_2013.csv&quot;           
+##  [47] &quot;tennis_atp-master//atp_matches_2014.csv&quot;           
+##  [48] &quot;tennis_atp-master//atp_matches_2015.csv&quot;           
+##  [49] &quot;tennis_atp-master//atp_matches_2016.csv&quot;           
+##  [50] &quot;tennis_atp-master//atp_matches_2017.csv&quot;           
+##  [51] &quot;tennis_atp-master//atp_matches_2018.csv&quot;           
+##  [52] &quot;tennis_atp-master//atp_matches_2019.csv&quot;           
+##  [53] &quot;tennis_atp-master//atp_matches_futures_1991.csv&quot;   
+##  [54] &quot;tennis_atp-master//atp_matches_futures_1992.csv&quot;   
+##  [55] &quot;tennis_atp-master//atp_matches_futures_1993.csv&quot;   
+##  [56] &quot;tennis_atp-master//atp_matches_futures_1994.csv&quot;   
+##  [57] &quot;tennis_atp-master//atp_matches_futures_1995.csv&quot;   
+##  [58] &quot;tennis_atp-master//atp_matches_futures_1996.csv&quot;   
+##  [59] &quot;tennis_atp-master//atp_matches_futures_1997.csv&quot;   
+##  [60] &quot;tennis_atp-master//atp_matches_futures_1998.csv&quot;   
+##  [61] &quot;tennis_atp-master//atp_matches_futures_1999.csv&quot;   
+##  [62] &quot;tennis_atp-master//atp_matches_futures_2000.csv&quot;   
+##  [63] &quot;tennis_atp-master//atp_matches_futures_2001.csv&quot;   
+##  [64] &quot;tennis_atp-master//atp_matches_futures_2002.csv&quot;   
+##  [65] &quot;tennis_atp-master//atp_matches_futures_2003.csv&quot;   
+##  [66] &quot;tennis_atp-master//atp_matches_futures_2004.csv&quot;   
+##  [67] &quot;tennis_atp-master//atp_matches_futures_2005.csv&quot;   
+##  [68] &quot;tennis_atp-master//atp_matches_futures_2006.csv&quot;   
+##  [69] &quot;tennis_atp-master//atp_matches_futures_2007.csv&quot;   
+##  [70] &quot;tennis_atp-master//atp_matches_futures_2008.csv&quot;   
+##  [71] &quot;tennis_atp-master//atp_matches_futures_2009.csv&quot;   
+##  [72] &quot;tennis_atp-master//atp_matches_futures_2010.csv&quot;   
+##  [73] &quot;tennis_atp-master//atp_matches_futures_2011.csv&quot;   
+##  [74] &quot;tennis_atp-master//atp_matches_futures_2012.csv&quot;   
+##  [75] &quot;tennis_atp-master//atp_matches_futures_2013.csv&quot;   
+##  [76] &quot;tennis_atp-master//atp_matches_futures_2014.csv&quot;   
+##  [77] &quot;tennis_atp-master//atp_matches_futures_2015.csv&quot;   
+##  [78] &quot;tennis_atp-master//atp_matches_futures_2016.csv&quot;   
+##  [79] &quot;tennis_atp-master//atp_matches_futures_2017.csv&quot;   
+##  [80] &quot;tennis_atp-master//atp_matches_futures_2018.csv&quot;   
+##  [81] &quot;tennis_atp-master//atp_matches_futures_2019.csv&quot;   
+##  [82] &quot;tennis_atp-master//atp_matches_qual_chall_1978.csv&quot;
+##  [83] &quot;tennis_atp-master//atp_matches_qual_chall_1979.csv&quot;
+##  [84] &quot;tennis_atp-master//atp_matches_qual_chall_1980.csv&quot;
+##  [85] &quot;tennis_atp-master//atp_matches_qual_chall_1981.csv&quot;
+##  [86] &quot;tennis_atp-master//atp_matches_qual_chall_1982.csv&quot;
+##  [87] &quot;tennis_atp-master//atp_matches_qual_chall_1983.csv&quot;
+##  [88] &quot;tennis_atp-master//atp_matches_qual_chall_1984.csv&quot;
+##  [89] &quot;tennis_atp-master//atp_matches_qual_chall_1985.csv&quot;
+##  [90] &quot;tennis_atp-master//atp_matches_qual_chall_1986.csv&quot;
+##  [91] &quot;tennis_atp-master//atp_matches_qual_chall_1987.csv&quot;
+##  [92] &quot;tennis_atp-master//atp_matches_qual_chall_1988.csv&quot;
+##  [93] &quot;tennis_atp-master//atp_matches_qual_chall_1989.csv&quot;
+##  [94] &quot;tennis_atp-master//atp_matches_qual_chall_1990.csv&quot;
+##  [95] &quot;tennis_atp-master//atp_matches_qual_chall_1991.csv&quot;
+##  [96] &quot;tennis_atp-master//atp_matches_qual_chall_1992.csv&quot;
+##  [97] &quot;tennis_atp-master//atp_matches_qual_chall_1993.csv&quot;
+##  [98] &quot;tennis_atp-master//atp_matches_qual_chall_1994.csv&quot;
+##  [99] &quot;tennis_atp-master//atp_matches_qual_chall_1995.csv&quot;
+## [100] &quot;tennis_atp-master//atp_matches_qual_chall_1996.csv&quot;
+## [101] &quot;tennis_atp-master//atp_matches_qual_chall_1997.csv&quot;
+## [102] &quot;tennis_atp-master//atp_matches_qual_chall_1998.csv&quot;
+## [103] &quot;tennis_atp-master//atp_matches_qual_chall_1999.csv&quot;
+## [104] &quot;tennis_atp-master//atp_matches_qual_chall_2000.csv&quot;
+## [105] &quot;tennis_atp-master//atp_matches_qual_chall_2001.csv&quot;
+## [106] &quot;tennis_atp-master//atp_matches_qual_chall_2002.csv&quot;
+## [107] &quot;tennis_atp-master//atp_matches_qual_chall_2003.csv&quot;
+## [108] &quot;tennis_atp-master//atp_matches_qual_chall_2004.csv&quot;
+## [109] &quot;tennis_atp-master//atp_matches_qual_chall_2005.csv&quot;
+## [110] &quot;tennis_atp-master//atp_matches_qual_chall_2006.csv&quot;
+## [111] &quot;tennis_atp-master//atp_matches_qual_chall_2007.csv&quot;
+## [112] &quot;tennis_atp-master//atp_matches_qual_chall_2008.csv&quot;
+## [113] &quot;tennis_atp-master//atp_matches_qual_chall_2009.csv&quot;
+## [114] &quot;tennis_atp-master//atp_matches_qual_chall_2010.csv&quot;
+## [115] &quot;tennis_atp-master//atp_matches_qual_chall_2011.csv&quot;
+## [116] &quot;tennis_atp-master//atp_matches_qual_chall_2012.csv&quot;
+## [117] &quot;tennis_atp-master//atp_matches_qual_chall_2013.csv&quot;
+## [118] &quot;tennis_atp-master//atp_matches_qual_chall_2014.csv&quot;
+## [119] &quot;tennis_atp-master//atp_matches_qual_chall_2015.csv&quot;
+## [120] &quot;tennis_atp-master//atp_matches_qual_chall_2016.csv&quot;
+## [121] &quot;tennis_atp-master//atp_matches_qual_chall_2017.csv&quot;
+## [122] &quot;tennis_atp-master//atp_matches_qual_chall_2018.csv&quot;
+## [123] &quot;tennis_atp-master//atp_matches_qual_chall_2019.csv&quot;</code></pre>
+<p>As you can see, I used string matching function <code>str_detect</code> from <code>stringr</code> to find and keep just the csv files with the string <em>matches</em> in its name. Now, let’s load all files into a single dataframe.</p>
+<pre class="r"><code>library(readr)
+library(dplyr)
+
+# set cols (missing some)
+my.cols &lt;- cols(
+  .default = col_integer(),
+  tourney_id = col_character(),
+  tourney_name = col_character(),
+  surface = col_character(),
+  tourney_level = col_character(),
+  winner_entry = col_character(),
+  winner_name = col_character(),
+  winner_hand = col_character(),
+  winner_ioc = col_character(),
+  winner_age = col_double(),
+  loser_entry = col_character(),
+  loser_name = col_character(),
+  loser_hand = col_character(),
+  loser_ioc = col_character(),
+  loser_age = col_double(),
+  score = col_character(),
+  round = col_character()
+)
+
+# load all files with lapply and do.call (some cols don&#39;t match in all files)
+df.matches &lt;- do.call(bind_rows,lapply(my.f, read_csv, col_types = my.cols))
+
+# create year column
+df.matches$Date &lt;- as.Date(as.character(df.matches$tourney_date),&#39;%Y%m%d&#39;)
+df.matches$Year &lt;- format(df.matches$Date,&#39;%Y&#39;)</code></pre>
+<p>Let’s see what the data offers.</p>
+<pre class="r"><code>str(df.matches)</code></pre>
+<pre><code>## tibble [752,552 × 51] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ tourney_id        : chr [1:752552] &quot;1968-580&quot; &quot;1968-580&quot; &quot;1968-580&quot; &quot;1968-580&quot; ...
+##  $ tourney_name      : chr [1:752552] &quot;Australian Chps.&quot; &quot;Australian Chps.&quot; &quot;Australian Chps.&quot; &quot;Australian Chps.&quot; ...
+##  $ surface           : chr [1:752552] &quot;Grass&quot; &quot;Grass&quot; &quot;Grass&quot; &quot;Grass&quot; ...
+##  $ draw_size         : int [1:752552] 64 64 64 64 64 64 64 64 64 64 ...
+##  $ tourney_level     : chr [1:752552] &quot;G&quot; &quot;G&quot; &quot;G&quot; &quot;G&quot; ...
+##  $ tourney_date      : int [1:752552] 19680119 19680119 19680119 19680119 19680119 19680119 19680119 19680119 19680119 19680119 ...
+##  $ match_num         : int [1:752552] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ winner_id         : int [1:752552] 110023 109803 100257 100105 109966 107759 100101 100025 108519 109799 ...
+##  $ winner_seed       : int [1:752552] NA NA NA 5 NA NA 12 3 NA NA ...
+##  $ winner_entry      : chr [1:752552] NA NA NA NA ...
+##  $ winner_name       : chr [1:752552] &quot;Richard Coulthard&quot; &quot;John Brown&quot; &quot;Ross Case&quot; &quot;Allan Stone&quot; ...
+##  $ winner_hand       : chr [1:752552] &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; ...
+##  $ winner_ht         : int [1:752552] NA NA NA NA NA NA NA 173 NA NA ...
+##  $ winner_ioc        : chr [1:752552] &quot;AUS&quot; &quot;AUS&quot; &quot;AUS&quot; &quot;AUS&quot; ...
+##  $ winner_age        : num [1:752552] NA 27.5 16.2 22.3 29.9 ...
+##  $ winner_rank       : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ winner_rank_points: int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ loser_id          : int [1:752552] 107760 106964 110024 110025 110026 110027 110028 108430 110029 110030 ...
+##  $ loser_seed        : int [1:752552] NA NA 15 NA NA NA NA NA NA NA ...
+##  $ loser_entry       : chr [1:752552] NA NA NA NA ...
+##  $ loser_name        : chr [1:752552] &quot;Max Senior&quot; &quot;Ernie Mccabe&quot; &quot;Gondo Widjojo&quot; &quot;Robert Layton&quot; ...
+##  $ loser_hand        : chr [1:752552] &quot;R&quot; &quot;R&quot; &quot;R&quot; &quot;R&quot; ...
+##  $ loser_ht          : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ loser_ioc         : chr [1:752552] &quot;AUS&quot; &quot;AUS&quot; &quot;INA&quot; &quot;AUS&quot; ...
+##  $ loser_age         : num [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ loser_rank        : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ loser_rank_points : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ score             : chr [1:752552] &quot;12-10 7-5 4-6 7-5&quot; &quot;6-3 6-2 6-4&quot; &quot;6-4 3-6 6-3 7-5&quot; &quot;6-4 6-2 6-1&quot; ...
+##  $ best_of           : int [1:752552] 5 5 5 5 5 5 5 5 5 5 ...
+##  $ round             : chr [1:752552] &quot;R64&quot; &quot;R64&quot; &quot;R64&quot; &quot;R64&quot; ...
+##  $ minutes           : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_ace             : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_df              : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_svpt            : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_1stIn           : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_1stWon          : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_2ndWon          : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_SvGms           : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_bpSaved         : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ w_bpFaced         : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_ace             : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_df              : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_svpt            : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_1stIn           : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_1stWon          : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_2ndWon          : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_SvGms           : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_bpSaved         : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ l_bpFaced         : int [1:752552] NA NA NA NA NA NA NA NA NA NA ...
+##  $ Date              : Date[1:752552], format: &quot;1968-01-19&quot; &quot;1968-01-19&quot; ...
+##  $ Year              : chr [1:752552] &quot;1968&quot; &quot;1968&quot; &quot;1968&quot; &quot;1968&quot; ...</code></pre>
+<p>Again, lots of information. Looks like the games are separated by rows, where the columns have a lot of information about the matches. This dataset is not as detailed as the last one with point by point data, but still quite impressive.</p>
+</div>
+<div id="looking-at-top-players-winning-percentages" class="section level1">
+<h1>Looking at top players winning percentages</h1>
+<p>For our first analysis, lets look at the winning percentages of the top 10 players from the ATP rankings. For that, I will use package <code>rvest</code> to scrape the information about the top ATP players from the <a href="http://www.atpworldtour.com/en/rankings/singles">ATP website</a>.</p>
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;rvest&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     guess_encoding</code></pre>
+<pre class="r"><code>library(stringr)
+
+n.players &lt;- 10
+
+my.url &lt;- &#39;http://www.atpworldtour.com/en/rankings/singles&#39;
+
+atp.players &lt;- read_html(my.url) %&gt;%
+  html_nodes(&quot;.player-cell&quot;) %&gt;%
+  html_text() %&gt;%
+  str_replace_all(&#39;\\n&#39;,&#39;&#39;) %&gt;%
+  str_trim()
+
+name.player &lt;- atp.players[1:n.players]
+print(name.player)</code></pre>
+<pre><code>##  [1] &quot;Novak Djokovic&quot;     &quot;Rafael Nadal&quot;       &quot;Dominic Thiem&quot;     
+##  [4] &quot;Roger Federer&quot;      &quot;Daniil Medvedev&quot;    &quot;Stefanos Tsitsipas&quot;
+##  [7] &quot;Alexander Zverev&quot;   &quot;Matteo Berrettini&quot;  &quot;Gael Monfils&quot;      
+## [10] &quot;David Goffin&quot;</code></pre>
+<p>As you can see, we have to usual suspects. Novak Djokovic is now leading in the first position, which was held previously by Djokovic for a long period of time. I really like to see Dominic Thiem in the top ten as he is the youngest with 23 year, a solid game, and lots of potential. Federer is the oldest of the list, with 35 years old, but the most talented. It is amazing how he can still stay competitive given the age difference.</p>
+<p>Back to the R analysis, a problem with this approach of scraping the names from the ATP website is that they don’t necessarily match the names in the ATP files. As an example, the swiss player <em>Stan Wawrinka</em> is named <em>Stanislas Wawrinka</em> in the csv files, while in the ATP website is <em>Stan Wawrinka</em>. This means that directly trying to match the names in <code>name.player</code> with the names in <code>df.matches</code> may not work. This is classic case of data from difference sources that don’t share the same unique identifiers.</p>
+<p>I usually solve this problem using a lookup table built manually in a csv file, where I store the matching identifiers in the different datasets. If the number of unique cases is small, it is quite doable. For this analysis, however, we have 13491 players, which is definitely too much. Manually creating a lookup table would be very demanding.</p>
+<p>The solution I often in this case is to make the computer look for the best <em>imperfect match</em> among the different identifiers (names). This is also known as calculating <strong>string distances</strong> - the number of require edits so that a string matches other, and can be accomplished in many different ways. In this example I’ll use function <code>amatch</code> from package <code>stringdist</code>, with the basic options.</p>
+<pre class="r"><code>library(stringdist)
+
+# get unique names from losers and winners
+unique.players &lt;- unique(c(df.matches$winner_name, 
+                           df.matches$loser_name ))
+
+# find the index of the closest string for each name in name.player
+idx &lt;- amatch(name.player, unique.players, maxDist = 5)</code></pre>
+<p>Lets look at the result:</p>
+<pre class="r"><code>print(data.frame(name.from.web = name.player,
+                 name.from.atp = unique.players[idx] ))</code></pre>
+<pre><code>##         name.from.web      name.from.atp
+## 1      Novak Djokovic     Novak Djokovic
+## 2        Rafael Nadal       Rafael Nadal
+## 3       Dominic Thiem      Dominic Thiem
+## 4       Roger Federer      Roger Federer
+## 5     Daniil Medvedev    Daniil Medvedev
+## 6  Stefanos Tsitsipas Stefanos Tsitsipas
+## 7    Alexander Zverev   Alexander Zverev
+## 8   Matteo Berrettini  Matteo Berrettini
+## 9        Gael Monfils       Gael Monfils
+## 10       David Goffin       David Goffin</code></pre>
+<p>Beautiful! For our case of just 10 players, it worked perfectly. The name of Stan Wawrinka_ was matched correctly. Be aware, however, that this procedure of string matching is not guaranteed to work 100% of the cases. You could also set NA values using the options in <code>amatch</code> but it is still not guaranteed to work well. You should always manually check the result.</p>
+<p>Going forward, let’s copy the players name from one to the other and use a loop and <code>dplyr</code> to calculate yearly winning percentages of each player, also separating by the type of surface. Using a loop here might look odd, but this was the simplest solution I’ve found as you cannot use <code>dplyr</code> directly. The dataframe <code>df.matches</code> is unique in the sense that it has two informations in each row, you have a win for someone and a loss to another player (see columns <code>winner_name</code> and <code>loser_name</code>). If I use <code>dplyr</code> directly, I would miss the games where two players in the list played each other. There is probably a way to adjust the dataframe, but I just find it easier to loop over the players.</p>
+<pre class="r"><code># copy players name
+name.player &lt;- unique.players[idx]
+
+# create table with players
+my.tab &lt;- tibble()
+for (i.player in name.player) {
+  
+  temp &lt;- filter(df.matches, (winner_name==i.player)|(loser_name==i.player))
+  temp$Name &lt;- i.player
+  temp.tab &lt;- temp %&gt;% 
+    group_by(Name, Year,surface) %&gt;%
+    summarise(`Percentage of wins` = sum(winner_name == Name)/n(),
+              `Number of matches` = n()) %&gt;%
+    filter(`Number of matches` &gt; 0 ) %&gt;%
+    filter(surface %in% c(&#39;Hard&#39;,&#39;Clay&#39;))
+  
+  my.tab &lt;- bind_rows(my.tab,
+                      temp.tab)
+    
+}
+
+# use atp ranking in names e.g. Andy Murray (1)
+my.tab$Name &lt;- paste0(my.tab$Name, 
+                      &#39; (&#39;, 
+                      match(my.tab$Name, name.player),
+                      &#39;)&#39; )
+
+my.tab &lt;- my.tab[complete.cases(my.tab), ]</code></pre>
+<p>Lets plot it!</p>
+<pre class="r"><code>library(ggplot2)
+
+p &lt;- ggplot(my.tab, aes(x = as.numeric(Year), y = `Percentage of wins`, color=surface))
+p &lt;- p + geom_point() + geom_smooth()
+p &lt;- p + facet_grid(surface~Name)
+p &lt;- p + ylim(c(0.25,1)) + xlim(c(2005,2016))
+print(p)</code></pre>
+<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png" width="1440" /></p>
+<p>We can see a few patterns. First, the winning consistency of top ten player is higher in hard courts. For example, look at Murray and Djokovic. It is easier for them to keep the same proportion of wins in hard courts than it is in clay. My best guess is that hard courts are more predictable and the ball is faster and bounces lower, making it easier for top players to hit winners and other point-finishing strokes such as drop shots. Be aware that this could also be due to the different number of matches in each court. We could test the difference of volatility statistically but I rather keep the analysis simple and visual.</p>
+<p>Also, not surprisingly, Nadal, <a href="https://www.youtube.com/watch?v=7mknZrjakM8">the king of clay</a>, presents the highest winning percentage in clay, before 2012. His game strategy uses strength and heavy top spin balls that are difficult to counter. See <a href="https://www.quora.com/Why-is-Nadal-so-dominant-on-clay">here</a> for a more detailed analysis on why he is so dominant on clay. The bad side of his strategy and type of play is that it is based heavily on his muscular strength. As his age increases, it is difficult to maintain the same level. This explains the increased proportion of defeats after 2012.</p>
+<p>The effect of age is also perceived for Roger Federer. But, given that his style of play is not based just on strength, I think that he can still beat a lot of players. Just look at the his recent title win at the 2017 Australian open.</p>
+<p>Now, look how Dojokovic is consistent in clay and hard courts. He is definitely the player with the best stats. I predict that, if he works for it, he will have no problem in taking the #1 spot once again from Murray.</p>
+</div>
+<div id="looking-at-brazilian-tennis-players" class="section level1">
+<h1>Looking at Brazilian tennis players</h1>
+<p>In this section we will analyse the stats of Brazilian tennis players in ATP rankings. The following code can be easily executed for any country as the data is scraped from the ATP website. Just change the object <code>my.country</code> for your case.</p>
+<pre class="r"><code>my.country &lt;- &#39;BRA&#39;
+n.players &lt;- 5
+my.url &lt;- paste0(&#39;http://www.atpworldtour.com/en/rankings/singles?rankDate=2017-02-06&amp;rankRange=0-500&amp;countryCode=&#39;,my.country)
+
+atp.players &lt;- read_html(my.url) %&gt;%
+  html_nodes(&quot;.player-cell&quot;) %&gt;%
+  html_text() %&gt;%
+  str_replace_all(&#39;\\n&#39;,&#39;&#39;) %&gt;%
+  str_trim()
+
+name.player &lt;- atp.players[1:n.players]
+name.player</code></pre>
+<pre><code>## [1] &quot;Thiago Monteiro&quot;     &quot;Rogerio Dutra Silva&quot; &quot;Thomaz Bellucci&quot;    
+## [4] &quot;Joao Souza&quot;          &quot;Andre Ghem&quot;</code></pre>
+<p>The top five Brazilian players in ATP are Thiago Monteiro, Rogerio Dutra Silva, Thomas Belluci, João Souza and Andre Ghem, in that order. We should be proud of all of them. I can only imagine the dedication and effort necessary to be a professional tennis player. You can see more details about each <a href="http://www.atpworldtour.com/en/rankings/singles?rankDate=2017-02-06&amp;rankRange=1-5000&amp;countryCode=BRA">here</a>.</p>
+<p>At this point, it makes sense to create a function to analyse the dataframe, as we will use it again later.</p>
+<pre class="r"><code>plot.winning.perc &lt;- function(name.player, 
+                              df.matches, 
+                              min.games.per.year = 0,
+                              min.year = 2005,
+                              max.year = 2016){
+  require(stringdist)
+  require(stringr)
+  require(dplyr)
+  require(ggplot2)
+  
+  # create year column
+  df.matches$Date &lt;- as.Date(as.character(df.matches$tourney_date),&#39;%Y%m%d&#39;)
+  df.matches$Year &lt;- format(df.matches$Date,&#39;%Y&#39;)
+  
+  # get unique names from losers and winners
+  unique.players &lt;- unique(c(df.matches$winner_name, 
+                             df.matches$loser_name ))
+  
+  # find the index of the closest string for each name in name.player
+  idx &lt;- amatch(name.player, unique.players, maxDist = 5)
+  #print(data.frame(name.from.web = name.player,
+   #                name.from.atp = unique.players[idx] ))
+  
+  my.tab &lt;- tibble()
+  for (i.player in name.player) {
+    
+    temp &lt;- filter(df.matches, (winner_name==i.player)|(loser_name==i.player))
+    temp$Name &lt;- i.player
+    temp.tab &lt;- temp %&gt;% 
+      group_by(Name, Year,surface) %&gt;%
+      summarise(`Percentage of wins` = sum(winner_name == Name)/n(),
+                `Number of matches` = n()) %&gt;%
+      filter(`Number of matches` &gt; min.games.per.year ) %&gt;%
+      filter(surface %in% c(&#39;Hard&#39;,&#39;Clay&#39;))
+    
+    my.tab &lt;- bind_rows(my.tab,
+                        temp.tab)
+    
+  }
+  
+  p &lt;- ggplot(my.tab, aes(x = as.numeric(Year), y = `Percentage of wins`, color=surface))
+  p &lt;- p + geom_point() + geom_smooth()
+  p &lt;- p + facet_grid(surface~Name)
+  p &lt;- p + ylim(c(0.25,1)) + xlim(c(min.year,max.year))
+  
+  return(p)
+  
+}</code></pre>
+<p>Now, we use the previous function for the new names of players.</p>
+<pre class="r"><code># plot winnign percentages
+p &lt;- plot.winning.perc(name.player, df.matches)
+print(p)</code></pre>
+<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png" width="672" /></p>
+<p>From this list, the youngest Brazilian player, and with most potential in my opinion, is Thiago Monteiro. He is 22 and has lots of time to improve his game. In 2016 he beated Tsonga in a great match <a href="http://www.atpworldtour.com/en/news/monteiro-upsets-tsonga-in-rio-de-janeiro">here in Brazil</a>.</p>
+<div id="the-records-of-guga-gustavo-kurten" class="section level2">
+<h2>The records of Guga (Gustavo Kurten)</h2>
+<p>For last, lets look at stats of the the best and most cherished singles player from Brazil, <a href="https://en.wikipedia.org/wiki/Gustavo_Kuerten">Gustavo Kuerten - Guga</a>. Guga is internationally famous and reached #1 in the ATP ranking in 2000. A very charismatic player, with a fantastic backhand. It is not far fetched to say that Guga brought Tennis to Brazil, making it a more popular sport.</p>
+<p>Guga had a hip injury back in 2001. He tried surgery, but it didn’t worked out and he wasn’t able to maintain the higher level of tennis that is necessary in the professional circuit. He retired in february of 2008. His story is very inspiring, growing up in the state of Santa Catarina, in a time where tennis was not a popular sport in Brazil and funding opportunities were scarce. His <a href="https://www.amazon.com/Gustavo-Kuerten/e/B00VOUXHS2">biography (in portuguese)</a> is an excellent read.</p>
+<p>Let’s have a look in the data.</p>
+<pre class="r"><code>name.player &lt;- &#39;Gustavo Kuerten&#39;
+
+p &lt;- plot.winning.perc(name.player, df.matches, min.year = 1990)
+print(p)</code></pre>
+<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png" width="672" /></p>
+<p>As expected, a winning journey until 2001, when losses start to accumulate.</p>
+</div>
+<div id="conlusion" class="section level2">
+<h2>Conlusion</h2>
+<p>The data repository of Jeff Sackmann is great. I really only scratched the surface with some simple graphical analysis. I think there is a lot of space for modeling as well, that is, creating a model that can predict the winning records of a player. I’m thinking about an econometric model using historical statistics of players such as past winning records, forehand/backhand winners, and so on. But I’m sure you can use other approaches as well.</p>
+<p>From the computational side, it would be interesting to create a CRAN package to analyse this dataset. Just like in this post, all data could be fetched from the ATP website and the repository of Jeff. One could check the winning records of players with just a simple function call. I just checked and there is nothing like it in CRAN. A shiny app would also be interesting. I’ll keep it in mind for the future.</p>
+<p>I hope you liked this post. Any comments or suggestions, please share in the comments section.</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/tennis/">tennis</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/&amp;text=Using%20R%20to%20study%20tennis%20players" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/&amp;t=Using%20R%20to%20study%20tennis%20players" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Using%20R%20to%20study%20tennis%20players&amp;body=https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/&amp;title=Using%20R%20to%20study%20tennis%20players" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Using%20R%20to%20study%20tennis%20players%20https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.msperlin.com/post/2017-02-13-r-and-tennis-players/&amp;title=Using%20R%20to%20study%20tennis%20players" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/marcelo-s.-perlin/avatar_hua09aee1d004f59bf9fb50435262f3575_93807_270x270_fill_q90_lanczos_center.jpg" alt="Marcelo S. Perlin">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://www.msperlin.com/">Marcelo S. Perlin</a></h5>
+        <h6 class="card-subtitle">Associate Professor</h6>
+        <p class="card-text">My research interests include data analysis, finance and cientometrics.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=n3LTk-UAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/msperlin" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCHKHbPczFcP4Mn3j5oxtrvw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "blog-gfluyjpsj0" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://blog-gfluyjpsj0.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.0d53a7f39b7d6770128a54b39dad2f22.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Marcelo S. Perlin © 2022
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1532 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Marcelo S. Perlin">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="I’m happy to report that package GetFREData is now available in CRAN. This R package serves as an interface to all corporate datasets available in the FRE system, a vast and official repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its web interface.
+The R package fetches data from the CVM ftp, downloads and parses the xml files, and output several tables as a list.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-89690212-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@msperlin">
+  <meta property="twitter:creator" content="@msperlin">
+  
+  <meta property="og:site_name" content="msperlin">
+  <meta property="og:url" content="https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/">
+  <meta property="og:title" content="GetFREData available in CRAN! | msperlin">
+  <meta property="og:description" content="I’m happy to report that package GetFREData is now available in CRAN. This R package serves as an interface to all corporate datasets available in the FRE system, a vast and official repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its web interface.
+The R package fetches data from the CVM ftp, downloads and parses the xml files, and output several tables as a list."><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
+  <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2021-04-06T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2021-04-06T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/"
+  },
+  "headline": "GetFREData available in CRAN!",
+  
+  "datePublished": "2021-04-06T00:00:00Z",
+  "dateModified": "2021-04-06T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Marcelo S. Perlin"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "msperlin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.msperlin.com/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "I’m happy to report that package GetFREData is now available in CRAN. This R package serves as an interface to all corporate datasets available in the FRE system, a vast and official repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its web interface.\nThe R package fetches data from the CVM ftp, downloads and parses the xml files, and output several tables as a list."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>GetFREData available in CRAN! | msperlin</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/#5"><span>Books</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Blog</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/post/"><span>Posts</span></a>
+            
+              <a class="dropdown-item" href="/subscribe_rss"><span>Subscribe in RSS</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Code</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/code/r/"><span>R Code</span></a>
+            
+              <a class="dropdown-item" href="/code/shiny/"><span>Shiny Web Apps</span></a>
+            
+              <a class="dropdown-item" href="/code/matlab/"><span>Matlab Code</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/data/"><span>Data</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/subscribe_email"><span>Subscribe</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Research & Talks</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/research/awards"><span>Awards</span></a>
+            
+              <a class="dropdown-item" href="/research/on-the-news"><span>Coverage by News</span></a>
+            
+              <a class="dropdown-item" href="/talk"><span>Talks</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Others</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="https://www.r-bloggers.com"><span>R-Bloggers</span></a>
+            
+              <a class="dropdown-item" href="/#search"><span>Search</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>GetFREData available in CRAN!</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    2021-04-06
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    18 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2021-04-06-getfredata-on-cran/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a>, <a href="/category/getfredata/">GetFREData</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I’m happy to report that package <code>GetFREData</code> is now available in CRAN. This R package serves as an interface to <strong>all</strong> corporate datasets available in the FRE system, a vast and <strong>official</strong> repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its <a href="https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=102618&amp;CodigoTipoInstituicao=2">web interface</a>.</p>
+<p>The R package fetches data from the <a href="http://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/FRE/">CVM ftp</a>, downloads and parses the xml files, and output several tables as a <code>list</code>. The corporate data includes (since 2010):</p>
+<ul>
+<li>List of stockholders</li>
+<li>All capital issues</li>
+<li>Stock value over years</li>
+<li>Compensation of boards and directors</li>
+<li>Composition of boards and committees</li>
+<li>Family relations within the company</li>
+<li>List of companies related to family members</li>
+<li>Stock details</li>
+<li>Intangible details</li>
+<li>Auditing details</li>
+<li>Dividends details</li>
+</ul>
+<p>Historical parsed data between 2010 and 2019 is available for download in my <a href="https://www.msperlin.com/data/">personal site</a>.</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<pre class="r"><code># CRAN (stable)
+install.packages(&#39;GetFREData&#39;)
+
+# github (development)
+if (!require(devtools)) install.packages(&#39;devtools&#39;)
+if (!require(GetFREData)) devtools::install_github(&#39;msperlin/GetFREData&#39;) </code></pre>
+</div>
+<div id="example-of-usage" class="section level2">
+<h2>Example of usage</h2>
+<pre class="r"><code>library(GetFREData)
+library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.0     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>search_company(&#39;grendene&#39;, 
+               cache_folder = tempdir())</code></pre>
+<pre><code>## Fetching info on B3 companies</code></pre>
+<pre><code>##  Dowloading file from CVM</code></pre>
+<pre><code>##  Reading file from CVM</code></pre>
+<pre><code>##  Saving cache data</code></pre>
+<pre><code>##  Got 2331 lines for 2290 companies [Actives = 648 Inactives = 1653]</code></pre>
+<pre><code>## Found 1 companies:</code></pre>
+<pre><code>## GRENDENE SA | situation = ATIVO | sector = Têxtil e Vestuário | CD_CVM = 19615</code></pre>
+<pre><code>## # A tibble: 1 x 44
+##   CD_CVM DENOM_SOCIAL DENOM_COMERC SETOR_ATIV    PF_PJ CNPJ     DT_REG  DT_CONST
+##    &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;   
+## 1  19615 GRENDENE SA  GRENDENE SA  Têxtil e Ves… PJ    8985034… 26/10/… 25/02/1…
+## # … with 36 more variables: DT_CANCEL &lt;chr&gt;, MOTIVO_CANCEL &lt;chr&gt;,
+## #   SIT_REG &lt;chr&gt;, DT_INI_SIT &lt;chr&gt;, SIT_EMISSOR &lt;chr&gt;,
+## #   DT_INI_SIT_EMISSOR &lt;chr&gt;, CATEG_REG &lt;chr&gt;, DT_INI_CATEG &lt;chr&gt;,
+## #   AUDITOR &lt;chr&gt;, CNPJ_AUDITOR &lt;dbl&gt;, TP_ENDER &lt;chr&gt;, LOGRADOURO &lt;chr&gt;,
+## #   COMPL &lt;chr&gt;, BAIRRO &lt;chr&gt;, CIDADE &lt;chr&gt;, UF &lt;chr&gt;, PAIS &lt;chr&gt;,
+## #   CD_POSTAL &lt;lgl&gt;, TEL &lt;chr&gt;, FAX &lt;chr&gt;, EMAIL &lt;chr&gt;, TP_RESP &lt;chr&gt;,
+## #   RESP &lt;chr&gt;, DT_INI_RESP &lt;chr&gt;, LOGRADOURO_RESP &lt;chr&gt;, COMPL_RESP &lt;chr&gt;,
+## #   BAIRRO_RESP &lt;chr&gt;, CIDADE_RESP &lt;chr&gt;, UF_RESP &lt;chr&gt;, PAIS_RESP &lt;chr&gt;,
+## #   CEP_RESP &lt;dbl&gt;, TEL_RESP &lt;chr&gt;, FAX_RESP &lt;chr&gt;, EMAIL_RESP &lt;chr&gt;,
+## #   TP_MERC &lt;chr&gt;, cnpj_number &lt;dbl&gt;</code></pre>
+<pre class="r"><code>l_fre &lt;- get_fre_data(companies_cvm_codes = 19615,
+                      fre_to_read = &#39;last&#39;,
+                      first_year = 2020,
+                      last_year = 2020, 
+                      cache_folder = tempdir())</code></pre>
+<pre><code>## Fetching ftp contents</code></pre>
+<pre><code>##  * Reading fre_cia_aberta_2020.zip</code></pre>
+<pre><code>## 
+## Found 1 FRE docs to read</code></pre>
+<pre><code>## Starting Downloads:</code></pre>
+<pre><code>## -&gt; Company 19615 | fre file 100932 (ver 9) | 2020-01-01 | reading and saving cache</code></pre>
+<pre class="r"><code>glimpse(l_fre)</code></pre>
+<pre><code>## List of 21
+##  $ df_stockholders            :&#39;data.frame&#39;: 10 obs. of  18 variables:
+##   ..$ CNPJ_CIA               : chr [1:10] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA              : chr [1:10] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER               : Date[1:10], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                 : num [1:10] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC                 : num [1:10] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO                 : num [1:10] 9 9 9 9 9 9 9 9 9 9
+##   ..$ type.register          : chr [1:10] &quot;Acionista&quot; &quot;Acionista&quot; &quot;Acionista&quot; &quot;Acionista&quot; ...
+##   ..$ id.person              : chr [1:10] &quot;37071813833   &quot; &quot;09867597087   &quot; &quot;09864784072   &quot; &quot;68595743053   &quot; ...
+##   ..$ id.nationality         : chr [1:10] &quot;Brasileira&quot; &quot;Brasileiro&quot; &quot;Brasileiro&quot; &quot;Brasileiro&quot; ...
+##   ..$ id.state               : chr [1:10] &quot;São Paulo&quot; &quot;Rio Grande do Sul&quot; &quot;Rio Grande do Sul&quot; &quot;Rio Grande do Sul&quot; ...
+##   ..$ id.country             : logi [1:10] NA NA NA NA NA NA ...
+##   ..$ name.stockholder       : chr [1:10] &quot;Gabriella de Camargo Bartelle&quot; &quot;Alexandre Grendene Bartelle&quot; &quot;Pedro Grendene Bartelle&quot; &quot;Pedro Bartelle&quot; ...
+##   ..$ type.stockholder       : chr [1:10] &quot;Fisica&quot; &quot;Fisica&quot; &quot;Fisica&quot; &quot;Fisica&quot; ...
+##   ..$ qtd.ord.shares         : chr [1:10] &quot;28912677&quot; &quot;371651807&quot; &quot;125312376&quot; &quot;35557397&quot; ...
+##   ..$ perc.ord.shares        : chr [1:10] &quot;3.200000&quot; &quot;41.200000&quot; &quot;13.890000&quot; &quot;3.940000&quot; ...
+##   ..$ qtd.pref.shares        : chr [1:10] &quot;0&quot; &quot;0&quot; &quot;0&quot; &quot;0&quot; ...
+##   ..$ perc.pref.shares       : chr [1:10] &quot;0.000000&quot; &quot;0.000000&quot; &quot;0.000000&quot; &quot;0.000000&quot; ...
+##   ..$ controlling.stockholder: logi [1:10] TRUE TRUE TRUE TRUE TRUE TRUE ...
+##  $ df_capital                 :&#39;data.frame&#39;: 2 obs. of  9 variables:
+##   ..$ CNPJ_CIA   : chr [1:2] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA  : chr [1:2] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER   : Date[1:2], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot;
+##   ..$ CD_CVM     : num [1:2] 19615 19615
+##   ..$ ID_DOC     : num [1:2] 100932 100932
+##   ..$ VERSAO     : num [1:2] 9 9
+##   ..$ stock.type : chr [1:2] &quot;ON&quot; &quot;PN&quot;
+##   ..$ stock.class: chr [1:2] &quot;0&quot; &quot;0&quot;
+##   ..$ qtd.issued : num [1:2] 9.02e+08 0.00
+##  $ df_stock_values            :&#39;data.frame&#39;: 2 obs. of  13 variables:
+##   ..$ CNPJ_CIA              : chr [1:2] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA             : chr [1:2] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER              : Date[1:2], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot;
+##   ..$ CD_CVM                : num [1:2] 19615 19615
+##   ..$ ID_DOC                : num [1:2] 100932 100932
+##   ..$ VERSAO                : num [1:2] 9 9
+##   ..$ stock.class           : chr [1:2] &quot;0&quot; &quot;0&quot;
+##   ..$ stock.type            : chr [1:2] &quot;ON&quot; &quot;PN&quot;
+##   ..$ max.price             : num [1:2] 12.7 0
+##   ..$ min.price             : num [1:2] 7.94 0
+##   ..$ avg.price             : num [1:2] 10.5 0
+##   ..$ flag.missing.avg.price: logi [1:2] FALSE NA
+##   ..$ qtd.issued            : num [1:2] 9.02e+08 0.00
+##  $ df_mkt_value               :&#39;data.frame&#39;: 1 obs. of  9 variables:
+##   ..$ CNPJ_CIA     : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA    : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER     : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM       : num 19615
+##   ..$ ID_DOC       : num 100932
+##   ..$ VERSAO       : num 9
+##   ..$ mkt.avg.value: num 9.44e+09
+##   ..$ mkt.min.value: num 7.16e+09
+##   ..$ mkt.max.value: num 1.14e+10
+##  $ df_increase_capital        :&#39;data.frame&#39;: 0 obs. of  0 variables
+##  $ df_capital_reduction       :&#39;data.frame&#39;: 0 obs. of  0 variables
+##  $ df_compensation            :&#39;data.frame&#39;: 1 obs. of  22 variables:
+##   ..$ CNPJ_CIA                          : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA                         : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER                          : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM                            : num 19615
+##   ..$ ID_DOC                            : num 100932
+##   ..$ VERSAO                            : num 9
+##   ..$ level.remuneration                : chr &quot;Management Council&quot;
+##   ..$ qtd.members                       : num 6
+##   ..$ qtd.remunerated.members           : num 6
+##   ..$ total.value.remuneration          : num 1188000
+##   ..$ fixed.salary                      : num 1188000
+##   ..$ fixed.benefits                    : num 0
+##   ..$ fixed.participations              : num 0
+##   ..$ fixed.others                      : num 0
+##   ..$ variable.bonus                    : num 0
+##   ..$ variable.results.participation    : num 0
+##   ..$ variable.meetings.participation   : num 0
+##   ..$ variable.commissions.participation: num 0
+##   ..$ variable.others                   : num 0
+##   ..$ post.job.compensation             : num 0
+##   ..$ ceasing.job.compensation          : num 0
+##   ..$ stocks.options.benefits           : num 0
+##  $ df_compensation_summary    :&#39;data.frame&#39;: 3 obs. of  13 variables:
+##   ..$ CNPJ_CIA               : chr [1:3] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA              : chr [1:3] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER               : Date[1:3], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                 : num [1:3] 19615 19615 19615
+##   ..$ ID_DOC                 : num [1:3] 100932 100932 100932
+##   ..$ VERSAO                 : num [1:3] 9 9 9
+##   ..$ level.remuneration     : chr [1:3] &quot;Management Council&quot; &quot;Statutory Directors&quot; &quot;Fiscal Council&quot;
+##   ..$ qtd.members            : num [1:3] 6 3 3
+##   ..$ qtd.remunerated.members: num [1:3] 6 3 3
+##   ..$ max.remuneration       : num [1:3] 198000 2520995 148740
+##   ..$ mean.remuneration      : num [1:3] 198000 1988385 148740
+##   ..$ min.remuneration       : num [1:3] 198000 1210729 148740
+##   ..$ observations           : logi [1:3] NA NA NA
+##  $ df_transactions_related    :&#39;data.frame&#39;: 41 obs. of  17 variables:
+##   ..$ CNPJ_CIA                      : chr [1:41] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA                     : chr [1:41] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER                      : Date[1:41], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                        : num [1:41] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC                        : num [1:41] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO                        : num [1:41] 9 9 9 9 9 9 9 9 9 9 ...
+##   ..$ id.transaction                : chr [1:41] &quot;1944&quot; &quot;1945&quot; &quot;1946&quot; &quot;1947&quot; ...
+##   ..$ name.related.part             : chr [1:41] &quot;Dall&#39;Onder Viagens &amp; Turismo Ltda&quot; &quot;Grendene UK Limited&quot; &quot;Grendene Italy SRL&quot; &quot;MHL Calçados Ltda&quot; ...
+##   ..$ date.transaction              : Date[1:41], format: &quot;2017-12-31&quot; &quot;2019-12-31&quot; ...
+##   ..$ description.related.part      : chr [1:41] &quot;Empresa pertencente a família de um dos administradores&quot; &quot;Empresa controlada&quot; &quot;Empresa controlada indireta&quot; &quot;Empresa controlada&quot; ...
+##   ..$ description.transaction       : chr [1:41] &quot;Serviços de assessoria e agenciamento de viagens aéreas&quot; &quot;Venda de calçados para abastecimento do mercado onde a mesma está sediada&quot; &quot;Venda de calçados para abastecimento do mercado onde a mesma está sediada&quot; &quot;Venda de insumos&quot; ...
+##   ..$ value.transaction             : chr [1:41] &quot;479000.00&quot; &quot;832000.00&quot; &quot;1605000.00&quot; &quot;795000.00&quot; ...
+##   ..$ description.guarantees        : chr [1:41] &quot;Não aplicável&quot; &quot;Não aplicável&quot; &quot;Não aplicável&quot; &quot;Não aplicável&quot; ...
+##   ..$ description.transaction.period: chr [1:41] &quot;Prazo indeterminado&quot; &quot;Prazo indeterminado&quot; &quot;Prazo indeterminado&quot; &quot;Prazo indeterminado&quot; ...
+##   ..$ description.rescision         : chr [1:41] &quot;Encerramento das atividades&quot; &quot;Encerramento das atividades&quot; &quot;Encerramento das atividades&quot; &quot;Encerramento das atividades&quot; ...
+##   ..$ interest.rate                 : num [1:41] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..$ value.balance                 : chr [1:41] &quot;R$ 0,00&quot; &quot;R$483.000,00&quot; &quot;R$1.318.000,00&quot; &quot;R$1.000,00&quot; ...
+##  $ df_other_events            :&#39;data.frame&#39;: 1 obs. of  12 variables:
+##   ..$ CNPJ_CIA              : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA             : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER              : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM                : num 19615
+##   ..$ ID_DOC                : num 100932
+##   ..$ VERSAO                : num 9
+##   ..$ approval.date         : Date[1:1], format: &quot;2018-04-23&quot;
+##   ..$ type.event            : chr &quot;Desdobramento&quot;
+##   ..$ qtd.ord.shares.before : num 3.01e+08
+##   ..$ qtd.ord.shares.after  : num 9.02e+08
+##   ..$ qtd.pref.shares.before: num 0
+##   ..$ qtd.pref.shares.after : num 0
+##  $ df_stock_repurchases       :&#39;data.frame&#39;: 4 obs. of  16 variables:
+##   ..$ CNPJ_CIA                     : chr [1:4] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA                    : chr [1:4] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER                     : Date[1:4], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                       : num [1:4] 19615 19615 19615 19615
+##   ..$ ID_DOC                       : num [1:4] 100932 100932 100932 100932
+##   ..$ VERSAO                       : num [1:4] 9 9 9 9
+##   ..$ date.decision                : Date[1:4], format: &quot;2020-03-25&quot; &quot;2019-04-25&quot; ...
+##   ..$ date.start.repurchase        : Date[1:4], format: &quot;2020-03-25&quot; &quot;2019-04-25&quot; ...
+##   ..$ date.end.repurchase          : Date[1:4], format: &quot;2021-09-16&quot; &quot;2020-03-25&quot; ...
+##   ..$ available.capital.repurchase : num [1:4] 25205940 29188481 14563536 16117227
+##   ..$ type.stock                   : chr [1:4] &quot;Ordinária&quot; &quot;Ordinária&quot; &quot;Ordinária&quot; &quot;Ordinária&quot;
+##   ..$ qtd.stocks.repurchased       : num [1:4] 0 1467613 1312343 1185681
+##   ..$ qtd.stocks.predicted         : num [1:4] 2.5e+07 6.0e+06 2.0e+06 1.5e+06
+##   ..$ average.price                : num [1:4] 0 11.1 26.8 17.6
+##   ..$ percent.stock.float.purchased: num [1:4] 0 24.5 65.6 79
+##   ..$ percent.stock.float.predicted: chr [1:4] &quot;9.220000&quot; &quot;2.220000&quot; &quot;2.380000&quot; &quot;1.820000&quot;
+##  $ df_debt_composition        :&#39;data.frame&#39;: 2 obs. of  13 variables:
+##   ..$ CNPJ_CIA               : chr [1:2] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA              : chr [1:2] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER               : Date[1:2], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot;
+##   ..$ CD_CVM                 : num [1:2] 19615 19615
+##   ..$ ID_DOC                 : num [1:2] 100932 100932
+##   ..$ VERSAO                 : num [1:2] 9 9
+##   ..$ type.debt              : chr [1:2] &quot;Empréstimo&quot; &quot;Financiamento&quot;
+##   ..$ type.debt.guarantee    : chr [1:2] &quot;Garantia Real&quot; &quot;Quirografárias&quot;
+##   ..$ debt.value.under.1.year: num [1:2] 1.04e+07 2.88e+08
+##   ..$ debt.value.1.to.3.years: num [1:2] 10340527 72663044
+##   ..$ debt.value.3.to.5.years: num [1:2] 0 1064371
+##   ..$ debt.value.more.5.years: num [1:2] 0 0
+##   ..$ debt.total             : num [1:2] 2.07e+07 3.61e+08
+##  $ df_board_composition       :&#39;data.frame&#39;: 16 obs. of  22 variables:
+##   ..$ CNPJ_CIA                : chr [1:16] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA               : chr [1:16] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER                : Date[1:16], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                  : num [1:16] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC                  : num [1:16] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO                  : num [1:16] 9 9 9 9 9 9 9 9 9 9 ...
+##   ..$ person.name             : chr [1:16] &quot;Gelson Luis Rostirolla&quot; &quot;Rudimar Dall Onder&quot; &quot;Alceu Demartini de Albuquerque&quot; &quot;Alexandre Grendene Bartelle&quot; ...
+##   ..$ person.cpf              : num [1:16] 1.48e+10 2.55e+10 9.56e+10 9.87e+09 4.30e+09 ...
+##   ..$ person.profession       : chr [1:16] &quot;Administrador de Empresas&quot; &quot;Engenheiro Mecânico&quot; &quot;Administrador de Empresas&quot; &quot;Industrial&quot; ...
+##   ..$ person.cv               : chr [1:16] &quot;Formação: Administração de Empresas (1977) e Ciências Contábeis (1979) pela UNOESC – Universidade do Oeste Cata&quot;| __truncated__ &quot;Formação: Engenharia Mecânica (1981) pela Universidade de Caxias do SUL (UCS). Iniciou suas atividades na Compa&quot;| __truncated__ &quot;Formação: Master of Business Administration. University of Illinois, conclusão julho 2019. Pós-graduado em Rela&quot;| __truncated__ &quot;Fundador da Companhia e Presidente do Conselho de Administração desde 18 de agosto de 2004. \n\nFormação: Bacha&quot;| __truncated__ ...
+##   ..$ person.dob              : Date[1:16], format: NA NA ...
+##   ..$ code.type.board         : chr [1:16] &quot;1&quot; &quot;1&quot; &quot;1&quot; &quot;2&quot; ...
+##   ..$ desc.type.board         : chr [1:16] &quot;Director&quot; &quot;Director&quot; &quot;Director&quot; &quot;Management Council&quot; ...
+##   ..$ desc.type.board2        : logi [1:16] NA NA NA NA NA NA ...
+##   ..$ code.type.job           : chr [1:16] &quot;11&quot; &quot;10&quot; &quot;12&quot; &quot;20&quot; ...
+##   ..$ desc.job                : chr [1:16] &quot;Não ocupa outras funções no emissor.&quot; &quot;Diretor Administrativo Financeiro, Membro do Comitê de Investimentos e Membro do Comitê de Partes Relacionadas&quot; &quot;Membro do Comitê de Investimentos e Membro do Comitê de Partes Relacionadas&quot; &quot;Presidente do comitê de gestão do programa de stock option e membro do Comitê de Investimentos&quot; ...
+##   ..$ date.election           : Date[1:16], format: &quot;2019-02-14&quot; &quot;2019-02-14&quot; ...
+##   ..$ date.effective          : Date[1:16], format: &quot;2019-02-14&quot; &quot;2019-02-14&quot; ...
+##   ..$ mandate.duration        : chr [1:16] &quot;3 anos&quot; &quot;3 anos&quot; &quot;3 anos&quot; &quot;2 anos&quot; ...
+##   ..$ ellected.by.controller  : logi [1:16] TRUE TRUE TRUE TRUE TRUE TRUE ...
+##   ..$ qtd.consecutive.mandates: num [1:16] 6 6 1 9 9 9 9 9 8 1 ...
+##   ..$ percentage.participation: num [1:16] 0 0 0 100 100 100 100 100 100 0 ...
+##  $ df_committee_composition   :&#39;data.frame&#39;: 13 obs. of  22 variables:
+##   ..$ CNPJ_CIA                : chr [1:13] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA               : chr [1:13] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER                : Date[1:13], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM                  : num [1:13] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC                  : num [1:13] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO                  : num [1:13] 9 9 9 9 9 9 9 9 9 9 ...
+##   ..$ person.name             : chr [1:13] &quot;Carlos Augusto Leone Piani&quot; &quot;Alceu Demartini de Albuquerque&quot; &quot;Rudimar Dall Onder&quot; &quot;Rafael Vieira Grazziotin&quot; ...
+##   ..$ person.cpf              : num [1:13] 2.53e+09 9.56e+10 2.55e+10 7.00e+10 3.54e+10 ...
+##   ..$ person.profession       : chr [1:13] &quot;Administrador de Empresas&quot; &quot;Administrador de Empresas&quot; &quot;Engenheiro Mecânico&quot; &quot;Advogado&quot; ...
+##   ..$ person.cv               : chr [1:13] &quot;O Sr. Carlos Augusto Leone Piani é presidente da divisão canadense da Kraft Heinz Company, tendo sido diretor d&quot;| __truncated__ &quot;Formação: Master of Business Administration. University of Illinois, conclusão julho 2019. Pós-graduado em Rela&quot;| __truncated__ &quot;Formação: Engenharia Mecânica (1981) pela Universidade de Caxias do SUL (UCS). Iniciou suas atividades na Compa&quot;| __truncated__ &quot;O Sr. Rafael Vieira Grazziotin, advogado graduado pela Universidade de Caxias do Sul, com pós graduação em Dire&quot;| __truncated__ ...
+##   ..$ person.dob              : Date[1:13], format: NA NA ...
+##   ..$ code.type.committee     : chr [1:13] &quot;9&quot; &quot;9&quot; &quot;9&quot; &quot;9&quot; ...
+##   ..$ desc.type.committee     : chr [1:13] &quot;Other Committee&quot; &quot;Other Committee&quot; &quot;Other Committee&quot; &quot;Other Committee&quot; ...
+##   ..$ code.type.job           : chr [1:13] &quot;3&quot; &quot;3&quot; &quot;3&quot; &quot;3&quot; ...
+##   ..$ desc.committee          : chr [1:13] &quot;Comitê de Investimentos&quot; &quot;Comitê de Partes Relacionadas&quot; &quot;Comitê de Partes Relacionadas&quot; &quot;Comitê de Partes Relacionadas&quot; ...
+##   ..$ desc.job                : chr [1:13] &quot;Não ocupa outros cargos/funções no emissor.&quot; &quot;Diretor de Relações com Investidores e Membro do Comitê de Investimentos&quot; &quot;Diretor Presidente, Diretor Administrativo Financeiro, Membro do Comitê de Investimentos&quot; &quot;Não ocupa outros cargos/funções no emissor.&quot; ...
+##   ..$ date.election           : Date[1:13], format: &quot;2020-08-13&quot; &quot;2020-08-13&quot; ...
+##   ..$ date.effective          : Date[1:13], format: &quot;2020-08-13&quot; &quot;2020-08-13&quot; ...
+##   ..$ mandate.duration        : chr [1:13] &quot;3 anos&quot; &quot;2 anos&quot; &quot;2 anos&quot; &quot;2 anos&quot; ...
+##   ..$ qtd.consecutive.mandates: num [1:13] 1 1 1 1 1 1 1 1 1 1 ...
+##   ..$ percentage.participation: num [1:13] 100 100 100 100 100 100 100 100 100 100 ...
+##   ..$ other.committes         : chr [1:13] &quot;Comitê de Investimentos&quot; &quot;Comitê de Partes Relacionadas&quot; &quot;Comitê de Partes Relacionadas&quot; &quot;Comitê de Partes Relacionadas&quot; ...
+##  $ df_family_relations        :&#39;data.frame&#39;: 6 obs. of  14 variables:
+##   ..$ CNPJ_CIA           : chr [1:6] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA          : chr [1:6] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER           : Date[1:6], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM             : num [1:6] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC             : num [1:6] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO             : num [1:6] 9 9 9 9 9 9
+##   ..$ person.name        : chr [1:6] &quot;Pedro Grendene Bartelle&quot; &quot;Alexandre Grendene Bartelle&quot; &quot;Pedro Grendene Bartelle&quot; &quot;Pedro Grendene Bartelle&quot; ...
+##   ..$ person.cpf         : num [1:6] 9.86e+09 9.87e+09 9.86e+09 9.86e+09 9.86e+09 ...
+##   ..$ person.job         : chr [1:6] &quot;Vice Presidente do Conselho de Administração&quot; &quot;Presidente do Conselho de Administração&quot; &quot;Vice Presidente do Conselho de Administração&quot; &quot;Vice Presidente do Conselho de Administração&quot; ...
+##   ..$ related.person.name: chr [1:6] &quot;Alexandre Grendene Bartelle&quot; &quot;Pedro Grendene Bartelle&quot; &quot;Pedro Bartelle&quot; &quot;Giovana Bartelle Velloso&quot; ...
+##   ..$ related.person.cpf : num [1:6] 9.87e+09 9.86e+09 6.86e+10 6.86e+10 3.54e+10 ...
+##   ..$ related.person.job : chr [1:6] &quot;Presidente do Conselho de Administração&quot; &quot;Vice Presidente do Conselho de Administração&quot; &quot;Acionista&quot; &quot;Acionista&quot; ...
+##   ..$ code.relationship  : chr [1:6] &quot;2&quot; &quot;2&quot; &quot;3&quot; &quot;3&quot; ...
+##   ..$ desc.relationship  : chr [1:6] &quot;Irmão ou Irmã (1º grau por consangüinidade)&quot; &quot;Irmão ou Irmã (1º grau por consangüinidade)&quot; &quot;Filho ou Filha (1º grau por consangüinidade)&quot; &quot;Filho ou Filha (1º grau por consangüinidade)&quot; ...
+##  $ df_family_related_companies:&#39;data.frame&#39;: 15 obs. of  15 variables:
+##   ..$ CNPJ_CIA            : chr [1:15] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA           : chr [1:15] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER            : Date[1:15], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM              : num [1:15] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC              : num [1:15] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO              : num [1:15] 9 9 9 9 9 9 9 9 9 9 ...
+##   ..$ person.name         : chr [1:15] &quot;Pedro Grendene Bartelle&quot; &quot;Pedro Grendene Bartelle&quot; &quot;Maílson Ferreira da Nóbrega&quot; &quot;Renato Ochman&quot; ...
+##   ..$ person.cpf          : num [1:15] 9.86e+09 9.86e+09 4.30e+09 3.76e+10 3.76e+10 ...
+##   ..$ person.job          : chr [1:15] &quot;Vice-Presidente do Conselho de Administração&quot; &quot;Vice-Presidente do Conselho de Administração&quot; &quot;Conselheiro de Administração&quot; &quot;Conselheiro de Administração&quot; ...
+##   ..$ type.related.person : chr [1:15] &quot;Cliente&quot; &quot;Cliente&quot; &quot;Fornecedor&quot; &quot;Fornecedor&quot; ...
+##   ..$ type.relationship   : chr [1:15] &quot;Controle&quot; &quot;Controle&quot; &quot;Controle&quot; &quot;Controle&quot; ...
+##   ..$ observations        : chr [1:15] &quot;Venda de insumos e matrizes - Prazo médio de recebimento 21 dias&quot; &quot;Venda de matrizes - Prazo médio de recebimento 43 dias&quot; &quot;Assessoria&quot; &quot;Assessoria&quot; ...
+##   ..$ related.company.name: chr [1:15] &quot;Vulcabras|azaleia – CE, Calçados e Artigos Esportivos S.A.&quot; &quot;Vulcabras|azaleia – BA, Calçados e Artigos Esportivos S.A.&quot; &quot;Mailson da Nóbrega Consultoria S/C Ltda&quot; &quot;Ochman, Real Amadeo Advogados Associados&quot; ...
+##   ..$ related.company.cnpj: num [1:15] 9.54e+11 7.34e+11 1.58e+12 6.24e+13 6.24e+13 ...
+##   ..$ related.company.job : chr [1:15] &quot;Acionista Controlador&quot; &quot;Acionista controlador&quot; &quot;Sócio proprietário&quot; &quot;Sócio proprietário&quot; ...
+##  $ df_auditing                :&#39;data.frame&#39;: 1 obs. of  14 variables:
+##   ..$ CNPJ_CIA                  : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA                 : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER                  : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM                    : num 19615
+##   ..$ ID_DOC                    : num 100932
+##   ..$ VERSAO                    : num 9
+##   ..$ auditor.name              : chr &quot;Ernst &amp; Young Auditores Independentes S/S&quot;
+##   ..$ auditor.cnpj              : chr &quot;61366936001105&quot;
+##   ..$ contract.first.date       : Date[1:1], format: NA
+##   ..$ contract.last.date        : Date[1:1], format: NA
+##   ..$ description.contract      : chr &quot;Revisão dos ITR&#39;s (controladora e Consolidado) e auditoria anual de balanço da Controladora e Consolidado.&quot;
+##   ..$ compensation              : chr &quot;Para o exercício encerrado em 31/12/2017 - R$409,2 mil, referente a serviços de auditoria prestados e R$131,1 m&quot;| __truncated__
+##   ..$ justification.substitution: logi NA
+##   ..$ reason.discordance        : logi NA
+##  $ df_responsible_docs        :&#39;data.frame&#39;: 2 obs. of  9 variables:
+##   ..$ CNPJ_CIA   : chr [1:2] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA  : chr [1:2] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER   : Date[1:2], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot;
+##   ..$ CD_CVM     : num [1:2] 19615 19615
+##   ..$ ID_DOC     : num [1:2] 100932 100932
+##   ..$ VERSAO     : num [1:2] 9 9
+##   ..$ person.cod : chr [1:2] &quot;50&quot; &quot;51&quot;
+##   ..$ person.name: chr [1:2] &quot;Rudimar Dall Onder&quot; &quot;Alceu Demartini de Albuquerque&quot;
+##   ..$ person.job : chr [1:2] &quot;Diretor Presidente&quot; &quot;Diretor de Relações com Investidores&quot;
+##  $ df_stocks_details          :&#39;data.frame&#39;: 1 obs. of  16 variables:
+##   ..$ CNPJ_CIA           : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA          : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER           : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM             : num 19615
+##   ..$ ID_DOC             : num 100932
+##   ..$ VERSAO             : num 9
+##   ..$ type.stock.id      : chr &quot;1&quot;
+##   ..$ type.stock.text    : chr &quot;Ordinária&quot;
+##   ..$ tag.along          : num 100
+##   ..$ preferential.code  : chr &quot;0&quot;
+##   ..$ preferential.text  : logi NA
+##   ..$ dividend.text      : chr &quot;Conforme o Estatuto Social da Companhia, art.32, os acionistas fazem jus a dividendo obrigatório anual equivale&quot;| __truncated__
+##   ..$ flag.voting.rights : chr &quot;1&quot;
+##   ..$ flag.voting.text   : chr &quot;Pleno&quot;
+##   ..$ flag.conversibility: chr &quot;Não&quot;
+##   ..$ other.info.text    : chr &quot;Não existem características relevantes adicionais.&quot;
+##  $ df_dividends_details       :&#39;data.frame&#39;: 1 obs. of  11 variables:
+##   ..$ CNPJ_CIA            : chr &quot;89.850.341/0001-60&quot;
+##   ..$ DENOM_CIA           : chr &quot;GRENDENE S.A.&quot;
+##   ..$ DT_REFER            : Date[1:1], format: &quot;2020-01-01&quot;
+##   ..$ CD_CVM              : num 19615
+##   ..$ ID_DOC              : num 100932
+##   ..$ VERSAO              : num 9
+##   ..$ net.profit          : num 4.95e+08
+##   ..$ distributed.dividend: num 2.76e+08
+##   ..$ retained.profit     : num 2.19e+08
+##   ..$ payout              : num 55.7
+##   ..$ div.yeild.on.equity : num 14.3
+##  $ df_intangible_details      :&#39;data.frame&#39;: 13 obs. of  10 variables:
+##   ..$ CNPJ_CIA   : chr [1:13] &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; &quot;89.850.341/0001-60&quot; ...
+##   ..$ DENOM_CIA  : chr [1:13] &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; &quot;GRENDENE S.A.&quot; ...
+##   ..$ DT_REFER   : Date[1:13], format: &quot;2020-01-01&quot; &quot;2020-01-01&quot; ...
+##   ..$ CD_CVM     : num [1:13] 19615 19615 19615 19615 19615 ...
+##   ..$ ID_DOC     : num [1:13] 100932 100932 100932 100932 100932 ...
+##   ..$ VERSAO     : num [1:13] 9 9 9 9 9 9 9 9 9 9 ...
+##   ..$ id         : num [1:13] 1033 1034 1035 1036 1037 ...
+##   ..$ id.type    : num [1:13] 2 2 2 2 2 2 2 2 2 2 ...
+##   ..$ patent.desc: chr [1:13] &quot;Mel&quot; &quot;Nuar&quot; &quot;Pega Forte&quot; &quot;Galeria Melissa&quot; ...
+##   ..$ duration   : Date[1:13], format: NA NA ...</code></pre>
+</div>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/getfredata/">GetFREData</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/&amp;text=GetFREData%20available%20in%20CRAN!" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/&amp;t=GetFREData%20available%20in%20CRAN!" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=GetFREData%20available%20in%20CRAN!&amp;body=https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/&amp;title=GetFREData%20available%20in%20CRAN!" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=GetFREData%20available%20in%20CRAN!%20https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/&amp;title=GetFREData%20available%20in%20CRAN!" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/marcelo-s.-perlin/avatar_hua09aee1d004f59bf9fb50435262f3575_93807_270x270_fill_q90_lanczos_center.jpg" alt="Marcelo S. Perlin">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://www.msperlin.com/">Marcelo S. Perlin</a></h5>
+        <h6 class="card-subtitle">Associate Professor</h6>
+        <p class="card-text">My research interests include data analysis, finance and cientometrics.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=n3LTk-UAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/msperlin" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCHKHbPczFcP4Mn3j5oxtrvw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "blog-gfluyjpsj0" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://blog-gfluyjpsj0.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.0d53a7f39b7d6770128a54b39dad2f22.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Marcelo S. Perlin © 2022
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
