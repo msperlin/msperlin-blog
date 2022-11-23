@@ -7,7 +7,7 @@
 <title>Capítulo 6 Dataframes e outros Objetos | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');  No R, tudo é um objeto. Sempre que chamamos uma...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 6 Dataframes e outros Objetos | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -218,7 +218,7 @@
 <span class="header-section-number">6.1.1</span> Criando <code>dataframes</code><a class="anchor" aria-label="anchor" href="#criando-dataframes"><i class="fas fa-link"></i></a>
 </h3>
 <p>A criação de um dataframe do tipo <code>tibble</code> ocorre a partir da função <code>tibble</code>. Note que a criação de um <code>dataframe</code> nativo ocorre com a função <code><a href="https://rdrr.io/r/base/data.frame.html">base::data.frame</a></code>, enquanto a criação do <code>tibble</code> parte da função <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble::tibble</a></code> ou <code><a href="https://tibble.tidyverse.org/reference/tibble.html">dplyr::tibble</a></code>. Para manter o código mais limpo, iremos dar preferência a <code><a href="https://tibble.tidyverse.org/reference/tibble.html">dplyr::tibble</a></code> e utilizar o nome <em>dataframe</em> para se referir a um <code>tibble</code>. Veja o exemplo a seguir, onde criamos uma tabela correspondente a dados financeiros de diferentes ações. </p>
-<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set tickers</span></span>
@@ -294,7 +294,7 @@ Devemos também verificar o número de valores <code>NA</code> (<em>not availabl
 </dd>
 </dl>
 <p>Uma das funções mais recomendadas para se familiarizar com um <code>dataframe</code> é <code><a href="https://pillar.r-lib.org/reference/glimpse.html">dplyr::glimpse</a></code>. Essa mostra na tela o nome e a classe das colunas, além do número de linhas/colunas. Abusamos dessa função nos capítulos anteriores. Veja um exemplo simples a seguir:</p>
-<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># check content of my_df</span></span>
@@ -305,7 +305,7 @@ R&gt; $ ticker   &lt;chr&gt; "ABEV3", "ABEV3", "ABEV3", "ABEV3", "BBAS…
 R&gt; $ ref_date &lt;date&gt; 2010-01-01, 2010-01-04, 2010-01-05, 2010…
 R&gt; $ price    &lt;dbl&gt; 736.67, 764.14, 768.63, 776.47, 59.40, 59…</code></pre>
 <p>Em muitas situações, o uso de <code>glimpse</code> é suficiente para entender se o processo de importação de dados ocorreu de forma satisfatória. Porém, uma análise mais profunda é entender qual a variação de cada coluna nos dados importados. Aqui entra o papel da função <code><a href="https://rdrr.io/r/base/summary.html">base::summary</a></code>:</p>
-<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check variation my_df</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;     ticker             ref_date              price       
@@ -333,13 +333,13 @@ sanados por uma simples inspeção das tabelas importadas.
 </h3>
 <p>Uma característica importante do universo <code>tidyverse</code> é o uso extensivo do operador de <em>pipeline</em>, primeiro proposto por <span class="citation">Bache and Wickham (<a href="refer%C3%AAncias.html#ref-R-magrittr" role="doc-biblioref">2022</a>)</span> e definido pelo símbolo <code>%&gt;%</code>. Esse comando permite que operações de dados sejam realizadas de forma sequencial e modular, como em uma <em>tubulação</em>, facilitando a otimização e legibilidade do código resultante.</p>
 <p>Imagine uma situação onde temos três funções para aplicar nos dados salvos em um <code>dataframe</code>. Cada função depende da saída de outra função. Isso requer o encadeamento de suas chamadas. Usando o operador de <em>pipeline</em>, podemos escrever o procedimento de manipulação <code>dataframe</code> com o seguinte código: </p>
-<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_tab</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">fct1</span><span class="op">(</span><span class="va">arg1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">fct2</span><span class="op">(</span><span class="va">arg2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">fct3</span><span class="op">(</span><span class="va">arg3</span><span class="op">)</span></span></code></pre></div>
 <p>Usamos símbolo <code>%&gt;%</code> no final de cada linha para vincular as operações. As funções <code>fct*</code> são operações realizadas em cada etapa. O resultado de cada linha é passado para a próxima função de forma sequencial. Assim, não há necessidade de criar objetos intermediários. Veja a seguir duas formas alternativas de realizar a mesma operação sem o operador de <em>pipeline</em>:</p>
-<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># version 1</span></span>
 <span><span class="va">my_tab</span> <span class="op">&lt;-</span> <span class="fu">fct3</span><span class="op">(</span><span class="fu">fct2</span><span class="op">(</span><span class="fu">fct1</span><span class="op">(</span><span class="va">my_df</span>,</span>
 <span>                         <span class="va">arg1</span><span class="op">)</span>,</span>
@@ -357,22 +357,22 @@ sanados por uma simples inspeção das tabelas importadas.
 <span class="header-section-number">6.1.4</span> Acessando Colunas<a class="anchor" aria-label="anchor" href="#acessando-colunas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Um objeto do tipo <code>dataframe</code> utiliza-se de diversos comandos e símbolos que também são usados em matrizes e listas. Para descobrir os nomes das colunas de um <code>dataframe</code>, temos duas funções: <code>names</code> ou <code>colnames</code>:</p>
-<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check names of df</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "ticker"   "ref_date" "price"</code></pre>
-<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "ticker"   "ref_date" "price"</code></pre>
 <p>Ambas também podem ser usadas para modificar os nomes das colunas:</p>
-<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb353"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set temp df</span></span>
 <span><span class="va">temp_df</span> <span class="op">&lt;-</span> <span class="va">my_df</span></span>
 <span></span>
 <span><span class="co"># check names</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">temp_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "ticker"   "ref_date" "price"</code></pre>
-<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb355"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># change names</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">temp_df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'Col'</span>, <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">temp_df</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -381,7 +381,7 @@ sanados por uma simples inspeção das tabelas importadas.
 <pre><code>R&gt; [1] "Col1" "Col2" "Col3"</code></pre>
 <p>Destaca-se que a forma de usar <code>names</code> é bastante distinta das demais funções do R. Nesse caso, utilizamos a função ao lado esquerdo do símbolo de <code>assign</code> (<code>&lt;-</code>). Internamente, o que estamos fazendo é definindo um atributo do objeto <code>temp_df</code>, o nome de suas colunas.</p>
 <p>Para acessar uma determinada coluna, podemos utilizar o nome da mesma:</p>
-<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb357"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># isolate columns of df</span></span>
 <span><span class="va">my_ticker</span> <span class="op">&lt;-</span> <span class="va">my_df</span><span class="op">$</span><span class="va">ticker</span></span>
 <span><span class="va">my_prices</span> <span class="op">&lt;-</span> <span class="va">my_df</span><span class="op">[[</span><span class="st">'price'</span><span class="op">]</span><span class="op">]</span></span>
@@ -390,18 +390,18 @@ sanados por uma simples inspeção das tabelas importadas.
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_ticker</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] "ABEV3" "ABEV3" "ABEV3" "ABEV3" "BBAS3" "BBAS3" "BBAS3"
 R&gt;  [8] "BBAS3" "BBDC3" "BBDC3" "BBDC3" "BBDC3"</code></pre>
-<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_prices</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] 736.67 764.14 768.63 776.47  59.40  59.80  59.20  59.28
 R&gt;  [9]  29.81  30.82  30.38  30.20</code></pre>
 <p>Note o uso do duplo colchetes (<code>[[]]</code>) para selecionar colunas. Vale apontar que, no R, <strong>um objeto da classe <code>dataframe</code> é representado internamente como uma lista</strong>, onde cada elemento é uma coluna. Isso é importante saber, pois alguns comandos de listas também funcionam para <code>dataframes</code>. Um exemplo é o uso de duplo colchetes (<code>[[]]</code>) para selecionar colunas por posição:</p>
-<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  [1] "2010-01-01" "2010-01-04" "2010-01-05" "2010-01-06"
 R&gt;  [5] "2010-01-01" "2010-01-04" "2010-01-05" "2010-01-06"
 R&gt;  [9] "2010-01-01" "2010-01-04" "2010-01-05" "2010-01-06"</code></pre>
 <p>Para acessar linhas e colunas específicas de um <code>dataframe</code>, basta utilizar colchetes simples:</p>
-<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 1
 R&gt;   ref_date  
@@ -411,7 +411,7 @@ R&gt; 2 2010-01-04
 R&gt; 3 2010-01-05
 R&gt; 4 2010-01-06
 R&gt; 5 2010-01-01</code></pre>
-<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 2
 R&gt;   ticker ref_date  
@@ -421,7 +421,7 @@ R&gt; 2 ABEV3  2010-01-04
 R&gt; 3 ABEV3  2010-01-05
 R&gt; 4 ABEV3  2010-01-06
 R&gt; 5 BBAS3  2010-01-01</code></pre>
-<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb367"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 3
 R&gt;   ticker ref_date   price
@@ -432,7 +432,7 @@ R&gt; 3 ABEV3  2010-01-05 769.
 R&gt; 4 ABEV3  2010-01-06 776. 
 R&gt; 5 BBAS3  2010-01-01  59.4</code></pre>
 <p>Essa seleção de colunas também pode ser realizada utilizando o nome das mesmas da seguinte forma:</p>
-<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'ticker'</span>,<span class="st">'price'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 3 × 2
 R&gt;   ticker price
@@ -441,7 +441,7 @@ R&gt; 1 ABEV3   737.
 R&gt; 2 ABEV3   764.
 R&gt; 3 ABEV3   769.</code></pre>
 <p>ou, pelo operador de <em>pipeline</em> e a função <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select</a></code>: </p>
-<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">my.temp</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -457,7 +457,7 @@ R&gt; $ price  &lt;dbl&gt; 736.67, 764.14, 768.63, 776.47, 59.40, 59.8…</code>
 <span class="header-section-number">6.1.5</span> Modificando um <code>dataframe</code><a class="anchor" aria-label="anchor" href="#modificando-um-dataframe"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para criar novas colunas em um <code>dataframe</code>, basta utilizar a função <code>mutate</code>. Aqui iremos abusar do operador de <em>pipeline</em> (<code>%&gt;%</code>) para sequenciar as operações:</p>
-<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># add columns with mutate</span></span>
@@ -476,7 +476,7 @@ R&gt; $ my_seq1  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 R&gt; $ my_seq2  &lt;dbl&gt; 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2…</code></pre>
 <p>Note que precisamos indicar o <code>dataframe</code> de origem dos dados, nesse caso o objeto <code>my_df</code>, e as colunas são definidas como argumentos em <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code>. Observe também que usamos a coluna <code>price</code> na construção de <code>ret</code>, o retorno aritmético dos preços. Um caso especial é a construção de <code>my_seq2</code> com base em <code>my_seq1</code>, isto é, antes mesmo dela ser explicitamente calculada já é possível utilizar a nova coluna para criar outra. Vale salientar que a nova coluna deve ter exatamente o mesmo número de elementos que as demais. Caso contrário, o R retorna uma mensagem de erro.</p>
 <p>A maneira mais tradicional, e comumente encontrada em código, para criar novas colunas é utilizar o símbolo <code>$</code>:</p>
-<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># add new column with base R</span></span>
 <span><span class="va">my_df</span><span class="op">$</span><span class="va">my_seq3</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span>
 <span></span>
@@ -493,7 +493,7 @@ R&gt; $ my_seq2  &lt;dbl&gt; 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2…
 R&gt; $ my_seq3  &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</code></pre>
 <p>Portanto, o operador <code>$</code> vale tanto para acessar quanto para criar novas colunas.</p>
 <p>Para remover colunas de um <code>dataframe</code>, basta usar <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select</a></code> com operador negativo para o nome das colunas indesejadas:</p>
-<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># removing columns</span></span>
 <span><span class="va">my_df_temp</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">my_seq1</span>, <span class="op">-</span><span class="va">my_seq2</span>, <span class="op">-</span><span class="va">my_seq3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -505,7 +505,7 @@ R&gt; $ ref_date &lt;date&gt; 2010-01-01, 2010-01-04, 2010-01-05, 2010…
 R&gt; $ price    &lt;dbl&gt; 736.67, 764.14, 768.63, 776.47, 59.40, 59…
 R&gt; $ ret      &lt;dbl&gt; NA, 0.037289424, 0.005875887, 0.010199966…</code></pre>
 <p>No uso de funções nativas do R, a maneira tradicional de remover colunas é alocar o valor nulo (<code>NULL</code>):</p>
-<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set temp df</span></span>
 <span><span class="va">temp_df</span> <span class="op">&lt;-</span> <span class="va">my_df</span></span>
 <span></span>
@@ -528,7 +528,7 @@ R&gt; $ my_seq3 &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</code></pre>
 <span class="header-section-number">6.1.6</span> Filtrando um <code>dataframe</code><a class="anchor" aria-label="anchor" href="#filtrando-um-dataframe"><i class="fas fa-link"></i></a>
 </h3>
 <p>Uma operação bastante comum no R é filtrar linhas de uma tabela de acordo com uma ou mais condições. Por exemplo, caso quiséssemos apenas os dados da ação <code>ABEV3</code>, poderíamos utilizar a função <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter</a></code> para filtrar a tabela: </p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># filter df for single stock</span></span>
@@ -545,7 +545,7 @@ R&gt; $ my_seq1  &lt;int&gt; 1, 2, 3, 4
 R&gt; $ my_seq2  &lt;dbl&gt; 10, 11, 12, 13
 R&gt; $ my_seq3  &lt;int&gt; 1, 2, 3, 4</code></pre>
 <p>A função também aceita mais de uma condição. Veja a seguir onde filtramos os dados para <code>'ABEV3'</code> em datas após ou igual a <code>'2010-01-05'</code>:</p>
-<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co"># filter df for single stock and date</span></span>
 <span><span class="va">my_df_temp</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -569,7 +569,7 @@ R&gt; $ my_seq3  &lt;int&gt; 3, 4</code></pre>
 </h3>
 <p>Após a criação ou importação de um <code>dataframe</code>, pode-se ordenar seus componentes de acordo com os valores de alguma coluna. Um caso bastante comum em que é necessário realizar uma ordenação explícita é quando importamos dados financeiros em que as datas não estão em ordem crescente. Na grande maioria das situações, dados temporais devem estar ordenados de acordo com a antiguidade, isto é, dados mais recentes são alocados na última linha da tabela. Essa operação é realizada através do uso da função <code><a href="https://rdrr.io/r/base/order.html">base::order</a></code> ou <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">dplyr::arrange</a></code>. </p>
 <p>Como exemplo, considere a criação de um <code>dataframe</code> com os valores a seguir:</p>
-<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set df</span></span>
@@ -586,12 +586,12 @@ R&gt; 1     4     1 a
 R&gt; 2     1     1 b    
 R&gt; 3     2     3 c</code></pre>
 <p>A função <code>order</code> retorna os índices relativos à ordenação dos valores dados como entrada. Para o caso da primeira coluna de <code>my_df</code>, os índices dos elementos formadores do novo vetor, com seus valores ordenados em forma crescente, são:</p>
-<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">$</span><span class="va">col1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">idx</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 2 3 1</code></pre>
 <p>Portanto, ao utilizar a saída da função <code>order</code> como indexador do <code>dataframe</code>, acaba-se ordenando o mesmo de acordo com os valores da coluna <code>col1</code>. Veja a seguir:</p>
-<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_df_2</span> <span class="op">&lt;-</span> <span class="va">my_df</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">$</span><span class="va">col1</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df_2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 3 × 3
@@ -601,7 +601,7 @@ R&gt; 1     1     1 b
 R&gt; 2     2     3 c    
 R&gt; 3     4     1 a</code></pre>
 <p>Essa operação de ordenamento também pode ser realizada levando em conta mais de uma coluna. Veja o exemplo a seguir, onde se ordena o <code>dataframe</code> pelas colunas <code>col2</code> e <code>col1</code>.</p>
-<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">idx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">$</span><span class="va">col2</span>, <span class="va">my_df</span><span class="op">$</span><span class="va">col1</span><span class="op">)</span></span>
 <span><span class="va">my_df_3</span> <span class="op">&lt;-</span> <span class="va">my_df</span><span class="op">[</span><span class="va">idx</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df_3</span><span class="op">)</span></span></code></pre></div>
@@ -612,7 +612,7 @@ R&gt; 1     1     1 b
 R&gt; 2     4     1 a    
 R&gt; 3     2     3 c</code></pre>
 <p>No <code>tidyverse</code>, a forma de ordenar <code>dataframes</code> é pelo uso da função <code>arrange</code>. No caso de ordenamento decrescente, encapsulamos o nome das colunas com <code>desc</code>: </p>
-<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># sort ascending, by col1 and col2</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">col1</span>, <span class="va">col2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -623,7 +623,7 @@ R&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
 R&gt; 1     1     1 b    
 R&gt; 2     2     3 c    
 R&gt; 3     4     1 a</code></pre>
-<div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># sort descending, col1 and col2</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="va">my_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">col1</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">col2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -641,7 +641,7 @@ R&gt; 3     1     1 b</code></pre>
 <span class="header-section-number">6.1.8</span> Combinando e Agregando <code>dataframes</code><a class="anchor" aria-label="anchor" href="#combinando-e-agregando-dataframes"><i class="fas fa-link"></i></a>
 </h3>
 <p>Em muitas situações de análise de dados será necessário juntar <code>dataframes</code> distintos em um único objeto. Tabelas diferentes são importadas no R e, antes de analisar os dados, precisamos combinar as informações em um único objeto. Nos casos mais simples, onde as tabelas a serem agregadas possuem o mesmo formato, nós as juntamos de acordo com as linhas, verticalmente, ou colunas, horizontalmente. Para esse fim, temos as funções <code><a href="https://dplyr.tidyverse.org/reference/bind.html">dplyr::bind_rows</a></code> e <code>dlyr::bind_cols</code> no tidyverse e <code><a href="https://rdrr.io/r/base/cbind.html">base::rbind</a></code> e <code><a href="https://rdrr.io/r/base/cbind.html">base::cbind</a></code> nas funções nativas do R. Observe o exemplo a seguir. </p>
-<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb397"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set dfs</span></span>
@@ -661,7 +661,7 @@ R&gt; $ col1 &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 R&gt; $ col2 &lt;chr&gt; "a", "a", "a", "a", "a", "b", "b", "b", "b", …
 R&gt; $ col3 &lt;chr&gt; NA, NA, NA, NA, NA, "c", "c", "c", "c", "c"</code></pre>
 <p>Note que, no exemplo anterior, os nomes das colunas são os mesmos. De fato, a função <code><a href="https://dplyr.tidyverse.org/reference/bind.html">dplyr::bind_rows</a></code> procura os nomes iguais em ambos os objetos para fazer a junção dos <code>dataframes</code> corretamente. As colunas que não ocorrem em ambos objetos, tal como <code>col3</code> no exemplo, saem como <code>NA</code> no objeto final. Já para o caso de <code>bind_cols</code>, os nomes das colunas devem ser diferentes, porém o número de linhas deve ser o mesmo.</p>
-<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb399"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set dfs</span></span>
 <span><span class="va">my_df_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'a'</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">my_df_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>col3 <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">10</span>, col4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'b'</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
@@ -676,7 +676,7 @@ R&gt; $ col2 &lt;chr&gt; "a", "a", "a", "a", "a"
 R&gt; $ col3 &lt;int&gt; 6, 7, 8, 9, 10
 R&gt; $ col4 &lt;chr&gt; "b", "b", "b", "b", "b"</code></pre>
 <p>Para casos mais complexos, onde a junção deve ser realizada de acordo com algum índice tal como uma data, é possível juntar <code>dataframes</code> diferentes com o uso das funções da família <code>dplyr::join*</code> tal como <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">dplyr::inner_join</a></code> <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">dplyr::left_join</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">dplyr::full_join</a></code>, entre outras. A descrição de todas elas não cabe aqui. Iremos descrever apenas o caso mais provável, <code>inner_join</code>. Essa combina os dados, mantendo apenas os casos onde existe o índice em ambos.</p>
-<div class="sourceCode" id="cb403"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb401"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set df</span></span>
 <span><span class="va">my_df_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2016-01-01'</span><span class="op">)</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>                  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span></span>
@@ -684,11 +684,11 @@ R&gt; $ col4 &lt;chr&gt; "b", "b", "b", "b", "b"</code></pre>
 <span><span class="va">my_df_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2016-01-05'</span><span class="op">)</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>                  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">20</span>,<span class="fl">30</span>, length.out <span class="op">=</span> <span class="fl">11</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Note que os <code>dataframes</code> criados possuem uma coluna em comum, <code>date</code>. A partir desta coluna que agregamos as tabelas com <code>inner_join</code>:</p>
-<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb402"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># aggregate tables</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">my_df_1</span>, <span class="va">my_df_2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Joining, by = "date"</code></pre>
-<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb404"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 7
 R&gt; Columns: 3
@@ -696,7 +696,7 @@ R&gt; $ date &lt;date&gt; 2016-01-05, 2016-01-06, 2016-01-07, 2016-01-…
 R&gt; $ x    &lt;int&gt; 5, 6, 7, 8, 9, 10, 11
 R&gt; $ y    &lt;dbl&gt; 20, 21, 22, 23, 24, 25, 26</code></pre>
 <p>O R automaticamente verifica a existência de colunas com mesmo nome nos <code>dataframes</code> e realiza a junção por essas. Caso quiséssemos juntar <code>dataframes</code> onde os nomes das colunas para utilizar o índice não são iguais, temos duas soluções: modificar os nomes das colunas ou então utilizar argumento <code>by</code> em <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">dplyr::inner_join</a></code>. Veja a seguir:</p>
-<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb406"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set df</span></span>
 <span><span class="va">my_df_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ref_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2016-01-01'</span><span class="op">)</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>                  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span></span>
@@ -715,7 +715,7 @@ R&gt; $ ref_date &lt;date&gt; 2016-01-05, 2016-01-06, 2016-01-07, 2016…
 R&gt; $ x        &lt;int&gt; 5, 6, 7, 8, 9, 10, 11
 R&gt; $ y        &lt;dbl&gt; 20, 21, 22, 23, 24, 25, 26</code></pre>
 <p>Para o caso de uso da função nativa de agregação de <code>dataframes</code>, <code><a href="https://rdrr.io/r/base/merge.html">base::merge</a></code>, temos que indicar explicitamente o nome da coluna com argumento <code>by</code>: </p>
-<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb408"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># aggregation with base R</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">my_df_1</span>, <span class="va">my_df_2</span>, by <span class="op">=</span> <span class="st">'date'</span><span class="op">)</span></span>
 <span></span>
@@ -727,7 +727,7 @@ R&gt; $ x    &lt;int&gt; 5, 6, 7, 8, 9, 10, 11
 R&gt; $ y    &lt;dbl&gt; 20, 21, 22, 23, 24, 25, 26</code></pre>
 <p>Note que, nesse caso, o <code>dataframe</code> resultante manteve apenas as informações compartilhadas entre ambos os objetos, isto é, aquelas linhas onde as datas em <code>date</code> eram iguais. Esse é o mesmo resultado quando no uso do <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">dplyr::inner_join</a></code>.</p>
 <p>As demais funções de agregação de tabelas – <code>left_join</code>, <code>right_join</code>, <code>outer_join</code> e <code>full_join</code> – funcionam de forma muito semelhante a <code>inner_join</code>, exceto na escolha da saída. Por exemplo, <code>full_join</code> retorna todos os casos/linhas entre tabela 1 e 2, incluindo aqueles onde não tem o índice compartilhado. Para estes casos, a coluna do índice sairá como <code>NA</code>. Veja o exemplo a seguir:</p>
-<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb410"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set df</span></span>
 <span><span class="va">my_df_5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>ref_date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="st">'2016-01-01'</span><span class="op">)</span><span class="op">+</span><span class="fl">0</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>                  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span></span>
@@ -738,7 +738,7 @@ R&gt; $ y    &lt;dbl&gt; 20, 21, 22, 23, 24, 25, 26</code></pre>
 <span><span class="co"># combine with full_join</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">my_df_5</span>, <span class="va">my_df_6</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Joining, by = "ref_date"</code></pre>
-<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb412"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 15 × 3
@@ -765,9 +765,9 @@ R&gt; 15 2016-01-15    NA    30</code></pre>
 <span class="header-section-number">6.1.9</span> Extensões ao <code>dataframe</code><a class="anchor" aria-label="anchor" href="#extens%C3%B5es-ao-dataframe"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como já foi relatado nos capítulos anteriores, um dos grandes benefícios no uso do R é a existência de pacotes para lidar com os problemas específicos dos usuários. Enquanto um objeto tabular do tipo <code>tibble</code> é suficiente para a maioria dos casos, existem benefícios no uso de uma classe alternativa. Ao longo do tempo, diversas soluções foram disponibilizadas por desenvolvedores.</p>
-<p>Por exemplo, é muito comum trabalharmos com dados exclusivamente numéricos que são indexados ao tempo. Isto é, situações onde cada informação pertence a um índice temporal - um objeto da classe data/tempo. As linhas dessa tabela representam um ponto no tempo, enquanto as colunas indicam variáveis numéricas de interesse. Nesse caso, faria sentido representarmos os nossos dados como objetos do tipo <code>xts</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-xts" role="doc-biblioref">Ryan and Ulrich 2020</a>)</span>. O grande benefício dessa opção é que a agregação e a manipulação de variáveis em função do tempo é muito fácil. Por exemplo, podemos transformar dados de frequência diária para a frequência semanal com apenas uma linha de comando. Além disso, diversas outras funções reconhecem automaticamente que os dados são indexados ao tempo. Um exemplo é a criação de uma figura com esses dados. Nesse caso, o eixo horizontal da figura é automaticamente organizado com as datas.</p>
+<p>Por exemplo, é muito comum trabalharmos com dados exclusivamente numéricos que são indexados ao tempo. Isto é, situações onde cada informação pertence a um índice temporal - um objeto da classe data/tempo. As linhas dessa tabela representam um ponto no tempo, enquanto as colunas indicam variáveis numéricas de interesse. Nesse caso, faria sentido representarmos os nossos dados como objetos do tipo <code>xts</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-xts" role="doc-biblioref">Ryan and Ulrich 2022b</a>)</span>. O grande benefício dessa opção é que a agregação e a manipulação de variáveis em função do tempo é muito fácil. Por exemplo, podemos transformar dados de frequência diária para a frequência semanal com apenas uma linha de comando. Além disso, diversas outras funções reconhecem automaticamente que os dados são indexados ao tempo. Um exemplo é a criação de uma figura com esses dados. Nesse caso, o eixo horizontal da figura é automaticamente organizado com as datas.</p>
 <p>Veja um caso a seguir, onde carregamos os dados anteriores como um objeto <code>xts</code>:</p>
-<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb414"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/joshuaulrich/xts">xts</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set data</span></span>
@@ -799,7 +799,7 @@ R&gt; 2010-01-04 30.82 59.80 764.14
 R&gt; 2010-01-05 30.38 59.20 768.63
 R&gt; 2010-01-06 30.20 59.28 776.47</code></pre>
 <p>O código anterior pode dar a impressão de que o objeto <code>my_xts</code> é semelhante a um <code>dataframe</code>, porém, não se engane. Por estar indexado a um vetor de tempo, objeto <code>xts</code> pode ser utilizado para uma série de procedimentos temporais, tal como uma agregação por período temporal. Veja o exemplo a seguir, onde agregamos duas variáveis de tempo através do cálculo de uma média a cada semana.</p>
-<div class="sourceCode" id="cb418"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb416"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">500</span></span>
 <span></span>
 <span><span class="va">my_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">N</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">N</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>, nrow<span class="op">=</span><span class="va">N</span><span class="op">)</span></span>
@@ -817,14 +817,14 @@ R&gt; 2016-01-24 20.0 481.0
 R&gt; 2016-01-31 27.0 474.0
 R&gt; 2016-02-07 34.0 467.0</code></pre>
 <p>Em Finanças e Economia, as agregações com objetos <code>xts</code> são extremamente úteis quando se trabalha com dados em frequências de tempo diferentes. Por exemplo, é muito comum que se agregue dados de transação no mercado financeiro em alta frequência para intervalos maiores. Assim, dados que ocorrem a cada segundo são agregados para serem representados de 15 em 15 minutos. Esse tipo de procedimento é facilmente realizado no R através da correta representação dos dados como objetos <code>xts</code>. Existem diversas outras funcionalidades desse pacote. Encorajo os usuários a ler o manual e aprender o que pode ser feito.</p>
-<p>Indo além, existem diversos outros tipos de <code>dataframes</code> customizados. Por exemplo, o <code>dataframe</code> proposto pelo pacote <code>data.table</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-data.table" role="doc-biblioref">Dowle and Srinivasan 2021</a>)</span> prioriza o tempo de operação nos dados e o uso de uma notação compacta para acesso e processamento. O <code>tibbletime</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-tibbletime" role="doc-biblioref">Vaughan and Dancho 2020</a>)</span> é uma versão orientada pelo tempo para <code>tibbles</code>. Caso o usuário esteja necessitando realizar operações de agregação de tempo, o uso deste pacote é fortemente recomendado.</p>
+<p>Indo além, existem diversos outros tipos de <code>dataframes</code> customizados. Por exemplo, o <code>dataframe</code> proposto pelo pacote <code>data.table</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-data.table" role="doc-biblioref">Dowle and Srinivasan 2022</a>)</span> prioriza o tempo de operação nos dados e o uso de uma notação compacta para acesso e processamento. O <code>tibbletime</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-tibbletime" role="doc-biblioref">Vaughan and Dancho 2022</a>)</span> é uma versão orientada pelo tempo para <code>tibbles</code>. Caso o usuário esteja necessitando realizar operações de agregação de tempo, o uso deste pacote é fortemente recomendado.</p>
 </div>
 <div id="outras-funções-úteis" class="section level3" number="6.1.10">
 <h3>
 <span class="header-section-number">6.1.10</span> Outras Funções Úteis<a class="anchor" aria-label="anchor" href="#outras-fun%C3%A7%C3%B5es-%C3%BAteis"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>head</strong> - Retorna os primeiros <code>n</code> elementos de um <code>dataframe</code>.</p>
-<div class="sourceCode" id="cb420"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb418"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5000</span>, col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'a'</span>, <span class="fl">5000</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">my_df</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 2
@@ -836,7 +836,7 @@ R&gt; 3     3 a
 R&gt; 4     4 a    
 R&gt; 5     5 a</code></pre>
 <p><strong>tail</strong> - Retorna os últimos <code>n</code> elementos de um <code>dataframe</code>.</p>
-<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb420"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">my_df</span>, <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 2
 R&gt;    col1 col2 
@@ -847,7 +847,7 @@ R&gt; 3  4998 a
 R&gt; 4  4999 a    
 R&gt; 5  5000 a</code></pre>
 <p><strong>complete.cases</strong> - Retorna um vetor lógico que testa se as linhas contêm apenas valores existentes e nenhum <code>NA</code>.</p>
-<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb422"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">my_y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">my_x</span>, <span class="va">my_y</span><span class="op">)</span></span>
@@ -863,14 +863,14 @@ R&gt; 4     4     8
 R&gt; 5     5     9
 R&gt; 6    NA    10
 R&gt; 7    10    NA</code></pre>
-<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb424"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb426"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 6 7</code></pre>
 <p><strong>na.omit</strong> - Retorna um <code>dataframe</code> sem as linhas onde valores <code>NA</code> são encontrados.</p>
-<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb428"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 2
 R&gt;    my_x  my_y
@@ -881,7 +881,7 @@ R&gt; 3     3     7
 R&gt; 4     4     8
 R&gt; 5     5     9</code></pre>
 <p><strong>unique</strong> - Retorna um <code>dataframe</code> onde todas as linhas duplicadas são eliminadas e somente os casos únicos são mantidos.</p>
-<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb430"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>col1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span>,</span>
 <span>                col2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'C'</span>,<span class="st">'C'</span>,<span class="st">'B'</span>,<span class="st">'D'</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -896,7 +896,7 @@ R&gt; 4     3 C
 R&gt; 5     3 C    
 R&gt; 6     4 B    
 R&gt; 7     5 D</code></pre>
-<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 5 × 2
 R&gt;    col1 col2 
@@ -918,7 +918,7 @@ R&gt; 5     5 D</code></pre>
 <span class="header-section-number">6.2.1</span> Criando Listas<a class="anchor" aria-label="anchor" href="#criando-listas"><i class="fas fa-link"></i></a>
 </h3>
 <p>Uma lista pode ser criada através do comando <code><a href="https://rdrr.io/r/base/list.html">base::list</a></code>, seguido por seus elementos separados por vírgula: </p>
-<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># create list</span></span>
@@ -948,7 +948,7 @@ R&gt; 2     2
 R&gt; 3     3
 R&gt; 4     4
 R&gt; 5     5</code></pre>
-<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># use dplyr::glimpse</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; List of 4
@@ -959,7 +959,7 @@ R&gt;  $ : tibble [5 × 1] (S3: tbl_df/tbl/data.frame)
 R&gt;   ..$ col1: int [1:5] 1 2 3 4 5</code></pre>
 <p>Note que juntamos no mesmo objeto um vetor atômico numérico, outro de texto, um fator e um <code>tibble</code>. A apresentação de listas com o comando <code>print</code> é diferente dos casos anteriores. Os elementos são separados verticalmente e os seus índices aparecem com duplo colchete (<code>[[ ]]</code>). Conforme será explicado logo a seguir, é dessa forma que os elementos de uma lista são armazenados e acessados.</p>
 <p>Assim como para os demais tipos de objeto, os elementos de uma lista também podem ter nomes, o que facilita o entendimento e a interpretação das informações do problema em análise. Por exemplo, considere o caso de uma base de dados com informações sobre determinada ação negociada na bolsa. Nesse caso, podemos definir uma lista como:</p>
-<div class="sourceCode" id="cb440"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set named list</span></span>
 <span><span class="va">my_named_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ticker <span class="op">=</span> <span class="st">'TICK4'</span>,</span>
 <span>                   market <span class="op">=</span> <span class="st">'Bovespa'</span>,</span>
@@ -973,7 +973,7 @@ R&gt;  $ ticker   : chr "TICK4"
 R&gt;  $ market   : chr "Bovespa"
 R&gt;  $ df_prices: tibble [4 × 2] (S3: tbl_df/tbl/data.frame)
 R&gt;   ..$ P       : num [1:4] 1 1.5 2 2.3
-R&gt;   ..$ ref_date: Date[1:4], format: "2022-08-10" ...</code></pre>
+R&gt;   ..$ ref_date: Date[1:4], format: "2022-11-23" ...</code></pre>
 <div class="rmdimportant">
 <p>
 Toda vez que for trabalhar com listas, facilite a sua vida ao nomear
@@ -987,21 +987,21 @@ possíveis erros no código.
 <span class="header-section-number">6.2.2</span> Acessando os Elementos de uma Lista<a class="anchor" aria-label="anchor" href="#acessando-os-elementos-de-uma-lista"><i class="fas fa-link"></i></a>
 </h3>
 <p>Os elementos de uma lista podem ser acessados através do uso de duplo colchete (<code>[[ ]]</code>), tal como em:</p>
-<div class="sourceCode" id="cb442"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb440"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># accessing elements from list</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_named_l</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "Bovespa"</code></pre>
-<div class="sourceCode" id="cb444"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb442"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_named_l</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 4 × 2
 R&gt;       P ref_date  
 R&gt;   &lt;dbl&gt; &lt;date&gt;    
-R&gt; 1   1   2022-08-10
-R&gt; 2   1.5 2022-08-11
-R&gt; 3   2   2022-08-12
-R&gt; 4   2.3 2022-08-13</code></pre>
+R&gt; 1   1   2022-11-23
+R&gt; 2   1.5 2022-11-24
+R&gt; 3   2   2022-11-25
+R&gt; 4   2.3 2022-11-26</code></pre>
 <p>Também é possível acessar os elementos com um colchete simples (<code>[ ]</code>), porém, tome cuidado com essa operação, pois o resultado não vai ser o objeto em si, mas uma outra lista. Esse é um equívoco muito fácil de passar despercebido, resultando em erros no código. Veja a seguir:</p>
-<div class="sourceCode" id="cb446"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb444"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'a'</span>,</span>
 <span>             <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,</span>
@@ -1010,15 +1010,15 @@ R&gt; 4   2.3 2022-08-13</code></pre>
 <span><span class="co"># check classes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "numeric"</code></pre>
-<div class="sourceCode" id="cb448"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb446"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "list"</code></pre>
 <p>Caso tentarmos somar um elemento a <code>my_l[2]</code>, teremos uma mensagem de erro:</p>
-<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb448"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_l</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">+</span> <span class="fl">1</span></span></code></pre></div>
 <pre><code>R&gt; Error in my_l[2] + 1: non-numeric argument to binary operator</code></pre>
 <p>Esse erro ocorre devido ao fato de que uma lista não tem operador de soma. Para corrigir, basta utilizar o duplo colchete, tal como em <code>my_l[[2]]+1</code>. O acesso a elementos de uma lista com colchete simples somente é útil quando estamos procurando uma sublista dentro de uma lista maior. No exemplo anterior, caso quiséssemos obter o primeiro e o segundo elemento da lista <code>my_l</code>, usaríamos:</p>
-<div class="sourceCode" id="cb452"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb450"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set new list</span></span>
 <span><span class="va">my_new_l</span> <span class="op">&lt;-</span> <span class="va">my_l</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
@@ -1029,7 +1029,7 @@ R&gt; [1] "a"
 R&gt; 
 R&gt; [[2]]
 R&gt; [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb452"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_new_l</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "list"</code></pre>
 <p>No caso de listas com elementos nomeados, os mesmos podem ser acessados por seu nome através do uso do símbolo <code>$</code> tal como em <code>my_named_l$df_prices</code> ou <code>[['nome']]</code>, tal como em <code>my_named_l[['df_prices']]</code>. Em geral, essa é uma forma mais eficiente e recomendada de interagir com os elementos de uma lista. Como regra geral no uso do R, sempre dê preferência ao acesso de elementos através de seus nomes, seja em listas, vetores ou <code>dataframes</code>. Isso evita erros, pois, ao modificar os dados e adicionar algum outro objeto na lista, é possível que o ordenamento interno mude e, portanto, a posição de determinado objeto pode acabar sendo modificada.</p>
@@ -1043,21 +1043,21 @@ selecionar apertando <em>enter</em>.
 </p>
 </div>
 <p>Veja os exemplos a seguir, onde são apresentadas as diferentes formas de se acessar uma lista.</p>
-<div class="sourceCode" id="cb456"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb454"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># different ways to access a list</span></span>
 <span><span class="va">my_named_l</span><span class="op">$</span><span class="va">ticker</span></span>
 <span><span class="va">my_named_l</span><span class="op">$</span><span class="va">price</span></span>
 <span><span class="va">my_named_l</span><span class="op">[[</span><span class="st">'ticker'</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">my_named_l</span><span class="op">[[</span><span class="st">'price'</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <p>Vale salientar que também é possível acessar diretamente os elementos de um vetor que esteja dentro de uma lista através de colchetes encadeados. Veja a seguir:</p>
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># accessing elements of a vector in a list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,</span>
 <span>             <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'a'</span>, <span class="st">'b'</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 2</code></pre>
-<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "a"</code></pre>
 <p>Tal operação é bastante útil quando interessa apenas um elemento dentro de um objeto maior criado por alguma função.</p>
@@ -1067,7 +1067,7 @@ selecionar apertando <em>enter</em>.
 <span class="header-section-number">6.2.3</span> Adicionando e Removendo Elementos de uma Lista<a class="anchor" aria-label="anchor" href="#adicionando-e-removendo-elementos-de-uma-lista"><i class="fas fa-link"></i></a>
 </h3>
 <p>A remoção, adição e substituição de elementos de uma lista também são procedimentos fáceis. Para adicionar ou substituir, basta definir um novo objeto na posição desejada da lista:</p>
-<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'a'</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
@@ -1075,7 +1075,7 @@ selecionar apertando <em>enter</em>.
 R&gt;  $ : chr "a"
 R&gt;  $ : num 1
 R&gt;  $ : num 3</code></pre>
-<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb461"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># add new elements to list</span></span>
 <span><span class="va">my_l</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">my_l</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'b'</span><span class="op">)</span></span>
@@ -1088,7 +1088,7 @@ R&gt;  $ : chr "b"
 R&gt;  $ : num 3
 R&gt;  $ : int [1:5] 1 2 3 4 5</code></pre>
 <p>A operação também é possível com o uso de nomes e operador <code>$</code>:</p>
-<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb463"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>elem1 <span class="op">=</span> <span class="st">'a'</span>, name1<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span>
 <span></span>
@@ -1100,7 +1100,7 @@ R&gt;  $ elem1: chr "a"
 R&gt;  $ name1: num 5
 R&gt;  $ name2: num 10</code></pre>
 <p>Para remover elementos de uma lista, basta definir o elemento para o símbolo reservado <code>NULL</code> (nulo):</p>
-<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb465"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">'b'</span>, num1 <span class="op">=</span> <span class="fl">2</span>, num2 <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
@@ -1108,20 +1108,20 @@ R&gt;  $ name2: num 10</code></pre>
 R&gt;  $ text: chr "b"
 R&gt;  $ num1: num 2
 R&gt;  $ num2: num 4</code></pre>
-<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># remove elements</span></span>
 <span><span class="va">my_l</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; List of 2
 R&gt;  $ text: chr "b"
 R&gt;  $ num1: num 2</code></pre>
-<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_l</span><span class="op">$</span><span class="va">num1</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; List of 1
 R&gt;  $ text: chr "b"</code></pre>
 <p>Outra maneira de retirar elementos de uma lista é utilizando um índice negativo para os elementos indesejados. Observe a seguir, onde eliminamos o segundo elemento de uma lista:</p>
-<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb471"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="st">'texto'</span><span class="op">)</span></span>
 <span></span>
@@ -1129,7 +1129,7 @@ R&gt;  $ text: chr "b"</code></pre>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">[[</span><span class="op">-</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  num 1</code></pre>
 <p>Assim como no caso de vetores atômicos, essa remoção também pode ser realizada por condições lógicas. Veja a seguir:</p>
-<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
 <span></span>
@@ -1147,13 +1147,13 @@ R&gt;  $ : num 2</code></pre>
 </h3>
 <p>Um ponto importante a ser destacado a respeito de listas é que os seus elementos podem ser processados e manipulados individualmente através de funções específicas. Este é um tópico particular de programação com o R, mas que vale a apresentação aqui.</p>
 <p>Por exemplo, imagine uma lista com vetores numéricos de diferentes tamanhos, tal como a seguir:</p>
-<div class="sourceCode" id="cb477"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set list</span></span>
 <span><span class="va">my_l_num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
 <span>                 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span>,</span>
 <span>                 <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span>, by <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Caso quiséssemos calcular a média de cada elemento de <code>my_l_num</code> e apresentar o resultado na tela como um vetor, poderíamos fazer isso através de um procedimento simples, processando cada elemento individualmente:</p>
-<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># calculate mean of vectors</span></span>
 <span><span class="va">mean_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">my_l_num</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">mean_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">my_l_num</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
@@ -1164,7 +1164,7 @@ R&gt;  $ : num 2</code></pre>
 <pre><code>R&gt; [1]  2.0 25.5  0.0</code></pre>
 <p>O código anterior funciona, porém não é recomendado devido sua falta de escabilidade. Isto é, caso aumentássemos o volume de dados ou objetos, o código não funcionaria corretamente. Se, por exemplo, tivéssemos um quarto elemento em <code>my_l_num</code> e quiséssemos manter essa estrutura do código, teríamos que adicionar uma nova linha <code>mean_4 &lt;- mean(my_l_num[[4]])</code> e modificar o comando de saída na tela para <code>print(c(mean_1, mean_2, mean_3, mean_4))</code>.</p>
 <p>Uma maneira mais fácil, elegante e inteligente seria utilizar a função <code>sapply</code>. Nela, basta indicar o nome do objeto de tipo lista e a função que queremos utilizar para processar cada elemento. Internamente, os cálculos são realizados automaticamente. Veja a seguir:</p>
-<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># using sapply</span></span>
 <span><span class="va">my_mean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">my_l_num</span>, <span class="va">mean</span><span class="op">)</span></span>
 <span></span>
@@ -1179,7 +1179,7 @@ R&gt;  $ : num 2</code></pre>
 <span class="header-section-number">6.2.5</span> Outras Funções Úteis<a class="anchor" aria-label="anchor" href="#outras-fun%C3%A7%C3%B5es-%C3%BAteis-1"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>unlist</strong> - Retorna os elementos de uma lista em um único vetor atômico.</p>
-<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb480"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_named_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ticker <span class="op">=</span> <span class="st">'XXXX4'</span>,</span>
 <span>                   price <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1.5</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,</span>
 <span>                   market <span class="op">=</span> <span class="st">'Bovespa'</span><span class="op">)</span></span>
@@ -1187,11 +1187,11 @@ R&gt;  $ : num 2</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_unlisted</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;    ticker    price1    price2    price3    price4    market 
 R&gt;   "XXXX4"       "1"     "1.5"       "2"       "3" "Bovespa"</code></pre>
-<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_unlisted</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "character"</code></pre>
 <p><strong>as.list</strong> - Converte um objeto para uma lista, tornando cada elemento um elemento da lista.</p>
-<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_x</span> <span class="op">&lt;-</span> <span class="fl">10</span><span class="op">:</span><span class="fl">13</span></span>
 <span><span class="va">my_x_as_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op">(</span><span class="va">my_x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_x_as_list</span><span class="op">)</span></span></code></pre></div>
@@ -1207,11 +1207,11 @@ R&gt;
 R&gt; [[4]]
 R&gt; [1] 13</code></pre>
 <p><strong>names</strong> - Retorna ou define os nomes dos elementos de uma lista. Assim como para o caso de nomear elementos de um vetor atômico, usa-se a função <code>names</code> alocada ao lado esquerdo do símbolo <code>&lt;-</code>.</p>
-<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>value1 <span class="op">=</span> <span class="fl">1</span>, value2 <span class="op">=</span> <span class="fl">2</span>, value3 <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "value1" "value2" "value3"</code></pre>
-<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'num1'</span>, <span class="st">'num2'</span>, <span class="st">'num3'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_l</span><span class="op">)</span></span></code></pre></div>
@@ -1267,7 +1267,7 @@ R&gt; [1] 3</code></pre>
 </tbody>
 </table></div>
 <p>A matriz anterior poderia ser criada da seguinte forma no R:</p>
-<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create matrix</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">736.67</span>, <span class="fl">764.14</span>, <span class="fl">768.63</span>, <span class="fl">776.47</span>,</span>
 <span>          <span class="fl">59.4</span>, <span class="fl">59.8</span>, <span class="fl">59.2</span>, <span class="fl">59.28</span>,</span>
@@ -1287,16 +1287,16 @@ R&gt; 2010-01-04 764.14 59.80 30.82
 R&gt; 2010-01-05 768.63 59.20 30.38
 R&gt; 2010-01-06 776.47 59.28 30.20</code></pre>
 <p>Observe que, na construção da matriz, definimos o número de linhas e colunas explicitamente com os argumentos <code>nrow = 4</code> e <code>ncol = 3</code>. Já os nomes das linhas e colunas são definidos pelos comandos <code>colnames</code> e <code>rownames</code>. Destaca-se, novamente, que a forma de utilizá-los é bastante distinta das demais funções do R. Nesse caso, utilizamos a função ao lado esquerdo do símbolo de <code>assign</code> (<code>&lt;-</code>). Poderíamos, porém, recuperar os nomes das linhas e colunas com as mesmas funções. Veja a seguir: </p>
-<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "ABEV3" "BBAS3" "BBDC3"</code></pre>
-<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb494"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "2010-01-01" "2010-01-04" "2010-01-05" "2010-01-06"</code></pre>
 <p>No momento em que temos essa nossa matriz criada, podemos utilizar todas as suas propriedades numéricas. Um exemplo simples é o cálculo do valor de um portfólio de investimento ao longo do tempo. Caso um investidor tenha 200 ações da ABEV3, 300 da BBAS3 e 100 da BBDC3, o valor do seu portfólio ao longo do tempo poderá ser calculado assim:</p>
 <p><span class="math display">\[V _t = \sum _{i=1} ^{3} N _i P_{i,t}\]</span></p>
 <p>Onde <em>Ni</em> é o número de ações compradas para ativo <em>i</em> e <em>Pit</em> é o preço da ação <em>i</em> na data <em>t</em>. Essa é uma operação bastante simples de ser efetuada com uma multiplicação matricial. Traduzindo o procedimento para o R, temos:</p>
-<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb496"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my.w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">300</span>, <span class="fl">100</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">my_port</span> <span class="op">&lt;-</span> <span class="va">my_mat</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">my.w</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_port</span><span class="op">)</span></span></code></pre></div>
@@ -1307,7 +1307,7 @@ R&gt; 2010-01-05 174524
 R&gt; 2010-01-06 176098</code></pre>
 <p>Nesse último exemplo, utilizamos o símbolo <code>%*%</code>, o qual permite a multiplicação matricial entre os objetos. O objeto <code>my_port</code> indica o valor desse portfólio ao longo das datas, resultando em um leve lucro para o investidor.</p>
 <p>Um ponto importante a ressaltar é que uma matriz no R não precisa necessariamente ser composta por valores. É possível, também, criar matrizes de caracteres (texto). Veja o exemplo a seguir:</p>
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat_char</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span> ,</span>
 <span>                      nrow <span class="op">=</span> <span class="fl">3</span>,</span>
 <span>                      ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
@@ -1321,50 +1321,50 @@ R&gt; [3,] "c"  "c"  "c"</code></pre>
 <h3>
 <span class="header-section-number">6.3.1</span> Selecionando Valores de uma Matriz<a class="anchor" aria-label="anchor" href="#selecionando-valores-de-uma-matriz"><i class="fas fa-link"></i></a>
 </h3>
-<p>Tal como no caso dos vetores atômicos, também é possível selecionar pedaços de uma matriz através de indexação. Uma diferença aqui é que os objetos de matrizes possuem duas dimensões, enquanto vetores possuem apenas uma.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Para evitar confusão, vale salientar que, no R, vetores atômicos não possuem dimensão no sentido estrito da função. Ao usar a função &lt;code&gt;dim&lt;/code&gt; em um vetor atômico, tal como em &lt;code&gt;dim(c(1,2,4))&lt;/code&gt;, o resultado é nulo (&lt;code&gt;NULL&lt;/code&gt;). Fora do ambiente computacional, porém, vetores atômicos podem ser entendidos como unidimensionais pois se expandem em apenas um sentido.&lt;/p&gt;"><sup>22</sup></a> Essa dimensão extra requer a indexação não apenas de linhas mas também de colunas. Os elementos de uma matriz podem ser acessados pela notação <code>[i,j]</code>, onde <em>i</em> representa a linha e <em>j</em> a coluna. Veja o exemplo a seguir:</p>
-<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
+<p>Tal como no caso dos vetores atômicos, também é possível selecionar pedaços de uma matriz através de indexação. Uma diferença aqui é que os objetos de matrizes possuem duas dimensões, enquanto vetores possuem apenas uma.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Para evitar confusão, vale salientar que, no R, vetores atômicos não possuem dimensão no sentido estrito da função. Ao usar a função &lt;code&gt;dim&lt;/code&gt; em um vetor atômico, tal como em &lt;code&gt;dim(c(1,2,4))&lt;/code&gt;, o resultado é nulo (&lt;code&gt;NULL&lt;/code&gt;). Fora do ambiente computacional, porém, vetores atômicos podem ser entendidos como unidimensionais pois se expandem em apenas um sentido.&lt;/p&gt;"><sup>23</sup></a> Essa dimensão extra requer a indexação não apenas de linhas mas também de colunas. Os elementos de uma matriz podem ser acessados pela notação <code>[i,j]</code>, onde <em>i</em> representa a linha e <em>j</em> a coluna. Veja o exemplo a seguir:</p>
+<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3]
 R&gt; [1,]    1    4    7
 R&gt; [2,]    2    5    8
 R&gt; [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 4</code></pre>
 <p>Para selecionar colunas ou linhas inteiras, basta deixar o índice vazio, tal como no exemplo a seguir:</p>
-<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb504"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span> , <span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 4 5 6</code></pre>
-<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb506"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 1 4 7</code></pre>
 <p>Observe que a indexação retorna um vetor atômico da classe dos dados. Caso quiséssemos que o pedaço da matriz mantivesse a sua classe e orientação vertical ou horizontal, poderíamos forçar essa conversão pelo uso de <code>matrix</code>:</p>
-<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb508"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span> ,<span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1]
 R&gt; [1,]    4
 R&gt; [2,]    5
 R&gt; [3,]    6</code></pre>
-<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb510"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, nrow<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3]
 R&gt; [1,]    1    4    7</code></pre>
 <p>Pedaços da matriz também podem ser selecionados via indexadores. Caso quiséssemos uma matriz formada a partir da seleção dos elementos da segunda linha e primeira coluna até a terceira linha e segunda coluna, usaríamos o seguinte código:</p>
-<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb512"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2]
 R&gt; [1,]    2    5
 R&gt; [2,]    3    6</code></pre>
 <p>Por fim, o uso de testes lógicos para selecionar valores de matrizes também é possível. Veja a seguir:</p>
-<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb514"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span> <span class="op">&gt;</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;       [,1]  [,2] [,3]
 R&gt; [1,] FALSE FALSE TRUE
 R&gt; [2,] FALSE FALSE TRUE
 R&gt; [3,] FALSE  TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb516"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">[</span><span class="va">my_mat</span> <span class="op">&gt;</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 6 7 8 9</code></pre>
 </div>
@@ -1373,7 +1373,7 @@ R&gt; [3,] FALSE  TRUE TRUE</code></pre>
 <span class="header-section-number">6.3.2</span> Outras Funções Úteis<a class="anchor" aria-label="anchor" href="#outras-fun%C3%A7%C3%B5es-%C3%BAteis-2"><i class="fas fa-link"></i></a>
 </h3>
 <p><strong>as.matrix</strong> - Transforma dados para a classe <code>matrix</code>.</p>
-<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb518"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1]
@@ -1383,49 +1383,49 @@ R&gt; [3,]    3
 R&gt; [4,]    4
 R&gt; [5,]    5</code></pre>
 <p><strong>t</strong> - Retorna a transposta da matriz.</p>
-<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb520"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">20</span>, length.out <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2]
 R&gt; [1,]   10   16
 R&gt; [2,]   12   18
 R&gt; [3,]   14   20</code></pre>
-<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb522"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">my_mat</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3]
 R&gt; [1,]   10   12   14
 R&gt; [2,]   16   18   20</code></pre>
 <p><strong>rbind</strong> - Retorna a junção (cola) vertical de matrizes, orientando-se pelas linhas.</p>
-<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb524"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat_1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3] [,4] [,5]
 R&gt; [1,]    1    2    3    4    5</code></pre>
-<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb526"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">14</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat_2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3] [,4] [,5]
 R&gt; [1,]   10   11   12   13   14</code></pre>
-<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb528"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my.rbind.mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">my_mat_1</span>, <span class="va">my_mat_2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my.rbind.mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3] [,4] [,5]
 R&gt; [1,]    1    2    3    4    5
 R&gt; [2,]   10   11   12   13   14</code></pre>
 <p><strong>cbind</strong> - Retorna a junção (cola) horizontal de matrizes, orientando-se pelas colunas.</p>
-<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb530"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat_1</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2]
 R&gt; [1,]    1    3
 R&gt; [2,]    2    4</code></pre>
-<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb532"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_mat_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">10</span><span class="op">:</span><span class="fl">13</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_mat_2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2]
 R&gt; [1,]   10   12
 R&gt; [2,]   11   13</code></pre>
-<div class="sourceCode" id="cb536"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb534"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_cbind_mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">my_mat_1</span>, <span class="va">my_mat_2</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_cbind_mat</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;      [,1] [,2] [,3] [,4]
@@ -1437,265 +1437,7 @@ R&gt; [2,]    2    4   11   13</code></pre>
 <h2>
 <span class="header-section-number">6.4</span> Exercícios<a class="anchor" aria-label="anchor" href="#exerc-classe-estrutura"><i class="fas fa-link"></i></a>
 </h2>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-<div id="q.1-5" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-5"><i class="fas fa-link"></i></a>
-</h3>
-<p>Utilizando função <code><a href="https://tibble.tidyverse.org/reference/tibble.html">dplyr::tibble</a></code>, crie um <code>dataframe</code> chamado <code>my_df</code> com uma coluna chamada <code>x</code> contendo uma sequência de -100 a 100 e outra coluna chamada <code>y</code> com o valor da coluna x adicionada de 5. Para a tabela <code>my_df</code>, qual a quantidade de valores na coluna <code>x</code> maiores que 10 e menores que 25?</p>
-<br><br> Resposta: <input class="webex-solveme nospaces" size="2" data-answer='["14"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984b010943" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e984b010943" class="collapse">
-A solução é 14. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code>my_df &lt;- dplyr::tibble(x = -100:100, 
-                        y = x + 5)
-# solution
-my_sol &lt;- sum((my_df$x &gt; 10)&amp;(my_df$x &lt; 25))</code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.2-5" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-5"><i class="fas fa-link"></i></a>
-</h3>
-<p>Crie uma nova coluna em <code>my_df</code> chamada <code>cumsum_x</code>, contendo a soma cumulativa de <code>x</code> (função <code>cumsum</code>). Desta nova coluna, quantos valores são maiores que -3500?</p>
-<br><br> Resposta: <input class="webex-solveme nospaces" size="2" data-answer='["89"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985d11c289" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e985d11c289" class="collapse">
-A solução é 89. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code>my_df &lt;- dplyr::tibble(x = -100:100, 
-                       y = x + 5)
 
-# solution
-my_df$cumsum_x &lt;- cumsum(my_df$x)
-
-# solution
-my_sol &lt;- sum(my_df$cumsum_x &gt; -3500)</code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.3-4" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-4"><i class="fas fa-link"></i></a>
-</h3>
-<p>Use função <code><a href="https://dplyr.tidyverse.org/reference/filter.html">dplyr::filter</a></code> e o operador de pipeline para filtrar <code>my_df</code>, mantendo apenas as linhas onde o valor da coluna <code>y</code> é maior que 0. Qual o número de linhas da tabela resultante?</p>
-<br><br> Resposta: <input class="webex-solveme nospaces" size="3" data-answer='["105"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98774c4540" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e98774c4540" class="collapse">
-A solução é 105. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code>my_df &lt;- dplyr::tibble(x = -100:100, 
-                       y = x + 5)
-
-# solution
-library(tidyverse)
-
-my_df2 &lt;- my_df %&gt;%
-  filter(y &gt; 0)
-
-# solution
-my_sol &lt;- nrow(my_df2)</code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.4-4" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-4"><i class="fas fa-link"></i></a>
-</h3>
-<p>Caso não o tenha feito, repita os exercícios 1, 2 e 3 utilizando as funções do <code>tidyverse</code> e o operador de <em>pipeline</em>.</p>
-<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985c1c4523" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e985c1c4523" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
-<div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
-
-set.seed(1)
-
-my_df &lt;- tibble(x = -100:100,
-                y = x + 5) %&gt;%
-  mutate(cumsum_x = cumsum(x))
-
-# solution 01
-sol_01 &lt;- my_df %&gt;%
-  filter(x &gt; 10, 
-         x &lt; 25) %&gt;%
-  nrow()
-
-# solution 02
-sol_02 &lt;- my_df %&gt;%
-  mutate(cumsum_x = cumsum(x)) %&gt;%
-  filter(cumsum_x &gt; -3500) %&gt;%
-  nrow()
-
-# solution 03
-sol_03 &lt;- my_df %&gt;%
-  filter(y &gt; 0) %&gt;%
-  nrow()
-
-message(str_glue(
-  'Solution 01 = {sol_01} \n',
-  'Solution 02 = {sol_02} \n',
-  'Solution 03 = {sol_03}'
-  )
-)</a></code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.5-4" class="section level3 unnumbered">
-<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-4"><i class="fas fa-link"></i></a>
-</h3>
-<p>Utilize pacote <code>BatchGetSymbols</code> para baixar dados da ação do Facebook (FB), de 2010-01-01 até 2020-12-31. Caso o investidor tivesse comprado 1000 USD em ações do Facebook no primeiro dia dos dados e mantivesse o investimento até hoje, qual seria o valor do seu portfolio?</p>
-<br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">R$12.728</option>
-<option value="answer">R$7.111</option>
-<option value="">R$7.966</option>
-<option value="">R$11.140</option>
-<option value="">R$9.553</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e988f99824" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e988f99824" class="collapse">
-A solução é R$7.111. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
-library(tidyverse)
-
-first_date &lt;- '2010-01-01'
-last_date &lt;- '2020-12-31'
-
-df_prices &lt;- BatchGetSymbols(tickers = 'FB', 
-                             first.date = first_date,
-                             last.date = last_date)[[2]]
-
-value_purchase &lt;- 1000
-
-# solution
-my_sol &lt;- last(df_prices$price.adjusted)/first(df_prices$price.adjusted)*value_purchase</a></code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.6-3" class="section level3 unnumbered">
-<h3>Q.6<a class="anchor" aria-label="anchor" href="#q.6-3"><i class="fas fa-link"></i></a>
-</h3>
-<p>Use função <code><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">adfeR::get_data_file</a></code> e <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code> para importar os dados do arquivo <code>grunfeld.csv</code>. Em seguida, utilize funções <code><a href="https://pillar.r-lib.org/reference/glimpse.html">dplyr::glimpse</a></code> para descobrir o número de linhas nos dados importados.</p>
-<br><br> Resposta: <input class="webex-solveme nospaces" size="3" data-answer='["200"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9848634689" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e9848634689" class="collapse">
-A solução é 200. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
-<div class="card card-body">
-<pre class="text"><code>my_file &lt;- adfeR::get_data_file('grunfeld.csv')
-
-df_grunfeld &lt;- read_csv(my_file, 
-                        col_types = cols())
-
-# solution
-glimpse(df_grunfeld)
-
-my_sol &lt;- nrow(df_grunfeld)</code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.7-3" class="section level3 unnumbered">
-<h3>Q.7<a class="anchor" aria-label="anchor" href="#q.7-3"><i class="fas fa-link"></i></a>
-</h3>
-<p>Crie um objeto do tipo lista com três <code>dataframes</code> em seu conteúdo, <code>df1</code>, <code>df2</code> e <code>df3</code>. O conteúdo e tamanho dos <code>dataframes</code> é livre. Utilize função <code>sapply</code> para descobrir o número de linhas e colunas em cada <code>dataframe</code>.</p>
-<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985ae53662" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e985ae53662" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
-<div class="card card-body">
-<pre class="text"><code>df1 &lt;- dplyr::tibble(x = 1:10)
-df2 &lt;- dplyr::tibble(y = runif(100))
-df3 &lt;- dplyr::tibble(z = rnorm(150),
-                     m = rnorm(150))
-
-my_l &lt;- list(df1, df2, df3)
-
-my_fct &lt;- function(df_in) {
-  out &lt;- c('nrows' = nrow(df_in), 
-           'ncols' = ncol(df_in))
-  return(out)
-}
-
-tab &lt;- sapply(my_l, my_fct)
-tab</code></pre>
-</div>
-</div>
-<hr>
-<p><span id="webex-total_correct"></span></p>
-</div>
-<div id="q.8-2" class="section level3 unnumbered">
-<h3>Q.8<a class="anchor" aria-label="anchor" href="#q.8-2"><i class="fas fa-link"></i></a>
-</h3>
-<p>Utilizando o R, crie uma matrix identidade (valor 1 na diagonal, zero em qualquer outro) de tamanho 3X3. Dica: use função <code>diag</code> para definir a diagonal da matrix.</p>
-<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
-<p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984bbd9f0e" aria-expanded="false" aria-controls="collapseExample">
-Solução
-</button>
-</p>
-</div>
-<div id="collapse_8e984bbd9f0e" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
-<div class="card card-body">
-<pre class="text"><code>my_size &lt;- 3
-M_identity &lt;- matrix(0, 
-                     nrow = my_size, 
-                     ncol = my_size)
-
-# solution
-diag(M_identity) &lt;- 1
-
-print(M_identity)</code></pre>
-</div>
-</div>
-
-</div>
 </div>
 </div>
 
@@ -1755,18 +1497,7 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#outras-fun%C3%A7%C3%B5es-%C3%BAteis-2"><span class="header-section-number">6.3.2</span> Outras Funções Úteis</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#exerc-classe-estrutura"><span class="header-section-number">6.4</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-5">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-5">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-4">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-4">Q.4</a></li>
-<li><a class="nav-link" href="#q.5-4">Q.5</a></li>
-<li><a class="nav-link" href="#q.6-3">Q.6</a></li>
-<li><a class="nav-link" href="#q.7-3">Q.7</a></li>
-<li><a class="nav-link" href="#q.8-2">Q.8</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#exerc-classe-estrutura"><span class="header-section-number">6.4</span> Exercícios</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1783,7 +1514,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

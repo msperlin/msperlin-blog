@@ -166,7 +166,7 @@
 
 \title{Análise de Dados Financeiros e Econômicos com o R - Versão Online}
 \author{Marcelo S. Perlin (\href{mailto:marcelo.perlin@ufrgs.br}{\nolinkurl{marcelo.perlin@ufrgs.br}})}
-\date{2022-08-10}
+\date{2022-11-23}
 
 \begin{document}
 \maketitle
@@ -222,21 +222,6 @@ Perlin, M. S. Análise de Dados Financeiros com o R. Terceira Edição, Porto Al
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\begin{verbatim}
-## Warning in install.packages :
-##   package 'simfinR' is not available for this version of R
-## 
-## A version of this package for your version of R might be available elsewhere,
-## see the ideas at
-## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-## Warning in install.packages :
-##   package 'TFX' is not available for this version of R
-## 
-## A version of this package for your version of R might be available elsewhere,
-## see the ideas at
-## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
-\end{verbatim}
-
 \hypertarget{sobre-nova-ediuxe7uxe3o}{%
 \chapter*{Sobre Nova Edição}\label{sobre-nova-ediuxe7uxe3o}}
 \addcontentsline{toc}{chapter}{Sobre Nova Edição}
@@ -324,7 +309,7 @@ Depois da instalação, todos os arquivos do livro estarão disponíveis localme
 \end{Highlighting}
 \end{Shaded}
 
-Veja que o tilda (\texttt{\textasciitilde{}}) é um atalho para o diretório ``Documentos'' no Windows (ou ``home'' no Linux/Mac). Assim, o código anterior descompactará o arquivo do livro na pasta ``Documentos/adfeR-files''. O pacote também inclui várias outras funções que serão usadas ao longo do livro. Se você preferir a maneira antiga e consagrada de baixar o arquivo e descompactar manualmente, podes encontrar uma cópia no \href{https://www.msperlin.com/blog/files/adfer-files/adfeR-code-and-data.zip}{site do livro}\footnote{\url{https://www.msperlin.com/blog/files/adfer-files/adfeR-code-and-data.zip}}.
+Veja que o tilda (\texttt{\textasciitilde{}}) é um atalho para o diretório ``Documentos'' no Windows (ou ``home'' no Linux/Mac). Assim, o código anterior descompactará o arquivo do livro na pasta ``Documentos/adfeR-files''. O pacote também inclui várias outras funções que serão usadas ao longo do livro. Se você preferir a maneira antiga e consagrada de baixar o arquivo e descompactar manualmente, podes encontrar uma cópia no \href{https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip}{site do livro}\footnote{\url{https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip}}.
 
 \hypertarget{conteuxfado-para-instrutores}{%
 \section*{Conteúdo para Instrutores}\label{conteuxfado-para-instrutores}}
@@ -337,7 +322,7 @@ Se você for um instrutor de R, aqui encontrarás muito material para usar em su
 \item[Exercícios estáticos na internet]
 Cada capítulo deste livro inclui exercícios que seus alunos podem praticar. Todas as soluções estão disponíveis na versão online do livro, disponível em \url{https://www.msperlin.com/adfeR/}.
 \item[Exercícios exportáveis para pdf ou plataformas de \emph{e-learning}]
-Todos exercícios do livro estão no formato \texttt{exams} \citep{R-exams} e são exportáveis para arquivos em pdf ou então para plataformas de \emph{e-learning} tal como o \emph{Moodle} ou \emph{Blackboard}. Veja este \href{https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/}{post no blog}\footnote{\url{https://www.msperlin.com/blog/post/2021-02-18-dynamic-exercises-adfer/}} para maiores detalhes.
+Todos exercícios do livro estão no formato \texttt{exams} \citep{R-exams} e são exportáveis para arquivos em pdf ou então para plataformas de \emph{e-learning} tal como o \emph{Moodle} ou \emph{Blackboard}. Veja este \href{https://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/}{post no blog}\footnote{\url{https://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/}} para maiores detalhes.
 \item[Acesso ao livro na internet]
 Na versão web do livro, o conteúdo integral está liberado até o capítulo 7, o qual é mais que suficiente para um curso introdutório sobre a plataforma.
 \end{description}
@@ -761,7 +746,7 @@ Antes de começar a explicar o uso do R e RStudio, é importante ressaltar algum
 
 \textbf{Caracteres latinos:} Devido ao seu padrão internacional, o R apresenta problemas para entender caracteres latinos, tal como cedilha e acentos. Caso possa evitar, não utilize esses tipos de caracteres no código para nomeação de variáveis ou arquivos. Nos objetos de classe texto (\texttt{character}), é possível utilizá-los desde que a codificação do objeto esteja correta (\emph{UTF-8} ou \emph{Latin1}). Assim, recomenda-se que o código do R seja escrito na língua inglesa. Isso automaticamente elimina o uso de caracteres latinos e facilita a usabilidade do código por outras pessoas que não entendam a língua portuguesa. Destaca-se que essa foi a escolha utilizada para o livro. Os nomes dos objetos nos exemplos estão em inglês, assim como também todos os comentários do código. \index{caracteres latinos}
 
-\textbf{Formato das datas:} Datas no R são formatadas de acordo com a norma \href{https://www.iso.org/iso-8601-date-and-time-format.html}{ISO 8601}, seguindo o padrão \texttt{YYYY-MM-DD}, onde \texttt{YYYY} é o ano em quatro números, \texttt{MM} é o mês e \texttt{DD} é o dia. Por exemplo, uma data em ISO 8601 é 2022-08-10. No Brasil, as datas são formatadas como \texttt{DD/MM/YYYY}. Reforçando a regra, sempre dê preferência ao padrão internacional. Vale salientar que a conversão entre um formato e outro é bastante fácil e será apresentada em capítulo futuro.
+\textbf{Formato das datas:} Datas no R são formatadas de acordo com a norma \href{https://www.iso.org/iso-8601-date-and-time-format.html}{ISO 8601}, seguindo o padrão \texttt{YYYY-MM-DD}, onde \texttt{YYYY} é o ano em quatro números, \texttt{MM} é o mês e \texttt{DD} é o dia. Por exemplo, uma data em ISO 8601 é 2022-11-23. No Brasil, as datas são formatadas como \texttt{DD/MM/YYYY}. Reforçando a regra, sempre dê preferência ao padrão internacional. Vale salientar que a conversão entre um formato e outro é bastante fácil e será apresentada em capítulo futuro.
 
 No momento de instalação do R, diversas informações sobre o formato local do seu computador são importadas do seu sistema operacional. Para saber qual o formato que o R está configurado localmente, digite o seguinte comando no \emph{prompt} (canto esquerdo inferior do RStudio) e aperte \emph{enter}:
 
@@ -943,10 +928,10 @@ O mais interessante no uso de pacotes é que estes podem ser acessados e instala
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] 18379
+R> [1] 18877
 \end{verbatim}
 
-Atualmente, 2022-08-10 08:20:04, existem 18379 pacotes disponíveis nos servidores do CRAN.
+Atualmente, 2022-11-23 10:55:35, existem 18877 pacotes disponíveis nos servidores do CRAN.
 
 Também se pode verificar a quantidade de pacotes localmente instalados com o comando \texttt{installed.packages()}:
 
@@ -961,10 +946,10 @@ Também se pode verificar a quantidade de pacotes localmente instalados com o co
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] 600
+R> [1] 531
 \end{verbatim}
 
-Nesse caso, o computador em que o livro foi escrito possui 600 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada! A diversidade dos pacotes é gigantesca.
+Nesse caso, o computador em que o livro foi escrito possui 531 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada! A diversidade dos pacotes é gigantesca.
 
 \hypertarget{instalando-pacotes-do-cran}{%
 \subsection{Instalando Pacotes do CRAN}\label{instalando-pacotes-do-cran}}
@@ -2490,10 +2475,10 @@ Para listar arquivos do computador, basta utilizar o função \texttt{list.files
 
 \begin{verbatim}
 R> [1] "00-text-resources/data/AdjustedPrices-InternacionalIndices.RDATA"
-R> [2] "00-text-resources/data/BGS_Cache"                                
-R> [3] "00-text-resources/data/BovStocks_2011-12-01_2016-11-29.csv"      
-R> [4] "00-text-resources/data/BovStocks_2011-12-01_2016-11-29.RData"    
-R> [5] "00-text-resources/data/example_gethfdata.RDATA"
+R> [2] "00-text-resources/data/BovStocks_2011-12-01_2016-11-29.csv"      
+R> [3] "00-text-resources/data/BovStocks_2011-12-01_2016-11-29.RData"    
+R> [4] "00-text-resources/data/example_gethfdata.RDATA"                  
+R> [5] "00-text-resources/data/FileWithLatinChar_ISO-8859-9.txt"
 \end{verbatim}
 
 Observe que nesse diretório encontram-se vários arquivos \emph{.csv}, \emph{.rds} e \emph{.xlsx}. Esses contêm dados que serão utilizados em capítulos futuros. Recomenda-se utilizar o argumento \texttt{full.names} como \texttt{TRUE}, o qual faz com que o retorno da função \texttt{list.files} contenha o caminho completo do arquivo. Isso facilita, por exemplo, uma possível importação de dados em que é necessário indicar não somente o nome do arquivo, mas a sua localização completa no computador. Destaca-se que também é possível listar os arquivos de forma recursiva, isto é, listar os arquivos de subpastas do endereço original. Para verificar, tente utilizar o seguinte código no seu computador:
@@ -2644,10 +2629,10 @@ O endereço do diretório temporário de uma sessão do R é verificado com \tex
 \end{Shaded}
 
 \begin{verbatim}
-R> My tempdir is /tmp/RtmpIv8BZq
+R> My tempdir is /tmp/RtmpN2n71F
 \end{verbatim}
 
-O último texto do diretório, neste caso RtmpIv8BZq é aleatóriamente definido e irá trocar a cada nova sessão do R.
+O último texto do diretório, neste caso RtmpN2n71F é aleatóriamente definido e irá trocar a cada nova sessão do R.
 
 A mesma dinâmica é encontrada para nomes de arquivos. Caso queira, por algum motivo, utilizar um nome temporário e aleatório para algum arquivo com extensão \emph{.txt}, utilize \texttt{tempfile} e defina a entrada \texttt{fileext}:
 
@@ -2659,10 +2644,10 @@ A mesma dinâmica é encontrada para nomes de arquivos. Caso queira, por algum m
 \end{Shaded}
 
 \begin{verbatim}
-R> /tmp/RtmpIv8BZq/file8e983e931ede.txt
+R> /tmp/RtmpN2n71F/file11cf6322e075.txt
 \end{verbatim}
 
-Note que o nome do arquivo -- file8e983e931ede.txt -- é totalmente aleatório e mudará a cada chamada de \texttt{tempfile}.
+Note que o nome do arquivo -- file11cf6322e075.txt -- é totalmente aleatório e mudará a cada chamada de \texttt{tempfile}.
 
 \hypertarget{baixando-arquivos-da-internet}{%
 \subsection{Baixando Arquivos da Internet}\label{baixando-arquivos-da-internet}}
@@ -2782,15 +2767,15 @@ O pacote \texttt{cranlogs} permite o acesso a estatísticas de \emph{downloads} 
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  ragg
+  dplyr
 \item
-  sf
+  vctrs
 \item
   ggplot2
 \item
-  devtools
+  cli
 \item
-  glue
+  ragg
 \end{enumerate}
 
 10 -
@@ -3342,7 +3327,7 @@ Para exportar tabelas em um arquivo \emph{.csv}, basta utilizar a função \text
 \end{Highlighting}
 \end{Shaded}
 
-No exemplo anterior, salvamos o \texttt{dataframe} chamado \texttt{my\_df} para o arquivo file8e98203a9985.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:
+No exemplo anterior, salvamos o \texttt{dataframe} chamado \texttt{my\_df} para o arquivo file11cf2f714b38.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3484,7 +3469,7 @@ Após a exportação, podes verificar as abas disponíveis no arquivo exportado 
 R> [1] "Tabela A" "Tabela B"
 \end{verbatim}
 
-O diferencial do pacote \texttt{writexl} em relação a \texttt{xlsx} é a não necessidade do Java, e a rapidez de execução. O lado negativo é que, na versão atual (1.4.0 -- 2022-08-10), não permite a escrita em arquivos já existentes. Veja a seguir: \index{writexl!write\_xlsx}
+O diferencial do pacote \texttt{writexl} em relação a \texttt{xlsx} é a não necessidade do Java, e a rapidez de execução. O lado negativo é que, na versão atual (1.4.1 -- 2022-11-23), não permite a escrita em arquivos já existentes. Veja a seguir: \index{writexl!write\_xlsx}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3554,8 +3539,8 @@ Após a execução, vamos verificar a diferença de tempo:
 
 \begin{verbatim}
 R> 
-R> Time to WRITE dataframe with xlsx: 1.636 seconds
-R> Time to WRITE dataframe with readxl: 0.011 seconds
+R> Time to WRITE dataframe with xlsx: 1.598 seconds
+R> Time to WRITE dataframe with readxl: 0.012 seconds
 \end{verbatim}
 
 \begin{Shaded}
@@ -3570,8 +3555,8 @@ R> Time to WRITE dataframe with readxl: 0.011 seconds
 
 \begin{verbatim}
 R> 
-R> Time to READ dataframe with xlsx: 2.632 seconds
-R> Time to READ dataframe with readxl: 0.008 seconds
+R> Time to READ dataframe with xlsx: 2.577 seconds
+R> Time to READ dataframe with readxl: 0.007 seconds
 \end{verbatim}
 
 Como podemos ver, mesmo para dados de pouco volume, um dataframe com 2500 linhas e 2 colunas, a diferença de tempo de execução é significativa. Caso estiveres trabalhando com grandes planilhas, o uso de pacotes \texttt{readxl} e \texttt{writexl} é fortemente recomendado. Porém, como já mostrado anteriormente, as funções de \texttt{xlsx} oferecem algumas funcionalidades extras.
@@ -3654,7 +3639,7 @@ Podemos verificar a existência do arquivo com a função \texttt{file.exists}:
 R> [1] TRUE
 \end{verbatim}
 
-Observe que o arquivo file8e98330a699c.RData está disponível na pasta temporária.
+Observe que o arquivo file11cf1c670b24.RData está disponível na pasta temporária.
 
 Já para arquivos \emph{.rds}, salvamos o objeto com função \texttt{saveRDS}:
 
@@ -3784,8 +3769,8 @@ Após a execução, vamos verificar o resultado:
 
 \begin{verbatim}
 R> 
-R> Time to WRITE dataframe with .rds: 1.22799999999995 seconds
-R> Time to WRITE dataframe with .fst: 0.117999999999995 seconds
+R> Time to WRITE dataframe with .rds: 1.1579999999999 seconds
+R> Time to WRITE dataframe with .fst: 0.0929999999998472 seconds
 \end{verbatim}
 
 \begin{Shaded}
@@ -3799,8 +3784,8 @@ R> Time to WRITE dataframe with .fst: 0.117999999999995 seconds
 
 \begin{verbatim}
 R> 
-R> Time to READ dataframe with .rds: 1.03500000000003 seconds
-R> Time to READ dataframe with .fst: 0.0860000000000127 seconds
+R> Time to READ dataframe with .rds: 1.01900000000001 seconds
+R> Time to READ dataframe with .fst: 0.09699999999998 seconds
 \end{verbatim}
 
 \begin{Shaded}
@@ -3936,7 +3921,7 @@ Como exemplo, vamos criar dois dataframes com dados aleatórios e salvar ambos e
 \end{Highlighting}
 \end{Shaded}
 
-A saída \texttt{TRUE} de \texttt{dbWriteTable} indica que tudo ocorreu bem. Uma conexão foi aberta usando a função \texttt{dbConnect} e os dataframes foram escritos em um arquivo SQLITE temporário chamado file8e98634d4edd.SQLITE. É boa política de programação sempre se desconectar do banco de dados após a utilização. Fizemos isso com a função \texttt{dbDisconnect}. \index{RSQLite!dbWriteTable} \index{RSQLite!dbConnect} \index{RSQLite!dbDisconnect}
+A saída \texttt{TRUE} de \texttt{dbWriteTable} indica que tudo ocorreu bem. Uma conexão foi aberta usando a função \texttt{dbConnect} e os dataframes foram escritos em um arquivo SQLITE temporário chamado file11cf7e9dbfad.SQLITE. É boa política de programação sempre se desconectar do banco de dados após a utilização. Fizemos isso com a função \texttt{dbDisconnect}. \index{RSQLite!dbWriteTable} \index{RSQLite!dbConnect} \index{RSQLite!dbDisconnect}
 
 \hypertarget{dados-nuxe3o-estruturados-e-outros-formatos}{%
 \section{Dados Não-Estruturados e Outros Formatos}\label{dados-nuxe3o-estruturados-e-outros-formatos}}
@@ -4040,7 +4025,7 @@ Em algumas situações, é necessário exportar algum tipo de texto para um arqu
 \end{Highlighting}
 \end{Shaded}
 
-No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file8e984c190df3.txt. Podemos checar o resultado com a função \texttt{readr::read\_lines}:
+No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file11cf3fe46972.txt. Podemos checar o resultado com a função \texttt{readr::read\_lines}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4049,7 +4034,7 @@ No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gra
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "Today is 2022-08-10"    "Tomorrow is 2022-08-11"
+R> [1] "Today is 2022-11-23"    "Tomorrow is 2022-11-24"
 \end{verbatim}
 
 \hypertarget{selecionando-o-formato}{%
@@ -4079,15 +4064,13 @@ Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin
 01 -
 Crie um dataframe com o código a seguir:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{library(dplyr)}
+\begin{verbatim}
+library(dplyr)
 
-\NormalTok{my\_N \textless{}{-} 10000}
-\NormalTok{my\_df \textless{}{-} tibble(x = 1:my\_N,}
-\NormalTok{                y = runif(my\_N))}
-\end{Highlighting}
-\end{Shaded}
+my_N <- 10000
+my_df <- tibble(x = 1:my_N,
+                y = runif(my_N))
+\end{verbatim}
 
 Exporte o dataframe resultante para cada um dos cinco formatos: csv, rds, xlsx, fst. Qual dos formatos ocupou maior espaço na memória do computador? Dica: \texttt{file.size} calcula o tamanho de arquivos dentro do próprio R.
 
@@ -4137,7 +4120,7 @@ Importa dados do sistema FRE -- Formulário de Referência -- da bolsa Brasileir
 
 \emph{Quandl} é um repositório de dados abrangente, fornecendo acesso a uma série de tabelas gratuitas e pagas disponibilizadas por diversas instituições de pesquisa. Como ponto inicial, recomendo fortemente que você navegue nas tabelas disponíveis no \href{https://www.quandl.com/}{site da Quandl}\footnote{\url{https://www.quandl.com/}}. Verás que uma grande proporção dos repositórios de dados abertos em economia e finanças também estão disponíveis no Quandl. \index{Quandl}
 
-Pacote \texttt{Quandl} \citep{R-Quandl} é a extensão oficial oferecida pela empresa e disponível no CRAN. No entanto, o pacote tem alguns problemas quanto a estrutura de dados de saída\footnote{Veja \href{https://www.msperlin.com/blog/post/2019-10-01-new-package-getquandldata/}{postagem no blog}} e, para resolver, escrevi o meu próprio pacote \texttt{GetQuandlData} \citep{R-GetQuandlData}. O diferencial de \texttt{GetQuandlData} é a saída de dados já estruturados, prontos para uma posterior análise.
+Pacote \texttt{Quandl} \citep{R-Quandl} é a extensão oficial oferecida pela empresa e disponível no CRAN. No entanto, o pacote tem alguns problemas quanto a estrutura de dados de saída\footnote{Veja \href{https://www.msperlin.com/post/2019-10-01-new-package-getquandldata/}{postagem no blog}} e, para resolver, escrevi o meu próprio pacote \texttt{GetQuandlData} \citep{R-GetQuandlData}. O diferencial de \texttt{GetQuandlData} é a saída de dados já estruturados, prontos para uma posterior análise.
 
 A \textbf{primeira e obrigatória} etapa no uso de \texttt{GetQuandlData} é registrar o usuário no \href{https://www.quandl.com/}{site}. Logo em seguida, vá para \emph{Account Settings} e procure pela seção \emph{You API Key}. Este local deve mostrar uma senha, tal como \texttt{Asv8Ac7zuZzJSCGxynfG}. Copie o texto para a área de transferência (\emph{control + c}) e, no R, defina um objeto de contendo o conteúdo copiado da seguinte maneira:
 
@@ -4246,9 +4229,9 @@ R> Columns: 8
 R> $ code         <chr> "CPI_ARG", "CPI_AUS", "CPI_CAN", "CPI~
 R> $ name         <chr> "Consumer Price Index - Argentina", "~
 R> $ description  <chr> "Please visit <a href=http://www.rate~
-R> $ refreshed_at <dttm> 2020-10-10 02:03:32, 2022-08-06 02:0~
+R> $ refreshed_at <dttm> 2020-10-10 02:03:32, 2022-11-19 02:0~
 R> $ from_date    <date> 1988-01-31, 1948-09-30, 1989-01-31, ~
-R> $ to_date      <date> 2013-12-31, 2022-06-30, 2022-06-30, ~
+R> $ to_date      <date> 2013-12-31, 2022-09-30, 2022-10-31, ~
 R> $ quandl_code  <chr> "RATEINF/CPI_ARG", "RATEINF/CPI_AUS",~
 R> $ quandl_db    <chr> "RATEINF", "RATEINF", "RATEINF", "RAT~
 \end{verbatim}
@@ -4452,16 +4435,16 @@ Quanto aos dados financeiros, esses estão contidos em \texttt{l\_out\$df.ticker
 \begin{verbatim}
 R> Rows: 984
 R> Columns: 10
-R> $ price.open          <dbl> 29.20, 26.84, 27.03, 26.26, 26~
-R> $ price.high          <dbl> 29.24, 27.63, 27.31, 26.87, 26~
-R> $ price.low           <dbl> 28.24, 26.45, 26.65, 26.13, 26~
-R> $ price.close         <dbl> 28.64, 27.03, 26.79, 26.64, 26~
-R> $ volume              <dbl> 101262100, 93623700, 86103100,~
-R> $ price.adjusted      <dbl> 19.73697, 19.73690, 19.56166, ~
-R> $ ref.date            <date> 2021-08-16, 2021-08-17, 2021-~
+R> $ price.open          <dbl> 29.36, 29.30, 29.84, 26.99, 28~
+R> $ price.high          <dbl> 29.82, 29.64, 30.67, 28.49, 28~
+R> $ price.low           <dbl> 28.81, 28.86, 29.48, 26.20, 28~
+R> $ price.close         <dbl> 29.47, 29.43, 29.60, 28.36, 28~
+R> $ volume              <dbl> 84672200, 129384600, 135078600~
+R> $ price.adjusted      <dbl> 15.33113, 15.31032, 15.39875, ~
+R> $ ref.date            <date> 2021-11-29, 2021-11-30, 2021-~
 R> $ ticker              <chr> "PETR4.SA", "PETR4.SA", "PETR4~
-R> $ ret.adjusted.prices <dbl> NA, -3.293312e-06, -8.879053e-~
-R> $ ret.closing.prices  <dbl> NA, -0.056215016, -0.008879023~
+R> $ ret.adjusted.prices <dbl> NA, -0.0013573042, 0.005776432~
+R> $ ret.closing.prices  <dbl> NA, -0.0013572786, 0.005776418~
 \end{verbatim}
 
 Como esperado, a informação sobre preços, retornos e volumes está lá, com as devidas classes de colunas: \emph{dbl} (\emph{double}) para valores numéricos e \emph{date} para as datas. Observe que uma coluna chamada \texttt{ticker} também está incluída. Essa indica em que linhas da tabela os dados de uma ação começam e terminam. Mais tarde, no capítulo \ref{limpando-estruturando}, usaremos essa coluna para fazer diversos cálculos para cada ação.
@@ -4547,7 +4530,7 @@ Vamos checar o conteúdo do dataframe:
 \end{Shaded}
 
 \begin{verbatim}
-R> Rows: 24,373
+R> Rows: 24,733
 R> Columns: 5
 R> $ ref.date   <date> 2002-03-18, 2002-03-19, 2002-03-20, 20~
 R> $ yield.bid  <dbl> 0.1977, 0.1975, 0.1967, 0.2005, 0.1983,~
@@ -4611,13 +4594,13 @@ Outra funcionalidade do pacote \texttt{GetTDData} é o acesso a curva de juros a
 \end{Shaded}
 
 \begin{verbatim}
-R> Rows: 115
+R> Rows: 114
 R> Columns: 5
 R> $ n.biz.days   <dbl> 126, 252, 378, 504, 630, 756, 882, 10~
 R> $ type         <chr> "real_return", "real_return", "real_r~
-R> $ value        <dbl> 9.0698, 7.0460, 6.3672, 6.0140, 5.807~
-R> $ ref.date     <date> 2023-02-07, 2023-08-10, 2024-02-14, ~
-R> $ current.date <date> 2022-08-09, 2022-08-09, 2022-08-09, ~
+R> $ value        <dbl> 6.1355, 6.6490, 6.7057, 6.6214, 6.512~
+R> $ ref.date     <date> 2023-05-24, 2023-11-23, 2024-05-27, ~
+R> $ current.date <date> 2022-11-22, 2022-11-22, 2022-11-22, ~
 \end{verbatim}
 
 Os dados incluem a curva de juros nominal, juros real e da inflação. Para melhor visualizar as informações, vamos plotá-las em um gráfico:
@@ -4655,7 +4638,7 @@ No código, basta indicar a série de interesse e o período de tempo desejado:
 \begin{verbatim}
 R> 
 R> Fetching perc_default [21082] from BCB-SGS from Online API 
-R>   Found 134 observations
+R>   Found 139 observations
 \end{verbatim}
 
 \begin{Shaded}
@@ -4666,7 +4649,7 @@ R>   Found 134 observations
 \end{Shaded}
 
 \begin{verbatim}
-R> Rows: 134
+R> Rows: 139
 R> Columns: 4
 R> $ ref.date    <date> 2011-03-01, 2011-04-01, 2011-05-01, 2~
 R> $ value       <dbl> 3.17, 3.24, 3.37, 3.32, 3.42, 3.45, 3.~
@@ -4698,9 +4681,9 @@ Como podemos ver, a percentagem de inadimplência aumentou a partir de 2015. Par
 \begin{verbatim}
 R> 
 R> Fetching credit_default_people [21083] from BCB-SGS from Online API 
-R>   Found 134 observations
+R>   Found 139 observations
 R> Fetching credit_default_companies [21084] from BCB-SGS from Online API 
-R>   Found 134 observations
+R>   Found 139 observations
 \end{verbatim}
 
 \begin{Shaded}
@@ -4711,7 +4694,7 @@ R>   Found 134 observations
 \end{Shaded}
 
 \begin{verbatim}
-R> Rows: 268
+R> Rows: 278
 R> Columns: 4
 R> $ ref.date    <date> 2011-03-01, 2011-04-01, 2011-05-01, 2~
 R> $ value       <dbl> 1.96, 2.04, 2.15, 2.09, 2.18, 2.15, 2.~
@@ -4747,7 +4730,7 @@ compactado com vários arquivos \emph{csv}.
 
 Saiba também que dados históricos completos e atualizados a partir de
 2010 do DFP e ITR estão disponibilizados na seção
-\href{https://www.msperlin.com/blog/data/}{Data} do meu site pessoal.
+\href{https://www.msperlin.com/data/}{Data} do meu site pessoal.
 \end{rmdimportant}
 
 O ponto de partida no uso de \texttt{GetDFPData2} é baixar informações atuais sobre empresas disponíveis. O acesso a tabela é possível com a função \texttt{get\_info\_companies}: \index{GetDFPData2} \index{GetDFPData2!get.info.companies}
@@ -4766,27 +4749,11 @@ R> Fetching info on B3 companies
 \end{verbatim}
 
 \begin{verbatim}
-R>  Dowloading file from CVM
+R>  Found cache file. Loading data..
 \end{verbatim}
 
 \begin{verbatim}
-R>  File not found, downloading it..
-\end{verbatim}
-
-\begin{verbatim}
-R>  Success
-\end{verbatim}
-
-\begin{verbatim}
-R>  Reading file from CVM
-\end{verbatim}
-
-\begin{verbatim}
-R>  Saving cache data
-\end{verbatim}
-
-\begin{verbatim}
-R>  Got 2547 lines for 2413 companies [Actives = 693 Inactives = 1732]
+R>  Got 2559 lines for 2425 companies [Actives = 701 Inactives = 1736]
 \end{verbatim}
 
 \begin{Shaded}
@@ -4823,7 +4790,7 @@ R> [45] "EMAIL_RESP"         "CNPJ_AUDITOR"
 R> [47] "AUDITOR"
 \end{verbatim}
 
-Essa tabela disponibiliza os identificadores numéricos das empresas, setores de atividades, atual segmento de governança, \emph{tickers} negociados na bolsa e situação atual (ativa ou não). O número atual de empresas ativas e inativas, a partir de 2022-08-10, está disponível na coluna \texttt{SIT\_REG}. Observa-se 778 empresas ativas e 1768 canceladas. Essa é uma excelente fonte de informação para um estudo exploratório. Pode-se facilmente filtrar empresas para datas, setores, \emph{tickers} ou segmentos de governança corporativa.
+Essa tabela disponibiliza os identificadores numéricos das empresas, setores de atividades, atual segmento de governança, \emph{tickers} negociados na bolsa e situação atual (ativa ou não). O número atual de empresas ativas e inativas, a partir de 2022-11-23, está disponível na coluna \texttt{SIT\_REG}. Observa-se 786 empresas ativas e 1771 canceladas. Essa é uma excelente fonte de informação para um estudo exploratório. Pode-se facilmente filtrar empresas para datas, setores, \emph{tickers} ou segmentos de governança corporativa.
 
 Toda empresa no banco de dados é identificada pelo seu número único da CVM. Função \texttt{search\_company} permite que o usuário procure o identificador de uma empresa através de seu nome. Dado um texto de entrada -- o nome da empresa --, a função procurará uma correspondência parcial com os nomes de todas as empresas disponíveis no banco de dados. Em seu uso, caracteres latinos e maiúsculas e minúsculas são ignorados. Vamos encontrar o nome oficial nome da Grendene, uma das maiores empresas do Brasil. Para isso, basta usar o comando \texttt{search\_company(\textquotesingle{}grendene\textquotesingle{})}.
 
@@ -4847,7 +4814,6 @@ R> #   DT_INI_CATEG <date>, SIT_EMISSOR <chr>,
 R> #   DT_INI_SIT_EMISSOR <date>, CONTROLE_ACIONARIO <chr>,
 R> #   TP_ENDER <chr>, LOGRADOURO <chr>, COMPL <chr>,
 R> #   BAIRRO <chr>, MUN <chr>, UF <chr>, PAIS <chr>, ...
-R> # i Use `colnames()` to see all variable names
 \end{verbatim}
 
 Vemos que existe um registro para a Grendene: ``GRENDENE SA'', com código identificador equivalente a 19615. \index{GetDFPData2!search\_company}
@@ -5084,10 +5050,8 @@ Nas seções anteriores destacamos os principais pacotes gratuitos para aquisiç
 \tightlist
 \item[\texttt{BETS} \citep{R-BETS}]
 Pacote construído e mantido pela equipe da \href{http://portal.fgv.br/en}{FGV}. Permite o acesso aos dados do BCB (Banco Central do Brasil) e IBGE (Instituto Brasileiro de Geografia e Estatística). Também inclui ferramentas para a administração, análise e manipulação dos dados em relatórios técnicos.
-\item[\texttt{simfinR} \citep{R-simfinR}]
+\item[\texttt{simfinapi} \citep{R-simfinapi}]
 Pacote para acesso ao projeto \href{https://simfin.com/}{simfin}, incluindo dados financeiros de diversas empresas internacionais. O acesso livre é restrito a um número de chamadas diárias.
-\item[\texttt{TFX} \citep{R-TFX}]
-Permite acesso aos dados do mercado de câmbio via \href{https://www.truefx.com/}{True FX}.
 \end{description}
 
 \hypertarget{pacotes-comerciais}{%
@@ -5196,64 +5160,186 @@ O objeto \texttt{df\_SP500\_comp} contém um espelho dos dados do site da Wikipe
 Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin.com/adfeR}.
 
 01 -
-Utilizando pacote \texttt{BatchGetSymbols}, baixe os dados diários da ação MDIA3 no \emph{Yahoo Finance} para o período entre 2019 e 2020. Qual o preço \textbf{não ajustado de fechamento (coluna \texttt{price.close})} mais baixo no período analisado? Dica: todas ações brasileiras tem o prefixo ``.SA'' em seu ticker do Yahoo Finance. Portanto, as ações ordinárias da fabricante de massas MDias são representadas pelo símbolo MDIA3.SA.
+Using the \texttt{yfR} package, download daily data for ticker MMM from \emph{Yahoo Finance} for the period between 2019-01-01 and 2022-05-24. What is the lowest \textbf{unadjusted closing price (column \texttt{price\_close})} in the analyzed period?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  43.08903
+\item
+  65.59444
+\item
+  88.09984
+\item
+  20.58363
+\item
+  117.87
+\end{enumerate}
 
 02 -
+If you have not already done so, create a profile on the \href{https://www.quandl.com/}{Quandl website}\footnote{\url{https://www.quandl.com/}} and download the arabica coffee price data (id = CEPEA/COFFEE\_A) in the CEPEA database (Center for Advanced Studies in Applied Economics) between 2010-01-01 and 2020-12-28. What is the maximum price found?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \$194.03
+\item
+  \$50.30
+\item
+  \$265.90
+\item
+  \$122.16
+\item
+  \$349.39
+\end{enumerate}
+
+03 -
 Utilize pacote \texttt{GetBCBData} para baixar dados do IPCA mensal entre 2010-01-01 e 2020-12-31. Para os dados importados, qual é a data com o maior valor mensal de inflação?
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  2019-07-01
+  2010-11-01
 \item
-  2017-01-01
+  2010-10-01
 \item
-  2012-08-01
+  2011-05-01
+\item
+  2012-04-01
 \item
   2020-12-01
-\item
-  2012-11-01
-\end{enumerate}
-
-03 -
-Utilizando função \texttt{GetDFPData2::get\_info\_companies}, baixe informações sobre as ações negociadas na B3. Qual é a empresa \textbf{ativa} (veja coluna \texttt{SIT\_REG}) mais antiga da amostra de acordo com sua data de registro (coluna \texttt{DT\_REG})?
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  LONGDIS SA
-\item
-  BANCO DA AMAZÔNIA S.A.
-\item
-  RAIA DROGASIL S.A.
-\item
-  MADERO INDÚSTRIA E COMÉRCIO S.A.
-\item
-  ROMI S.A.
 \end{enumerate}
 
 04 -
-Usando pacote \texttt{GetDFPData2}, baixe os demostrativos financeiros consolidados da empresa Petrobrás para o ano de 2019. Qual foi o seu lucro líquido no final do exercício (x1000)?
+Use function \texttt{simfinapi::sfa\_get\_entities} to import data about all available companies in \href{https://simfin.com}{Simfin}. How many companies do you find?
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  R\$5.233.272,00
+  4945
 \item
-  R\$40.970.000,00
+  3229
 \item
-  R\$21.882.862,00
+  4311
 \item
-  R\$13.558.067,00
+  5579
 \item
-  R\$30.207.657,00
+  3677
 \end{enumerate}
 
 05 -
-Com base no pacote \texttt{GetTDData}, baixe dados para títulos do tipo LTN (Letras Financeiras do Tesouro). Qual o preço mais baixo para o título ``LTN 010121''?
+With package \texttt{simfinapi}, download the PnL (profit and loss) statement for FY (final year) data for id = 998466) for year 2015. What is the latest ``Net Income'' of the company?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \$404.96
+\item
+  \$534.36
+\item
+  \$469.66
+\item
+  \$599.07
+\item
+  \$349.39
+\end{enumerate}
+
+06 -
+Using again the \texttt{yfR} package, download data between 2019-01-01 and 2021-10-12 for the following tickers:
+
+\begin{itemize}
+\tightlist
+\item
+  AAPL: Apple Inc
+\item
+  BAC: Bank of America Corporation
+\item
+  GE: General Electric Company
+\item
+  TSLA: Tesla, Inc.
+\item
+  SNAP: Snap Inc.
+\end{itemize}
+
+Using the \textbf{adjusted closing price} column, what company provided higher return to the stock holder during the analyzed period?
+
+Tip: this is an advanced exercise that will require some coding. To solve it, check out function \texttt{split} to split the dataframe of price data and \texttt{lapply} to map a function to each dataframe.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  TSLA
+\item
+  AAPL
+\item
+  BAC
+\item
+  SNAP
+\item
+  GE
+\end{enumerate}
+
+07 -
+Using package \texttt{GetDFPData2}, download the main table with all available companies. What is the number of active companies currently available?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  1050
+\item
+  888
+\item
+  1372
+\item
+  786
+\item
+  1211
+\end{enumerate}
+
+08 -
+Using package \texttt{GetDFPData2}, download net income data (consolidated) for all companies in the year of 2018. What is the sum of profit/loss (in thousands, code 3.11 in DFP) for all companies?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \$382,399,640
+\item
+  \$269,132,608
+\item
+  \$56,155,004
+\item
+  \$127,147,539
+\item
+  \$198,140,073
+\end{enumerate}
+
+09 -
+Using package \texttt{GetTDData}, download all available data for debt contract of type LTN (\emph{pré-fixados}).
+
+What is the maximum yield (column \emph{yield.bid}) found for for contract LTN 010409?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  5.8\%
+\item
+  20.0\%
+\item
+  35.2\%
+\item
+  15.2\%
+\item
+  10.2\%
+\end{enumerate}
 
 \hypertarget{classe-estrutura}{%
 \chapter{Dataframes e outros Objetos}\label{classe-estrutura}}
@@ -6408,7 +6494,7 @@ R>  $ ticker   : chr "TICK4"
 R>  $ market   : chr "Bovespa"
 R>  $ df_prices: tibble [4 x 2] (S3: tbl_df/tbl/data.frame)
 R>   ..$ P       : num [1:4] 1 1.5 2 2.3
-R>   ..$ ref_date: Date[1:4], format: "2022-08-10" ...
+R>   ..$ ref_date: Date[1:4], format: "2022-11-23" ...
 \end{verbatim}
 
 \begin{rmdimportant}
@@ -6443,10 +6529,10 @@ R> [1] "Bovespa"
 R> # A tibble: 4 x 2
 R>       P ref_date  
 R>   <dbl> <date>    
-R> 1   1   2022-08-10
-R> 2   1.5 2022-08-11
-R> 3   2   2022-08-12
-R> 4   2.3 2022-08-13
+R> 1   1   2022-11-23
+R> 2   1.5 2022-11-24
+R> 3   2   2022-11-25
+R> 4   2.3 2022-11-26
 \end{verbatim}
 
 Também é possível acessar os elementos com um colchete simples (\texttt{{[}\ {]}}), porém, tome cuidado com essa operação, pois o resultado não vai ser o objeto em si, mas uma outra lista. Esse é um equívoco muito fácil de passar despercebido, resultando em erros no código. Veja a seguir:
@@ -7216,45 +7302,6 @@ R> [2,]    2    4   11   13
 
 Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin.com/adfeR}.
 
-01 -
-Utilizando função \texttt{dplyr::tibble}, crie um \texttt{dataframe} chamado \texttt{my\_df} com uma coluna chamada \texttt{x} contendo uma sequência de -100 a 100 e outra coluna chamada \texttt{y} com o valor da coluna x adicionada de 5. Para a tabela \texttt{my\_df}, qual a quantidade de valores na coluna \texttt{x} maiores que 10 e menores que 25?
-
-02 -
-Crie uma nova coluna em \texttt{my\_df} chamada \texttt{cumsum\_x}, contendo a soma cumulativa de \texttt{x} (função \texttt{cumsum}). Desta nova coluna, quantos valores são maiores que -3500?
-
-03 -
-Use função \texttt{dplyr::filter} e o operador de pipeline para filtrar \texttt{my\_df}, mantendo apenas as linhas onde o valor da coluna \texttt{y} é maior que 0. Qual o número de linhas da tabela resultante?
-
-04 -
-Caso não o tenha feito, repita os exercícios 1, 2 e 3 utilizando as funções do \texttt{tidyverse} e o operador de \emph{pipeline}.
-
-05 -
-Utilize pacote \texttt{BatchGetSymbols} para baixar dados da ação do Facebook (FB), de 2010-01-01 até 2020-12-31. Caso o investidor tivesse comprado 1000 USD em ações do Facebook no primeiro dia dos dados e mantivesse o investimento até hoje, qual seria o valor do seu portfolio?
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  R\$9.553
-\item
-  R\$12.728
-\item
-  R\$7.111
-\item
-  R\$11.140
-\item
-  R\$7.966
-\end{enumerate}
-
-06 -
-Use função \texttt{adfeR::get\_data\_file} e \texttt{readr::read\_csv} para importar os dados do arquivo \texttt{grunfeld.csv}. Em seguida, utilize funções \texttt{dplyr::glimpse} para descobrir o número de linhas nos dados importados.
-
-07 -
-Crie um objeto do tipo lista com três \texttt{dataframes} em seu conteúdo, \texttt{df1}, \texttt{df2} e \texttt{df3}. O conteúdo e tamanho dos \texttt{dataframes} é livre. Utilize função \texttt{sapply} para descobrir o número de linhas e colunas em cada \texttt{dataframe}.
-
-08 -
-Utilizando o R, crie uma matrix identidade (valor 1 na diagonal, zero em qualquer outro) de tamanho 3X3. Dica: use função \texttt{diag} para definir a diagonal da matrix.
-
 \hypertarget{classes-basicas}{%
 \chapter{As Classes Básicas de Objetos}\label{classes-basicas}}
 
@@ -7532,10 +7579,10 @@ A função \texttt{rnorm} gera números aleatórios da distribuição Normal, co
 \end{Shaded}
 
 \begin{verbatim}
-R>  [1]  0.5436579  1.0410603  0.1975062 -1.6295783  0.1210402
-R>  [6] -1.6374220 -0.5310431  0.9536798 -1.7206507  0.1063206
-R> [11] -0.6086685 -0.3011970  0.9762025  0.4560087  1.2944081
-R> [16] -1.1332022 -0.8694604 -0.7549703 -0.1296354 -1.0018013
+R>  [1]  1.1194299  1.0155929 -1.2027493  0.5309199 -1.0571733
+R>  [6] -1.1854921 -0.4107645  1.5315372 -1.9588221  1.0565205
+R> [11] -0.6458420 -1.2922453  1.0599906 -1.4601082  1.5176087
+R> [16]  0.1781568  0.3274256  1.4443136  1.4512198  0.2217988
 \end{verbatim}
 
 O código anterior gera uma grande quantidade de números aleatórios de uma distribuição Normal com média zero e desvio padrão igual a um. Podemos verificar a distribuição dos números gerados com um histograma:
@@ -7559,8 +7606,8 @@ Já a função \texttt{runif} gera valores aleatórios da distribuição uniform
 \end{Shaded}
 
 \begin{verbatim}
-R>  [1] -0.0858712  4.3401557  2.9388118 -2.2792339  3.1741687
-R>  [6] -0.3947496  3.4054654  3.1049157  3.5276227 -1.5256521
+R>  [1] -1.203942 -2.608231 -2.733635  4.457898 -1.748036
+R>  [6] -4.378253  4.576698  2.310536 -2.136151  3.209011
 \end{verbatim}
 
 Observe que ambas as funções anteriores são limitadas à sua respectiva distribuição. Uma maneira alternativa e flexível de gerar valores aleatórios é utilizar a função \texttt{sample}. Essa tem como entrada um vetor qualquer e retorna uma versão embaralhada de seus elementos. A sua flexibilidade reside no fato de que o vetor de entrada pode ser qualquer coisa. Por exemplo, caso quiséssemos criar um vetor aleatório com os números \texttt{c(0,\ 5,\ 15,\ 20,\ 25)} apenas, poderíamos fazê-lo da seguinte forma: \index{base!sample}
@@ -7579,7 +7626,7 @@ Observe que ambas as funções anteriores são limitadas à sua respectiva distr
 \end{Shaded}
 
 \begin{verbatim}
-R> [1]  5 10 25  0 20 15
+R> [1] 15  0 20 25  5 10
 \end{verbatim}
 
 A função \texttt{sample} também permite a seleção aleatória de um certo número de termos. Por exemplo, caso quiséssemos selecionar aleatoriamente apenas um elemento de \texttt{my\_vec}, escreveríamos o código da seguinte maneira:
@@ -7595,7 +7642,7 @@ A função \texttt{sample} também permite a seleção aleatória de um certo n�
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] 20
+R> [1] 5
 \end{verbatim}
 
 Caso quiséssemos dois elementos, escreveríamos:
@@ -7611,7 +7658,7 @@ Caso quiséssemos dois elementos, escreveríamos:
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] 25 20
+R> [1] 25  0
 \end{verbatim}
 
 Também é possível selecionar valores de uma amostra menor para a criação de um vetor maior. Por exemplo, considere o caso em que se tem um vetor com os números \texttt{c(10,\ 15,\ 20)} e deseja-se criar um vetor aleatório com dez elementos retirados desse vetor menor, com repetição. Para isso, podemos utilizar a opção \texttt{replace\ =\ TRUE}.
@@ -7628,7 +7675,7 @@ Também é possível selecionar valores de uma amostra menor para a criação de
 \end{Shaded}
 
 \begin{verbatim}
-R>  [1] 15 10  5  5 10  5  5 15 10 10
+R>  [1] 15 10 10  5  5 10  5  5 15 10
 \end{verbatim}
 
 Vale destacar que a função \texttt{sample} funciona para qualquer tipo ou objeto, não sendo, portanto, exclusiva para vetores numéricos. Poderíamos, também, escolher elementos aleatórios de um vetor de texto ou então uma lista:
@@ -7642,7 +7689,7 @@ Vale destacar que a função \texttt{sample} funciona para qualquer tipo ou obje
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "elem 2"
+R> [1] "elem 3"
 \end{verbatim}
 
 \begin{Shaded}
@@ -7655,8 +7702,8 @@ R> [1] "elem 2"
 \end{Shaded}
 
 \begin{verbatim}
-R> $y
-R> [1] "a" "b"
+R> $x
+R> [1] 1 1 1
 \end{verbatim}
 
 É importante ressaltar que a geração de valores aleatórios no R (ou qualquer outro programa) \textbf{não é totalmente aleatória!} De fato, o próprio computador escolhe os valores dentre uma fila de valores possíveis. Cada vez que funções tal como \texttt{rnorm}, \texttt{runif} e \texttt{sample} são utilizadas, o computador escolhe um lugar diferente dessa fila de acordo com vários parâmetros, incluindo a data e horário atual. Portanto, do ponto de vista do usuário, os valores são gerados de forma imprevisível. Para o computador, porém, essa seleção é completamente determinística e guiada por regras claras.
@@ -9317,7 +9364,7 @@ A representação e manipulação de datas é um importante aspecto das pesquisa
 
 Nesta seção estudaremos as funções e classes nativas que representam e manipulam o tempo em R. Aqui, daremos prioridade as funções do pacote \texttt{lubridate} \citep{R-lubridate}. Existem, no entanto, muitos pacotes que podem ajudar o usuário a processar objetos do tipo data e tempo de forma mais avançada. Caso alguma operação com data e tempo não for encontrada aqui, sugiro o estudo dos pacotes \texttt{chron} \citep{R-chron}, \texttt{timeDate} \citep{R-timeDate} e \texttt{bizdays} \citep{R-bizdays}. \index{timeDate} \index{bizdays} \index{chron}
 
-Antes de começarmos, vale relembrar que toda data no R segue o formato \href{https://www.iso.org/iso-8601-date-and-time-format.html}{ISO 8601} (\texttt{YYYY-MM-DD}), onde \texttt{YYYY} é o ano em quatro números, \texttt{MM} é o mês e \texttt{DD} é o dia. Por exemplo, uma data em ISO 8601 é 2022-08-10. Deves familiarizar-se com esse formato pois toda importação de dados com formato de datas diferente desta notação exigirá conversão. Felizmente, essa operação é bastante simples de executar com o \texttt{lubridate}.
+Antes de começarmos, vale relembrar que toda data no R segue o formato \href{https://www.iso.org/iso-8601-date-and-time-format.html}{ISO 8601} (\texttt{YYYY-MM-DD}), onde \texttt{YYYY} é o ano em quatro números, \texttt{MM} é o mês e \texttt{DD} é o dia. Por exemplo, uma data em ISO 8601 é 2022-11-23. Deves familiarizar-se com esse formato pois toda importação de dados com formato de datas diferente desta notação exigirá conversão. Felizmente, essa operação é bastante simples de executar com o \texttt{lubridate}.
 
 \hypertarget{criando-datas-simples}{%
 \subsection{Criando Datas Simples}\label{criando-datas-simples}}
@@ -9941,7 +9988,7 @@ Para conhecer o dia atual, basta utilizarmos a função \texttt{base::Sys.Date} 
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "2022-08-10"
+R> [1] "2022-11-23"
 \end{verbatim}
 
 \begin{Shaded}
@@ -9952,7 +9999,7 @@ R> [1] "2022-08-10"
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "2022-08-10"
+R> [1] "2022-11-23"
 \end{verbatim}
 
 Para descobrir a data e horário, utilizamos a função \texttt{base::Sys.time} ou \texttt{lubridate::now}: \index{base!Sys.time} \index{lubridate!now}
@@ -9965,7 +10012,7 @@ Para descobrir a data e horário, utilizamos a função \texttt{base::Sys.time} 
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "2022-08-10 08:22:55 -03"
+R> [1] "2022-11-23 10:57:03 -03"
 \end{verbatim}
 
 \begin{Shaded}
@@ -9976,7 +10023,7 @@ R> [1] "2022-08-10 08:22:55 -03"
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "2022-08-10 08:22:55 -03"
+R> [1] "2022-11-23 10:57:03 -03"
 \end{verbatim}
 
 Com base nessas, podemos escrever:
@@ -9994,7 +10041,7 @@ Com base nessas, podemos escrever:
 \end{Shaded}
 
 \begin{verbatim}
-R> [1] "This code was executed in 2022-08-10 08:22:55"
+R> [1] "This code was executed in 2022-11-23 10:57:03"
 \end{verbatim}
 
 \hypertarget{outras-funuxe7uxf5es-uxfateis-5}{%
@@ -10331,21 +10378,64 @@ Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin
 01 -
 Considere os seguintes os vetores x e y:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{set.seed(7)}
-\NormalTok{x \textless{}{-} sample (1:3, size = 5, replace = T)}
-\NormalTok{y \textless{}{-} sample (1:3, size = 5, replace = T)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+set.seed(7)
+x <- sample (1:3, size = 5, replace = T)
+y <- sample (1:3, size = 5, replace = T)
+\end{verbatim}
 
 Qual é a soma dos elementos de um novo vetor resultante da multiplicação entre os elementos de \texttt{x} e \texttt{y}?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  41
+\item
+  34
+\item
+  55
+\item
+  48
+\item
+  31
+\end{enumerate}
 
 02 -
 Caso realizássemos uma soma cumulativa de uma sequência entre 1 e 100, em qual elemento esta soma iria passar de 50?
 
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  5
+\item
+  3
+\item
+  1
+\item
+  7
+\item
+  10
+\end{enumerate}
+
 03 -
 Utilizando o R, crie uma sequência em objeto chamado \texttt{seq\_1} entre -15 e 10, onde o intervalo entre valores é sempre igual a 2. Qual o valor da soma dos elementos de \texttt{seq\_1}?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  -15
+\item
+  -6
+\item
+  -39
+\item
+  -31
+\item
+  -23
+\end{enumerate}
 
 04 -
 Defina outro objeto chamado \texttt{seq\_2} contendo uma sequência de tamanho 1000, com valores entre 0 e 100. Qual é o desvio padrão (função \texttt{sd}) dessa sequência?
@@ -10354,33 +10444,33 @@ Defina outro objeto chamado \texttt{seq\_2} contendo uma sequência de tamanho 1
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  45.26
-\item
   28.91
 \item
-  22.19
+  19.58
 \item
-  12.94
+  12.45
 \item
-  74.17
+  38.46
+\item
+  67.37
 \end{enumerate}
 
 05 -
-Calcule a soma entre vetores \texttt{seq\_1} e \texttt{seq\_2} (veja exercícios anteriores). Esta operação funcionou apesar do tamanho diferente dos vetores? Explique sua resposta. Caso funcionar, qual o maior valor do vetor resultante?
+Calcule a soma entre vetores \texttt{seq\_1} e \texttt{seq\_2} (veja exercício anterior). Esta operação funcionou apesar do tamanho diferente dos vetores? Explique sua resposta. Caso funcionar, qual o maior valor do vetor resultante?
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  191.5
+  148.2
 \item
-  150.8
+  169.3
+\item
+  127.1
 \item
   109.0
 \item
-  171.2
-\item
-  130.4
+  190.4
 \end{enumerate}
 
 06 -
@@ -10390,15 +10480,15 @@ Vamos supor que, em certa data, você comprou 100 ações de uma empresa, a \tex
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  R\$678,00
+  R\$922
 \item
-  R\$904,00
+  R\$1.037
 \item
-  R\$791,00
+  R\$692
 \item
-  R\$1.017,00
+  R\$807
 \item
-  R\$580,00
+  R\$580
 \end{enumerate}
 
 07 -
@@ -10407,6 +10497,21 @@ Crie um vetor x de acordo com a fórmula a seguir, onde \(i=1...100\). Qual é o
 \[
 x_i=\frac{-1^{i+1}}{2i-1}
 \]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  0.7829
+\item
+  2.2385
+\item
+  0.3014
+\item
+  0.5253
+\item
+  1.4556
+\end{enumerate}
 
 08 -
 Crie um vetor \(z_i\) de acordo com a fórmula a seguir onde \(x_i=1...50\) e \(y_i=50...1\). Qual é o valor da soma dos elementos de \(z_i\)? Dica: veja o funcionamento da função \texttt{dplyr::lag}.
@@ -10419,41 +10524,114 @@ z_i=\frac{y_i - x_{i-1}}{y_{i-2}}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  -7.116
+  -27.78
 \item
-  -65.957
+  -65.96
 \item
-  -46.795
+  -82.23
 \item
-  -20.343
+  -44.80
 \item
-  -33.569
+  -148.19
 \end{enumerate}
 
 09 -
-Usando \texttt{set.seed(10)}, crie um objeto chamado \texttt{x} com valores aleatórios da distribuição Normal com média igual a 10 e desvio padrão igual a 10. Usando função \texttt{cut}, crie outro objeto que defina dois grupos com base em valores de \texttt{x} maiores que 15 e menores que 15. Qual a quantidade de observações no primeiro grupo?
+Usando uma semente de valor 11 em \texttt{set.seed()}, crie um objeto chamado \texttt{x} com valores aleatórios da distribuição Normal com média igual a 10 e desvio padrão igual a 10. Usando função \texttt{cut}, crie outro objeto que defina dois grupos com base em valores de \texttt{x} maiores que 15 e menores que 15. Qual a quantidade de observações no primeiro grupo?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  504
+\item
+  92
+\item
+  688
+\item
+  229
+\item
+  367
+\end{enumerate}
 
 10 -
 Crie o seguinte objeto com o código a seguir:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{set.seed(15)}
-\NormalTok{my\_char \textless{}{-} paste(sample(letters, 5000, replace = T), }
-\NormalTok{                 collapse = \textquotesingle{}\textquotesingle{})}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+set.seed(15)
+my_char <- paste(sample(letters, 5000, replace = T), 
+                 collapse = '')
+\end{verbatim}
 
 Qual a quantidade de vezes que a letra \texttt{\textquotesingle{}x\textquotesingle{}} é encontrada no objeto de texto resultante?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  297
+\item
+  264
+\item
+  198
+\item
+  174
+\item
+  231
+\end{enumerate}
 
 11 -
 Baseado no objeto \texttt{my\_char} criado anteriormente, caso dividíssemos o mesmo em diversos pedaços menores utilizando a letra \texttt{"b"}, qual é o número de caracteres no \textbf{maior} pedaço encontrado?
 
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  188
+\item
+  125
+\item
+  167
+\item
+  146
+\item
+  110
+\end{enumerate}
+
 12 -
 No endereço \url{https://www.gutenberg.org/files/1342/1342-0.txt} é possível acessar um arquivo .txt contendo o texto integral do livro \emph{Pride and Prejudice} de Jane Austen. Utilize funções \texttt{download.file} e \texttt{readr::read\_lines} para importar o livro inteiro como um vetor de caracteres chamado \texttt{my\_book} no R. Quantas linhas o objeto resultante possui?
 
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  5029
+\item
+  3675
+\item
+  8704
+\item
+  2537
+\item
+  1698
+\end{enumerate}
+
 13 -
 Junte o vetor de caracteres em \texttt{my\_book} para um único valor (texto) em outro objeto chamado \texttt{full\_text} usando função \texttt{paste0(my\_book,\ collapse\ =\ \textquotesingle{}\textbackslash{}n\textquotesingle{})}. Utilizando este último e pacote \texttt{stringr}, quantas vezes a palavra \texttt{\textquotesingle{}King\textquotesingle{}} é repetida na totalidade do texto?
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  55
+\item
+  93
+\item
+  70
+\item
+  30
+\item
+  163
+\end{enumerate}
 
 14 -
 Para o objeto \texttt{full\_text} criado anteriormente, utilize função \texttt{stringr::str\_split} para \emph{quebrar} o texto inteiro em função de espaços em branco. Com base nesse, crie uma tabela de frequência. Qual a palavra mais utilizada no texto? Dica: Remova todos os casos de caracteres vazios (\texttt{\textquotesingle{}\textquotesingle{}}).
@@ -10462,19 +10640,34 @@ Para o objeto \texttt{full\_text} criado anteriormente, utilize função \texttt
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  the
-\item
   and
+\item
+  to
 \item
   you
 \item
-  I
+  my
 \item
-  a
+  the
 \end{enumerate}
 
 15 -
 Assumindo que uma pessoa nascida em 2000-05-12 irás viver for 100 anos, qual é o número de dias de aniversário que cairão em um final de semana (sábado ou domingo)? Dica: use operador \texttt{\%in\%} para checar uma condição múltipla nos dados.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  0
+\item
+  0
+\item
+  0
+\item
+  0
+\item
+  0
+\end{enumerate}
 
 16 -
 Qual data e horário é localizado \ensuremath{10^{4}} \textbf{segundos} após 2021-02-02 11:50:02?
@@ -10483,15 +10676,15 @@ Qual data e horário é localizado \ensuremath{10^{4}} \textbf{segundos} após 2
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  2021-02-02 09:39:55
+  2021-02-02 12:44:52
+\item
+  2021-02-02 10:23:31
+\item
+  2021-02-02 10:29:10
 \item
   2021-02-02 14:36:42
 \item
-  2021-02-02 12:39:23
-\item
-  2021-02-02 14:22:58
-\item
-  2021-02-02 13:23:34
+  2021-02-02 10:48:06
 \end{enumerate}
 
 \hypertarget{programacao}{%
@@ -10731,15 +10924,15 @@ No site do \href{http://cran-logs.rstudio.com/}{Rstudio CRAN logs}\footnote{\url
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  PT
+  HU
 \item
-  VE
+  JM
 \item
-  DO
+  MD
+\item
+  CR
 \item
   US
-\item
-  BE
 \end{enumerate}
 
 \hypertarget{limpando-estruturando}{%
@@ -10834,57 +11027,51 @@ Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin
 01 -
 Considere o \texttt{dataframe} criado com o código a seguir:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
+\begin{verbatim}
+library(tidyverse)
 
-\NormalTok{my\_N \textless{}{-} 100}
+my_N <- 100
 
-\NormalTok{df \textless{}{-} bind\_rows(tibble(ticker = rep(\textquotesingle{}STOCK 1\textquotesingle{}, my\_N),}
-\NormalTok{                       ref\_date = Sys.Date() + 1:my\_N,}
-\NormalTok{                       price = 100 + cumsum(rnorm(my\_N))),}
-\NormalTok{                tibble(ticker = rep(\textquotesingle{}STOCK 2\textquotesingle{}, my\_N),}
-\NormalTok{                       ref\_date = Sys.Date() + 1:my\_N,}
-\NormalTok{                       price = 100 + cumsum(rnorm(my\_N))) )}
+df <- bind_rows(tibble(ticker = rep('STOCK 1', my_N),
+                       ref_date = Sys.Date() + 1:my_N,
+                       price = 100 + cumsum(rnorm(my_N))),
+                tibble(ticker = rep('STOCK 2', my_N),
+                       ref_date = Sys.Date() + 1:my_N,
+                       price = 100 + cumsum(rnorm(my_N))) )
 
-\NormalTok{print(df)}
-\end{Highlighting}
-\end{Shaded}
+print(df)
+\end{verbatim}
 
 O formato do \texttt{dataframe} é longo ou largo? Explique sua resposta.
 
 02 -
 Modifique o formato do \texttt{dataframe} anterior, de longo para largo ou vice-versa.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
+\begin{verbatim}
+library(tidyverse)
 
-\NormalTok{my\_N \textless{}{-} 100}
+my_N <- 100
 
-\NormalTok{df \textless{}{-} bind\_rows(tibble(ticker = rep(\textquotesingle{}STOCK 1\textquotesingle{}, my\_N),}
-\NormalTok{                       ref\_date = Sys.Date() + 1:my\_N,}
-\NormalTok{                       price = 100 + cumsum(rnorm(my\_N))),}
-\NormalTok{                tibble(ticker = rep(\textquotesingle{}STOCK 2\textquotesingle{}, my\_N),}
-\NormalTok{                       ref\_date = Sys.Date() + 1:my\_N,}
-\NormalTok{                       price = 100 + cumsum(rnorm(my\_N))) )}
+df <- bind_rows(tibble(ticker = rep('STOCK 1', my_N),
+                       ref_date = Sys.Date() + 1:my_N,
+                       price = 100 + cumsum(rnorm(my_N))),
+                tibble(ticker = rep('STOCK 2', my_N),
+                       ref_date = Sys.Date() + 1:my_N,
+                       price = 100 + cumsum(rnorm(my_N))) )
 
-\NormalTok{print(df)}
-\end{Highlighting}
-\end{Shaded}
+print(df)
+\end{verbatim}
 
 03 -
 Considere a seguinte lista:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
+\begin{verbatim}
+library(tidyverse)
 
-\NormalTok{my\_l \textless{}{-} list(df1 = tibble(x = 1:100, y = runif(100)),}
-\NormalTok{             df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),}
-\NormalTok{             df3 = tibble(x = 1:100, y = runif(100), z = runif(100)) )}
-\end{Highlighting}
-\end{Shaded}
+my_l <- list(df1 = tibble(x = 1:100, y = runif(100)),
+             df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),
+             df3 = tibble(x = 1:100, y = runif(100), z = runif(100)) )
+\end{verbatim}
 
 Agrege todos \texttt{dataframes} em \texttt{my\_l} para um objeto único usando funções \texttt{do.call} ou \texttt{dplyr::bind\_rows}. O que aconteceu com os dados de \texttt{df1} onde colunas \texttt{v} e \texttt{z} não existem?
 
@@ -10895,15 +11082,15 @@ Utilize pacote \texttt{BatchGetSymbols} para baixar os dados do índice SP500 (\
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
+  0.5834
+\item
+  0.7691
+\item
   0.5014
 \item
-  0.7740
+  0.6763
 \item
-  1.2754
-\item
-  0.2184
-\item
-  0.3257
+  0.8620
 \end{enumerate}
 
 05 -
@@ -10913,15 +11100,15 @@ Use função \texttt{replace\_outliers} (veja seção \ref{fct-replace}), criada
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  2977
+  5574
 \item
-  16771
+  4101
 \item
-  7282
+  7281
 \item
-  4650
+  2627
 \item
-  9489
+  1154
 \end{enumerate}
 
 06 -
@@ -10937,15 +11124,15 @@ Para os mesmos dados diários do FTSE, verifique as datas e preços das 20 maior
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  1,40\%
-\item
   2,53\%
 \item
-  1,91\%
+  3,85\%
 \item
-  0,88\%
+  2,82\%
 \item
-  0,37\%
+  3,34\%
+\item
+  4,37\%
 \end{enumerate}
 
 \hypertarget{figuras}{%
@@ -11434,24 +11621,22 @@ Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin
 01 -
 Simule o seguinte processo linear no R:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{set.seed(5)}
+\begin{verbatim}
+set.seed(5)
 
-\NormalTok{\# number of obs}
-\NormalTok{n\_row \textless{}{-} 100}
+# number of obs
+n_row <- 100
 
-\NormalTok{\# set x as Normal (0, 1)}
-\NormalTok{x \textless{}{-} rnorm(n\_row)}
+# set x as Normal (0, 1)
+x <- rnorm(n_row)
 
-\NormalTok{\# set coefficients}
-\NormalTok{my\_alpha \textless{}{-} 1.5}
-\NormalTok{my\_beta \textless{}{-} 0.5}
+# set coefficients
+my_alpha <- 1.5
+my_beta <- 0.5
 
-\NormalTok{\# build y}
-\NormalTok{y \textless{}{-} my\_alpha + my\_beta*x + rnorm(n\_row)}
-\end{Highlighting}
-\end{Shaded}
+# build y
+y <- my_alpha + my_beta*x + rnorm(n_row)
+\end{verbatim}
 
 A partir de \texttt{x} e \texttt{y}, estime um modelo linear onde \texttt{x} é a variável explicativa e \texttt{y} é a variável explicada. Use função \texttt{summary} no objeto de retorno da estimação para obter mais detalhes sobre o modelo. Qual é o valor do beta estimado dos dados simulados?
 
@@ -11696,20 +11881,18 @@ Todas soluções de exercícios estão disponíveis em \url{https://www.msperlin
 01 -
 Considere o seguinte código:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{library(tidyverse)}
-\NormalTok{library(forecast)}
-\NormalTok{library(BatchGetSymbols)}
+\begin{verbatim}
+library(tidyverse)
+library(forecast)
+library(BatchGetSymbols)
 
-\NormalTok{ticker \textless{}{-} \textquotesingle{}\^{}GSPC\textquotesingle{}}
-\NormalTok{df\_prices \textless{}{-} BatchGetSymbols(tickers = ticker, }
-\NormalTok{                             first.date = \textquotesingle{}2010{-}01{-}01\textquotesingle{})[[2]]}
+ticker <- '^GSPC'
+df_prices <- BatchGetSymbols(tickers = ticker, 
+                             first.date = '2010-01-01')[[2]]
 
-\NormalTok{my\_arima \textless{}{-} auto.arima(df\_prices$ret.adjusted.prices)}
-\NormalTok{summary(my\_arima)}
-\end{Highlighting}
-\end{Shaded}
+my_arima <- auto.arima(df_prices$ret.adjusted.prices)
+summary(my_arima)
+\end{verbatim}
 
 Use funcões \texttt{Rprof} e \texttt{profvis} para identificar o gargalo do código. Qual número da linha que está tomando maior tempo de execução?
 
