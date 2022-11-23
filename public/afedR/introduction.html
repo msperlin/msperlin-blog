@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 1 Introduction | Analyzing Financial and Economic Data with R - Online Edition</title>
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script>
+  
+      /* update total correct if #total_correct exists */
+      update_total_correct = function() {
+        if (t = document.getElementById("total_correct")) {
+          t.innerHTML =
+            document.getElementsByClassName("correct").length + " of " +
+            document.getElementsByClassName("solveme").length + " correct";
+        }
+      }
+      
+      /* solution button toggling function */
+      b_func = function() {
+        var cl = this.parentElement.classList;
+        if (cl.contains('open')) {
+          cl.remove("open");
+        } else {
+          cl.add("open");
+        }
+      }
+      
+      /* function for checking solveme answers */
+      solveme_func = function(e) {
+        var real_answers = JSON.parse(this.dataset.answer);
+        var my_answer = this.value;
+        var cl = this.classList;
+        if (cl.contains("ignorecase")) {
+          my_answer = my_answer.toLowerCase();
+        }
+        if (cl.contains("nospaces")) {
+          my_answer = my_answer.replace(/ /g, "");
+        }
+        
+        if (my_answer !== "" & real_answers.includes(my_answer)) {
+          cl.add("correct");
+        } else {
+          cl.remove("correct");
+        }
+      
+        // match numeric answers within a specified tolerance
+        if(this.dataset.tol > 0){
+          var tol = JSON.parse(this.dataset.tol);  
+          var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+          if (matches.reduce((a, b) => a + b, 0) > 0) {
+            cl.add("correct");
+          } else {
+            cl.remove("correct");
+          }  
+        }
+      
+        // added regex bit
+        if (cl.contains("regex")){
+          answer_regex = RegExp(real_answers.join("|"))
+          if (answer_regex.test(my_answer)) {
+            cl.add("correct");
+          }  
+        }
+        
+        update_total_correct();
+      }
+      
+      window.onload = function() {
+        /* set up solution buttons */
+        var buttons = document.getElementsByTagName("button");
+      
+        for (var i = 0; i < buttons.length; i++) {
+          if (buttons[i].parentElement.classList.contains('solution')) {
+            buttons[i].onclick = b_func;
+          }
+        }
+        
+        /* set up solveme inputs */
+        var solveme = document.getElementsByClassName("solveme");
+      
+        for (var i = 0; i < solveme.length; i++) {
+          /* make sure input boxes don't auto-anything */
+          solveme[i].setAttribute("autocomplete","off");
+          solveme[i].setAttribute("autocorrect", "off");
+          solveme[i].setAttribute("autocapitalize", "off"); 
+          solveme[i].setAttribute("spellcheck", "false");
+          solveme[i].value = "";
+          
+          /* adjust answer for ignorecase or nospaces */
+          var cl = solveme[i].classList;
+          var real_answer = solveme[i].dataset.answer;
+          if (cl.contains("ignorecase")) {
+            real_answer = real_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            real_answer = real_answer.replace(/ /g, "");
+          }
+          solveme[i].dataset.answer = real_answer;
+          
+          /* attach checking function */
+          solveme[i].onkeyup = solveme_func;
+          solveme[i].onchange = solveme_func;
+        }
+        
+        update_total_correct();
+      }
+      
+      </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="css/style_html.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Analyzing Financial and Economic Data with R - Online Edition</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="about-new-edition.html">About New Edition</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="active" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="basicoperations.html"><span class="header-section-number">2</span> Basic Operations in R</a></li>
+<li><a class="" href="research-scripts.html"><span class="header-section-number">3</span> Writing Research Scripts</a></li>
+<li><a class="" href="importing.html"><span class="header-section-number">4</span> Importing Data from Local Files</a></li>
+<li><a class="" href="importing-internet.html"><span class="header-section-number">5</span> Importing Data from the Internet</a></li>
+<li><a class="" href="data-structure-objects.html"><span class="header-section-number">6</span> Dataframes and other objects</a></li>
+<li><a class="" href="basic-classes.html"><span class="header-section-number">7</span> Basic Object Classes</a></li>
+<li><a class="" href="programming.html"><span class="header-section-number">8</span> Programming and Data Analysis</a></li>
+<li><a class="" href="cleaning.html"><span class="header-section-number">9</span> Cleaning and Structuring Data</a></li>
+<li><a class="" href="figures.html"><span class="header-section-number">10</span> Creating and Saving Figures with ggplot2</a></li>
+<li><a class="" href="models.html"><span class="header-section-number">11</span> Financial Econometrics with R</a></li>
+<li><a class="" href="reporting.html"><span class="header-section-number">12</span> Reporting Results</a></li>
+<li><a class="" href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98297869-1', 'auto');
+  ga('send', 'pageview');
+
+</script><!-- Global site tag (gtag.js) - Google Analytics GOOGLE ADS--><script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-2">
+</script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89690212-2');
+</script><div id="introduction" class="section level1">
+<h1>
+<span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>In the digital era, information is abundant and accessible</strong>. From the ever-changing price of financial contracts to the unstructured data of social media websites, the high volume of information creates a strong need for data analysis in the workplace. A company or organization benefit immensely when it can create a bridge between raw information from its environment and making strategic decisions. Undoubtedly, this is a prolific time for professionals skilled in using the right tools for acquiring, storing, and analyzing data.</p>
+<p>In particular, datasets related to Economics and Finance are widely available to the public. International and local institutions, such as central banks, government research agencies, financial exchanges, and many others, provide their data publicly, either by legal obligation or to foment research. Whether you are looking into statistics for a particular country or a company, most information is just two clicks away. By analyzing this information efficiently and effortlessly, you’ll be able to offer valuable insights to your team.</p>
+<p>Not surprisingly, fields with abundant access to data and practical applications, such as economics and finance, it is expected that a graduate student or a data analyst has learned at least one programming language that allows him/her to do his work efficiently. <strong>Learning how to program is becoming a requisite for the job market</strong>. In this setup, the role and contribution of R shine. In these sections, I will explain what R is and why you should use it.</p>
+<div id="what-is-r" class="section level2">
+<h2>
+<span class="header-section-number">1.1</span> What is R<a class="anchor" aria-label="anchor" href="#what-is-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is a programming language specially designed to resolve statistical problems and display graphical representations of data. R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies). The base code of R was developed by two academics, <strong>Ross Ihaka</strong> and <strong>Robert Gentleman</strong>, resulting in the programming platform we have today. For anyone curious about the name, the letter R was chosen due to the common first letter of the name of their creators.  </p>
+<p>Today, R is almost synonymous with data analysis, with a large user base and consolidated modules. It is likely that researchers from various fields, from economics to biology, find in R significant preexisting code that facilitates their analysis.</p>
+<p>On the business side, large and established companies, such as <em>Google</em> and <em>Microsoft</em>, already adopted R as the internal language for data analysis. R is maintained by the <a href="https://www.r-project.org/foundation/"><strong>R Foundation</strong></a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.r-project.org/foundation/" class="uri"&gt;https://www.r-project.org/foundation/&lt;/a&gt;&lt;/p&gt;'><sup>7</sup></a> and the <a href="https://www.r-consortium.org/"><strong>R Consortium</strong></a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.r-consortium.org/" class="uri"&gt;https://www.r-consortium.org/&lt;/a&gt;&lt;/p&gt;'><sup>8</sup></a>, a collective effort to fund projects for extending the programming language.  </p>
+</div>
+<div id="why-choose-r" class="section level2">
+<h2>
+<span class="header-section-number">1.2</span> Why Choose R<a class="anchor" aria-label="anchor" href="#why-choose-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Learning a new programming language requires a lot of time and effort. Perhaps you’re wondering why you should choose R and invest time in learning it. Here are the main arguments.</p>
+<p>First, <strong>R is a mature and stable platform, continuously supported and intensively used in the industry</strong>. When choosing R, you will have the computational background not only for an academic career in scientific research but also to work as a data analyst in private organizations. Due to its open license, you can use R anywhere. Also, the strong support from the community means it is very unlikely the R platform will ever fade away or be substituted. Depending on your career choices, R might be the only programming language you ever need to learn.</p>
+<p><strong>Learning R is easy</strong>. My experience in teaching R allows me to confidently state that students, even those with no programming experience, have no problem learning the language and using it to create their own code. The language is intuitive and certain rules and functions can be extended to different cases. For example, the function <code>print</code> is used to show the contents of an object on the screen. You can use it for any kind of object. So, by learning the main concept, you’ll be able to apply it in different scenarios. Once you understand how the software expects you to think, it is easy to discover new features starting from a previous logic. This generic notation facilitates the learning process.</p>
+<p><strong>The engine of R and the interface of RStudio creates a highly productive environment</strong>. The graphical interface provided by RStudio facilitates the use of R and increases productivity by introducing new features to the platform. By combining both, the user has at his disposal many tools that facilitate the development of research scripts and other projects. </p>
+<p><strong>CRAN Packages allow the user to do many different things with R</strong>. We will soon learn that we can import external code directly into R as individual modules (packages) and use it for different purposes. These packages extend the basic language of R and enable the most diverse functionalities. You can, for example, use R to write and publish a book, build and publish a blog, create exams with dynamic content, write random jokes and poems (seriously!), send emails, access and collect data from the internet, and many other features. It is truly impressive what you can do with just a couple of lines of code in R.</p>
+<p><strong>R is compatible with different operating systems and it can interface with different programming languages</strong>. If you need to execute code from another programming language, such as <em>C++</em>, <em>Python</em>, <em>Julia</em>, it is easy to integrate it with R. Therefore, the user is not restricted to a single programming language and can easily use features and functions from others. For example, the C++ code is well known for its superior speed in numerical tasks. From an R script, you can use package <code>Rcpp</code> <span class="citation">(Eddelbuettel et al. <a href="references.html#ref-R-Rcpp" role="doc-biblioref">2021</a>)</span> to write a C++ function and effortlessly use it within your R code.   </p>
+<p><strong>R is free!</strong> The main software and all its packages are free. A generous license motivates the adoption of the R language in a business environment, where obtaining individual and collective licenses of commercial software can be costly. This means you can take R anywhere you go.</p>
+</div>
+<div id="what-can-you-do-with-r-and-rstudio" class="section level2">
+<h2>
+<span class="header-section-number">1.3</span> What Can You Do With R and RStudio?<a class="anchor" aria-label="anchor" href="#what-can-you-do-with-r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is a fairly complete programming language and any computational problem can be solved based on it. Given the adoption of R for different areas of knowledge, the list is extensive. With finance and economics, I can highlight the following possibilities:</p>
+<ul>
+<li><p>Substitute and improve data-intensive tasks from spreadsheet-like software;</p></li>
+<li><p>Develop routines for managing investment portfolios and executing financial orders;</p></li>
+<li><p>Creating tools for calculating and reporting economic indices such as inflation and unemployment;</p></li>
+<li><p>Performing empirical data research using statistical techniques, such as econometric models and hypothesis testing;</p></li>
+<li><p>Create dynamic <em>websites</em> with the <code>shiny</code> <span class="citation">(Chang et al. <a href="references.html#ref-R-shiny" role="doc-biblioref">2021</a>)</span> package, allowing anyone in the world to use a computational tool created by you; </p></li>
+<li><p>Automate the process of writing technical reports with the <strong>RMarkdown</strong> technology; </p></li>
+</ul>
+<p>Moreover, public access to packages developed by users further expands these capabilities. The <a href="https://cran.r-project.org/web/views">CRAN views website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/views" class="uri"&gt;https://cran.r-project.org/web/views&lt;/a&gt;&lt;/p&gt;'><sup>9</sup></a> offers a <em>Task Views</em> panel for the topic of <a href="https://cran.r-project.org/web/views/Finance.html">Finance</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/views/Finance.html" class="uri"&gt;https://cran.r-project.org/web/views/Finance.html&lt;/a&gt;&lt;/p&gt;'><sup>10</sup></a> and <a href="https://cran.r-project.org/web/views/Econometrics.html">Econometrics</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://cran.r-project.org/web/views/Econometrics.html" class="uri"&gt;https://cran.r-project.org/web/views/Econometrics.html&lt;/a&gt;&lt;/p&gt;'><sup>11</sup></a>. There you can find the main packages to perform specific operations such as importing financial data from the internet, estimating econometric models, calculation of different risk estimates, among many other possibilities. Reading this page and the knowledge of these packages is essential for those who intend to work in Finance and Economics. It is worth noting, however, that the complete list of packages is much larger.</p>
+<div class="rmdimportant">
+<p>
+Be aware that R has a consistent release schedule. Every four months a new version of R is released, fixing <em>bugs</em> and implementing new solutions. There are two main types of releases, <em>major</em> and <em>minor</em>. For example, today, 2021-02-24, the latest version of R is 4.0.4. The first digit (“4”) indicates the <em>major</em> release while all others are of the <em>minor</em> type. Generally, the <em>minor</em> changes are very specific and, possibly, will have little impact on your work.
+</p>
+<p>
+However, unlike <em>minor</em> releases, <strong><em>major</em> releases are fully reflected in the R package ecosystem</strong>. Every time you install a new <em>major</em> version of R, you will have to reinstall all packages. Particularly, the problem here is that it is not uncommon that a new major release comes with package incompatibility issues. My advice is: every time a new <em>major</em> release of R comes out, <strong>wait a few months</strong> before installing it on your machine. Thus, the authors of the packages will have more time to update their codes, minimizing the possibility of compatibility problems.
+</p>
+</div>
+</div>
+<div id="installing" class="section level2">
+<h2>
+<span class="header-section-number">1.4</span> Installing R<a class="anchor" aria-label="anchor" href="#installing"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before going any further, let’s install the required software on your computer. The most direct and practical way to install R is to direct your browser to <a href="http://www.r-project.org/">R website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://www.r-project.org/" class="uri"&gt;http://www.r-project.org/&lt;/a&gt;&lt;/p&gt;'><sup>12</sup></a> and click the <em>Download</em> link in the left side of the page, as shown in Figure <a href="introduction.html#fig:website-cran-1">1.1</a>.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:website-cran-1"></span>
+<img src="figs/website_cran_1.png" alt="Initial page for downloading R" width="100%"><p class="caption">
+Figure 1.1: Initial page for downloading R
+</p>
+</div>
+<p>The next screen gives you a choice of the mirror to download the installation files. The CRAN repository (<em>R Comprehensive Archive network</em>) is mirrored in various parts of the world. You can choose one of the links from the nearest location to you. If undecided, just select the mirror <em>0-Cloud</em> (see Figure <a href="introduction.html#fig:website-cran-2">1.2</a>), which will automatically take you to the nearest location.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:website-cran-2"></span>
+<img src="figs/website_cran_2.png" alt="Choosing the CRAN mirror" width="100%"><p class="caption">
+Figure 1.2: Choosing the CRAN mirror
+</p>
+</div>
+<p>The next step involves selecting your operating system, likely to be <em>Windows</em>. From now on, due to the greater popularity of this platform, we will focus on installing R in Windows. The instructions for installing R in other operating systems can be easily found <a href="https://www.google.com.br/webhp?sourceid=chrome-instant&amp;ion=1&amp;espv=2&amp;ie=UTF-8#q=installing+r&amp;*">online</a>. Regardless of the underlying platform, using R is about the same. There are a few exceptions, especially when R interacts with the file system. In the content of the book, special care was taken to choose functions that work the same way in different operating systems. A few exceptions are highlighted throughout the book. So, even if you are using a Mac or a flavor of Linux, you can take full advantage of the material presented here.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:website-cran-3"></span>
+<img src="figs/website_cran_3.png" alt="Choosing the operating system" width="100%"><p class="caption">
+Figure 1.3: Choosing the operating system
+</p>
+</div>
+<p>After clicking the link <em>Download R for Windows</em>, as in Figure <a href="introduction.html#fig:website-cran-3">1.3</a>, the next screen will show the following download options: <em>base</em>, <em>contrib</em>, <em>old.contrib</em> and <em>RTools</em>. The first (<em>base</em>), should be selected. It contains the download link to the executable installation file of R in <em>Windows</em>.</p>
+<p>If the user is interested in creating and distributing their own R packages, <em>RTools</em> should also be installed. For most users, however, this should not be the case. If you don’t intend to write packages, you can safely ignore <em>Rtools</em> for now. The links to <em>contrib</em> and <em>old.contrib</em> relate to files for the current and old releases of R packages and can also be ignored. We will discuss the use of packages in the next chapter.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:website-cran-4"></span>
+<img src="figs/website_cran_4.png" alt="Installation options" width="100%"><p class="caption">
+Figure 1.4: Installation options
+</p>
+</div>
+<p>After clicking the link <em>base</em>, the next screen will show the link to the <em>download</em> of the R installation file (Figure <a href="introduction.html#fig:website-cran-5">1.5</a>). After downloading the file, open it and follow the steps in the installation screen. At this time, no special configuration is required. I suggest keeping all the default choices and simply hit <em>accept</em> in the displayed dialogue screens. After the installation of R, it is strongly recommended to install RStudio, which will be addressed next.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:website-cran-5"></span>
+<img src="figs/website_cran_5.png" alt="Downloading R" width="100%"><p class="caption">
+Figure 1.5: Downloading R
+</p>
+</div>
+</div>
+<div id="installing-rstudio" class="section level2">
+<h2>
+<span class="header-section-number">1.5</span> Installing RStudio<a class="anchor" aria-label="anchor" href="#installing-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>The base installation of R includes its own <em>GUI</em> (graphical user interface), where we can write and execute code. However, this native interface has several limitations. RStudio substitutes the original GUI and makes access to R more practical and efficient. One way to understand this relationship is with an analogy with cars. While R is the engine of the programming language, RStudio is the body and instrument panel, which significantly improves the user experience. Besides presenting a more attractive look, RStudio also adds several features that make the life of a programmer easier, allowing the creation of projects and packages, creation of dynamic documents, among others. </p>
+<p>The installation of RStudio is simpler than that of R. The files are available in <a href="https://www.rstudio.com/">RStudio website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.rstudio.com/" class="uri"&gt;https://www.rstudio.com/&lt;/a&gt;&lt;/p&gt;'><sup>13</sup></a>. After accessing the page, click <em>Download RStudio</em> and then <em>Download RStudio Desktop</em>. After that, just select the installation file relative to the operating system on which you will work. This option is probably <em>WINDOWS Vista 7/8/10</em>. Note that, as well as R, RStudio is also available for alternative platforms.</p>
+<p>I emphasize that using RStudio is not essential to develop programs in R. Other interfaces are available and can be used. However, in my experience, RStudio is the interface that offers a vast range of features for the language and is widely used, which justifies its choice.</p>
+</div>
+<div id="resources-in-the-web" class="section level2">
+<h2>
+<span class="header-section-number">1.6</span> Resources in the Web<a class="anchor" aria-label="anchor" href="#resources-in-the-web"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>The R community is vivid and engaging</strong>. There are many authors, such as <a href="https://www.msperlin.com/blog">myself</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.msperlin.com/blog" class="uri"&gt;https://www.msperlin.com/blog&lt;/a&gt;&lt;/p&gt;'><sup>14</sup></a>, that constantly release material about R in their blogs. It includes the announcement of new packages, posts about data analysis in real life, curiosities, rants, and tutorials. <a href="https://www.r-bloggers.com/">R-Bloggers</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.r-bloggers.com/" class="uri"&gt;https://www.r-bloggers.com/&lt;/a&gt;&lt;/p&gt;'><sup>15</sup></a> is a website that aggregates these blogs, making it easier for anyone to access and participate. I strongly recommend to sign up for the R-Bloggers feed in <a href="https://feeds.feedburner.com/RBloggers">RSS</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://feeds.feedburner.com/RBloggers" class="uri"&gt;https://feeds.feedburner.com/RBloggers&lt;/a&gt;&lt;/p&gt;'><sup>16</sup></a>, <a href="https://www.facebook.com/rbloggers/?fref=ts">Facebook</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.facebook.com/rbloggers/?fref=ts" class="uri"&gt;https://www.facebook.com/rbloggers/?fref=ts&lt;/a&gt;&lt;/p&gt;'><sup>17</sup></a> or <a href="https://twitter.com/Rbloggers">Twitter</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://twitter.com/Rbloggers" class="uri"&gt;https://twitter.com/Rbloggers&lt;/a&gt;&lt;/p&gt;'><sup>18</sup></a>. Not only you’ll be informed of what is happening in the R community, but also learn a lot by reading other people’s code and articles. </p>
+<p>Learning and using R can be a social experience. Several conferences and user-groups are available in many countries. You can find the complete list in this <a href="https://jumpingrivers.github.io/meetingsR/index.html">link</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://jumpingrivers.github.io/meetingsR/index.html" class="uri"&gt;https://jumpingrivers.github.io/meetingsR/index.html&lt;/a&gt;&lt;/p&gt;'><sup>19</sup></a>. I also suggest looking in social platforms for local R groups in your region.</p>
+</div>
+<div id="structure-and-organization" class="section level2">
+<h2>
+<span class="header-section-number">1.7</span> Structure and Organization<a class="anchor" aria-label="anchor" href="#structure-and-organization"><i class="fas fa-link"></i></a>
+</h2>
+<p>This book presents a practical approach to using R in finance and economics. To get the most out of this book, I suggest you first seek to understand the code shown, and only then, try using it on your own computer. Whenever you find a piece of code that you do not understand, go on and study it. At first, it might seem like a daunting task but, with time, be confident that the learning process will get a lot easier as the code blocks start to make sense.</p>
+<p>Learning to program in a new platform is like learning a foreign spoken language: the use in day-to-day problems is imperative to create fluency. All the code and data used in this book is available with the installation of package <code>afedR</code> (see the preface for instructions on how to install it). I suggest you test the code on your computer and <em>play</em> with it, modifying the examples and checking the effect of changes in the outputs. Whenever you have a computational problem, try using R to solve it. You’ll stumble and make mistakes at first. But I guarantee that, soon enough, you’ll be able to write complex data tasks effortlessly.</p>
+<p>Throughout the book, every demonstration of code will have two parts: the R code and its output. The output is nothing more than the result of the commands on the screen. All inputs and outputs code will be marked in the text with a special format. See the following example:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create a list</span>
+<span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'abc'</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="st">'dec'</span><span class="op">)</span>
+
+<span class="co"># print list</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">L</span><span class="op">)</span></code></pre></div>
+<pre><code>R&gt; [[1]]
+R&gt; [1] "abc"
+R&gt; 
+R&gt; [[2]]
+R&gt; [1] 1 2 3 4 5
+R&gt; 
+R&gt; [[3]]
+R&gt; [1] "dec"</code></pre>
+<p>For the previous chunk of code, lines <code>L &lt;- list('abc', 1:5, 'dec')</code> and <code><a href="https://rdrr.io/r/base/print.html">print(L)</a></code> are actual commands given to R. The output of this simple piece of code is the on-screen presentation of the contents of object <code>L</code>. The symbol <code>R&gt;</code> is used for any code output. Notice also that inline comments are set with the symbol <code>#</code>. Anything on the right side of <code>#</code> is not evaluated by R. These comments serve as written notes about the code.</p>
+<p>The code can also be spatially organized using newlines. This is a common strategy around arguments of functions. The next chunk of code is equivalent to the previous and will run the exact same way. Notice how we used a new line to vertically align the arguments of function <code>list</code>. You’ll soon see that, throughout the book, this type of vertical alignment is constantly used.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create a list</span>
+<span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'abc'</span>, 
+          <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, 
+          <span class="st">'dec'</span><span class="op">)</span>
+
+<span class="co"># print list</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">L</span><span class="op">)</span></code></pre></div>
+<pre><code>R&gt; [[1]]
+R&gt; [1] "abc"
+R&gt; 
+R&gt; [[2]]
+R&gt; [1] 1 2 3 4 5
+R&gt; 
+R&gt; [[3]]
+R&gt; [1] "dec"</code></pre>
+<p>The code also follows a well-defined structure. One decision in writing computer code is how to name objects and how to structure it. It is recommended to follow a clear pattern, so it is easy to maintain over time and be used and understood by others. For this book, a mixture of the author’s personal choices with the coding style suggested by <a href="https://google.github.io/styleguide/Rguide.xml">Google</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://google.github.io/styleguide/Rguide.xml" class="uri"&gt;https://google.github.io/styleguide/Rguide.xml&lt;/a&gt;&lt;/p&gt;'><sup>20</sup></a> was used. The reader, however, may choose the structure he finds more efficient and aesthetically pleasing. Like many things in life, this is a choice. We will get back at discussing code structure in chapter <a href="optimizing.html#optimizing">13</a>.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2>
+<span class="header-section-number">1.8</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h2>
+<hr>
+<p><span id="total_correct"></span></p>
+<div id="q.1" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The R language was developed based on what other programming language?</p>
+<br> Your Answer: <select class="solveme" data-answer='["S"]'><option></option>
+<option>Julia</option>
+<option>C++</option>
+<option>Javascript</option>
+<option>S</option>
+<option>Python</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa02670e28a" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa02670e28a" class="collapse">
+The solution is S. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+Straight from the book, section <strong>What is R</strong>: “R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies).”
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.2" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2"><i class="fas fa-link"></i></a>
+</h3>
+<p>What are the names of the two authors of R?</p>
+<br> Your Answer: <select class="solveme" data-answer='["Ross Ihaka and Robert Gentleman"]'><option></option>
+<option>Ross Ihaka and Robert Gentleman</option>
+<option>John Chambers and Robert Engle</option>
+<option>Guido van Rossum and Bjarne Stroustrup</option>
+<option>Linus Torvalds and Richard Stallman</option>
+<option>Roger Federer and Rafael Nadal</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa0355fd967" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa0355fd967" class="collapse">
+The solution is Ross Ihaka and Robert Gentleman. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+<p>Straight from the book: “… The base code of R was developed by two academics, <strong>Ross Ihaka</strong> and <strong>Robert Gentleman</strong>, resulting in the programming platform we have today.”.</p>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.3" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Why is R special when comparing to other programming languages, such as Python, C++, javascript and others?</p>
+<br> Your Answer: <select class="solveme" data-answer='["It was designed for analyzing data and producing statistical output"]'><option></option>
+<option>Easy to use</option>
+<option>It was designed for analyzing data and producing statistical output</option>
+<option>Makes it easy to write mobile apps</option>
+<option>Quick code execution</option>
+<option>Works on any plataform such as Windows, Unix, MacOS</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa05ef2524c" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa05ef2524c" class="collapse">
+The solution is It was designed for analyzing data and producing statistical output. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platform. Although other languages also allow data analysis, it is in R where this process is supported by a wide range of specialized packages.
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.4" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4"><i class="fas fa-link"></i></a>
+</h3>
+<p>What was the reason the programming language was named R?</p>
+<br> Your Answer: <select class="solveme" data-answer='["Letter R is shared in the first names of its authors."]'><option></option>
+<option>R = Reausable code.</option>
+<option>Letter R is cool!</option>
+<option>It was the only available letter, not yet used as a programming language.</option>
+<option>The mother of one of the authors is called Renata.</option>
+<option>Letter R is shared in the first names of its authors.</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa02c8f4dc0" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa02c8f4dc0" class="collapse">
+The solution is Letter R is shared in the first names of its authors.. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+The letter R was chosen due to its use in the first letter of the two authors of the platform.
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.5" class="section level3 unnumbered">
+<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the following alternatives about R and RStudio:</p>
+<p>I - R is a mature and stable programming platform;</p>
+<p>II - RStudio is an modern interface to R, increasing productivity;</p>
+<p>III - R is not compatible with different programming languages;</p>
+<p>Which alternatives are correct?</p>
+<br> Your Answer: <select class="solveme" data-answer='["TRUE, TRUE, FALSE"]'><option></option>
+<option>FALSE, FALSE, TRUE</option>
+<option>FALSE, TRUE, TRUE</option>
+<option>TRUE, FALSE, FALSE</option>
+<option>TRUE, TRUE, FALSE</option>
+<option>TRUE, FALSE, TRUE</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa02eb612d1" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa02eb612d1" class="collapse">
+The solution is TRUE, TRUE, FALSE. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+See section “Why Choose R” in the “Introduction” chapter.
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.6" class="section level3 unnumbered">
+<h3>Q.6<a class="anchor" aria-label="anchor" href="#q.6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Once you have R and RStudio installed, head over to the <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">CRAN package website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;https: //cloud.r- project.org/web/packages/available_packages_by_date.html&lt;/p&gt;"><sup>21</sup></a> and look for technologies you use in your work. For example, if you use <a href="https://www.google.com/sheets/about/">Google Sheets</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.google.com/sheets/about/" class="uri"&gt;https://www.google.com/sheets/about/&lt;/a&gt;&lt;/p&gt;'><sup>22</sup></a> ostensibly in your work, you will soon discover that there is a package in CRAN that interacts with spreadsheets in the cloud.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa01902e169" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa01902e169" class="collapse">
+<div class="card card-body">
+<ol style="list-style-type: decimal">
+<li>Browse <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">CRAN package website</a>
+</li>
+<li>Search for technologies you use in your work (Excel, Word, Google Docs, …)</li>
+</ol>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.7" class="section level3 unnumbered">
+<h3>Q.7<a class="anchor" aria-label="anchor" href="#q.7"><i class="fas fa-link"></i></a>
+</h3>
+<p>On the <a href="https://cloud.r-project.org/bin/windows/">CRAN site</a> you can also install the Rtools application. What is it for?</p>
+<br> Your Answer: <select class="solveme" data-answer='["Compile R packages locally"]'><option></option>
+<option>Compile graphics.</option>
+<option>Build web pages.</option>
+<option>Make coffee (?).</option>
+<option>Compile technical reports.</option>
+<option>Compile R packages locally</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa02e730aa1" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa02e730aa1" class="collapse">
+The solution is Compile R packages locally. To reach the same result, you must execute the code below. For that, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+<p>Rtools is an extension particular to R on Windows. It is used to compile packages from source code and is a requirement for those who develop packages. For the average user, however, it is also recommended to install Rtools as some packages require such compilation.</p>
+<p>For Linux/Unix or MacOS users, Rtools is not necessary as, generally, compilers are already available by the operating system itself.</p>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.8" class="section level3 unnumbered">
+<h3>Q.8<a class="anchor" aria-label="anchor" href="#q.8"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <a href="https://www.google.com/search?q=R+groups+in+my+city">Google</a> to search for R groups in your region. Check if the meetings are frequent and, if you don’t have a major impediment, go to one of these meetings and make new friends.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa056b96313" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa056b96313" class="collapse">
+<div class="card card-body">
+<p>It is not uncommon for programmers to have a tendency for introversion. This was certainly my case at the beginning of my career. But, know that shyness is a non-permanent state, a defense mechanism created by yourself against threats that don’t really exist! In the same way that you will improve in any sport at the rate of how often you practice it, the more comunicative you’ll become by simply speaking more.</p>
+<p>The sad (or not) reality for the timid is that communication is a fundamental part of the adult life and is a way to maintain your professional network. The more people who know your work and your personality, the better. Perhaps a person you met in one of these groups can refer you to a job vacancy or future project. So, resuming, what do you really have to lose by going to one of these meetings?</p>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.9" class="section level3 unnumbered">
+<h3>Q.9<a class="anchor" aria-label="anchor" href="#q.9"><i class="fas fa-link"></i></a>
+</h3>
+<p>Go to the <a href="https://www.r-bloggers.com/">RBloggers website</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://www.r-bloggers.com/" class="uri"&gt;https://www.r-bloggers.com/&lt;/a&gt;&lt;/p&gt;'><sup>23</sup></a> and look for a topic of interest to you, such as football (<em>soccer</em>) or investments (<em>investments</em>). Read at least three of the found blog posts.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa01e898eb5" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa01e898eb5" class="collapse">
+<div class="card card-body">
+<p>I am particularly passionate about the sport of tennis. On the RBloggers website I’ve found the following articles mixing R and tennis:</p>
+<p><a href="https://www.r-bloggers.com/2017/02/using-r-to-study-the-evolution-of-tennis/">Using R to study the evolution of Tennis</a></p>
+<p><a href="https://www.r-bloggers.com/2017/05/visualizing-tennis-grand-slam-winners-performances/">Visualizing Tennis Grand Slam Winners Performances</a></p>
+<p><a href="https://www.r-bloggers.com/2017/12/tennis-grand-slam-tournaments-champions-basic-analysis/">Tennis Grand Slam Tournaments Champions Basic Analysis</a></p>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.10" class="section level3 unnumbered">
+<h3>Q.10<a class="anchor" aria-label="anchor" href="#q.10"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you work in an institution with data infrastructure, talk to the person in charge of the IT department and verify what technologies are used. Check if, through R, it is possible to access all tables in the databases. For now there is no need to write code, yet. Just check if this possibility exists.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa071ecf480" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa071ecf480" class="collapse">
+<div class="card card-body">
+<p>At the university we have access to different paid repositories for financial data. Unfortunately, none of them offers any type of API for communicating with R. In fact, this was one of the motivators for writing R packages for free access to financial data.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://afedr-ed2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  <div class="chapter-nav">
+<div class="prev"><a href="preface.html">Preface</a></div>
+<div class="next"><a href="basicoperations.html"><span class="header-section-number">2</span> Basic Operations in R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="nav-link" href="#what-is-r"><span class="header-section-number">1.1</span> What is R</a></li>
+<li><a class="nav-link" href="#why-choose-r"><span class="header-section-number">1.2</span> Why Choose R</a></li>
+<li><a class="nav-link" href="#what-can-you-do-with-r-and-rstudio"><span class="header-section-number">1.3</span> What Can You Do With R and RStudio?</a></li>
+<li><a class="nav-link" href="#installing"><span class="header-section-number">1.4</span> Installing R</a></li>
+<li><a class="nav-link" href="#installing-rstudio"><span class="header-section-number">1.5</span> Installing RStudio</a></li>
+<li><a class="nav-link" href="#resources-in-the-web"><span class="header-section-number">1.6</span> Resources in the Web</a></li>
+<li><a class="nav-link" href="#structure-and-organization"><span class="header-section-number">1.7</span> Structure and Organization</a></li>
+<li>
+<a class="nav-link" href="#exercises"><span class="header-section-number">1.8</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#q.1">Q.1</a></li>
+<li><a class="nav-link" href="#q.2">Q.2</a></li>
+<li><a class="nav-link" href="#q.3">Q.3</a></li>
+<li><a class="nav-link" href="#q.4">Q.4</a></li>
+<li><a class="nav-link" href="#q.5">Q.5</a></li>
+<li><a class="nav-link" href="#q.6">Q.6</a></li>
+<li><a class="nav-link" href="#q.7">Q.7</a></li>
+<li><a class="nav-link" href="#q.8">Q.8</a></li>
+<li><a class="nav-link" href="#q.9">Q.9</a></li>
+<li><a class="nav-link" href="#q.10">Q.10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2021-03-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

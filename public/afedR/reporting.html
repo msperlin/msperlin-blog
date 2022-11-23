@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 Reporting Results | Analyzing Financial and Economic Data with R - Online Edition</title>
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script>
+  
+      /* update total correct if #total_correct exists */
+      update_total_correct = function() {
+        if (t = document.getElementById("total_correct")) {
+          t.innerHTML =
+            document.getElementsByClassName("correct").length + " of " +
+            document.getElementsByClassName("solveme").length + " correct";
+        }
+      }
+      
+      /* solution button toggling function */
+      b_func = function() {
+        var cl = this.parentElement.classList;
+        if (cl.contains('open')) {
+          cl.remove("open");
+        } else {
+          cl.add("open");
+        }
+      }
+      
+      /* function for checking solveme answers */
+      solveme_func = function(e) {
+        var real_answers = JSON.parse(this.dataset.answer);
+        var my_answer = this.value;
+        var cl = this.classList;
+        if (cl.contains("ignorecase")) {
+          my_answer = my_answer.toLowerCase();
+        }
+        if (cl.contains("nospaces")) {
+          my_answer = my_answer.replace(/ /g, "");
+        }
+        
+        if (my_answer !== "" & real_answers.includes(my_answer)) {
+          cl.add("correct");
+        } else {
+          cl.remove("correct");
+        }
+      
+        // match numeric answers within a specified tolerance
+        if(this.dataset.tol > 0){
+          var tol = JSON.parse(this.dataset.tol);  
+          var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+          if (matches.reduce((a, b) => a + b, 0) > 0) {
+            cl.add("correct");
+          } else {
+            cl.remove("correct");
+          }  
+        }
+      
+        // added regex bit
+        if (cl.contains("regex")){
+          answer_regex = RegExp(real_answers.join("|"))
+          if (answer_regex.test(my_answer)) {
+            cl.add("correct");
+          }  
+        }
+        
+        update_total_correct();
+      }
+      
+      window.onload = function() {
+        /* set up solution buttons */
+        var buttons = document.getElementsByTagName("button");
+      
+        for (var i = 0; i < buttons.length; i++) {
+          if (buttons[i].parentElement.classList.contains('solution')) {
+            buttons[i].onclick = b_func;
+          }
+        }
+        
+        /* set up solveme inputs */
+        var solveme = document.getElementsByClassName("solveme");
+      
+        for (var i = 0; i < solveme.length; i++) {
+          /* make sure input boxes don't auto-anything */
+          solveme[i].setAttribute("autocomplete","off");
+          solveme[i].setAttribute("autocorrect", "off");
+          solveme[i].setAttribute("autocapitalize", "off"); 
+          solveme[i].setAttribute("spellcheck", "false");
+          solveme[i].value = "";
+          
+          /* adjust answer for ignorecase or nospaces */
+          var cl = solveme[i].classList;
+          var real_answer = solveme[i].dataset.answer;
+          if (cl.contains("ignorecase")) {
+            real_answer = real_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            real_answer = real_answer.replace(/ /g, "");
+          }
+          solveme[i].dataset.answer = real_answer;
+          
+          /* attach checking function */
+          solveme[i].onkeyup = solveme_func;
+          solveme[i].onchange = solveme_func;
+        }
+        
+        update_total_correct();
+      }
+      
+      </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="css/style_html.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Analyzing Financial and Economic Data with R - Online Edition</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="about-new-edition.html">About New Edition</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="basicoperations.html"><span class="header-section-number">2</span> Basic Operations in R</a></li>
+<li><a class="" href="research-scripts.html"><span class="header-section-number">3</span> Writing Research Scripts</a></li>
+<li><a class="" href="importing.html"><span class="header-section-number">4</span> Importing Data from Local Files</a></li>
+<li><a class="" href="importing-internet.html"><span class="header-section-number">5</span> Importing Data from the Internet</a></li>
+<li><a class="" href="data-structure-objects.html"><span class="header-section-number">6</span> Dataframes and other objects</a></li>
+<li><a class="" href="basic-classes.html"><span class="header-section-number">7</span> Basic Object Classes</a></li>
+<li><a class="" href="programming.html"><span class="header-section-number">8</span> Programming and Data Analysis</a></li>
+<li><a class="" href="cleaning.html"><span class="header-section-number">9</span> Cleaning and Structuring Data</a></li>
+<li><a class="" href="figures.html"><span class="header-section-number">10</span> Creating and Saving Figures with ggplot2</a></li>
+<li><a class="" href="models.html"><span class="header-section-number">11</span> Financial Econometrics with R</a></li>
+<li><a class="active" href="reporting.html"><span class="header-section-number">12</span> Reporting Results</a></li>
+<li><a class="" href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98297869-1', 'auto');
+  ga('send', 'pageview');
+
+</script><!-- Global site tag (gtag.js) - Google Analytics GOOGLE ADS--><script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-2">
+</script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89690212-2');
+</script><div id="reporting" class="section level1">
+<h1>
+<span class="header-section-number">12</span> Reporting Results<a class="anchor" aria-label="anchor" href="#reporting"><i class="fas fa-link"></i></a>
+</h1>
+<div class="pleasebuyit">
+<p>
+You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+</p>
+</div>
+<div id="reporting-tables" class="section level2">
+<h2>
+<span class="header-section-number">12.1</span> Reporting Tables<a class="anchor" aria-label="anchor" href="#reporting-tables"><i class="fas fa-link"></i></a>
+</h2>
+<div class="pleasebuyit">
+<p>
+You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+</p>
+</div>
+</div>
+<div id="reporting-models" class="section level2">
+<h2>
+<span class="header-section-number">12.2</span> Reporting Models<a class="anchor" aria-label="anchor" href="#reporting-models"><i class="fas fa-link"></i></a>
+</h2>
+<div class="pleasebuyit">
+<p>
+You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+</p>
+</div>
+</div>
+<div id="creating-rmarkdown" class="section level2">
+<h2>
+<span class="header-section-number">12.3</span> Creating Reports with <em>RMarkdown</em><a class="anchor" aria-label="anchor" href="#creating-rmarkdown"><i class="fas fa-link"></i></a>
+</h2>
+<div class="pleasebuyit">
+<p>
+You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+</p>
+</div>
+</div>
+<div id="exercises-13" class="section level2">
+<h2>
+<span class="header-section-number">12.4</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-13"><i class="fas fa-link"></i></a>
+</h2>
+<div class="pleasebuyit">
+<p>
+You reached the end of the online version of <em>Analyzing Financial and Economic Data with R</em>. The full content of the book can be acquired at <a href="https://www.amazon.com/dp/B084LSNXMN">Amazon</a> for less than ten dollars. Purchasing this book is a great way of supporting this and other projects of the <a href="https://www.msperlin.com/blog/">author</a>. If you are satisfied with the content, please leave your feedback at Amazon or by email (<a href="mailto:marceloperlin@gmail.com" class="email">marceloperlin@gmail.com</a>). The book is a lifelong project and I’ll keep improving it based on the received feedback.
+</p>
+</div>
+</div>
+<div id="exercises-14" class="section level2">
+<h2>
+<span class="header-section-number">12.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-14"><i class="fas fa-link"></i></a>
+</h2>
+<hr>
+<p><span id="total_correct"></span></p>
+<div id="q.1-11" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-11"><i class="fas fa-link"></i></a>
+</h3>
+<p>Observe the data available in the <code>grunfeld.csv</code> file. Import the data into R using package <code>afedR</code> and create a descriptive table of the variables. This table should provide enough information for the reader to understand the data. Use <code>xtable</code> package to report it in <em>LaTeX</em> or Word/Writer format.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa022a35620" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa022a35620" class="collapse">
+In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+<pre class="text"><code><a href="http://tidyverse.tidyverse.org">library(tidyverse)
+
+my_f &lt;-  afedR::get_data_file('grunfeld.csv')
+
+df_grunfeld &lt;- read_csv(my_f, col_types = cols())
+
+my_tab &lt;- tibble(nrows = nrow(df_grunfeld),
+                 ncol = ncol(df_grunfeld),
+                 n_companies = length(unique(df_grunfeld$firm)),
+                 n_years = length(unique(df_grunfeld$year)))
+
+my_tab
+
+library(xtable)
+
+# Save to lates
+# save to temp file
+my_tex_file &lt;- tempfile(pattern = 'table', fileext = '.tex')
+print(xtable(my_tab), file = my_tex_file)
+
+readr::read_lines(my_tex_file)</a></code></pre>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.2-11" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-11"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using the <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/GetSP500Stocks.html">BatchGetSymbols::GetSP500Stocks</a></code> function, select 4 stocks at random and download the adjusted price data for the last three years. Estimate an ARIMA(1, 0, 1) model for each stock and report the result on the R screen with the <code><a href="https://rdrr.io/pkg/texreg/man/screenreg.html">texreg::screenreg</a></code> function.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa03db95b25" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa03db95b25" class="collapse">
+In order to execute the code, open a new R script in RStudio (Control+shift+N), copy and paste the code, and execute it whole by pressing Control+Shift+Enter or line by line with shortcut Control+Enter.
+<div class="card card-body">
+<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+library(tidyverse)
+
+tickers &lt;- sample(GetSP500Stocks()$Tickers, 4)
+first_date &lt;- Sys.Date() - 3*365
+last_date  &lt;- Sys.Date()
+
+df_stocks &lt;- BatchGetSymbols(tickers = tickers, 
+                             first.date = first_date, 
+                             last.date = last_date)[[2]]
+
+my_tab &lt;- df_stocks %&gt;%
+  na.omit() %&gt;%
+  group_by(ticker) %&gt;%
+  do(my_arima = arima(x = .$ret.adjusted.prices, 
+                      order = c(1, 0, 1))) 
+
+glimpse(my_tab)
+
+# solution
+library(texreg)
+
+screenreg(my_tab$my_arima)</a></code></pre>
+</div>
+</div>
+<hr>
+<p><span id="total_correct"></span></p>
+</div>
+<div id="q.3-10" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-10"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a new <em>Rmarkdown</em> report from previous two exercises. Compile the report in html and open it in your <em>browser</em>.</p>
+<div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<p>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_3aa04da10c82" aria-expanded="false" aria-controls="collapseExample">
+Solution
+</button>
+</p>
+</div>
+<div id="collapse_3aa04da10c82" class="collapse">
+<div class="card card-body">
+See section <a href="reporting.html#creating-rmarkdown">12.3</a> – Creating Reports with <em>RMarkdown</em> – from the same chapter.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://afedr-ed2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  <div class="chapter-nav">
+<div class="prev"><a href="models.html"><span class="header-section-number">11</span> Financial Econometrics with R</a></div>
+<div class="next"><a href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#reporting"><span class="header-section-number">12</span> Reporting Results</a></li>
+<li><a class="nav-link" href="#reporting-tables"><span class="header-section-number">12.1</span> Reporting Tables</a></li>
+<li><a class="nav-link" href="#reporting-models"><span class="header-section-number">12.2</span> Reporting Models</a></li>
+<li><a class="nav-link" href="#creating-rmarkdown"><span class="header-section-number">12.3</span> Creating Reports with RMarkdown</a></li>
+<li><a class="nav-link" href="#exercises-13"><span class="header-section-number">12.4</span> Exercises</a></li>
+<li>
+<a class="nav-link" href="#exercises-14"><span class="header-section-number">12.5</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#q.1-11">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-11">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-10">Q.3</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2021-03-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

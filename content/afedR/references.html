@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>References | Analyzing Financial and Economic Data with R - Online Edition</title>
+<meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script>
+  
+      /* update total correct if #total_correct exists */
+      update_total_correct = function() {
+        if (t = document.getElementById("total_correct")) {
+          t.innerHTML =
+            document.getElementsByClassName("correct").length + " of " +
+            document.getElementsByClassName("solveme").length + " correct";
+        }
+      }
+      
+      /* solution button toggling function */
+      b_func = function() {
+        var cl = this.parentElement.classList;
+        if (cl.contains('open')) {
+          cl.remove("open");
+        } else {
+          cl.add("open");
+        }
+      }
+      
+      /* function for checking solveme answers */
+      solveme_func = function(e) {
+        var real_answers = JSON.parse(this.dataset.answer);
+        var my_answer = this.value;
+        var cl = this.classList;
+        if (cl.contains("ignorecase")) {
+          my_answer = my_answer.toLowerCase();
+        }
+        if (cl.contains("nospaces")) {
+          my_answer = my_answer.replace(/ /g, "");
+        }
+        
+        if (my_answer !== "" & real_answers.includes(my_answer)) {
+          cl.add("correct");
+        } else {
+          cl.remove("correct");
+        }
+      
+        // match numeric answers within a specified tolerance
+        if(this.dataset.tol > 0){
+          var tol = JSON.parse(this.dataset.tol);  
+          var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+          if (matches.reduce((a, b) => a + b, 0) > 0) {
+            cl.add("correct");
+          } else {
+            cl.remove("correct");
+          }  
+        }
+      
+        // added regex bit
+        if (cl.contains("regex")){
+          answer_regex = RegExp(real_answers.join("|"))
+          if (answer_regex.test(my_answer)) {
+            cl.add("correct");
+          }  
+        }
+        
+        update_total_correct();
+      }
+      
+      window.onload = function() {
+        /* set up solution buttons */
+        var buttons = document.getElementsByTagName("button");
+      
+        for (var i = 0; i < buttons.length; i++) {
+          if (buttons[i].parentElement.classList.contains('solution')) {
+            buttons[i].onclick = b_func;
+          }
+        }
+        
+        /* set up solveme inputs */
+        var solveme = document.getElementsByClassName("solveme");
+      
+        for (var i = 0; i < solveme.length; i++) {
+          /* make sure input boxes don't auto-anything */
+          solveme[i].setAttribute("autocomplete","off");
+          solveme[i].setAttribute("autocorrect", "off");
+          solveme[i].setAttribute("autocapitalize", "off"); 
+          solveme[i].setAttribute("spellcheck", "false");
+          solveme[i].value = "";
+          
+          /* adjust answer for ignorecase or nospaces */
+          var cl = solveme[i].classList;
+          var real_answer = solveme[i].dataset.answer;
+          if (cl.contains("ignorecase")) {
+            real_answer = real_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            real_answer = real_answer.replace(/ /g, "");
+          }
+          solveme[i].dataset.answer = real_answer;
+          
+          /* attach checking function */
+          solveme[i].onkeyup = solveme_func;
+          solveme[i].onchange = solveme_func;
+        }
+        
+        update_total_correct();
+      }
+      
+      </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="css/style_html.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Analyzing Financial and Economic Data with R - Online Edition</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="about-new-edition.html">About New Edition</a></li>
+<li><a class="" href="preface.html">Preface</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="basicoperations.html"><span class="header-section-number">2</span> Basic Operations in R</a></li>
+<li><a class="" href="research-scripts.html"><span class="header-section-number">3</span> Writing Research Scripts</a></li>
+<li><a class="" href="importing.html"><span class="header-section-number">4</span> Importing Data from Local Files</a></li>
+<li><a class="" href="importing-internet.html"><span class="header-section-number">5</span> Importing Data from the Internet</a></li>
+<li><a class="" href="data-structure-objects.html"><span class="header-section-number">6</span> Dataframes and other objects</a></li>
+<li><a class="" href="basic-classes.html"><span class="header-section-number">7</span> Basic Object Classes</a></li>
+<li><a class="" href="programming.html"><span class="header-section-number">8</span> Programming and Data Analysis</a></li>
+<li><a class="" href="cleaning.html"><span class="header-section-number">9</span> Cleaning and Structuring Data</a></li>
+<li><a class="" href="figures.html"><span class="header-section-number">10</span> Creating and Saving Figures with ggplot2</a></li>
+<li><a class="" href="models.html"><span class="header-section-number">11</span> Financial Econometrics with R</a></li>
+<li><a class="" href="reporting.html"><span class="header-section-number">12</span> Reporting Results</a></li>
+<li><a class="" href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></li>
+<li><a class="active" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98297869-1', 'auto');
+  ga('send', 'pageview');
+
+</script><!-- Global site tag (gtag.js) - Google Analytics GOOGLE ADS--><script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-2">
+</script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89690212-2');
+</script><div id="references" class="section level1 unnumbered">
+<h1>References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+</h1>
+
+<div id="refs" class="references">
+<div id="ref-R-magrittr">
+<p>Bache, Stefan Milton, and Hadley Wickham. 2020. <em>Magrittr: A Forward-Pipe Operator for R</em>. <a href="https://CRAN.R-project.org/package=magrittr">https://CRAN.R-project.org/package=magrittr</a>.</p>
+</div>
+<div id="ref-R-shiny">
+<p>Chang, Winston, Joe Cheng, JJ Allaire, Carson Sievert, Barret Schloerke, Yihui Xie, Jeff Allen, Jonathan McPherson, Alan Dipert, and Barbara Borges. 2021. <em>Shiny: Web Application Framework for R</em>. <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.</p>
+</div>
+<div id="ref-R-xtable">
+<p>Dahl, David B., David Scott, Charles Roosen, Arni Magnusson, and Jonathan Swinton. 2019. <em>Xtable: Export Tables to Latex or Html</em>. <a href="http://xtable.r-forge.r-project.org/">http://xtable.r-forge.r-project.org/</a>.</p>
+</div>
+<div id="ref-R-tidyquant">
+<p>Dancho, Matt, and Davis Vaughan. 2021. <em>Tidyquant: Tidy Quantitative Financial Analysis</em>. <a href="https://github.com/business-science/tidyquant">https://github.com/business-science/tidyquant</a>.</p>
+</div>
+<div id="ref-R-data.table">
+<p>Dowle, Matt, and Arun Srinivasan. 2021. <em>Data.table: Extension of ‘Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.</p>
+</div>
+<div id="ref-R-xlsx">
+<p>Dragulescu, Adrian, and Cole Arendt. 2020. <em>Xlsx: Read, Write, Format Excel 2007 and Excel 97/2000/Xp/2003 Files</em>. <a href="https://github.com/colearendt/xlsx">https://github.com/colearendt/xlsx</a>.</p>
+</div>
+<div id="ref-R-Rcpp">
+<p>Eddelbuettel, Dirk, Romain Francois, JJ Allaire, Kevin Ushey, Qiang Kou, Nathan Russell, Douglas Bates, and John Chambers. 2021. <em>Rcpp: Seamless R and C++ Integration</em>. <a href="https://CRAN.R-project.org/package=Rcpp">https://CRAN.R-project.org/package=Rcpp</a>.</p>
+</div>
+<div id="ref-R-bizdays">
+<p>Freitas, Wilson. 2018. <em>Bizdays: Business Days Calculations and Utilities</em>. <a href="https://github.com/wilsonfreitas/R-bizdays">https://github.com/wilsonfreitas/R-bizdays</a>.</p>
+</div>
+<div id="ref-R-tidyxl">
+<p>Garmonsway, Duncan. 2020. <em>Tidyxl: Read Untidy Excel Files</em>. <a href="https://github.com/nacnudus/tidyxl">https://github.com/nacnudus/tidyxl</a>.</p>
+</div>
+<div id="ref-gentzkow2017text">
+<p>Gentzkow, Matthew, Bryan T Kelly, and Matt Taddy. 2017. “Text as Data.” National Bureau of Economic Research.</p>
+</div>
+<div id="ref-R-Rbitcoin">
+<p>Gorecki, Jan. 2014. <em>Rbitcoin: R &amp; Bitcoin Integration</em>. <a href="https://github.com/jangorecki/Rbitcoin">https://github.com/jangorecki/Rbitcoin</a>.</p>
+</div>
+<div id="ref-R-RSelenium">
+<p>Harrison, John. 2020. <em>RSelenium: R Bindings for Selenium Webdriver</em>. <a href="http://docs.ropensci.org/RSelenium">http://docs.ropensci.org/RSelenium</a>.</p>
+</div>
+<div id="ref-R-chron">
+<p>James, David, and Kurt Hornik. 2020. <em>Chron: Chronological Objects Which Can Handle Dates and Times</em>. <a href="https://CRAN.R-project.org/package=chron">https://CRAN.R-project.org/package=chron</a>.</p>
+</div>
+<div id="ref-R-fst">
+<p>Klik, Mark. 2020. <em>Fst: Lightning Fast Serialization of Data Frames</em>. <a href="http://www.fstpackage.org">http://www.fstpackage.org</a>.</p>
+</div>
+<div id="ref-R-texreg">
+<p>Leifeld, Philip. 2020. <em>Texreg: Conversion of R Regression Output to Latex or Html Tables</em>. <a href="http://github.com/leifeld/texreg/">http://github.com/leifeld/texreg/</a>.</p>
+</div>
+<div id="ref-R-XLConnect">
+<p>Mirai Solutions GmbH. 2021. <em>XLConnect: Excel Connector for R</em>. <a href="https://mirai-solutions.ch%0Ahttps://github.com/miraisolutions/xlconnect">https://mirai-solutions.ch
+https://github.com/miraisolutions/xlconnect</a>.</p>
+</div>
+<div id="ref-R-RSQLite">
+<p>Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2021. <em>RSQLite: SQLite Interface for R</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.</p>
+</div>
+<div id="ref-R-BatchGetSymbols">
+<p>Perlin, Marcelo. 2020. <em>BatchGetSymbols: Downloads and Organizes Financial Data for Multiple Tickers</em>. <a href="https://CRAN.R-project.org/package=BatchGetSymbols">https://CRAN.R-project.org/package=BatchGetSymbols</a>.</p>
+</div>
+<div id="ref-R-simfinR">
+<p>Perlin, Marcelo S. 2020. <em>SimfinR: Import Financial Data from the Simfin Project</em>. <a href="https://github.com/msperlin/simfinR/">https://github.com/msperlin/simfinR/</a>.</p>
+</div>
+<div id="ref-R-GetQuandlData">
+<p>———. 2021. <em>GetQuandlData: Fast and Cached Import of Data from Quandl Using the Json Api</em>. <a href="https://github.com/msperlin/GetQuandlData/">https://github.com/msperlin/GetQuandlData/</a>.</p>
+</div>
+<div id="ref-R-Quandl">
+<p>Raymond McTaggart, Gergely Daroczi, and Clement Leung. 2019. <em>Quandl: API Wrapper for Quandl.com</em>. <a href="https://github.com/quandl/quandl-r">https://github.com/quandl/quandl-r</a>.</p>
+</div>
+<div id="ref-R-foreign">
+<p>R Core Team. 2020. <em>Foreign: Read Data Stored by Minitab, S, Sas, Spss, Stata, Systat, Weka, dBase, ...</em> <a href="https://svn.r-project.org/R-packages/trunk/foreign/">https://svn.r-project.org/R-packages/trunk/foreign/</a>.</p>
+</div>
+<div id="ref-R-splashr">
+<p>Rudis, Bob. 2019. <em>Splashr: Tools to Work with the Splash ’Javascript’ Rendering and Scraping Service</em>. <a href="http://gitlab.com/hrbrmstr/splashr">http://gitlab.com/hrbrmstr/splashr</a>.</p>
+</div>
+<div id="ref-R-xts">
+<p>Ryan, Jeffrey A., and Joshua M. Ulrich. 2020. <em>Xts: EXtensible Time Series</em>. <a href="https://github.com/joshuaulrich/xts">https://github.com/joshuaulrich/xts</a>.</p>
+</div>
+<div id="ref-R-lubridate">
+<p>Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.</p>
+</div>
+<div id="ref-teetor2011r">
+<p>Teetor, Paul. 2011. <em>R Cookbook</em>. " O’Reilly Media, Inc.".</p>
+</div>
+<div id="ref-R-XML">
+<p>Temple Lang, Duncan. 2021. <em>XML: Tools for Parsing and Generating Xml Within R and S-Plus</em>. <a href="http://www.omegahat.net/RSXML">http://www.omegahat.net/RSXML</a>.</p>
+</div>
+<div id="ref-thompson1968programming">
+<p>Thompson, Ken. 1968. “Programming Techniques: Regular Expression Search Algorithm.” <em>Communications of the ACM</em> 11 (6): 419–22.</p>
+</div>
+<div id="ref-R-tibbletime">
+<p>Vaughan, Davis, and Matt Dancho. 2020. <em>Tibbletime: Time Aware Tibbles</em>. <a href="https://github.com/business-science/tibbletime">https://github.com/business-science/tibbletime</a>.</p>
+</div>
+<div id="ref-venables2004introduction">
+<p>Venables, William N, David M Smith, R Development Core Team, and others. 2004. “An Introduction to R.” Network Theory Limited.</p>
+</div>
+<div id="ref-wickham2019advanced">
+<p>Wickham, Hadley. 2019a. <em>Advanced R</em>. CRC press.</p>
+</div>
+<div id="ref-R-stringr">
+<p>———. 2019b. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.</p>
+</div>
+<div id="ref-R-rvest">
+<p>———. 2021. <em>Rvest: Easily Harvest (Scrape) Web Pages</em>. <a href="https://CRAN.R-project.org/package=rvest">https://CRAN.R-project.org/package=rvest</a>.</p>
+</div>
+<div id="ref-R-readxl">
+<p>Wickham, Hadley, and Jennifer Bryan. 2019. <em>Readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.</p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2020. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-R-readr">
+<p>Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
+</div>
+<div id="ref-R-timeDate">
+<p>Wuertz, Diethelm, Tobias Setz, Yohan Chalabi, Martin Maechler, and Joe W. Byers. 2018. <em>TimeDate: Rmetrics - Chronological and Calendar Objects</em>. <a href="https://www.rmetrics.org">https://www.rmetrics.org</a>.</p>
+</div>
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2021. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>.</p>
+</div>
+<div id="ref-R-exams">
+<p>Zeileis, Achim, Bettina Gruen, Friedrich Leisch, and Nikolaus Umlauf. 2020. <em>Exams: Automatic Generation of Exams in R</em>. <a href="http://www.R-exams.org/">http://www.R-exams.org/</a>.</p>
+</div>
+<div id="ref-R-fortunes">
+<p>Zeileis, Achim, and the R community. 2016. <em>Fortunes: R Fortunes</em>. <a href="https://CRAN.R-project.org/package=fortunes">https://CRAN.R-project.org/package=fortunes</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://afedr-ed2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  <div class="chapter-nav">
+<div class="prev"><a href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#references">References</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2021-03-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>
