@@ -30,7 +30,7 @@ print(my.d)
 ```{r, echo=FALSE}
 cat("Document Context: 
 - id:        'FA202F79'
-- path:      '~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd'
+- path:      '~/Dropbox/11-My Website/www.msperlin.com-content/post/2018-11-03-RstudioTricks.Rmd'
 - contents:  <69 rows>
 Document Selection:
 - [24, 6] -- [24, 6]: ''")
@@ -44,7 +44,7 @@ my.file.location <- rstudioapi::getActiveDocumentContext()$path
 ```
 
 ```{r, include=FALSE}
-my.file.location <- '~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd'
+my.file.location <- '~/Dropbox/11-My Website/www.msperlin.com-content/post/2018-11-03-RstudioTricks.Rmd'
 ```
 
 Now, if we want the name of the directory, just call `dirname(my.file.location)`:
@@ -70,7 +70,7 @@ Be aware, however, this **only works in RStudio**. If you run the code without t
 
 A dark theme is a productivity life-changer if you spend a lot of time in front of a computer.  Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into "tools" -> "global options" -> "appearance". There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:
 
-![](/blog/img/rstudio-whitetheme.png) ![](/blog/img/rstudio-darktheme.png)
+![](/img/rstudio-whitetheme.png) ![](/img/rstudio-darktheme.png)
 
 Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!
 
@@ -81,9 +81,9 @@ A commom misconception about programming is that you must memorize lot of names.
 
 The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. [Check it out](https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab). 
 
-![Autocomplete for files](/blog/img/autocomplete_arquivos.png) 
+![Autocomplete for files](/img/autocomplete_arquivos.png) 
 
-![Autocomplete for packages](/blog/img/autocomplete_pacotes.png) 
+![Autocomplete for packages](/img/autocomplete_pacotes.png) 
 
 ## Section naming with `----`
 

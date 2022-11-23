@@ -142,7 +142,7 @@ df_yf_multiple &amp;lt;- yf_get(tickers = my_ticker,
   geom_line()
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;fetching-collections-of-prices&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Fetching collections of prices&lt;/h3&gt;
@@ -244,7 +244,7 @@ p &amp;lt;- ggplot(df_allfreq, aes(x=ref_date, y = price_adjusted)) +
   labs(x = &amp;#39;&amp;#39;, y = &amp;#39;Adjusted Prices&amp;#39;)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;changing-format-to-wide&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Changing format to wide&lt;/h3&gt;

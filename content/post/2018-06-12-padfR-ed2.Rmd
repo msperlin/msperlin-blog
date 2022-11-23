@@ -25,7 +25,7 @@ Here are the main changes:
 
 - Exercises are available at the end of each chapter, including hard questions that will challenge your programming ability.
 
-You can find the new edition of the book in [Amazon](https://www.amazon.com.br/dp/B08WNC27ZY). See this [section](/blog/books) for more details. As usual, an online (and free) version of the book is available at [http://www.msperlin.com/padfeR/](http://www.msperlin.com/padfeR/).
+You can find the new edition of the book in [Amazon](https://www.amazon.com.br/dp/B08WNC27ZY). See this [section](/books) for more details. As usual, an online (and free) version of the book is available at [http://www.msperlin.com/padfeR/](http://www.msperlin.com/padfeR/).
 
 It was a lot of work (and fun) to write the new edition. I'm very happy with the result. I hope you enjoy it!
 

@@ -48,7 +48,7 @@ The zip file includes:
 
 Required Products: Statistics, Optimization
 
-[Link to download](/blog/files/matlab/ACD_Models_FEX.zip)
+[Link to download](/files/matlab/ACD_Models_FEX.zip)
 
 ---
 
@@ -70,7 +70,7 @@ INSTRUCTIONS
 
 5) Run the example script
 
-[Link to download](/blog/files/matlab/Gtrends_Matlab_v1.zip)
+[Link to download](/files/matlab/Gtrends_Matlab_v1.zip)
 
 ---
 
@@ -86,7 +86,7 @@ The use of random seeds for portfolio performance is not new. The first paper to
 
 For a practical application of the codes published here, please check the papers of Perlin (2007a) and Perlin (2007b).
 
-[Link to download](/blog/files/matlab/Monkey_Trading_FEX.zip)
+[Link to download](/files/matlab/Monkey_Trading_FEX.zip)
 
 ---
 
@@ -98,7 +98,7 @@ The basic idea of the NN algorithm is that the time series copies it's own past 
 
 The routines of the file were build according to the work of Rodriguez, Rivero and Artilles (2001).
 
-[Link to download](/blog/files/matlab/NN_FEX.zip)
+[Link to download](/files/matlab/NN_FEX.zip)
 
 ---
 
@@ -128,7 +128,7 @@ Qualities of the package:
     * maximum number of days to keep any trade (without convergence).
     * value of threshold variable
 
-[Link to download](/blog/files/matlab/PairsTrading_FEX.zip)
+[Link to download](/files/matlab/PairsTrading_FEX.zip)
 
 
 ---
@@ -159,7 +159,7 @@ Some comments about the fitting code:
 
 •	So far the code doesn’t handle state space models with mixture of non stochastic and stochastic coefficients, that is, when you want some variables to have stochastic coefficients and others not in the same model.
 
-[Link to download](/blog/files/matlab/State_Space_Models_FEX.zip)
+[Link to download](/files/matlab/State_Space_Models_FEX.zip)
 
 ---
 
@@ -177,4 +177,4 @@ Some of the functionalities of the package:
 - Choice of starting and ending data.
 - Function for saving the whole data in a pre-formatted excel file together with a full reports on missing data.
 
-[Link to download](/blog/files/matlab/GetTickerData_FEX.zip)
+[Link to download](/files/matlab/GetTickerData_FEX.zip)

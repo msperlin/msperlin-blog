@@ -25,7 +25,7 @@ Overall, 2018 was a great year. I'm always thankful for having the opportunity o
 
 # My blog posts in 2018
 
-In november I changed the technology behind my blog from [Jekyll to Hugo](https://www.msperlin.com/post/2018-11-03-newblog/). Can't stress enough how much I'm liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.
+In november I changed the technology behind my blog from [Jekyll to Hugo](https://www.msperlin.com/post/2018-11-03-new). Can't stress enough how much I'm liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.
 
 First, let's see how many posts I have so far.
 

@@ -7,7 +7,7 @@ tags: [R, book, self-publish]
 categories: [R, book, self-publish]
 ---
 
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>Many people, including my university colleagues and friends, have asked me about the process of writing a book and self publishing it in Amazon. You can find the details about the english version of the book <a href="https://www.amazon.com/dp/B084LSNXMN">here</a> and <a href="http://www.msperlin.com/books/">here</a>. Given so much interest, I’m going to report the whole process in this post.</p>
@@ -23,7 +23,7 @@ categories: [R, book, self-publish]
 <p>After 6 months of work, I had a first readable version of the book. This is when I started to investigate how to turn a latex file into an ebook file. To my surprise, this is not easy! It could be the case that I had lots of code and figures from the compilation. I tried all the existing software and, to my frustration, it just didn’t work. When I didn’t got an error message that stopped the conversion, the resulting <em>epub</em> file look awful in the kindle reader. The warning and error messages from the latex2ebook compiler also didn’t help a lot.</p>
 <p>By looking for solutions in the internet and with a bit of luck, I’ve found that Yihui Xie had just published his <a href="https://bookdown.org/">bookdown package</a>. I tried out the first chapters and it worked perfectly! The great thing about <code>bookdown</code> is that you can output to pdf, html or epub with the same files. I was very happy that, finally, I would be able to get all formats that I needed in a single platform. I’m not going to go into the details about how to use <code>bookdown</code>. You can find the official tutorial <a href="https://bookdown.org/yihui/bookdown/">here</a>. It is worth to point out that the written content is just RMarkdown so, if you know latex, you’ll fell right at home. So, here I go again, switching a whole book from latex to Rmarkdown.</p>
 <p>The only feature in <code>bookdown</code> that didn’t work out of the box was the equation in the kindle format. The formulas just didn’t print well. The weird part is that they looked fine in any other ebook reader, but not in Kindle. Apparently, there is no solution for this problem besides using figure files for the equations. What I did to solve it was to use R switches within the book so that the epub compilation used a figure file created in <a href="https://www.codecogs.com/latex/eqneditor.php">codecogs</a> and the latex/html compilation used the normal code for equations. See here an example of code for the first equation in chapter 9.</p>
-<p><img src="/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png" /></p>
+<p><img src="/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png" /></p>
 <p>As you can see, I used a switch in the <code>knitr</code> command as in <code>include=identical(knitr:::pandoc_to(), 'epub3')</code> to run each code conditional to the type of output. As for inline equations, I just used straight text to indicate coefficients such as <em>beta</em>, <em>alpha</em>. I know I could have used the same strategy, but I didn’t fell the need since there were so few inline equations in the text.</p>
 <p>After switching to bookdown, I added a couple more chapters in the following months. A comment here is that I tried writing in RStudio but it didn’t worked out for me. Perhaps it was due to the large files I was handling, but it felt really clunky, slow and not reactive. Also, the grammar check system in Rstudio needs a lot of work. I tried going back to Texstudio but it didn’t had support for markdown highlighting. I then switched software by doing the writing in <a href="https://notepad-plus-plus.org/">notepad++</a> + <a href="https://github.com/Edditoria/markdown_npp">markdown extension</a> and only used RStudio to compile the book. If you haven’t tried notepad++, give it a go. I really like it and I find myself using it more and more.</p>
 </div>
@@ -41,7 +41,7 @@ categories: [R, book, self-publish]
 <li><p>Cover - The cover is processed as a figure file (.jpg). An important information here is that you need to define the size of you book and the number of pages at this stage. In my case, I used a 7x11 inches configuration for 200+ pages. It looks quite nice. Have a look:</p></li>
 </ol>
 <div class="figure">
-<img src="/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg" alt="" />
+<img src="/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg" alt="" />
 <p class="caption">My Book and my spanish Iguana!</p>
 </div>
 <p>Beautiful cover! Isn’t it? Once you have the figure file, you just add it to the <em>book creator</em> system in amazon. At this stage, you will also need a summary about the book and its author and a picture for the back cover of the printed version.</p>

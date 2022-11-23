@@ -746,7 +746,7 @@ df.pkgs &lt;- as.data.frame(available.packages(repos = &#39;https://cloud.r-proj
 p &lt;- ggplot(df.pkgs, aes(x=n.char)) +
   geom_histogram(binwidth = 1)
 print(p)</code></pre>
-<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>As I suspected, the names of CRAN packages are usually small, with an average of 5-6 characters. We have a couple of packages with more than 25 characters. Let’s see their names:</p>
 <pre class="r"><code>df.pkgs$pkg[df.pkgs$n.char&gt;25]</code></pre>
 <pre><code>##  [1] &quot;AnglerCreelSurveySimulation&quot;      &quot;BipartiteModularityMaximization&quot; 
@@ -784,7 +784,7 @@ p &lt;- ggplot(df.to.plot, aes(x=n.char, color=source.char )) +
   geom_density(size=1) + coord_cartesian(xlim=c(0, 40))
 
 print(p)</code></pre>
-<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>As I suspected, the distributions are very different. There is no need to apply a formal test as the visual evidence is clear: CRAN package have a tendency for shorter names.</p>
 <p>Now, let’s look at the distribution of used letters in relative terms:</p>
 <pre class="r"><code>library(scales)
@@ -812,7 +812,7 @@ p &lt;- ggplot(df.to.plot, aes(x=char, y = perc.count, fill=source.char,width=.5
   geom_col(position = &#39;dodge&#39;) + scale_y_continuous(labels = percent_format())  
 
 print(p)</code></pre>
-<p><img src="/blog/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2017-05-09-Studying-Pkg-Names_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The result is really interesting! I was expecting far more differences in the relative use of characters. Not surprisingly, letter R is more used in package naming than in the English vocabulary. Still, the difference is not that large. Given that R is the name of the programming language, I was expecting a much greater proportion of R characters. My intuition was clearly wrong! In comparison, letters P and M have more difference in relative terms than letter R. I’m really not sure why that is. Overall, it is pretty clear the use of characters in the names of packages follow the distribution of words in the English language.</p>
 <p>While the distribution of letter is similar, we find just a few package with names exactly as in the English language. For all 18699 packages found in CRAN, only 1260 are an exact match of all 146625 unique words in the English vocabulary.</p>
 <p>Summing up, our data analysis shows that the names of packages are usually shorter than the words in the English language. However, when looking at distribution of used characters and editing distances, it is pretty clear that the names are based on the English language, usually with a few modifications of a base word.</p>

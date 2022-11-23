@@ -18,7 +18,7 @@
       <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2021-03-18-bookdown_and_exams/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;It’s been three years since I’ve been using package &lt;code&gt;bookdown&lt;/code&gt; for compiling and distributing &lt;a href=&#34;https://www.msperlin.com/publication/#5&#34;&gt;three different books&lt;/a&gt; in Amazon and the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;web&lt;/a&gt;. It helped me greatly in all my book projects and I’m always &lt;strong&gt;grateful&lt;/strong&gt; to Yihui Xie for providing such a useful tool at the &lt;a href=&#34;https://www.msperlin.com/post/2017-02-16-writing-a-book/&#34;&gt;right time&lt;/a&gt;.&lt;/p&gt;
@@ -336,7 +336,7 @@ Why is R special when comparing to other programming languages, such as Python, 
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The revised second edition of &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;Analylzing Financial and Economic Data with R&lt;/a&gt; presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the &lt;a href=&#34;http://www.r-exams.org/&#34;&gt;&lt;code&gt;exams&lt;/code&gt; format&lt;/a&gt;, meaning that any R tutor can export the same exercises to pdf, html or &lt;em&gt;e-learning&lt;/em&gt; platforms. In this post I’ll show how to compile exercises to pdf, html, &lt;em&gt;Moodle&lt;/em&gt; and &lt;em&gt;blackboard&lt;/em&gt;.&lt;/p&gt;
@@ -536,7 +536,7 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2021-02-28-afedr-revision-2021/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I recently launched the third edition of my &lt;a href=&#34;https://www.msperlin.com/adfeR/&#34;&gt;portuguese R book (adfeR-pt-br)&lt;/a&gt;, with many due changes from the &lt;a href=&#34;https://www.msperlin.com/afedR/&#34;&gt;international version (afedR-en)&lt;/a&gt;. To make it clear, the second edition of afedR (en) was ahead in content and the third edition of adfeR (pt-br) closed that gap.&lt;/p&gt;
@@ -558,7 +558,7 @@ fs::dir_ls(dir_output)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -595,7 +595,7 @@ afedR::afedR_get_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;
       <pubDate>Mon, 10 Feb 2020 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-success&#34;&gt;
@@ -648,7 +648,7 @@ afedR::afedR_get_book_files(path_to_copy = &amp;#39;~&amp;#39;)&lt;/code&gt;&lt;
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2019-12-02-dynamic-exercises-afedr/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34;&gt;
@@ -706,7 +706,7 @@ l_out &amp;lt;- afedR_build_exam(students_names = student_names,
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2019-11-25-feedback-toc-afedr/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Back in 2017 I wrote the first international&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; edition of my book “&lt;a href=&#34;https://www.msperlin.com/publication/2017_book-pafdr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt;” (&lt;a href=&#34;https://www.msperlin.com/pafdR/&#34;&gt;online version&lt;/a&gt;) . While I was happy with the content of the book at the time of publication, today I know I can make it better. As of early 2019, &lt;strong&gt;I’m working in the new edition of the book&lt;/strong&gt;, taking my time (and weekends!) in fixing all issues, expanding chapters and writing new CRAN packages.&lt;/p&gt;

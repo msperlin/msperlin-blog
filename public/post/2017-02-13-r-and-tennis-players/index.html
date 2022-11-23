@@ -1182,7 +1182,7 @@ p &lt;- p + geom_point() + geom_smooth()
 p &lt;- p + facet_grid(surface~Name)
 p &lt;- p + ylim(c(0.25,1)) + xlim(c(2005,2016))
 print(p)</code></pre>
-<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png" width="1440" /></p>
+<p><img src="/post/2017-02-13-R-and-Tennis-Players_files/figure-html/unnamed-chunk-11-1.png" width="1440" /></p>
 <p>We can see a few patterns. First, the winning consistency of top ten player is higher in hard courts. For example, look at Murray and Djokovic. It is easier for them to keep the same proportion of wins in hard courts than it is in clay. My best guess is that hard courts are more predictable and the ball is faster and bounces lower, making it easier for top players to hit winners and other point-finishing strokes such as drop shots. Be aware that this could also be due to the different number of matches in each court. We could test the difference of volatility statistically but I rather keep the analysis simple and visual.</p>
 <p>Also, not surprisingly, Nadal, <a href="https://www.youtube.com/watch?v=7mknZrjakM8">the king of clay</a>, presents the highest winning percentage in clay, before 2012. His game strategy uses strength and heavy top spin balls that are difficult to counter. See <a href="https://www.quora.com/Why-is-Nadal-so-dominant-on-clay">here</a> for a more detailed analysis on why he is so dominant on clay. The bad side of his strategy and type of play is that it is based heavily on his muscular strength. As his age increases, it is difficult to maintain the same level. This explains the increased proportion of defeats after 2012.</p>
 <p>The effect of age is also perceived for Roger Federer. But, given that his style of play is not based just on strength, I think that he can still beat a lot of players. Just look at the his recent title win at the 2017 Australian open.</p>
@@ -1259,7 +1259,7 @@ name.player</code></pre>
 <pre class="r"><code># plot winnign percentages
 p &lt;- plot.winning.perc(name.player, df.matches)
 print(p)</code></pre>
-<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png" width="672" /></p>
+<p><img src="/post/2017-02-13-R-and-Tennis-Players_files/figure-html/brplayers-1.png" width="672" /></p>
 <p>From this list, the youngest Brazilian player, and with most potential in my opinion, is Thiago Monteiro. He is 22 and has lots of time to improve his game. In 2016 he beated Tsonga in a great match <a href="http://www.atpworldtour.com/en/news/monteiro-upsets-tsonga-in-rio-de-janeiro">here in Brazil</a>.</p>
 <div id="the-records-of-guga-gustavo-kurten" class="section level2">
 <h2>The records of Guga (Gustavo Kurten)</h2>
@@ -1270,7 +1270,7 @@ print(p)</code></pre>
 
 p &lt;- plot.winning.perc(name.player, df.matches, min.year = 1990)
 print(p)</code></pre>
-<p><img src="/blog/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png" width="672" /></p>
+<p><img src="/post/2017-02-13-R-and-Tennis-Players_files/figure-html/guga-1.png" width="672" /></p>
 <p>As expected, a winning journey until 2001, when losses start to accumulate.</p>
 </div>
 <div id="conlusion" class="section level2">

@@ -18,7 +18,7 @@
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2019-12-15-looking-back-2019/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m just about to leave for my vacation and, as usual, I’ll write about the highlights of 2019 and my plans for the year to come. First, let’s talk about my work in 2019.&lt;/p&gt;
@@ -175,7 +175,7 @@ print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&amp;#39;coun
          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
          labs(y = &amp;#39;Number of posts&amp;#39;, x = &amp;#39;&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2019-12-15-Looking-Back-2019_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2019-12-15-Looking-Back-2019_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;checking-2019s-plans&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Checking 2019’s plans&lt;/h1&gt;
@@ -215,7 +215,7 @@ print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&amp;#39;coun
       <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2019-01-08-looking-back-2018/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;At the end of every year I plan to write about the highlight of the current year and set plans for the future. First, let’s talk about my work in 2018.&lt;/p&gt;
@@ -229,7 +229,7 @@ print( ggplot(df.posts, aes(x = post.month)) + geom_histogram(stat=&amp;#39;coun
 &lt;/div&gt;
 &lt;div id=&#34;my-blog-posts-in-2018&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;My blog posts in 2018&lt;/h1&gt;
-&lt;p&gt;In november I changed the technology behind my blog from &lt;a href=&#34;https://www.msperlin.com/post/2018-11-03-newblog/&#34;&gt;Jekyll to Hugo&lt;/a&gt;. Can’t stress enough how much I’m liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.&lt;/p&gt;
+&lt;p&gt;In november I changed the technology behind my blog from &lt;a href=&#34;https://www.msperlin.com/post/2018-11-03-new&#34;&gt;Jekyll to Hugo&lt;/a&gt;. Can’t stress enough how much I’m liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.&lt;/p&gt;
 &lt;p&gt;First, let’s see how many posts I have so far.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.blog.folder &amp;lt;- &amp;#39;~/Dropbox/11-My Website/01-msperlin.com/content/post/&amp;#39;
 post.files &amp;lt;- list.files(path = my.blog.folder, pattern = &amp;#39;.Rmd&amp;#39;)
@@ -383,7 +383,7 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&amp;#39
          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
          labs(y = &amp;#39;Number of posts&amp;#39;, x = &amp;#39;&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Seems to average about once a month. The blank spaces show that I did not write for a couple of months.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;checking-2018s-plans&#34; class=&#34;section level1&#34;&gt;
@@ -423,7 +423,7 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&amp;#39
       <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2018-11-03-newblog/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I while ago I &lt;a href=&#34;https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/&#34;&gt;wrote about purchasing my own webserver in digital ocean and hosting my shinny applications&lt;/a&gt;. Last week I finally got some time to migrate my blog from &lt;a href=&#34;https://msperlin.github.io/&#34;&gt;Github&lt;/a&gt; to my new domain, &lt;a href=&#34;https://www.msperlin.com&#34;&gt;www.msperlin.com&lt;/a&gt;. While doing that, I also decided to change the technology behind making the blog, from Jekyll to Hugo. Here are my reasons.&lt;/p&gt;

@@ -880,7 +880,7 @@ p &lt;- ggplot(my.result, aes(x=factor(nfor),
 p &lt;- p + geom_boxplot()
 
 print(p)</code></pre>
-<p><img src="/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>We do find some positive dependency. As the horizon increases, the forecasting algorithm makes more mistakes. Surprisingly, this pattern is not found for <code>nfor=5</code> and <code>nfor=4</code>. It might be interesting to add more data and check if this effect is robust.</p>
 </div>
 <div id="encopassing-test" class="section level2">
@@ -962,7 +962,7 @@ p &lt;- p + geom_vline(aes(xintercept =  my.profit),size=2)
 p &lt;- p + labs(x=&#39;Returns from random trading signals&#39;)
 print(p)</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="/blog/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>The previous histogram shows the total return from randomnly generated signals in 10^{4} simulations. The vertical line is the result from using <code>prophet</code>. As you can see, it is a bit higher than the average of the distribution. The total return from <code>prophet</code> is lower than the return of the naive strategy in 99.72 percent of the simulations. This is not a bad result. But, notice that we didnt add trading or liquidity costs to the analysis, which will make the total returns worse.</p>
 <p>The main results of this simple study are clear: <strong><code>prophet</code> is bad at point forecasts for returns, specially for longer horizons, but does quite better in directional predictions</strong>. It might be interesting to test it further, with more data, adding trading costs, other forecasting setups, and see if the results hold.</p>
 </div>

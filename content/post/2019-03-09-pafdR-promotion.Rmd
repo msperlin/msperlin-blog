@@ -9,7 +9,7 @@ categories: ["R", "book"]
 ---
 
 
-![](/blog/img/CAPADigital_FinancialDataR.jpg){width=30%}
+![](/img/CAPADigital_FinancialDataR.jpg){width=30%}
 
 I recently did a book promotion for my [R book in portuguese](https://www.amazon.com.br/dp/B07DN4M357) and it was a big sucess!
 

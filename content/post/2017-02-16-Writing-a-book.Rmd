@@ -32,7 +32,7 @@ By looking for solutions in the internet and with a bit of luck, I've found that
 
 The only feature in `bookdown` that didn't work out of the box was the equation in the kindle format. The formulas just didn't print well. The weird part is that they looked fine in any other ebook reader, but not in Kindle. Apparently, there is no solution for this problem besides using figure files for the equations. What I did to solve it was to use R switches within the book so that the epub compilation used a figure file created in [codecogs](https://www.codecogs.com/latex/eqneditor.php) and the latex/html compilation used the normal code for equations. See here an example of code for the first equation in chapter 9.
 
-![](/blog/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png)
+![](/post/2017-02-16-Writing-a-book_files/screenshot-ebook-figures.png)
 
 As you can see, I used a switch in the `knitr` command  as in `include=identical(knitr:::pandoc_to(), 'epub3')` to run each code conditional to the type of output. As for inline equations, I just used straight text to indicate coefficients such as _beta_, _alpha_. I know I could have used the same strategy, but I didn't fell the need since there were so few inline equations in the text. 
 
@@ -59,7 +59,7 @@ When the final version of the content of the book was ready, I started to organi
 
 2. Cover - The cover is processed as a figure file (.jpg). An important information here is that you need to define the size of you book and the number of pages at this stage. In my case, I used a 7x11 inches configuration for 200+ pages. It looks quite nice. Have a look:
 
-![My Book and my spanish Iguana!](/blog/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg)
+![My Book and my spanish Iguana!](/post/2017-02-16-Writing-a-book_files/MyBook_printed.jpg)
 
 Beautiful cover! Isn't it? Once you have the figure file, you just add it to the _book creator_ system in amazon. At this stage, you will also need a summary about the book and its author and a picture for the back cover of the printed version.
 

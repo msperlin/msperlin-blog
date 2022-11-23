@@ -723,8 +723,8 @@ Hi, I&#39;m Bettina, I am 22 years old and, starting with R$ 1,500, I now own R$
 
     <div class="article-style">
       
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<script src="/blog/rmarkdown-libs/kePrint/kePrint.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <p>In the last few weeks we’ve seen a great deal of controversy in Brazil regarding financial investments. Too keep it short, <em>Empiricus</em>, an ad-based company that massively sells online courses and subscriptions, posted a YouTube ad where a young girl, Bettina, <a href="https://canaltech.com.br/memes/entenda-o-caso-bettina-a-jovem-tia-patinhas-brasileira-que-virou-meme-135035/">says the following</a>:</p>
@@ -880,7 +880,7 @@ p &lt;- ggplot(res.inv, aes(x = ref.month, y = best.return)) +
  scale_y_continuous(labels = scales::percent)
 
 p</code></pre>
-<p><img src="/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>As you can see, Bettina did good with a constant monthly return of 20%. But, <em>GodBot</em> is better. Bettina is clearly missing something out!</p>
 <p>When looking at the nominal value of the investment, the effect of compound returns explodes the value of the portfolio.</p>
 <pre class="r"><code>library(tidyr)
@@ -913,7 +913,7 @@ p &lt;- ggplot(df.to.plot, aes(x = ref.month, y = Value, color = Investor)) +
  scale_y_continuous(labels = format.cash)
 
 p</code></pre>
-<p><img src="/blog/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2019-03-23-Bettina-Case_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The results show that Bettina’s returns are possible. All you need to do is to perfectly predict, for each month, which stock will do best in the market. If you haven’t sensed my irony, let me be crystal clear: <strong>Market prices are impossible to predict</strong>. The result I just showed you is only possible in my computer. No one will ever be able to replicate it in practice.</p>
 <p>The ad from <em>Empiricus</em> is very misleading. In my opinion as a finance professor, the real problem in this episode is that the great majority of the Brazilian population is not financially educated. Many people <strong>will believe</strong> that is legally possible to reach a 20% return over a month.</p>
 <p>I’ve seen countless cases of financial pyramids, usually tied to some exotic cryptocurrency, to rise and shortly burn here in Brazil. This is specially – and sadly – most frequent in the poorer areas of the country. Those that follow <em>Empiricus</em> advice will soon learn its lesson. Making money in short run in stocks is very difficult.</p>

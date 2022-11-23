@@ -7,7 +7,7 @@ tags: [R, SSD, benchmarking]
 categories: [R, SSD, benchmarking] 
 ---
 
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I recently bought a new computer for home and it came with two drives, one HDD and other SSD. The later is used for the OS and the former stores all of my personal files. From all computers I had, both home and work, this is definitely the fastest. While some of the merits are due to the newer CPUS and RAM, the SSD drive can make all the difference in file operations.</p>
@@ -93,7 +93,7 @@ p &lt;- ggplot(df.res, aes(x = N, y = times, linetype = type.hd)) +
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)</code></pre>
-<p><img src="/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>As you can see, the <code>csv-base</code> format is messing with the y axis. Let’s remove it for better visualization:</p>
 <pre class="r"><code>library(ggplot2)
 
@@ -102,7 +102,7 @@ p &lt;- ggplot(filter(df.res, !(type.file %in% c(&#39;csv-base&#39;))),
   geom_line() + facet_grid(type.file ~ type.time)
 
 print(p)</code></pre>
-<p><img src="/blog/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/2018-06-29-BenchmarkingSSD_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>When it comes to the file format, we learn:</p>
 <ul>
 <li><p><strong>By far, the <code>fst</code> format is the best</strong>. It takes less time to read and write than the others. However, it’s probably unfair to compare it to <code>csv</code> and <code>rds</code> as it uses the 16 cores of my computer.</p></li>

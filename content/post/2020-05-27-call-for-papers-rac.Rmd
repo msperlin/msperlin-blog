@@ -16,7 +16,7 @@ Myself and Henrique Martins (PUC Rio) organized a call for papers on data reuse,
 
 We will select quality papers that use data already published and shared in other scientific outlet to test new theories or present a tutorial article, helping students see how an econometric result was achieved in practice. 
 
-You can find more details about this call for papers in this [pdf file](/blog/files/CALL FOR PAPERS_RAC_2021_Data Reuse.pdf). I encourage everyone to submit their work. If you got any question, please let me know.
+You can find more details about this call for papers in this [pdf file](/files/CALL FOR PAPERS_RAC_2021_Data Reuse.pdf). I encourage everyone to submit their work. If you got any question, please let me know.
 
 
 
