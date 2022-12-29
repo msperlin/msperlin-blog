@@ -5,12 +5,90 @@
     <link>https://www.msperlin.com/tag/looking-back/</link>
       <atom:link href="https://www.msperlin.com/tag/looking-back/index.xml" rel="self" type="application/rss+xml" />
     <description>looking back</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>looking back</title>
       <link>https://www.msperlin.com/tag/looking-back/</link>
     </image>
+    
+    <item>
+      <title>Looking back at 2021-2022 and plans for 2023</title>
+      <link>https://www.msperlin.com/post/2022-12-29-looking-back-2022/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2022-12-29-looking-back-2022/</guid>
+      <description>
+
+
+&lt;p&gt;Every end of year I write about what happened during the yearly cycle and what’s to come.&lt;/p&gt;
+&lt;p&gt;This year was very special and impactful for me. I learned a lot about myself, about what I do and why. Here are the highlights.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;highlights-of-2022-and-2021&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Highlights of 2022 and 2021&lt;/h1&gt;
+&lt;div id=&#34;academic-papers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Academic Papers&lt;/h2&gt;
+&lt;p&gt;I published and co-authored three academic papers during this period:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/85378&#34;&gt;What drives the release of material facts for Brazilian stocks?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://doi.org/10.1016/j.joi.2022.101287&#34;&gt;The Academic Inbreeding Controversy: Analysis and Evidence from Brazil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dx.doi.org/10.1108/GM-06-2019-0088&#34;&gt;Board gender diversity: performance and risk of Brazilian firms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;books&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Books&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The first edition of book &lt;a href=&#34;https://msperlin.com/vdr/&#34;&gt;Visualização de Dados com o R&lt;/a&gt; was published in October 2022. This was a great project and I had a great time and learned a lot doing it.&lt;/li&gt;
+&lt;li&gt;The third edition of &lt;a href=&#34;http://www.msperlin.com/adfeR/&#34;&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/a&gt; was published.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Packages&lt;/h2&gt;
+&lt;p&gt;Package &lt;a href=&#34;https://github.com/ropensci/yfR/&#34;&gt;yfR&lt;/a&gt; is the new iteration of BatchGetSymbols, with several new features and improvements. I had a very good experience submitting it for publication in &lt;a href=&#34;https://ropensci.org/&#34;&gt;ropensci&lt;/a&gt;. Both reviewers had great ideas that were implemented.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;checking-previous-plans&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Checking previous plans&lt;/h1&gt;
+&lt;p&gt;At the end of 2020, my plans for 2021 and 2021 &lt;a href=&#34;https://msperlin.com/post/2020-12-22-looking-back-2020/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish new R/ggplot2 book (&lt;em&gt;Visualização de Dados com R&lt;/em&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+Done! :)
+&lt;/dd&gt;
+&lt;dt&gt;Publish third edition of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Also done! :)
+&lt;/dd&gt;
+&lt;dt&gt;Publish board papers&lt;/dt&gt;
+&lt;dd&gt;
+Done! See it &lt;a href=&#34;https://msperlin.com/publication/&#34;&gt;here&lt;/a&gt;.
+&lt;/dd&gt;
+&lt;dt&gt;Publish paper about academic inbreeding&lt;/dt&gt;
+&lt;dd&gt;
+Done! The paper is available at &lt;a href=&#34;https://doi.org/10.1016/j.joi.2022.101287&#34;&gt;JOI&lt;/a&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plans-for-2023&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Plans for 2023&lt;/h1&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Analyzing Financial and Economic Data with R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+I’m currently working on it. I’m implementing major changes in the background, on how the book is written and compiled. On a side note, it is great to have time to think about compiling books using Rmarkdown, and organizing it in a common framework. This will make it easier to update ALL books over time.
+&lt;/dd&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Same as previous revision. Almost everything improved in the english version will also be done here.
+&lt;/dd&gt;
+&lt;dt&gt;Write and publish paper about research schollarships&lt;/dt&gt;
+&lt;dd&gt;
+This is is WIP (work in progress). I have no idea how it will turn out, but the main guideline is investigating the effects (or causes) of research schollarships (&lt;em&gt;Bolsas de Produtividade&lt;/em&gt;) in Brazil. Final version and publication is likelly to happen in 2024.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Looking back at 2020 and plans for 2021</title>

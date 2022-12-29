@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-10-22T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2022-12-29T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,19 @@
     
     
     <div>
+      <h2><a href="/post/2018-10-10-batchgetsymbols-newversion/" >BatchGetSymbols 2.2</a></h2>
+      <div class="article-style">
+        
+          One of the main requests I get for package BatchGetSymbols is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:
+library(BatchGetSymbols) ## Loading required package: rvest ## Loading required package: xml2 ## Loading required package: dplyr ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union ## library(purrr) ## ## Attaching package: &#39;purrr&#39; ## The following object is masked from &#39;package:rvest&#39;: ## ## pluck library(ggplot2) my.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/2018-06-29-benchmarkingssd/" >Benchmarking a SSD drive in reading and writing files with R</a></h2>
       <div class="article-style">
         
@@ -727,20 +740,6 @@ Clever cache system: By default, every new download of data will be saved in a l
       <div class="article-style">
         
           Package GetDFPData is being substituted by GetDFPData2. See this blog post for details. Financial statements of companies traded at B3 (formerly Bovespa), the Brazilian stock exchange, are available in its website. Accessing the data for a single company is straightforward. In the website one can find a simple interface for accessing this dataset. An example is given here. However, gathering and organizing the data for a large scale research, with many companies and many dates, is painful. Financial reports must be downloaded or copied individually and later aggregated. Changes in the accounting format thoughout time can make this process slow, unreliable and irreproducible.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2017-09-14-brazilian-yield-curve/" >The Brazilian Yield Curve</a></h2>
-      <div class="article-style">
-        
-          The latest version of GetTDData offers function get.yield.curve to download the current Brazilian yield curve directly from Anbima. The yield curve is a financial tool that, based on current prices of fixed income instruments, shows how the market perceives the future real, nominal and inflation returns. You can find more details regarding the use and definition of a yield curve in Investopedia.
-Unfortunately, function get.yield.curve only downloads the current yield curve from the website. Data for historical curves over five business days are not available in Anbima website.
-The new version of GetTDData is available in github and CRAN:
         
       </div>
     </div>

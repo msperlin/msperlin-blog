@@ -1,0 +1,74 @@
+---
+title: "Looking back at 2021-2022 and plans for 2023"
+author: "Marcelo S. Perlin"
+date: '2022-12-29'
+draft: false
+subtitle: ' '
+tags: ["R", "looking back"]
+categories: ["R", "personal"]
+---
+
+```{r, echo=FALSE}
+this_year <- 2022
+previous_blog_link <- "https://msperlin.com/post/2020-12-22-looking-back-2020/"
+```
+
+
+Every end of year I write about what happened during the yearly cycle and what's to come. 
+
+This year was very special and impactful for me. I learned a lot about myself, about what I do and why. Here are the highlights.
+
+---
+
+# Highlights of `r this_year` and `r this_year-1`
+
+## Academic Papers
+
+I published and co-authored three academic papers during this period:
+
+- [What drives the release of material facts for Brazilian stocks?](https://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/85378)
+- [The Academic Inbreeding Controversy: Analysis and Evidence from Brazil](https://doi.org/10.1016/j.joi.2022.101287)
+- [Board gender diversity: performance and risk of Brazilian firms](http://dx.doi.org/10.1108/GM-06-2019-0088)
+
+
+## Books
+
+- The first  edition of book [Visualização de Dados com o R](https://msperlin.com/vdr/) was published in October `r this_year`. This was a great project and I had a great time and learned a lot doing it. 
+- The third edition of [Análise de Dados Financeiros e Econômicos com o R](http://www.msperlin.com/adfeR/) was published.
+
+
+## R Packages
+
+Package [yfR](https://github.com/ropensci/yfR/) is the new iteration of BatchGetSymbols, with several new features and improvements. I had a very good experience submitting it for publication in [ropensci](https://ropensci.org/). Both reviewers had great ideas that were implemented.
+
+---
+
+# Checking previous plans
+
+At the end of `r this_year-2`, my plans for `r this_year-1` and `r this_year-1` [were](`r previous_blog_link`):
+
+Publish new R/ggplot2 book (_Visualização de Dados com R_)
+: Done! :)
+
+Publish third edition of _Análise de Dados Financeiros e Econômicos com o R_
+: Also done! :) 
+
+Publish board papers
+: Done! See it [here](https://msperlin.com/publication/).
+
+Publish paper about academic inbreeding
+: Done! The paper is available at [JOI](https://doi.org/10.1016/j.joi.2022.101287)
+
+
+---
+
+# Plans for `r this_year+1`
+
+Publish revision of _Analyzing Financial and Economic Data with R_
+: I'm currently working on it. I'm implementing major changes in the background, on how the book is written and compiled. On a side note, it is great to have time to think about compiling books using Rmarkdown, and organizing it in a common framework. This will make it easier to update ALL books over time. 
+
+Publish revision of _Análise de Dados Financeiros e Econômicos com o R_
+: Same as previous revision. Almost everything improved in the english version will also be done here.
+
+Write and publish paper about research schollarships
+: This is is WIP (work in progress). I have no idea how it will turn out, but the main guideline is investigating the effects (or causes) of research schollarships (_Bolsas de Produtividade_) in Brazil. Final version and publication is likelly to happen in 2024.
