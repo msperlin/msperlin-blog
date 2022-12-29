@@ -7,7 +7,7 @@ categories: ["R", "BatchGetSymbols", "Finance"]
 tags: [R, BatchGetSymbols, Finance]
 ---
 
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>One of the main requests I get for package <code>BatchGetSymbols</code> is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:</p>
@@ -73,4 +73,4 @@ df.allfreq &lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))</code></pre>
   geom_point() + geom_line() + facet_grid(freq ~ ticker)
 
 print(p)</code></pre>
-<p><img src="/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

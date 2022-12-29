@@ -7,7 +7,7 @@
 <title>Capítulo 10 Visualizando Dados | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 10 Visualizando Dados | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -385,8 +385,8 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-9" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-9"><i class="fas fa-link"></i></a>
+<div id="q.1-8" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Baixe dados da ação CIEL3 com o pacote <code>BatchGetSymbols</code> para os últimos 500 dias. Apresente o gŕafico de linha do preço ajustado ao longo do tempo utilizando função <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot2::ggplot</a></code>. Tenha certeza que:</p>
 <ul>
@@ -395,15 +395,14 @@ autor.
 </ul>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9864d2c4b2" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2237844d" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9864d2c4b2" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf2237844d" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 tickers &lt;- 'FB'
@@ -425,21 +424,20 @@ print(p)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-9" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-9"><i class="fas fa-link"></i></a>
+<div id="q.2-8" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-8"><i class="fas fa-link"></i></a>
 </h3>
 <p>Baixe dados das ações PETR3 (PETR3.SA), VALE3 (VALE3.SA), GGBR4 (GGBR4.SA) com <code>BatchGetSymbols</code> para os últimos 1500 dias. Apresente, no mesmo gráfico, os preços das ações com diferentes cores de linhas. Mantenha todos demais aspectos do gráfico anterior.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98176a9356" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf1765a095" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98176a9356" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf1765a095" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 tickers &lt;- c('PETR4.SA', 
              'VALE3.SA',
@@ -464,21 +462,20 @@ print(p)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-8" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-8"><i class="fas fa-link"></i></a>
+<div id="q.3-7" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para o gráfico anterior, adicione pontos nas linhas.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e986861d3ca" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf18e7e16e" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e986861d3ca" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf18e7e16e" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 tickers &lt;- c('PETR4.SA', 
              'VALE3.SA',
@@ -506,21 +503,20 @@ print(p)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.4-8" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-8"><i class="fas fa-link"></i></a>
+<div id="q.4-7" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para o mesmo gráfico, separe os preços das ações em painéis diferentes com a função <code>ggplot::facet_wrap</code>. Use argumento <code>scales = 'free'</code> para “soltar” os eixos de cada figura.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e981793ba6" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf45b9d3f2" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e981793ba6" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf45b9d3f2" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 tickers &lt;- c('PETR4.SA', 
              'VALE3.SA',
@@ -550,21 +546,20 @@ print(p)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.5-8" class="section level3 unnumbered">
-<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-8"><i class="fas fa-link"></i></a>
+<div id="q.5-7" class="section level3 unnumbered">
+<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-7"><i class="fas fa-link"></i></a>
 </h3>
 <p>Modifique o tema do gráfico anterior para uma escala em preto e branco, tanto para a área do gráfico quanto para as cores das linhas.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e983b3f7381" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf1a73c1d5" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e983b3f7381" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf1a73c1d5" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 tickers &lt;- c('PETR4.SA', 
              'VALE3.SA',
@@ -602,15 +597,14 @@ print(p)</a></code></pre>
 <p>Para os dados anteriores, apresente o histograma dos retornos das diferentes ações em painéis diferentes e salve o resultado em um arquivo chamado <code>'histograms.png'</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98d59c83a" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf27e39ff1" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98d59c83a" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf27e39ff1" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 tickers &lt;- c('PETR4.SA', 
              'VALE3.SA',
@@ -640,15 +634,14 @@ ggsave(filename = my_file, plot = p)</a></code></pre>
 <p>Use a função <code><a href="https://rdrr.io/pkg/BatchGetSymbols/man/GetIbovStocks.html">BatchGetSymbols::GetIbovStocks</a></code> para descobrir todos os tickers pertencentes ao índice Ibovespa atualmente. Usando <code>BatchGetSymbols</code>, baixe os dados de retorno anual para todas as ações do índice de 2015 até o dia atual. Depois disso, crie o mapa de média/variância plotando o retorno anual médio em relação ao seu desvio padrão. Dica: Use a opção paralela em <code>BatchGetSymbols</code> para acelerar a execução. Você encontrará muitos retornos discrepantes nos dados brutos. Certifique-se de que o gráfico esteja visível limitando os eixos x e y (consulte as funções <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ggplot2::xlim</a></code> e<code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ggplot2::ylim</a></code>).</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98748edb53" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf349ea451" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98748edb53" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf349ea451" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 library(tidyverse)
 
 df_ibov &lt;- GetIbovStocks()
@@ -728,11 +721,11 @@ s.setAttribute('data-timestamp', +new Date());
 <li><a class="nav-link" href="#salvando-figuras-para-arquivos"><span class="header-section-number">10.6</span> Salvando Figuras para Arquivos</a></li>
 <li>
 <a class="nav-link" href="#exerc-figuras"><span class="header-section-number">10.7</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-9">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-9">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-8">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-8">Q.4</a></li>
-<li><a class="nav-link" href="#q.5-8">Q.5</a></li>
+<li><a class="nav-link" href="#q.1-8">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-8">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-7">Q.3</a></li>
+<li><a class="nav-link" href="#q.4-7">Q.4</a></li>
+<li><a class="nav-link" href="#q.5-7">Q.5</a></li>
 <li><a class="nav-link" href="#q.6-7">Q.6</a></li>
 <li><a class="nav-link" href="#q.7-7">Q.7</a></li>
 </ul>
@@ -753,7 +746,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

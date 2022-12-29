@@ -7,7 +7,7 @@
 <title>Capítulo 4 Importação e Exportação de Dados Locais | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');  Sem dúvida, a primeira etapa de um script de...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 4 Importação e Exportação de Dados Locais | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -213,10 +213,10 @@
 <li>Texto não estruturado (<em>txt</em>).</li>
 </ul>
 <p>A primeira lição na importação de dados para o R é que o local do arquivo deve ser indicado explicitamente no código. Este endereço é passado para a função que irá ler o arquivo. Veja a definição a seguir:</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="st">'C:/Data/MyData.csv'</span></span></code></pre></div>
 <p>Note o uso de barras (<code>/</code>) para designar o diretório do arquivo. Referências relativas também funcionam, tal como em:</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="st">'Data/MyData.csv'</span></span></code></pre></div>
 <p>Neste caso, assume-se que na pasta atual de trabalho existe um diretório chamado <code>Data</code> e, dentro desse, um arquivo denominado <code>MyData.csv</code>. Se o endereço do arquivo é simplesmente o seu nome, assume-se que o mesmo encontra-se na raiz da pasta de trabalho. Para verificar o endereço atual de trabalho, utilize a função <code>getwd</code>. </p>
 <div class="rmdimportant">
@@ -236,14 +236,14 @@ arquivos. Para usar, abra aspas no RStudio, coloque o cursor do
 <span class="header-section-number">4.1</span> Pacote <code>adfeR</code><a class="anchor" aria-label="anchor" href="#pacote-adfer"><i class="fas fa-link"></i></a>
 </h2>
 <p>Nas seções futuras iremos utilizar o pacote do livro – <code>adfeR</code> – para carregar diversos exemplos de arquivos. Se você seguiu as instruções da seção <em>Material Suplementar</em> localizada no prefácio do livro, já deves ter o pacote instalado. Caso contrário, execute o seguinte código:</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install devtools (if not installed)</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span> <span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># install book package</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span> <span class="op">(</span><span class="st">'msperlin/adfeR'</span><span class="op">)</span></span></code></pre></div>
 <p>Uma vez que você instalou o pacote <code>adfeR</code>, todos os arquivos de dados usados no livro foram baixados. Podemos verificar os cinco primeiros arquivos disponíveis com o comando <code><a href="https://rdrr.io/pkg/adfeR/man/list_available_data.html">adfeR::list_available_data</a></code>:</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list available data files</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/list_available_data.html">list_available_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "batchgetsymbols_parallel_example.rds"
@@ -252,7 +252,7 @@ R&gt; [3] "example_tsv.csv"
 R&gt; [4] "FileWithLatinChar_Latin1.txt"        
 R&gt; [5] "FileWithLatinChar_UTF-8.txt"</code></pre>
 <p>Os arquivos anteriores estão salvos na pasta de instalação dos pacote <code>adfeR</code>. Para ter o caminho completo, basta usar função <code><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">adfeR::get_data_file</a></code> tendo o nome do arquivo como entrada:</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get location of file</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'grunfeld.csv'</span><span class="op">)</span></span>
 <span></span>
@@ -265,7 +265,7 @@ R&gt; [5] "FileWithLatinChar_UTF-8.txt"</code></pre>
 <span class="header-section-number">4.2</span> Arquivos <em>csv</em><a class="anchor" aria-label="anchor" href="#arquivos-csv"><i class="fas fa-link"></i></a>
 </h2>
 <p>Considere o arquivo de dados no formato <code>csv</code> chamado <code>'Ibov.csv'</code>, pertencente ao repositório do livro. Vamos copiar o mesmo para a pasta “Meus Documentos” com o uso do tilda (<code>~</code>):</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get location of file</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'Ibov.csv'</span><span class="op">)</span></span>
 <span></span>
@@ -323,14 +323,14 @@ automatizando o processo.
 </h3>
 <p>O R possui uma função nativa chamada <code>base::read.csv</code> para importar dados de arquivos <em>.csv</em>. Porém, esse é um dos muitos casos em que a alternativa do <code>tidyverse</code> – <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code> – é mais eficiente e mais fácil de trabalhar. Resumindo, <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code> lê arquivos mais rapidamente que <code>base::read.csv</code>, além de usar regras mais inteligentes para definir as classes das colunas importadas.</p>
 <p>Este é a primeira vez que usamos um pacote do <code>tidyverse</code>, neste caso o <code>readr</code>. Antes de fazer isso, é necessário instalá-lo em sua sessão R. Uma maneira simples de instalar todos os pacotes pertencentes ao <code>tidyverse</code> é instalar o módulo de mesmo nome:</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span></span></code></pre></div>
 <p>Após executar o código anterior, todos os pacotes <code>tidyverse</code> serão instalados em seu computador. Você também deve ter em mente que alguns aspectos dessa instalação podem demorar um pouco. Assim que terminar, carregue o conjunto de pacotes <code>tidyverse</code>.</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load library</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <p>De volta à importação de dados de arquivos <em>.csv</em>, use a função <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code> para carregar o conteúdo do arquivo Ibov.csv no R: </p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file to read</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'Ibov.csv'</span><span class="op">)</span></span>
 <span></span>
@@ -345,7 +345,7 @@ R&gt;
 R&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
 R&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>O conteúdo do arquivo importado é convertido para um objeto do tipo <code>dataframe</code> no R. Conforme mencionado no capítulo anterior, cada coluna de um <code>dataframe</code> tem uma classe. Podemos verificar as classes de <code>my_df_ibov</code> usando a função <code>glimpse</code> do pacote <code>dplyr</code>, que também faz parte do <code>tidyverse</code>:</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check content</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_df_ibov</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 2,716
@@ -354,7 +354,7 @@ R&gt; $ ref.date    &lt;date&gt; 2010-01-04, 2010-01-05, 2010-01-06, 2…
 R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code></pre>
 <p>Observe que a coluna de datas (<code>ref.date</code>) foi importada como um vetor <code>Date</code> e os preços de fechamento como numéricos (<code>dbl</code>, precisão dupla). Isso é exatamente o que esperávamos. Internamente, a função <code>read_csv</code> identifica as classes das colunas de acordo com seu conteúdo.</p>
 <p>Observe também como o código anterior apresentou a mensagem “Parsed with column specification: …”. Essa mensagem mostra como a função identifica as classes das colunas lendo as primeiras 1000 linhas do arquivo. Regras inteligentes tentam prever a classe com base no conteúdo importado. Podemos usar essas informações em nosso próprio código copiando o texto e atribuindo-o a uma variável: </p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set cols from readr import message</span></span>
 <span><span class="va">my_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span></span>
 <span>  price.close <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -365,7 +365,7 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span><span class="va">my_df_ibov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">my_f</span>,</span>
 <span>                       col_types <span class="op">=</span> <span class="va">my_cols</span><span class="op">)</span></span></code></pre></div>
 <p>Como um exercício, vamos importar os mesmos dados, porém usando a classe <code>character</code> (texto) para colunas <code>ref.date</code>:</p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set cols from readr import message</span></span>
 <span><span class="va">my_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span></span>
 <span>  price.close <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -384,7 +384,7 @@ R&gt; $ ref.date    &lt;chr&gt; "2010-01-04", "2010-01-05", "2010-01-0…
 R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code></pre>
 <p>Como esperado, a coluna de datas – <code>ref.date</code> – agora foi importada como texto. Assim, o uso de <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code> pode ser resumido em duas etapas: 1) leia o arquivo sem argumentos em <code>read_csv</code>; 2) copie o texto das classes de coluna padrão da mensagem de saída e adicione como entrada <code>col_types</code>. O conjunto de passos anterior é suficiente para a grande maioria dos casos. O uso da mensagem com as classes das colunas é particularmente útil quando o arquivo importado tem várias colunas e a definição manual de cada classe exige muita digitação.</p>
 <p>Uma alternativa mais prática no uso do <code>read_csv</code> é confiar na heurística da função e usar a definição padrão das colunas automaticamente. Para isto, basta definir a entrada <code>col_types</code> como <code><a href="https://readr.tidyverse.org/reference/cols.html">cols()</a></code>. Veja a seguir:</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read file with readr::read_csv</span></span>
 <span><span class="va">my_df_ibov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">my_f</span>,</span>
 <span>                       col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -407,7 +407,7 @@ R&gt; 35;3546306;Santa Cruz das Palmeiras;São Paulo; SP;1,90208656713367
 R&gt; 21;2103109;Cedral;Maranhão; MA;69,8087496915832</code></pre>
 <p>Note a existência do cabeçalho até linha de número 7 e as colunas sendo separadas pela semi-vírgula (“;”).</p>
 <p>Ao importar os dados com opções padrões (e erradas), teremos o resultado a seguir:</p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'funky_csv_file.csv'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df_funky</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">my_f</span>, </span>
@@ -418,7 +418,7 @@ R&gt; 21;2103109;Cedral;Maranhão; MA;69,8087496915832</code></pre>
 R&gt; Columns: 1
 R&gt; $ `Exemplo de arquivo .csv com formato alternativo:` &lt;chr&gt; …</code></pre>
 <p>Claramente a importação deu errado, com a emissão de diversas mensagens de <em>warning</em>. Para resolver, utilizamos o seguinte código, estruturando todas as particularidades do arquivo:</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_not_funky</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">my_f</span>, </span>
 <span>                           skip <span class="op">=</span> <span class="fl">7</span>, <span class="co"># how many lines do skip</span></span>
 <span>                           delim <span class="op">=</span> <span class="st">';'</span>, <span class="co"># column separator</span></span>
@@ -442,7 +442,7 @@ R&gt; $ number_col &lt;dbl&gt; 1.902087, 69.808750, 81.509312, 56.8400…</code>
 <span class="header-section-number">4.2.2</span> Exportação de Dados<a class="anchor" aria-label="anchor" href="#exporta%C3%A7%C3%A3o-de-dados"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para exportar tabelas em um arquivo <em>.csv</em>, basta utilizar a função <code><a href="https://readr.tidyverse.org/reference/write_delim.html">readr::write_csv</a></code>. No próximo exemplo iremos criar dados artificiais, salvar em um dataframe e exportar para um arquivo <em>.csv</em> temporário. Veja a seguir: </p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set number of observations</span></span>
@@ -455,8 +455,8 @@ R&gt; $ number_col &lt;dbl&gt; 1.902087, 69.808750, 81.509312, 56.8400…</code>
 <span><span class="co"># write to file</span></span>
 <span><span class="va">f_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">'.csv'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_df</span>, file <span class="op">=</span> <span class="va">f_out</span><span class="op">)</span></span></code></pre></div>
-<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo file8e982cce25f.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo file11cf64c4af67.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">f_out</span>,</span>
 <span>                  col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_double</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>                                   z <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/parse_atomic.html">col_character</a></span><span class="op">(</span><span class="op">)</span> <span class="op">)</span> <span class="op">)</span></span>
@@ -464,12 +464,12 @@ R&gt; $ number_col &lt;dbl&gt; 1.902087, 69.808750, 81.509312, 56.8400…</code>
 <pre><code>R&gt; # A tibble: 6 × 2
 R&gt;        y z    
 R&gt;    &lt;dbl&gt; &lt;chr&gt;
-R&gt; 1 0.0825 a    
-R&gt; 2 0.903  a    
-R&gt; 3 0.445  a    
-R&gt; 4 0.825  a    
-R&gt; 5 0.0386 a    
-R&gt; 6 0.474  a</code></pre>
+R&gt; 1 0.810  a    
+R&gt; 2 0.953  a    
+R&gt; 3 0.120  a    
+R&gt; 4 0.0578 a    
+R&gt; 5 0.821  a    
+R&gt; 6 0.312  a</code></pre>
 <p>O resultado está conforme o esperado, um dataframe com duas colunas, a primeira com números e a segunda com texto.</p>
 <p>Note que toda exportação com função <code>write_csv</code> irá ser formatada, por padrão, com a notação internacional. Caso quiser algo diferentes, verifique as opções disponíveis na função <code>write_delim</code>, a qual é muito mais flexível.</p>
 </div>
@@ -484,13 +484,13 @@ R&gt; 6 0.474  a</code></pre>
 <h3>
 <span class="header-section-number">4.3.1</span> Importação de Dados<a class="anchor" aria-label="anchor" href="#importa%C3%A7%C3%A3o-de-dados-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>O R não possui uma função nativa para importar dados do Excel e, portanto, deve-se instalar e utilizar certos pacotes para realizar essa operação. Existem diversas opções, porém, os principais pacotes são <code>XLConnect</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-XLConnect" role="doc-biblioref">Mirai Solutions GmbH 2021</a>)</span>, <code>xlsx</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-xlsx" role="doc-biblioref">Dragulescu and Arendt 2020</a>)</span>, <code>readxl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2022</a>)</span> e <code>tidyxl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-tidyxl" role="doc-biblioref">Garmonsway 2020</a>)</span>. .</p>
+<p>O R não possui uma função nativa para importar dados do Excel e, portanto, deve-se instalar e utilizar certos pacotes para realizar essa operação. Existem diversas opções, porém, os principais pacotes são <code>XLConnect</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-XLConnect" role="doc-biblioref">Mirai Solutions GmbH 2022</a>)</span>, <code>xlsx</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-xlsx" role="doc-biblioref">Dragulescu and Arendt 2020</a>)</span>, <code>readxl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2022</a>)</span> e <code>tidyxl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-tidyxl" role="doc-biblioref">Garmonsway 2022</a>)</span>. .</p>
 <p>Apesar de os pacotes anteriores terem objetivos semelhantes, cada um tem suas peculiaridades. Caso a leitura de arquivos do Excel seja algo importante no seu trabalho, aconselho-o fortemente a estudar as diferenças entre esses pacotes. Por exemplo, pacote <code>tidyxl</code> permite a leitura de dados não-estruturados de um arquivo Excel, enquanto <code>XLConnect</code> possibilita a abertura de uma conexão ativa entre o R e o Excel, onde o usuário pode transmitir dados entre um e o outro, formatar células, criar gráficos no Excel e muito mais.</p>
 <p>Nesta seção, daremos prioridade para funções do pacote <code>readxl</code>, que é um dos mais fáceis e diretos de se utilizar, além de não necessitar de outros softwares instalados (tal como o <em>Java</em>). Para instalar o referido pacote, basta utilizar a função <code>install.packages</code>: </p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'readxl'</span><span class="op">)</span></span></code></pre></div>
 <p>Imagine agora a existência de um arquivo chamado <code>Ibov_xls.xlsx</code> que contenha os mesmos dados do Ibovespa que importamos na seção anterior. A importação das informações contidas nesse arquivo para o R será realizada através da função <code>read_excel</code>: </p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -512,9 +512,9 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <h3>
 <span class="header-section-number">4.3.2</span> Exportação de Dados<a class="anchor" aria-label="anchor" href="#exporta%C3%A7%C3%A3o-de-dados-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>A exportação para arquivo Excel também é fácil. Assim como para a importação, não existe uma função nativa do R que execute esse procedimento. Para tal tarefa, temos pacotes <code>xlsx</code> e <code>writexl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-writexl" role="doc-biblioref">Ooms 2021</a>)</span>. Uma diferença aqui é que o pacote <code>xlsx</code> oferece mais funcionalidade mas exige a instalação do Java JDK no sistema operacional. No caso do Windows, basta visitar o <a href="https://www.java.com/pt_BR/">site do Java</a> e instalar o software na versão 64 bits (opção <em>Windows Off-line (64 bits)</em>). Logo após, instale o pacote <code>xlsx</code> normalmente no R com o comando <code>install.packages('xlsx')</code>. </p>
+<p>A exportação para arquivo Excel também é fácil. Assim como para a importação, não existe uma função nativa do R que execute esse procedimento. Para tal tarefa, temos pacotes <code>xlsx</code> e <code>writexl</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-writexl" role="doc-biblioref">Ooms 2022</a>)</span>. Uma diferença aqui é que o pacote <code>xlsx</code> oferece mais funcionalidade mas exige a instalação do Java JDK no sistema operacional. No caso do Windows, basta visitar o <a href="https://www.java.com/pt_BR/">site do Java</a> e instalar o software na versão 64 bits (opção <em>Windows Off-line (64 bits)</em>). Logo após, instale o pacote <code>xlsx</code> normalmente no R com o comando <code>install.packages('xlsx')</code>. </p>
 <p>Vamos começar com um exemplo para <code>xlsx</code></p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/colearendt/xlsx">xlsx</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set number of rows</span></span>
@@ -531,7 +531,7 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span>           sheetName <span class="op">=</span> <span class="st">"my df"</span><span class="op">)</span></span></code></pre></div>
 <p></p>
 <p>Note que uma diferença nos argumentos da função <code>write.xlsx</code> é que é necessário incluir o nome da aba do arquivo Excel onde os dados da tabela serão exportados. Para exportar várias informações para um mesmo arquivo, é necessário utilizar o argumento <code>append</code> da função <code>write.xlsx</code>. Caso contrário, a função irá criar um novo arquivo em cada chamada da mesma. Veja o exemplo a seguir, onde exportamos dois dataframes para duas abas diferentes do mesmo arquivo Excel:</p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set number of rows</span></span>
 <span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">25</span></span>
 <span></span>
@@ -552,11 +552,11 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span>           sheetName <span class="op">=</span> <span class="st">"Tabela B"</span>,</span>
 <span>           append <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span></code></pre></div>
 <p>Após a exportação, podes verificar as abas disponíveis no arquivo exportado com função <code><a href="https://rdrr.io/pkg/xlsx/man/Sheet.html">xlsx::getSheets</a></code>:</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">excel_sheets</a></span><span class="op">(</span><span class="va">f_out</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "Tabela A" "Tabela B"</code></pre>
-<p>O diferencial do pacote <code>writexl</code> em relação a <code>xlsx</code> é a não necessidade do Java, e a rapidez de execução. O lado negativo é que, na versão atual (1.4.0 – 2022-08-10), não permite a escrita em arquivos já existentes. Veja a seguir: </p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<p>O diferencial do pacote <code>writexl</code> em relação a <code>xlsx</code> é a não necessidade do Java, e a rapidez de execução. O lado negativo é que, na versão atual (1.4.1 – 2022-11-23), não permite a escrita em arquivos já existentes. Veja a seguir: </p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/writexl/">writexl</a></span><span class="op">)</span></span>
 <span><span class="co"># set number of rows</span></span>
 <span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">25</span></span>
@@ -568,7 +568,7 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span><span class="fu"><a href="https://docs.ropensci.org/writexl/reference/write_xlsx.html">write_xlsx</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_df_A</span>,</span>
 <span>           file <span class="op">=</span> <span class="va">f_out</span><span class="op">)</span></span></code></pre></div>
 <p>Para comparar o desempenho, vamos verificar a diferença de tempo de execução entre um e outro:</p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/writexl/">writexl</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/colearendt/xlsx">xlsx</a></span><span class="op">)</span></span>
@@ -596,7 +596,7 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span><span class="va">time_read_xlsx</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/xlsx/man/read.xlsx.html">read.xlsx</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">my_file_2</span>,</span>
 <span>                                        sheetIndex <span class="op">=</span> <span class="fl">1</span> <span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Após a execução, vamos verificar a diferença de tempo:</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># results</span></span>
 <span><span class="va">my_formats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'xlsx'</span>, <span class="st">'readxl'</span><span class="op">)</span></span>
 <span><span class="va">results_read</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">time_read_xlsx</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">time_read_readxl</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
@@ -609,16 +609,16 @@ R&gt; $ price.close &lt;dbl&gt; 70045, 70240, 70729, 70451, 70263, 704…</code>
 <span>                  <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with xlsx: 1.736 seconds
+R&gt; Time to WRITE dataframe with xlsx: 1.545 seconds
 R&gt; Time to WRITE dataframe with readxl: 0.011 seconds</code></pre>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nTime to READ dataframe with '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">results_read</span>, digits <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
 <span>                  <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with xlsx: 2.658 seconds
+R&gt; Time to READ dataframe with xlsx: 2.547 seconds
 R&gt; Time to READ dataframe with readxl: 0.007 seconds</code></pre>
 <p>Como podemos ver, mesmo para dados de pouco volume, um dataframe com 2500 linhas e 2 colunas, a diferença de tempo de execução é significativa. Caso estiveres trabalhando com grandes planilhas, o uso de pacotes <code>readxl</code> e <code>writexl</code> é fortemente recomendado. Porém, como já mostrado anteriormente, as funções de <code>xlsx</code> oferecem algumas funcionalidades extras.</p>
 </div>
@@ -633,7 +633,7 @@ R&gt; Time to READ dataframe with readxl: 0.007 seconds</code></pre>
 <span class="header-section-number">4.4.1</span> Importação de Dados<a class="anchor" aria-label="anchor" href="#importa%C3%A7%C3%A3o-de-dados-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para carregar os dados de um aquivo <code>RData</code>, utilizamos a função <code>load</code>: </p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set a object</span></span>
 <span><span class="va">my_x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
 <span></span>
@@ -644,7 +644,7 @@ R&gt; Time to READ dataframe with readxl: 0.007 seconds</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
 <p>O arquivo temp.RData possui dois objetos, <code>my_x</code> e <code>my_y</code>, os quais se tornam disponíveis na área de trabalho depois da chamada de <code>load</code>.</p>
 <p>O processo de importação para arquivos <em>.rds</em> é muito semelhante. A diferença é no uso da função <code><a href="https://readr.tidyverse.org/reference/read_rds.html">readr::read_rds</a></code>:</p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file path</span></span>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'temp.rds'</span><span class="op">)</span></span>
 <span></span>
@@ -667,7 +667,7 @@ podem incorporar outros objetos no seu conteúdo.
 <span class="header-section-number">4.4.2</span> Exportação de Dados<a class="anchor" aria-label="anchor" href="#exporta%C3%A7%C3%A3o-de-dados-2"><i class="fas fa-link"></i></a>
 </h3>
 <p>Para criar um novo arquivo <em>RData</em>, utilizamos a função <code>save</code>. Veja o exemplo a seguir, onde criamos um arquivo <em>RData</em> com dois objetos:</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set vars</span></span>
 <span><span class="va">my_x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
 <span><span class="va">my_y</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
@@ -677,12 +677,12 @@ podem incorporar outros objetos no seu conteúdo.
 <span><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'my_x'</span>, <span class="st">'my_y'</span><span class="op">)</span>,</span>
 <span>     file <span class="op">=</span> <span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
 <p>Podemos verificar a existência do arquivo com a função <code>file.exists</code>:</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.exists</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] TRUE</code></pre>
-<p>Observe que o arquivo file8e9821e5ed28.RData está disponível na pasta temporária.</p>
+<p>Observe que o arquivo file11cf1ededbdc.RData está disponível na pasta temporária.</p>
 <p>Já para arquivos <em>.rds</em>, salvamos o objeto com função <code>saveRDS</code>:</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set data and file</span></span>
 <span><span class="va">my_x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span></span>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="st">'00-text-resources/data/temp.rds'</span></span>
@@ -710,16 +710,13 @@ podem incorporar outros objetos no seu conteúdo.
 <span class="header-section-number">4.5.1</span> Importação de Dados<a class="anchor" aria-label="anchor" href="#importa%C3%A7%C3%A3o-de-dados-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>O uso do formato <em>fst</em> é bastante simples. Utilizamos a função <code>read_fst</code> para ler arquivos:</p>
-<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.fstpackage.org">fst</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; fst package v0.9.8</code></pre>
-<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'temp.fst'</span><span class="op">)</span></span>
-<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://www.fstpackage.org/reference/write_fst.html">read_fst</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; fstcore package v0.9.12</code></pre>
-<pre><code>R&gt; (OpenMP detected, using 16 threads)</code></pre>
-<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.fstpackage.org">fst</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'temp.fst'</span><span class="op">)</span></span>
+<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://www.fstpackage.org/reference/write_fst.html">read_fst</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 1,000
 R&gt; Columns: 1
 R&gt; $ x &lt;dbl&gt; 0.70968891, 0.83903044, 0.70026554, 0.78120026, …</code></pre>
@@ -730,7 +727,7 @@ R&gt; $ x &lt;dbl&gt; 0.70968891, 0.83903044, 0.70026554, 0.78120026, …</code>
 <span class="header-section-number">4.5.2</span> Exportação de Dados<a class="anchor" aria-label="anchor" href="#exporta%C3%A7%C3%A3o-de-dados-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>Utilizamos a função <code>write_fst</code> para gravar arquivos no formato <em>fst</em>, :</p>
-<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.fstpackage.org">fst</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># create dataframe</span></span>
@@ -746,7 +743,7 @@ R&gt; $ x &lt;dbl&gt; 0.70968891, 0.83903044, 0.70026554, 0.78120026, …</code>
 <span class="header-section-number">4.5.3</span> Testando o Tempo de Execução do Formato <em>fst</em><a class="anchor" aria-label="anchor" href="#testando-o-tempo-de-execu%C3%A7%C3%A3o-do-formato-fst"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como um teste do potencial do pacote <code>fst</code>, a seguir vamos cronometrar o tempo de leitura e gravação entre <em>fst</em> e <em>rds</em> para um dataframe com grande quantidade de dados: 5,000,000 linhas e 2 colunas. Iremos reportar também o tamanho do arquivo resultante.</p>
-<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.fstpackage.org">fst</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set number of rows</span></span>
@@ -772,7 +769,7 @@ R&gt; $ x &lt;dbl&gt; 0.70968891, 0.83903044, 0.70026554, 0.78120026, …</code>
 <span><span class="va">file_size_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.info.html">file.size</a></span><span class="op">(</span><span class="va">my_file_1</span><span class="op">)</span><span class="op">/</span><span class="fl">1000000</span></span>
 <span><span class="va">file_size_fst</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.info.html">file.size</a></span><span class="op">(</span><span class="va">my_file_2</span><span class="op">)</span><span class="op">/</span><span class="fl">1000000</span></span></code></pre></div>
 <p>Após a execução, vamos verificar o resultado:</p>
-<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># results</span></span>
 <span><span class="va">my_formats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'.rds'</span>, <span class="st">'.fst'</span><span class="op">)</span></span>
 <span><span class="va">results_read</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">time_read_rds</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">time_read_fst</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
@@ -785,17 +782,17 @@ R&gt; $ x &lt;dbl&gt; 0.70968891, 0.83903044, 0.70026554, 0.78120026, …</code>
 <span>                  <span class="va">results_write</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with .rds: 1.15899999999999 seconds
-R&gt; Time to WRITE dataframe with .fst: 0.119 seconds</code></pre>
-<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+R&gt; Time to WRITE dataframe with .rds: 1.04099999999994 seconds
+R&gt; Time to WRITE dataframe with .fst: 0.0950000000000273 seconds</code></pre>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nTime to READ dataframe with '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="va">results_read</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with .rds: 1.036 seconds
-R&gt; Time to READ dataframe with .fst: 0.0910000000000082 seconds</code></pre>
-<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
+R&gt; Time to READ dataframe with .rds: 1.03099999999995 seconds
+R&gt; Time to READ dataframe with .fst: 0.0939999999998236 seconds</code></pre>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nResulting FILE SIZE for '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="va">results_file_size</span>, <span class="st">' MBs'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
@@ -827,7 +824,7 @@ consideravelmente mais rápido.
 <span class="header-section-number">4.6.1</span> Importação de Dados<a class="anchor" aria-label="anchor" href="#importa%C3%A7%C3%A3o-de-dados-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Assumindo a existência de um arquivo com formato SQLite, podemos importar suas tabelas com o pacote <code>RSQLite</code>: </p>
-<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsqlite.r-dbi.org">RSQLite</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set name of SQLITE file</span></span>
@@ -847,7 +844,7 @@ R&gt; Columns: 2
 R&gt; $ x &lt;dbl&gt; 0.007504194, 0.439465174, 0.178387480, 0.9857759…
 R&gt; $ G &lt;chr&gt; "B", "B", "B", "B", "A", "B", "A", "B", "B", "B"…</code></pre>
 <p>Outro exemplo do uso do SQLITE é com instruções de um comando <em>SQL</em>. Observe que, no código anterior, usamos função <code>dbReadTable</code> para obter o conteúdo de todas as linhas da tabela <code>MyTable1</code>. Agora, vamos usar o comando <code>dbGetQuery</code> para obter dados da tabela <code>myTable2</code> apenas quando a coluna <code>G</code> é igual a <code>A</code>: </p>
-<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set sql statement</span></span>
 <span><span class="va">my_SQL_statement</span> <span class="op">&lt;-</span> <span class="st">"select * from myTable2 where G='A'"</span></span>
 <span></span>
@@ -871,7 +868,7 @@ R&gt; NULL</code></pre>
 <span class="header-section-number">4.6.2</span> Exportação de Dados<a class="anchor" aria-label="anchor" href="#exporta%C3%A7%C3%A3o-de-dados-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>Como exemplo, vamos criar dois dataframes com dados aleatórios e salvar ambos em um arquivo SQLite usando pacote <code>RSQLite</code>. </p>
-<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rsqlite.r-dbi.org">RSQLite</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># set number of rows in df</span></span>
@@ -902,7 +899,7 @@ R&gt; NULL</code></pre>
 <span></span>
 <span><span class="co"># disconnect</span></span>
 <span><span class="fu">dbDisconnect</span><span class="op">(</span><span class="va">my_con</span><span class="op">)</span></span></code></pre></div>
-<p>A saída <code>TRUE</code> de <code>dbWriteTable</code> indica que tudo ocorreu bem. Uma conexão foi aberta usando a função <code>dbConnect</code> e os dataframes foram escritos em um arquivo SQLITE temporário chamado file8e9848e3e198.SQLITE. É boa política de programação sempre se desconectar do banco de dados após a utilização. Fizemos isso com a função <code>dbDisconnect</code>. </p>
+<p>A saída <code>TRUE</code> de <code>dbWriteTable</code> indica que tudo ocorreu bem. Uma conexão foi aberta usando a função <code>dbConnect</code> e os dataframes foram escritos em um arquivo SQLITE temporário chamado file11cf144d347f.SQLITE. É boa política de programação sempre se desconectar do banco de dados após a utilização. Fizemos isso com a função <code>dbDisconnect</code>. </p>
 </div>
 </div>
 <div id="dados-não-estruturados-e-outros-formatos" class="section level2" number="4.7">
@@ -911,7 +908,7 @@ R&gt; NULL</code></pre>
 </h2>
 <p>Os pacotes e formatos anteriores são suficientes para resolver o problema de importação de dados na grande maioria das situações. Apesar disso, vale destacar que o R possui outras funções específicas para diferentes formatos. Isso inclui arquivos exportados de outros softwares, tal como SPSS, Matlab, entre vários outros. Se esse for o seu caso, sugiro um estudo aprofundado do pacote <code>foreign</code> <span class="citation">(<a href="refer%C3%AAncias.html#ref-R-foreign" role="doc-biblioref">R Core Team 2022</a>)</span>.</p>
 <p>Em alguns casos nos deparamos com dados armazenados de uma forma não estruturada, tal como um texto qualquer. Pode-se importar o conteúdo de um arquivo de texto linha por linha através da função <code><a href="https://readr.tidyverse.org/reference/read_lines.html">readr::read_lines</a></code>. Veja o exemplo a seguir, onde importamos o conteúdo inteiro do livro <em>Pride and Prejudice</em>:</p>
-<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file to read</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">adfeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">get_data_file</a></span><span class="op">(</span><span class="st">'pride_and_prejudice.txt'</span><span class="op">)</span></span>
 <span></span>
@@ -938,7 +935,7 @@ R&gt; [13] "Posting Date: August 26, 2008 [EBook #1342]"
 R&gt; [14] "Release Date: June, 1998"                          
 R&gt; [15] "Last Updated: March 10, 2018"</code></pre>
 <p>Neste exemplo, arquivo pride_and_prejudice.txt contém todo o conteúdo do livro <em>Pride and Prejudice</em> de Jane Austen, disponível gratuitamente pelo projeto <a href="http://www.gutenberg.org/">Gutenberg</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://www.gutenberg.org/" class="uri"&gt;http://www.gutenberg.org/&lt;/a&gt;&lt;/p&gt;'><sup>17</sup></a>. Importamos todo o conteúdo do arquivo como um vetor de texto denominado <code>my_txt</code>. Cada elemento de <code>my_txt</code> é uma linha do arquivo do texto original. Com base nisso, podemos calcular o número de linhas do livro e o número de vezes que o nome <code>'Bennet'</code>, um dos protagonistas, aparece no texto:</p>
-<div class="sourceCode" id="cb265"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># count number of lines</span></span>
 <span><span class="va">n_lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">my_txt</span><span class="op">)</span></span>
 <span></span>
@@ -948,7 +945,7 @@ R&gt; [15] "Last Updated: March 10, 2018"</code></pre>
 <span><span class="co"># set function for counting words</span></span>
 <span><span class="va">fct_count_bennet</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">str_in</span>, <span class="va">target_text</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  </span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span>
 <span>  </span>
 <span>  </span>
 <span>  <span class="va">n_words</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_locate.html">str_locate_all</a></span><span class="op">(</span>string <span class="op">=</span> <span class="va">str_in</span>, </span>
@@ -976,7 +973,7 @@ R&gt; The word "Bennet" appears 664 times in the book.</code></pre>
 <span class="header-section-number">4.7.1</span> Exportando de Dados Não-Estruturados<a class="anchor" aria-label="anchor" href="#exportando-de-dados-n%C3%A3o-estruturados"><i class="fas fa-link"></i></a>
 </h3>
 <p>Em algumas situações, é necessário exportar algum tipo de texto para um arquivo. Por exemplo: quando se precisa salvar o registro de um procedimento em um arquivo de texto; ou quando se precisa gravar informações em um formato específico não suportado pelo R. Esse procedimento é bastante simples. Junto à função <code><a href="https://readr.tidyverse.org/reference/read_lines.html">readr::write_lines</a></code>, basta indicar um arquivo de texto para a saída com o argumento <code>file</code>. Veja a seguir:</p>
-<div class="sourceCode" id="cb267"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">'.txt'</span><span class="op">)</span></span>
 <span></span>
@@ -986,10 +983,10 @@ R&gt; The word "Bennet" appears 664 times in the book.</code></pre>
 <span></span>
 <span><span class="co"># save string to file</span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">write_lines</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_text</span>, file <span class="op">=</span> <span class="va">my_f</span>, append <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file8e981e454f63.txt. Podemos checar o resultado com a função <code><a href="https://readr.tidyverse.org/reference/read_lines.html">readr::read_lines</a></code>:</p>
-<div class="sourceCode" id="cb268"><pre class="downlit sourceCode r">
+<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file11cf6e0160ac.txt. Podemos checar o resultado com a função <code><a href="https://readr.tidyverse.org/reference/read_lines.html">readr::read_lines</a></code>:</p>
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="va">my_f</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; [1] "Today is 2022-08-10"    "Tomorrow is 2022-08-11"</code></pre>
+<pre><code>R&gt; [1] "Today is 2022-11-23"    "Tomorrow is 2022-11-24"</code></pre>
 </div>
 </div>
 <div id="selecionando-o-formato" class="section level2" number="4.8">
@@ -1015,7 +1012,7 @@ R&gt; The word "Bennet" appears 664 times in the book.</code></pre>
 <h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>Crie um dataframe com o código a seguir:</p>
-<pre class="text"><code><a href="https://dplyr.tidyverse.org">library(dplyr)
+<pre><code><a href="https://dplyr.tidyverse.org">library(dplyr)
 
 my_N &lt;- 10000
 my_df &lt;- tibble(x = 1:my_N,
@@ -1023,15 +1020,14 @@ my_df &lt;- tibble(x = 1:my_N,
 <p>Exporte o dataframe resultante para cada um dos cinco formatos: csv, rds, xlsx, fst. Qual dos formatos ocupou maior espaço na memória do computador? Dica: <code>file.size</code> calcula o tamanho de arquivos dentro do próprio R.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9856b8120b" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf634c47fd" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9856b8120b" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf634c47fd" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 do_tests &lt;- function(my_N) {
   
@@ -1101,15 +1097,14 @@ message(my_msg)</a></code></pre>
 <p>Melhore o código anterior com a mensuração do tempo de execução necessário para gravar os dados nos diferentes formatos. Qual formato teve a gravação mais rápida? Dica: use função <code>system.time</code> ou pacote <code>tictoc</code> para calcular os tempos de execução.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e987588682e" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf14c97df6" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e987588682e" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf14c97df6" class="collapse">
 <div class="card card-body">
-<pre class="text"><code># do notice that this chunk requires the execution of previous solution
+<pre><code># do notice that this chunk requires the execution of previous solution
 my_msg &lt;- paste0('The format with least execution time for N = ', my_N, ' is ', 
                  tab$Result[which.min(tab$Time)], '.')
 message(my_msg)</code></pre>
@@ -1124,15 +1119,14 @@ message(my_msg)</code></pre>
 <p>Para o código anterior, redefina o valor de <code>my_N</code> para <code>1000000</code>. Esta mudança modifica as respostas das duas últimas perguntas?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e983d8f4ec9" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf5f0b39b8" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e983d8f4ec9" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf5f0b39b8" class="collapse">
 <div class="card card-body">
-<pre class="text"><code># do notice that this chunk requires the execution of previous solution
+<pre><code># do notice that this chunk requires the execution of previous solution
 my_N &lt;- 1000000
 
 tab &lt;- do_tests(my_N)
@@ -1157,15 +1151,15 @@ message(my_msg)</code></pre>
 <p>Use função <code><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">adfeR::get_data_file</a></code> para acessar o arquivo <code>SP500.csv</code> no repositório de dados do livro. Importe o conteúdo do arquivo no R com função <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code>. Quantas linhas existem no <code>dataframe</code> resultante?</p>
 <br><br> Resposta: <input class="webex-solveme nospaces" size="4" data-answer='["2264"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e987e101c72" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf3cd2481a" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e987e101c72" class="collapse">
+<div id="collapse_11cf3cd2481a" class="collapse">
 A solução é 2264. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code>my_f &lt;- adfeR::get_data_file('SP500.csv')
+<pre><code>my_f &lt;- adfeR::get_data_file('SP500.csv')
 
 df_SP500 &lt;- readr::read_csv(my_f, 
                      col_types = readr::cols())
@@ -1186,15 +1180,15 @@ my_sol &lt;- nrow(df_SP500)</code></pre>
 <p>No link <a href="https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv">https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv</a> você encontrará um arquivo <em>.csv</em> para os dados <em>Grunfeld</em>. Esta é uma tabela particularmente famosa devido ao seu uso como dados de referência em modelos econométricos. Usando função <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv</a></code>, leia este arquivo usando o link direto como entrada em <code>read_csv</code>. Quantas colunas você encontra no <code>dataframe</code> resultante?</p>
 <br><br> Resposta: <input class="webex-solveme nospaces" size="1" data-answer='["5"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98940fe24" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf71c97e75" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98940fe24" class="collapse">
+<div id="collapse_11cf71c97e75" class="collapse">
 A solução é 5. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_url &lt;- 'https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv'
 
@@ -1212,15 +1206,15 @@ my_sol &lt;- ncol(df_grunfeld)</a></code></pre>
 <p>Use função <code><a href="https://rdrr.io/pkg/adfeR/man/get_data_file.html">adfeR::get_data_file</a></code> para acessar o arquivo <code>example_tsv.csv</code> no repositório de dados do livro. Note que as colunas dos dados estão separadas pelo símbolo de tabulação (<code>'\t'</code>). Após ler o manual do <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_delim</a></code>, importe as informações deste arquivo para o seu computador. Quantas linhas o arquivo contém?</p>
 <br><br> Resposta: <input class="webex-solveme nospaces" size="4" data-answer='["5570"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984c076e6f" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf56f77771" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e984c076e6f" class="collapse">
+<div id="collapse_11cf56f77771" class="collapse">
 A solução é 5570. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_f &lt;- adfeR::get_data_file('example_tsv.csv')
 
@@ -1240,15 +1234,15 @@ my_sol &lt;- nrow(df_tsv)
 <p>No pacote do livro existe um arquivo de dados chamado <code>'funky_csv2.csv'</code>. Este possui um formato particularmente bizarro para os dados. Abra o mesmo em um editor de texto e procure entender como as colunas são separadas e qual o símbolo para o decimal. Após isso, veja as entradas da função <code>read.table</code> e importe a tabela na sessão do R. Caso somarmos o número de linhas com o número de colunas da tabela importada, qual o resultado?</p>
 <br><br> Resposta: <input class="webex-solveme nospaces" size="2" data-answer='["19"]'><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e982c10c7c3" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf6e9d48c7" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e982c10c7c3" class="collapse">
+<div id="collapse_11cf6e9d48c7" class="collapse">
 A solução é 19. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 
 my_f &lt;- adfeR::get_data_file('funky_csv2.csv')
 
@@ -1356,7 +1350,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -721,7 +721,7 @@ Package rstudioapi When using Rstudio, package rstudioapi gives you lots of info
 
     <div class="article-style">
       
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I’ve been using Rstudio for a long time and I got some tricks to share. These are simple and useful commands and shortcuts that really help the productivity of my students. If you got a suggestion of trick, use the comment section and I’ll add it in this post.</p>
@@ -733,7 +733,7 @@ Package rstudioapi When using Rstudio, package rstudioapi gives you lots of info
 print(my.d)</code></pre>
 <pre><code>## Document Context: 
 ## - id:        &#39;FA202F79&#39;
-## - path:      &#39;~/Dropbox/11-My Website/www.msperlin.com-blog/content/post/2018-11-03-RstudioTricks.Rmd&#39;
+## - path:      &#39;~/Dropbox/11-My Website/www.msperlin.com-content/post/2018-11-03-RstudioTricks.Rmd&#39;
 ## - contents:  &lt;69 rows&gt;
 ## Document Selection:
 ## - [24, 6] -- [24, 6]: &#39;&#39;</code></pre>
@@ -742,7 +742,7 @@ print(my.d)</code></pre>
 <p>Now, if we want the name of the directory, just call <code>dirname(my.file.location)</code>:</p>
 <pre class="r"><code>my.dir &lt;- dirname(my.file.location)
 print(my.dir)</code></pre>
-<pre><code>## [1] &quot;/home/msperlin/Dropbox/11-My Website/www.msperlin.com-blog/content/post&quot;</code></pre>
+<pre><code>## [1] &quot;/home/msperlin/Dropbox/11-My Website/www.msperlin.com-content/post&quot;</code></pre>
 <p>So, if you want to change the working directory automatically to where the script is locally saved, just write:</p>
 <pre class="r"><code>my.dir &lt;- dirname(rstudioapi::getActiveDocumentContext()$path)
 setwd(my.dir)</code></pre>
@@ -752,7 +752,7 @@ setwd(my.dir)</code></pre>
 <div id="dark-theme-for-rstudio" class="section level2">
 <h2>Dark theme for Rstudio</h2>
 <p>A dark theme is a productivity life-changer if you spend a lot of time in front of a computer. Before I used it, my eyes were always strained after a long period of work. By the end of the day, using tablets or even my phone was disconforting. You can change the theme in Rstudio by going into “tools” -&gt; “global options” -&gt; “appearance”. There are many dark themes available. Pick one that pleases you the most. See the difference between a white and dark theme next:</p>
-<p><img src="/blog/img/rstudio-whitetheme.png" /> <img src="/blog/img/rstudio-darktheme.png" /></p>
+<p><img src="/img/rstudio-whitetheme.png" /> <img src="/img/rstudio-darktheme.png" /></p>
 <p>Going further, I also advise to change the theme of you operating system. I can assure you that, in the long run, it is worth it!</p>
 </div>
 <div id="autocomplete-tab-is-your-friend" class="section level2">
@@ -760,11 +760,11 @@ setwd(my.dir)</code></pre>
 <p>A commom misconception about programming is that you must memorize lot of names. This is far from the truth. You never need to memorize anything when using Rstudio! From function arguments to variable names and names of files, everything can be searched by pressing the <em>tab</em> key on your keyboard. When using naming conventions for functions and objects, this becomes even more useful. For example, every dataframe in my code starts with “df”, like in “df.prices”, “df.tickers” and so on. When I’m looking for the name of a dataframe, I just write “df.” and press <em>tab</em>. The result is a list of object names.</p>
 <p>The autocomplete function also works for function arguments, directory and file locations and packages. In my book I have a whole section about it. <a href="https://www.msperlin.com/pafdR/basicoperations.html#using-code-completion-with-tab">Check it out</a>.</p>
 <div class="figure">
-<img src="/blog/img/autocomplete_arquivos.png" alt="" />
+<img src="/img/autocomplete_arquivos.png" alt="" />
 <p class="caption">Autocomplete for files</p>
 </div>
 <div class="figure">
-<img src="/blog/img/autocomplete_pacotes.png" alt="" />
+<img src="/img/autocomplete_pacotes.png" alt="" />
 <p class="caption">Autocomplete for packages</p>
 </div>
 </div>

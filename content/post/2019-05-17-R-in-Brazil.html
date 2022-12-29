@@ -8,7 +8,7 @@ tags: ["R", "Brazil",'cranes']
 categories: ["R", "Brazil", 'cranlogs']
 ---
 
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I’m using R for at least five years and always been curious about its usage in Brazil. I see some minor personal evidence that the number of users is increasing over time. My <a href="https://www.amazon.com.br/dp/B07DN4M357">book in portuguese</a> is steadily increasing its sales, and I’ve been receiving far more emails about my <a href="https://www.crantastic.org/authors/5303">R packages</a>. Conference are also booming. Every year there are at least two or three R conferences in Brazil.</p>
@@ -52,7 +52,7 @@ p &lt;- ggplot(data = df_by_day, aes(y = n,
   scale_color_grey(start = 0.8, end = 0.2 )
 
 print(p)</code></pre>
-<p><img src="/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>The number of downloads is steadily increasing over time. The new releases of R also seems to explain the outliers in the dataset. Let’s clean it a bit by decreasing the frequency and calculating the number of downloads per month, instead of by day.</p>
 <pre class="r"><code>df_by_month &lt;- df.dls %&gt;%
   group_by(ref.month = lubridate::ymd(format(date, &#39;%Y-%m-01&#39;))) %&gt;%
@@ -70,7 +70,7 @@ p &lt;- ggplot(data = df_by_month, aes(y = n,
 
 
 print(p)</code></pre>
-<p><img src="/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Much better! Overall, R downloads average about 910.7 per month, with a monthly compound rate of 6%. It means that, each month, the number of downloads is increasing by 6% from previous month.</p>
 <p>The data also includes information about the operating system. Let’s check its distribution:</p>
 <pre class="r"><code>df_by_os &lt;- df.dls %&gt;%
@@ -89,6 +89,6 @@ p &lt;- ggplot(df_by_os, aes(x = os, y = n)) +
        subtitle = &#39;Data from Rstudio logs &lt;http://cran-logs.rstudio.com/&gt;&#39;)
 
 print(p)</code></pre>
-<p><img src="/blog/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Not unexpectedly, Windows is the winner! I’m very surprised to see that Mac OS presents more downloads than Linux. With an unfavorable exchange rate and many import taxes, the price of a Mac computer — desktop or laptop — are exorbitantly expensive in Brazil. This tells a lot about the purchase power of R users.</p>
 <p>I hope you liked this post. Next time I’ll analyze the logs of package installation in Brazil.</p>

@@ -48,7 +48,7 @@ user_groups:
   A terceira edição do livro <strong>Análise de Dados Financeiros e Econômicos com o R</strong> foi recém lançada. Maiores detalhes no <a href = "https://www.msperlin.com/publication/2021_book-adfer-pt/">site</a>.
 </div>
 
-I'm an associate professor of Finance at Federal University of Rio Grande do Sul (UFRGS), south of Brazil. Details about my past and current work are available in section [Publications](/blog/publication) and [Code](/blog/code). My CV is available as [pdf](/blog/files/cv.pdf) and [Lattes link](http://lattes.cnpq.br/3262699324398819). 
+I'm an associate professor of Finance at Federal University of Rio Grande do Sul (UFRGS), south of Brazil. Details about my past and current work are available in section [Publications](/publication) and [Code](/code). My CV is available as [pdf](/files/cv.pdf) and [Lattes link](http://lattes.cnpq.br/3262699324398819). 
 
 In this blog I will write about my CRAN packages and any other ideas about finance and R or research papers that I’m currently working on. The content, however, will be mostly about R.
 

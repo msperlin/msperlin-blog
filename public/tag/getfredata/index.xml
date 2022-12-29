@@ -18,7 +18,7 @@
       <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I’m happy to report that package &lt;code&gt;GetFREData&lt;/code&gt; is now available in CRAN. This R package serves as an interface to &lt;strong&gt;all&lt;/strong&gt; corporate datasets available in the FRE system, a vast and &lt;strong&gt;official&lt;/strong&gt; repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its &lt;a href=&#34;https://www.rad.cvm.gov.br/ENETCONSULTA/frmGerenciaPaginaFRE.aspx?NumeroSequencialDocumento=102618&amp;amp;CodigoTipoInstituicao=2&#34;&gt;web interface&lt;/a&gt;.&lt;/p&gt;
@@ -484,7 +484,7 @@ p &amp;lt;- ggplot(dre_annual %&amp;gt;%
   theme_bw()
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2020-07-18-new_packages-GetFREData-GetDFPData2_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;getfredata&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;GetFREData&lt;/h3&gt;

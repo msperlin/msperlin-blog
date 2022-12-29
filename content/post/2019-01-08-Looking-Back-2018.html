@@ -7,7 +7,7 @@ tags: ["R", "site"]
 categories: ["R", "site"]
 ---
 
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>At the end of every year I plan to write about the highlight of the current year and set plans for the future. First, let’s talk about my work in 2018.</p>
@@ -21,7 +21,7 @@ categories: ["R", "site"]
 </div>
 <div id="my-blog-posts-in-2018" class="section level1">
 <h1>My blog posts in 2018</h1>
-<p>In november I changed the technology behind my blog from <a href="https://www.msperlin.com/post/2018-11-03-newblog/">Jekyll to Hugo</a>. Can’t stress enough how much I’m liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.</p>
+<p>In november I changed the technology behind my blog from <a href="https://www.msperlin.com/post/2018-11-03-new">Jekyll to Hugo</a>. Can’t stress enough how much I’m liking the Academic template built with blogdown and hosted in my own server. It is far easier to write posts and maintain the website.</p>
 <p>First, let’s see how many posts I have so far.</p>
 <pre class="r"><code>my.blog.folder &lt;- &#39;~/Dropbox/11-My Website/01-msperlin.com/content/post/&#39;
 post.files &lt;- list.files(path = my.blog.folder, pattern = &#39;.Rmd&#39;)
@@ -175,7 +175,7 @@ print( ggplot(df.posts.2018, aes(x = post.month)) + geom_histogram(stat=&#39;cou
          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
          labs(y = &#39;Number of posts&#39;, x = &#39;&#39;))</code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
-<p><img src="/blog/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2019-01-08-Looking-Back-2018_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Seems to average about once a month. The blank spaces show that I did not write for a couple of months.</p>
 </div>
 <div id="checking-2018s-plans" class="section level1">

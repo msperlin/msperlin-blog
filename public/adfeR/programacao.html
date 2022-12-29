@@ -7,7 +7,7 @@
 <title>Capítulo 8 Programando com o R | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 8 Programando com o R | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -441,21 +441,20 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-7" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-7"><i class="fas fa-link"></i></a>
+<div id="q.1-6" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Crie uma função chamada <code>say_my_name</code> que tome como entrada um nome de pessoa e mostre na tela o texto <em>Your name is …</em>. Dentro do escopo da função, utilize comentários para descrever o propósito da função, suas entradas e saídas.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985d6e49e7" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf46708f94" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985d6e49e7" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf46708f94" class="collapse">
 <div class="card card-body">
-<pre class="text"><code>say_my_name &lt;- function(name_in) {
+<pre><code>say_my_name &lt;- function(name_in) {
   # Print a single name in the prompt
   #
   # ARGS: name_in - Name to be printed
@@ -477,21 +476,20 @@ say_my_name('Marcelo')</code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-7" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-7"><i class="fas fa-link"></i></a>
+<div id="q.2-6" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Implemente um teste para os objetos de entrada, de forma que, quando o nome de entrada não for da classe <code>character</code>, um erro é retornado ao usuário. Teste sua nova função e verifique se a mesma está funcionando conforme esperado.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e984b26273f" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf255d19a8" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e984b26273f" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf255d19a8" class="collapse">
 <div class="card card-body">
-<pre class="text"><code>say_my_name &lt;- function(name_in) {
+<pre><code>say_my_name &lt;- function(name_in) {
   # Prints a single name in the prompt
   #
   # ARGS: name_in - Name to be printed
@@ -531,21 +529,20 @@ say_my_name(1)</code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-6" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-6"><i class="fas fa-link"></i></a>
+<div id="q.3-5" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>Crie um vetor com cinco nomes quaisquer, chamado <code>my_names</code>. Utilizando um <em>loop</em>, aplique função <code>say_my_name</code> para cada elemento de <code>my_names</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e986102d1ba" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf1eb5d513" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e986102d1ba" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf1eb5d513" class="collapse">
 <div class="card card-body">
-<pre class="text"><code>say_my_name &lt;- function(name_in) {
+<pre><code>say_my_name &lt;- function(name_in) {
   # Prints a single name in the prompt
   #
   # ARGS: name_in - Name to be printed
@@ -582,21 +579,20 @@ for (i_names in my_names) {
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.4-6" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-6"><i class="fas fa-link"></i></a>
+<div id="q.4-5" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-5"><i class="fas fa-link"></i></a>
 </h3>
-<p>No banco de dados do <a href="https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz">Brasil.IO</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz" class="uri"&gt;https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz&lt;/a&gt;&lt;/p&gt;'><sup>23</sup></a> encontrarás uma tabela com nomes e gêneros derivados de uma das pesquisas do IBGE. Importe os dados do arquivo para R e, usando um <em>loop</em>, aplique a função <code>say_my_name</code> a 15 nomes aleatórios do banco de dados. Dica: neste caso, você pode baixar os dados direto do link usando <code>readr::read_csv(LINK)</code>.</p>
+<p>No banco de dados do <a href="https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz">Brasil.IO</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz" class="uri"&gt;https://data.brasil.io/dataset/genero-nomes/grupos.csv.gz&lt;/a&gt;&lt;/p&gt;'><sup>24</sup></a> encontrarás uma tabela com nomes e gêneros derivados de uma das pesquisas do IBGE. Importe os dados do arquivo para R e, usando um <em>loop</em>, aplique a função <code>say_my_name</code> a 15 nomes aleatórios do banco de dados. Dica: neste caso, você pode baixar os dados direto do link usando <code>readr::read_csv(LINK)</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98438f8d1d" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf7ae560e0" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98438f8d1d" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf7ae560e0" class="collapse">
 <div class="card card-body">
-<pre class="text"><code>say_my_name &lt;- function(name_in) {
+<pre><code>say_my_name &lt;- function(name_in) {
   # Prints a single name in the prompt
   #
   # ARGS: name_in - Name to be printed
@@ -641,21 +637,20 @@ for (i_name in my_names) {
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.5-6" class="section level3 unnumbered">
-<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-6"><i class="fas fa-link"></i></a>
+<div id="q.5-5" class="section level3 unnumbered">
+<h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>Refaça o exercício anterior utilizando comandos <code>sapply</code> ou <code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map</a></code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9816e38161" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf59e654c7" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9816e38161" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf59e654c7" class="collapse">
 <div class="card card-body">
-<pre class="text"><code>say_my_name &lt;- function(name_in) {
+<pre><code>say_my_name &lt;- function(name_in) {
   # Prints a single name in the prompt
   #
   # ARGS: name_in - Name to be printed
@@ -708,15 +703,14 @@ glimpse(vec_out)</code></pre>
 <p>Use o pacote <code>BatchGetSymbols</code> para baixar dados do índice SP500 (<code>'^GSPC'</code>), Ibovespa (<code>'^BVSP'</code>), FTSE (<code>'^FSTE'</code>) e Nikkei 225 (<code>'^N225'</code>) de <code>'2010-01-01'</code> até a data atual. Com os dados importados, use um <em>loop</em> para calcular o retorno médio, máximo e mínimo de cada índice durante o período analisado. Salve todos os resultados em uma tabela única e a mostre no <em>prompt</em> do R.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e9851cb5c7a" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf24e1c575" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e9851cb5c7a" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf24e1c575" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 indexes &lt;- c('^BVSP', '^GSPC', '^FTSE', '^N225')
 
@@ -757,15 +751,14 @@ print(tab)</a></code></pre>
 <p>Refaça o exercício anterior utilizando as funções <code>group_by</code> e <code>summarise</code>, ambas do pacote <code>dplyr</code>.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98534117b" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cff3152f1" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98534117b" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cff3152f1" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
+<pre><code><a href="https://rdrr.io/r/base/library.html">library(BatchGetSymbols)
 
 indexes &lt;- c('^BVSP', '^GSPC', '^FTSE', '^N225')
 
@@ -788,23 +781,23 @@ print(tab_tidy)</a></code></pre>
 <div id="q.8-4" class="section level3 unnumbered">
 <h3>Q.8<a class="anchor" aria-label="anchor" href="#q.8-4"><i class="fas fa-link"></i></a>
 </h3>
-<p>No site do <a href="http://cran-logs.rstudio.com/">Rstudio CRAN logs</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://cran-logs.rstudio.com/" class="uri"&gt;http://cran-logs.rstudio.com/&lt;/a&gt;&lt;/p&gt;'><sup>24</sup></a> você encontrará dados sobre as estatísticas de download para a distribuição de base de R na seção <em>Daily R downloads</em>. Usando suas habilidades de programação, importe todos os dados disponíveis entre 2020-01-01 e 2020-01-15 e agregue-os em uma única tabela. Qual país apresenta a maior contagem de downloads do R?</p>
+<p>No site do <a href="http://cran-logs.rstudio.com/">Rstudio CRAN logs</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="http://cran-logs.rstudio.com/" class="uri"&gt;http://cran-logs.rstudio.com/&lt;/a&gt;&lt;/p&gt;'><sup>25</sup></a> você encontrará dados sobre as estatísticas de download para a distribuição de base de R na seção <em>Daily R downloads</em>. Usando suas habilidades de programação, importe todos os dados disponíveis entre 2020-01-01 e 2020-01-15 e agregue-os em uma única tabela. Qual país apresenta a maior contagem de downloads do R?</p>
 <br> Resposta: <select class="webex-select"><option value="blank"></option>
-<option value="">CR</option>
+<option value="">AE</option>
+<option value="">UG</option>
+<option value="">YE</option>
 <option value="answer">US</option>
-<option value="">HU</option>
-<option value="">SO</option>
-<option value="">JM</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
+<option value="">TR</option></select><div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98776ec84e" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf76bca5b" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98776ec84e" class="collapse">
+<div id="collapse_11cf76bca5b" class="collapse">
 A solução é US. Para chegar no resultado anterior, deves executar o código abaixo. Para isso, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script inteiro apertando Control+Shift+Enter ou por linha com Control+Enter.
 <div class="card card-body">
-<pre class="text"><code># set function that will download the files
+<pre><code># set function that will download the files
 read_cranlogs_files &lt;- function(date_in) {
   # Reads log files from http://cran-logs.rstudio.com/
   #
@@ -918,11 +911,11 @@ s.setAttribute('data-timestamp', +new Date());
 </li>
 <li>
 <a class="nav-link" href="#exerc-programacao"><span class="header-section-number">8.7</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-7">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-7">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-6">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-6">Q.4</a></li>
-<li><a class="nav-link" href="#q.5-6">Q.5</a></li>
+<li><a class="nav-link" href="#q.1-6">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-6">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-5">Q.3</a></li>
+<li><a class="nav-link" href="#q.4-5">Q.4</a></li>
+<li><a class="nav-link" href="#q.5-5">Q.5</a></li>
 <li><a class="nav-link" href="#q.6-5">Q.6</a></li>
 <li><a class="nav-link" href="#q.7-5">Q.7</a></li>
 <li><a class="nav-link" href="#q.8-4">Q.8</a></li>
@@ -944,7 +937,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

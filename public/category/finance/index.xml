@@ -18,7 +18,7 @@
       <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;One of the main requests I get for package &lt;code&gt;BatchGetSymbols&lt;/code&gt; is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:&lt;/p&gt;
@@ -84,7 +84,7 @@ df.allfreq &amp;lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))&lt;/code
   geom_point() + geom_line() + facet_grid(freq ~ ticker)
 
 print(p)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -94,7 +94,7 @@ print(p)&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/post/2018-05-12-investing-long-run/</guid>
       <description>
-&lt;script src=&#34;https://www.msperlin.com/blog/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;I often get asked about how to invest in the stock market. Not surprisingly, this has been a common topic in my classes. Brazil is experiencing a big change in its financial scenario. Historically, fixed income instruments paid a large premium over the stock market and that is no longer the case. Interest rates are low, without the pressure from inflation. This means a more sustainable scenario for low-interest rates in the future. Without the premium in the fixed income market, people turn to the stock market.&lt;/p&gt;
@@ -124,9 +124,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As the investment horizon increases, the chances of a positive return increases. This result suggests that, if you invest for more than 13 years, it is very unlikely that you’ll see a negative return. When looking at the distribution of total returns by the horizon, we find that it increases significantly with time. Someone that invested for 50 years is likely to receive a 2500% return on the investment.&lt;/p&gt;
 &lt;p&gt;With input input &lt;code&gt;rf.year&lt;/code&gt; we can also set a desired rate of return. Let’s try it with 5% return per year, with is pretty standard for financial markets.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
@@ -144,7 +144,7 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, the curve of probabilities has a lower slope, meaning that you need more time investing in the SP500 index to guarantee a return of more than 5% a year.&lt;/p&gt;
 &lt;p&gt;Now, let’s try the same setup for Berkshire stock (BRK-A). This is Buffet’s company and looking at its share price we can have a good understanding of how successful Buffet has been as a BH (&lt;em&gt;buy and hold&lt;/em&gt;) investor.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;BRK-A&amp;#39; # ticker from yahoo finance
@@ -162,9 +162,9 @@ l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker,
                                  rf.year = rf.year)
 
 print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/blog/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well, needless to say that, historically, Buffet has done very well in his investments! If you bought the stock and kept it for more 1 year, there is a 70% chance that you got a profit.&lt;/p&gt;
 &lt;p&gt;I hope this post convinced you to start investing. The results are clear, its better to start as early as possible.&lt;/p&gt;
 </description>

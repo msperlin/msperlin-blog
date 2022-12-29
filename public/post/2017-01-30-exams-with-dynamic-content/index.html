@@ -736,8 +736,8 @@
 <pre><code>How many packages you can find today (2020-04-28) in CRAN?
 Use repository https://cloud.r-project.org/ for the solution.</code></pre>
 <p>The solution is pretty simple, all you need to do is to ask for the number of rows for the object output from a call to <code>available.packages()</code>. The reader can find the solution with the command <code>nrow(available.packages(repos='https://cloud.r-project.org/'))</code>.</p>
-<p>Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called <strong>Question.Rmd</strong>, available <a href="/blog/files/Question.Rmd">here</a>.</p>
-<pre class="r"><code>my.q.file &lt;- &#39;~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question.Rmd&#39;
+<p>Now, lets build the content of this simple question in a separate file. You can either use .Rnw or .Rmd files with exam. I will choose the later just to keep it simple. Here are the contents of a file called <strong>Question.Rmd</strong>, available <a href="/files/Question.Rmd">here</a>.</p>
+<pre class="r"><code>my.q.file &lt;- &#39;~/Dropbox/11-My Website/www.msperlin.com-static/files/Question.Rmd&#39;
 cat(paste0(readLines(my.q.file), collapse = &#39;\n&#39;))</code></pre>
 <pre><code>## ```{r data generation, echo = FALSE, results = &quot;hide&quot;}
 ## #possible.repo &lt;- getCRANmirrors()$URL  # doenst work well for all repos
@@ -808,7 +808,7 @@ my.exam &lt;- exams2pdf(file = rep(my.f,5),
 ## Exercise directory: /home/msperlin/Desktop/testing/content/post
 ## Supplement directory: /tmp/RtmpJtbGrM/file9e855ddbb636
 ## Temporary directory: /tmp/RtmpJtbGrM/file9e85555c5ce9
-## Exercises: ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-blog/static/files/Question
+## Exercises: ~/Dropbox/11-My Website/www.msperlin.com-static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-static/files/Question, ~/Dropbox/11-My Website/www.msperlin.com-static/files/Question
 ## 
 ## Generation of individual exams.
 ## Exam 1: _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_1 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_2 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_3 (srt) _Dropbox_11-My Website_www.msperlin.com-blog_static_files_Question_4 (srt) ... w</code></pre>
@@ -817,7 +817,7 @@ my.exam &lt;- exams2pdf(file = rep(my.f,5),
 <pre class="r"><code>f.out &lt;- paste0(my.dir,name.exam,&#39;1&#39;,&#39;.pdf&#39;)
 file.exists(f.out)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<p>The result of the previous code is a pdf file <a href="/blog/files/exam_sample1.pdf">pdf file</a> with the exam content.</p>
+<p>The result of the previous code is a pdf file <a href="/files/exam_sample1.pdf">pdf file</a> with the exam content.</p>
 <p>One interesting information from this post is that you can find a small difference in the number of packages in between the CRAN mirrors. My best guess is that they synchronize with the master server in different times of the day/week.</p>
 <p>Looking at the contents of the pdf file, clearly some things are missing from the exam, such as the title page and the instructions. You can add all the bells and whistles with the inputs of function <code>exams2pdf</code> or change it directly in the different file templates. One quick tip for new users is that the answer sheet can be found by looping over the values of the output from <code>exams2pdf</code>:</p>
 <pre class="r"><code>df.answer.key &lt;- data.frame()

@@ -811,7 +811,7 @@ p &lt;- ggplot(df.stocks, aes(x=ref.date, y=price.adjusted)) +
   geom_line() + facet_wrap(~ticker, scales = &#39;free&#39;)
 
 print(p)</code></pre>
-<p><img src="/blog/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2017-01-15-CalculatingBetas_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Again, we see that all prices seems to be Ok. This is one of the advantages of working with adjusted (and not closing) prices from yahoo finance. Artificial effects in the dataset such as ex-dividend prices, splits and inplits are already taken into account and the result is a smooth series without any breaks.</p>
 <p>The final step in preparing the data is to add a column with the returns of the market index. This is not strictly necessary but I really like to keep things organized in a tabular way. Since we will match each vector of returns of the stocks to a vector of returns of the market index, it makes sense to <em>synchronize</em> the rows in the data.frame. First, we isolate the data for the market index in object <code>df.MktIdx</code> and use function <code>match</code> to make an index that matches the dates between the assets and the market index. We later use this index to build a new column in <code>df.stocks</code>. See the next code:</p>
 <pre class="r"><code>df.MktIdx &lt;- df.stocks[df.stocks$ticker==ticker.MktIdx, ]

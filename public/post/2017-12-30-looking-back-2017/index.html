@@ -721,7 +721,7 @@
 
     <div class="article-style">
       
-<script src="/blog/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="my-blog-in-2017" class="section level1">
@@ -759,11 +759,11 @@ glimpse(df.posts)</code></pre>
 <p>Fist, let’s look at the frequency of posts by month:</p>
 <pre class="r"><code>print( ggplot(df.posts, aes(x = ref.month)) + geom_histogram(stat=&#39;count&#39;)) </code></pre>
 <pre><code>## Warning: Ignoring unknown parameters: binwidth, bins, pad</code></pre>
-<p><img src="/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>It is not accidental that january was the month with the highest number of posts. This is when I had material reserved for the book. June and July (0!) were the worst months as I traveled a lot. In June I attended R and Finance in Chicago, SER in Rio de Janeiro and in July I was visiting Goethe University in Germany for the whole month. On average, I created 0 posts per month overall, which fells quite alright. I hope I can keep that pace for the upcoming years.</p>
 <p>As for the length of posts, below we can see a nice pattern for its distribution conditional on the months of the year.</p>
 <pre class="r"><code>print(ggplot(df.posts, aes(x=ref.month, y = char.length)) + geom_boxplot())</code></pre>
-<p><img src="/blog/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>I was not very productive from may to august, writing a few and short posts, when comparing to other months. This was probably due to my travels.</p>
 </div>
 <div id="plans-for-2018" class="section level1">

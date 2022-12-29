@@ -6,111 +6,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Welcome! | Analyzing Financial and Economic Data with R - Online Edition</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4/tabs.js"></script><script src="libs/bs3compat-0.2.4/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><script>
-  
-      /* update total correct if #total_correct exists */
-      update_total_correct = function() {
-        if (t = document.getElementById("total_correct")) {
-          t.innerHTML =
-            document.getElementsByClassName("correct").length + " of " +
-            document.getElementsByClassName("solveme").length + " correct";
-        }
-      }
-      
-      /* solution button toggling function */
-      b_func = function() {
-        var cl = this.parentElement.classList;
-        if (cl.contains('open')) {
-          cl.remove("open");
-        } else {
-          cl.add("open");
-        }
-      }
-      
-      /* function for checking solveme answers */
-      solveme_func = function(e) {
-        var real_answers = JSON.parse(this.dataset.answer);
-        var my_answer = this.value;
-        var cl = this.classList;
-        if (cl.contains("ignorecase")) {
-          my_answer = my_answer.toLowerCase();
-        }
-        if (cl.contains("nospaces")) {
-          my_answer = my_answer.replace(/ /g, "");
+<meta name="description" content="Analyzing Financial and Economic Data with R">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
+<meta property="og:title" content="Welcome! | Analyzing Financial and Economic Data with R - Online Edition">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/figs/CAPAdigital-AnalyzinDataR.jpg">
+<meta property="og:description" content="Analyzing Financial and Economic Data with R">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcome! | Analyzing Financial and Economic Data with R - Online Edition">
+<meta name="twitter:description" content="Analyzing Financial and Economic Data with R">
+<meta name="twitter:image" content="/figs/CAPAdigital-AnalyzinDataR.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
+
+        /* update total correct if #total_correct exists */
+        update_total_correct = function() {
+          if (t = document.getElementById("total_correct")) {
+            t.innerHTML =
+              document.getElementsByClassName("correct").length + " of " +
+              document.getElementsByClassName("solveme").length + " correct";
+          }
         }
         
-        if (my_answer !== "" & real_answers.includes(my_answer)) {
-          cl.add("correct");
-        } else {
-          cl.remove("correct");
+        /* solution button toggling function */
+        b_func = function() {
+          var cl = this.parentElement.classList;
+          if (cl.contains('open')) {
+            cl.remove("open");
+          } else {
+            cl.add("open");
+          }
         }
-      
-        // match numeric answers within a specified tolerance
-        if(this.dataset.tol > 0){
-          var tol = JSON.parse(this.dataset.tol);  
-          var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-          if (matches.reduce((a, b) => a + b, 0) > 0) {
+        
+        /* function for checking solveme answers */
+        solveme_func = function(e) {
+          var real_answers = JSON.parse(this.dataset.answer);
+          var my_answer = this.value;
+          var cl = this.classList;
+          if (cl.contains("ignorecase")) {
+            my_answer = my_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            my_answer = my_answer.replace(/ /g, "");
+          }
+          
+          if (my_answer !== "" & real_answers.includes(my_answer)) {
             cl.add("correct");
           } else {
             cl.remove("correct");
-          }  
-        }
-      
-        // added regex bit
-        if (cl.contains("regex")){
-          answer_regex = RegExp(real_answers.join("|"))
-          if (answer_regex.test(my_answer)) {
-            cl.add("correct");
-          }  
-        }
-        
-        update_total_correct();
-      }
-      
-      window.onload = function() {
-        /* set up solution buttons */
-        var buttons = document.getElementsByTagName("button");
-      
-        for (var i = 0; i < buttons.length; i++) {
-          if (buttons[i].parentElement.classList.contains('solution')) {
-            buttons[i].onclick = b_func;
           }
-        }
         
-        /* set up solveme inputs */
-        var solveme = document.getElementsByClassName("solveme");
-      
-        for (var i = 0; i < solveme.length; i++) {
-          /* make sure input boxes don't auto-anything */
-          solveme[i].setAttribute("autocomplete","off");
-          solveme[i].setAttribute("autocorrect", "off");
-          solveme[i].setAttribute("autocapitalize", "off"); 
-          solveme[i].setAttribute("spellcheck", "false");
-          solveme[i].value = "";
+          // match numeric answers within a specified tolerance
+          if(this.dataset.tol > 0){
+            var tol = JSON.parse(this.dataset.tol);  
+            var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+            if (matches.reduce((a, b) => a + b, 0) > 0) {
+              cl.add("correct");
+            } else {
+              cl.remove("correct");
+            }  
+          }
+        
+          // added regex bit
+          if (cl.contains("regex")){
+            answer_regex = RegExp(real_answers.join("|"))
+            if (answer_regex.test(my_answer)) {
+              cl.add("correct");
+            }  
+          }
           
-          /* adjust answer for ignorecase or nospaces */
-          var cl = solveme[i].classList;
-          var real_answer = solveme[i].dataset.answer;
-          if (cl.contains("ignorecase")) {
-            real_answer = real_answer.toLowerCase();
-          }
-          if (cl.contains("nospaces")) {
-            real_answer = real_answer.replace(/ /g, "");
-          }
-          solveme[i].dataset.answer = real_answer;
-          
-          /* attach checking function */
-          solveme[i].onkeyup = solveme_func;
-          solveme[i].onchange = solveme_func;
+          update_total_correct();
         }
         
-        update_total_correct();
-      }
-      
-      </script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="css/style_html.css">
+        window.onload = function() {
+          /* set up solution buttons */
+          var buttons = document.getElementsByTagName("button");
+        
+          for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i].parentElement.classList.contains('solution')) {
+              buttons[i].onclick = b_func;
+            }
+          }
+          
+          /* set up solveme inputs */
+          var solveme = document.getElementsByClassName("solveme");
+        
+          for (var i = 0; i < solveme.length; i++) {
+            /* make sure input boxes don't auto-anything */
+            solveme[i].setAttribute("autocomplete","off");
+            solveme[i].setAttribute("autocorrect", "off");
+            solveme[i].setAttribute("autocapitalize", "off"); 
+            solveme[i].setAttribute("spellcheck", "false");
+            solveme[i].value = "";
+            
+            /* adjust answer for ignorecase or nospaces */
+            var cl = solveme[i].classList;
+            var real_answer = solveme[i].dataset.answer;
+            if (cl.contains("ignorecase")) {
+              real_answer = real_answer.toLowerCase();
+            }
+            if (cl.contains("nospaces")) {
+              real_answer = real_answer.replace(/ /g, "");
+            }
+            solveme[i].dataset.answer = real_answer;
+            
+            /* attach checking function */
+            solveme[i].onkeyup = solveme_func;
+            solveme[i].onchange = solveme_func;
+          }
+          
+          update_total_correct();
+        }
+        
+        </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="css/style_html.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -178,7 +214,7 @@
 <p>
 <a href="https://www.amazon.com/dp/B084LSNXMN"><img src="figs/CAPAdigital-AnalyzinDataR.jpg" width="225" height="325" alt="Ebook at Amazon.com" class="cover"></a>Welcome to the book site of <strong>Analyzing Financial and Economic Data with R</strong>, second edition. Here you will find the full content of the book for the first seven chapters, as well as all end-of-chapter exercises.
 </p>
-<p>The book is available for purchase in Amazon as an <a href="https://www.amazon.com/dp/B084LSNXMN">ebook</a>, <a href="https://www.amazon.com/dp/171062731X">paperback</a> or <a href="https://www.amazon.com/dp/B08XSL5R4X">hardcover</a>. You can find more free content, including data files and exercise solutions in this <a href="https://www.msperlin.com/blog/publication/2020_book-afedr-en/">link</a>. The online version is also available for <strong>download</strong> as a <a href="./afedR_ed02-ONLINE.pdf">pdf</a> or <a href="./afedR_ed02-ONLINE.epub">ebook</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Use software &lt;a href="https://calibre-ebook.com/"&gt;Calibre&lt;/a&gt; for reading ebooks in your desktop computer.&lt;/p&gt;'><sup>1</sup></a> file.</p>
+<p>The book is available for purchase in Amazon as an <a href="https://www.amazon.com/dp/B084LSNXMN">ebook</a>, <a href="https://www.amazon.com/dp/171062731X">paperback</a> or <a href="https://www.amazon.com/dp/B08XSL5R4X">hardcover</a>. You can find more free content, including data files and exercise solutions in this <a href="https://www.msperlin.com/publication/2020_book-afedr-en/">link</a>. The online version is also available for <strong>download</strong> as a <a href="./afedR_ed02-ONLINE.pdf">pdf</a> or <a href="./afedR_ed02-ONLINE.epub">ebook</a><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Use software &lt;a href="https://calibre-ebook.com/"&gt;Calibre&lt;/a&gt; for reading ebooks in your desktop computer.&lt;/p&gt;'><sup>1</sup></a> file.</p>
 <p>If you liked the material and are using the book, please consider purchasing it and <strong>leaving your feedback at Amazon</strong>. Your oppinion is very important for promoting the book and help others learn more about R and RStudio. As an author, I certainly appreciate the gesture and will take it as a motivating factor for future editions.</p>
 <div id="license" class="section level2 unnumbered">
 <h2>License<a class="anchor" aria-label="anchor" href="#license"><i class="fas fa-link"></i></a>
@@ -189,7 +225,7 @@
 <div id="about-the-author" class="section level2 unnumbered">
 <h2>About the Author<a class="anchor" aria-label="anchor" href="#about-the-author"><i class="fas fa-link"></i></a>
 </h2>
-<p>I’m an associate professor at the post-graduate program of Universidade Federal do Rio Grande do Sul (UFRGS), south of Brazil. I’m also the developer of several popular CRAN packages such as <code>BatchGetSymbols</code>. Further details about my academic work can be found in my <a href="https://www.msperlin.com/blog">personal site</a>.</p>
+<p>I’m an associate professor at the post-graduate program of Universidade Federal do Rio Grande do Sul (UFRGS), south of Brazil. I’m also the developer of several popular CRAN packages such as <code>BatchGetSymbols</code>. Further details about my academic work can be found in my <a href="https://www.msperlin.com">personal site</a>.</p>
 </div>
 <div id="books-from-the-author" class="section level2 unnumbered">
 <h2>Books from the Author<a class="anchor" aria-label="anchor" href="#books-from-the-author"><i class="fas fa-link"></i></a>
@@ -221,6 +257,7 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript>
+                            
   <div class="chapter-nav">
 <div class="empty"></div>
 <div class="next"><a href="about-new-edition.html">About New Edition</a></div>
@@ -247,7 +284,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2021-03-30.</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Edition</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -260,13 +297,29 @@ s.setAttribute('data-timestamp', +new Date());
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

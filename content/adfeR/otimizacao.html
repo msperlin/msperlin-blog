@@ -7,7 +7,7 @@
 <title>Capítulo 13 Otimização de Código | Análise de Dados Financeiros e Econômicos com o R - Versão Online</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'UA-120530145-1');   Você chegou ao fim da versão online do livro...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.30 with bs4_book()">
 <meta property="og:title" content="Capítulo 13 Otimização de Código | Análise de Dados Financeiros e Econômicos com o R - Versão Online">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="/00-text-resources/cover/CAPAdigital-AnaliseDadosR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.1/transition.js"></script><script src="libs/bs3compat-0.4.1/tabs.js"></script><script src="libs/bs3compat-0.4.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
 
         /* update total correct if #total_correct exists */
@@ -343,11 +343,11 @@ autor.
 </h2>
 <hr>
 <p><span id="webex-total_correct"></span></p>
-<div id="q.1-12" class="section level3 unnumbered">
-<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-12"><i class="fas fa-link"></i></a>
+<div id="q.1-11" class="section level3 unnumbered">
+<h3>Q.1<a class="anchor" aria-label="anchor" href="#q.1-11"><i class="fas fa-link"></i></a>
 </h3>
 <p>Considere o seguinte código:</p>
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 library(forecast)
 library(BatchGetSymbols)
 
@@ -360,15 +360,14 @@ summary(my_arima)</a></code></pre>
 <p>Use funcões <code>Rprof</code> e <code>profvis</code> para identificar o gargalo do código. Qual número da linha que está tomando maior tempo de execução?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e982cff4bbb" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf53cb3e8a" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e982cff4bbb" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf53cb3e8a" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
+<pre><code><a href="https://tidyverse.tidyverse.org">library(tidyverse)
 library(BatchGetSymbols)
 library(fGarch)
 library(profvis)
@@ -403,21 +402,20 @@ browseURL(temp_html)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.2-12" class="section level3 unnumbered">
-<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-12"><i class="fas fa-link"></i></a>
+<div id="q.2-11" class="section level3 unnumbered">
+<h3>Q.2<a class="anchor" aria-label="anchor" href="#q.2-11"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use o pacote <code>Rcpp</code> para escrever e usar uma função em linguagem C++ que irá adicionar elementos dos vetores <code>x</code> e <code>y</code>, elemento por elemento. A saída deve ser outro vetor de mesmo tamanho e com elementos iguais a operação <code>x + y</code>. Use a função <code>identical</code> para testar se todos os elementos de ambos os vetores são iguais.</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e985a70c72d" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf2932db9c" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e985a70c72d" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf2932db9c" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://www.rcpp.org">library(Rcpp)
+<pre><code><a href="https://www.rcpp.org">library(Rcpp)
 
 cppFunction('Rcpp::NumericVector sum_vectors_C(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -442,22 +440,21 @@ identical(sol_C, sol_R)</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.3-11" class="section level3 unnumbered">
-<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-11"><i class="fas fa-link"></i></a>
+<div id="q.3-10" class="section level3 unnumbered">
+<h3>Q.3<a class="anchor" aria-label="anchor" href="#q.3-10"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use o pacote <code>tictoc</code> para comparar o desempenho da função anterior com o operador nativo <code>+</code>, e uma versão baseada em loops com pré-alocação. Qual alternativa apresenta menor tempo de execução e por quê? A versão <code>Rcpp</code> vence a versão em loop?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e987322b622" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf9e97b42" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e987322b622" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf9e97b42" class="collapse">
 <div class="card card-body">
 <p>A melhor alternativa é o operador nativo <code>+</code>. Este já é otimizado e executa o cálculo rapidamente.</p>
-<pre class="text"><code><a href="https://www.rcpp.org">library(Rcpp)
+<pre><code><a href="https://www.rcpp.org">library(Rcpp)
 
 cppFunction('Rcpp::NumericVector sum_vectors_C(NumericVector x, NumericVector y) {
   int n = x.size();
@@ -499,21 +496,20 @@ toc()</a></code></pre>
 <hr>
 <p><span id="webex-total_correct"></span></p>
 </div>
-<div id="q.4-10" class="section level3 unnumbered">
-<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-10"><i class="fas fa-link"></i></a>
+<div id="q.4-9" class="section level3 unnumbered">
+<h3>Q.4<a class="anchor" aria-label="anchor" href="#q.4-9"><i class="fas fa-link"></i></a>
 </h3>
 <p>Use o pacote <code>memoise</code> para criar uma versão memorizada de <code><a href="https://rdrr.io/pkg/Quandl/man/Quandl.html">Quandl::Quandl</a></code>. Use a nova função para importar dados para o Índice de Preços ao Consumidor dos Estados Unidos (código <code>'FRED/DDOE01USA086NWDB'</code>). Quanto de ganho de velocidade em porcentagem você obtém da segunda chamada para a versão memorizada?</p>
 <div style="text-align: left; margin-top: 2px; padding: 13px 0 10px 0;">
 <p>
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_8e98632798a5" aria-expanded="false" aria-controls="collapseExample">
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_11cf3d1c5f2" aria-expanded="false" aria-controls="collapseExample">
 Solução
 </button>
 </p>
 </div>
-<div id="collapse_8e98632798a5" class="collapse">
-A solução pode ser encontrada pelo código abaixo. Para rodar, abra um novo script no RStudio (Control+shift+N), copie e cole o código, e rode o script apertando Control+Shift+Enter.
+<div id="collapse_11cf3d1c5f2" class="collapse">
 <div class="card card-body">
-<pre class="text"><code><a href="https://github.com/quandl/quandl-r">library(Quandl)
+<pre><code><a href="https://github.com/quandl/quandl-r">library(Quandl)
 library(memoise)
 library(tictoc)
 
@@ -576,10 +572,10 @@ s.setAttribute('data-timestamp', +new Date());
 </li>
 <li>
 <a class="nav-link" href="#exerc%C3%ADcios-1"><span class="header-section-number">13.3</span> Exercícios</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#q.1-12">Q.1</a></li>
-<li><a class="nav-link" href="#q.2-12">Q.2</a></li>
-<li><a class="nav-link" href="#q.3-11">Q.3</a></li>
-<li><a class="nav-link" href="#q.4-10">Q.4</a></li>
+<li><a class="nav-link" href="#q.1-11">Q.1</a></li>
+<li><a class="nav-link" href="#q.2-11">Q.2</a></li>
+<li><a class="nav-link" href="#q.3-10">Q.3</a></li>
+<li><a class="nav-link" href="#q.4-9">Q.4</a></li>
 </ul>
 </li>
 </ul>
@@ -598,7 +594,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-08-10.</p>
+    <p>"<strong>Análise de Dados Financeiros e Econômicos com o R - Versão Online</strong>" was written by Marcelo S. Perlin (<a href="mailto:marcelo.perlin@ufrgs.br" class="email">marcelo.perlin@ufrgs.br</a>). It was last built on 2022-11-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
