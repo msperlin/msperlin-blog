@@ -19,8 +19,4 @@ git add .
 git commit -m "site compilation at $date_str"
 git push
 
-#SSHDEST="msperlin@45.55.76.185:~/blog"
-
-#rsync -avzhP  "$PATHBOOK" "$SSHDEST"
-
 
