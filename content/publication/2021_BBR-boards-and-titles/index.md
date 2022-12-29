@@ -4,7 +4,7 @@ date = 2021-04-09T00:00:00
 draft = false
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
-authors = ["Marcelo Perlin" "Guilherme Kirch" "Daniel Vancin" "Mauro Mastella"]
+authors = ["Marcelo Perlin", "Guilherme Kirch", "Daniel Vancin", "Mauro Mastella"]
 
 
 # Publication type.
@@ -19,7 +19,7 @@ authors = ["Marcelo Perlin" "Guilherme Kirch" "Daniel Vancin" "Mauro Mastella"]
 publication_types = ["3"]
 
 # Publication name and optional abbreviated version.
-publication = " Brazilian Business Review"
+publication = "Brazilian Business Review"
 publication_short = "BBR"
 
 # Abstract and optional shortened version.

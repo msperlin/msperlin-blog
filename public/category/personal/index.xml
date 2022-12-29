@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>personal | msperlin</title>
+    <link>https://www.msperlin.com/category/personal/</link>
+      <atom:link href="https://www.msperlin.com/category/personal/index.xml" rel="self" type="application/rss+xml" />
+    <description>personal</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Thu, 29 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>personal</title>
+      <link>https://www.msperlin.com/category/personal/</link>
+    </image>
+    
+    <item>
+      <title>Looking back at 2021-2022 and plans for 2023</title>
+      <link>https://www.msperlin.com/post/2022-12-29-looking-back-2022/</link>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2022-12-29-looking-back-2022/</guid>
+      <description>
+
+
+&lt;p&gt;Every end of year I write about what happened during the yearly cycle and what’s to come.&lt;/p&gt;
+&lt;p&gt;This year was very special and impactful for me. I learned a lot about myself, about what I do and why. Here are the highlights.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;highlights-of-2022-and-2021&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Highlights of 2022 and 2021&lt;/h1&gt;
+&lt;div id=&#34;academic-papers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Academic Papers&lt;/h2&gt;
+&lt;p&gt;I published and co-authored several academic papers during this period:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/85378&#34;&gt;What drives the release of material facts for Brazilian stocks?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://doi.org/10.1016/j.joi.2022.101287&#34;&gt;The Academic Inbreeding Controversy: Analysis and Evidence from Brazil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dx.doi.org/10.1108/GM-06-2019-0088&#34;&gt;Board gender diversity: performance and risk of Brazilian firms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://doi.org/10.15728/bbr.2021.18.5.5&#34;&gt;O Impacto da Titulação Acadêmica de Conselheiros e Diretores sobre a Performance de Empresas Negociadas na B3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;books&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Books&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The first edition of book &lt;a href=&#34;https://msperlin.com/vdr/&#34;&gt;Visualização de Dados com o R&lt;/a&gt; was published in October 2022. This was a great project and I had a great time and learned a lot doing it.&lt;/li&gt;
+&lt;li&gt;The third edition of &lt;a href=&#34;http://www.msperlin.com/adfeR/&#34;&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/a&gt; was published.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Packages&lt;/h2&gt;
+&lt;p&gt;Package &lt;a href=&#34;https://github.com/ropensci/yfR/&#34;&gt;yfR&lt;/a&gt; is the new iteration of BatchGetSymbols, with several new features and improvements. I had a very good experience submitting it for publication in &lt;a href=&#34;https://ropensci.org/&#34;&gt;ropensci&lt;/a&gt;. Both reviewers had great ideas that were implemented.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;checking-previous-plans&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Checking previous plans&lt;/h1&gt;
+&lt;p&gt;At the end of 2020, my plans for 2021 and 2021 &lt;a href=&#34;https://msperlin.com/post/2020-12-22-looking-back-2020/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish new R/ggplot2 book (&lt;em&gt;Visualização de Dados com R&lt;/em&gt;)&lt;/dt&gt;
+&lt;dd&gt;
+Done! :)
+&lt;/dd&gt;
+&lt;dt&gt;Publish third edition of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Also done! :)
+&lt;/dd&gt;
+&lt;dt&gt;Publish board papers&lt;/dt&gt;
+&lt;dd&gt;
+Done! See it &lt;a href=&#34;https://msperlin.com/publication/&#34;&gt;here&lt;/a&gt;.
+&lt;/dd&gt;
+&lt;dt&gt;Publish paper about academic inbreeding&lt;/dt&gt;
+&lt;dd&gt;
+Done! The paper is available at &lt;a href=&#34;https://doi.org/10.1016/j.joi.2022.101287&#34;&gt;JOI&lt;/a&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plans-for-2023&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Plans for 2023&lt;/h1&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Analyzing Financial and Economic Data with R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+I’m currently working on it. I’m implementing major changes in the background, on how the book is written and compiled. On a side note, it is great to have time to think about compiling books using Rmarkdown, and organizing it in a common framework. This will make it easier to update ALL books over time.
+&lt;/dd&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Same as previous revision. Almost everything improved in the english version will also be done here.
+&lt;/dd&gt;
+&lt;dt&gt;Write and publish paper about research schollarships&lt;/dt&gt;
+&lt;dd&gt;
+This is is WIP (work in progress). I have no idea how it will turn out, but the main guideline is investigating the effects (or causes) of research schollarships (&lt;em&gt;Bolsas de Produtividade&lt;/em&gt;) in Brazil. Final version and publication is likelly to happen in 2024.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ten years as a professor -- six advices to young academics</title>
+      <link>https://www.msperlin.com/post/2021-03-10-advices-young-academics/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2021-03-10-advices-young-academics/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;In the 18th of march 2021 I’ll complete exactly ten years since finishing my PhD and taking a professorship position at UFRGS, south of Brazil. In this post I’ll write about what I learned during this period and, hopefully, help other academics that are just starting out.&lt;/p&gt;
+&lt;p&gt;This post is the summary of a talk I had with a former PhD student. I’m fully aware that academic work can be very different across countries and institutions. I don’t claim to have all the answers to all the problems. But, these are a couple of advice that would certainly help me in my starting years.&lt;/p&gt;
+&lt;div id=&#34;find-a-hobby&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1) Find a hobby&lt;/h3&gt;
+&lt;p&gt;First and foremost, find a hobby. Yes, sounds weird as a first advice but you would be surprised how a hobby – or anything that takes your mind of work – can give you a great boost in quality of life and work, specially in academia.&lt;/p&gt;
+&lt;p&gt;A good hobby should not be related to work, or driven by its consequences. For example, I usually go to the gym twice a week. Not because I enjoy it, but due to the fact that it helps me keeping my body healthy. Honestly, I don’t like gyms, but I go anyway.&lt;/p&gt;
+&lt;p&gt;Said that, sports are a good example of hobbies. You do it for its own sake. So, find a sport you like and invest time in it. You’ll thank me later.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plan-for-the-long-term&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2) Plan for the long term&lt;/h3&gt;
+&lt;p&gt;One repeated mistake I made in my starting years is to enroll in many different projects. In hindsight, I can see that most of them were doomed to fail before even starting. At first, everyone is excited to join and do something new, but few remain if their motivation is not right. Moreover, students have a tendency to say yes to the teacher, which makes them to agree to projects that they might not be really interested. Everyone will stay in the project until time becomes scarce or something new shows up.&lt;/p&gt;
+&lt;p&gt;Incentives play a key role in everything we do and I learned this the hard way. For example, if a student works 8 hours in a bank, he is not taking a weekend off to review the econometrics of that scientific paper we wrote together months ago. And there is nothing wrong with that. The mistake was from my part for 1) not making it clear of how much work a paper needs and 2) assuming the student and I would share the same incentives, which is simply not true.&lt;/p&gt;
+&lt;p&gt;When playing for the long term academic game, focus on things that you are likely to continue doing in 5, 10, 15 years:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a personal website (yes, many people still don’t). Without it, how will people see your work?&lt;/li&gt;
+&lt;li&gt;Find a research topic that you’re passionate about; this way will be much easier to write, teach and code about the topic.&lt;/li&gt;
+&lt;li&gt;Find colleagues that are also playing the long term game and work with them.&lt;/li&gt;
+&lt;li&gt;Use open software in data analysis and teaching, preferably Python or R. Its smart to keep your workflow reproducible and license-free. This way you’ll be able to take your work anywhere, if necessary;&lt;/li&gt;
+&lt;li&gt;Don’t ever compromise your reputation. A famous quote: “it takes years to build a reputations and a few minutes to lose it”.&lt;/li&gt;
+&lt;li&gt;Learn new tools: linux, server-side scripting, building websites, editing videos, using YouTube, using e-learning platforms, and so on. Whatever it takes to deliver your work to society. Don’t let other people do it for you. You have the time, just site down and learn it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quantity-beats-quality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3) Quantity beats quality&lt;/h3&gt;
+&lt;p&gt;One statistic that few people know is that, for a reputable, high ranking journal such as &lt;em&gt;Journal of Finance&lt;/em&gt;, the median number of citations per article is close to zero. This means that, what drives the high impact factors of such journals is a couple of papers that become popular in their field of expertise. This means that few articles get all the glory.&lt;/p&gt;
+&lt;p&gt;Also know as the &lt;em&gt;tail effect&lt;/em&gt; or &lt;em&gt;Pareto rule&lt;/em&gt;, this is a common pattern in business. As an example, there were many search engines before Google but none with its success. The high scalability of business in digital commodities, such as search engines, makes it so that a couple of companies gets all the sales (or search queries). Likewise, if you invest in a portfolio of companies over a long period of time, your total performance would be due to a handful of companies. Those winners with the highest returns will easily compensate for losers, and still give you a handsome financial reward.&lt;/p&gt;
+&lt;p&gt;This is also true for your research work. If you write ten papers, be glad that one of them does well and attracts citations. This might also just be good luck, due to right timing. This means that you should focus your research in quality, but also &lt;strong&gt;quantity&lt;/strong&gt;. The more papers, higher the likelihood of hitting the spot and getting recognition.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;its-not-all-about-papers-but-it-helps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4) Its not all about papers, but it helps&lt;/h3&gt;
+&lt;p&gt;Papers have historically been the main output of academics. I certainly felt that way when starting out. Today, the university work can take many different shapes and colors. You can contribute to society not just by writing research papers but also:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;writing and publishing code&lt;/li&gt;
+&lt;li&gt;writing books&lt;/li&gt;
+&lt;li&gt;writing news articles&lt;/li&gt;
+&lt;li&gt;writing blog posts&lt;/li&gt;
+&lt;li&gt;releasing videos on YouTube&lt;/li&gt;
+&lt;li&gt;local lectures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My suggestion is to try as many as possible and see which type of output you like best.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;you-have-freedom-and-autonomy-use-it..&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5) You have freedom and autonomy, use it..&lt;/h3&gt;
+&lt;p&gt;Academics generally have the autonomy to define their workflow and control their environment. Use and abuse of that freedom. Very few people have that kind of autonomy and some would probably be willing to pay a good amount of money for it, if they could. With that in mind:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Its not about the number of hours, but what you do with them. No one cares about how many hours you are at the university, but what you are producing to society, whether it is research articles, lectures or code.&lt;/li&gt;
+&lt;li&gt;Change your working hours as needed. For example, if you live in a large city, why do you need to get from/to work at rush hours? Likewise, why not working on the weekend and taking Monday off? (I’ve done this countless times – its fun..)&lt;/li&gt;
+&lt;li&gt;Don’t work with people you don’t like. Easier said than done, but keep in mind that you always have that choice.&lt;/li&gt;
+&lt;li&gt;Learn to say no, constantly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;academia-is-changing-fast..&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6) Academia is changing, fast..&lt;/h3&gt;
+&lt;p&gt;And you should be worried. Historically, universities always had the prestige of being knowledge centers. In contrast, knowledge is now abundant in the digital world. My students are no longer learning by reading books, but by watching YouTube videos or using other platforms. It seems we distanced ourselves from the real world and that is starting to backfire. A reliable sign is a &lt;a href=&#34;https://www.cnbc.com/2018/08/16/15-companies-that-no-longer-require-employees-to-have-a-college-degree.html&#34;&gt;trend&lt;/a&gt; in the hiring process of companies of not requiring a college degree, but only proof of work.&lt;/p&gt;
+&lt;p&gt;The change is coming and we have not clue of how universities will adapt in the next 5, 10 years. The only thing you can control is how much you learn and do. So, do more and learn more. Be prepared.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Looking back at 2020 and plans for 2021</title>
+      <link>https://www.msperlin.com/post/2020-12-22-looking-back-2020/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2020-12-22-looking-back-2020/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Wow, what a &lt;strong&gt;long&lt;/strong&gt; year! The pandemic affected everyone, changing the way we live and relate to one another. This was a year full of lessons and we must be thankful and be able to appreciate life even more. Events such as these show how little our “problems” are when put into perspective.&lt;/p&gt;
+&lt;p&gt;I’m lucky that, despite the lockdown, I was able to work from home this year. Lets have a look at the highlights.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;highlights-of-2020&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Highlights of 2020&lt;/h1&gt;
+&lt;div id=&#34;academic-papers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Academic Papers&lt;/h2&gt;
+&lt;p&gt;This year I published and co-authored two academic papers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rac.anpad.org.br/index.php/rac/article/view/1420&#34;&gt;A Garch Tutorial in R - RAC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linkinghub.elsevier.com/retrieve/pii/S1062940820301406&#34;&gt;Does algorithmic trading harm liquidity? Evidence from Brazil - NAJEF&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I also worked towards my paper pipeline in corporate finance, with the following papers, which are currently under review:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Financial Performance and Academic Titles of Advisers and Directors of Brazilian Companies&lt;/li&gt;
+&lt;li&gt;Boards and Gender for Brazilian Listed Companies&lt;/li&gt;
+&lt;li&gt;Description of Boards in Brazil&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;books&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Books&lt;/h2&gt;
+&lt;p&gt;The second edition of my R book - &lt;a href=&#34;https://www.msperlin.com/publication/2020_book-afedr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt; was published in January 2020. I spend most of 2019 working towards this edition and I’m very pleased with the result. The book improved a lot, with a more polished content.&lt;/p&gt;
+&lt;p&gt;I’m also happy to report that my two other books, &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;padfR&lt;/a&gt; and &lt;a href=&#34;https://www.amazon.com.br/dp/B07RR9K9PV&#34;&gt;pirf&lt;/a&gt;, are receiving great reviews in Amazon.com.br. This is great news, motivating the future editions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Packages&lt;/h2&gt;
+&lt;p&gt;This year I “broke” package &lt;code&gt;GetDFPData&lt;/code&gt; into two: &lt;code&gt;GetDFPData2&lt;/code&gt; and &lt;code&gt;GetFREData&lt;/code&gt;. Both are still in &lt;a href=&#34;https://github.com/msperlin&#34;&gt;Github&lt;/a&gt; but I’ll soon release it to CRAN. You can read more about this decision &lt;a href=&#34;https://www.msperlin.com/post/2020-07-18-new_packages-getfredata-getdfpdata2/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Additionally, I also wrote the book package &lt;code&gt;afedR&lt;/code&gt;, which facilitates the reproducibility of all book examples. See more details about it &lt;a href=&#34;https://www.msperlin.com/post/2020-02-25-afedr-ed2-slides-available/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;checking-2019s-plans&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Checking 2019’s plans&lt;/h1&gt;
+&lt;p&gt;At the end of 2019, my plans for 2020 &lt;a href=&#34;https://www.msperlin.com/post/2019-12-15-looking-back-2019/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish afedR (analyzing financial and economic data with R)&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&#34;https://www.msperlin.com/post/2020-01-15-afedr-ed2-announcement/&#34;&gt;Done! :)&lt;/a&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Finish board papers&lt;/dt&gt;
+&lt;dd&gt;Almost Done. All papers are now in review and, hopefully, are going to be published soon.
+&lt;/dd&gt;
+&lt;dt&gt;Start “personal finance project”&lt;/dt&gt;
+&lt;dd&gt;Not done. This is an idea that I’m struggling with. I’m not really sure how to implement it and still have to figure out the details.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plans-for-2021&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Plans for 2021&lt;/h1&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish new R/ggplot2 book (&lt;em&gt;Visualização de Dados com R&lt;/em&gt;)&lt;/dt&gt;
+&lt;dd&gt;This book will be mostly about using &lt;code&gt;ggplot2&lt;/code&gt; in data visualization. It will be written in portuguese and, if it comes out right and do well, I’ll translate into english. I already got 2 chapters written, but still missing a lot of work and content.
+&lt;/dd&gt;
+&lt;dt&gt;Publish third edition of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;The portuguese version of my R book is already in its third edition and I’m very excited for this new edition. It will incorporate many changes from the english edition and more!
+&lt;/dd&gt;
+&lt;dt&gt;Publish board papers&lt;/dt&gt;
+&lt;dd&gt;Soon. The three papers are in revision.
+&lt;/dd&gt;
+&lt;dt&gt;Publish paper about academic inbreeding&lt;/dt&gt;
+&lt;dd&gt;I’m writing a new paper about the effects of academic inbreeding in Brazil using Lattes data. The paper is its final internal review and will soon be sent to for its formal review. The results are very interesting and I hope to write more about it soon.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>garch | msperlin</title>
+    <link>https://www.msperlin.com/category/garch/</link>
+      <atom:link href="https://www.msperlin.com/category/garch/index.xml" rel="self" type="application/rss+xml" />
+    <description>garch</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>garch</title>
+      <link>https://www.msperlin.com/category/garch/</link>
+    </image>
+    
+    <item>
+      <title>A GARCH Tutorial in R (revised)</title>
+      <link>https://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2020-07-07-garch-tutorial-in-r-revised/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2020-07-22 Update: The final version of the paper is now published at &lt;a href=&#34;https://rac.anpad.org.br/index.php/rac/article/view/1420?fbclid=IwAR0D0N5RBmeX92sXY22r8RWPDjlVjM00p-DjuufSrYf9WgOf9JhOcGoUS1Q&#34;&gt;RAC&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Back in May 2020, I started to work on a &lt;a href=&#34;https://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/&#34;&gt;new paper&lt;/a&gt; regarding the use of Garch models in R. Today we finished the peer review process and finally got a final version of the &lt;a href=&#34;https://docs.google.com/document/d/1eHuKsp3-GokyjOwr0PZ_dNnVTzmSS4PCPMzI9LfUclI/edit?usp=sharing&#34;&gt;article&lt;/a&gt; and &lt;a href=&#34;https://github.com/msperlin/GARCH-RAC&#34;&gt;code&lt;/a&gt;. I’m glad to report that the content improved significantly.&lt;/p&gt;
+&lt;p&gt;In a nutshell, the paper motivates GARCH models and presents an empirical application using R: given the recent COVID-19 crisis, we investigate the likelihood of Ibovespa index reach its peak value once again in the upcoming years.&lt;/p&gt;
+&lt;p&gt;All code and data used in the study is available in &lt;a href=&#34;https://github.com/msperlin/GARCH-RAC&#34;&gt;GitHub&lt;/a&gt;, so fell free to download the zip file and play around. Likewise, you can run the same code at &lt;a href=&#34;https://rstudio.cloud/project/1371589&#34;&gt;RStudio Cloud&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A GARCH Tutorial in R</title>
+      <link>https://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</link>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2020-03-29-garch-tutorial-in-r/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Myself, Mauro Mastella, Daniel Vancin and Henrique Ramos, just finished a tutorial paper about GARCH models in R and I believe it is a good content for those learning financial econometrics. You can find the full paper in this &lt;a href=&#34;https://docs.google.com/document/d/1BcIFoM25haxWIVtQfzMMGPnPG--gTt2f3XhGJlSHQus/edit?usp=sharing&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In a nutshell, the paper introduces motivation behind the GARCH type of models and presents an empirical application: given the recent COVID-19 crisis, we investigate how much time it would take for the Ibovespa index to reach its peak value once again. The results indicate that it would take, on average, about two and half years for the index to recover.&lt;/p&gt;
+&lt;p&gt;All code and data used in the study is available in &lt;a href=&#34;https://github.com/msperlin/GARCH-RAC&#34;&gt;GitHub&lt;/a&gt;, so fell free to download the zip file and play around. You can find all figures of the paper in this &lt;a href=&#34;https://imgur.com/gallery/w2U9MSs&#34;&gt;link&lt;/a&gt;. Worth pointing out that you can reproduce all results in your own computer by executing the source code at &lt;a href=&#34;https://github.com/msperlin/GARCH-RAC&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe src=&#34;https://docs.google.com/document/d/e/2PACX-1vTIk9P2QwACBW8qtQXZONqJqCb1R5Ewh8AwljSIdX94xRYlljj_E6t5Xn0hO71YvtckrcIFRsAOR3us/pub?embedded=true&#34; width=&#34;700&#34; height=&#34;500&#34;&gt;
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

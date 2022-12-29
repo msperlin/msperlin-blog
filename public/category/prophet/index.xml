@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prophet | msperlin</title>
+    <link>https://www.msperlin.com/category/prophet/</link>
+      <atom:link href="https://www.msperlin.com/category/prophet/index.xml" rel="self" type="application/rss+xml" />
+    <description>prophet</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2022</copyright><lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>prophet</title>
+      <link>https://www.msperlin.com/category/prophet/</link>
+    </image>
+    
+    <item>
+      <title>Can we predict stock prices with Prophet?</title>
+      <link>https://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2017-03-05-prophet-and_stock-market/</guid>
+      <description>
+
+
+&lt;p&gt;Facebook recently released a API package allowing access to its forecasting model called &lt;a href=&#34;http://blog.revolutionanalytics.com/2017/02/facebook-prophet.html&#34;&gt;prophet&lt;/a&gt;. According to the underling post:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;It&amp;#39;s not your traditional ARIMA-style time series model. It&amp;#39;s closer in spirit to a  Bayesian-influenced generalized additive model, a regression of smooth terms. The model is resistant   to the effects of outliers, and supports data collected over an irregular time scale (ingliding presence of missing data) without the need for interpolation. The underlying calculation engine is Stan; the R and Python packages simply provide a convenient interface.  &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;After reading it, I got really curious about the predictive performance of this method for stock prices. That is, &lt;strong&gt;can we predict stock price movements based on prophet?&lt;/strong&gt; In this post I will investigate this research question using a database of prices for the SP500 components.&lt;/p&gt;
+&lt;p&gt;Before describing the code and results, it is noteworthy to point out that forecasting stock returns is really hard! There is a significant body of literature trying to forecast prices and to prove (or not) that financial markets are efficient in pricing publicly available information, including historical prices. This is the so called efficient market hypothesis. I have studied it, tried to trade for myself for a while when I was a Msc student, advised several graduate students on it, and the results are mostly the same: it is very difficult to find a trade signal that works well and is sustainable in real life.&lt;/p&gt;
+&lt;p&gt;This means that most of the variation in prices is due to random factors that cannot be anticipated. The explanation is simple, prices move according to investor’s expectation from available information. Every time that new (random) information, true or not, reaches the market, investor’s update their beliefs and trade accordingly. So, unless, new information or market expectation have a particular pattern, price changes will be mostly random.&lt;/p&gt;
+&lt;p&gt;Even with a body of evidence against our research, it is still interesting to see how we could apply &lt;code&gt;prophet&lt;/code&gt; in a trading setup.&lt;/p&gt;
+&lt;div id=&#34;the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The data&lt;/h2&gt;
+&lt;p&gt;First, let’s download stock prices for some components of the SP500 index since 2010.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(BatchGetSymbols)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: rvest&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: xml2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: dplyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(100)
+
+all.stocks &amp;lt;- GetSP500Stocks()$Ticker
+my.stocks &amp;lt;- sample(all.stocks, 20)
+
+first.date &amp;lt;- as.Date(&amp;#39;2015-01-01&amp;#39;)
+last.date &amp;lt;- as.Date(&amp;#39;2019-01-01&amp;#39;)
+df.stocks &amp;lt;- BatchGetSymbols(my.stocks, 
+                             first.date = first.date, 
+                             last.date = last.date)[[2]]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Running BatchGetSymbols for:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##    tickers =FTV, ZBH, OXY, C, XLNX, VZ, BEN, WY, ROL, VTR, TSN, ABMD, MKC, MDLZ, CNP, PVH, ADBE, EXPD, L, UNM
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1) | Found cache file
+## FTV | yahoo (1|20) | Found cache file - Got 62% of valid prices | OUT: not enough data (thresh.bad.data = 75%)
+## ZBH | yahoo (2|20) | Found cache file - Got 100% of valid prices | OK!
+## OXY | yahoo (3|20) | Found cache file - Got 100% of valid prices | Got it!
+## C | yahoo (4|20) | Found cache file - Got 100% of valid prices | You got it!
+## XLNX | yahoo (5|20) | Found cache file - Got 100% of valid prices | OK!
+## VZ | yahoo (6|20) | Found cache file - Got 100% of valid prices | Got it!
+## BEN | yahoo (7|20) | Found cache file - Got 100% of valid prices | Feels good!
+## WY | yahoo (8|20) | Found cache file - Got 100% of valid prices | Looking good!
+## ROL | yahoo (9|20) | Found cache file - Got 100% of valid prices | Got it!
+## VTR | yahoo (10|20) | Found cache file - Got 100% of valid prices | OK!
+## TSN | yahoo (11|20) | Found cache file - Got 100% of valid prices | Feels good!
+## ABMD | yahoo (12|20) | Found cache file - Got 100% of valid prices | Feels good!
+## MKC | yahoo (13|20) | Found cache file - Got 100% of valid prices | Got it!
+## MDLZ | yahoo (14|20) | Found cache file - Got 100% of valid prices | Feels good!
+## CNP | yahoo (15|20) | Found cache file - Got 100% of valid prices | Got it!
+## PVH | yahoo (16|20) | Found cache file - Got 100% of valid prices | Looking good!
+## ADBE | yahoo (17|20) | Found cache file - Got 100% of valid prices | OK!
+## EXPD | yahoo (18|20) | Found cache file - Got 100% of valid prices | You got it!
+## L | yahoo (19|20) | Found cache file - Got 100% of valid prices | Good job!
+## UNM | yahoo (20|20) | Found cache file - Got 100% of valid prices | Looking good!&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, let’s understand how prophet works. I was happy to see that the interface is quite simple, you offer a time series with input &lt;code&gt;y&lt;/code&gt; and a date vector with &lt;code&gt;ds&lt;/code&gt;. If no further custom option is set, you are good to go. My only complain with &lt;code&gt;prophet&lt;/code&gt; is that that the function outputs lots of messages. They really should add a &lt;code&gt;quiet&lt;/code&gt; option, so that the user doesn’t have to use &lt;code&gt;capture.output&lt;/code&gt; to silent it. Have a look in the next example with a dummy series:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(prophet)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: Rcpp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: rlang&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;rlang&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:xml2&amp;#39;:
+## 
+##     as_list&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.est &amp;lt;- data.frame(y = rnorm(100), ds = Sys.Date() + 1:100)
+
+m &amp;lt;- prophet(df = df.est)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Disabling yearly seasonality. Run prophet with yearly.seasonality=TRUE to override this.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Disabling daily seasonality. Run prophet with daily.seasonality=TRUE to override this.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The next step is to think about how to structure a function for our research problem. Our study has two steps, first we will set a &lt;em&gt;training&lt;/em&gt; (in-sample) period, estimate the model and make forecasts. After that, we use the &lt;em&gt;out-of-sample&lt;/em&gt; data to test the accuracy of the model.&lt;/p&gt;
+&lt;p&gt;The whole procedure of estimating and forecasting will be encapsulated in a single R function. This is not the best way of doing it but, for our simple example, it will suffice. My function will take as input a dataframe and the number of out-of-sample forecasts. Based on the adjusted closing prices, we calculate returns and feed &lt;code&gt;1:(nrow(df)-nfor)&lt;/code&gt; rows for the estimation. The last &lt;code&gt;nfor&lt;/code&gt; rows are used for testing the accuracy of the model. For example, if I have a vector with 1000 returns and &lt;code&gt;nfor=5&lt;/code&gt;, I use observations from &lt;code&gt;1:995&lt;/code&gt; for estimating the model and &lt;code&gt;996:1000&lt;/code&gt; for testing the forecasts. The function returns a dataframe with the predictions for each horizon, its error, among other things. Here’s the function definition:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;est.model.and.forecast &amp;lt;- function(df.in, nfor=5){
+  # Estimated model using prophet and forecast it
+  #
+  # Args:
+  #   df.in - A dataframe with columns price.adjusted and ref.date
+  #   nfor - Number of out-of-sample forecasts
+  #
+  # Returns:
+  #   A dataframe with forecasts and errors for each horizon.
+  
+  require(prophet)
+  require(dplyr)
+  
+  my.ticker &amp;lt;- df.in$ticker[1]
+  
+  #cat(&amp;#39;\nProcessing &amp;#39;, my.ticker)
+  
+  df.in &amp;lt;- df.in %&amp;gt;%
+    select(ref.date, ret.adjusted.prices)
+  
+  names(df.in) &amp;lt;- c(&amp;#39;ds&amp;#39;, &amp;#39;y&amp;#39;)
+  
+  idx &amp;lt;- nrow(df.in) - nfor
+  
+  df.est &amp;lt;- df.in[1:idx, ]
+  df.for &amp;lt;- df.in[(idx + 1):nrow(df.in), ]
+  
+  capture.output(
+    m &amp;lt;- prophet(df = df.est)
+  )
+  
+  # forecast 50 days ahead (it also includes non trading days)
+  df.pred &amp;lt;- predict(m,
+                     make_future_dataframe(m,
+                                           periods = nfor + 50))
+  
+  df.pred$ds &amp;lt;- as.Date(df.pred$ds)
+  df.for &amp;lt;- merge(df.for, df.pred, by = &amp;#39;ds&amp;#39;)
+  df.for &amp;lt;- select(df.for, ds, y, yhat)
+  
+  # forecast statistics
+  df.for$eps &amp;lt;- with(df.for,y - yhat)
+  df.for$abs.eps &amp;lt;- with(df.for,abs(y - yhat))
+  df.for$perc.eps &amp;lt;- with(df.for,(y - yhat)/y)
+  df.for$nfor &amp;lt;- 1:nrow(df.for)
+  df.for$ticker &amp;lt;- my.ticker
+  
+  return(df.for)
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s try it out using the &lt;code&gt;by&lt;/code&gt; function to apply it for each stock in our sample. All results are later combined in a single dataframe with function &lt;code&gt;do.call&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out.l &amp;lt;- by(data = df.stocks,
+            INDICES = df.stocks$ticker, 
+            FUN = est.model.and.forecast, nfor = 5)
+
+my.result &amp;lt;- do.call(rbind, out.l)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lets have a look in the resulting dataframe:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(my.result)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                ds            y         yhat         eps    abs.eps  perc.eps
+## ABMD.1 2018-12-24 -0.031726969 -0.005299687 -0.02642728 0.02642728 0.8329596
+## ABMD.2 2018-12-26  0.093781188 -0.002497698  0.09627889 0.09627889 1.0266333
+## ABMD.3 2018-12-27  0.026769487 -0.005186820  0.03195631 0.03195631 1.1937587
+## ABMD.4 2018-12-28  0.007919663 -0.001131558  0.00905122 0.00905122 1.1428795
+## ABMD.5 2018-12-31  0.021592217 -0.003278144  0.02487036 0.02487036 1.1518206
+## ADBE.1 2018-12-24 -0.017432945 -0.005505203 -0.01192774 0.01192774 0.6842070
+##        nfor ticker
+## ABMD.1    1   ABMD
+## ABMD.2    2   ABMD
+## ABMD.3    3   ABMD
+## ABMD.4    4   ABMD
+## ABMD.5    5   ABMD
+## ADBE.1    1   ADBE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this object you’ll find the forecasts (yhat), the actual values (y), the absolute and normalized error (abs.eps, perc.eps).&lt;/p&gt;
+&lt;p&gt;For ou first analysis, let’s have a look on the effect of the forecasting horizon over the absolute error distribution.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+p &amp;lt;- ggplot(my.result, aes(x=factor(nfor), 
+                           y=abs.eps))
+p &amp;lt;- p + geom_boxplot()
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We do find some positive dependency. As the horizon increases, the forecasting algorithm makes more mistakes. Surprisingly, this pattern is not found for &lt;code&gt;nfor=5&lt;/code&gt; and &lt;code&gt;nfor=4&lt;/code&gt;. It might be interesting to add more data and check if this effect is robust.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;encopassing-test&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Encopassing test&lt;/h2&gt;
+&lt;p&gt;A simple and powerful test for verifying the accuracy of a prediction algorithm is the encompassing test. The idea is to estimate the following linear model with the real returns (&lt;span class=&#34;math inline&#34;&gt;\(R_t\)&lt;/span&gt;) and its predictions (&lt;span class=&#34;math inline&#34;&gt;\(\hat{R} _t\)&lt;/span&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[y_t = \alpha + \beta\hat{y_t} + \epsilon _t\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If the model provides good forecasts, we can expect that &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; is equal to zero (no bias) and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; is equal to 1. If both conditions are true, we have that &lt;span class=&#34;math inline&#34;&gt;\(R_t = \hat{R} _t + \epsilon _t\)&lt;/span&gt;$, meaning that our forecasting model provides an unbiased estimator of the predicted variable. In a formal research, we could use a Wald test to verify this hypothesis jointly.&lt;/p&gt;
+&lt;p&gt;First, lets find the result of the encompassing test for all forecasts.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;lm.model &amp;lt;- lm(formula = y ~yhat, data = my.result)
+summary(lm.model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Call:
+## lm(formula = y ~ yhat, data = my.result)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.055237 -0.012307 -0.000287  0.008360  0.086257 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)  
+## (Intercept) 0.007954   0.004063   1.957   0.0533 .
+## yhat        0.171995   1.132177   0.152   0.8796  
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
+## 
+## Residual standard error: 0.02675 on 93 degrees of freedom
+## Multiple R-squared:  0.0002481,  Adjusted R-squared:  -0.0105 
+## F-statistic: 0.02308 on 1 and 93 DF,  p-value: 0.8796&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, it didn’t work very well. The constant is significant, which indicates a bias. The value of 0.1719945 is not very close to 1. But, it could be the case that the different horizon have different results. A longer horizon, with bad forecasts, will be affecting short horizons with good forecasts. Lets use &lt;code&gt;dplyr&lt;/code&gt; to separate our model according to &lt;code&gt;nfor&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;models &amp;lt;- my.result %&amp;gt;%
+  group_by(nfor) %&amp;gt;%
+  do(ols.model = lm(data = ., formula = y ~ yhat ))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We report the results with &lt;code&gt;texreg::screenreg&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;texreg::screenreg(models$ols.model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## ==============================================================
+##              Model 1    Model 2    Model 3  Model 4  Model 5  
+## --------------------------------------------------------------
+## (Intercept)  -0.04 ***   0.05 ***   0.01    -0.00     0.01 ***
+##              (0.00)     (0.01)     (0.00)   (0.00)   (0.00)   
+## yhat         -2.32 **   -0.14      -1.01    -0.19    -0.22    
+##              (0.77)     (2.82)     (0.87)   (0.51)   (0.72)   
+## --------------------------------------------------------------
+## R^2           0.35       0.00       0.07     0.01     0.01    
+## Adj. R^2      0.31      -0.06       0.02    -0.05    -0.05    
+## Num. obs.    19         19         19       19       19       
+## RMSE          0.01       0.02       0.01     0.01     0.01    
+## ==============================================================
+## *** p &amp;lt; 0.001, ** p &amp;lt; 0.01, * p &amp;lt; 0.05&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Well, the R2 shows some evidence that shorter horizons have better results in the encompassing test. But, we got some negative betas! This means that, for some horizons, it might be better to take the opposite suggestion of the forecast!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;trading-based-on-forecasts&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Trading based on forecasts&lt;/h2&gt;
+&lt;p&gt;In a practical trading applications, it might not be of interest to forecast actual returns. If you are trading according to these forecasts, you are probably more worried about the direction of the forecasts and not its nominal error. A model can have bad nominal forecasts, but be good in predicting the sign of the next price movement. If this is the case, you can still make money even though your model fails in the encompassing test.&lt;/p&gt;
+&lt;p&gt;Let’s try it out with a simple trading strategy for all different horizons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;buy in end of day &lt;em&gt;t&lt;/em&gt; if forecast in &lt;em&gt;t+1&lt;/em&gt; is positive and sell at the end of &lt;em&gt;t+1&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;short-sell in the end of day &lt;em&gt;t&lt;/em&gt; when forecast for &lt;em&gt;t+1&lt;/em&gt; is negative and buy it back in the end of &lt;em&gt;t+1&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The total profit will be given by:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.profit &amp;lt;- sum(with(my.result, (yhat&amp;gt;0)*y + (yhat&amp;lt;0)*-y))
+print(my.profit)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] -0.7584576&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Not bad! Doesn’t look like much, but remember that we have a few trading days and this return might be due to a sistematic effect in the market. Let’s see how this result compares to random trading signals.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n.sim &amp;lt;- 10000
+
+monkey.ret &amp;lt;- numeric(length = n.sim)
+for (i in seq(n.sim)) {
+  rnd.vec &amp;lt;- rnorm(length(my.result$y))
+  
+  monkey.ret[i] &amp;lt;- sum( (rnd.vec&amp;gt;0)*my.result$y + (rnd.vec&amp;lt;0)*-my.result$y )
+  
+} 
+
+temp.df &amp;lt;- data.frame(monkey.ret, my.profit)
+p &amp;lt;- ggplot(temp.df, aes(monkey.ret)) 
+p &amp;lt;- p + geom_histogram()
+p &amp;lt;- p + geom_vline(aes(xintercept =  my.profit),size=2)
+p &amp;lt;- p + labs(x=&amp;#39;Returns from random trading signals&amp;#39;)
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2017-03-05-Prophet-and_stock-market_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The previous histogram shows the total return from randomnly generated signals in 10^{4} simulations. The vertical line is the result from using &lt;code&gt;prophet&lt;/code&gt;. As you can see, it is a bit higher than the average of the distribution. The total return from &lt;code&gt;prophet&lt;/code&gt; is lower than the return of the naive strategy in 99.72 percent of the simulations. This is not a bad result. But, notice that we didnt add trading or liquidity costs to the analysis, which will make the total returns worse.&lt;/p&gt;
+&lt;p&gt;The main results of this simple study are clear: &lt;strong&gt;&lt;code&gt;prophet&lt;/code&gt; is bad at point forecasts for returns, specially for longer horizons, but does quite better in directional predictions&lt;/strong&gt;. It might be interesting to test it further, with more data, adding trading costs, other forecasting setups, and see if the results hold.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
