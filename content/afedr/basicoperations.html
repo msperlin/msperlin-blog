@@ -6,20 +6,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Basic Operations in R | Analyzing Financial and Economic Data with R - Online Version</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
-<meta name="description" content="When working with R and RStudio, there are fundamental tasks (or basic operations) that you will be repeating many times over. In this chapter we will look at these basic operations with RStudio,...">
+<meta name="description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
 <meta name="generator" content="bookdown 0.32 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Basic Operations in R | Analyzing Financial and Economic Data with R - Online Version">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/resources/figs/CAPAdigital-AnalyzinDataR.jpg">
-<meta property="og:description" content="When working with R and RStudio, there are fundamental tasks (or basic operations) that you will be repeating many times over. In this chapter we will look at these basic operations with RStudio,...">
+<meta property="og:description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Basic Operations in R | Analyzing Financial and Economic Data with R - Online Version">
-<meta name="twitter:description" content="When working with R and RStudio, there are fundamental tasks (or basic operations) that you will be repeating many times over. In this chapter we will look at these basic operations with RStudio,...">
+<meta name="twitter:description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
 <meta name="twitter:image" content="/resources/figs/CAPAdigital-AnalyzinDataR.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Open_Sans-0.4.5/font.css" rel="stylesheet">
+<link href="libs/Source_Code_Pro-0.4.5/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.4.2/transition.js"></script><script src="libs/bs3compat-0.4.2/tabs.js"></script><script src="libs/bs3compat-0.4.2/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
+
+        /* update total correct if #total_correct exists */
+        update_total_correct = function() {
+          if (t = document.getElementById("total_correct")) {
+            t.innerHTML =
+              document.getElementsByClassName("correct").length + " of " +
+              document.getElementsByClassName("solveme").length + " correct";
+          }
+        }
+        
+        /* solution button toggling function */
+        b_func = function() {
+          var cl = this.parentElement.classList;
+          if (cl.contains('open')) {
+            cl.remove("open");
+          } else {
+            cl.add("open");
+          }
+        }
+        
+        /* function for checking solveme answers */
+        solveme_func = function(e) {
+          var real_answers = JSON.parse(this.dataset.answer);
+          var my_answer = this.value;
+          var cl = this.classList;
+          if (cl.contains("ignorecase")) {
+            my_answer = my_answer.toLowerCase();
+          }
+          if (cl.contains("nospaces")) {
+            my_answer = my_answer.replace(/ /g, "");
+          }
+          
+          if (my_answer !== "" & real_answers.includes(my_answer)) {
+            cl.add("correct");
+          } else {
+            cl.remove("correct");
+          }
+        
+          // match numeric answers within a specified tolerance
+          if(this.dataset.tol > 0){
+            var tol = JSON.parse(this.dataset.tol);  
+            var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+            if (matches.reduce((a, b) => a + b, 0) > 0) {
+              cl.add("correct");
+            } else {
+              cl.remove("correct");
+            }  
+          }
+        
+          // added regex bit
+          if (cl.contains("regex")){
+            answer_regex = RegExp(real_answers.join("|"))
+            if (answer_regex.test(my_answer)) {
+              cl.add("correct");
+            }  
+          }
+          
+          update_total_correct();
+        }
+        
+        window.onload = function() {
+          /* set up solution buttons */
+          var buttons = document.getElementsByTagName("button");
+        
+          for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i].parentElement.classList.contains('solution')) {
+              buttons[i].onclick = b_func;
+            }
+          }
+          
+          /* set up solveme inputs */
+          var solveme = document.getElementsByClassName("solveme");
+        
+          for (var i = 0; i < solveme.length; i++) {
+            /* make sure input boxes don't auto-anything */
+            solveme[i].setAttribute("autocomplete","off");
+            solveme[i].setAttribute("autocorrect", "off");
+            solveme[i].setAttribute("autocapitalize", "off"); 
+            solveme[i].setAttribute("spellcheck", "false");
+            solveme[i].value = "";
+            
+            /* adjust answer for ignorecase or nospaces */
+            var cl = solveme[i].classList;
+            var real_answer = solveme[i].dataset.answer;
+            if (cl.contains("ignorecase")) {
+              real_answer = real_answer.toLowerCase();
+            }
+            if (cl.contains("nospaces")) {
+              real_answer = real_answer.replace(/ /g, "");
+            }
+            solveme[i].dataset.answer = real_answer;
+            
+            /* attach checking function */
+            solveme[i].onkeyup = solveme_func;
+            solveme[i].onchange = solveme_func;
+          }
+          
+          update_total_correct();
+        }
+        
+        </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -45,6 +148,7 @@
       margin-left: 2em;
     }
   </style>
+<link rel="stylesheet" href="resources/css/style_html.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -90,7 +194,23 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="basicoperations" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98297869-1', 'auto');
+  ga('send', 'pageview');
+
+</script><!-- Global site tag (gtag.js) - Google Analytics GOOGLE ADS--><script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-2">
+</script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-89690212-2');
+</script><div id="basicoperations" class="section level1" number="2">
 <h1>
 <span class="header-section-number">2</span> Basic Operations in R<a class="anchor" aria-label="anchor" href="#basicoperations"><i class="fas fa-link"></i></a>
 </h1>
@@ -119,7 +239,7 @@
 <span class="header-section-number">2.2</span> Objects in R<a class="anchor" aria-label="anchor" href="#objects-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>In R, everything is an object, and each type of object has its properties</strong>. For example, the daily closing prices of the IBM stock over 2023 can be represented as a numerical vector, where each element is a price recorded at the end of a trading day. Dates related to these prices can be represented as text (<em>string</em>) or as a unique <code>Date</code> class. Finally, we can represent the price data and the dates together by storing them in a single object of type <code>dataframe</code>, which is nothing more than a table with rows and columns.</p>
-<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2022b</a>)</span>, adds up to a total of 1257 functions.</p>
+<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> , adds up to a total of 1258 functions.</p>
 <p>Each function has its own name and a programmer can write their own functions. For example, the <strong>sort()</strong> function is a procedure that sorts elements within a vector. If we wanted to sort the elements of <code>2, 1, 4, 3, 1</code>, simply insert the following command in the <em>prompt</em> (left bottom side of RStudio’s screen) and press <em>enter</em>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -292,7 +412,7 @@ Figure 2.3: Task View screen
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">n_cran_packages</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 19265</code></pre>
-<p>Currently, 2023-03-08 10:23:31, there are 19265 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
+<p>Currently, 2023-03-08 10:51:10, there are 19265 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
 <p>You can also check the amount of <strong>locally installed packages</strong> in R with the <strong>installed.packages()</strong> command:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># find number of packages currently installed</span></span>
@@ -306,7 +426,7 @@ Figure 2.3: Task View screen
 <h3>
 <span class="header-section-number">2.6.1</span> Installing Packages from CRAN<a class="anchor" aria-label="anchor" href="#installing-packages-from-cran"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use command <strong>install.packages()</strong> to install a package locally. You only need to do it once for each new package. As an example, we will install a package called <strong>{readr}</strong> <span class="citation">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span>, that will be used in future chapters. Note that we defined the package name in the installation as if it were text with the use of quotation marks (<code>" "</code>).</p>
+<p>Use command <strong>install.packages()</strong> to install a package locally. You only need to do it once for each new package. As an example, we will install a package called <strong>{readr}</strong> , that will be used in future chapters. Note that we defined the package name in the installation as if it were text with the use of quotation marks (<code>" "</code>).</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install package readr</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readr"</span><span class="op">)</span></span></code></pre></div>
@@ -320,7 +440,7 @@ Figure 2.3: Task View screen
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install devtools</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span></code></pre></div>
-<p>After that, use function <strong>devtools</strong>::<strong>install_github()</strong> to install a package directly from Github. In the following example, we will install the development version of package <strong>{dplyr}</strong> <span class="citation">(<a href="references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>:</p>
+<p>After that, use function <strong>install_github()</strong> to install a package directly from Github. In the following example, we will install the development version of package <strong>{dplyr}</strong> :</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install ggplot2 from github</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"hadley/dplyr"</span><span class="op">)</span></span></code></pre></div>
@@ -359,9 +479,9 @@ R&gt; statistical capabilities (last year it was about 10 years
 R&gt; behind) in my estimation.
 R&gt;    -- Frank Harrell (SAS User, 1969-1991)
 R&gt;       R-help (September 2003)</code></pre>
-<p>Here, we use function <strong>fortunes</strong>::<strong>fortune()</strong> from the package <strong>{fortunes}</strong> <span class="citation">(<a href="references.html#ref-R-fortunes" role="doc-biblioref">Zeileis and R community 2016</a>)</span>, which shows on screen a potentially funny phrase chosen from the R mailing list. For our example, we selected message number 10. One interesting use of package <strong>{fortunes}</strong> is to display a random joke every time R starts and, perhaps, lighten up your day. As mentioned before, R is fully customizable. You can find many tutorials on how to achieve this effect by searching on the web for “customizing R startup”.</p>
+<p>Here, we use function <strong>fortune()</strong> from the package <strong>{fortunes}</strong> , which shows on screen a potentially funny phrase chosen from the R mailing list. For our example, we selected message number 10. One interesting use of package <strong>{fortunes}</strong> is to display a random joke every time R starts and, perhaps, lighten up your day. As mentioned before, R is fully customizable. You can find many tutorials on how to achieve this effect by searching on the web for “customizing R startup”.</p>
 <p>Another way of loading a package is by using the <strong>require()</strong> function. A call to <strong>require()</strong> has a different behavior than a call to <strong>library()</strong> . Whenever you try to load an uninstalled package with the <strong>library()</strong> function, it returns an error. This means that the script stops and no further code are evaluated. As for <strong>require()</strong> , if a package is not found, it returns an object with value <code>FALSE</code> and the rest of the code is evaluated. So, in order to avoid code being executed without its explicit dependencies, it is best advised to always use <strong>library()</strong> for loading packages in R scripts.</p>
-<p>The use of <strong>require()</strong> is left for loading up packages inside of functions. If you create a custom function that requires procedures from a particular package, you must load the package within the scope of the function. For example, see the following code, where we create a new function called <code>fct_example</code> that depends on the package <strong>{quantmod}</strong> <span class="citation">(<a href="references.html#ref-R-quantmod" role="doc-biblioref">Ryan and Ulrich 2022b</a>)</span>:</p>
+<p>The use of <strong>require()</strong> is left for loading up packages inside of functions. If you create a custom function that requires procedures from a particular package, you must load the package within the scope of the function. For example, see the following code, where we create a new function called <code>fct_example</code> that depends on the package <strong>{quantmod}</strong> :</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fct_example</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
@@ -1061,12 +1181,12 @@ code quickly, and without typos.
 <span class="header-section-number">2.20</span> Interacting with Files and the Operating System<a class="anchor" aria-label="anchor" href="#interacting-with-files-and-the-operating-system"><i class="fas fa-link"></i></a>
 </h2>
 <p>As you are learning R, soon enough you’ll find a data-related problem that requires some interaction with files on the computer, either by creating new folders, decompressing and compressing files, listing and removing files from the hard drive of the computer or any other type of operation. R has full support for such type of operations. You can automate any type of computer task within an R script, if so needed.</p>
-<p>In this section we will give preference to functions from package <strong>{fs}</strong> <span class="citation">(<a href="references.html#ref-R-fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2023</a>)</span>, which provides several routines for interacting with files and folders. Be aware, however, that the <code>base</code> package also offers similar functions.</p>
+<p>In this section we will give preference to functions from package <strong>{fs}</strong> , which provides several routines for interacting with files and folders. Be aware, however, that the <code>base</code> package also offers similar functions.</p>
 <div id="listing-files-and-folders" class="section level3" number="2.20.1">
 <h3>
 <span class="header-section-number">2.20.1</span> Listing Files and Folders<a class="anchor" aria-label="anchor" href="#listing-files-and-folders"><i class="fas fa-link"></i></a>
 </h3>
-<p>To list files from your computer, use function <strong>fs</strong>::<strong>dir_ls()</strong> , where the <code>path</code> argument sets the directory to list the files from. For the compilation of the book, I’ve created a directory called <em>data</em>. This folder contains all the data needed to recreate the book’s examples. You can check the files in the sub-folder <code>data</code> with the following code:</p>
+<p>To list files from your computer, use function <strong>dir_ls()</strong> , where the <code>path</code> argument sets the directory to list the files from. For the compilation of the book, I’ve created a directory called <em>data</em>. This folder contains all the data needed to recreate the book’s examples. You can check the files in the sub-folder <code>data</code> with the following code:</p>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list files in data folder</span></span>
 <span><span class="va">my_files</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
@@ -1101,22 +1221,21 @@ R&gt; data/top25babynames-by-sex-2005-2017.csv</code></pre>
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_dirs</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/_book
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/_bookdown_files
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/afedR_ed03_cache
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/afedR_ed03_files
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/blocks
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/data
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/ebook files
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/eqs
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/fig_ggplot
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/html code
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/mem_cache
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/quandl_cache
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/resources
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/simfin_cache
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/tabs
-R&gt; /tmp/RtmpKc71G1/compile-book-html--2b7972a5ecae0/text-to-reuse</code></pre>
+<pre><code>R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/_book
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/_bookdown_files
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/afedR_ed03_cache
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/afedR_ed03_files
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/blocks
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/data
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/ebook files
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/eqs
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/fig_ggplot
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/mem_cache
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/quandl_cache
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/resources
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/simfin_cache
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/tabs
+R&gt; /tmp/Rtmpoh0aob/compile-book-html--2ba8b6158301d/text-to-reuse</code></pre>
 <p>The output shows the directories used to write the book. It includes the directory with the data (“./data”), resources (“./resources”) among others. In this same directory, you can find the chapters of the book, organized by files and based on the <em>RMarkdown</em> language (<code>.Rmd</code> file extension):</p>
 <div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list all files with the extension .Rmd</span></span>
@@ -1147,7 +1266,7 @@ R&gt; index.Rmd</code></pre>
 <span class="header-section-number">2.20.2</span> Deleting Files and Directories<a class="anchor" aria-label="anchor" href="#deleting-files-and-directories"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also use an R session to delete files and directories from your computer. This might come in handy when dealing with disposable data files. Use these commands with responsibility. If not careful, you can easily break the operating system of your computer.</p>
-<p>You can delete files with command <strong>fs</strong>::<strong>file_delete()</strong> :</p>
+<p>You can delete files with command <strong>file_delete()</strong> :</p>
 <div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create temporary file</span></span>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="st">'data/tempfile.csv'</span></span>
@@ -1156,7 +1275,7 @@ R&gt; index.Rmd</code></pre>
 <span></span>
 <span><span class="co"># delete it</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/delete.html">file_delete</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<p>To delete directories and all their elements, we use <strong>fs</strong>::<strong>dir_delete()</strong> :</p>
+<p>To delete directories and all their elements, we use <strong>dir_delete()</strong> :</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create temp dir</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html">dir_create</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span>
@@ -1167,7 +1286,7 @@ R&gt; index.Rmd</code></pre>
 <span>          file <span class="op">=</span> <span class="va">my_file</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/delete.html">dir_delete</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span></code></pre></div>
-<p>If needed, we can check if the deletion of a directory was successful with command <strong>fs</strong>::<strong>dir_exists()</strong> :</p>
+<p>If needed, we can check if the deletion of a directory was successful with command <strong>dir_exists()</strong> :</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">dir_exists</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  temp 
@@ -1203,13 +1322,13 @@ files and folder, without any simple way to restore them.
 <h3>
 <span class="header-section-number">2.20.4</span> Using Temporary Files and Directories<a class="anchor" aria-label="anchor" href="#using-temporary-files-and-directories"><i class="fas fa-link"></i></a>
 </h3>
-<p>Every time a user starts an R session, a new temporary folder is created in your hard drive. This folder is used to store any disposable files and folders generated by R. The location of this directory is available with <strong>fs</strong>::<strong>path_temp()</strong> :</p>
+<p>Every time a user starts an R session, a new temporary folder is created in your hard drive. This folder is used to store any disposable files and folders generated by R. The location of this directory is available with <strong>path_temp()</strong> :</p>
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">windows_tempdir</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">path_temp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">windows_tempdir</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; C:\Users\msperlin\AppData\Local\Temp\RtmpEGt3Q7</code></pre>
 <p>The name of the temporary directory, in this case <code>'RtmpEGt3Q7'</code>, is unique and randomly defined at the start of every new R session. This means that every R session is linked to an unique temporary folder. If two R sessions are created, as in starting two RStudio sessions, two temporary folders will be available, each with an unique name. <strong>When the computer is rebooted, all temporary directories are deleted</strong>.</p>
-<p>The same dynamic is found for file names. If you want to use a temporary random name for some reason, use <strong>fs</strong>::<strong>file_temp()</strong> :</p>
+<p>The same dynamic is found for file names. If you want to use a temporary random name for some reason, use <strong>file_temp()</strong> :</p>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">windows_tempfile</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">file_temp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">windows_tempfile</span><span class="op">)</span></span></code></pre></div>
@@ -1328,6 +1447,27 @@ R&gt; #   ³​`Manufacturing Price`, ⁴​`Sale Price`</code></pre>
 </div>
 </div>
 
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://afedr-ed2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+                            
   <div class="chapter-nav">
 <div class="prev"><a href="introduction.html"><span class="header-section-number">1</span> Introduction</a></div>
 <div class="next"><a href="research-scripts.html"><span class="header-section-number">3</span> Writing Research Scripts</a></div>
@@ -1402,7 +1542,7 @@ R&gt; #   ³​`Manufacturing Price`, ⁴​`Sale Price`</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" is written by <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" was written by <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
