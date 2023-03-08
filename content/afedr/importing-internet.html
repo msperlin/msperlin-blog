@@ -209,19 +209,32 @@ R&gt; $ quandl_db    &lt;chr&gt; "RATEINF", "RATEINF", "RATEINF", "RAT…</code>
 <p>Column <code>name</code> contains the description of tables. If we dig deeper, we’ll find the following names:</p>
 <div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df_db</span><span class="op">$</span><span class="va">name</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt;  [1] "Consumer Price Index - Argentina"   "Consumer Price Index - Australia"  
-R&gt;  [3] "Consumer Price Index - Canada"      "Consumer Price Index - Switzerland"
-R&gt;  [5] "Consumer Price Index - Germany"     "Consumer Price Index - Euro Area"  
-R&gt;  [7] "Consumer Price Index - France"      "Consumer Price Index - UK"         
-R&gt;  [9] "Consumer Price Index - Italy"       "Consumer Price Index - Japan"      
-R&gt; [11] "Consumer Price Index - New Zealand" "Consumer Price Index - Russia"     
-R&gt; [13] "Consumer Price Index - USA"         "Inflation YOY - Argentina"         
-R&gt; [15] "Inflation YOY - Australia"          "Inflation YOY - Canada"            
-R&gt; [17] "Inflation YOY - Switzerland"        "Inflation YOY - Germany"           
-R&gt; [19] "Inflation YOY - Euro Area"          "Inflation YOY - France"            
-R&gt; [21] "Inflation YOY - UK"                 "Inflation YOY - Italy"             
-R&gt; [23] "Inflation YOY - Japan"              "Inflation YOY - New Zealand"       
-R&gt; [25] "Inflation YOY - Russia"             "Inflation YOY - USA"</code></pre>
+<pre><code>R&gt;  [1] "Consumer Price Index - Argentina"  
+R&gt;  [2] "Consumer Price Index - Australia"  
+R&gt;  [3] "Consumer Price Index - Canada"     
+R&gt;  [4] "Consumer Price Index - Switzerland"
+R&gt;  [5] "Consumer Price Index - Germany"    
+R&gt;  [6] "Consumer Price Index - Euro Area"  
+R&gt;  [7] "Consumer Price Index - France"     
+R&gt;  [8] "Consumer Price Index - UK"         
+R&gt;  [9] "Consumer Price Index - Italy"      
+R&gt; [10] "Consumer Price Index - Japan"      
+R&gt; [11] "Consumer Price Index - New Zealand"
+R&gt; [12] "Consumer Price Index - Russia"     
+R&gt; [13] "Consumer Price Index - USA"        
+R&gt; [14] "Inflation YOY - Argentina"         
+R&gt; [15] "Inflation YOY - Australia"         
+R&gt; [16] "Inflation YOY - Canada"            
+R&gt; [17] "Inflation YOY - Switzerland"       
+R&gt; [18] "Inflation YOY - Germany"           
+R&gt; [19] "Inflation YOY - Euro Area"         
+R&gt; [20] "Inflation YOY - France"            
+R&gt; [21] "Inflation YOY - UK"                
+R&gt; [22] "Inflation YOY - Italy"             
+R&gt; [23] "Inflation YOY - Japan"             
+R&gt; [24] "Inflation YOY - New Zealand"       
+R&gt; [25] "Inflation YOY - Russia"            
+R&gt; [26] "Inflation YOY - USA"</code></pre>
 <p>What we want is the <code>'Inflation YOY - *'</code> datasets, which contain the year-on-year inflation rates for different countries. Let’s filter the <code>dataframe</code> to keep the series with the yearly inflation, and select four countries:</p>
 <div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">selected_series</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Inflation YOY - USA'</span>,</span>
@@ -301,9 +314,9 @@ R&gt; $ price_low              &lt;dbl&gt; 140.8155, 140.0949, 140.515…
 R&gt; $ price_close            &lt;dbl&gt; 141.8363, 140.5753, 141.055…
 R&gt; $ volume                 &lt;dbl&gt; 5819757, 6093832, 4022099, …
 R&gt; $ price_adjusted         &lt;dbl&gt; 115.9279, 114.8972, 115.289…
-R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.0088907432, 0.003417…
+R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.0088910100, 0.003417…
 R&gt; $ ret_closing_prices     &lt;dbl&gt; NA, -0.0088907562, 0.003417…
-R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9911093, 0.994…</code></pre>
+R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9911090, 0.994…</code></pre>
 <p>As expected, we find information about stock prices, daily returns and traded volumes. Notice it also includes column <code>ticker</code>, which contains the symbols of the stocks. In the tidy format, each stock has a chunk of data that is pilled in top of each other. Later, in chapter <a href="programming.html#programming">8</a>, we will use this column to split the data and build summary tables. To inspect the data, create a figure with the prices:</p>
 <div class="inline-figure"><img src="afedR_ed03_ONLINE_files/figure-html/unnamed-chunk-159-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We see that General Eletric (GE) stock was not kind to its investors. Someone that bought the stock at its peak in mid-2016 has found its current value at less than half. Now, when it comes to the GOOGL, JPM and MSFT, we see an overall upward increase in stock prices, and a recent drop. These are profitable and competitive companies in their sectors and not surprisingly, the stock prices surged over the long period of time.</p>
@@ -330,10 +343,10 @@ R&gt; $ price_high             &lt;dbl&gt; 75.1500, 75.1450, 74.9900, …
 R&gt; $ price_low              &lt;dbl&gt; 73.7975, 74.1250, 73.1875, …
 R&gt; $ price_close            &lt;dbl&gt; 75.0875, 74.3575, 74.9500, …
 R&gt; $ volume                 &lt;dbl&gt; 135480400, 146322800, 11838…
-R&gt; $ price_adjusted         &lt;dbl&gt; 73.44939, 72.73531, 73.3148…
-R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.009722177, 0.0079683…
+R&gt; $ price_adjusted         &lt;dbl&gt; 73.44939, 72.73532, 73.3148…
+R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.009721878, 0.0079680…
 R&gt; $ ret_closing_prices     &lt;dbl&gt; NA, -0.009722044, 0.0079682…
-R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9902778, 0.998…</code></pre>
+R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9902781, 0.998…</code></pre>
 <p>We get a fairly sized table with 22680 rows and 11 columns in object <code>df_dow</code>. Notice how easy it was to get that large volume of data from Yahoo Finance with a simple call to <strong>yf_collection_get()</strong> .</p>
 <div class="rmdcaution">
 <p>
@@ -498,13 +511,14 @@ R&gt; $ high     &lt;dbl&gt; 75.1500, 75.1450, 74.9900, 75.2250, 76.11…
 R&gt; $ low      &lt;dbl&gt; 73.7975, 74.1250, 73.1875, 74.3700, 74.29…
 R&gt; $ close    &lt;dbl&gt; 75.0875, 74.3575, 74.9500, 74.5975, 75.79…
 R&gt; $ volume   &lt;dbl&gt; 135480400, 146322800, 118387200, 10887200…
-R&gt; $ adjusted &lt;dbl&gt; 73.44939, 72.73531, 73.31488, 72.97008, 7…</code></pre>
+R&gt; $ adjusted &lt;dbl&gt; 73.44939, 72.73533, 73.31488, 72.97009, 7…</code></pre>
 <p>As we can see, except for column names, the price data has a similar format to the one we got with <strong>{yfR}</strong> . This is not surprising as both share the same origin, Yahoo Finance.</p>
 <p>We can also get information about components of an index using function <strong>tidyquant</strong>::<strong>tq_index()</strong> . The available market indices are:</p>
 <div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print available indices</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">tidyquant</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tq_index_options</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; [1] "DOW"       "DOWGLOBAL" "SP400"     "SP500"     "SP600"</code></pre>
+<pre><code>R&gt; [1] "DOW"       "DOWGLOBAL" "SP400"     "SP500"    
+R&gt; [5] "SP600"</code></pre>
 <p>Let’s get information for <code>"DOWGLOBAL"</code>.</p>
 <div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get components of "DOWJONES"</span></span>
@@ -634,7 +648,7 @@ R&gt; $ Founded               &lt;chr&gt; "1902", "1916", "1888", "201…</code>
 <div id="q.5-3" class="section level3 unnumbered">
 <h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Using function <code><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tidyquant::tq_index</a></code>, download the current composition of index SP400. What is the company with the highest percentage in the composition of the index?</p>
+<p>Using function <code><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tidyquant::tq_index</a></code>, download the current composition of index DOW. What is the company with the highest percentage in the composition of the index?</p>
 <p>Be aware that the answer is time-dependent and the reported result might be different from what you actually got in your R session.</p>
 <hr>
 </div>
@@ -703,11 +717,11 @@ R&gt; $ Founded               &lt;chr&gt; "1902", "1916", "1888", "201…</code>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" foi escrito por <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" is written by <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
-    <p>Este livro foi compilado com amor em Third Edition - 2023-02-15. Deixo aqui meu profundo agradecimento aos autores do fantástico pacote <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+    <p>This book was compiled with love in Third Edition - 2023-03-15, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
   </div>
 
 </div></div>
