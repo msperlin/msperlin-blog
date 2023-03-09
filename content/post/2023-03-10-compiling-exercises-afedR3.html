@@ -1,0 +1,176 @@
+---
+title: "Compiling book exercises"
+author: "Marcelo S. Perlin"
+date: "2023-03-10"
+subtitle: Exporting exercises to pdf | Moodle | Blackboard
+tags:
+- R
+- afedR
+categories:
+- R
+- afedR
+draft: yes
+---
+
+
+
+<p>The third edition of <a href="https://www.amazon.com/dp/B084LSNXMN">Analyzing Financial and Economic Data with R</a> provides a total of 98 end-of-chapter exercises. All activities are freely available in the <a href="http://www.r-exams.org/"><code>exams</code> format</a>, meaning that any R tutor can export the same exercises and solutions to use in their own class. In this post I’ll show how to compile exercises to pdf, html, <em>Moodle</em> and <em>blackboard</em>.</p>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<p>The first step is to install package <code>afedR3</code> with <code>devtools</code>:</p>
+<pre class="r"><code>if (!require(devtools)) install.packages(&#39;devtools&#39;)
+
+devtools::install_github(&#39;msperlin/afedR3&#39;)</code></pre>
+<p>Another requirement is a working Latex instalation. For that, use <code>tinytex</code>:</p>
+<pre class="r"><code>tinytex::install_tinytex()</code></pre>
+</div>
+<div id="compiling-exercises" class="section level1">
+<h1>Compiling Exercises</h1>
+<div id="how-it-works" class="section level2">
+<h2>How it works?</h2>
+<p>All book exercises are written in the <code>exams</code> format: each exercise is a .Rmd file containing code, exercise text and solution. The files themselves can be found in the installation directory of the book package, and each folder contains the exercise for a particular chapter:</p>
+<pre class="r"><code>eoc_dir &lt;- afedR3::get_EOC_dir()
+
+eoc_chapters &lt;- fs::dir_ls(eoc_dir)
+basename(eoc_chapters)</code></pre>
+<pre><code>##  [1] &quot;CH01-intro&quot;        &quot;CH02-basic&quot;        &quot;CH03-research&quot;    
+##  [4] &quot;CH04-imp-local&quot;    &quot;CH05-imp-internet&quot; &quot;CH06-df&quot;          
+##  [7] &quot;CH07-basic&quot;        &quot;CH08-programming&quot;  &quot;CH09-cleaning&quot;    
+## [10] &quot;CH10-figures&quot;      &quot;CH11-fin-econ&quot;     &quot;CH12-reporting&quot;   
+## [13] &quot;CH13-optimizing&quot;</code></pre>
+<p>Let’s have a deeper look at the exercises of the first chapter:</p>
+<pre class="r"><code>eoc_files &lt;- fs::dir_ls(eoc_chapters[1])
+basename(eoc_files)</code></pre>
+<pre><code>##  [1] &quot;afedR_Chap-01_01_SPLUS.Rmd&quot;            
+##  [2] &quot;afedR_Chap-01_02_Authors-R.Rmd&quot;        
+##  [3] &quot;afedR_Chap-01_03_About-R.Rmd&quot;          
+##  [4] &quot;afedR_Chap-01_04_name-R.Rmd&quot;           
+##  [5] &quot;afedR_Chap-01_05_about-R.Rmd&quot;          
+##  [6] &quot;afedR_Chap-01_06_Tecnology-R.Rmd&quot;      
+##  [7] &quot;afedR_Chap-01_07_rtools.Rmd&quot;           
+##  [8] &quot;afedR_Chap-01_08_Groups.Rmd&quot;           
+##  [9] &quot;afedR_Chap-01_09_RBloggers.Rmd&quot;        
+## [10] &quot;afedR_Chap-01_10_Infrastructure-TI.Rmd&quot;</code></pre>
+<p>We can also read one of the files to show the structure of the exercise in code and text:</p>
+<pre class="r"><code>readLines(eoc_files[1])</code></pre>
+<pre><code>##  [1] &quot;```{r datageneration, echo = FALSE, results = \&quot;hide\&quot;}&quot;                                                                                                                                
+##  [2] &quot;my_answers &lt;- c(&#39;S&#39;, &quot;                                                                                                                                                                  
+##  [3] &quot;                &#39;C++&#39;,&quot;                                                                                                                                                                 
+##  [4] &quot;                &#39;Python&#39;,&quot;                                                                                                                                                              
+##  [5] &quot;                &#39;Julia&#39;,&quot;                                                                                                                                                               
+##  [6] &quot;                &#39;Javascript&#39;)&quot;                                                                                                                                                          
+##  [7] &quot;&quot;                                                                                                                                                                                       
+##  [8] &quot;#check_answers(my_answers)&quot;                                                                                                                                                             
+##  [9] &quot;```&quot;                                                                                                                                                                                    
+## [10] &quot;&quot;                                                                                                                                                                                       
+## [11] &quot;Question&quot;                                                                                                                                                                               
+## [12] &quot;========&quot;                                                                                                                                                                               
+## [13] &quot;&quot;                                                                                                                                                                                       
+## [14] &quot;The R language was developed based on what other programming language?&quot;                                                                                                                 
+## [15] &quot;&quot;                                                                                                                                                                                       
+## [16] &quot;```{r questionlist, echo = FALSE, results = \&quot;asis\&quot;}&quot;                                                                                                                                  
+## [17] &quot;exams::answerlist(my_answers, markup = \&quot;markdown\&quot;)&quot;                                                                                                                                   
+## [18] &quot;```&quot;                                                                                                                                                                                    
+## [19] &quot;&quot;                                                                                                                                                                                       
+## [20] &quot;Solution&quot;                                                                                                                                                                               
+## [21] &quot;================&quot;                                                                                                                                                                       
+## [22] &quot;&quot;                                                                                                                                                                                       
+## [23] &quot;Straight from the book, section **What is R**: \&quot;R is a modern version of S, a programming language originally created in Bell Laboratories (formerly AT&amp;T, now Lucent Technologies).\&quot;&quot;
+## [24] &quot;&quot;                                                                                                                                                                                       
+## [25] &quot;Meta-information&quot;                                                                                                                                                                       
+## [26] &quot;================&quot;                                                                                                                                                                       
+## [27] &quot;extype: schoice&quot;                                                                                                                                                                        
+## [28] &quot;exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`&quot;                                                                                                     
+## [29] &quot;exname: \&quot;S PLUS\&quot;&quot;                                                                                                                                                                     
+## [30] &quot;exshuffle: TRUE&quot;                                                                                                                                                                        
+## [31] &quot;&quot;</code></pre>
+<p>In a nutshell, we define all sections of a question – text, solution, alternatives – using a .Rmd template. Again, you can find more details about using package <strong>{exams}</strong> in its <a href="http://www.r-exams.org/">website</a>.</p>
+</div>
+<div id="compiling-to-pdf" class="section level2">
+<h2>Compiling to pdf</h2>
+<p>To help tutors compiling their own exercises, I wrote function <strong>afedR3</strong>::<strong>compile_pdf_exercises()</strong> . You’ll need the following information to use it:</p>
+<ul>
+<li>(REQUIRED) name of students (will be printed in pdf)</li>
+<li>(OPTIONAL) students ids (I usually use their university card number)</li>
+<li>(OPTIONAL) Chapters to include (e.g 1:3)</li>
+<li>(OPTIONAL) Exercise name (e.g. Activity I, Exercise II, ..)</li>
+<li>(OPTIONAL) Course name (e.g. Tutorial in R)</li>
+</ul>
+<p>Here’s an example:</p>
+<pre class="r"><code>library(afedR3)
+
+names_students &lt;- c(&#39;Michael Peterling&#39;, &#39;John Aspper&#39;, &#39;Mr. Beans&#39;)
+ids_students &lt;- sample(1:1000, length(names_students)) # probably id card?
+class_name &lt;- &quot;Introduction to R&quot;
+exercise_name &lt;- &quot;Activity 01&quot;
+chapters &lt;- 1:3 # chapters from 1 to 13
+dir_output &lt;- fs::file_temp(&#39;pdf-example_&#39;)
+
+df_exams &lt;- compile_pdf_exercises(students_names = names_students, 
+                                  students_ids = ids_students, 
+                                  class_name = class_name,
+                                  exercise_name = exercise_name,
+                                  chapters_to_include = chapters,
+                                  dir_out = dir_output)</code></pre>
+<p>The output of <code>compile_pdf_exercises</code> is a table with the correct answers for <code>schoice</code> and <code>num</code> type of questions:</p>
+<pre class="r"><code>glimpse(df_exams)</code></pre>
+<pre><code>## Rows: 69
+## Columns: 4
+## $ i_name   &lt;chr&gt; &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;…
+## $ i_ver    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+## $ i_q      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
+## $ solution &lt;chr&gt; &quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;d&quot;, &quot;d&quot;, NA, &quot;e&quot;, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+<p>After compilation, all pdf files are available at folder <code>dir_output</code>:</p>
+<pre class="r"><code>fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 01_Michael Peterling.pdf
+## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 02_John Aspper.pdf
+## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 03_Mr. Beans.pdf</code></pre>
+<p>The final result will be as follows:</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/LO9xafp" data-context="false">
+<a href="//imgur.com/a/LO9xafp"></a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+</div>
+<div id="exporting-to-moodle" class="section level2">
+<h2>Exporting to Moodle</h2>
+<p>You can also export to <em>e-learning</em> platforms such as Moodle. The process is quite simple as <code>exams</code> package does all the heavy work:</p>
+<pre class="r"><code>library(afedR3)
+
+eoc_folders &lt;- afedR3::get_EOC_dir()
+
+available_chapters &lt;- afedR3::exercises_dir_list()
+
+exercises_folders &lt;- purrr::map_chr(
+  available_chapters[1:3],
+  afedR3::exercises_dir_get
+)
+
+exercises_files &lt;- fs::dir_ls(exercises_folders)
+
+dir_output &lt;- fs::file_temp(&#39;moodle-test_&#39;)
+
+exams::exams2moodle(file = exercises_files, 
+                    name = &#39;MOODLE_afedR-eoc-chapters_01-03&#39;, 
+                    dir = dir_output)
+
+fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpHAV9nl/moodle-test_3c593fea6e7b/MOODLE_afedR-eoc-chapters_01-03.xml</code></pre>
+<p>The resulting .xml file can be imported in the database of any Moodle class you have access.</p>
+</div>
+<div id="exporting-to-blackboard" class="section level2">
+<h2>Exporting to Blackboard</h2>
+<p>Likewise, exporting to <a href="https://www.blackboard.com/">Blackboard</a> is simple:</p>
+<pre class="r"><code>library(afedR3)
+library(tth) # required for bb 
+
+dir_output &lt;- dir_output &lt;- fs::file_temp(&#39;blackboard-test_&#39;)
+
+exams::exams2blackboard(file = exercises_files, 
+                        name = &#39;BB_afedR-eoc-chapters_01-03&#39;, 
+                        dir = dir_output)
+
+fs::dir_ls(dir_output)</code></pre>
+<pre><code>## /tmp/RtmpHAV9nl/blackboard-test_3c594c8b717/BB_afedR-eoc-chapters_01-03.zip</code></pre>
+<p>This .zip file contains all exercises of chapters 01, 02 and 3, and can be imported in your blackboard account.</p>
+</div>
+</div>

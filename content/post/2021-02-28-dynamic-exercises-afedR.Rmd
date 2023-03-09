@@ -15,11 +15,11 @@ draft: no
 knitr::opts_chunk$set(message = FALSE, eval=TRUE)
 
 link_full_compiled_html <- 'https://www.msperlin.com/files/afedr-files/Introduction to R_Robert Engle_Ver 03.html'
-link_book_web <- 'https://www.msperlin.com/adfeR/'
+link_book_web <- 'https://www.msperlin.com/afedr/'
 exams_link <- 'http://www.r-exams.org/'
 ```
 
-The revised second edition of [Analylzing Financial and Economic Data with R](`r link_book_web`) presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the [`exams` format](`r exams_link`), meaning that any R tutor can export the same exercises to pdf, html or _e-learning_ platforms. In this post I'll show how to compile exercises to pdf, html, _Moodle_ and _blackboard_.
+The revised second edition of [Analyzing Financial and Economic Data with R](`r link_book_web`) presents more than 100 exercises at the end section of all chapters. All exercises are freely available in the [`exams` format](`r exams_link`), meaning that any R tutor can export the same exercises to pdf, html or _e-learning_ platforms. In this post I'll show how to compile exercises to pdf, html, _Moodle_ and _blackboard_.
 
 
 # Installation 
