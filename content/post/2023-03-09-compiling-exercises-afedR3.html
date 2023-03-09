@@ -1,7 +1,7 @@
 ---
 title: "Compiling book exercises"
 author: "Marcelo S. Perlin"
-date: "2023-03-10"
+date: "2023-03-09"
 subtitle: Exporting exercises to pdf | Moodle | Blackboard
 tags:
 - R
@@ -9,7 +9,7 @@ tags:
 categories:
 - R
 - afedR
-draft: yes
+draft: no
 ---
 
 
@@ -119,12 +119,12 @@ df_exams &lt;- compile_pdf_exercises(students_names = names_students,
 ## $ i_name   &lt;chr&gt; &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;, &quot;Michael Peterling&quot;…
 ## $ i_ver    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
 ## $ i_q      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
-## $ solution &lt;chr&gt; &quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;d&quot;, &quot;d&quot;, NA, &quot;e&quot;, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
+## $ solution &lt;chr&gt; &quot;b&quot;, &quot;b&quot;, &quot;a&quot;, &quot;b&quot;, &quot;e&quot;, NA, &quot;c&quot;, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
 <p>After compilation, all pdf files are available at folder <code>dir_output</code>:</p>
 <pre class="r"><code>fs::dir_ls(dir_output)</code></pre>
-<pre><code>## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 01_Michael Peterling.pdf
-## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 02_John Aspper.pdf
-## /tmp/RtmpHAV9nl/pdf-example_3c593bc138a8/Activity 01_Ver 03_Mr. Beans.pdf</code></pre>
+<pre><code>## /tmp/Rtmpo8a1iU/pdf-example_7a710296d8801/Activity 01_Ver 01_Michael Peterling.pdf
+## /tmp/Rtmpo8a1iU/pdf-example_7a710296d8801/Activity 01_Ver 02_John Aspper.pdf
+## /tmp/Rtmpo8a1iU/pdf-example_7a710296d8801/Activity 01_Ver 03_Mr. Beans.pdf</code></pre>
 <p>The final result will be as follows:</p>
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/LO9xafp" data-context="false">
 <a href="//imgur.com/a/LO9xafp"></a>
@@ -154,7 +154,7 @@ exams::exams2moodle(file = exercises_files,
                     dir = dir_output)
 
 fs::dir_ls(dir_output)</code></pre>
-<pre><code>## /tmp/RtmpHAV9nl/moodle-test_3c593fea6e7b/MOODLE_afedR-eoc-chapters_01-03.xml</code></pre>
+<pre><code>## /tmp/Rtmpo8a1iU/moodle-test_7a7101ff66451/MOODLE_afedR-eoc-chapters_01-03.xml</code></pre>
 <p>The resulting .xml file can be imported in the database of any Moodle class you have access.</p>
 </div>
 <div id="exporting-to-blackboard" class="section level2">
@@ -170,7 +170,7 @@ exams::exams2blackboard(file = exercises_files,
                         dir = dir_output)
 
 fs::dir_ls(dir_output)</code></pre>
-<pre><code>## /tmp/RtmpHAV9nl/blackboard-test_3c594c8b717/BB_afedR-eoc-chapters_01-03.zip</code></pre>
+<pre><code>## /tmp/Rtmpo8a1iU/blackboard-test_7a710dc108e0/BB_afedR-eoc-chapters_01-03.zip</code></pre>
 <p>This .zip file contains all exercises of chapters 01, 02 and 3, and can be imported in your blackboard account.</p>
 </div>
 </div>

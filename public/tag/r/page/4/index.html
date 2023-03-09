@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-29T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2023-03-09T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,19 @@
     
     
     <div>
+      <h2><a href="/post/2019-11-01-new-package-simfinr/" >New package: simfinR</a></h2>
+      <div class="article-style">
+        
+          Introduction In my latest post I wrote about package GetEdgarData, which downloaded structured data from the SEC. I’ve been working on this project and soon realized that the available data at the SEC/DERA section is not complete. For example, all Q4 statements are missing. This seems to be the way all exchanges release the financial documents. I’ve found the same problem here in the Brazilian exchange.
+It came to my attention that there is an alternative way of fetching corporate data and adjusted prices, the SimFin project. From its own website:
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/2019-10-16-new-package-getedgardata/" >New package: GetEdgarData</a></h2>
       <div class="article-style">
         
@@ -737,19 +750,6 @@ Going further, one the arguments I make to support this idea is looking at histo
 Over time, I find myself using more and more of the available datasets in my regular research and studies. Last weekend I decided to write my own API package that would make my life (and others) a lot easier.
 Package GetBCBData can fetch data efficiently and rapidly:
 Use of a caching system with package memoise to speed up repeated requests of data; Users can utilize all cores of the machine (parallel computing) when fetching a large batch of time series; Allows the choice for format output: long (row oriented, tidy data) or wide (column oriented) Error handling internally.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2019-04-13-parallel-batchgetsymbols/" >BatchGetSymbols is now parallel!</a></h2>
-      <div class="article-style">
-        
-          BatchGetSymbols is my most downloaded package by any count. Computation time, however, has always been an issue. While downloading data for 10 or less stocks is fine, doing it for a large ammount of tickers, say the SP500 composition, gets very boring.
-I’m glad to report that time is no longer an issue. Today I implemented a parallel option for BatchGetSymbols. If you have a high number of cores in your computer, you can seriously speep up the importation process. Importing SP500 compositition, over 500 stocks, is a breeze.
         
       </div>
     </div>

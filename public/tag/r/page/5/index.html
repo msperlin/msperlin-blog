@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-12-29T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2023-03-09T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,19 @@
     
     
     <div>
+      <h2><a href="/post/2019-04-13-parallel-batchgetsymbols/" >BatchGetSymbols is now parallel!</a></h2>
+      <div class="article-style">
+        
+          BatchGetSymbols is my most downloaded package by any count. Computation time, however, has always been an issue. While downloading data for 10 or less stocks is fine, doing it for a large ammount of tickers, say the SP500 composition, gets very boring.
+I’m glad to report that time is no longer an issue. Today I implemented a parallel option for BatchGetSymbols. If you have a high number of cores in your computer, you can seriously speep up the importation process. Importing SP500 compositition, over 500 stocks, is a breeze.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/2019-03-23-bettina-case/" >Can you turn 1500 USD into 1.000.430 USD by investing in the stock market for three years?</a></h2>
       <div class="article-style">
         
@@ -731,19 +744,6 @@ Package rstudioapi When using Rstudio, package rstudioapi gives you lots of info
         
           Its been a while since I develop a CRAN package and this weekend I decided to work on a idea I had some time ago. The result is package PkgsFromFiles.
 When working with different computers at home or work, one of the problems I have is installing missing packages across different computers. As an example, a script that works in my work computer may not work in my home computer. This is specially annoying when I have a fresh install of the operating system or R. In this case, I must manually install all packages, case by case.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2018-10-11-update-getlattesdata/" >Update to GetLattesData</a></h2>
-      <div class="article-style">
-        
-          Last year I released GetLattesData. This package is very handy for anyone that researches bibliometric data of Brazilian scholars. You could easily import the whole academic history of any researcher registered at the platform. More details about Lattes and GetLattesData in the this post.
-However, a couple months ago CNPQ introduced a captcha in the webpage. This made it impossible to download the xml files directly, breaking my code. It seems that those changes are now permanent. The update to GetLattesData will address this issue by asking the user to download the files manually and input its location to function gld_get_lattes_data_from_zip.
         
       </div>
     </div>
