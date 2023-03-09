@@ -1,7 +1,7 @@
 ---
 title: "Compiling book exercises"
 author: "Marcelo S. Perlin"
-date: "2023-03-10"
+date: "2023-03-09"
 subtitle: Exporting exercises to pdf | Moodle | Blackboard
 tags:
 - R
@@ -9,7 +9,7 @@ tags:
 categories:
 - R
 - afedR
-draft: yes
+draft: no
 ---
 
 ```{r setup, echo = FALSE}
