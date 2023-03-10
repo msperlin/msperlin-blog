@@ -7,9 +7,9 @@ fig:RStudio2
 fig:TaskViews
 fig:RStudio-update
 fig:example-script
+fig:example-help
 fig:example-script-source
 fig:example-debug
-fig:example-help
 fig:autocomplete-objects
 fig:autocomplete-packages
 fig:autocomplete-files
@@ -38,6 +38,7 @@ installing-packages-from-github
 loading-packages
 upgrading-packages
 running-scripts-from-rstudio
+using-the-help-files
 rstudio-shortcuts
 testing-and-debugging-code
 creating-simple-objects
@@ -49,7 +50,6 @@ removing-objects-from-the-memory
 displaying-and-setting-the-working-directory
 canceling-code-execution
 code-comments
-looking-for-help
 autocomplete
 interacting-with-files-and-the-operating-system
 listing-files-and-folders
@@ -196,7 +196,7 @@ principles-for-data-visualization
 the-ggplot2-package
 using-graphics-windows
 ggplot
-multiple-series-with-ggplot2
+data-visualization-for-groups
 the-us-yield-curve
 using-themes
 creating-panels-with-facet_wrap

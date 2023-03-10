@@ -7,7 +7,7 @@
 <title>Preface | Analyzing Financial and Economic Data with R - Online Version</title>
 <meta name="author" content="Marcelo S. Perlin (marcelo.perlin@ufrgs.br)">
 <meta name="description" content="(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), ...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.33 with bs4_book()">
 <meta property="og:title" content="Preface | Analyzing Financial and Economic Data with R - Online Version">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/resources/figs/CAPAdigital-AnalyzinDataR.jpg">
@@ -171,7 +171,7 @@
       <nav aria-label="Navegação"><h2>Navegação</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome!</a></li>
-<li><a class="" href="revision-2023.html">Revision 2023</a></li>
+<li><a class="" href="about-new-edition.html">About New Edition</a></li>
 <li><a class="active" href="preface.html">Preface</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="basicoperations.html"><span class="header-section-number">2</span> Basic Operations in R</a></li>
@@ -182,7 +182,7 @@
 <li><a class="" href="basic-classes.html"><span class="header-section-number">7</span> Basic Object Classes</a></li>
 <li><a class="" href="programming.html"><span class="header-section-number">8</span> Programming and Data Analysis</a></li>
 <li><a class="" href="cleaning.html"><span class="header-section-number">9</span> Cleaning and Structuring Data</a></li>
-<li><a class="" href="figures.html"><span class="header-section-number">10</span> Creating and Saving Figures with {ggplot2} </a></li>
+<li><a class="" href="figures.html"><span class="header-section-number">10</span> Data Visualization with {ggplot2}</a></li>
 <li><a class="" href="models.html"><span class="header-section-number">11</span> Financial Econometrics with R</a></li>
 <li><a class="" href="reporting.html"><span class="header-section-number">12</span> Reporting Results</a></li>
 <li><a class="" href="optimizing.html"><span class="header-section-number">13</span> Optimizing Code</a></li>
@@ -216,7 +216,7 @@
 <p>Since you are reading this book, you are likely a data analyst looking for alternative and more efficient ways to add value to your organization, an undergraduate or graduate student in the first steps of learning data science, or an experienced researcher, looking for new computational tools. In any case, be assured that you are in the right place. <strong>This book will teach you how to use R and RStudio for data analysis in finance and economics</strong>.</p>
 <p>The first version of the book originates from the class material I teach my postgraduate students in my university. By observing students learning and using R in the classroom, I frequently see the positive impact of technology on their careers. They spend less time doing repetitive and soul-crushing spreadsheet data chores, and more time thinking about their analysis and learning new tools. This book my humble attempt to go beyond the local classroom and reach an international audience.</p>
 <p>Another motivation for writing this book is my personal experience using code from other researchers. Usually, the code is not well-organized, lacks clarity, and, possibly, only works in the computer of its author! After being constantly frustrated, I realized the work required to figure out the code of other researchers would take more time than writing the procedure myself. These cases hurt the development of science, as one of its basic principles is the <strong>reproducibility of experiments</strong>. As researchers are expected to be good writers, it should also be expected that their code is in a proper format and readable by other people. With this book, I will tackle this problem by presenting a code structure focused on scientific reproducibility, organization, and usability.</p>
-<p>In this book, we will not work on the advanced uses of R. The content will be limited to simple and practical examples. One challenge I had wihle writing this book was defining the boundary between introductory and advanced material. Wherever possible, I gradually dosed the level of complexity. For readers interested in learning advanced features and inner workings of R, I suggest the book <span class="citation">Venables et al. (<a href="references.html#ref-venables2004introduction" role="doc-biblioref">2004</a>)</span>, <span class="citation">Teetor (<a href="references.html#ref-teetor2011r" role="doc-biblioref">2011</a>)</span> and <span class="citation">Wickham (<a href="references.html#ref-wickham2019advanced" role="doc-biblioref">2019</a>)</span>.</p>
+<p>In this book, we will not work on the advanced uses of R. The content will be limited to simple and practical examples. One challenge I had while writing this book was defining the boundary between introductory and advanced material. Wherever possible, I gradually dosed the level of complexity. For readers interested in learning advanced features and inner workings of R, I suggest the book <span class="citation">Venables et al. (<a href="references.html#ref-venables2004introduction" role="doc-biblioref">2004</a>)</span>, <span class="citation">Teetor (<a href="references.html#ref-teetor2011r" role="doc-biblioref">2011</a>)</span> and <span class="citation">Wickham (<a href="references.html#ref-wickham2019advanced" role="doc-biblioref">2019</a>)</span>.</p>
 <p>This is what you’ll learn from this book:</p>
 <dl>
 <dt>Using R and RStudio</dt>
@@ -251,15 +251,15 @@ In the last chapter of the book we discuss best programming practices with R. We
 <dl>
 <dt>Packages</dt>
 <dd>
-Every R package used in the text will have the textual format of <strong>{PKG}</strong>. The first time a R package shows up in the text, a citation will also be available.
+Every R package used in the text will have the textual format of <strong>{package}</strong>. The first time a R package shows up in the text, a formal citation will also be available.
 </dd>
 <dt>Functions</dt>
 <dd>
-Functions are formatted as <strong>glimpse()</strong> , with the information of which package the function belongs to. This notation is simply a copy of real R code (you can call functions using the same structure). The first time the function is referenced, the package name will be included, except for package thats are pre-loaded in a R session (<strong>{base}</strong>, <strong>{utils}</strong> and others).
+Functions are formatted as <strong>glimpse()</strong> , with the information of which package the function belongs to. This notation is simply a copy of real R code, that is, you can call functions using the same structure. The first time the function is referenced, the package name will be included, except for packages that are pre-loaded in a R session (<strong>{base}</strong>, <strong>{utils}</strong> and others).
 </dd>
 <dt>Code</dt>
 <dd>
-All R code will be presented in boxes, with the code output prefixed by string <code>R&gt;</code>. Inline comments are set with the symbol <code>#</code>. Anything on the right side of <code>#</code> is not evaluated by R. Here’s an example, showing the content of the <code>list</code> in R:
+All R code will be presented in boxes, with the code output prefixed by string <code>R&gt;</code>. Inline comments are set with the symbol <code>#</code>. Anything on the right side of <code>#</code> is not evaluated by R. Here’s an example, showing the contents of a <code>list</code> in R:
 </dd>
 </dl>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -292,7 +292,7 @@ R&gt; [1] "dec"</code></pre>
 <p>After installing package <strong>{afedR3}</strong> , you can, but its not necessary, to copy all book files to a local folder by executing the following command in R:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">afedR3</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/afedR3/man/bookfiles_get.html">bookfiles_get</a></span><span class="op">(</span>path_to_copy <span class="op">=</span> <span class="st">'~/afedR3'</span><span class="op">)</span></span></code></pre></div>
-<p>The previous code will unzip the book file into your “Documents/afedR3” folder, as the tilda (<code>~</code>) is a shortcut to your “Documents” directory<a href="references.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. The package also includes several other functions that will be used throughout the book. If you prefer the old-fashioned way of using an internet page, you can find and download the zip file in the <a href="https://www.msperlin.com/files/afedr-files/afedR-code-and-data.zip">book site</a><a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>The previous code will unzip the book file into your “Documents/afedR3” folder, as the tilda (<code>~</code>) is a shortcut to your “Documents” directory<a href="references.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. If you prefer the old-fashioned way of using an internet page, you can find and download the package zip file from <a href="https://github.com/msperlin/afedR3">github</a><a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
 <p>A suggestion, before you read the rest of the book: go to the <a href="https://www.msperlin.com/publication/2020_book-afedr-en/">book website</a> and search for the related links page at the bottom. There you will find all internet addresses highlighted in the text, including the links for the installation of R and RStudio.</p>
 </div>
 <div id="content-for-instructors" class="section level2 unnumbered">
@@ -302,11 +302,11 @@ R&gt; [1] "dec"</code></pre>
 <dl>
 <dt>Over 100 exercises</dt>
 <dd>
-Every chapter in this book includes exercises that your students can practice, with solutions available in the <a href="https://www.msperlin.com/afedR">web version</a> of the book. Also, all exercises are available in the <a href="http://www.r-exams.org/"><code>exams</code> format</a>, meaning that you can compile the same exercises in pdf or html. Moreover, you can export the exercises to <em>e-learning</em> platforms such as Moodle and Blackboard. See this <a href="https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/">blog post</a><a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> for instructions on how to use it with your students.
+Every chapter in this book includes exercises that your students can practice, with solutions available in the <a href="https://www.msperlin.com/afedr">web version</a> of the book. Also, all exercises are available in the <a href="http://www.r-exams.org/"><code>exams</code> format</a>, meaning that you can compile the same exercises in pdf or html. Moreover, you can export the exercises to <em>e-learning</em> platforms such as Moodle and Blackboard. See this <a href="https://www.msperlin.com/post/2023-03-10-compiling-exercises-afedR3/">blog post</a><a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> for instructions on how to use it with your students.
 </dd>
 <dt>Web version</dt>
 <dd>
-The first seven chapters of the book are freely available at link <a href="https://www.msperlin.com/afedR" class="uri">https://www.msperlin.com/afedR</a>, which is more than enough material for an introductory class on R and data analysis.
+The first seven chapters of the book are freely available at link <a href="https://www.msperlin.com/afedr" class="uri">https://www.msperlin.com/afedr</a>, which is more than enough material for an introductory class on R and data analysis.
 </dd>
 </dl>
 <p>All of this content is released with the <a href="https://opensource.org/licenses/MIT">MIT license</a>, so feel free to use and abuse it, as long as you give the credits to the original author. You can find the content within the book package <strong>{afedR3}</strong> (see previous instructions on installation) or directly at the <a href="https://www.msperlin.com/publication/2020_book-afedr-en/">book site</a><a href="references.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
@@ -339,7 +339,7 @@ s.setAttribute('data-timestamp', +new Date());
 </noscript>
                             
   <div class="chapter-nav">
-<div class="prev"><a href="revision-2023.html">Revision 2023</a></div>
+<div class="prev"><a href="about-new-edition.html">About New Edition</a></div>
 <div class="next"><a href="introduction.html"><span class="header-section-number">1</span> Introduction</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="Nesta Página"><h2>Nesta Página</h2>
@@ -368,7 +368,7 @@ s.setAttribute('data-timestamp', +new Date());
   </div>
 
   <div class="col-12 col-md-6 mt-3">
-    <p>This book was compiled with love in Third Edition - 2023-03-15, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+    <p>This book was compiled with love in 2023-03-10, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
   </div>
 
 </div></div>

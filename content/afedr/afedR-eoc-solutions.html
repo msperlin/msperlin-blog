@@ -23,19 +23,19 @@ body{font-family: Arial, Helvetica, Sans;}
 <br/>
 <ol type="a">
 <li>
-Python
-</li>
-<li>
 Javascript
 </li>
 <li>
-S
+C++
 </li>
 <li>
 Julia
 </li>
 <li>
-C++
+Python
+</li>
+<li>
+S
 </li>
 </ol>
 <br/>
@@ -49,6 +49,12 @@ C++
 <br/>
 <ol type="a">
 <li>
+Guido van Rossum and Bjarne Stroustrup
+</li>
+<li>
+John Chambers and Robert Engle
+</li>
+<li>
 Linus Torvalds and Richard Stallman
 </li>
 <li>
@@ -56,12 +62,6 @@ Roger Federer and Rafael Nadal
 </li>
 <li>
 Ross Ihaka and Robert Gentleman
-</li>
-<li>
-Guido van Rossum and Bjarne Stroustrup
-</li>
-<li>
-John Chambers and Robert Engle
 </li>
 </ol>
 <br/>
@@ -84,10 +84,10 @@ It was designed for analyzing data and producing statistical output
 Works on any plataform such as Windows, Unix, MacOS
 </li>
 <li>
-Easy to use
+Makes it easy to write mobile apps
 </li>
 <li>
-Makes it easy to write mobile apps
+Easy to use
 </li>
 </ol>
 <br/>
@@ -101,19 +101,19 @@ Makes it easy to write mobile apps
 <br/>
 <ol type="a">
 <li>
-Letter R is cool!
+Letter R is shared in the first names of its authors.
 </li>
 <li>
-R = Reausable code.
+The mother of one of the authors is called Renata.
+</li>
+<li>
+Letter R is cool!
 </li>
 <li>
 It was the only available letter, not yet used as a programming language.
 </li>
 <li>
-Letter R is shared in the first names of its authors.
-</li>
-<li>
-The mother of one of the authors is called Renata.
+R = Reausable code.
 </li>
 </ol>
 <br/>
@@ -124,9 +124,9 @@ The mother of one of the authors is called Renata.
 <li>
 <h4>Question</h4>
 <p>Consider the following alternatives about R and RStudio:</p>
-<p>I - R is a mature and stable programming platform;</p>
+<p>I - R was developed in 2018 and is an innovative and unstable project;</p>
 <p>II - RStudio is a modern interface to R, increasing productivity;</p>
-<p>III - R has compatibility with different programming languages;</p>
+<p>III - R is not compatible with different programming languages;</p>
 <p>Which alternatives are correct?</p>
 <br/>
 <ol type="a">
@@ -134,16 +134,16 @@ The mother of one of the authors is called Renata.
 TRUE, FALSE, FALSE
 </li>
 <li>
-FALSE, TRUE, TRUE
+TRUE, FALSE, TRUE
 </li>
 <li>
 TRUE, TRUE, FALSE
 </li>
 <li>
-FALSE, TRUE, FALSE
+TRUE, TRUE, TRUE
 </li>
 <li>
-TRUE, TRUE, TRUE
+FALSE, TRUE, FALSE
 </li>
 </ol>
 <br/>
@@ -168,19 +168,19 @@ TRUE, TRUE, TRUE
 <br/>
 <ol type="a">
 <li>
-Compile graphics.
-</li>
-<li>
-Compile technical reports.
-</li>
-<li>
 Compile R packages locally
 </li>
 <li>
 Build web pages.
 </li>
 <li>
+Compile technical reports.
+</li>
+<li>
 Make coffee (?).
+</li>
+<li>
+Compile graphics.
 </li>
 </ol>
 <br/>
@@ -742,24 +742,24 @@ my_sol &lt;- latest_acc_value </code></pre>
 </li>
 <li>
 <h4>Question</h4>
-<p>Using function <code>tidyquant::tq_index</code>, download the current composition of index DOW. What is the company with the highest percentage in the composition of the index?</p>
+<p>Using function <code>tidyquant::tq_index</code>, download the current composition of index SP500. What is the company with the highest percentage in the composition of the index?</p>
 <p>Be aware that the answer is time-dependent and the reported result might be different from what you actually got in your R session.</p>
 <br/>
 <ol type="a">
 <li>
-Travelers Companies Inc.
+Hershey Company
 </li>
 <li>
-Amgen Inc.
+Caterpillar Inc.
 </li>
 <li>
-Home Depot Inc.
+Atmos Energy Corporation
 </li>
 <li>
-JPMorgan Chase &amp; Co.
+Etsy Inc.
 </li>
 <li>
-UnitedHealth Group Incorporated
+Apple Inc.
 </li>
 </ol>
 <br/>
@@ -794,13 +794,13 @@ my_sol &lt;- highest_weight </code></pre>
 <br/>
 <ol type="a">
 <li>
+BAC
+</li>
+<li>
 SNAP
 </li>
 <li>
 GE
-</li>
-<li>
-BAC
 </li>
 <li>
 AAPL
@@ -855,16 +855,16 @@ my_sol &lt;- winner</code></pre>
 14
 </li>
 <li>
-2
+5
 </li>
 <li>
-4
+8
 </li>
 <li>
-7
+21
 </li>
 <li>
-10
+35
 </li>
 </ol>
 <br/>
@@ -950,19 +950,19 @@ message(str_glue(
 <br/>
 <ol type="a">
 <li>
-$36,728.76
+$16,444.89
 </li>
 <li>
-$15,194.02
+$26,005.83
 </li>
 <li>
-$23,056.75
+$22,584.13
 </li>
 <li>
-$9,991.03
+$19,162.44
 </li>
 <li>
-$59,785.51
+$29,427.52
 </li>
 </ol>
 <br/>
@@ -991,16 +991,16 @@ my_sol &lt;- last(df_prices$price_adjusted)/first(df_prices$price_adjusted)*valu
 200
 </li>
 <li>
-234
+71
 </li>
 <li>
-271
+149
 </li>
 <li>
-307
+281
 </li>
 <li>
-343
+481
 </li>
 </ol>
 <br/>
@@ -2086,9 +2086,15 @@ print(df_wide)</code></pre>
 <p>Consider the following list:</p>
 <pre><code>library(dplyr)
 
-my_l &lt;- list(df1 = tibble(x = 1:100, y = runif(100)),
-             df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),
-             df3 = tibble(x = 1:100, y = runif(100), z = runif(100)) )</code></pre>
+my_l &lt;- list(df1 = tibble(x = 1:100, 
+                          y = runif(100)),
+             df2 = tibble(x = 1:100, 
+                          y = runif(100), 
+                          v = runif(100)),
+             df3 = tibble(x = 1:100, 
+                          y = runif(100), 
+                          z = runif(100)) 
+            )</code></pre>
 <p>Add all <code>dataframes</code> in <code>my_l</code> to a single object using <code>do.call</code> or <code>dplyr::bind_rows</code> functions. What happened to the <code>df1</code> data where <code>v</code> and <code>z</code> columns do not exist?</p>
 <br/>
 <h4>Solution</h4>
