@@ -239,7 +239,7 @@
 <span class="header-section-number">2.2</span> Objects in R<a class="anchor" aria-label="anchor" href="#objects-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>In R, everything is an object, and each type of object has its properties</strong>. For example, the daily closing prices of the IBM stock over 2023 can be represented as a numerical vector, where each element is a price recorded at the end of a trading day. Dates related to these prices can be represented as text (<em>string</em>) or as a unique <code>Date</code> class. Finally, we can represent the price data and the dates together by storing them in a single object of type <code>dataframe</code>, which is nothing more than a table with rows and columns.</p>
-<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> , adds up to a total of 1258 functions.</p>
+<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2022b</a>)</span>, adds up to a total of 1257 functions.</p>
 <p>Each function has its own name and a programmer can write their own functions. For example, the <strong>sort()</strong> function is a procedure that sorts elements within a vector. If we wanted to sort the elements of <code>2, 1, 4, 3, 1</code>, simply insert the following command in the <em>prompt</em> (left bottom side of RStudio’s screen) and press <em>enter</em>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -412,7 +412,7 @@ Figure 2.3: Task View screen
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">n_cran_packages</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] 19278</code></pre>
-<p>Currently, 2023-03-10 08:18:50, there are 19278 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
+<p>Currently, 2023-03-10 09:43:46, there are 19278 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
 <p>You can also check the amount of <strong>locally installed packages</strong> in R with the <strong>installed.packages()</strong> command:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># find number of packages currently installed</span></span>
@@ -426,25 +426,25 @@ Figure 2.3: Task View screen
 <h3>
 <span class="header-section-number">2.6.1</span> Installing Packages from CRAN<a class="anchor" aria-label="anchor" href="#installing-packages-from-cran"><i class="fas fa-link"></i></a>
 </h3>
-<p>Use command <strong>install.packages()</strong> to install a package locally. You only need to do it once for each new package. As an example, we will install a package called <strong>{readr}</strong> , that will be used in future chapters. Note that we defined the package name in the installation as if it were text with the use of quotation marks (<code>" "</code>).</p>
+<p>Use command <strong>install.packages()</strong> to install a package locally. You only need to do it once for each new package. As an example, we will install a package called <strong>{readr}</strong> <span class="citation">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span>, that will be used in future chapters. Note that we defined the package name in the installation as if it were text with the use of quotation marks (<code>" "</code>).</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install package readr</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readr"</span><span class="op">)</span></span></code></pre></div>
-<p>That’s it! After executing this simple command, package <strong>{readr}</strong> will be installed and the functions related to the package will be ready for use once the package is loaded in a script. If the installed package is dependent on another package, R detects this dependency and automatically installs the missing packages. Thus, all the requirements for using the installed package are satisfied and everything will work perfectly. Be aware, however, that some modules can require external software in the level of the operating system. These cases are usually announced in the description of the package and an error informs that a requirement is missing. External dependencies for R packages are not common, but they do happen.</p>
+<p>That’s it! After executing this simple command, package <strong>{readr}</strong> <span class="citation">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span> will be installed and the functions related to the package will be ready for use once the package is loaded in a script. If the installed package is dependent on another package, R detects this dependency and automatically installs the missing packages. Thus, all the requirements for using the installed package are satisfied and everything will work perfectly. Be aware, however, that some modules can require external software in the level of the operating system. These cases are usually announced in the description of the package and an error informs that a requirement is missing. External dependencies for R packages are not common, but they do happen.</p>
 </div>
 <div id="installing-packages-from-github" class="section level3" number="2.6.2">
 <h3>
 <span class="header-section-number">2.6.2</span> Installing Packages from Github<a class="anchor" aria-label="anchor" href="#installing-packages-from-github"><i class="fas fa-link"></i></a>
 </h3>
-<p>To install a package hosted in Github, you must first install the <strong>{devtools}</strong> package, available on CRAN:</p>
+<p>To install a package hosted in Github, you must first install the <strong>{devtools}</strong> <span class="citation">(<a href="references.html#ref-R-devtools" role="doc-biblioref">Wickham et al. 2022</a>)</span> package, available on CRAN:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install devtools</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'devtools'</span><span class="op">)</span></span></code></pre></div>
-<p>After that, use function <strong>install_github()</strong> to install a package directly from Github. In the following example, we will install the development version of package <strong>{dplyr}</strong> :</p>
+<p>After that, use function <strong>devtools</strong>::<strong>install_github()</strong> to install a package directly from Github. In the following example, we will install the development version of package <strong>{dplyr}</strong> <span class="citation">(<a href="references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install ggplot2 from github</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"hadley/dplyr"</span><span class="op">)</span></span></code></pre></div>
-<p>Note that the username of the developer is included in the input string. In this case, the <em>hadley</em> name belongs to the developer of <strong>{dplyr}</strong> , Hadley Wickham. Throughout the book, you will notice that this name appears several times. Hadley is a prolific and competent developer of several popular R packages and currently works for RStudio.</p>
+<p>Note that the username of the developer is included in the input string. In this case, the <em>hadley</em> name belongs to the developer of <strong>{dplyr}</strong> <span class="citation">(<a href="references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, Hadley Wickham. Throughout the book, you will notice that this name appears several times. Hadley is a prolific and competent developer of several popular R packages and currently works for RStudio.</p>
 <div class="rmdcaution">
 <p>
 Be aware that <strong>github packages are not moderated</strong>.
@@ -479,9 +479,9 @@ R&gt; statistical capabilities (last year it was about 10 years
 R&gt; behind) in my estimation.
 R&gt;    -- Frank Harrell (SAS User, 1969-1991)
 R&gt;       R-help (September 2003)</code></pre>
-<p>Here, we use function <strong>fortune()</strong> from the package <strong>{fortunes}</strong> , which shows on screen a potentially funny phrase chosen from the R mailing list. For our example, we selected message number 10. One interesting use of package <strong>{fortunes}</strong> is to display a random joke every time R starts and, perhaps, lighten up your day. As mentioned before, R is fully customizable. You can find many tutorials on how to achieve this effect by searching on the web for “customizing R startup”.</p>
+<p>Here, we use function <strong>fortunes</strong>::<strong>fortune()</strong> from the package <strong>{fortunes}</strong> <span class="citation">(<a href="references.html#ref-R-fortunes" role="doc-biblioref">Zeileis and R community 2016</a>)</span>, which shows on screen a potentially funny phrase chosen from the R mailing list. For our example, we selected message number 10. One interesting use of package <strong>{fortunes}</strong> <span class="citation">(<a href="references.html#ref-R-fortunes" role="doc-biblioref">Zeileis and R community 2016</a>)</span> is to display a random joke every time R starts and, perhaps, lighten up your day. As mentioned before, R is fully customizable. You can find many tutorials on how to achieve this effect by searching on the web for “customizing R startup”.</p>
 <p>Another way of loading a package is by using the <strong>require()</strong> function. A call to <strong>require()</strong> has a different behavior than a call to <strong>library()</strong> . Whenever you try to load an uninstalled package with the <strong>library()</strong> function, it returns an error. This means that the script stops and no further code are evaluated. As for <strong>require()</strong> , if a package is not found, it returns an object with value <code>FALSE</code> and the rest of the code is evaluated. So, in order to avoid code being executed without its explicit dependencies, it is best advised to always use <strong>library()</strong> for loading packages in R scripts.</p>
-<p>The use of <strong>require()</strong> is left for loading up packages inside of functions. If you create a custom function that requires procedures from a particular package, you must load the package within the scope of the function. For example, see the following code, where we create a new function called <code>fct_example</code> that depends on the package <strong>{quantmod}</strong> :</p>
+<p>The use of <strong>require()</strong> is left for loading up packages inside of functions. If you create a custom function that requires procedures from a particular package, you must load the package within the scope of the function. For example, see the following code, where we create a new function called <code>fct_example</code> that depends on the package <strong>{quantmod}</strong> <span class="citation">(<a href="references.html#ref-R-quantmod" role="doc-biblioref">Ryan and Ulrich 2022b</a>)</span>:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fct_example</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
@@ -490,7 +490,7 @@ R&gt;       R-help (September 2003)</code></pre>
 <span>    <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/quantmod/man/getSymbols.html">getSymbols</a></span><span class="op">(</span><span class="va">x</span>, auto.assign <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
 <span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
-<p>In this case, the first time that <code>fct_example</code> is called, it loads up the package <strong>{quantmod}</strong> and all of its functions. Using <strong>require()</strong> inside a function is a good programming policy because the function becomes self-contained, making it easier to use it in the future. This was the first time where the complete definition of a user-created function in R is presented. Do not worry about it for now. We will explain it further in chapter <a href="programming.html#programming">8</a>.</p>
+<p>In this case, the first time that <code>fct_example</code> is called, it loads up the package <strong>{quantmod}</strong> <span class="citation">(<a href="references.html#ref-R-quantmod" role="doc-biblioref">Ryan and Ulrich 2022b</a>)</span> and all of its functions. Using <strong>require()</strong> inside a function is a good programming policy because the function becomes self-contained, making it easier to use it in the future. This was the first time where the complete definition of a user-created function in R is presented. Do not worry about it for now. We will explain it further in chapter <a href="programming.html#programming">8</a>.</p>
 <div class="rmdcaution">
 <p>
 Be aware that loading a package can cause a <strong>conflict of
@@ -1181,12 +1181,12 @@ code quickly, and without typos.
 <span class="header-section-number">2.20</span> Interacting with Files and the Operating System<a class="anchor" aria-label="anchor" href="#interacting-with-files-and-the-operating-system"><i class="fas fa-link"></i></a>
 </h2>
 <p>As you are learning R, soon enough you’ll find a data-related problem that requires some interaction with files on the computer, either by creating new folders, decompressing and compressing files, listing and removing files from the hard drive of the computer or any other type of operation. R has full support for such type of operations. You can automate any type of computer task within an R script, if so needed.</p>
-<p>In this section we will give preference to functions from package <strong>{fs}</strong> , which provides several routines for interacting with files and folders. Be aware, however, that the <code>base</code> package also offers similar functions.</p>
+<p>In this section we will give preference to functions from package <strong>{fs}</strong> <span class="citation">(<a href="references.html#ref-R-fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2023</a>)</span>, which provides several routines for interacting with files and folders. Be aware, however, that the <code>base</code> package also offers similar functions.</p>
 <div id="listing-files-and-folders" class="section level3" number="2.20.1">
 <h3>
 <span class="header-section-number">2.20.1</span> Listing Files and Folders<a class="anchor" aria-label="anchor" href="#listing-files-and-folders"><i class="fas fa-link"></i></a>
 </h3>
-<p>To list files from your computer, use function <strong>dir_ls()</strong> , where the <code>path</code> argument sets the directory to list the files from. For the compilation of the book, I’ve created a directory called <em>data</em>. This folder contains all the data needed to recreate the book’s examples. You can check the files in the sub-folder <code>data</code> with the following code:</p>
+<p>To list files from your computer, use function <strong>fs</strong>::<strong>dir_ls()</strong> , where the <code>path</code> argument sets the directory to list the files from. For the compilation of the book, I’ve created a directory called <em>data</em>. This folder contains all the data needed to recreate the book’s examples. You can check the files in the sub-folder <code>data</code> with the following code:</p>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list files in data folder</span></span>
 <span><span class="va">my_files</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span>
@@ -1221,16 +1221,16 @@ R&gt; data/top25babynames-by-sex-2005-2017.csv</code></pre>
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_dirs</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/_book
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/blocks
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/data
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/ebook files
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/eqs
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/mem_cache
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/quandl_cache
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/resources
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/tabs
-R&gt; /tmp/Rtmp9FKiuz/compile-book-html--12c33ceecfe5/text-to-reuse</code></pre>
+<pre><code>R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/_book
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/blocks
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/data
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/ebook files
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/eqs
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/mem_cache
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/quandl_cache
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/resources
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/tabs
+R&gt; /tmp/RtmpwXB2Qi/compile-book-html--39ea5e3fd092aa/text-to-reuse</code></pre>
 <p>The output shows the directories used to write the book. It includes the directory with the data (“./data”), resources (“./resources”) among others. In this same directory, you can find the chapters of the book, organized by files and based on the <em>RMarkdown</em> language (<code>.Rmd</code> file extension):</p>
 <div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list all files with the extension .Rmd</span></span>
@@ -1261,7 +1261,7 @@ R&gt; index.Rmd</code></pre>
 <span class="header-section-number">2.20.2</span> Deleting Files and Directories<a class="anchor" aria-label="anchor" href="#deleting-files-and-directories"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can also use an R session to delete files and directories from your computer. This might come in handy when dealing with disposable data files. Use these commands with responsibility. If not careful, you can easily break the operating system of your computer.</p>
-<p>You can delete files with command <strong>file_delete()</strong> :</p>
+<p>You can delete files with command <strong>fs</strong>::<strong>file_delete()</strong> :</p>
 <div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create temporary file</span></span>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="st">'data/tempfile.csv'</span></span>
@@ -1270,7 +1270,7 @@ R&gt; index.Rmd</code></pre>
 <span></span>
 <span><span class="co"># delete it</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/delete.html">file_delete</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<p>To delete directories and all their elements, we use <strong>dir_delete()</strong> :</p>
+<p>To delete directories and all their elements, we use <strong>fs</strong>::<strong>dir_delete()</strong> :</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create temp dir</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html">dir_create</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span>
@@ -1281,7 +1281,7 @@ R&gt; index.Rmd</code></pre>
 <span>          file <span class="op">=</span> <span class="va">my_file</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/delete.html">dir_delete</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span></code></pre></div>
-<p>If needed, we can check if the deletion of a directory was successful with command <strong>dir_exists()</strong> :</p>
+<p>If needed, we can check if the deletion of a directory was successful with command <strong>fs</strong>::<strong>dir_exists()</strong> :</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">dir_exists</a></span><span class="op">(</span><span class="st">'temp'</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt;  temp 
@@ -1317,13 +1317,13 @@ files and folder, without any simple way to restore them.
 <h3>
 <span class="header-section-number">2.20.4</span> Using Temporary Files and Directories<a class="anchor" aria-label="anchor" href="#using-temporary-files-and-directories"><i class="fas fa-link"></i></a>
 </h3>
-<p>Every time a user starts an R session, a new temporary folder is created in your hard drive. This folder is used to store any disposable files and folders generated by R. The location of this directory is available with <strong>path_temp()</strong> :</p>
+<p>Every time a user starts an R session, a new temporary folder is created in your hard drive. This folder is used to store any disposable files and folders generated by R. The location of this directory is available with <strong>fs</strong>::<strong>path_temp()</strong> :</p>
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">windows_tempdir</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">path_temp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">windows_tempdir</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; C:\Users\msperlin\AppData\Local\Temp\RtmpEGt3Q7</code></pre>
 <p>The name of the temporary directory, in this case <code>'RtmpEGt3Q7'</code>, is unique and randomly defined at the start of every new R session. This means that every R session is linked to an unique temporary folder. If two R sessions are created, as in starting two RStudio sessions, two temporary folders will be available, each with an unique name. <strong>When the computer is rebooted, all temporary directories are deleted</strong>.</p>
-<p>The same dynamic is found for file names. If you want to use a temporary random name for some reason, use <strong>file_temp()</strong> :</p>
+<p>The same dynamic is found for file names. If you want to use a temporary random name for some reason, use <strong>fs</strong>::<strong>file_temp()</strong> :</p>
 <div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">windows_tempfile</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">file_temp</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">windows_tempfile</span><span class="op">)</span></span></code></pre></div>
@@ -1365,7 +1365,7 @@ R&gt; #   Year &lt;chr&gt;, and abbreviated variable names
 R&gt; #   ¹​`Discount Band`, ²​`Units Sold`,
 R&gt; #   ³​`Manufacturing Price`, ⁴​`Sale Price`</code></pre>
 <p>The example Excel file contains the sales report of a company. Do notice that the imported file becomes a <code>dataframe</code> in our R session, a table like an object with rows and columns.</p>
-<p>By using <strong>file_temp()</strong> , we do not need to delete (or worry) about the downloaded file because it will be removed from the computer’s hard disk when the system is rebooted.</p>
+<p>By using <strong>fs</strong>::<strong>file_temp()</strong> , we do not need to delete (or worry) about the downloaded file because it will be removed from the computer’s hard disk when the system is rebooted.</p>
 </div>
 </div>
 <div id="exercises-basic-exercises" class="section level2" number="2.21">
