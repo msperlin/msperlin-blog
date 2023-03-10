@@ -427,13 +427,13 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt;            y z
-R&gt; 1 0.40740232 a
-R&gt; 2 0.45823783 a
-R&gt; 3 0.72957672 a
-R&gt; 4 0.03163652 a
-R&gt; 5 0.69799466 a
-R&gt; 6 0.18666380 a</code></pre>
+<pre><code>R&gt;              y z
+R&gt; 1 0.7936342969 a
+R&gt; 2 0.3096139820 a
+R&gt; 3 0.9435047319 a
+R&gt; 4 0.9402212643 a
+R&gt; 5 0.7771676672 a
+R&gt; 6 0.0004584852 a</code></pre>
 <p>And now we use <strong>readr</strong>::<strong>write_csv()</strong> to save it in a new (and temporary) <em>.csv</em> file:</p>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file out</span></span>
@@ -442,7 +442,7 @@ R&gt; 6 0.18666380 a</code></pre>
 <span><span class="co"># write to files</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_df</span>,  </span>
 <span>          file <span class="op">=</span> <span class="va">f_out</span><span class="op">)</span></span></code></pre></div>
-<p>In the previous example, we save the object <code>my_df</code> into a temporary file with path file39ea5e5eaa4625.csv. We can read it back and check its contents using <strong>readr</strong>::<strong>read_csv()</strong> once again:</p>
+<p>In the previous example, we save the object <code>my_df</code> into a temporary file with path file3a50c4912b413.csv. We can read it back and check its contents using <strong>readr</strong>::<strong>read_csv()</strong> once again:</p>
 <div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read it</span></span>
 <span><span class="va">my_df_imported</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">f_out</span><span class="op">)</span></span>
@@ -450,14 +450,14 @@ R&gt; 6 0.18666380 a</code></pre>
 <span><span class="co"># print first five rows</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">my_df_imported</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 6 × 2
-R&gt;        y z    
-R&gt;    &lt;dbl&gt; &lt;chr&gt;
-R&gt; 1 0.407  a    
-R&gt; 2 0.458  a    
-R&gt; 3 0.730  a    
-R&gt; 4 0.0316 a    
-R&gt; 5 0.698  a    
-R&gt; 6 0.187  a</code></pre>
+R&gt;          y z    
+R&gt;      &lt;dbl&gt; &lt;chr&gt;
+R&gt; 1 0.794    a    
+R&gt; 2 0.310    a    
+R&gt; 3 0.944    a    
+R&gt; 4 0.940    a    
+R&gt; 5 0.777    a    
+R&gt; 6 0.000458 a</code></pre>
 <p>As we can see, the data imported from the file is identical to the one created in the other code chunk.</p>
 </div>
 </div>
@@ -537,7 +537,7 @@ R&gt; $ price_close &lt;dbl&gt; 1132.99, 1136.52, 1137.14, 1141.69, 11…</code>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check if file exists</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">my_file_rdata</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpwXB2Qi/file39ea5e7987e956.RData 
+<pre><code>R&gt; /tmp/Rtmpk5pRT3/file3a50c41d2013d3.RData 
 R&gt;                                    FALSE</code></pre>
 <p>As expected, file price-data.csv is available.</p>
 <p>Now, to import data from <code>.rds</code> files, we use function <strong>readr</strong>::<strong>read_rds()</strong> :</p>
@@ -573,7 +573,7 @@ other objects into its content.
 <p>We can again check if the file exists:</p>
 <div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpwXB2Qi/file39ea5e51639c90.RData 
+<pre><code>R&gt; /tmp/Rtmpk5pRT3/file3a50c4536e17d8.RData 
 R&gt;                                     TRUE</code></pre>
 <p>The result is <code>TRUE</code> as expected.</p>
 <p>As for <em>.rds</em> files, we save it with function <strong>readr</strong>::<strong>write_rds()</strong> :</p>
@@ -684,16 +684,16 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span>                  <span class="va">results_write</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with .rds: 0.619 seconds
-R&gt; Time to WRITE dataframe with .fst: 0.097999999999999 seconds</code></pre>
+R&gt; Time to WRITE dataframe with .rds: 0.572000000000003 seconds
+R&gt; Time to WRITE dataframe with .fst: 0.0919999999999987 seconds</code></pre>
 <div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nTime to READ dataframe with '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="va">results_read</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with .rds: 0.625 seconds
-R&gt; Time to READ dataframe with .fst: 0.134 seconds</code></pre>
+R&gt; Time to READ dataframe with .rds: 0.602000000000004 seconds
+R&gt; Time to READ dataframe with .fst: 0.126000000000005 seconds</code></pre>
 <div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nResulting FILE SIZE for '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
@@ -802,7 +802,7 @@ R&gt; $ G &lt;chr&gt; "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"…</code>
 <span></span>
 <span><span class="co"># disconnect</span></span>
 <span><span class="fu">RSQLite</span><span class="fu">::</span><span class="fu">dbDisconnect</span><span class="op">(</span><span class="va">my_con</span><span class="op">)</span></span></code></pre></div>
-<p>The <code>TRUE</code> output of <strong>RSQLite</strong>::<strong>dbWriteTable()</strong> indicates everything went well. A connection was opened using function <strong>RSQLite</strong>::<strong>dbConnect()</strong> , and both <code>dataframes</code> were written to an SQLite file, called file39ea5e1f9af4f8.SQLITE.</p>
+<p>The <code>TRUE</code> output of <strong>RSQLite</strong>::<strong>dbWriteTable()</strong> indicates everything went well. A connection was opened using function <strong>RSQLite</strong>::<strong>dbConnect()</strong> , and both <code>dataframes</code> were written to an SQLite file, called file3a50c455799a6e.SQLITE.</p>
 </div>
 </div>
 <div id="unstructured-data-and-other-formats" class="section level2" number="4.7">
@@ -1062,7 +1062,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" was written by <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" was written by <strong><a class="text-light" href="https://www.msperlin.com">Marcelo S. Perlin </a></strong>. Full version available at <a class="text-light" href="TODO:">Amazon</a>.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

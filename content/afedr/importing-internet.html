@@ -386,6 +386,8 @@ R&gt; $ ref_date    &lt;date&gt; 2010-03-31, 2010-06-30, 2010-09-30, 2…
 R&gt; $ value       &lt;dbl&gt; 2.9, 3.1, 2.9, 2.8, 3.3, 3.5, 3.4, 3.0…
 R&gt; $ id_quandl   &lt;chr&gt; "RATEINF/INFLATION_AUS", "RATEINF/INFL…</code></pre>
 <p>And, finally, we create an elegant plot to see the behavior of the inflation rates in the selected countries:</p>
+<pre><code>R&gt; Keep up to date with changes at
+R&gt; https://www.tidyverse.org/blog/</code></pre>
 <div class="inline-figure"><img src="afedR_ed03_ONLINE_files/figure-html/unnamed-chunk-156-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>As you can see, the <strong>{GetQuandlData}</strong> <span class="citation">(<a href="references.html#ref-R-GetQuandlData" role="doc-biblioref">M. S. Perlin 2023b</a>)</span> output is formatted to work well with the <strong>{tidyverse}</strong> <span class="citation">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> tools. The resulting data shows some correlation between the inflation rates, specially between the Euro Area and USA. We can also see the impact of covid in 2020, with large increases of inflation rates across the world.</p>
 </div>
@@ -405,7 +407,7 @@ R&gt; $ id_quandl   &lt;chr&gt; "RATEINF/INFLATION_AUS", "RATEINF/INFL…</code>
 </ul>
 <p>As an example of usage, let’s download the prices of four stocks in the previous five years using function <strong>yfR</strong>::<strong>yf_get()</strong> . We choose these companies: Microsoft (MSFT), Google (GOOGL), JP Morgan (JPM) and General Electric (GE).</p>
 <p>In the call to function <strong>yfR</strong>::<strong>yf_get()</strong> , we set arguments <code>thresh_bad_data = 0.95</code> and <code>bench_ticker = '^GSPC'</code>. These choices make sure that all returned data have at least 95% of valid prices when compared to data from the SP500 index (ticker <code>'^GSPC'</code>).</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set tickers</span></span>
 <span><span class="va">tickers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'MSFT'</span>,<span class="st">'GOOGL'</span>,<span class="st">'JPM'</span>,<span class="st">'GE'</span><span class="op">)</span></span>
 <span></span>
@@ -421,7 +423,7 @@ R&gt; $ id_quandl   &lt;chr&gt; "RATEINF/INFLATION_AUS", "RATEINF/INFL…</code>
 <span>                     bench_ticker <span class="op">=</span> <span class="va">bench_ticker</span>,</span>
 <span>                     thresh_bad_data <span class="op">=</span> <span class="va">thresh_bad_data</span><span class="op">)</span></span></code></pre></div>
 <p>The output of <strong>yfR</strong>::<strong>yf_get()</strong> is an object of type <code>dataframe</code>, a table with prices and returns:</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print df.tickers</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_yf</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 10,068
@@ -434,14 +436,14 @@ R&gt; $ price_low              &lt;dbl&gt; 140.0949, 140.5152, 141.175…
 R&gt; $ price_close            &lt;dbl&gt; 140.5753, 141.0557, 142.256…
 R&gt; $ volume                 &lt;dbl&gt; 6093832, 4022099, 5766901, …
 R&gt; $ price_adjusted         &lt;dbl&gt; 114.8972, 115.2898, 116.271…
-R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, 0.0034173071, 0.0085139…
+R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, 0.0034171768, 0.0085146…
 R&gt; $ ret_closing_prices     &lt;dbl&gt; NA, 0.0034173293, 0.0085142…
-R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 1.0034173, 1.011…</code></pre>
+R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 1.0034172, 1.011…</code></pre>
 <p>As expected, we find information about stock prices, daily returns and traded volumes. Notice it also includes column <code>ticker</code>, which contains the symbols of the stocks. In the tidy format, each stock has a chunk of data that is pilled in top of each other. Later, in chapter <a href="programming.html#programming">8</a>, we will use this column to split the data and build summary tables. To inspect the data, create a figure with the prices:</p>
 <div class="inline-figure"><img src="afedR_ed03_ONLINE_files/figure-html/unnamed-chunk-159-1.png" width="672" style="display: block; margin: auto;"></div>
 <p>We see that General Eletric (GE) stock was not kind to its investors. Someone that bought the stock at its peak in mid-2016 has found its current value at less than half. Now, when it comes to the GOOGL, JPM and MSFT, we see an overall upward increase in stock prices, and a recent drop. These are profitable and competitive companies in their sectors and not surprisingly, the stock prices surged over the long period of time.</p>
 <p>Now, let’s look at an example of a large download of stock price data. Here, we will download the current composition of the SP500 index using function <strong>yfR</strong>::<strong>yf_collection_get()</strong> .</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set dates</span></span>
 <span><span class="va">first_date</span> <span class="op">&lt;-</span> <span class="st">'2020-01-01'</span></span>
 <span><span class="va">last_date</span> <span class="op">&lt;-</span> <span class="st">'2023-01-01'</span></span>
@@ -452,7 +454,7 @@ R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 1.0034173, 1.011…</code>
 <span>  <span class="va">last_date</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>And now we check the resulting data:</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_dow</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 22,680
 R&gt; Columns: 11
@@ -463,10 +465,10 @@ R&gt; $ price_high             &lt;dbl&gt; 75.1500, 75.1450, 74.9900, …
 R&gt; $ price_low              &lt;dbl&gt; 73.7975, 74.1250, 73.1875, …
 R&gt; $ price_close            &lt;dbl&gt; 75.0875, 74.3575, 74.9500, …
 R&gt; $ volume                 &lt;dbl&gt; 135480400, 146322800, 11838…
-R&gt; $ price_adjusted         &lt;dbl&gt; 73.44939, 72.73532, 73.3148…
-R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.009721973, 0.0079680…
+R&gt; $ price_adjusted         &lt;dbl&gt; 73.44938, 72.73532, 73.3149…
+R&gt; $ ret_adjusted_prices    &lt;dbl&gt; NA, -0.009721770, 0.0079682…
 R&gt; $ ret_closing_prices     &lt;dbl&gt; NA, -0.009722044, 0.0079682…
-R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9902780, 0.998…</code></pre>
+R&gt; $ cumret_adjusted_prices &lt;dbl&gt; 1.0000000, 0.9902782, 0.998…</code></pre>
 <p>We get a fairly sized table with 22680 rows and 11 columns in object <code>df_dow</code>. Notice how easy it was to get that large volume of data from Yahoo Finance with a simple call to <strong>yfR</strong>::<strong>yf_collection_get()</strong> .</p>
 <div class="rmdcaution">
 <p>
@@ -500,11 +502,11 @@ stocks.
 <span class="header-section-number">5.3.1</span> Example 01 - Apple Inc Annual Profit<a class="anchor" aria-label="anchor" href="#example-01---apple-inc-annual-profit"><i class="fas fa-link"></i></a>
 </h3>
 <p>The first step in using <code>simfinR</code> is registering at the <a href="https://simfin.com/">SimFin website</a>. Once done, click on <a href="https://simfin.com/data/access/api">Data Access</a><a href="references.html#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a>. It should now show an API key such as <code>'rluwSlN304NpyJeBjlxZPspfBBhfJR4o'</code>. Save it in an R object for later use.</p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_api_key</span> <span class="op">&lt;-</span> <span class="st">'rluwSlN304NpyJeBjlxZPspfBBhfJR4o'</span></span></code></pre></div>
 <p>Be aware that the <strong>API key in <code>my_api_key</code> is fake</strong> and will not work for you. You need to get your own to execute the examples.</p>
 <p>With the API key in hand, the second step is to find the numerical id of the company of interest. For that, we can find all available companies and their respective ids and ticker with <strong>simfinapi</strong>::<strong>sfa_get_entities()</strong> .</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cache_dir</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">path_temp</a></span><span class="op">(</span><span class="st">"cache-simfin"</span><span class="op">)</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html">dir_create</a></span><span class="op">(</span><span class="va">cache_dir</span><span class="op">)</span></span>
 <span></span>
@@ -521,7 +523,7 @@ R&gt; Columns: 2
 R&gt; $ simfin_id &lt;int&gt; 854465, 45846, 1253413, 1333027, 367153,…
 R&gt; $ ticker    &lt;chr&gt; "1COV.DE", "A", "A18", "A21", "AA", "AAC…</code></pre>
 <p>Now, based on ticker “AAPL”, lets download the download the profit and loss (PL) statement for Apple INC in 2022:</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ticker</span> <span class="op">&lt;-</span> <span class="st">"AAPL"</span> <span class="co"># ticker of APPLE INC</span></span>
 <span><span class="va">type_statements</span> <span class="op">&lt;-</span> <span class="st">'pl'</span> <span class="co"># profit/loss statement</span></span>
 <span><span class="va">period</span> <span class="op">&lt;-</span> <span class="st">'fy'</span> <span class="co"># final year</span></span>
@@ -551,7 +553,7 @@ R&gt; $ net_income &lt;dbl&gt; 9.9803e+10</code></pre>
 <span class="header-section-number">5.3.2</span> Example 02 - Annual Net Profit of Many Companies<a class="anchor" aria-label="anchor" href="#example-02---annual-net-profit-of-many-companies"><i class="fas fa-link"></i></a>
 </h3>
 <p>Package <code>simfinapi</code> can also fetch information for many companies in a single call. Let’s run another example by selecting three companies: Apple, Google and Amazon, and downloading end of year information:</p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tickers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AAPL"</span>, <span class="st">'GOOG'</span>, <span class="st">"AMZN"</span><span class="op">)</span> <span class="co"># ticker of APPLE INC</span></span>
 <span><span class="va">type_statements</span> <span class="op">&lt;-</span> <span class="st">'pl'</span> <span class="co"># profit/loss statement</span></span>
 <span><span class="va">period</span> <span class="op">&lt;-</span> <span class="st">'fy'</span> <span class="co"># final year</span></span>
@@ -581,7 +583,7 @@ R&gt; $ net_income &lt;dbl&gt; 99803000000, -2722000000, 59972000000</code></pre
 <span class="header-section-number">5.3.3</span> Example 03 - Fetching price data<a class="anchor" aria-label="anchor" href="#example-03---fetching-price-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>The simfin project also provides prices of stocks, adjusted for dividends, splits and other corporate events. Have a look at the next example, where we download adjusted stock prices for the previous three companies:</p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_prices</span>  <span class="op">&lt;-</span> <span class="fu">simfinapi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/simfinapi/man/sfa_get_prices.html">sfa_get_prices</a></span><span class="op">(</span><span class="va">tickers</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_prices</span><span class="op">)</span></span></code></pre></div>
@@ -609,7 +611,7 @@ R&gt; $ common_shares_outstanding &lt;dbl&gt; NA, NA, NA, NA, NA, NA, …</code>
 </h2>
 <p>Package <strong>{tidyquant}</strong> <span class="citation">(<a href="references.html#ref-R-tidyquant" role="doc-biblioref">Dancho and Vaughan 2022</a>)</span> provides functions related to financial data acquisition and analysis. It is an ambitious project that offers many solutions in the field of finance. The package includes functions for obtaining financial data from the web, manipulation of such data, and the calculation of performance measures of portfolios.</p>
 <p>First, we will obtain price data for Apple stocks (AAPL) using function <strong>tidyquant</strong>::<strong>tq_get()</strong> .</p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set stock and dates</span></span>
 <span><span class="va">ticker</span> <span class="op">&lt;-</span> <span class="st">'AAPL'</span></span>
 <span><span class="va">first_date</span> <span class="op">&lt;-</span> <span class="st">'2020-01-01'</span></span>
@@ -631,16 +633,16 @@ R&gt; $ high     &lt;dbl&gt; 75.1500, 75.1450, 74.9900, 75.2250, 76.11…
 R&gt; $ low      &lt;dbl&gt; 73.7975, 74.1250, 73.1875, 74.3700, 74.29…
 R&gt; $ close    &lt;dbl&gt; 75.0875, 74.3575, 74.9500, 74.5975, 75.79…
 R&gt; $ volume   &lt;dbl&gt; 135480400, 146322800, 118387200, 10887200…
-R&gt; $ adjusted &lt;dbl&gt; 73.44939, 72.73531, 73.31489, 72.97008, 7…</code></pre>
+R&gt; $ adjusted &lt;dbl&gt; 73.44939, 72.73531, 73.31489, 72.97009, 7…</code></pre>
 <p>As we can see, except for column names, the price data has a similar format to the one we got with <strong>{yfR}</strong> <span class="citation">(<a href="references.html#ref-R-yfR" role="doc-biblioref">M. Perlin 2023</a>)</span>. This is not surprising as both share the same origin, Yahoo Finance.</p>
 <p>We can also get information about components of an index using function <strong>tidyquant</strong>::<strong>tq_index()</strong> . The available market indices are:</p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># print available indices</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">tidyquant</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tq_index_options</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; [1] "DOW"       "DOWGLOBAL" "SP400"     "SP500"    
 R&gt; [5] "SP600"</code></pre>
 <p>Let’s get information for <code>"DOWGLOBAL"</code>.</p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get components of "DOWJONES"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">tidyquant</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tq_index</a></span><span class="op">(</span><span class="st">"DOWGLOBAL"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Getting holdings for DOWGLOBAL</code></pre>
@@ -694,11 +696,11 @@ Figure 5.2: Finding xpath from website
 </p>
 </div>
 <p>Here, the copied <em>xpath</em> is:</p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">'//*[@id="mw-content-text"]/table[1]/thead/tr/th[2]'</span></span></code></pre></div>
 <p>This is the address of the header of the table. For the whole content of the table, including header, rows, and columns, we need to set an upper level of the HTML tree. This is equivalent to address <code>//*[@id="MW-content-text"]/table[1]</code>.</p>
 <p>Now that we have the location of what we want, let’s load package <strong>{rvest}</strong> <span class="citation">(<a href="references.html#ref-R-rvest" role="doc-biblioref">Wickham 2022</a>)</span> and use functions <strong>rvest</strong>::<strong>read_html()</strong> , <strong>rvest</strong>::<strong>html_nodes()</strong> and <strong>rvest</strong>::<strong>html_table()</strong> to import the desired table into R:</p>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set url and xpath</span></span>
 <span><span class="va">my_url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'https://en.wikipedia.org/wiki/'</span>,</span>
 <span>                 <span class="st">'List_of_S%26P_500_companies'</span><span class="op">)</span></span>
@@ -768,7 +770,7 @@ R&gt; $ Founded               &lt;chr&gt; "1902", "1916", "1888", "201…</code>
 <div id="q.5-3" class="section level3 unnumbered">
 <h3>Q.5<a class="anchor" aria-label="anchor" href="#q.5-3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Using function <code><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tidyquant::tq_index</a></code>, download the current composition of index SP400. What is the company with the highest percentage in the composition of the index?</p>
+<p>Using function <code><a href="https://rdrr.io/pkg/tidyquant/man/tq_index.html">tidyquant::tq_index</a></code>, download the current composition of index DOWGLOBAL. What is the company with the highest percentage in the composition of the index?</p>
 <p>Be aware that the answer is time-dependent and the reported result might be different from what you actually got in your R session.</p>
 <hr>
 </div>
@@ -858,7 +860,7 @@ s.setAttribute('data-timestamp', +new Date());
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" was written by <strong>Marcelo S. Perlin</strong>  (marceloperlin@gmail.com).</p>
+    <p>"<strong>Analyzing Financial and Economic Data with R - Online Version</strong>" was written by <strong><a class="text-light" href="https://www.msperlin.com">Marcelo S. Perlin </a></strong>. Full version available at <a class="text-light" href="TODO:">Amazon</a>.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
