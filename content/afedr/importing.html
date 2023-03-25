@@ -224,7 +224,7 @@
 <li>SQLite;</li>
 <li>unstructured text data.</li>
 </ul>
-<p>The previous packages and functions are sufficient for getting most of the work done. Nevertheless, it is worth mentioning that R can also import data from other softwares such as SPSS, Stata, Matlab, among many others. If that is your case, I suggest a thorough study of package <strong>{foreign}</strong> <span class="citation">(<a href="references.html#ref-R-foreign" role="doc-biblioref">R Core Team 2022a</a>)</span>.</p>
+<p>The previous packages and functions are sufficient for getting most of the work done. Nevertheless, it is worth mentioning that R can also import data from other softwares such as SPSS, Stata, Matlab, among many others. If that is your case, I suggest a thorough study of package <strong>{foreign}</strong> <span class="citation">(<a href="references.html#ref-R-foreign" role="doc-biblioref">R Core Team 2022</a>)</span>.</p>
 <div id="the-path-of-local-files" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> The path of local files<a class="anchor" aria-label="anchor" href="#the-path-of-local-files"><i class="fas fa-link"></i></a>
@@ -295,7 +295,7 @@ R session.
 <h3>
 <span class="header-section-number">4.2.1</span> Importing Data<a class="anchor" aria-label="anchor" href="#importing-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>The <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2022b</a>)</span> package includes a native function called <strong>read.csv()</strong> for importing data from <em>.csv</em> files. However, we will prefer the <strong>{tidyverse}</strong> <span class="citation">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> alternative, <strong>readr</strong>::<strong>read_csv()</strong> , as it is more efficient and easier to work with. In short, the benefit of using <strong>readr</strong>::<strong>read_csv()</strong> is that it reads the data very quickly, with clever internal rules for defining the classes of imported columns.</p>
+<p>The <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2023</a>)</span> package includes a native function called <strong>read.csv()</strong> for importing data from <em>.csv</em> files. However, we will prefer the <strong>{tidyverse}</strong> <span class="citation">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> alternative, <strong>readr</strong>::<strong>read_csv()</strong> , as it is more efficient and easier to work with. In short, the benefit of using <strong>readr</strong>::<strong>read_csv()</strong> is that it reads the data very quickly, with clever internal rules for defining the classes of imported columns.</p>
 <p>This is the first package from the <strong>{tidyverse}</strong> <span class="citation">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> that we will use. Before doing so, it is necessary to install it in your R session. A simple way of installing all <strong>{tidyverse}</strong> <span class="citation">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> packages as a bundle is as follows:</p>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">'tidyverse'</span><span class="op">)</span></span></code></pre></div>
@@ -427,13 +427,13 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt;           y z
-R&gt; 1 0.6994380 a
-R&gt; 2 0.1834310 a
-R&gt; 3 0.6284598 a
-R&gt; 4 0.6422083 a
-R&gt; 5 0.1725185 a
-R&gt; 6 0.4703326 a</code></pre>
+<pre><code>R&gt;            y z
+R&gt; 1 0.61644691 a
+R&gt; 2 0.26431147 a
+R&gt; 3 0.50886548 a
+R&gt; 4 0.03784710 a
+R&gt; 5 0.40634195 a
+R&gt; 6 0.06778526 a</code></pre>
 <p>And now we use <strong>readr</strong>::<strong>write_csv()</strong> to save it in a new (and temporary) <em>.csv</em> file:</p>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file out</span></span>
@@ -442,7 +442,7 @@ R&gt; 6 0.4703326 a</code></pre>
 <span><span class="co"># write to files</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_df</span>,  </span>
 <span>          file <span class="op">=</span> <span class="va">f_out</span><span class="op">)</span></span></code></pre></div>
-<p>In the previous example, we save the object <code>my_df</code> into a temporary file with path file1d18573d27dd75.csv. We can read it back and check its contents using <strong>readr</strong>::<strong>read_csv()</strong> once again:</p>
+<p>In the previous example, we save the object <code>my_df</code> into a temporary file with path filee18171b3a5894.csv. We can read it back and check its contents using <strong>readr</strong>::<strong>read_csv()</strong> once again:</p>
 <div class="sourceCode" id="cb154"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># read it</span></span>
 <span><span class="va">my_df_imported</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">f_out</span><span class="op">)</span></span>
@@ -450,14 +450,14 @@ R&gt; 6 0.4703326 a</code></pre>
 <span><span class="co"># print first five rows</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">my_df_imported</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 6 × 2
-R&gt;       y z    
-R&gt;   &lt;dbl&gt; &lt;chr&gt;
-R&gt; 1 0.699 a    
-R&gt; 2 0.183 a    
-R&gt; 3 0.628 a    
-R&gt; 4 0.642 a    
-R&gt; 5 0.173 a    
-R&gt; 6 0.470 a</code></pre>
+R&gt;        y z    
+R&gt;    &lt;dbl&gt; &lt;chr&gt;
+R&gt; 1 0.616  a    
+R&gt; 2 0.264  a    
+R&gt; 3 0.509  a    
+R&gt; 4 0.0378 a    
+R&gt; 5 0.406  a    
+R&gt; 6 0.0678 a</code></pre>
 <p>As we can see, the data imported from the file is identical to the one created in the other code chunk.</p>
 </div>
 </div>
@@ -537,8 +537,8 @@ R&gt; $ price_close &lt;dbl&gt; 1132.99, 1136.52, 1137.14, 1141.69, 11…</code>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># check if file exists</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">my_file_rdata</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpLF2c8f/file1d185721a8aad4.RData 
-R&gt;                                    FALSE</code></pre>
+<pre><code>R&gt; /tmp/RtmpZ8q1uM/filee181713d62abc.RData 
+R&gt;                                   FALSE</code></pre>
 <p>As expected, file price-data.csv is available.</p>
 <p>Now, to import data from <code>.rds</code> files, we use function <strong>readr</strong>::<strong>read_rds()</strong> :</p>
 <div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
@@ -573,8 +573,8 @@ other objects into its content.
 <p>We can again check if the file exists:</p>
 <div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_access.html">file_exists</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpLF2c8f/file1d18576e1d4449.RData 
-R&gt;                                     TRUE</code></pre>
+<pre><code>R&gt; /tmp/RtmpZ8q1uM/filee18172b14e703.RData 
+R&gt;                                    TRUE</code></pre>
 <p>The result is <code>TRUE</code> as expected.</p>
 <p>As for <em>.rds</em> files, we save it with function <strong>readr</strong>::<strong>write_rds()</strong> :</p>
 <div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
@@ -610,11 +610,9 @@ R&gt;                                     TRUE</code></pre>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="fu">afedR3</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/afedR3/man/data_path.html">data_path</a></span><span class="op">(</span><span class="st">'CH04_example-fst.fst'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># read fst file</span></span>
-<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu">fst</span><span class="fu">::</span><span class="fu"><a href="http://www.fstpackage.org/reference/write_fst.html">read_fst</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; fstcore package v0.9.14</code></pre>
-<pre><code>R&gt; (OpenMP detected, using 16 threads)</code></pre>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># check contents</span></span>
+<span><span class="va">my_df</span> <span class="op">&lt;-</span> <span class="fu">fst</span><span class="fu">::</span><span class="fu"><a href="http://www.fstpackage.org/reference/write_fst.html">read_fst</a></span><span class="op">(</span><span class="va">my_file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check contents</span></span>
 <span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">my_df</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; Rows: 100
 R&gt; Columns: 8
@@ -633,7 +631,7 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span class="header-section-number">4.5.2</span> Exporting Data<a class="anchor" aria-label="anchor" href="#exporting-data-3"><i class="fas fa-link"></i></a>
 </h3>
 <p>We use function <strong>fst</strong>::<strong>write_fst()</strong> to save <code>dataframes</code> in the <em>fst</em> format:</p>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># create dataframe</span></span>
 <span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
 <span><span class="va">my_file</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/file_temp.html">file_temp</a></span><span class="op">(</span>ext <span class="op">=</span> <span class="st">'fst'</span><span class="op">)</span></span>
@@ -647,7 +645,7 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span class="header-section-number">4.5.3</span> Timing the <em>fst</em> format<a class="anchor" aria-label="anchor" href="#timing-the-fst-format"><i class="fas fa-link"></i></a>
 </h3>
 <p>As a test of the potential of the <code>fst</code> format, we will now time the read and write time between <code>fst</code> and <code>rds</code> for a large table: 5.000.000 rows and 2 columns. We will also report the size of the resulting file.</p>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set number of rows</span></span>
 <span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">5000000</span></span>
 <span></span>
@@ -671,7 +669,7 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span><span class="va">file_size_rds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.info.html">file.size</a></span><span class="op">(</span><span class="va">my_file_1</span><span class="op">)</span><span class="op">/</span><span class="fl">1000000</span></span>
 <span><span class="va">file_size_fst</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.info.html">file.size</a></span><span class="op">(</span><span class="va">my_file_2</span><span class="op">)</span><span class="op">/</span><span class="fl">1000000</span></span></code></pre></div>
 <p>And now we check the results:</p>
-<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># results</span></span>
 <span><span class="va">my_formats</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'.rds'</span>, <span class="st">'.fst'</span><span class="op">)</span></span>
 <span><span class="va">results_read</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">time_read_rds</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">time_read_fst</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span>
@@ -684,17 +682,17 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span>                  <span class="va">results_write</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with .rds: 0.597000000000001 seconds
-R&gt; Time to WRITE dataframe with .fst: 0.093 seconds</code></pre>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+R&gt; Time to WRITE dataframe with .rds: 0.567999999999984 seconds
+R&gt; Time to WRITE dataframe with .fst: 0.0989999999999327 seconds</code></pre>
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nTime to READ dataframe with '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="va">results_read</span>, <span class="st">' seconds'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="va">my_text</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with .rds: 0.666999999999998 seconds
-R&gt; Time to READ dataframe with .fst: 0.132999999999999 seconds</code></pre>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+R&gt; Time to READ dataframe with .rds: 0.640999999999963 seconds
+R&gt; Time to READ dataframe with .fst: 0.129000000000019 seconds</code></pre>
+<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">'\nResulting FILE SIZE for '</span>,</span>
 <span>                  <span class="va">my_formats</span>, <span class="st">': '</span>,</span>
 <span>                  <span class="va">results_file_size</span>, <span class="st">' MBs'</span>, collapse <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
@@ -726,7 +724,7 @@ and reading process will be considerably faster.
 <p>Before moving to the examples, we need to understand how to use database software. First, R will connect to the database and return a connection object. Based on this connection, we will send queries for manipulating data using the <em>SQL</em> language. The main advantage is we can have a large database of, let’s say, 10 GB and only load a small portion of it in R. This operation is also very quick, allowing efficient access to the available tables.</p>
 <p>Assuming the existence of an SQLite file in the computer, we can import its tables with package <strong>{RSQLite}</strong> <span class="citation">(<a href="references.html#ref-R-RSQLite" role="doc-biblioref">Müller et al. 2023</a>)</span>
 :</p>
-<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set name of SQLITE file</span></span>
 <span><span class="va">f_sqlite</span> <span class="op">&lt;-</span> <span class="fu">afedR3</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/afedR3/man/data_path.html">data_path</a></span><span class="op">(</span><span class="st">'CH04_example-sqlite.SQLite'</span><span class="op">)</span></span>
 <span></span>
@@ -747,7 +745,7 @@ R&gt; $ x &lt;dbl&gt; 0.24645265, 0.47972926, 0.36782192, 0.09451063, …
 R&gt; $ G &lt;chr&gt; "B", "B", "A", "A", "A", "A", "A", "B", "B", "A"…</code></pre>
 <p>It worked. The <code>dataframe</code> from table <code>MyTable1</code> is exactly as expected.</p>
 <p>Another example of using SQLite is with the actual SQL statements. Notice, in the previous code, we used function <strong>RSQLite</strong>::<strong>dbReadTable()</strong> to get the contents of all rows in table <code>MyTable1</code>. Now, let’s use an SQL command to get from <code>MyTable2</code> only the rows where the <code>G</code> column is equal to <code>A</code>.</p>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set sql statement</span></span>
 <span><span class="va">my_SQL_statement</span> <span class="op">&lt;-</span> <span class="st">"select * from myTable2 where G='A'"</span></span>
 <span></span>
@@ -772,7 +770,7 @@ R&gt; $ G &lt;chr&gt; "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"…</code>
 <span class="header-section-number">4.6.2</span> Exporting Data<a class="anchor" aria-label="anchor" href="#exporting-data-4"><i class="fas fa-link"></i></a>
 </h3>
 <p>As an example of exporting data to an SQLite file, let’s first create an SQLite database. For that, we will set two large <code>dataframes</code> with random data and save both in an SQLite file.</p>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set number of rows in df</span></span>
 <span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span><span class="op">^</span><span class="fl">6</span> </span>
 <span></span>
@@ -802,7 +800,7 @@ R&gt; $ G &lt;chr&gt; "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"…</code>
 <span></span>
 <span><span class="co"># disconnect</span></span>
 <span><span class="fu">RSQLite</span><span class="fu">::</span><span class="fu">dbDisconnect</span><span class="op">(</span><span class="va">my_con</span><span class="op">)</span></span></code></pre></div>
-<p>The <code>TRUE</code> output of <strong>RSQLite</strong>::<strong>dbWriteTable()</strong> indicates everything went well. A connection was opened using function <strong>RSQLite</strong>::<strong>dbConnect()</strong> , and both <code>dataframes</code> were written to an SQLite file, called file1d18576f19025e.SQLITE.</p>
+<p>The <code>TRUE</code> output of <strong>RSQLite</strong>::<strong>dbWriteTable()</strong> indicates everything went well. A connection was opened using function <strong>RSQLite</strong>::<strong>dbConnect()</strong> , and both <code>dataframes</code> were written to an SQLite file, called filee181764a912ec.SQLITE.</p>
 </div>
 </div>
 <div id="unstructured-data-and-other-formats" class="section level2" number="4.7">
@@ -815,7 +813,7 @@ R&gt; $ G &lt;chr&gt; "A", "A", "A", "A", "A", "A", "A", "A", "A", "A"…</code>
 <span class="header-section-number">4.7.1</span> Importing Data<a class="anchor" aria-label="anchor" href="#importing-data-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can read the contents of a text file with function <strong>readr</strong>::<strong>read_lines()</strong> :</p>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file to read</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="fu">afedR3</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/afedR3/man/data_path.html">data_path</a></span><span class="op">(</span><span class="st">'CH04_price-and-prejudice.txt'</span><span class="op">)</span></span>
 <span></span>
@@ -842,7 +840,7 @@ R&gt; [13] ""
 R&gt; [14] "               _Reading Jane’s Letters._      _Cha"
 R&gt; [15] "                                   ]"</code></pre>
 <p>In this example, file CH04_price-and-prejudice.txt contains the whole content of the book <em>Pride and Prejudice</em> by Jane Austen, freely available in the <a href="http://www.gutenberg.org/">Gutenberg</a><a href="references.html#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> project, and downloaded with package <strong>{gutenbergr}</strong> <span class="citation">(<a href="references.html#ref-R-gutenbergr" role="doc-biblioref">Johnston and Robinson 2022</a>)</span>. We imported the entire content of the file as a <code>character</code> vector named <code>my_txt</code>. Each element of <code>my_txt</code> is a line from the raw text file. Based on it, we can check the number of lines in the book, and also the number of times that the name <code>'Bennet'</code>, one of the protagonists, appears in the text:</p>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># count number of lines</span></span>
 <span><span class="va">n_lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">my_txt</span><span class="op">)</span></span>
 <span></span>
@@ -879,7 +877,7 @@ R&gt; The word "Bennet" appears 696 in the book.</code></pre>
 <span class="header-section-number">4.7.2</span> Exporting Data<a class="anchor" aria-label="anchor" href="#exporting-data-5"><i class="fas fa-link"></i></a>
 </h3>
 <p>A typical case of exporting unstructured text is saving the log record of a procedure. This is quite simple. Using function <strong>readr</strong>::<strong>write_lines()</strong> , use the input <code>file</code> to set the name of the local file and <code>x</code> for the actual textual content.</p>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># set file</span></span>
 <span><span class="va">my_f</span> <span class="op">&lt;-</span> <span class="st">'data/temp.txt'</span></span>
 <span></span>
@@ -890,9 +888,9 @@ R&gt; The word "Bennet" appears 696 in the book.</code></pre>
 <span><span class="co"># save string to file</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">write_lines</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_text</span>, file <span class="op">=</span> <span class="va">my_f</span>, append <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>In the previous example, we created a simple text object and saved it in data/temp.txt. We can check the result with the <strong>readr</strong>::<strong>read_lines()</strong> function:</p>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="va">my_f</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; [1] "Today is 2023-03-17"    "Tomorrow is 2023-03-18"</code></pre>
+<pre><code>R&gt; [1] "Today is 2023-03-25"    "Tomorrow is 2023-03-26"</code></pre>
 <p>As we can see, it worked as expected.</p>
 </div>
 </div>
@@ -1066,7 +1064,7 @@ s.setAttribute('data-timestamp', +new Date());
   </div>
 
   <div class="col-12 col-md-6 mt-3">
-    <p>This book was compiled with love in 2023-03-17, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+    <p>This book was compiled with love in 2023-03-25, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
   </div>
 
 </div></div>

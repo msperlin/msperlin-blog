@@ -239,7 +239,7 @@
 <span class="header-section-number">2.2</span> Objects in R<a class="anchor" aria-label="anchor" href="#objects-in-r"><i class="fas fa-link"></i></a>
 </h2>
 <p><strong>In R, everything is an object, and each type of object has its properties</strong>. For example, the daily closing prices of the IBM stock over 2023 can be represented as a numerical vector, where each element is a price recorded at the end of a trading day. Dates related to these prices can be represented as text (<em>string</em>) or as a unique <code>Date</code> class. Finally, we can represent the price data and the dates together by storing them in a single object of type <code>dataframe</code>, which is nothing more than a table with rows and columns.</p>
-<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2022b</a>)</span>, adds up to a total of 1257 functions.</p>
+<p>While we represent data as objects in R, a special type is a <code>function</code>. It stores a pre-established manipulation of other objects available to the user. R has an extremely large number of functions, which enable the user to perform a wide range of operations. For example, the basic commands of R, available in the package <strong>{base}</strong> <span class="citation">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team 2023</a>)</span>, adds up to a total of 1257 functions.</p>
 <p>Each function has its own name and a programmer can write their own functions. For example, the <strong>sort()</strong> function is a procedure that sorts elements within a vector. If we wanted to sort the elements of <code>2, 1, 4, 3, 1</code>, simply insert the following command in the <em>prompt</em> (left bottom side of RStudio’s screen) and press <em>enter</em>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -261,7 +261,7 @@
 <p>Before explaining the use of R and RStudio, it is important to highlight some rules of formatting numbers, latin characters and dates.</p>
 <p><strong>decimal:</strong> Following an international notation, the decimal point in R is defined by the period symbol (.), as in <code>2.5</code> and not a comma, as in <code>2,5</code>. If this is not the standard format in your country, you’ll have issues when importing local data from text files. Sometimes, such as with storing data in Microsoft Excel files, the reading function already takes care of the conversion. This, however, is generally an exception. As a general rule of using R, only use commas to separate the inputs of a function. Under no circumstances should the comma symbol be used as the decimal point separator. Always give priority to the international format because it will be compatible with the vast majority of data.</p>
 <p><strong>Latin characters:</strong> Due to its international standard, R has problems understanding Latin characters, such as the cedilla and accents. If you can, avoid using Latin characters in the names of your variables or files. In the content of character objects (text), you can use them without problems as long as the encoding of the script is correctly specified (e.g. UTF-8, Latin1). I strongly recommend the use of the English language for writing code and defining object names. This automatically eliminates the use of Latin characters and facilitates the usability of the code by people outside of your country.</p>
-<p><strong>date format:</strong> Dates in R are structured according to the <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a><a href="references.html#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> format. It follows the <code>YYYY-MM-DD</code> pattern, where <code>YYYY</code> is the year in four numbers (e.g. 2023), <code>MM</code> is the month as a number and <code>DD</code> is the day. An example of date is 2023-03-17. This, however, may not be the case in your country. When importing local data, make sure the dates are in this format. If necessary, you can convert any date to the ISO format. Again, while you can work with your local format of dates in R, it is best advised to use the international notation. The conversion between one format and another is quite easy and will be presented in chapter <a href="basic-classes.html#basic-classes">7</a>.</p>
+<p><strong>date format:</strong> Dates in R are structured according to the <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a><a href="references.html#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> format. It follows the <code>YYYY-MM-DD</code> pattern, where <code>YYYY</code> is the year in four numbers (e.g. 2023), <code>MM</code> is the month as a number and <code>DD</code> is the day. An example of date is 2023-03-25. This, however, may not be the case in your country. When importing local data, make sure the dates are in this format. If necessary, you can convert any date to the ISO format. Again, while you can work with your local format of dates in R, it is best advised to use the international notation. The conversion between one format and another is quite easy and will be presented in chapter <a href="basic-classes.html#basic-classes">7</a>.</p>
 <p>If you want to learn more about your local format in R, use the following command by typing it in the prompt and pressing enter:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.localeconv.html">Sys.localeconv</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -411,8 +411,8 @@ Figure 2.3: Task View screen
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">n_cran_packages</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; [1] 19290</code></pre>
-<p>Currently, 2023-03-17 08:10:05, there are 19290 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
+<pre><code>R&gt; [1] 19341</code></pre>
+<p>Currently, 2023-03-25 08:22:14, there are 19341 packages available on the CRAN servers, a very impressive mark for the community of developers as a whole.</p>
 <p>You can also check the amount of <strong>locally installed packages</strong> in R with the <strong>installed.packages()</strong> command:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># find number of packages currently installed</span></span>
@@ -420,8 +420,8 @@ Figure 2.3: Task View screen
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">n_local_packages</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; [1] 651</code></pre>
-<p>In this case, the computer in which the book was compiled has 651 packages currently installed. Notice that, even as an experienced R programmer, I’m only using a small fraction of all packages available in CRAN!</p>
+<pre><code>R&gt; [1] 728</code></pre>
+<p>In this case, the computer in which the book was compiled has 728 packages currently installed. Notice that, even as an experienced R programmer, I’m only using a small fraction of all packages available in CRAN!</p>
 <div id="installing-packages-from-cran" class="section level3" number="2.6.1">
 <h3>
 <span class="header-section-number">2.6.1</span> Installing Packages from CRAN<a class="anchor" aria-label="anchor" href="#installing-packages-from-cran"><i class="fas fa-link"></i></a>
@@ -1221,16 +1221,16 @@ R&gt; data/top25babynames-by-sex-2005-2017.csv</code></pre>
 <span></span>
 <span><span class="co"># print it</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">my_dirs</span><span class="op">)</span></span></code></pre></div>
-<pre><code>R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/_book
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/blocks
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/data
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/ebook files
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/eqs
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/mem_cache
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/quandl_cache
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/resources
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/tabs
-R&gt; /tmp/RtmpLF2c8f/compile-book-html--1d185725a784a/text-to-reuse</code></pre>
+<pre><code>R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/_book
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/blocks
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/data
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/ebook files
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/eqs
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/mem_cache
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/quandl_cache
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/resources
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/tabs
+R&gt; /tmp/RtmpZ8q1uM/compile-book-html--e18175d0321df/text-to-reuse</code></pre>
 <p>The output shows the directories used to write the book. It includes the directory with the data (“./data”), resources (“./resources”) among others. In this same directory, you can find the chapters of the book, organized by files and based on the <em>RMarkdown</em> language (<code>.Rmd</code> file extension):</p>
 <div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># list all files with the extension .Rmd</span></span>
@@ -1350,20 +1350,19 @@ files and folder, without any simple way to restore them.
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df_msft</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>R&gt; # A tibble: 6 × 16
-R&gt;   Segment    Country Product Disco…¹ Units…² Manuf…³ Sale …⁴
-R&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-R&gt; 1 Government Canada  Carret… None      1618.       3      20
-R&gt; 2 Government Germany Carret… None      1321        3      20
-R&gt; 3 Midmarket  France  Carret… None      2178        3      15
-R&gt; 4 Midmarket  Germany Carret… None       888        3      15
-R&gt; 5 Midmarket  Mexico  Carret… None      2470        3      15
-R&gt; 6 Government Germany Carret… None      1513        3     350
-R&gt; # … with 9 more variables: `Gross Sales` &lt;dbl&gt;,
+R&gt;   Segment    Country Product   `Discount Band` `Units Sold`
+R&gt;   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                  &lt;dbl&gt;
+R&gt; 1 Government Canada  Carretera None                   1618.
+R&gt; 2 Government Germany Carretera None                   1321 
+R&gt; 3 Midmarket  France  Carretera None                   2178 
+R&gt; 4 Midmarket  Germany Carretera None                    888 
+R&gt; 5 Midmarket  Mexico  Carretera None                   2470 
+R&gt; 6 Government Germany Carretera None                   1513 
+R&gt; # ℹ 11 more variables: `Manufacturing Price` &lt;dbl&gt;,
+R&gt; #   `Sale Price` &lt;dbl&gt;, `Gross Sales` &lt;dbl&gt;,
 R&gt; #   Discounts &lt;dbl&gt;, Sales &lt;dbl&gt;, COGS &lt;dbl&gt;, Profit &lt;dbl&gt;,
 R&gt; #   Date &lt;dttm&gt;, `Month Number` &lt;dbl&gt;, `Month Name` &lt;chr&gt;,
-R&gt; #   Year &lt;chr&gt;, and abbreviated variable names
-R&gt; #   ¹​`Discount Band`, ²​`Units Sold`,
-R&gt; #   ³​`Manufacturing Price`, ⁴​`Sale Price`</code></pre>
+R&gt; #   Year &lt;chr&gt;</code></pre>
 <p>The example Excel file contains the sales report of a company. Do notice that the imported file becomes a <code>dataframe</code> in our R session, a table like an object with rows and columns.</p>
 <p>By using <strong>fs</strong>::<strong>file_temp()</strong> , we do not need to delete (or worry) about the downloaded file because it will be removed from the computer’s hard disk when the system is rebooted.</p>
 </div>
@@ -1541,7 +1540,7 @@ s.setAttribute('data-timestamp', +new Date());
   </div>
 
   <div class="col-12 col-md-6 mt-3">
-    <p>This book was compiled with love in 2023-03-17, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
+    <p>This book was compiled with love in 2023-03-25, using the fantastic package <a class="text-light" href="https://bookdown.org">bookdown</a>.</p>
   </div>
 
 </div></div>
