@@ -27,10 +27,12 @@
   
     
   
-  <meta name="description" content="Personal Website Marcelo S. Perlin">
+  <meta name="description" content="It is with great pleasure that I announce the third edition of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.
+Besides the usual revision and improvement of the text, here are the main changes:
+New pipeline operator A new pipeline operator (|&gt;) was introduced in R version 4.">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/category/r/">
+  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/post/2023-03-30-afedr-third-edition/">
 
   
 
@@ -255,14 +257,12 @@
   
 
   
-  <link rel="alternate" href="/category/r/index.xml" type="application/rss+xml" title="msperlin">
-  
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_32x32_fill_lanczos_center_3.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png">
 
-  <link rel="canonical" href="https://www.msperlin.com/category/r/">
+  <link rel="canonical" href="https://www.msperlin.com/post/2023-03-30-afedr-third-edition/">
 
   
   
@@ -280,18 +280,65 @@
   <meta property="twitter:creator" content="@msperlin">
   
   <meta property="og:site_name" content="msperlin">
-  <meta property="og:url" content="https://www.msperlin.com/category/r/">
-  <meta property="og:title" content="R | msperlin">
-  <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
+  <meta property="og:url" content="https://www.msperlin.com/post/2023-03-30-afedr-third-edition/">
+  <meta property="og:title" content="Third edition of **Analyzing Financial and Economic Data with R** | msperlin">
+  <meta property="og:description" content="It is with great pleasure that I announce the third edition of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.
+Besides the usual revision and improvement of the text, here are the main changes:
+New pipeline operator A new pipeline operator (|&gt;) was introduced in R version 4."><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-30T00:00:00&#43;00:00">
+    
+      <meta property="article:published_time" content="2023-03-30T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2023-03-30T00:00:00&#43;00:00">
   
 
   
 
 
+    
 
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.msperlin.com/post/2023-03-30-afedr-third-edition/"
+  },
+  "headline": "Third edition of **Analyzing Financial and Economic Data with R**",
+  
+  "datePublished": "2023-03-30T00:00:00Z",
+  "dateModified": "2023-03-30T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Marcelo S. Perlin"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "msperlin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.msperlin.com/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "It is with great pleasure that I announce the third edition of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.\nBesides the usual revision and improvement of the text, here are the main changes:\nNew pipeline operator A new pipeline operator (|\u0026gt;) was introduced in R version 4."
+}
+</script>
+
+  
 
   
 
@@ -299,10 +346,13 @@
   
 
 
+  
 
 
 
-  <title>R | msperlin</title>
+
+
+  <title>Third edition of **Analyzing Financial and Economic Data with R** | msperlin</title>
 
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
@@ -580,191 +630,383 @@
 </nav>
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
+  <article class="article">
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
   
+  
+<div class="article-container pt-3">
+  <h1>Third edition of **Analyzing Financial and Economic Data with R**</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1>R</h1>
+
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    2023-03-30
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2023-03-30-afedr-third-edition/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a>, <a href="/category/afedr/">afedR</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2023-03-30-afedr-third-edition/" >Third edition of **Analyzing Financial and Economic Data with R**</a></h2>
-      <div class="article-style">
-        
-          It is with great pleasure that I announce the third edition of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.
-Besides the usual revision and improvement of the text, here are the main changes:
-New pipeline operator A new pipeline operator (|&gt;) was introduced in R version 4.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2023-03-09-compiling-exercises-afedr3/" >Compiling book exercises</a></h2>
-      <div class="article-style">
-        
-          The third edition of Analyzing Financial and Economic Data with R provides a total of 98 end-of-chapter exercises. All activities are freely available in the exams format, meaning that any R tutor can export the same exercises and solutions to use in their own class. In this post I’ll show how to compile exercises to pdf, html, Moodle and blackboard.
-Installation The first step is to install package afedR3 with devtools:
-if (!require(devtools)) install.packages(&#39;devtools&#39;) devtools::install_github(&#39;msperlin/afedR3&#39;) Another requirement is a working Latex instalation. For that, use tinytex:
-tinytex::install_tinytex() Compiling Exercises How it works?
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2022-12-29-looking-back-2022/" >Looking back at 2021-2022 and plans for 2023</a></h2>
-      <div class="article-style">
-        
-          Every end of year I write about what happened during the yearly cycle and what’s to come.
-This year was very special and impactful for me. I learned a lot about myself, about what I do and why. Here are the highlights.
-Highlights of 2022 and 2021 Academic Papers I published and co-authored several academic papers during this period:
-What drives the release of material facts for Brazilian stocks? The Academic Inbreeding Controversy: Analysis and Evidence from Brazil Board gender diversity: performance and risk of Brazilian firms O Impacto da Titulação Acadêmica de Conselheiros e Diretores sobre a Performance de Empresas Negociadas na B3 Books The first edition of book Visualização de Dados com o R was published in October 2022.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2022-10-22-vdr-ed1-announcement/" >NEW BOOK: Visualização de Dados com o R (in portuguese)</a></h2>
-      <div class="article-style">
-        
-          It is with great pleasure that I officially announce the publication of my book Visualização de Dados com o R. The content of the book is an extension of chapter 10 of afedR. The book is written in portuguese and available at Amazon and online:
-ebook paperback hardcover Online version (chapters 01-03) You can find more details in its own blog page.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2022-04-07-update-on-data/" >Update of compiled datasets (2022)</a></h2>
-      <div class="article-style">
-        
-           Back in 2020 I started to compile and share financial data in dataverse. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.
-Today I updated all datasets. The available data are:
-R Package Source of Data Description Direct Link Last Update GetTDData Tesouro Nacional Prices and yields of brazilian sovereign bonds Link 2022-04-06 GetFREData CVM Corporate dataset from FRE systems Link 2022-04-06 GetDFPData2 CVM Annual Financial Reports from DFP system Link 2022-04-06 
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2022-03-31-yfr/" >New R package yfR</a></h2>
-      <div class="article-style">
-        
-          Package BatchGetSymbols facilitates importation of Yahoo Finance data directly into R and is one of my most popular R packages, with over 100k installations since conception (around 2500 downloads per month). However, I developed BatchGetSymbols back in 2016, with many bad structural choices from my part.
-For years I wanted to improved the code but always restrained myself because I did not want to mess up the execution of other people’s code that was based on BatchGetSymbols. In order to implement all the breaking changes and move forward with the package, I decided to develop a new (and fresh) package called yfR.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2021-05-26-bgs-shiny/" >A shiny interface to BatchGetSymbols</a></h2>
-      <div class="article-style">
-        
-          Hadley Wickham recently released an online version of Mastering Shiny. The book is great! If you haven’t read it, do it fast! On a side note, it is really amazing how much of good and curated content you can get for free in R. When I started programming back in 2007, the first step was buying a brand new – and sometimes expensive – book about the language. There were blogs and other sites, but most content was very basic and not curated, meaning that the posted code most of the time did not work.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2021-04-09-update-on-data/" >Update of compiled datasets</a></h2>
-      <div class="article-style">
-        
-           Back in 2020 I started to compile and share financial data in dataverse. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.
-Today I updated all datasets. The available data are:
-R Package Source of Data Description Direct Link Last Update GetTDData Tesouro Nacional Prices and yields of brazilian sovereign bonds Link 2021-04-09 GetFREData CVM Corporate dataset from FRE systems Link 2021-04-09 BatchGetSymbols Yahoo Finance Daily adjusted and unadjusted prices and trading volumes of stocks Link 2021-04-09 GetDFPData2 CVM Annual Financial Reports from DFP system Link 2021-04-09 
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2021-04-06-getfredata-on-cran/" >GetFREData available in CRAN!</a></h2>
-      <div class="article-style">
-        
-          I’m happy to report that package GetFREData is now available in CRAN. This R package serves as an interface to all corporate datasets available in the FRE system, a vast and official repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its web interface.
-The R package fetches data from the CVM ftp, downloads and parses the xml files, and output several tables as a list.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2021-04-02-getdfpdata2-on-cran/" >GetDFPData2 available in CRAN!</a></h2>
-      <div class="article-style">
-        
-          After testing the package extensivelly, GetDFPData2 is finally available in CRAN. GetDFPData2 is the second and backwards incompatible version of GetDPFData, a R package for downloading annual financial reports from B3, the Brazilian financial exchange. Unlike its first iteration, GetDFPData2 imports data using a database of csv files from CVM, which makes it execution much faster than its predecessor. However, the output is slightly different.
-A shiny app – web interface – is also available at https://www.msperlin.com/shiny/GetDFPData2/.
-The previous version, GetDFPData, is deprecated and will not be developed any further.
-        
-      </div>
-    </div>
-  
+    <div class="article-style">
+      
 
+
+<p>It is with great pleasure that I announce the <strong>third edition</strong> of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.</p>
+<p>Besides the usual revision and improvement of the text, here are the main changes:</p>
+<dl>
+<dt>New pipeline operator</dt>
+<dd>
+A new pipeline operator (<code>|&gt;</code>) was <a href="https://cran.r-project.org/doc/manuals/r-devel/NEWS.html">introduced</a> in R version 4.1.0. While the old pipeline from <strong>{magrittr}</strong> can still be found in the wild, my best bet is that, given its native quality and ease of use, the new pipeline will dominate the scene. The book is now only presenting the new pipeline in all chapters.
+</dd>
+<dt>New packages</dt>
+<dd>
+Many of the packages used in the previous edition have changed over the years, or became unavailable. A couple of packages were dropped from CRAN, and others were substituted by upgraded versions. There were many personal and biased selections of packages on my side, but I’m confident that these R packages are going to be available in the future years.
+</dd>
+<dt>New book package</dt>
+<dd>
+I rewrote package <strong>{afedR3}</strong> towards a modular approach, focusing in usability and future maintenance. It also includes a testing framework in Github, which will make sure all content in the book is working as expected.
+</dd>
+</dl>
+<p>I hope you enjoy this new edition. Its been a great pleasure to maintain the book towards an international audience, and I hope I can keep upgrading it over the next decades.</p>
+<p>Here are the main information and selling points of the book:</p>
+<ul>
+<li>Public version available at <a href="https://www.msperlin.com/afedr">https://www.msperlin.com/afedr</a>, with the first seven chapters freely available;</li>
+<li>Full version available at <a href="https://www.amazon.com/dp/B0BZ98RYFW">Amazon</a>, as ebook and printed soft/hard cover</li>
+<li>13 chapters covering basic R/RStudio operations, importing data locally and from the internet, programming with R, cleaning data, creating figures with ggplot2, and <a href="https://msperlin.com/afedr/preface.html">more</a>!</li>
+<li>98 end of chapter exercises. The book package cointains all the end-of-chapter exercises in the <code>exams</code> format and can be used locally to export exercises to pdf files and <em>e-learning</em> platforms such as Moodle and Blackboard. Check out this <a href="https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/">blog post</a> for details.</li>
+</ul>
+<p>My R books are a lifelong project and I plan to keep improving the work as much as possible over the next years. I’m happy to see that, just like a good wine, the content of the book only gets better with the passage of time.</p>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
   
-<nav>
-  <ul class="pagination justify-content-center">
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/afedr/">afedR</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
     
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.msperlin.com/post/2023-03-30-afedr-third-edition/&amp;text=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
     
-    <li class="page-item"><a class="page-link" href="/category/r/page/2/">&raquo;</a></li>
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.msperlin.com/post/2023-03-30-afedr-third-edition/&amp;t=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**&amp;body=https://www.msperlin.com/post/2023-03-30-afedr-third-edition/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.msperlin.com/post/2023-03-30-afedr-third-edition/&amp;title=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**%20https://www.msperlin.com/post/2023-03-30-afedr-third-edition/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.msperlin.com/post/2023-03-30-afedr-third-edition/&amp;title=Third%20edition%20of%20**Analyzing%20Financial%20and%20Economic%20Data%20with%20R**" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
     
   </ul>
-</nav>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/marcelo-s.-perlin/avatar_hua09aee1d004f59bf9fb50435262f3575_93807_270x270_fill_q90_lanczos_center.jpg" alt="Marcelo S. Perlin">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="https://www.msperlin.com/">Marcelo S. Perlin</a></h5>
+        <h6 class="card-subtitle">Associate Professor</h6>
+        <p class="card-text">My research interests include data analysis, finance and cientometrics.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://scholar.google.com/citations?user=n3LTk-UAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/msperlin" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCHKHbPczFcP4Mn3j5oxtrvw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "blog-gfluyjpsj0" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
 
       
 

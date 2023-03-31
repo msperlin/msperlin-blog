@@ -5,12 +5,48 @@
     <link>https://www.msperlin.com/category/r/</link>
       <atom:link href="https://www.msperlin.com/category/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Thu, 09 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>R</title>
       <link>https://www.msperlin.com/category/r/</link>
     </image>
+    
+    <item>
+      <title>Third edition of **Analyzing Financial and Economic Data with R**</title>
+      <link>https://www.msperlin.com/post/2023-03-30-afedr-third-edition/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2023-03-30-afedr-third-edition/</guid>
+      <description>
+
+
+&lt;p&gt;It is with great pleasure that I announce the &lt;strong&gt;third edition&lt;/strong&gt; of “Analyzing Financial and Economic Data with R”. This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I’m happy to see that, just like good wine, the content of the book only gets better with time.&lt;/p&gt;
+&lt;p&gt;Besides the usual revision and improvement of the text, here are the main changes:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;New pipeline operator&lt;/dt&gt;
+&lt;dd&gt;
+A new pipeline operator (&lt;code&gt;|&amp;gt;&lt;/code&gt;) was &lt;a href=&#34;https://cran.r-project.org/doc/manuals/r-devel/NEWS.html&#34;&gt;introduced&lt;/a&gt; in R version 4.1.0. While the old pipeline from &lt;strong&gt;{magrittr}&lt;/strong&gt; can still be found in the wild, my best bet is that, given its native quality and ease of use, the new pipeline will dominate the scene. The book is now only presenting the new pipeline in all chapters.
+&lt;/dd&gt;
+&lt;dt&gt;New packages&lt;/dt&gt;
+&lt;dd&gt;
+Many of the packages used in the previous edition have changed over the years, or became unavailable. A couple of packages were dropped from CRAN, and others were substituted by upgraded versions. There were many personal and biased selections of packages on my side, but I’m confident that these R packages are going to be available in the future years.
+&lt;/dd&gt;
+&lt;dt&gt;New book package&lt;/dt&gt;
+&lt;dd&gt;
+I rewrote package &lt;strong&gt;{afedR3}&lt;/strong&gt; towards a modular approach, focusing in usability and future maintenance. It also includes a testing framework in Github, which will make sure all content in the book is working as expected.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;I hope you enjoy this new edition. Its been a great pleasure to maintain the book towards an international audience, and I hope I can keep upgrading it over the next decades.&lt;/p&gt;
+&lt;p&gt;Here are the main information and selling points of the book:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Public version available at &lt;a href=&#34;https://www.msperlin.com/afedr&#34;&gt;https://www.msperlin.com/afedr&lt;/a&gt;, with the first seven chapters freely available;&lt;/li&gt;
+&lt;li&gt;Full version available at &lt;a href=&#34;https://www.amazon.com/dp/B0BZ98RYFW&#34;&gt;Amazon&lt;/a&gt;, as ebook and printed soft/hard cover&lt;/li&gt;
+&lt;li&gt;13 chapters covering basic R/RStudio operations, importing data locally and from the internet, programming with R, cleaning data, creating figures with ggplot2, and &lt;a href=&#34;https://msperlin.com/afedr/preface.html&#34;&gt;more&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;98 end of chapter exercises. The book package cointains all the end-of-chapter exercises in the &lt;code&gt;exams&lt;/code&gt; format and can be used locally to export exercises to pdf files and &lt;em&gt;e-learning&lt;/em&gt; platforms such as Moodle and Blackboard. Check out this &lt;a href=&#34;https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/&#34;&gt;blog post&lt;/a&gt; for details.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My R books are a lifelong project and I plan to keep improving the work as much as possible over the next years. I’m happy to see that, just like a good wine, the content of the book only gets better with the passage of time.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Compiling book exercises</title>
