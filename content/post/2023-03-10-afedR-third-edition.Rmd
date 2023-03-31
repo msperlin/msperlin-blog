@@ -8,7 +8,7 @@ tags:
 categories:
 - R
 - afedR
-draft: yes
+draft: no
 ---
 
 ```{r setup, echo = FALSE}
@@ -35,7 +35,7 @@ link_full_compiled_html <- 'https://www.msperlin.com/files/afedr-files/Introduct
 link_book_web_adfeR <- 'https://www.msperlin.com/adfeR/'
 link_book_web_afedR <- 'https://www.msperlin.com/afedR/'
 exams_link <- 'http://www.r-exams.org/'
-amazon_link <- 'https://www.amazon.com/dp/B084LSNXMN'
+amazon_link <- 'https://www.amazon.com/dp/B0BZ98RYFW'
 link_blog_dyn_exerc <- 'https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/'
 
 exerc_folders <- purrr::map_chr(
@@ -46,7 +46,7 @@ exerc_folders <- purrr::map_chr(
 n_exerc <- length(fs::dir_ls(exerc_folders, recurse = TRUE))
 ```
 
-It is with great pleasure that I announce the **third edition** of "Analyzing Financial and Economic Data with R". The R book is a lifelong project and I plan to keep improving the content as much as possible over the next years. I'm happy to see that, just like good wine, the content of the book only gets better  with time.
+It is with great pleasure that I announce the **third edition** of "Analyzing Financial and Economic Data with R". This work is an international edition of my R book and a lifelong project. My plan is to keep improving the content as much as possible over the next years. I'm happy to see that, just like good wine, the content of the book only gets better with time.
 
 Besides the usual revision and improvement of the text, here are the main changes: 
 
@@ -54,7 +54,7 @@ New pipeline operator
 : A new pipeline operator (`|>`) was [introduced](https://cran.r-project.org/doc/manuals/r-devel/NEWS.html) in R version 4.1.0. While the old pipeline from `r afedR3::format_pkg_text("magrittr")` can still be found in the wild, my best bet is that, given its native quality and ease of use, the new pipeline will dominate the scene. The book is now only presenting the new pipeline in all chapters.
 
 New packages
-: Many of the packages used in the previous edition have changed over the years, or became unavailable. A couple of packages were dropped from CRAN, and others were substituted by upgraded versions. There were many selections on my side. In the book, the idea is to keep  a group of packages that are stable enough to be used in the next years and book editions. 
+: Many of the packages used in the previous edition have changed over the years, or became unavailable. A couple of packages were dropped from CRAN, and others were substituted by upgraded versions. There were many personal and biased selections of packages on my side, but I'm confident that these R packages are going to be available in the future years.  
 
 New book package
 : I rewrote package `r afedR3::format_pkg_text("afedR3")` towards a modular approach, focusing in usability and future maintenance. It also includes a testing framework in Github, which will make sure all content in the book is working as expected.

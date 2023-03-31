@@ -5,12 +5,78 @@
     <link>https://www.msperlin.com/</link>
       <atom:link href="https://www.msperlin.com/index.xml" rel="self" type="application/rss+xml" />
     <description>msperlin</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Thu, 09 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Tue, 10 Oct 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>msperlin</title>
       <link>https://www.msperlin.com/</link>
     </image>
+    
+    <item>
+      <title>Analyzing Financial and Economic Data with R (Third Edition)</title>
+      <link>https://www.msperlin.com/publication/2023_book-afedr-en/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2023_book-afedr-en/</guid>
+      <description>&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
+&lt;p&gt;This book introduces the reader to the use of &lt;strong&gt;R and RStudio&lt;/strong&gt; as a platform for analyzing financial and economic data. The book covers all necessary knowledge for using R, from its installation in your computer to the organization and development of scripts. For every chapter, the book presents practical and replicable examples of R code, providing context and facilitating the learning process.&lt;/p&gt;
+&lt;p&gt;This is what you&amp;rsquo;ll learn from this book:&lt;/p&gt;
+&lt;p&gt;01 - Using R and RStudio&lt;/p&gt;
+&lt;p&gt;02 - Importing financial and economic data from local files and the internet&lt;/p&gt;
+&lt;p&gt;03 - Programing with R&lt;/p&gt;
+&lt;p&gt;04 - Cleaning, structuring and analyzing data with R&lt;/p&gt;
+&lt;p&gt;05 - Data visualization with R&lt;/p&gt;
+&lt;p&gt;06 - Reporting your results&lt;/p&gt;
+&lt;p&gt;07 - Writing better and faster R code&lt;/p&gt;
+&lt;h3 id=&#34;where-to-buy-it&#34;&gt;Where to buy it&lt;/h3&gt;
+&lt;p&gt;You can purchase the book from Amazon as an 
+&lt;a href=&#34;https://www.amazon.com/dp/B084LSNXMN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt; or 
+&lt;a href=&#34;https://www.amazon.com/dp/171062731X&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paperback&lt;/a&gt;. An online version of the book, with the first seven chapters is available 
+&lt;a href=&#34;https://www.msperlin.com/afedr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;citation&#34;&gt;Citation&lt;/h3&gt;
+&lt;p&gt;To cite package ‘afedR3’ in publications use:&lt;/p&gt;
+&lt;p&gt;Perlin MS (2023). &lt;em&gt;afedR3: Data and Functions
+for third edition of Book &amp;ldquo;Analyzing Financial
+and Economical Data with R&amp;rdquo;&lt;/em&gt;. R package version
+0.1, 
+&lt;a href=&#34;https://github.com/msperlin/afedR3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/msperlin/afedR3/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A BibTeX entry for LaTeX users is&lt;/p&gt;
+&lt;p&gt;@Manual{,
+title = {afedR3: Data and Functions for third edition of Book &amp;ldquo;Analyzing Financial and Economical Data with R&amp;rdquo;},
+author = {Marcelo S. Perlin},
+year = {2023},
+note = {R package version 0.1},
+url = {https://github.com/msperlin/afedR3/},
+}&lt;/p&gt;
+&lt;h3 id=&#34;supplement-material&#34;&gt;Supplement Material&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.msperlin.com/afedR/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;01-Online edition&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.msperlin.com/post/2023-03-10-compiling-exercises-afedR3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;02-Tutorial on compiling book exercises&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/msperlin/afedR3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;03-Book package afedR3 in Github&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;book-links&#34;&gt;Book Links&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Installing R and RStudio:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.r-project.org/&lt;/a&gt; | 
+&lt;a href=&#34;https://posit.co/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://posit.co/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CRAN pages:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://cran.r-project.org/web/views/Finance.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Views for Finance&lt;/a&gt; | 
+&lt;a href=&#34;https://www.r-consortium.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Consortium&lt;/a&gt; | 
+&lt;a href=&#34;https://cran.r-project.org/doc/manuals/R-lang.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official R Manual&lt;/a&gt; | 
+&lt;a href=&#34;https://cran.r-project.org/web/packages/policies.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN Policies&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RMarkdown:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;http://rmarkdown.rstudio.com/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Official RMarkdown Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Creating Packages:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;http://r-pkgs.had.co.nz/intro.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hadleys Guide for creating packages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;R code style&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://google.github.io/styleguide/Rguide.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google R style guide&lt;/a&gt; | 
+&lt;a href=&#34;http://adv-r.had.co.nz/Style.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tidyverse style guide&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Compiling book exercises</title>
