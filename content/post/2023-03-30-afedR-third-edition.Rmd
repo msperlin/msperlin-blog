@@ -36,7 +36,7 @@ link_book_web_adfeR <- 'https://www.msperlin.com/adfeR/'
 link_book_web_afedR <- 'https://www.msperlin.com/afedR/'
 exams_link <- 'http://www.r-exams.org/'
 amazon_link <- 'https://www.amazon.com/dp/B0BZ98RYFW'
-link_blog_dyn_exerc <- 'https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/'
+link_blog_dyn_exerc <- 'https://msperlin.com/post/2023-03-09-compiling-exercises-afedr3/'
 
 exerc_folders <- purrr::map_chr(
   afedR3::exercises_dir_list(),
@@ -58,6 +58,9 @@ New packages
 
 New book package
 : I rewrote package `r afedR3::format_pkg_text("afedR3")` towards a modular approach, focusing in usability and future maintenance. It also includes a testing framework in Github, which will make sure all content in the book is working as expected.
+
+Improved compilation
+: I implemented many changes in the code that compiles the book, prioritizing the use of functions that control all aspects of the text. While this work will not impact the final, visual result, the book is now far easier to maintain and change.
 
 I hope you enjoy this new edition. Its been a great pleasure to maintain the book towards an international audience, and I hope I can keep upgrading it over the next decades.
 
