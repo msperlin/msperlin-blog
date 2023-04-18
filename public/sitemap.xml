@@ -32,22 +32,43 @@
     <loc>https://www.msperlin.com/publication/</loc>
     <lastmod>2023-10-10T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.msperlin.com/categories/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/tag/getdfpdata2/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/category/getdfpdata2/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/tag/getfredata/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/category/getfredata/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/tag/gettddata/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/category/gettddata/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/tag/r/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/category/r/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/tags/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.msperlin.com/post/2023-04-18-update-on-data/</loc>
+    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.msperlin.com/tag/afedr/</loc>
     <lastmod>2023-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.msperlin.com/category/afedr/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/categories/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/tag/r/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/category/r/</loc>
-    <lastmod>2023-03-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/tags/</loc>
     <lastmod>2023-03-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.msperlin.com/post/2023-03-30-afedr-third-edition/</loc>
@@ -161,20 +182,8 @@
     <loc>https://www.msperlin.com/post/2021-04-09-update-on-data/</loc>
     <lastmod>2021-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.msperlin.com/tag/getfredata/</loc>
-    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/category/getfredata/</loc>
-    <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.msperlin.com/post/2021-04-06-getfredata-on-cran/</loc>
     <lastmod>2021-04-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/tag/getdfpdata2/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/category/getdfpdata2/</loc>
-    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.msperlin.com/post/2021-04-02-getdfpdata2-on-cran/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
@@ -670,12 +679,6 @@
   </url><url>
     <loc>https://www.msperlin.com/post/2017-12-06-package-getdfpdata/</loc>
     <lastmod>2017-12-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/tag/gettddata/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.msperlin.com/category/gettddata/</loc>
-    <lastmod>2017-09-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.msperlin.com/post/2017-09-14-brazilian-yield-curve/</loc>
     <lastmod>2017-09-14T00:00:00+00:00</lastmod>

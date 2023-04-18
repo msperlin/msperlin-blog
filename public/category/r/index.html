@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-03-30T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2023-04-18T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,20 @@
     
     
     <div>
+      <h2><a href="/post/2023-04-18-update-on-data/" >Update of compiled datasets (2023)</a></h2>
+      <div class="article-style">
+        
+           Back in 2020 I started to compile and share financial data in dataverse. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.
+Today I updated all datasets. The available data are:
+R Package Source of Data Description Direct Link Last Update GetTDData Tesouro Nacional Prices and yields of brazilian sovereign bonds Link 2023-04-18 GetFREData CVM Corporate dataset from FRE systems Link 2023-04-18 GetDFPData2 CVM Annual Financial Reports from DFP system Link 2023-04-18 
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/2023-03-30-afedr-third-edition/" >Third edition of **Analyzing Financial and Economic Data with R**</a></h2>
       <div class="article-style">
         
@@ -734,20 +748,6 @@ R Package Source of Data Description Direct Link Last Update GetTDData Tesouro N
         
           I’m happy to report that package GetFREData is now available in CRAN. This R package serves as an interface to all corporate datasets available in the FRE system, a vast and official repository of information about many different corporate events. All companies listed at B3 – Brazilian stock exchange – must report to FRE any significant change in their corporate structure. You can find more details about what is available in FRE in its web interface.
 The R package fetches data from the CVM ftp, downloads and parses the xml files, and output several tables as a list.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2021-04-02-getdfpdata2-on-cran/" >GetDFPData2 available in CRAN!</a></h2>
-      <div class="article-style">
-        
-          After testing the package extensivelly, GetDFPData2 is finally available in CRAN. GetDFPData2 is the second and backwards incompatible version of GetDPFData, a R package for downloading annual financial reports from B3, the Brazilian financial exchange. Unlike its first iteration, GetDFPData2 imports data using a database of csv files from CVM, which makes it execution much faster than its predecessor. However, the output is slightly different.
-A shiny app – web interface – is also available at https://www.msperlin.com/shiny/GetDFPData2/.
-The previous version, GetDFPData, is deprecated and will not be developed any further.
         
       </div>
     </div>

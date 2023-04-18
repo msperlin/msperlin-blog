@@ -5,12 +5,66 @@
     <link>https://www.msperlin.com/category/getdfpdata2/</link>
       <atom:link href="https://www.msperlin.com/category/getdfpdata2/index.xml" rel="self" type="application/rss+xml" />
     <description>GetDFPData2</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Tue, 18 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>GetDFPData2</title>
       <link>https://www.msperlin.com/category/getdfpdata2/</link>
     </image>
+    
+    <item>
+      <title>Update of compiled datasets (2023)</title>
+      <link>https://www.msperlin.com/post/2023-04-18-update-on-data/</link>
+      <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2023-04-18-update-on-data/</guid>
+      <description>
+
+
+&lt;p&gt;Back in 2020 I started to compile and share financial data in &lt;a href=&#34;https://dataverse.harvard.edu/dataverse/msperlin&#34;&gt;dataverse&lt;/a&gt;. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.&lt;/p&gt;
+&lt;p&gt;Today I updated all datasets. The available data are:&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;18%&#34; /&gt;
+&lt;col width=&#34;44%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;R Package&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Source of Data&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Direct Link&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Last Update&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GetTDData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Tesouro Nacional&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Prices and yields of brazilian sovereign bonds&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/SCSQUF&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2023-04-18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GetFREData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Corporate dataset from FRE systems&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/QIMUNZ&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2023-04-18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GetDFPData2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Annual Financial Reports from DFP system&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/7VVX4J&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2023-04-18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
     
     <item>
       <title>GetDFPData2 available in CRAN!</title>
