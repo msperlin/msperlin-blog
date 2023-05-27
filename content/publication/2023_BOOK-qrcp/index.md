@@ -2,7 +2,7 @@
 abstract: ""
 authors:
 - msperlin
-date: "2023-10-10T00:00:00"
+date: "2023-05-27T00:00:00"
 doi: ""
 featured: false
 image:
@@ -14,7 +14,7 @@ publication: ""
 publication_short: ""
 publication_types:
 - "5"
-publishDate: "2023-03-10T00:00:00"
+publishDate: "2023-05-27T00:00:00"
 title: "Questões de R em Concursos Públicos"
 url_code: ""
 url_dataset: ""

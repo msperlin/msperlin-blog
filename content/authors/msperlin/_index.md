@@ -41,7 +41,7 @@ user_groups:
 ---
 
 <div class="alert alert-danger">
-  A primeira edição do livro <strong>Visualização de Dados com o R</strong> foi recém lançada! Veja mais detalhes neste <a href = "https://www.msperlin.com/publication/2022_book-vdr/">post</a> do blog.
+  A primeira edição do livro <strong>"Questões de R em Concursos Públicos"</strong> foi recém lançada! Veja mais detalhes neste <a href = "https://www.msperlin.com/publication/2023_book-qrcp/">post</a> do blog.
 </div>
 
 <div class="alert alert-info">
