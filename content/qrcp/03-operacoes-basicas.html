@@ -443,11 +443,11 @@ R&gt; 3 3 4</code></pre>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1,2" data-code-cell="annotated-cell-2" data-code-annotation="1">O comando <code>&lt;-</code> define um objeto no lado esquerdo do código. A função <strong>c()</strong> combina valores para definir um vetor atômico, onde todos elementos possuem a mesma classe. Neste caso, o objeto com nome <code>x</code> toma o valor de <code>c(3, 5, 7)</code>, enquanto <code>y</code> toma o valor de <code>c(1, 9, 11)</code>.</span>
+<span data-code-annotation="1" data-code-lines="1,2" data-code-cell="annotated-cell-2">O comando <code>&lt;-</code> define um objeto no lado esquerdo do código. A função <strong>c()</strong> combina valores para definir um vetor atômico, onde todos elementos possuem a mesma classe. Neste caso, o objeto com nome <code>x</code> toma o valor de <code>c(3, 5, 7)</code>, enquanto <code>y</code> toma o valor de <code>c(1, 9, 11)</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-2" data-code-annotation="2">o resultado da soma é apresentado com o comando <strong>print()</strong> , o qual mostra um resultado no <em>prompt</em> do R. No R, uma soma de vetores é realizada elemento por elemento. Por exemplo, ao somarmos <code>c(1, 2)</code> com <code>c(3, 4)</code>, o resultado é <code>c(1+3, 2+4)</code>, isto é, 4, 6. Portanto, voltando ao problema, ao somarmos <code>x</code> com <code>y</code>, o resultado é c(4, 14, 18).</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-2">o resultado da soma é apresentado com o comando <strong>print()</strong> , o qual mostra um resultado no <em>prompt</em> do R. No R, uma soma de vetores é realizada elemento por elemento. Por exemplo, ao somarmos <code>c(1, 2)</code> com <code>c(3, 4)</code>, o resultado é <code>c(1+3, 2+4)</code>, isto é, 4, 6. Portanto, voltando ao problema, ao somarmos <code>x</code> com <code>y</code>, o resultado é c(4, 14, 18).</span>
 </dd>
 </dl>
 </div>
@@ -677,11 +677,11 @@ Objetos do tipo caractere (texto)
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-6" data-code-annotation="1">a primeira etapa é a definição de variáveis no R: <code>helloStr &lt;- "Hello world!"</code>. Veja que, para o R, sempre que texto é envolvido por aspas duplas (ou simples), o objeto criado é do tipo <code>character</code> (ou caractere/texto).</span>
+<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-6">a primeira etapa é a definição de variáveis no R: <code>helloStr &lt;- "Hello world!"</code>. Veja que, para o R, sempre que texto é envolvido por aspas duplas (ou simples), o objeto criado é do tipo <code>character</code> (ou caractere/texto).</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-6" data-code-annotation="2">Ao usarmos o comando <strong>print()</strong> para um objeto do tipo texto, a saída é o texto em si. Portanto, ao rodarmos o código do enunciado, o resultado é exatamente [1] “Hello world!”:</span>
+<span data-code-annotation="2" data-code-lines="2" data-code-cell="annotated-cell-6">Ao usarmos o comando <strong>print()</strong> para um objeto do tipo texto, a saída é o texto em si. Portanto, ao rodarmos o código do enunciado, o resultado é exatamente [1] “Hello world!”:</span>
 </dd>
 </dl>
 </div>
@@ -1196,15 +1196,15 @@ Escopo de objetos
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-1" data-code-annotation="1">Variável <code>x</code> é definida no ambiente global (fora da função)</span>
+<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-1">Variável <code>x</code> é definida no ambiente global (fora da função)</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-1" data-code-annotation="2">Função <code>fct_1</code> define uma variável de mesmo nome, <code>x</code>, no ambiente da função, e mostra a mesma no <em>prompt</em> com função <strong>print()</strong> ;</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-1">Função <code>fct_1</code> define uma variável de mesmo nome, <code>x</code>, no ambiente da função, e mostra a mesma no <em>prompt</em> com função <strong>print()</strong> ;</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="8" data-code-cell="annotated-cell-1" data-code-annotation="3">Função <code>fct_2</code> não define uma variável <code>x</code> no ambiente da função, mas mostra o valor de <code>x</code> no <em>prompt</em>.</span>
+<span data-code-annotation="3" data-code-lines="8" data-code-cell="annotated-cell-1">Função <code>fct_2</code> não define uma variável <code>x</code> no ambiente da função, mas mostra o valor de <code>x</code> no <em>prompt</em>.</span>
 </dd>
 </dl>
 </div>
@@ -1253,15 +1253,15 @@ R&gt; [1] "esse é x do ambiente global"</code></pre>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-10" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="9" data-code-cell="annotated-cell-10" data-code-annotation="1">Após a chamada de <code>f(4)</code>, a função <strong>g()</strong> é definida na linha 2.</span>
+<span data-code-annotation="1" data-code-lines="9" data-code-cell="annotated-cell-10">Após a chamada de <code>f(4)</code>, a função <strong>g()</strong> é definida na linha 2.</span>
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="5" data-code-cell="annotated-cell-10" data-code-annotation="2">Define o valor de <code>z &lt;- 4</code>, o qual, seguindo a lógica do escopo de variáveis, é o valor de <code>z</code> criado no miolo da função <strong>f()</strong> e utilizado na função <strong>g()</strong>. Portanto, o resultado de <code>g(x)</code> é igual a 8.</span>
+<span data-code-annotation="2" data-code-lines="5" data-code-cell="annotated-cell-10">Define o valor de <code>z &lt;- 4</code>, o qual, seguindo a lógica do escopo de variáveis, é o valor de <code>z</code> criado no miolo da função <strong>f()</strong> e utilizado na função <strong>g()</strong>. Portanto, o resultado de <code>g(x)</code> é igual a 8.</span>
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="6" data-code-cell="annotated-cell-10" data-code-annotation="3">Consequentemente, a soma <code>x + g(x)</code> da linha (4) é equivalente a <code>4 + 8</code>, resultando no valor 12.</span>
+<span data-code-annotation="3" data-code-lines="6" data-code-cell="annotated-cell-10">Consequentemente, a soma <code>x + g(x)</code> da linha (4) é equivalente a <code>4 + 8</code>, resultando no valor 12.</span>
 </dd>
 </dl>
 </div>
@@ -1762,11 +1762,11 @@ Funções recursivas
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-12" data-code-annotation="1">esta é uma chamada recursiva da própria função, explicada em quadro acima.</span>
+<span data-code-annotation="1" data-code-lines="3" data-code-cell="annotated-cell-12">esta é uma chamada recursiva da própria função, explicada em quadro acima.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="6" data-code-cell="annotated-cell-12" data-code-annotation="2">função <strong>cat()</strong> é semelhante a <strong>print()</strong> e apresenta um texto no <em>prompt</em>. Operador <code>%%</code> retorna o resto de uma divisão de integrais (veja quadro acima)</span>
+<span data-code-annotation="2" data-code-lines="6" data-code-cell="annotated-cell-12">função <strong>cat()</strong> é semelhante a <strong>print()</strong> e apresenta um texto no <em>prompt</em>. Operador <code>%%</code> retorna o resto de uma divisão de integrais (veja quadro acima)</span>
 </dd>
 </dl>
 </div>
@@ -1910,15 +1910,15 @@ Função <strong>sum()</strong>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-15" data-code-annotation="1">Função <strong>rep()</strong> repete um objeto determinado número de vezes.</span>
+<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-15">Função <strong>rep()</strong> repete um objeto determinado número de vezes.</span>
 </dd>
 <dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-15" data-code-annotation="2">Função <strong>seq()</strong> cria uma sequência entre 0 e 200, com 25 de intervalo entre cada elemento.</span>
+<span data-code-annotation="2" data-code-lines="2" data-code-cell="annotated-cell-15">Função <strong>seq()</strong> cria uma sequência entre 0 e 200, com 25 de intervalo entre cada elemento.</span>
 </dd>
 <dt data-target-cell="annotated-cell-15" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="4" data-code-cell="annotated-cell-15" data-code-annotation="3">a função <strong>sum()</strong> soma todos os elementos de um vetor. Assim, ao chamarmos <code>sum(x)</code>, estamos simplesmente somando o valor 5, vinte vezes, resultando em 100. Para <code>sum(y)</code>, estamos somando a sequência [0, 25, 50, 75, 100, 125, 150, 175, 200], resultando no valor 900.</span>
+<span data-code-annotation="3" data-code-lines="4" data-code-cell="annotated-cell-15">a função <strong>sum()</strong> soma todos os elementos de um vetor. Assim, ao chamarmos <code>sum(x)</code>, estamos simplesmente somando o valor 5, vinte vezes, resultando em 100. Para <code>sum(y)</code>, estamos somando a sequência [0, 25, 50, 75, 100, 125, 150, 175, 200], resultando no valor 900.</span>
 </dd>
 </dl>
 </div>
@@ -2023,15 +2023,15 @@ veja conceitos na <a href="#sec-funcao-c-assign-print"><span>Section&nbsp;1.1</s
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-17" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2,3" data-code-cell="annotated-cell-17" data-code-annotation="1">Função <strong>c()</strong> combina valores em um vetor chamado <code>X</code>. Veja que objeto <code>Y</code> é uma simples cópia do objeto <code>X</code>.</span>
+<span data-code-annotation="1" data-code-lines="2,3" data-code-cell="annotated-cell-17">Função <strong>c()</strong> combina valores em um vetor chamado <code>X</code>. Veja que objeto <code>Y</code> é uma simples cópia do objeto <code>X</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-17" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="6,7" data-code-cell="annotated-cell-17" data-code-annotation="2">O operador de colchetes (<code>[ ]</code>) modifica os elementos dos vetores por posição. Neste caso, o código <code>X[2] &lt;- 91</code> está modificando o segundo elemento de <code>X</code> para o valor 91. Já o código <code>Y[6] &lt;- 71</code> substitui o sexto elemento de <code>Y</code> pelo valor de 71.</span>
+<span data-code-annotation="2" data-code-lines="6,7" data-code-cell="annotated-cell-17">O operador de colchetes (<code>[ ]</code>) modifica os elementos dos vetores por posição. Neste caso, o código <code>X[2] &lt;- 91</code> está modificando o segundo elemento de <code>X</code> para o valor 91. Já o código <code>Y[6] &lt;- 71</code> substitui o sexto elemento de <code>Y</code> pelo valor de 71.</span>
 </dd>
 <dt data-target-cell="annotated-cell-17" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="10,11" data-code-cell="annotated-cell-17" data-code-annotation="3">A última etapa é mostrar os vetores resultantes com a função <strong>print()</strong> .</span>
+<span data-code-annotation="3" data-code-lines="10,11" data-code-cell="annotated-cell-17">A última etapa é mostrar os vetores resultantes com a função <strong>print()</strong> .</span>
 </dd>
 </dl>
 </div>
@@ -2135,11 +2135,11 @@ veja conceitos na <a href="#sec-funcao-c-assign-print"><span>Section&nbsp;1.1</s
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="1" data-code-cell="annotated-cell-20" data-code-annotation="1">Objeto <code>xpto</code> é definido com comando <strong>array()</strong> , tendo como entradas <code>c(1:24)</code> e <code>dim = c(4, 3, 2)</code>. O operador <code>:</code> constrói uma sequência, entre um valor mínimo e outro máximo. A primeira entrada é o conteúdo do objeto, neste caso uma sequência entre 1 e 24. A segunda entrada indica as dimensões desejadas para o objeto de saída. No caso, o usuário está pedindo um objeto com 3 dimensões, onde a primeira dimensão tem tamanho 4, a segunda 3 e a terceira 2.</span>
+<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-20">Objeto <code>xpto</code> é definido com comando <strong>array()</strong> , tendo como entradas <code>c(1:24)</code> e <code>dim = c(4, 3, 2)</code>. O operador <code>:</code> constrói uma sequência, entre um valor mínimo e outro máximo. A primeira entrada é o conteúdo do objeto, neste caso uma sequência entre 1 e 24. A segunda entrada indica as dimensões desejadas para o objeto de saída. No caso, o usuário está pedindo um objeto com 3 dimensões, onde a primeira dimensão tem tamanho 4, a segunda 3 e a terceira 2.</span>
 </dd>
 <dt data-target-cell="annotated-cell-20" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-20" data-code-annotation="2">Comando <strong>array()</strong> busca o elemento localizado em <code>[3, 2, 1]</code>. Neste caso, será a linha 3 da coluna 2, dimensão 1.</span>
+<span data-code-annotation="2" data-code-lines="2" data-code-cell="annotated-cell-20">Comando <strong>array()</strong> busca o elemento localizado em <code>[3, 2, 1]</code>. Neste caso, será a linha 3 da coluna 2, dimensão 1.</span>
 </dd>
 </dl>
 </div>
@@ -2382,11 +2382,11 @@ veja conceito na <a href="#sec-funcoes-recursivas"><span>Section&nbsp;1.11</span
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-26" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2" data-code-cell="annotated-cell-26" data-code-annotation="1">a primeira linha de código, execução da função <strong>lista()</strong>, define a condição de saída da função recursiva. Se <code>param</code> é maior do que 3, as linhas 3 e 4 são executadas, caso contrário o retorno é zero (linha 6).</span>
+<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-26">a primeira linha de código, execução da função <strong>lista()</strong>, define a condição de saída da função recursiva. Se <code>param</code> é maior do que 3, as linhas 3 e 4 são executadas, caso contrário o retorno é zero (linha 6).</span>
 </dd>
 <dt data-target-cell="annotated-cell-26" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="3" data-code-cell="annotated-cell-26" data-code-annotation="2">Chamada recursiva da própria função.</span>
+<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-26">Chamada recursiva da própria função.</span>
 </dd>
 </dl>
 </div>

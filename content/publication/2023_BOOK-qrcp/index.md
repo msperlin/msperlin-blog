@@ -32,7 +32,7 @@ Este livro busca melhor preparar candidatos para as mais variadas provas de conc
  
 A edição atual do livro contém a solução de 35 questões retiradas de concursos públicos para 13 cargos diferentes, realizados entre 2018 e 2022. Cada questão é apresentada com enunciado original, solução e comentários. O livro organiza as questões entre os seguintes tópicos: operações básicas, operações com tabelas (dataframes), repetição estruturada de código (loops), gráficos e outros temas.
 
-O livro está disponível na Amazon nos seguintes formatos: [ebook](https://www.amazon.com.br/dp/B0C6GZ6V8T), [impresso capa tradicional](https://www.amazon.com/dp/B0C6BZMGWM), [impresso capa dura e colorido](https://www.amazon.com/dp/B0C6BZMGWM) e [versão online](https://www.msperlin.com/qrcp/). 
+O livro está disponível na Amazon nos seguintes formatos: [ebook](https://www.amazon.com.br/dp/B0C6GZ6V8T), [impresso capa tradicional](https://www.amazon.com/dp/B0C6BSMRL3), [impresso capa dura e colorido](https://www.amazon.com/dp/B0C6BZMGWM) e [versão online](https://www.msperlin.com/qrcp/). 
 
 <div class="alert alert-danger">
 Infelizmente, a Amazon não tem gráfica no Brasil. Assim, o livro impresso é fabricado nos Estados Unidos e remetido para cá. Saiba, porém, que o frete é relativamente barato, com entrega em uma a duas semanas em qualquer parte do país. 
