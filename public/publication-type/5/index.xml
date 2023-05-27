@@ -5,7 +5,7 @@
     <link>https://www.msperlin.com/publication-type/5/</link>
       <atom:link href="https://www.msperlin.com/publication-type/5/index.xml" rel="self" type="application/rss+xml" />
     <description>5</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Tue, 10 Oct 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>5</title>
@@ -13,9 +13,25 @@
     </image>
     
     <item>
+      <title>Questões de R em Concursos Públicos</title>
+      <link>https://www.msperlin.com/publication/2023_book-qrcp/</link>
+      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2023_book-qrcp/</guid>
+      <description>&lt;p&gt;O R é uma  plataforma aberta, estável e acessível para a análise de dados e produção de relatórios estruturados.  Hoje em dia, o R é sinônimo de programação voltada a dados, sendo usado em notáveis empresas de tecnologia, incluindo Microsoft, Google e Meta (Facebook). Assim sendo, é inevitável que o conhecimento em R seja cobrado nas seleções de cargos públicos. Seja no trabalho de estatístico do IBGE ou analista da receita federal, o conhecimento de R se torna uma ferramenta indispensável.&lt;/p&gt;
+&lt;p&gt;Este livro busca melhor preparar candidatos para as mais variadas provas de concursos, apresentando um conteúdo curado de soluções e comentários de questões passadas sobre o uso do R. Cada exercício possui explicações completas e demonstrações de código que permitem ao leitor entender a solução, ao mesmo tempo em que aprende novos conceitos. Ao terminar de ler esse livro, espero que o leitor aumente o seu conhecimento, e as suas chances de ser aprovado no concurso desejado.&lt;/p&gt;
+&lt;p&gt;A edição atual do livro contém a solução de 35 questões retiradas de concursos públicos para 13 cargos diferentes, realizados entre 2018 e 2022. Cada questão é apresentada com enunciado original, solução e comentários. O livro organiza as questões entre os seguintes tópicos: operações básicas, operações com tabelas (dataframes), repetição estruturada de código (loops), gráficos e outros temas.&lt;/p&gt;
+&lt;p&gt;O livro está disponível na Amazon nos seguintes formatos: 
+&lt;a href=&#34;https://www.amazon.com.br/dp/B0C6GZ6V8T&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt;, 
+&lt;a href=&#34;https://www.amazon.com/dp/B0C6BZMGWM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa tradicional&lt;/a&gt;, 
+&lt;a href=&#34;https://www.amazon.com/dp/B0C6BZMGWM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa dura e colorido&lt;/a&gt; e 
+&lt;a href=&#34;https://www.msperlin.com/qrcp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;versão online&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Analyzing Financial and Economic Data with R (Third Edition)</title>
       <link>https://www.msperlin.com/publication/2023_book-afedr-en/</link>
-      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/publication/2023_book-afedr-en/</guid>
       <description>&lt;h3 id=&#34;description&#34;&gt;Description&lt;/h3&gt;
 &lt;p&gt;This book introduces the reader to the use of &lt;strong&gt;R and RStudio&lt;/strong&gt; as a platform for analyzing financial and economic data. The book covers all necessary knowledge for using R, from its installation in your computer to the organization and development of scripts. For every chapter, the book presents practical and replicable examples of R code, providing context and facilitating the learning process.&lt;/p&gt;
@@ -75,22 +91,6 @@ url = {https://github.com/msperlin/afedR3/},
 &lt;p&gt;
 &lt;a href=&#34;https://google.github.io/styleguide/Rguide.xml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google R style guide&lt;/a&gt; | 
 &lt;a href=&#34;http://adv-r.had.co.nz/Style.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tidyverse style guide&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Questões de R em Concursos Públicos</title>
-      <link>https://www.msperlin.com/publication/2023_book-qrcp/</link>
-      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/publication/2023_book-qrcp/</guid>
-      <description>&lt;p&gt;O R é uma  plataforma aberta, estável e acessível para a análise de dados e produção de relatórios estruturados.  Hoje em dia, o R é sinônimo de programação voltada a dados, sendo usado em notáveis empresas de tecnologia, incluindo Microsoft, Google e Meta (Facebook). Assim sendo, é inevitável que o conhecimento em R seja cobrado nas seleções de cargos públicos. Seja no trabalho de estatístico do IBGE ou analista da receita federal, o conhecimento de R se torna uma ferramenta indispensável.&lt;/p&gt;
-&lt;p&gt;Este livro busca melhor preparar candidatos para as mais variadas provas de concursos, apresentando um conteúdo curado de soluções e comentários de questões passadas sobre o uso do R. Cada exercício possui explicações completas e demonstrações de código que permitem ao leitor entender a solução, ao mesmo tempo em que aprende novos conceitos. Ao terminar de ler esse livro, espero que o leitor aumente o seu conhecimento, e as suas chances de ser aprovado no concurso desejado.&lt;/p&gt;
-&lt;p&gt;A edição atual do livro contém a solução de 35 questões retiradas de concursos públicos para 13 cargos diferentes, realizados entre 2018 e 2022. Cada questão é apresentada com enunciado original, solução e comentários. O livro organiza as questões entre os seguintes tópicos: operações básicas, operações com tabelas (dataframes), repetição estruturada de código (loops), gráficos e outros temas.&lt;/p&gt;
-&lt;p&gt;O livro está disponível na Amazon nos seguintes formatos: 
-&lt;a href=&#34;https://www.amazon.com.br/dp/B0C6GZ6V8T&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt;, 
-&lt;a href=&#34;https://www.amazon.com/dp/B0C6BZMGWM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa tradicional&lt;/a&gt;, 
-&lt;a href=&#34;https://www.amazon.com/dp/B0C6BZMGWM&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa dura e colorido&lt;/a&gt; e 
-&lt;a href=&#34;https://www.msperlin.com/qrcp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;versão online&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
