@@ -30,9 +30,8 @@ If you used one of the packages in research, please use the proper citation form
 
 ## Data Packages
 
-BatchGetSymbols ([Github](https://github.com/msperlin/BatchGetSymbols) and [CRAN](https://cran.r-project.org/package=BatchGetSymbols))
-: Downloads and Organizes Financial Data from Yahoo Finance (daily prices/returns of stocks and market indices). DEPRECATED -- Please use [yfR](https://github.com/msperlin/yfR) instead.
-
+yfR ([Github]https://github.com/msperlin/yfR) and [CRAN](https://cran.r-project.org/package=yfR))
+: Downloads and Organizes Financial Data from Yahoo Finance (daily prices/returns of stocks and market indices). 
 
 GetBCBData ([Github](https://github.com/msperlin/GetBCBData) and [CRAN](https://cran.r-project.org/package=GetBCBData))
 : Imports Datasets from BCB (Central Bank of Brazil) using Its Official API. Its a huge database with many interesting tables.
@@ -66,7 +65,7 @@ fMarkovSwitching ([R-forge](https://rdrr.io/rforge/fMarkovSwitching/))
 
 ## Book packages
 
-afedR ([Github](https://github.com/msperlin/afedR) only)
+afedR3 ([Github](https://github.com/msperlin/afedR3) only)
 : Book Companion for [Analyzing Financial and Economic Data with R](https://www.msperlin.com/publication/2020_book-afedr-en/), including functions for downloading datasets, exercises and code.
 
 adfeR ([Github](https://github.com/msperlin/adfeR) only)
@@ -74,11 +73,4 @@ adfeR ([Github](https://github.com/msperlin/adfeR) only)
 
 ---
 
-## R Utilities
-
-PkgsFromFiles (archived in [Github](https://github.com/msperlin/PkgsFromFiles) only)
-: Finding and Installing Packages Used in R and RMarkdown Files. This package helps the installation of R packages in a fresh new computer or R install by looking at used packages in scripts for a given directory, including subfolders. You can use `renv::dependencies` for similar effect. 
-
-RndTexExams (archived in [CRAN](https://cran.r-project.org/package=simfinR))
-: Build and Grade Multiple Choice Exams with Randomized Content from Latex files. 
 
