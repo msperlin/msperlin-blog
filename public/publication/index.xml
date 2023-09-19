@@ -5,12 +5,20 @@
     <link>https://www.msperlin.com/publication/</link>
       <atom:link href="https://www.msperlin.com/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Tue, 05 Sep 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Publications</title>
       <link>https://www.msperlin.com/publication/</link>
     </image>
+    
+    <item>
+      <title>What is the sustainable withdraw rate for Brazil?</title>
+      <link>https://www.msperlin.com/publication/2023_rbfin-withdraw-rate/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2023_rbfin-withdraw-rate/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Questões de R em Concursos Públicos</title>
