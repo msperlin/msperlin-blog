@@ -1,0 +1,1030 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Marcelo S. Perlin">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Matlab code tutorials.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/code/matlab/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-89690212-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  
+
+  
+  <link rel="alternate" href="/code/matlab/index.xml" type="application/rss+xml" title="msperlin">
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_32x32_fill_lanczos_center_3.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hufdd866d90d76849587aac6fbf27da1ac_464_192x192_fill_lanczos_center_3.png">
+
+  <link rel="canonical" href="https://www.msperlin.com/code/matlab/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@msperlin">
+  <meta property="twitter:creator" content="@msperlin">
+  
+  <meta property="og:site_name" content="msperlin">
+  <meta property="og:url" content="https://www.msperlin.com/code/matlab/">
+  <meta property="og:title" content="Matlab Code | msperlin">
+  <meta property="og:description" content="Matlab code tutorials."><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
+  <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
+  
+    <meta property="og:updated_time" content="2018-09-09T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Matlab Code | msperlin</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/#5"><span>Books</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Blog</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/post/"><span>Posts</span></a>
+            
+              <a class="dropdown-item" href="/subscribe_rss"><span>Subscribe in RSS</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Code</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/code/r/"><span>R Code</span></a>
+            
+              <a class="dropdown-item" href="/code/shiny/"><span>Shiny Web Apps</span></a>
+            
+              <a class="dropdown-item" href="/code/matlab/"><span>Matlab Code</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/data/"><span>Data</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/subscribe_email"><span>Subscribe</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Research & Talks</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/research/awards"><span>Awards</span></a>
+            
+              <a class="dropdown-item" href="/research/on-the-news"><span>Coverage by News</span></a>
+            
+              <a class="dropdown-item" href="/talk"><span>Talks</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Others</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="https://www.r-bloggers.com"><span>R-Bloggers</span></a>
+            
+              <a class="dropdown-item" href="/#search"><span>Search</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item active">
+    <a class="docs-toc-link" href="/code/matlab/">Matlab</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/code/r/">R</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/code/shiny/">Shiny</a>
+
+  </div>
+  
+  
+</nav>
+
+    </div>
+
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ms_regress---markov-regime-switching-models">MS_Regress - Markov Regime Switching Models</a></li>
+    <li><a href="#acd-models">ACD Models</a></li>
+    <li><a href="#google-trends-and-matlab">Google Trends and Matlab</a></li>
+    <li><a href="#random-portfolios">Random Portfolios</a></li>
+    <li><a href="#nearest-neighbor-algorithm">Nearest Neighbor Algorithm</a></li>
+    <li><a href="#pairs-trading">Pairs Trading</a></li>
+    <li><a href="#state-space-models">State Space Models</a></li>
+    <li><a href="#yahoo-finance-and-matlab">Yahoo Finance and Matlab</a></li>
+  </ul>
+</nav>
+
+      
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <article class="article">
+
+        <div class="docs-article-container">
+          <h1>Matlab Code</h1>
+
+          <div class="article-style">
+            <div class="alert alert-warning">
+  Be aware that, since 2015, I no longer use Matlab and all code available here is not being actively maintained. 
+</div>
+<hr>
+<h2 id="ms_regress---markov-regime-switching-models">MS_Regress - Markov Regime Switching Models</h2>
+<p>The package and its description are available in 
+<a href="https://github.com/msperlin/MS_Regress-Matlab" target="_blank" rel="noopener">Github</a>.</p>
+<hr>
+<h2 id="acd-models">ACD Models</h2>
+<p>This package includes functions and scripts for the estimation and simulation of ACD (autoregressive conditional duration) models.</p>
+<p>The zip file includes:</p>
+<ul>
+<li>Scripts and functions for Estimation of an ACD(q,p) model with exponential or weibull distribution</li>
+<li>Scripts and functions for Simulation of an ACD(q,p) model with exponential or weibull distribution</li>
+<li>Scripts for cool plots/movies of weibull, burr and generalized gamma distributions.</li>
+<li>Scripts and functions for visualizing the log likelihood space of the model (the figure showed above)</li>
+</ul>
+<p>Required Products: Statistics, Optimization</p>
+<p>
+<a href="/files/matlab/ACD_Models_FEX.zip">Link to download</a></p>
+<hr>
+<h2 id="google-trends-and-matlab">Google Trends and Matlab</h2>
+<p>This Matlab code provides a simple function that access google trends for a given string and location, parses the data and return dates, frequency of data and google&rsquo;s search volume to the user.</p>
+<p>Fell free to use it or provide suggestions on how to improve it.</p>
+<p>INSTRUCTIONS</p>
+<ol>
+<li>
+<p>Verify your chrome.exe file path (google can help you) and copy it over at to chromePath (see script)</p>
+</li>
+<li>
+<p>Manually open one chrome brownser and leave it open during the whole process</p>
+</li>
+<li>
+<p>In chrome, change the download settings so that all downloads go to your default download folder without user dialog</p>
+</li>
+<li>
+<p>Set your default download path in dlFolder (see script)</p>
+</li>
+<li>
+<p>Run the example script</p>
+</li>
+</ol>
+<p>
+<a href="/files/matlab/Gtrends_Matlab_v1.zip">Link to download</a></p>
+<hr>
+<h2 id="random-portfolios">Random Portfolios</h2>
+<p>Considering some input arguments, this function performs n simulations with random trades in a price matrix, saving 3 performance indicators (annualized return, annualized standard deviation and annualized sharpe) at each simulation</p>
+<p>For example, suppose that you&rsquo;re a trader and have earned 15% of annualized logarithm return over 248 trading days (1 year) where you traded, in average, for long positions only, 5 stocks for each day and for 50 days. This function will check if a monkey with no skill whatsoever can, in average, replicate your return after transaction costs (defined by the user). If such mamel can do it, maybe you should review your approach at trading.</p>
+<p>From the academic point of view, this is called as the bootstrap method for assessing performance. The present code is a variant of such.</p>
+<p>The use of random seeds for portfolio performance is not new. The first paper to use it, as I recall is Cumby and Modest (1987). More recently, a more formal approach at the method was given in Burns (2006).</p>
+<p>For a practical application of the codes published here, please check the papers of Perlin (2007a) and Perlin (2007b).</p>
+<p>
+<a href="/files/matlab/Monkey_Trading_FEX.zip">Link to download</a></p>
+<hr>
+<h2 id="nearest-neighbor-algorithm">Nearest Neighbor Algorithm</h2>
+<p>This is the algorithm involved on the use of the non-linear forecast of a time series based on the nearest neighbour method.</p>
+<p>The basic idea of the NN algorithm is that the time series copies it&rsquo;s own past behavior, and such fact can be used for forecasting purposes. On the zip file there are two functions: one is the univariate version of NN (nn.m) and the other is the multivariate approach, also called simultaneous NN (snn.m).</p>
+<p>The routines of the file were build according to the work of Rodriguez, Rivero and Artilles (2001).</p>
+<p>
+<a href="/files/matlab/NN_FEX.zip">Link to download</a></p>
+<hr>
+<h2 id="pairs-trading">Pairs Trading</h2>
+<p>This function performs the classical pairs trading framework in a given set of prices</p>
+<p>From Wikipedia, the free encyclopedia:
+“The pairs trade was developed in the late 1980s by quantitative analysts and pioneered by Gerald Bamberger while at Morgan Stanley. With the help of others at Morgan Stanley at the time, including Nunzio Tartaglia, Bamberger found that certain securities, often competitors in the same sector, were correlated in their day-to-day price movements. When the correlation broke down, i.e. one stock traded up while the other traded down, they would sell the outperforming stock and buy the underperforming one, betting that the &ldquo;spread&rdquo; between the two would eventually converge.”</p>
+<p>Source: 
+<a href="http://en.wikipedia.org/wiki/Pairs_trade#Algorithmic_pairs_trading" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Pairs_trade#Algorithmic_pairs_trading</a>
+See also the great book “Demon of Our Own Design” by Richard Bookstaber, which provides an interesting background for the pairs trading strategy.</p>
+<p>There are many ways you can implement the pairs trading framework. For this package, I used a very simple set of rules. Details can be found within code’s comments.</p>
+<p>Please note that this package has been developed over the years and it will no longer exactly replicate the results from my 2007 paper.</p>
+<p>Qualities of the package:</p>
+<ul>
+<li>Handles any number of assets</li>
+<li>Outputs separately the plot for the total cumulative profit from the long, short and combined positions.</li>
+<li>Outputs all trades, including traded prices and time of trades.</li>
+<li>Provides the user a large amount of input choices for the pairs trading algorithm, including:
+<ul>
+<li>amount of money to put in each position (long and short)</li>
+<li>value of transaction cost (in money unit)</li>
+<li>size of moving window for finding the pairs over the price data</li>
+<li>periodicity of pairs updates</li>
+<li>maximum number of days to keep any trade (without convergence).</li>
+<li>value of threshold variable</li>
+</ul>
+</li>
+</ul>
+<p>
+<a href="/files/matlab/PairsTrading_FEX.zip">Link to download</a></p>
+<hr>
+<h2 id="state-space-models">State Space Models</h2>
+<p>This toolbox was designed to simulate and fit linear state space models.</p>
+<p>The main literature I used for this particular package is Kim and Nelson (1999).</p>
+<p>A state space model (without non stochastic coefficients) is given by:</p>
+<p>y(t)=beta(t)<em>x(t)&rsquo;+e(t)
+beta(t)=u+F</em>beta(t-1)+v(t)</p>
+<p>e(t)~N(0,R)
+v(t)~N(0,Q)</p>
+<p>Where x(t) is a vector of size (1,k), beta(t), u and v(t) are vectors with size [1,k] and F, Q are matrices of size [k,k]. More details about the model can be found at the reference.</p>
+<p>The main advantage of this package is that the fitting function lets you build your own state space model by changing the input option optionsSpec. Please check the pdf document and the example scripts at the zip file for instructions of how to use it.</p>
+<p>Some comments about the fitting code:</p>
+<p>•	So far it doesn’t handle autoregressive processes between series of the beta matrix. In other works, at the F matrix, the only estimated coefficients are in the diagonal (all non diagonal elements are zero).</p>
+<p>•	The model is estimated by Gaussian maximum likelihood with the function fminsearch. I also played around with fminunc(), but there was no improvement over fminsearch when it comes to robustness and speed.</p>
+<p>•	So far the code doesn’t handle state space models with mixture of non stochastic and stochastic coefficients, that is, when you want some variables to have stochastic coefficients and others not in the same model.</p>
+<p>
+<a href="/files/matlab/State_Space_Models_FEX.zip">Link to download</a></p>
+<hr>
+<h2 id="yahoo-finance-and-matlab">Yahoo Finance and Matlab</h2>
+<p>This is a simple algorithm that downloads trading data from yahoo database. It is basically a large scale application of sqq.m which was originally submitted by Michael Boldin.</p>
+<p>Some of the functionalities of the package:</p>
+<ul>
+<li>User defined ticker list.</li>
+<li>Choice for benchmark ticker in dates comparison</li>
+<li>Function for downloading most recent SP500 composition in ticker list.</li>
+<li>Control for bad data (e.g. a certain percentage of prices missing).</li>
+<li>Choice of frequency of data (e.g. weekly prices).</li>
+<li>Choice of starting and ending data.</li>
+<li>Function for saving the whole data in a pre-formatted excel file together with a full reports on missing data.</li>
+</ul>
+<p>
+<a href="/files/matlab/GetTickerData_FEX.zip">Link to download</a></p>
+
+          </div>
+
+          
+
+
+
+          
+          <div class="article-widget">
+            
+<div class="post-nav">
+  
+  
+</div>
+
+          </div>
+          
+        </div>
+
+        <div class="body-footer">
+          <p>Last updated on 2020-05-09</p>
+
+          
+
+
+
+          
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "blog-gfluyjpsj0" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+          
+
+
+        </div>
+
+      </article>
+
+      <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Marcelo S. Perlin © 2023
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://blog-gfluyjpsj0.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.23966d19f6915d56260b05a4b1937395.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shiny | msperlin</title>
+    <link>https://www.msperlin.com/category/shiny/</link>
+      <atom:link href="https://www.msperlin.com/category/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <description>shiny</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Wed, 26 May 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>shiny</title>
+      <link>https://www.msperlin.com/category/shiny/</link>
+    </image>
+    
+    <item>
+      <title>A shiny interface to BatchGetSymbols</title>
+      <link>https://www.msperlin.com/post/2021-05-26-bgs-shiny/</link>
+      <pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2021-05-26-bgs-shiny/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Hadley Wickham recently released an online version of &lt;a href=&#34;https://mastering-shiny.org/&#34;&gt;Mastering Shiny&lt;/a&gt;. The book is great! If you haven’t read it, do it fast! On a side note, it is really amazing how much of &lt;strong&gt;good and curated content&lt;/strong&gt; you can get for free in R. When I started programming back in 2007, the first step was buying a brand new – and sometimes expensive – book about the language. There were blogs and other sites, but most content was very basic and not curated, meaning that the posted code most of the time did not work. The new generation probably have no idea of how easy it is to start fresh on new code these days [I fell quite old writing this sentence :)].&lt;/p&gt;
+&lt;p&gt;Well, this was a great opportunity for me to brush up my shiny skills. I learned shiny back in 2016 and can report on the development of the technology. I’m really impressed by the current state of shiny today. It is becoming very competitive against other data based dashboard technologies such as those using Python.&lt;/p&gt;
+&lt;p&gt;The result of this learning sprint is &lt;a href=&#34;https://www.msperlin.com/shiny/bgs/&#34;&gt;bgs-shiny&lt;/a&gt;, a shiny interface to package BatchGetSymbols. Within this application you can visualize and download price data from Yahoo Finance. In the background, every data point is live feed, fetched from Yahoo Finance. As usual, all code is available in &lt;a href=&#34;https://github.com/msperlin/BatchGetSymbols-Shiny&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serving shiny apps in the internet with your own server</title>
+      <link>https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</link>
+      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2017-12-13-serving-shiny-apps-internet/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;In this post I’ll share my experience in setting up my own virtual server for hosting shiny applications in &lt;a href=&#34;https://www.digitalocean.com/&#34;&gt;Digital Ocean&lt;/a&gt;. First, context. I’m working in a academic project where we build a package for accessing financial data and corporate events directly from B3, the Brazilian financial exchange. The objective is to set a reproducible standard and facilite data acquisition of a large, and very interesting, dataset. The result is GetDFPData. Since many researchers and students in Brazil are not knowledgeable in R, we needed to make it easier for people to use the software. A shiny app hosted in the internet is perfect for that. The app is available at &lt;a href=&#34;http://www.msperlin.com/shiny/GetDFPData/&#34;&gt;http://www.msperlin.com/shiny/GetDFPData/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can host your own shiny app for free in &lt;a href=&#34;https://www.shinyapps.io/&#34;&gt;www.shiny.io&lt;/a&gt;, but that comes with some &lt;a href=&#34;https://www.shinyapps.io/#pricing&#34;&gt;usage limitations&lt;/a&gt;. While searching for alternatives, I’ve found this &lt;a href=&#34;https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/&#34;&gt;great post&lt;/a&gt; by &lt;a href=&#34;https://deanattali.com/&#34;&gt;Dean Attali&lt;/a&gt; that clearly explains the steps for setting up a web server in a virtual machine from Digital Ocean. Despite being a 2015 post, it works perfectly. The best thing is that a server only costs $5 per month, with the first two months for free.&lt;/p&gt;
+&lt;p&gt;Once the server is up and running, I can control it using ssh (terminal), send/retrieve files with github/dropbox or rsync, and run code with Rstudio server, which is basically a Rstudio session in a browser. Now I have my own corner in the internet, where I can host all my shiny apps with full control. I’m not only using the server for hosting web applications, but also running CRON jobs for periodically gather data for another project, which has to run a R script every day. No longer I have to worry or remember to turn on my computer every day. I’m sure I’ll find many more uses to it in the future.&lt;/p&gt;
+&lt;p&gt;I’m very happy in choosing the longer, more difficult path in publishing a shiny app in the internet. I learned a lot along the way. At first it felt overwhelming to configure every aspect of the server. But, if you know a bit of Linux, setting up your own webserver is not that difficult. I recommend everyone to give it a try.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
