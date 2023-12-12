@@ -18,7 +18,7 @@ publishDate: "2023-03-10T00:00:00"
 title: Analyzing Financial and Economic Data with R (Third Edition)
 url_code: ""
 url_dataset: ""
-url_pdf: "https://www.amazon.com/dp/B084LSNXMN"
+url_pdf: "https://www.amazon.com/dp/B0BZ98RYFW"
 url_poster: ""
 url_project: ""
 url_slides: ""
