@@ -87,7 +87,6 @@ how-to-select-a-data-file-format
 exerc-importacao-exportacao
 importing-internet
 quandl
-fetching-many-time-series
 package-yfr
 package-simfinapi
 example-01---apple-inc-annual-profit
