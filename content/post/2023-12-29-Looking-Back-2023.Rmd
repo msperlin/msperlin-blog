@@ -1,11 +1,15 @@
 ---
-title: "Looking back at 2022-2023 and plans for 2024"
+title: "Looking back at 2023 and plans for 2024"
 author: "Marcelo S. Perlin"
-date: '2023-12-29'
-draft: false
+date: "2023-12-29"
+draft: no
 subtitle: ' '
-tags: ["R", "looking back"]
-categories: ["R", "personal"]
+tags:
+- R
+- looking back
+categories:
+- R
+- personal
 ---
 
 ```{r, echo=FALSE}
@@ -15,7 +19,7 @@ previous_blog_link <- "https://msperlin.com/post/2022-12-29-looking-back-2022/"
 
 Another year has passed and now its time to discuss what happened in this cycle, along with future projects. 
 
-Year 2023 passed by very quickly, and I'm grateful for everything I've learned ane experienced. Here are the highlights from my work.
+Year 2023 passed by very quickly, and I'm grateful for everything I've learned and experienced. Here are the highlights from my work.
 
 ---
 

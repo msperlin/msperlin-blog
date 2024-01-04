@@ -21,3 +21,4 @@ git commit -m "site compilation at $date_str"
 git push
 
 
+read -p "Press enter to continue"
