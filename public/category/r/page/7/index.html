@@ -285,7 +285,7 @@
   <meta property="og:description" content="Personal Website Marcelo S. Perlin"><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
   <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2023-04-18T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2023-12-29T00:00:00&#43;00:00">
   
 
   
@@ -619,6 +619,20 @@
     
     
     <div>
+      <h2><a href="/post/2018-01-22-update-batchgetsymbols/" >Major update to BatchGetSymbols</a></h2>
+      <div class="article-style">
+        
+          I just released a long due update to package BatchGetSymbols. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:
+if (!require(devtools)) install.packages(&#39;devtools&#39;) devtools::install_github(&#39;msperlin/BatchGetSymbols&#39;) The main innovations are:
+Clever cache system: By default, every new download of data will be saved in a local file located in a directory chosen by user. Every new request of data is compared to the available local information. If data is missing, the function only downloads the piece of data that is missing.
+        
+      </div>
+    </div>
+  
+    
+    
+    
+    <div>
       <h2><a href="/post/2017-12-30-looking-back-2017/" >Looking back in 2017 and plans for 2018</a></h2>
       <div class="article-style">
         
@@ -727,18 +741,6 @@ I am a university professor. Writing is a major part of my work and I really enj
         
           In the previous post about tennis, we studied how changes in ball’s composition in hard and grass courts affected the game back in 2000. In this post, we will analyse a different dataset from the same repository and look at the players winning records in ATP matches.
 The data I’m again using the great repository of tennis data of Jeff Sackmann. In this case, however, I’m using the ATP repository that contains ATP match data since 1968 until today. Again, I thank Jeff Sackmann for making this dataset publicly available.
-        
-      </div>
-    </div>
-  
-    
-    
-    
-    <div>
-      <h2><a href="/post/2017-01-30-exams-with-dynamic-content/" >Building and maintaining exams with dynamic content</a></h2>
-      <div class="article-style">
-        
-          Part of my job as a researcher and teacher is to periodically apply and grade exams in my classroom. Being constantly in the shoes of an examiner, you soon quickly realize that students are clever in finding ways to do well in an exam without effort. These days, photos and pdf versions of past exams and exercises are shared online in facebook, whatsapp groups, instagram and what not. As weird as it may sound, the distribution of information in the digital era creates a problem for examiners. If you use the same exam from past year, it is likely that students will simply memorize the answers from a digital record.
         
       </div>
     </div>
@@ -862,7 +864,7 @@ The data I’m again using the great repository of tennis data of Jeff Sackmann.
     
     
     
-    <script src="/js/academic.min.23966d19f6915d56260b05a4b1937395.js"></script>
+    <script src="/js/academic.min.0d53a7f39b7d6770128a54b39dad2f22.js"></script>
 
     
 
@@ -878,7 +880,7 @@ The data I’m again using the great repository of tennis data of Jeff Sackmann.
   
 
   <p class="powered-by">
-    Marcelo S. Perlin © 2023
+    Marcelo S. Perlin © 2024
   </p>
 
   

@@ -5,12 +5,85 @@
     <link>https://www.msperlin.com/</link>
       <atom:link href="https://www.msperlin.com/index.xml" rel="self" type="application/rss+xml" />
     <description>msperlin</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2023</copyright><lastBuildDate>Tue, 05 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>msperlin</title>
       <link>https://www.msperlin.com/</link>
     </image>
+    
+    <item>
+      <title>Looking back at 2023 and plans for 2024</title>
+      <link>https://www.msperlin.com/post/2023-12-29-looking-back-2023/</link>
+      <pubDate>Fri, 29 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2023-12-29-looking-back-2023/</guid>
+      <description>
+
+
+&lt;p&gt;Another year has passed and now its time to discuss what happened in this cycle, along with future projects.&lt;/p&gt;
+&lt;p&gt;Year 2023 passed by very quickly, and I’m grateful for everything I’ve learned and experienced. Here are the highlights from my work.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;div id=&#34;highlights-of-2023-and-2022&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Highlights of 2023 and 2022&lt;/h1&gt;
+&lt;div id=&#34;academic-papers&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Academic Papers&lt;/h2&gt;
+&lt;p&gt;I co-authored a single academic papers during this period:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://periodicos.fgv.br/rbfin/article/view/89040&#34;&gt;What is the sustainable withdraw rate for Brazil?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;However, many papers are ready (or almost ready) for submission. I expect that 2024 will be a year with many publications.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;books&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Books&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I revised book &lt;a href=&#34;https://msperlin.com/publication/2023_book-afedr-en/&#34;&gt;Analyzing Financial and Economic Data with R&lt;/a&gt; for its second edition. Most of the changes are in the background, with the use of Quarto technology for &lt;a href=&#34;https://quarto.org/docs/books/&#34;&gt;books&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;I wrote and published book &lt;a href=&#34;https://msperlin.com/publication/2023_book-qrcp/&#34;&gt;Questões de R em Concursos Públicos&lt;/a&gt;, containing several questions about R used in public examinations in Brazil.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R Packages&lt;/h2&gt;
+&lt;p&gt;Nothing special to report here, besides the usual maintainence of current packages.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;checking-previous-plans&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Checking previous plans&lt;/h1&gt;
+&lt;p&gt;At the end of 2022, my plans for 2023 &lt;a href=&#34;https://msperlin.com/post/2022-12-29-looking-back-2022/&#34;&gt;were&lt;/a&gt;:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Analyzing Financial and Economic Data with R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Done! The new edition is published in &lt;a href=&#34;https://www.amazon.com/Analyzing-Financial-Economic-Data-R/dp/171062731X&#34;&gt;Amazon&lt;/a&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+Not done! The revision will be up in early 2024, and probably distributed as two separate books, one as an introduction to R and other as Data Analysis with R.
+&lt;/dd&gt;
+&lt;dt&gt;Write and publish paper about research schollarships&lt;/dt&gt;
+&lt;dd&gt;
+The paper is already submitted to a high impact journal. This is a very interesting paper, with impactful results. I hope that soon I’ll be able to write about it in the blog.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plans-for-2024&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Plans for 2024&lt;/h1&gt;
+&lt;dl&gt;
+&lt;dt&gt;Publish revision of &lt;em&gt;Análise de Dados Financeiros e Econômicos com o R&lt;/em&gt;&lt;/dt&gt;
+&lt;dd&gt;
+My book in R is likely to be separated into two distinct books, one as “An introduction to R”, and other as “Data Analysis with R”.
+&lt;/dd&gt;
+&lt;dt&gt;Paper “Using ChatGPT for creating multi-language finance related sentiment dictionaries”&lt;/dt&gt;
+&lt;dd&gt;
+co-authored with Marcos Reichert, this paper is submitted and likelly to be published in 2024.
+&lt;/dd&gt;
+&lt;dt&gt;Paper “Risk forecasting comparisons in decentralized finance: An approach in constant product market makers”&lt;/dt&gt;
+&lt;dd&gt;
+co-authored with Lucas Mussoi and Fernanda Muller, this paper is also submitted and likelly to be published in 2024.
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>What is the sustainable withdraw rate for Brazil?</title>
@@ -9003,7 +9076,7 @@ Title of paper: The Determinants of a Cross Market Arbitrage Opportunity: Theory
 &lt;li&gt;⬆️ &lt;strong&gt;Updating?&lt;/strong&gt; View the 
 &lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Update Guide&lt;/a&gt; and 
 &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&amp;#x2764;&amp;#xfe0f; &lt;strong&gt;Support development&lt;/strong&gt; of Academic:
+&lt;li&gt;❤️ &lt;strong&gt;Support development&lt;/strong&gt; of Academic:
 &lt;ul&gt;
 &lt;li&gt;☕️ 
 &lt;a href=&#34;https://paypal.me/cushen&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Donate a coffee&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -9013,7 +9086,7 @@ Title of paper: The Determinants of a Cross Market Arbitrage Opportunity: Theory
 &lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Decorate your laptop or journal with an Academic &lt;strong&gt;sticker&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;👕 
 &lt;a href=&#34;https://academic.threadless.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wear the &lt;strong&gt;T-shirt&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&amp;#x1f469;&amp;zwj;&amp;#x1f4bb; 
+&lt;li&gt;👩‍💻 
 &lt;a href=&#34;https://sourcethemes.com/academic/docs/contribute/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Contribute&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
