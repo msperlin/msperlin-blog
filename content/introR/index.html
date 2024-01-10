@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-rstudio.html" rel="next">
+<link href="./01-introdução.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,8 +110,7 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 <!-- Google tag (gtag.js) -->
@@ -139,7 +138,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefácio</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -169,8 +168,62 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./01-introdução.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-como-o-r-funciona.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Como o R Funciona?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./03-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-pacotes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pacotes do R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-interagindo-computador-internet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interagindo com o Sistema Operacional e a Internet</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-importacao-exportacao-dados-locais.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados Locais</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-importacao-internet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importação de Dados via Pacotes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dataframes e outros Objetos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-objetos-basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-intro-programacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução a Programação com o R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,59 +286,36 @@ div.csl-indent {
 
 <section id="prefácio" class="level1 unnumbered">
 <h1 class="unnumbered">Prefácio</h1>
-<p>Este livro surge como um <em>spin off</em> de minha outra obra “Análise de Dados Financeiros com o R”. O conteúdo foi adaptado … TODO Este livro introduz o leitor ao uso do R como ferramenta de computação e análise de dados. Ao final deste livro você irá aprender como utilizar o R para importar e manipular dados e, por fim, reportar tabelas e figuras de uma pesquisa em um relatório técnico.</p>
-<p>Sou professor da Universidade Federal do Rio Grande do Sul, onde leciono, na graduação e pós-graduação, disciplinas relacionadas ao uso do R em análise de dados. Aprendi na prático onde alunos mais erram em termos de aprendizado, e compilei um conteúdo abrangente que irá sanar a maioria das dúvidas. Seja voce um pesquisador acadêmico, ou analistas de dados, este livro é um projeto pessoal para disseminar conhecimento sobre a ferramenta para um público maior e mais diversificado.</p>
-<p>Outra motivação que tive para escrever o livro foi minha experiência na utilização de códigos disponibilizados por outros pesquisadores em pesquisas específicas. Na maioria das vezes, esses códigos são desorganizados, pouco claros e, possivelmente, funcionam apenas no computador do pesquisador que os escreveu! Surpreendentemente, devido a desorganização, o trabalho de desvendar o código de outros professores tende a levar mais tempo do que desenvolver eu mesmo o procedimento, por mais complexo que ele fosse. Esses casos, aliás, ferem a ciência, pois um dos princípios básicos da pesquisa é a <strong>replicabilidade</strong> - isto é, uma rotina de pesquisa mal escrita irá reduzir a possibilidade de outras pessoas a utilizarem.</p>
-<p>Assim como se espera que um artigo científico esteja bem escrito, também se deve esperar que o código por trás da respectiva pesquisa seja de qualidade. Porém, esse não é o caso na grande maioria das vezes. Com este livro, irei atacar esse problema, formalizando uma estrutura de código voltada à reprodutibilidade científica, focando em organização e usabilidade. Nesse sentido, espero que as futuras gerações de pesquisadores estejam mais bem preparadas para compartilhar o seu trabalho.</p>
-<p>Antes de prosseguir, um aviso. Não iremos trabalhar usos avançados do R. O conteúdo será limitado a exemplos simples e práticos de utilização do <em>software</em> para a construção de pesquisa baseada em dados financeiros e econômicos. De fato, um dos desafios na escrita deste livro foi definir o limite entre o material introdutório e o avançado. Procurei, sempre que possível, dosar gradualmente o nível de complexidade. Para leitores interessados em conhecer funções avançadas do programa e o seu funcionamento interno, sugiro a leitura do manual oficial do R <span class="citation" data-cites="teetor2011r">(<a href="99-references.html#ref-teetor2011r" role="doc-biblioref"><strong>teetor2011r?</strong></a>)</span> e de <span class="citation" data-cites="wickham2019advanced">(<a href="99-references.html#ref-wickham2019advanced" role="doc-biblioref"><strong>wickham2019advanced?</strong></a>)</span>.</p>
+<p>Este livro introduz o leitor ao uso do R como ferramenta de computação e análise de dados. O conteúdo foi inspirado em minha outra obra, “Análise de Dados Financeiros e Econômicos com o R”, publicada em 2017. Com o tempo, logo percebi que seria desejável ter diversos livros focados dos capítulos, ao invés de uma única obra no tema. Ao final deste livro você irá aprender como utilizar o R para importar e manipular dados e, por fim, reportar tabelas e figuras de uma pesquisa em um relatório técnico.</p>
+<p>Sou professor da Universidade Federal do Rio Grande do Sul, onde leciono, na graduação e na pós-graduação, disciplinas relacionadas ao uso do R em análise de dados. A experiência em sala de aula permite enxergar onde os alunos mais erram, e qual o melhor caminho didático para aprender a usar o R. Seja voce um pesquisador acadêmico, ou futuro analista de dados, este livro é um projeto pessoal para disseminar conhecimento sobre a ferramenta para um público maior e mais diversificado.</p>
+<p>Outra motivação que tive para escrever o livro foi minha experiência na utilização de códigos disponibilizados por outros pesquisadores. Na maioria das vezes, esses códigos são desorganizados, pouco claros e, possivelmente, funcionam apenas no computador do pesquisador que os escreveu! Assim como se espera que um artigo científico esteja bem escrito, também se deve esperar que o código por trás da respectiva pesquisa seja de qualidade. Porém, esse não é o caso na grande maioria das vezes. Com este livro, irei atacar esse problema, formalizando uma estrutura de código voltada à reprodutibilidade científica, focando em organização e usabilidade. Nesse sentido, espero que as futuras gerações de pesquisadores estejam mais bem preparadas para compartilhar o seu trabalho.</p>
+<p>Antes de prosseguir, um aviso. Não iremos trabalhar usos avançados do R. O conteúdo será limitado a exemplos simples e práticos de utilização do <em>software</em> para a construção de pesquisa baseada em dados financeiros e econômicos. De fato, um dos desafios na escrita deste livro foi definir o limite entre o material introdutório e o avançado. Procurei, sempre que possível, dosar gradualmente o nível de complexidade. Para leitores interessados em conhecer funções avançadas do programa e o seu funcionamento interno, sugiro a leitura do manual oficial do R <span class="citation" data-cites="teetor2011r">(<a href="99-references.html#ref-teetor2011r" role="doc-biblioref">Teetor 2011</a>)</span> e de <span class="citation" data-cites="wickham2019advanced">Wickham (<a href="99-references.html#ref-wickham2019advanced" role="doc-biblioref">2019</a>)</span>.</p>
 <p>Com este livro irás aprender os seguinte tópicos:</p>
-<dl>
-<dt>Usar o R e RStudio</dt>
-<dd>
-O capítulo 01 apresenta, discute e justifica o uso do R como uma plataforma de programação desenhada para resolver problemas relacionados a dados. No capítulo 02 exploraremos os comandos básicos R e os recursos do RStudio, incluindo criação de objetos, execução de <em>scripts</em>, interação com o disco rígido do computador, e muito mais.
-</dd>
-<dt>Importação de dados financeiros e econômicos</dt>
-<dd>
-Nos capítulos 04 e 05 vamos aprender a importar dados de arquivos locais, tal como uma planilha do Excel, ou então da internet. Aprenderemos a tirar proveito da modularidade do R e, quando necessário, instalar pacotes que permitam o download de dados diversos tal como preços de ações, índices econômicos, curva de juros, dados financeiros de empresas e muito mais.
-</dd>
-<dt>Limpar, estruturar e analisar dados</dt>
-<dd>
-Nos capítulos 06 e 07 iremos estudar o ecossistema de objetos do R. Aprenderemos a manipular objetos tal como vetores numéricos, datas e tabelas inteiras. Nos capítulo 08 e 09 vamos estudar o uso de ferramentas de programação para resolver problemas com dados incluindo limpeza, reestruturação e também análise.
-</dd>
-<dt>Visualização de dados</dt>
-<dd>
-No capítulo 10 aprenderemos a usar o pacote <code>ggplot2</code> para criar visualizações do conjunto de dados, incluindo os casos mais comuns em finanças e economia, séries temporais e gráficos estatísticos.
-</dd>
-<dt>Analisar dados com econometria</dt>
-<dd>
-No capítulo 11 aprenderemos a usar os modelos econométricos mais populares em finanças e economia, incluindo o modelo linear, GLM, Arima e outros. Isto inclui simulação, teste de hipóteses e estimação de modelos para diversas séries de dados reais.
-</dd>
-<dt>Reporte de resultados</dt>
-<dd>
-No capítulo 12 veremos como reportar os resultados de sua pesquisa para um documento externo com a exportação fácil e reproduzível de tabelas e figuras. O conteúdo também inclui uma seção sobre a inovadora tecnologia <em>RMarkdown</em>, a qual permite que código e texto sejam compilados conjuntamente.
-</dd>
-<dt>Melhorando o seu código</dt>
-<dd>
-No último capítulo do livro vamos discutir as melhores práticas de programação, incluindo análise do perfil de execução do código R, destacando pontos de gargalo e melhoria do tempo de execução com estratégias de cacheamento local, uso de código <code>C++</code> e processamento paralelo.
-</dd>
-</dl>
+<ul>
+<li>Uso do R e RStudio;</li>
+<li>Uso e instalação de pacotes do CRAN e do Github</li>
+<li>Interagir com o seu computador e a internet</li>
+<li>Importação de dados locais e da internet</li>
+<li>Manipulação de objetos básicos e de armazenamento no R</li>
+<li>introdução a programação</li>
+</ul>
 <section id="material-suplementar" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="material-suplementar">Material Suplementar</h2>
-<p>Todo o material usado no livro, incluindo exemplos de código separados por capítulos, está publicamente disponível na Internet e distribuído com um pacote R denominado <code>adfeR</code>. Este inclui arquivos de dados, código em si, e várias funções que irão facilitar a execução dos exemplos do livro. Se você planeja, como sugerido, escrever código enquanto lê o livro, este pacote ajudará muito em sua jornada.</p>
-<p>Para instalar este pacote no seu computador, basta executar algumas linhas de comando no R. Veja o código destacado a seguir e copie e cole o mesmo no prompt do RStudio (canto inferior esquerdo da tela, com um sinal “&gt;”) e pressione Enter para cada comando. Esteja ciente de que você precisará do R e RStudio instalados em seu computador (consulte a seção @ref(instalacao)).</p>
-<div class="cell" data-layout-align="center">
+<p>Todo o material usado no livro, incluindo exemplos de código separados por capítulos, está publicamente disponível na Internet e distribuído com um pacote R denominado <code>introR</code>. Este inclui arquivos de dados, e algumas funções que irão facilitar a execução dos exemplos do livro. Se você planeja, como sugerido, escrever código enquanto lê o livro, este pacote ajudará muito em sua jornada.</p>
+<p>Para instalar este pacote no seu computador, basta executar algumas linhas de comando no R. Veja o código destacado a seguir e copie e cole o mesmo no prompt do RStudio (canto inferior esquerdo da tela, com um sinal “&gt;”) e pressione Enter para cada comando. Esteja ciente de que você precisará do R e RStudio instalados em seu computador (consulte <span class="citation" data-cites="instalacao">(<a href="99-references.html#ref-instalacao" role="doc-biblioref"><strong>instalacao?</strong></a>)</span>).</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools dependency</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'devtools'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install book package</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'msperlin/adfeR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'msperlin/introR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>O que este código fará é instalar o pacote <code>devtools</code>, uma dependência necessária para instalar <a href="https://github.com/msperlin/adfeR">código do Github</a> – um repositório de pacotes onde o livro está hospedado. Depois disso, uma chamada para <code>install_github('msperlin/adfeR')</code> irá instalar o pacote em seu computador.</p>
+<p>O que este código fará é instalar o pacote <code>devtools</code>, uma dependência necessária para instalar <a href="https://github.com/msperlin/introR">código do Github</a> – um repositório de pacotes onde o livro está hospedado. Depois disso, uma chamada para <code>install_github('msperlin/introR')</code> irá instalar o pacote em seu computador.</p>
 <p>Depois da instalação, todos os arquivos do livro estarão disponíveis localmente, salvos em uma pasta do seu computador. Iremos usar todos estes arquivos futuramente. Opcionalmente, caso quiser olhar os arquivos, podes copiar todo conteúdo para outra pasta com o código a seguir:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>adfeR<span class="sc">::</span><span class="fu">copy_book_files</span>(<span class="at">path_to_copy =</span> <span class="st">'~'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>introR<span class="sc">::</span><span class="fu">copy_book_files</span>(<span class="at">path_to_copy =</span> <span class="st">'~'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Veja que o tilda (<code>~</code>) é um atalho para o diretório “Documentos” no Windows (ou “home” no Linux/Mac). Assim, o código anterior descompactará o arquivo do livro na pasta “Documentos/adfeR-files”. O pacote também inclui várias outras funções que serão usadas ao longo do livro. Se você preferir a maneira antiga e consagrada de baixar o arquivo e descompactar manualmente, podes encontrar uma cópia no <a href="https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip">site do livro</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Veja que o tilda (<code>~</code>) é um atalho para o diretório “Documentos” no Windows (ou “home” no Linux/Mac). Assim, o código anterior descompactará o arquivo do livro na pasta “Documentos/introR-files”. O pacote também inclui várias outras funções que serão usadas ao longo do livro. Se você preferir a maneira antiga e consagrada de baixar o arquivo e descompactar manualmente, podes encontrar uma cópia no <a href="">site do livro</a>.</p>
 </section>
 <section id="conteúdo-para-instrutores" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="conteúdo-para-instrutores">Conteúdo para Instrutores</h2>
@@ -293,29 +323,27 @@ No último capítulo do livro vamos discutir as melhores práticas de programaç
 <dl>
 <dt>Exercícios estáticos na internet</dt>
 <dd>
-Cada capítulo deste livro inclui exercícios que seus alunos podem praticar. Todas as soluções estão disponíveis na versão online do livro, disponível em <a href="https://www.msperlin.com/adfeR/">https://www.msperlin.com/adfeR/</a>.
+Cada capítulo deste livro inclui exercícios que seus alunos podem praticar. Todas as soluções estão disponíveis na versão online do livro, disponível em <a href=""></a>.
 </dd>
 <dt>Exercícios exportáveis para pdf ou plataformas de <em>e-learning</em></dt>
 <dd>
-Todos exercícios do livro estão no formato <code>exams</code> <span class="citation" data-cites="R-exams">(<a href="99-references.html#ref-R-exams" role="doc-biblioref">Zeileis et al. 2022</a>)</span> e são exportáveis para arquivos em pdf ou então para plataformas de <em>e-learning</em> tal como o <em>Moodle</em> ou <em>Blackboard</em>. Veja este <a href="https://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/">post no blog</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> para maiores detalhes.
+Todos exercícios do livro estão no formato <code>exams</code> <span class="citation" data-cites="R-exams">(<a href="99-references.html#ref-R-exams" role="doc-biblioref">Zeileis et al. 2022</a>)</span> e são exportáveis para arquivos em pdf ou então para plataformas de <em>e-learning</em> tal como o <em>Moodle</em> ou <em>Blackboard</em>. Veja este <a href="">post no blog</a> para maiores detalhes.
 </dd>
 <dt>Acesso ao livro na internet</dt>
 <dd>
-Na versão web do livro, o conteúdo integral está liberado até o capítulo 7, o qual é mais que suficiente para um curso introdutório sobre a plataforma.
+Existe uma versão online e gratuita do livro, disponível em &lt;&gt;. Seu alunos terão acesso ao material do próprio celular.
 </dd>
 </dl>
-<p>Espero que goste deste livro. O conteúdo tem sido compilado por um longo período de tempo, a base de muito suor e, literalmente, litros de café por parte do autor.</p>
+<p>Espero que goste deste livro. O conteúdo tem sido compilado por um longo período de tempo, a base de muito suor e, literalmente, litros de <del>café</del> chá por parte do autor.</p>
 <p>Boa leitura!</p>
 <p>Marcelo S. Perlin</p>
 </section>
 </section>
 <section id="agradecimentos" class="level1 unnumbered">
 <h1 class="unnumbered">Agradecimentos</h1>
-<p>Este livro não seria possível sem a devida autonomia do meu cargo de professor universitário. A liberdade de meu cargo acadêmico foi um dos facilitadores de todos meus projetos literários, os quais me dedico com muita paixão. Assim, deixo aqui o meu agradecimento a UFRGS (Universidade Federal do Rio Grande do Sul), por possibilitar e incentivar este empreendimento no mercado literário. Meus dias mais produtivos de trabalhos foram aqueles onde pude escrever meus livros.</p>
+<p>Este livro não seria possível sem a preciosa autonomia do meu cargo de professor universitário, sendo um dos facilitadores de todos os meus projetos literários, os quais me dedico com muita paixão. Assim, deixo aqui o meu agradecimento a UFRGS (Universidade Federal do Rio Grande do Sul), por possibilitar e incentivar este empreendimento no mercado literário.</p>
 <p>Adicionalmente, não posso também deixar de agradecer a toda a comunidade do R. Em especial, agradeço os autores do pacote <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire 2023</a>)</span>, sem o qual não seria possível compilar este livro de uma forma tão fácil. Adicionalmente, abaixo destaco os respectivos pacotes disponíveis no CRAN utilizados na produção do livro e suas devidas referências. A lista foi gerada automaticamente e está em ordem alfabética.</p>
-<div class="cell" data-layout-align="center">
 <p><strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023a</a>)</span>, <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <strong>{forcats}</strong> <span class="citation" data-cites="R-forcats">(<a href="99-references.html#ref-R-forcats" role="doc-biblioref">Wickham 2023a</a>)</span>, <strong>{fs}</strong> <span class="citation" data-cites="R-fs">(<a href="99-references.html#ref-R-fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2023</a>)</span>, <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2023</a>)</span>, <strong>{glue}</strong> <span class="citation" data-cites="R-glue">(<a href="99-references.html#ref-R-glue" role="doc-biblioref">Hester and Bryan 2022</a>)</span>, <strong>{gt}</strong> <span class="citation" data-cites="R-gt">(<a href="99-references.html#ref-R-gt" role="doc-biblioref">Iannone et al. 2023</a>)</span>, <strong>{knitr}</strong> <span class="citation" data-cites="R-knitr">(<a href="99-references.html#ref-R-knitr" role="doc-biblioref">Xie 2023</a>)</span>, <strong>{purrr}</strong> <span class="citation" data-cites="R-purrr">(<a href="99-references.html#ref-R-purrr" role="doc-biblioref">Wickham and Henry 2023</a>)</span>, <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire 2023</a>)</span>, <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span>, <strong>{renv}</strong> <span class="citation" data-cites="R-renv">(<a href="99-references.html#ref-R-renv" role="doc-biblioref">Ushey and Wickham 2023</a>)</span>, <strong>{reticulate}</strong> <span class="citation" data-cites="R-reticulate">(<a href="99-references.html#ref-R-reticulate" role="doc-biblioref">Ushey, Allaire, and Tang 2023</a>)</span>, <strong>{rmarkdown}</strong> <span class="citation" data-cites="R-rmarkdown">(<a href="99-references.html#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2023</a>)</span>, <strong>{stats}</strong> <span class="citation" data-cites="R-stats">(<a href="99-references.html#ref-R-stats" role="doc-biblioref">R Core Team 2023b</a>)</span>, <strong>{tibble}</strong> <span class="citation" data-cites="R-tibble">(<a href="99-references.html#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <strong>{tidyr}</strong> <span class="citation" data-cites="R-tidyr">(<a href="99-references.html#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2023</a>)</span>, <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span></p>
-</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -343,14 +371,20 @@ R Core Team. 2023b. <em>R: A Language and Environment for Statistical Computing<
 <div id="ref-R-base" class="csl-entry" role="listitem">
 ———. 2023a. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
+<div id="ref-teetor2011r" class="csl-entry" role="listitem">
+Teetor, Paul. 2011. <em>R Cookbook: Proven Recipes for Data Analysis, Statistics, and Graphics</em>. " O’Reilly Media, Inc.".
+</div>
 <div id="ref-R-reticulate" class="csl-entry" role="listitem">
 Ushey, Kevin, JJ Allaire, and Yuan Tang. 2023. <em>Reticulate: Interface to Python</em>. <a href="https://rstudio.github.io/reticulate/">https://rstudio.github.io/reticulate/</a>.
 </div>
 <div id="ref-R-renv" class="csl-entry" role="listitem">
 Ushey, Kevin, and Hadley Wickham. 2023. <em>Renv: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
 </div>
+<div id="ref-wickham2019advanced" class="csl-entry" role="listitem">
+Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
+</div>
 <div id="ref-R-forcats" class="csl-entry" role="listitem">
-Wickham, Hadley. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a>.
+———. 2023a. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a>.
 </div>
 <div id="ref-R-tidyverse" class="csl-entry" role="listitem">
 ———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
@@ -377,13 +411,6 @@ Xie, Yihui. 2023. <em>Knitr: A General-Purpose Package for Dynamic Report Genera
 Zeileis, Achim, Bettina Gruen, Friedrich Leisch, and Nikolaus Umlauf. 2022. <em>Exams: Automatic Generation of Exams in r</em>. <a href="https://www.R-exams.org/">https://www.R-exams.org/</a>.
 </div>
 </div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>https://www.msperlin.com/files/adfer-files/adfeR-code-and-data.zip<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>https://www.msperlin.com/post/2021-02-18-dynamic-exercises-adfer/<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -624,8 +651,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-rstudio.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-introdução.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
