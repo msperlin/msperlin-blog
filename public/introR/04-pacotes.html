@@ -86,6 +86,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./05-interagindo-computador-internet.html" rel="next">
 <link href="./03-primeiros-passos-R.html" rel="prev">
+<link href="./resources/figs/Rlogo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -301,7 +302,7 @@ Como procurar um pacote na internet
 <pre><code>R&gt; [1] 20660</code></pre>
 </div>
 </div>
-<p>Conforme saída do código, 2024-04-07 09:33:52.329085, existem 20660 pacotes disponíveis nos servidores do CRAN. O objeto <code>df_cran_pkgs</code> contém uma tabela com todas as informações dos pacotes. Caso esteja curioso, basta executar <code>View(df_cran_pkgs)</code> para visualizar a tabela no Rstudio. Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
+<p>Conforme saída do código, 2024-04-07 14:34:52.840553, existem 20660 pacotes disponíveis nos servidores do CRAN. O objeto <code>df_cran_pkgs</code> contém uma tabela com todas as informações dos pacotes. Caso esteja curioso, basta executar <code>View(df_cran_pkgs)</code> para visualizar a tabela no Rstudio. Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get number of local (installed) packages</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_local_pkgs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">installed.packages</span>())</span>
@@ -559,7 +560,7 @@ Importante
 <pre><code>R&gt; ✔ You can get the local path of file using introR::data_path(name_of_file)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>R&gt; ✔ Example: local_path &lt;- introR::data_path('CH04_funky-csv-file.csv')</code></pre>
+<pre><code>R&gt; ✔ Example: local_path &lt;- introR::data_path('CH08_some-stocks-SP500.csv')</code></pre>
 </div>
 </div>
 <p>Os arquivos anteriores estão salvos na pasta de instalação dos pacote <code>introR</code>. Para ter o caminho completo, basta usar função <strong>introR</strong>::<strong>data_path()</strong> tendo o nome do arquivo como entrada:</p>
@@ -584,11 +585,11 @@ Importante
 <hr>
 <p>Q.3 - Pacote <strong>{cranlogs}</strong> <span class="citation" data-cites="R-cranlogs">(<a href="99-references.html#ref-R-cranlogs" role="doc-biblioref"><strong>R-cranlogs?</strong></a>)</span> permite o acesso a estatísticas de <em>downloads</em> de pacotes do CRAN. Após instalar o pacote no seu computador, use função <strong>cranlogs</strong>::<strong>cran_top_downloads()</strong> para verificar quais são os 10 pacotes mais instalados pela comunidade global no último mês. Qual o pacote em primeiro lugar? Dica: Defina a entrada da função <code>cran_top_downloads</code> como sendo <code>when = 'last-week'</code>. Também note que a resposta aqui pode não ser a mesma que obteve pois esta depende do dia em que foi executado o código.</p>
 <ol type="a">
-<li>cli</li>
 <li>rlang</li>
+<li>cli</li>
 <li>textshaping</li>
-<li>ragg</li>
 <li>ggplot2</li>
+<li>Rcpp</li>
 </ol>
 <hr>
 <p>Q.4 - Utilizando pacote <code>devtools</code>, instale a versão de desenvolvimento do pacote <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, disponível no repositório de <a href="https://github.com/hadley">Hadley Hickman</a>. Carregue o pacote usando <code>library</code> e crie uma figura simples com o código <code>qplot(y = rnorm(10), x = 1:10)</code>.</p>

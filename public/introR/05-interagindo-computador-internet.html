@@ -66,6 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./06-objetos-basicos.html" rel="next">
 <link href="./04-pacotes.html" rel="prev">
+<link href="./resources/figs/Rlogo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -282,7 +283,7 @@ Figure&nbsp;5.1: Usando o sistema de projetos do RStudio
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_dir)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "/tmp/RtmpSTKABH/book-compile__c7222ff4b456"</code></pre>
+<pre><code>R&gt; [1] "/tmp/RtmpOMjE9w/book-compile__157a5c49c718"</code></pre>
 </div>
 </div>
 <p>O resultado do código anterior mostra a pasta onde este livro foi escrito. Esse é o diretório onde os arquivos do livro foram compilados dentro do ambiente Linux.</p>
@@ -394,7 +395,6 @@ R&gt; 05-interagindo-computador-internet.qmd
 R&gt; 06-objetos-basicos.qmd
 R&gt; 07-objetos-armazenamento.qmd
 R&gt; 08-importacao-exportacao-dados.qmd
-R&gt; 10-intro-programacao.qmd
 R&gt; 99-references.qmd
 R&gt; _BemVindo.qmd
 R&gt; index.qmd</code></pre>
@@ -458,19 +458,19 @@ Cuidado com a remoção de arquivos e diretórios!
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_tempdir <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path_temp</span>()</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(stringr<span class="sc">::</span><span class="fu">str_glue</span>(<span class="st">'My tempdir is {my_tempdir}'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>R&gt; My tempdir is /tmp/RtmpLxVikW</code></pre>
+<pre><code>R&gt; My tempdir is /tmp/Rtmp43jgEg</code></pre>
 </div>
 </div>
-<p>O último texto do diretório, neste caso RtmpLxVikW é aleatóriamente definido e irá trocar a cada nova sessão do R.</p>
+<p>O último texto do diretório, neste caso Rtmp43jgEg é aleatóriamente definido e irá trocar a cada nova sessão do R.</p>
 <p>A mesma dinâmica é encontrada para nomes de arquivos. Caso queira, por algum motivo, utilizar um nome temporário e aleatório para algum arquivo com extensão <em>.txt</em>, utilize <strong>tempfile()</strong> ou <strong>fs</strong>::<strong>file_temp()</strong> e defina o tipo de arquivo com as entradas da função:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_tempfile <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">file_temp</span>(<span class="at">ext =</span> <span class="st">'.txt'</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(my_tempfile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>R&gt; /tmp/RtmpLxVikW/filed95913892218.txt</code></pre>
+<pre><code>R&gt; /tmp/Rtmp43jgEg/filea14034f1be2f.txt</code></pre>
 </div>
 </div>
-<p>Note que o nome do arquivo – filed95913892218.txt – é totalmente aleatório e mudará a cada chamada da função. Note também que o arquivo temporário está localizado na pasta /tmp/RtmpLxVikW.</p>
+<p>Note que o nome do arquivo – filea14034f1be2f.txt – é totalmente aleatório e mudará a cada chamada da função. Note também que o arquivo temporário está localizado na pasta /tmp/Rtmp43jgEg.</p>
 </section>
 <section id="baixando-arquivos-da-internet" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="baixando-arquivos-da-internet"><span class="header-section-number">5.5</span> Baixando Arquivos da Internet</h2>
@@ -591,11 +591,11 @@ R&gt; 6  6</code></pre>
 <hr>
 <p>Q.3 - Após resolver a questão anterior, utilize o R para descompactar o arquivo baixado para uma pasta temporária. Quantos arquivos estão disponíveis no arquivo compactado?</p>
 <ol type="a">
-<li>5</li>
-<li>7</li>
 <li>3</li>
 <li>2</li>
+<li>7</li>
 <li>4</li>
+<li>5</li>
 </ol>
 <hr>
 <p>Q.4 - O comando <code>Sys.getenv ('R_LIBS_USER')</code> retorna a pasta onde o R guarda todos os arquivos dos diferente pacotes. Use função <code>fs::dir_ls</code> para listar todas as subpastas do diretório anterior.</p>

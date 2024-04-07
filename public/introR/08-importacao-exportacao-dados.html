@@ -86,6 +86,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./99-references.html" rel="next">
 <link href="./07-objetos-armazenamento.html" rel="prev">
+<link href="./resources/figs/Rlogo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -539,7 +540,7 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>f_out <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">'.csv'</span>)</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> my_df, <span class="at">file =</span> f_out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo filedf60702fa783.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
+<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo filea6c654019df8.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_out,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">y =</span> <span class="fu">col_double</span>(),</span>
@@ -547,14 +548,14 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(my_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R&gt; # A tibble: 6 × 2
-R&gt;        y z    
-R&gt;    &lt;dbl&gt; &lt;chr&gt;
-R&gt; 1 0.320  a    
-R&gt; 2 0.0185 a    
-R&gt; 3 0.694  a    
-R&gt; 4 0.264  a    
-R&gt; 5 0.238  a    
-R&gt; 6 0.794  a</code></pre>
+R&gt;       y z    
+R&gt;   &lt;dbl&gt; &lt;chr&gt;
+R&gt; 1 0.143 a    
+R&gt; 2 0.962 a    
+R&gt; 3 0.697 a    
+R&gt; 4 0.568 a    
+R&gt; 5 0.178 a    
+R&gt; 6 0.886 a</code></pre>
 </div>
 </div>
 <p>O resultado está conforme o esperado, um dataframe com duas colunas, a primeira com números e a segunda com texto.</p>
@@ -666,11 +667,11 @@ Use formato <em>rds</em>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">file_exists</span>(my_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; /tmp/Rtmp5YLLCq/filedf6036bf7e8.RData 
-R&gt;                                  TRUE</code></pre>
+<pre><code>R&gt; /tmp/RtmpYSFT9S/filea6c614dede48.RData 
+R&gt;                                   TRUE</code></pre>
 </div>
 </div>
-<p>Observe que o arquivo filedf6036bf7e8.RData está disponível na pasta temporária.</p>
+<p>Observe que o arquivo filea6c614dede48.RData está disponível na pasta temporária.</p>
 <p>Já para arquivos <em>.rds</em>, salvamos o objeto com função <strong>readr</strong>::<strong>write_rds()</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set data and file</span></span>
@@ -779,8 +780,8 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(my_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with .rds: 0.609 seconds
-R&gt; Time to WRITE dataframe with .fst: 0.093 seconds</code></pre>
+R&gt; Time to WRITE dataframe with .rds: 0.602 seconds
+R&gt; Time to WRITE dataframe with .fst: 0.0960000000000001 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">Time to READ dataframe with '</span>,</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                  my_formats, <span class="st">': '</span>,</span>
@@ -788,8 +789,8 @@ R&gt; Time to WRITE dataframe with .fst: 0.093 seconds</code></pre>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(my_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with .rds: 0.761 seconds
-R&gt; Time to READ dataframe with .fst: 0.106 seconds</code></pre>
+R&gt; Time to READ dataframe with .rds: 0.766999999999999 seconds
+R&gt; Time to READ dataframe with .fst: 0.113 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">Resulting FILE SIZE for '</span>,</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                  my_formats, <span class="st">': '</span>,</span>
@@ -865,7 +866,7 @@ R&gt; [15] "                                   ]"</code></pre>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># save string to file</span></span>
 <span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_lines</span>(<span class="at">x =</span> my_text, <span class="at">file =</span> my_f, <span class="at">append =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário filedf6056dd718a.txt. Podemos checar o resultado com a função <strong>readr</strong>::<strong>read_lines()</strong> :</p>
+<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário filea6c621428f78.txt. Podemos checar o resultado com a função <strong>readr</strong>::<strong>read_lines()</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(readr<span class="sc">::</span><span class="fu">read_lines</span>(my_f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

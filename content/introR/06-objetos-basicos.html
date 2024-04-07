@@ -86,6 +86,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./07-objetos-armazenamento.html" rel="next">
 <link href="./05-interagindo-computador-internet.html" rel="prev">
+<link href="./resources/figs/Rlogo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -526,10 +527,11 @@ R&gt; [16]  7.8947368  8.4210526  8.9473684  9.4736842 10.0000000</code></pre>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print first 20 elements</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt;  [1]  0.7183573 -0.4323095  0.8732910  0.3038258 -0.9903015
-R&gt;  [6]  1.0563647  0.6104315  0.8816475  0.8042165  1.0417182
-R&gt; [11] -0.2741214 -1.0241149  0.7873664 -0.3595144  1.1126881
-R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
+<pre><code>R&gt;  [1]  0.17728060  0.22580237 -0.69524278 -1.23364381
+R&gt;  [5]  0.36163002 -1.22534852 -1.46408915  0.06771519
+R&gt;  [9]  0.11901071  0.67945389 -0.86262449  1.32873902
+R&gt; [13]  1.24296144 -0.79718015  0.64223996 -0.54955388
+R&gt; [17] -1.51001013  0.49448170  0.48311222 -0.53189255</code></pre>
 </div>
 </div>
 <p>O código anterior gera uma grande quantidade de números aleatórios de uma distribuição Normal com média zero e desvio padrão igual a um.</p>
@@ -543,7 +545,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1]  1.522490  4.829018 -1.761385  4.677146  4.069865</code></pre>
+<pre><code>R&gt; [1]  4.100804 -2.025597 -3.652505 -2.109965 -4.735106</code></pre>
 </div>
 </div>
 <p>Observe que ambas as funções anteriores são limitadas à suas respectivas distribuições. Uma maneira alternativa e flexível de gerar valores aleatórios é utilizar a função <strong>sample()</strong> . Essa tem como entrada um vetor qualquer e retorna uma versão embaralhada de seus elementos. A sua flexibilidade reside no fato de que o vetor de entrada pode ser qualquer coisa. Por exemplo, caso quiséssemos criar um vetor aleatório com os números <code>c(0, 5, 15, 20, 25)</code> apenas, poderíamos fazê-lo da seguinte forma:</p>
@@ -557,7 +559,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 20  0 10 25 15  5</code></pre>
+<pre><code>R&gt; [1] 25 10  5 15  0 20</code></pre>
 </div>
 </div>
 <p>A função <strong>sample()</strong> também permite a seleção aleatória de um certo número de termos. Por exemplo, caso quiséssemos selecionar aleatoriamente apenas um elemento de <code>my_vec</code>, escreveríamos o código da seguinte maneira:</p>
@@ -568,7 +570,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 10</code></pre>
+<pre><code>R&gt; [1] 25</code></pre>
 </div>
 </div>
 <p>Caso quiséssemos dois elementos, escreveríamos:</p>
@@ -579,7 +581,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 10 25</code></pre>
+<pre><code>R&gt; [1] 20 15</code></pre>
 </div>
 </div>
 <p>Também é possível selecionar valores de uma amostra menor para a criação de um vetor maior. Por exemplo, considere o caso em que se tem um vetor com os números <code>c(10, 15, 20)</code> e deseja-se criar um vetor aleatório com dez elementos retirados desse vetor menor, com repetição. Para isso, podemos utilizar a opção <code>replace = TRUE</code>.</p>
@@ -591,7 +593,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>my_rnd_vec <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> my_vec, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt;  [1] 15 10  5 10  5  5  5  5  5 10</code></pre>
+<pre><code>R&gt;  [1] 10 15 15 10 10 10 10 10 10  5</code></pre>
 </div>
 </div>
 <p>Vale destacar que a função <strong>sample()</strong> funciona para qualquer tipo ou objeto, não sendo, portanto, exclusiva para vetores numéricos. Poderíamos, também, escolher elementos aleatórios de um vetor de texto ou então uma lista:</p>
@@ -600,7 +602,7 @@ R&gt; [16]  0.7623427 -0.6837628 -0.2864175 -0.1282310 -0.5121757</code></pre>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">'elem 1'</span>, <span class="st">'elem 2'</span>, <span class="st">'elem 3'</span>),</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "elem 2"</code></pre>
+<pre><code>R&gt; [1] "elem 1"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example of sample with list</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">sample</span>(<span class="fu">list</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>),</span>
@@ -2398,12 +2400,12 @@ R&gt; [19] 30 45  0 15 30 45  0</code></pre>
 <div class="sourceCode cell-code" id="cb320"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb320-1"><a href="#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get time!</span></span>
 <span id="cb320-2"><a href="#cb320-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">Sys.time</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-07 09:34:53 -03"</code></pre>
+<pre><code>R&gt; [1] "2024-04-07 14:35:40 -03"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb322"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb322-1"><a href="#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get time!</span></span>
 <span id="cb322-2"><a href="#cb322-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">now</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-07 09:34:53 -03"</code></pre>
+<pre><code>R&gt; [1] "2024-04-07 14:35:40 -03"</code></pre>
 </div>
 </div>
 <p>Com base nessas, podemos escrever:</p>
@@ -2416,7 +2418,7 @@ R&gt; [19] 30 45  0 15 30 45  0</code></pre>
 <span id="cb324-6"><a href="#cb324-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb324-7"><a href="#cb324-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "This code was executed in 2024-04-07 09:34:53.467121"</code></pre>
+<pre><code>R&gt; [1] "This code was executed in 2024-04-07 14:35:40.796014"</code></pre>
 </div>
 </div>
 </section>
