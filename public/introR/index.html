@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,6 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,8 +116,10 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- Google tag (gtag.js) -->
@@ -132,13 +141,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefácio</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefácio</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -147,7 +156,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introdução ao R</a> 
@@ -174,14 +183,14 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-como-o-r-funciona.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Como o R Funciona?</span></span></a>
+  <a href="./02-primeiros-passos-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros Passos com o RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span></a>
+  <a href="./03-primeiros-passos-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Primeiros Passos com o R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -198,32 +207,20 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-importacao-exportacao-dados-locais.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados Locais</span></span></a>
+  <a href="./06-objetos-basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-importacao-internet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importação de Dados via Pacotes</span></span></a>
+  <a href="./07-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">As Classes de Armazenamento</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dataframes e outros Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-objetos-basicos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-intro-programacao.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução a Programação com o R</span></span></a>
+  <a href="./08-importacao-exportacao-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -235,7 +232,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -244,8 +241,13 @@ div.csl-indent {
   <ul>
   <li><a href="#prefácio" id="toc-prefácio" class="nav-link active" data-scroll-target="#prefácio">Prefácio</a>
   <ul class="collapse">
-  <li><a href="#material-suplementar" id="toc-material-suplementar" class="nav-link" data-scroll-target="#material-suplementar">Material Suplementar</a></li>
-  <li><a href="#conteúdo-para-instrutores" id="toc-conteúdo-para-instrutores" class="nav-link" data-scroll-target="#conteúdo-para-instrutores">Conteúdo para Instrutores</a></li>
+  <li><a href="#como-ler-este-livro" id="toc-como-ler-este-livro" class="nav-link" data-scroll-target="#como-ler-este-livro">Como ler este livro</a>
+  <ul class="collapse">
+  <li><a href="#códigos-no-livro" id="toc-códigos-no-livro" class="nav-link" data-scroll-target="#códigos-no-livro">Códigos no livro</a></li>
+  </ul></li>
+  <li><a href="#animações-de-código" id="toc-animações-de-código" class="nav-link" data-scroll-target="#animações-de-código">Animações de código</a></li>
+  <li><a href="#material-suplementar" id="toc-material-suplementar" class="nav-link" data-scroll-target="#material-suplementar">Material suplementar</a></li>
+  <li><a href="#conteúdo-para-instrutores" id="toc-conteúdo-para-instrutores" class="nav-link" data-scroll-target="#conteúdo-para-instrutores">Conteúdo para instrutores</a></li>
   </ul></li>
   <li><a href="#agradecimentos" id="toc-agradecimentos" class="nav-link" data-scroll-target="#agradecimentos">Agradecimentos</a></li>
   </ul>
@@ -257,7 +259,6 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Introdução ao R</h1>
-<p class="subtitle lead">Aplicações em Finanças e Economia</p>
 </div>
 
 
@@ -282,76 +283,262 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
+
+<p><strong>Bem Vindo!</strong></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Seja bem vindo ao site do livro <strong>Introdução ao R</strong>. Aqui encontrarás o conteúdo integral do livro em formato de página da <em>web</em>. A obra completa está disponível como um <a href="https://www.amazon.com.br/dp/TODO">ebook</a>, <a href="https://www.amazon.com/dp/TODO">impresso capa normal</a> ou <a href="https://www.amazon.com/dp/TODO">impresso capa dura</a>, com um acessível preço em torno de 10 reais. Se gostaste do livro e estás utilizando-o para o seu trabalho, considere comprar a obra em um dos seus formatos. No papel de autor, aprecio o gesto e irei considerá-los como um fator motivante para futuras obras.</p>
+<p>Alternativamente, caso não queira comprar o livro mas gostaria de colaborar com o projeto, podes doar recurso via <em>paypal</em> no link abaixo.</p>
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="8YYGW787SG8CQ"> <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Faça doações com o botão do PayPal"> <img alt="" border="0" src="https://www.paypal.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<p><img src="resources/figs/CAPAdigital-AnaliseDadosR.jpg" width="300" height="400" alt="Ebook na Amazon.com.br" class="cover"></p>
+</div>
+</div>
+<p><br></p>
+<p><strong>Licença de uso</strong></p>
+<p>Este trabalho é licenciado pela <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. O código contigo neste site, e no livro como um todo, é disponibilizado pela licença do <a href="https://opensource.org/licenses/MIT">MIT</a>, portanto, sinta-se livre para utilizá-lo no seu trabalho, desde de que a origem do código seja citada. Uma sugestão de citação é disponibilizada abaixo:</p>
+<p>Perlin, M. S. Introdução ao R, Porto Alegre: Marcelo S. Perlin (publicação independente), 2024.</p>
 <section id="prefácio" class="level1 unnumbered">
 <h1 class="unnumbered">Prefácio</h1>
-<p>Este livro introduz o leitor ao uso do R como ferramenta de computação e análise de dados. O conteúdo foi inspirado em minha outra obra, “Análise de Dados Financeiros e Econômicos com o R”, publicada em 2017. Com o tempo, logo percebi que seria desejável ter diversos livros focados dos capítulos, ao invés de uma única obra no tema. Ao final deste livro você irá aprender como utilizar o R para importar e manipular dados e, por fim, reportar tabelas e figuras de uma pesquisa em um relatório técnico.</p>
-<p>Sou professor da Universidade Federal do Rio Grande do Sul, onde leciono, na graduação e na pós-graduação, disciplinas relacionadas ao uso do R em análise de dados. A experiência em sala de aula permite enxergar onde os alunos mais erram, e qual o melhor caminho didático para aprender a usar o R. Seja voce um pesquisador acadêmico, ou futuro analista de dados, este livro é um projeto pessoal para disseminar conhecimento sobre a ferramenta para um público maior e mais diversificado.</p>
+<p>Em 2017 publiquei o meu primeiro livro sobre R, “Análise de Dados Financeiros e Econômicos com o R”. Com a introdução de diferentes revisões ao longo dos anos, logo percebi que seria desejável ter diversos livros focados dos capítulos, ao invés de uma única obra no tema. Este é o primeiro livro da série, apresentando um introdução completa sobre o uso do R e RStudio.</p>
+<p>Sou professor da Universidade Federal do Rio Grande do Sul, onde leciono disciplinas relacionadas ao uso do R em análise de dados. A experiência em sala de aula me proporcionou a experiência de ver, ao vivo, onde os alunos mais erram e qual o melhor caminho para aprender a usar o R. Este livro é um projeto pessoal e acadêmico para disseminar conhecimento para um público maior.</p>
 <p>Outra motivação que tive para escrever o livro foi minha experiência na utilização de códigos disponibilizados por outros pesquisadores. Na maioria das vezes, esses códigos são desorganizados, pouco claros e, possivelmente, funcionam apenas no computador do pesquisador que os escreveu! Assim como se espera que um artigo científico esteja bem escrito, também se deve esperar que o código por trás da respectiva pesquisa seja de qualidade. Porém, esse não é o caso na grande maioria das vezes. Com este livro, irei atacar esse problema, formalizando uma estrutura de código voltada à reprodutibilidade científica, focando em organização e usabilidade. Nesse sentido, espero que as futuras gerações de pesquisadores estejam mais bem preparadas para compartilhar o seu trabalho.</p>
 <p>Antes de prosseguir, um aviso. Não iremos trabalhar usos avançados do R. O conteúdo será limitado a exemplos simples e práticos de utilização do <em>software</em> para a construção de pesquisa baseada em dados financeiros e econômicos. De fato, um dos desafios na escrita deste livro foi definir o limite entre o material introdutório e o avançado. Procurei, sempre que possível, dosar gradualmente o nível de complexidade. Para leitores interessados em conhecer funções avançadas do programa e o seu funcionamento interno, sugiro a leitura do manual oficial do R <span class="citation" data-cites="teetor2011r">(<a href="99-references.html#ref-teetor2011r" role="doc-biblioref">Teetor 2011</a>)</span> e de <span class="citation" data-cites="wickham2019advanced">Wickham (<a href="99-references.html#ref-wickham2019advanced" role="doc-biblioref">2019</a>)</span>.</p>
 <p>Com este livro irás aprender os seguinte tópicos:</p>
 <ul>
 <li>Uso do R e RStudio;</li>
-<li>Uso e instalação de pacotes do CRAN e do Github</li>
-<li>Interagir com o seu computador e a internet</li>
-<li>Importação de dados locais e da internet</li>
-<li>Manipulação de objetos básicos e de armazenamento no R</li>
-<li>introdução a programação</li>
+<li>Instalação e uso de pacotes do CRAN e do Github;</li>
+<li>Interação do R com o seu computador e a internet;</li>
+<li>Importação de dados locais e da internet;</li>
+<li>Manipulação de objetos básicos e de armazenamento no R;</li>
+<li>Introdução a programação com o R.</li>
 </ul>
-<section id="material-suplementar" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="material-suplementar">Material Suplementar</h2>
-<p>Todo o material usado no livro, incluindo exemplos de código separados por capítulos, está publicamente disponível na Internet e distribuído com um pacote R denominado <code>introR</code>. Este inclui arquivos de dados, e algumas funções que irão facilitar a execução dos exemplos do livro. Se você planeja, como sugerido, escrever código enquanto lê o livro, este pacote ajudará muito em sua jornada.</p>
-<p>Para instalar este pacote no seu computador, basta executar algumas linhas de comando no R. Veja o código destacado a seguir e copie e cole o mesmo no prompt do RStudio (canto inferior esquerdo da tela, com um sinal “&gt;”) e pressione Enter para cada comando. Esteja ciente de que você precisará do R e RStudio instalados em seu computador (consulte <span class="citation" data-cites="instalacao">(<a href="99-references.html#ref-instalacao" role="doc-biblioref"><strong>instalacao?</strong></a>)</span>).</p>
+<section id="como-ler-este-livro" class="level2">
+<h2 class="anchored" data-anchor-id="como-ler-este-livro">Como ler este livro</h2>
+<p>Este livro tem uma abordagem prática no uso do R e será acompanhado por uma série de códigos que irão exemplificar e mostrar para o leitor as funcionalidades do programa. Para tirar o máximo de proveito do material, sugiro que você primeiro busque entender o código mostrado e, somente então, tente utilizá-lo em seu próprio computador. O índice remissivo disponibilizado no final do livro impresso serve como uma mapa de uso das funções. Toda vez que uma função é chamada no livro, um registro do número da página é criado no índice remissivo. Esse indica, também, o pacote que a função pertence. Podes utilizar este mapa para localizar o uso de qualquer função ou pacote no decorrer do livro. Sugiro também o uso da versão online do livro no site <a href="https://www.msperlin.com/introR/">https://www.msperlin.com/introR/</a>, a qual permite que os código de exemplo sejam copiados direto para a sua sessão do R. Assim, perderás menos tempo digitando código.</p>
+<p>Aprender a programar em uma nova linguagem é como aprender uma língua estrangeira: o uso no dia-a-dia é de extrema importância para criar fluência. Sempre que possível, teste o código no seu computador e <em>brinque</em> com o mesmo, modificando os exemplos e verificando o efeito das modificações nas saídas do programa. Procure sempre entender como a rotina estudada pode ajudar na solução de um problema seu. Cada capítulo apresenta no seu final uma lista de exercícios. Podes testar as suas habilidades de programação resolvendo as atividades propostas.</p>
+<section id="códigos-no-livro" class="level3">
+<h3 class="anchored" data-anchor-id="códigos-no-livro">Códigos no livro</h3>
+<p>No decorrer da obra, toda demonstração de código terá duas partes: o código em si e sua saída do R. Essa saída nada mais é do que o resultado dos comandos na tela do programa. Todas as entradas e saídas de código serão sinalizadas no texto com um formato especial. Veja o exemplo a seguir:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools dependency</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'devtools'</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">var1 =</span> <span class="st">'abc'</span>, <span class="at">var2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install book package</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'msperlin/introR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print to prompt</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R&gt; $var1
+R&gt; [1] "abc"
+R&gt; 
+R&gt; $var2
+R&gt; [1] 1 2 3 4 5</code></pre>
 </div>
-<p>O que este código fará é instalar o pacote <code>devtools</code>, uma dependência necessária para instalar <a href="https://github.com/msperlin/introR">código do Github</a> – um repositório de pacotes onde o livro está hospedado. Depois disso, uma chamada para <code>install_github('msperlin/introR')</code> irá instalar o pacote em seu computador.</p>
-<p>Depois da instalação, todos os arquivos do livro estarão disponíveis localmente, salvos em uma pasta do seu computador. Iremos usar todos estes arquivos futuramente. Opcionalmente, caso quiser olhar os arquivos, podes copiar todo conteúdo para outra pasta com o código a seguir:</p>
+</div>
+<p>No caso anterior, os textos <code>L &lt;- list(var1 = 'abc', var2 = 1:5)</code> e <code>print(L)</code> são os códigos de entrada. A saída do programa é a apresentação na tela dos elementos de <code>x</code>, com o símbolo antecessor <code>R&gt;</code>. Por enquanto não se preocupe em entender e reproduzir o código utilizado acima. Iremos tratar disso no próximo capítulo.</p>
+<p>Note que faço uso da língua inglesa no código, tanto para a nomeação de objetos quanto para os comentários. Isso não é acidental. O uso da língua inglesa facilita o desenvolvimento de código ao evitar caracteres latinos, além de ser uma das línguas mais utilizadas no mundo. Portanto, é importante já ir se acostumando com esse formato. O vocabulário necessário, porém, é limitado. De forma alguma precisarás ter fluência em inglês para entender o código.</p>
+<p>O código também pode ser espacialmente organizado usando novas linhas. Esse é um procedimento comum em torno de argumentos de funções. O próximo pedaço de código é equivalente ao anterior, e executará exatamente da mesma maneira. Observe como usei uma nova linha para alinhar verticalmente os argumentos da função <code>list</code>. Você verá em breve que, ao longo do livro, esse tipo de alinhamento vertical é constantemente usado em códigos longos. Afinal, o código tem que necessariamente caber na página do livro impresso.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>introR<span class="sc">::</span><span class="fu">copy_book_files</span>(<span class="at">path_to_copy =</span> <span class="st">'~'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">var1 =</span> <span class="st">'abc'</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">var2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print to prompt</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R&gt; $var1
+R&gt; [1] "abc"
+R&gt; 
+R&gt; $var2
+R&gt; [1] 1 2 3 4 5</code></pre>
 </div>
-<p>Veja que o tilda (<code>~</code>) é um atalho para o diretório “Documentos” no Windows (ou “home” no Linux/Mac). Assim, o código anterior descompactará o arquivo do livro na pasta “Documentos/introR-files”. O pacote também inclui várias outras funções que serão usadas ao longo do livro. Se você preferir a maneira antiga e consagrada de baixar o arquivo e descompactar manualmente, podes encontrar uma cópia no <a href="">site do livro</a>.</p>
+</div>
+<p>O código também segue uma estrutura bem definida. Uma das decisões a ser feita na escrita de códigos de computação é a forma de nomear os objetos e como lidar com a estrutura do texto do código em geral. É recomendável seguir um padrão limpo de código, de forma que o mesmo seja fácil de ser mantido ao longo do tempo e de ser entendido por outros usuários. Para este livro, foi utilizado uma mistura entre escolhas pessoais e o estilo de código sugerido pelo <a href="https://google.github.io/styleguide/Rguide.xml">Google</a>. O usuário, porém, é livre para escolher a estrutura que achar mais eficiente, desde que seja coerente.</p>
+</section>
+</section>
+<section id="animações-de-código" class="level2">
+<h2 class="anchored" data-anchor-id="animações-de-código">Animações de código</h2>
+<p>Esta edição do livro inclui animações de código no formato <em>gif</em>, as quais devem ajudar a memorizar e visualizar as diferentes operações na plataforma. Para os leitores do livro impresso, obviamente não existe maneira de incluir animações em papel. Como alternativa, cada animação inclui um <em>QRCode</em> que irá direcionar o leitor para página na web com a animação em questão. A imagem a esquerda é a primeira tela de cada animação. Veja o exemplo abaixo na <a href="#fig-exemplo-animacao" class="quarto-xref">Figure&nbsp;<span>Exemplo de animação</span></a>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-exemplo-animacao" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exemplo-animacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="resources/gifs/gif_autocomplete_args.gif" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exemplo-animacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Exemplo de animação
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Para utilizar, abra seu celular e aponte a câmera para o QRCode da página. Após isso, basta clicar no link que aparecer na tela do aparelho. O resultado deve ser uma animação em uma página na internet.</p>
+</section>
+<section id="material-suplementar" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="material-suplementar">Material suplementar</h2>
+<p>Todo o material usado no livro está publicamente disponível na Internet e distribuído com um pacote R denominado <code>introR</code>. Este inclui arquivos de dados, e algumas funções que irão facilitar a execução dos exemplos do livro. Se você planeja, como sugerido, escrever código enquanto lê o livro, este pacote ajudará muito em sua jornada.</p>
+<p>Para instalar este pacote no seu computador, basta executar algumas linhas de comando no R. Veja o código destacado a seguir e copie e cole o mesmo no prompt do RStudio (canto inferior esquerdo da tela, com um sinal “&gt;”) e pressione Enter para cada comando. Esteja ciente de que você precisará do R e RStudio instalados em seu computador (consulte <a href="01-introdução.html#sec-instalacao" class="quarto-xref"><span>1.4 Como Instalar o R</span></a>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools dependency</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'devtools'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install book package</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'msperlin/introR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>O que este código fará é instalar o pacote <code>devtools</code>, uma dependência necessária para instalar <a href="https://github.com/msperlin/introR">código do Github</a> – um repositório de pacotes onde o livro está hospedado. Depois disso, uma chamada para <code>devtools::install_github('msperlin/introR')</code> irá instalar o pacote em seu computador. Depois da instalação, todos os arquivos do livro estarão disponíveis localmente, salvos em uma pasta do seu computador.</p>
+<p>Opcionalmente, caso quiser olhar os arquivos de dados disponíveis no pacote, basta chamar a seguinte linha de código no <em>prompt</em> do R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>introR<span class="sc">::</span><span class="fu">data_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ── Available data files at '/home/msperlin/R/x86_64-pc-linux</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_another-funky-csv-file.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-fst.fst</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-Rdata.RData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-rds.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-sqlite.SQLite</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-tsv.tsv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_funky-csv-file.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_ibovespa-Excel.xlsx</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_ibovespa.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_price-and-prejudice.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_SP500-Excel.xlsx</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH07_FileWithLatinChar_Latin1.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH07_FileWithLatinChar_UTF-8.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH08_some-stocks-SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH08_wide-example-stocks.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH10_sp500-stocks-long-by-year.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_grunfeld.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_UCI-Credit-Card.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_B3-stocks.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_football-br.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_Ibov_PETR4.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_ibovespa.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks-wide.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks-yearly.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_TD-data.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_TweetsElonMusk.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ✔ You can get the local path of file using introR::data_path(name_of_file)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ✔ Example: local_path &lt;- introR::data_path('CH04_price-and-prejudice.txt')</code></pre>
+</div>
+</div>
 </section>
 <section id="conteúdo-para-instrutores" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conteúdo-para-instrutores">Conteúdo para Instrutores</h2>
-<p>Se você for um instrutor de R, aqui encontrarás muito material para usar em suas aulas:</p>
+<h2 class="unnumbered anchored" data-anchor-id="conteúdo-para-instrutores">Conteúdo para instrutores</h2>
+<p>Se você for um instrutor de R, aqui encontrarás bastante material para usar em suas aulas:</p>
 <dl>
 <dt>Exercícios estáticos na internet</dt>
 <dd>
-Cada capítulo deste livro inclui exercícios que seus alunos podem praticar. Todas as soluções estão disponíveis na versão online do livro, disponível em <a href=""></a>.
+Cada capítulo deste livro inclui exercícios que seus alunos podem praticar. Todas as soluções estão disponíveis na versão online do livro, disponível em <a href="https://www.msperlin.com/introR/">https://www.msperlin.com/introR/</a>.
 </dd>
 <dt>Exercícios exportáveis para pdf ou plataformas de <em>e-learning</em></dt>
 <dd>
-Todos exercícios do livro estão no formato <code>exams</code> <span class="citation" data-cites="R-exams">(<a href="99-references.html#ref-R-exams" role="doc-biblioref">Zeileis et al. 2022</a>)</span> e são exportáveis para arquivos em pdf ou então para plataformas de <em>e-learning</em> tal como o <em>Moodle</em> ou <em>Blackboard</em>. Veja este <a href="">post no blog</a> para maiores detalhes.
+Todos exercícios do livro estão no formato do pacote <strong>{exams}</strong> <span class="citation" data-cites="R-exams">(<a href="99-references.html#ref-R-exams" role="doc-biblioref">Zeileis et al. 2022</a>)</span> e são exportáveis para arquivos em pdf ou então para plataformas de <em>e-learning</em> tal como o <em>Moodle</em> ou <em>Blackboard</em>. Isso significa que podes usar os mesmos exercícios para criar provas e atividades que são automaticamente corrigidas pela plataforma de <em>e-learning</em>. Veja este <a href="‘https://www.msperlin.com/post/2021-02-18-dynamic-exercises-introR/’">post no blog</a> para maiores detalhes.
 </dd>
 <dt>Acesso ao livro na internet</dt>
 <dd>
-Existe uma versão online e gratuita do livro, disponível em &lt;&gt;. Seu alunos terão acesso ao material do próprio celular.
+Existe uma versão online e gratuita do livro, disponível em <a href="https://www.msperlin.com/introR/">https://www.msperlin.com/introR/</a> &gt;. Seu alunos, mesmo aqueles que não compraram o livro, terão acesso ao material do próprio celular.
 </dd>
 </dl>
-<p>Espero que goste deste livro. O conteúdo tem sido compilado por um longo período de tempo, a base de muito suor e, literalmente, litros de <del>café</del> chá por parte do autor.</p>
+<p>Espero que goste deste livro. Este é um projeto pessoal e especial, sendo compilado desde 2017 a base de muito suor e, literalmente, litros de café.</p>
 <p>Boa leitura!</p>
 <p>Marcelo S. Perlin</p>
 </section>
 </section>
 <section id="agradecimentos" class="level1 unnumbered">
 <h1 class="unnumbered">Agradecimentos</h1>
-<p>Este livro não seria possível sem a preciosa autonomia do meu cargo de professor universitário, sendo um dos facilitadores de todos os meus projetos literários, os quais me dedico com muita paixão. Assim, deixo aqui o meu agradecimento a UFRGS (Universidade Federal do Rio Grande do Sul), por possibilitar e incentivar este empreendimento no mercado literário.</p>
-<p>Adicionalmente, não posso também deixar de agradecer a toda a comunidade do R. Em especial, agradeço os autores do pacote <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire 2023</a>)</span>, sem o qual não seria possível compilar este livro de uma forma tão fácil. Adicionalmente, abaixo destaco os respectivos pacotes disponíveis no CRAN utilizados na produção do livro e suas devidas referências. A lista foi gerada automaticamente e está em ordem alfabética.</p>
-<p><strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023a</a>)</span>, <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <strong>{forcats}</strong> <span class="citation" data-cites="R-forcats">(<a href="99-references.html#ref-R-forcats" role="doc-biblioref">Wickham 2023a</a>)</span>, <strong>{fs}</strong> <span class="citation" data-cites="R-fs">(<a href="99-references.html#ref-R-fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2023</a>)</span>, <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2023</a>)</span>, <strong>{glue}</strong> <span class="citation" data-cites="R-glue">(<a href="99-references.html#ref-R-glue" role="doc-biblioref">Hester and Bryan 2022</a>)</span>, <strong>{gt}</strong> <span class="citation" data-cites="R-gt">(<a href="99-references.html#ref-R-gt" role="doc-biblioref">Iannone et al. 2023</a>)</span>, <strong>{knitr}</strong> <span class="citation" data-cites="R-knitr">(<a href="99-references.html#ref-R-knitr" role="doc-biblioref">Xie 2023</a>)</span>, <strong>{purrr}</strong> <span class="citation" data-cites="R-purrr">(<a href="99-references.html#ref-R-purrr" role="doc-biblioref">Wickham and Henry 2023</a>)</span>, <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire 2023</a>)</span>, <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span>, <strong>{renv}</strong> <span class="citation" data-cites="R-renv">(<a href="99-references.html#ref-R-renv" role="doc-biblioref">Ushey and Wickham 2023</a>)</span>, <strong>{reticulate}</strong> <span class="citation" data-cites="R-reticulate">(<a href="99-references.html#ref-R-reticulate" role="doc-biblioref">Ushey, Allaire, and Tang 2023</a>)</span>, <strong>{rmarkdown}</strong> <span class="citation" data-cites="R-rmarkdown">(<a href="99-references.html#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2023</a>)</span>, <strong>{stats}</strong> <span class="citation" data-cites="R-stats">(<a href="99-references.html#ref-R-stats" role="doc-biblioref">R Core Team 2023b</a>)</span>, <strong>{tibble}</strong> <span class="citation" data-cites="R-tibble">(<a href="99-references.html#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <strong>{tidyr}</strong> <span class="citation" data-cites="R-tidyr">(<a href="99-references.html#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2023</a>)</span>, <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span></p>
+<p>Este livro não seria possível sem a autonomia do meu cargo de professor universitário. Assim, deixo aqui o meu formal agradecimento a UFRGS (Universidade Federal do Rio Grande do Sul), por possibilitar e incentivar este empreendimento no mercado literário. Escrever livros se tornou uma das minhas paixões profissionais, e sou muito grato por poder fazer isso de forma livre e autônoma.</p>
+<p>Adicionalmente, não posso também deixar de agradecer a toda a comunidade do R. Em especial, agradeço os autores do pacote <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire and Dervieux 2024</a>)</span>, sem o qual não seria possível compilar e automatizar a produção deste livro de uma forma tão fácil. Agradeço também aos autores do pacote <strong>{bookdown}</strong> <span class="citation" data-cites="R-bookdown">(<a href="99-references.html#ref-R-bookdown" role="doc-biblioref">Xie 2024</a>)</span>, o qual foi utilizado por muitos anos nos livros anteriores. Adicionalmente, abaixo destaco os respectivos pacotes disponíveis no CRAN utilizados na produção do livro e suas devidas referências. A lista foi gerada automaticamente e está em ordem alfabética.</p>
+<p><strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023a</a>)</span>, <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <strong>{forcats}</strong> <span class="citation" data-cites="R-forcats">(<a href="99-references.html#ref-R-forcats" role="doc-biblioref">Wickham 2023a</a>)</span>, <strong>{fs}</strong> <span class="citation" data-cites="R-fs">(<a href="99-references.html#ref-R-fs" role="doc-biblioref">Hester, Wickham, and Csárdi 2023</a>)</span>, <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, <strong>{glue}</strong> <span class="citation" data-cites="R-glue">(<a href="99-references.html#ref-R-glue" role="doc-biblioref">Hester and Bryan 2022</a>)</span>, <strong>{gt}</strong> <span class="citation" data-cites="R-gt">(<a href="99-references.html#ref-R-gt" role="doc-biblioref">Iannone et al. 2024</a>)</span>, <strong>{knitr}</strong> <span class="citation" data-cites="R-knitr">(<a href="99-references.html#ref-R-knitr" role="doc-biblioref">Xie 2023</a>)</span>, <strong>{purrr}</strong> <span class="citation" data-cites="R-purrr">(<a href="99-references.html#ref-R-purrr" role="doc-biblioref">Wickham and Henry 2023</a>)</span>, <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire and Dervieux 2024</a>)</span>, <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2024</a>)</span>, <strong>{renv}</strong> <span class="citation" data-cites="R-renv">(<a href="99-references.html#ref-R-renv" role="doc-biblioref">Ushey and Wickham 2024</a>)</span>, <strong>{reticulate}</strong> <span class="citation" data-cites="R-reticulate">(<a href="99-references.html#ref-R-reticulate" role="doc-biblioref">Ushey, Allaire, and Tang 2024</a>)</span>, <strong>{rmarkdown}</strong> <span class="citation" data-cites="R-rmarkdown">(<a href="99-references.html#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2024</a>)</span>, <strong>{stats}</strong> <span class="citation" data-cites="R-stats">(<a href="99-references.html#ref-R-stats" role="doc-biblioref">R Core Team 2023b</a>)</span>, <strong>{tibble}</strong> <span class="citation" data-cites="R-tibble">(<a href="99-references.html#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>, <strong>{tidyr}</strong> <span class="citation" data-cites="R-tidyr">(<a href="99-references.html#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2024</a>)</span>, <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span></p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-R-quarto" class="csl-entry" role="listitem">
-Allaire, JJ. 2023. <em>Quarto: R Interface to Quarto Markdown Publishing System</em>. <a href="https://github.com/quarto-dev/quarto-r">https://github.com/quarto-dev/quarto-r</a>.
+Allaire, JJ, and Christophe Dervieux. 2024. <em>Quarto: R Interface to Quarto Markdown Publishing System</em>. <a href="https://github.com/quarto-dev/quarto-r">https://github.com/quarto-dev/quarto-r</a>.
 </div>
 <div id="ref-R-rmarkdown" class="csl-entry" role="listitem">
-Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, et al. 2023. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
+Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, et al. 2024. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
 </div>
 <div id="ref-R-glue" class="csl-entry" role="listitem">
 Hester, Jim, and Jennifer Bryan. 2022. <em>Glue: Interpreted String Literals</em>. <a href="https://github.com/tidyverse/glue">https://github.com/tidyverse/glue</a>.
@@ -360,7 +547,7 @@ Hester, Jim, and Jennifer Bryan. 2022. <em>Glue: Interpreted String Literals</em
 Hester, Jim, Hadley Wickham, and Gábor Csárdi. 2023. <em>Fs: Cross-Platform File System Operations Based on Libuv</em>. <a href="https://fs.r-lib.org">https://fs.r-lib.org</a>.
 </div>
 <div id="ref-R-gt" class="csl-entry" role="listitem">
-Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, and JooYoung Seo. 2023. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
+Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra Lauer, and JooYoung Seo. 2024. <em>Gt: Easily Create Presentation-Ready Display Tables</em>. <a href="https://gt.rstudio.com">https://gt.rstudio.com</a>.
 </div>
 <div id="ref-R-tibble" class="csl-entry" role="listitem">
 Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>.
@@ -375,10 +562,10 @@ R Core Team. 2023b. <em>R: A Language and Environment for Statistical Computing<
 Teetor, Paul. 2011. <em>R Cookbook: Proven Recipes for Data Analysis, Statistics, and Graphics</em>. " O’Reilly Media, Inc.".
 </div>
 <div id="ref-R-reticulate" class="csl-entry" role="listitem">
-Ushey, Kevin, JJ Allaire, and Yuan Tang. 2023. <em>Reticulate: Interface to Python</em>. <a href="https://rstudio.github.io/reticulate/">https://rstudio.github.io/reticulate/</a>.
+Ushey, Kevin, JJ Allaire, and Yuan Tang. 2024. <em>Reticulate: Interface to Python</em>. <a href="https://rstudio.github.io/reticulate/">https://rstudio.github.io/reticulate/</a>.
 </div>
 <div id="ref-R-renv" class="csl-entry" role="listitem">
-Ushey, Kevin, and Hadley Wickham. 2023. <em>Renv: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
+Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
 </div>
 <div id="ref-wickham2019advanced" class="csl-entry" role="listitem">
 Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
@@ -390,7 +577,7 @@ Wickham, Hadley. 2019. <em>Advanced r</em>. CRC press.
 ———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
 </div>
 <div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
@@ -399,13 +586,16 @@ Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaugh
 Wickham, Hadley, and Lionel Henry. 2023. <em>Purrr: Functional Programming Tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>.
 </div>
 <div id="ref-R-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
 </div>
 <div id="ref-R-tidyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2024. <em>Tidyr: Tidy Messy Data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>.
 </div>
 <div id="ref-R-knitr" class="csl-entry" role="listitem">
 Xie, Yihui. 2023. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in r</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.
+</div>
+<div id="ref-R-bookdown" class="csl-entry" role="listitem">
+———. 2024. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
 </div>
 <div id="ref-R-exams" class="csl-entry" role="listitem">
 Zeileis, Achim, Bettina Gruen, Friedrich Leisch, and Nikolaus Umlauf. 2022. <em>Exams: Automatic Generation of Exams in r</em>. <a href="https://www.R-exams.org/">https://www.R-exams.org/</a>.
@@ -493,10 +683,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -506,8 +695,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -520,6 +718,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -563,6 +880,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -588,6 +906,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -651,12 +995,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-introdução.html" class="pagination-link">
+      <a href="./01-introdução.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Introdução</span>">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

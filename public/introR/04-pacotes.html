@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -84,7 +85,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./05-interagindo-computador-internet.html" rel="next">
-<link href="./03-rstudio.html" rel="prev">
+<link href="./03-primeiros-passos-R.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,7 +101,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -109,8 +116,10 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- Google tag (gtag.js) -->
@@ -123,8 +132,6 @@ div.csl-indent {
   gtag('config', 'G-FR8PLMG1G7');
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -134,13 +141,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-pacotes.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pacotes do R</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-pacotes.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pacotes do R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -149,7 +156,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introdução ao R</a> 
@@ -176,14 +183,14 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-como-o-r-funciona.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Como o R Funciona?</span></span></a>
+  <a href="./02-primeiros-passos-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros Passos com o RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span></a>
+  <a href="./03-primeiros-passos-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Primeiros Passos com o R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,32 +207,20 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-importacao-exportacao-dados-locais.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados Locais</span></span></a>
+  <a href="./06-objetos-basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-importacao-internet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importação de Dados via Pacotes</span></span></a>
+  <a href="./07-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">As Classes de Armazenamento</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dataframes e outros Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-objetos-basicos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-intro-programacao.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução a Programação com o R</span></span></a>
+  <a href="./08-importacao-exportacao-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,7 +232,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -248,6 +243,8 @@ div.csl-indent {
   <li><a href="#instalando-pacotes-do-github" id="toc-instalando-pacotes-do-github" class="nav-link" data-scroll-target="#instalando-pacotes-do-github"><span class="header-section-number">4.2</span> Instalando Pacotes do Github</a></li>
   <li><a href="#carregando-pacotes" id="toc-carregando-pacotes" class="nav-link" data-scroll-target="#carregando-pacotes"><span class="header-section-number">4.3</span> Carregando Pacotes</a></li>
   <li><a href="#atualizando-pacotes" id="toc-atualizando-pacotes" class="nav-link" data-scroll-target="#atualizando-pacotes"><span class="header-section-number">4.4</span> Atualizando Pacotes</a></li>
+  <li><a href="#pacote-intror" id="toc-pacote-intror" class="nav-link" data-scroll-target="#pacote-intror"><span class="header-section-number">4.5</span> Pacote <code>introR</code></a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">4.6</span> Exercícios</a></li>
   </ul>
 </nav>
     </div>
@@ -269,25 +266,28 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p>Um dos grandes benefícios do uso do R é o seu acervo de pacotes. Esses representam um conjunto de procedimentos agrupados em uma coleção de funções e voltados para a resolução de um problema qualquer. O R tem em sua essência uma filosofia de colaboração. Usuários disponibilizam os seus códigos para outras pessoas utilizarem. E, mais importante, <strong>todos os pacotes são gratuitos</strong>, assim como o R. Por exemplo, considere um caso em que está interessado em baixar dados da internet sobre o desemprego histórico no Brasil. Para isso, basta procurar e instalar o pacote específico que realiza esse procedimento.</p>
-<p>Esses pacotes podem ser instalados de diferentes fontes, com as principais sendo <strong>CRAN</strong> (<em>The Comprehensive R Archive Network</em>) e <strong>Github</strong>. A cada dia aumenta a quantidade e diversidade de pacotes existentes para o R. O próprio autor deste livro possui diversos pacotes disponíveis no CRAN, cada um para resolver algum problema diferente. Na grande maioria, são pacotes para importar e organizar dados financeiros.</p>
-<p>O CRAN é o repositório oficial do R e é livre. Qualquer pessoa pode enviar um pacote e todo código enviado está disponível na internet. Existe, porém, um processo de avaliação que o código passa e certas normas rígidas devem ser respeitadas sobre o formato do código, o manual do usuário e a forma de atualização do pacote. Para quem tiver interesse, um tutorial claro e fácil de seguir é apresentado no site [https://r-pkgs.org/). As regras completas estão disponíveis no site do CRAN - <a href="https://cran.r-project.org/web/packages/policies.html">https://cran.r-project.org/web/packages/policies.html</a>. A adequação do código a essas normas é responsabilidade do desenvolvedor e gera um trabalho significativo, principalmente na primeira submissão.</p>
-<p>A lista completa de pacotes disponíveis no CRAN, juntamente com uma breve descrição, pode ser acessada no link <em>packages</em> do site do R - <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>. Uma maneira prática de verificar a existência de um pacote para um procedimento específico é carregar a página anterior e procurar no seu navegador de internet a palavra-chave que define o seu procedimento. Caso existir o pacote com a palavra-chave, a procura acusará o encontro do termo na descrição do pacote.</p>
-<p>Outra fonte importante para o encontro de pacotes é o <a href="https://cran.r-project.org/web/views/"><em>Task Views</em></a>, em que são destacados os principais pacotes de acordo com a área e o tipo de uso. Veja a tela do <em>Task Views</em> na Figura <span class="math inline">\(\ref{fig:TaskViews}\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/TaskViews.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Tela do Task Views</figcaption>
-</figure>
+
+<p>Um dos grandes benefícios do uso do R é o seu acervo de <strong>pacotes gratuitos</strong>. O R tem em sua essência uma filosofia de colaboração. O CRAN é o repositório oficial do R e é onde pessoas do mundo inteiro disponibilizam seus códigos no formato de pacotes. E, mais importante, <strong>todos os pacotes são gratuitos</strong>, assim como o R. Por exemplo, considere um caso em que está interessado em baixar dados da internet sobre o desemprego histórico no Brasil. Para isso, basta procurar e instalar o pacote específico que realiza esse procedimento.</p>
+<p>Os pacotes podem ser instalados de diferentes fontes, com as principais sendo <strong>CRAN</strong> (<em>The Comprehensive R Archive Network</em>) e <strong>Github</strong>. A cada dia aumenta a quantidade e diversidade de pacotes existentes para o R. O próprio autor deste livro possui <a href="https://www.r-pkg.org/maint/marceloperlin@gmail.com">diversos pacotes</a> disponíveis no CRAN, cada um para resolver algum problema diferente. Na grande maioria, são pacotes para importar e organizar dados financeiros.</p>
+<p>O CRAN é o repositório público oficial do R e, atualmente, contém 20660 pacotes disponíveis para a comunidade. Todo código do CRAN passa por um processo de avaliação onde normas rígidas devem ser respeitadas. Para quem tiver interesse, um tutorial claro e fácil de seguir é apresentado no site &lt; https://r-pkgs.org/ &gt;. As regras completas estão disponíveis no <a href="https://cran.r-project.org/web/packages/policies.html">site do CRAN</a>. A adequação do código a essas normas é responsabilidade do desenvolvedor e gera um trabalho significativo, principalmente na primeira submissão.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Como procurar um pacote na internet
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Uma maneira prática de verificar a existência ou não de um pacote é carregar a <a href="https://cloud.r-project.org/web/packages/available_packages_by_name.html">página de pacotes do CRAN</a> e, no seu navegador de internet, procurar (<em>control + f</em> nos principais navegadores ) a palavra-chave que define a sua busca. Caso existir o pacote com a palavra-chave, a procura acusará o encontro do termo na descrição do pacote. Outra fonte importante para o encontro de pacotes é o <a href="https://cran.r-project.org/web/views"><em>Task Views</em></a>, em que são destacados os principais pacotes de acordo com a área e o tipo de uso.</p>
 </div>
-<p>Ao contrário do CRAN, o <em>Github</em> não possui restrição quanto ao código enviado e, devido a isso, tende a ser escolhido como ambiente de compartilhamento de código. A responsabilidade de uso, porém, é do próprio usuário. Na prática, é muito comum os desenvolvedores manterem uma versão em desenvolvimento no <em>Github</em> e outra oficial no CRAN. Quando a versão em desenvolvimento atinge um estágio de maturidade, a mesma é enviada ao CRAN.</p>
-<p>O mais interessante no uso de pacotes é que estes podem ser acessados e instalados diretamente no R via a internet. Para saber qual é a quantidade atual de pacotes no CRAN, digite e execute os seguintes comandos no <em>prompt</em>:</p>
+</div>
+<p>O <a href="https://github.com/">Github</a> é um repositório de códigos na internet e também pode ser usado para instalar pacotes do R. Porém, ao contrário do CRAN, o <em>Github</em> não possui restrição ou controle quanto ao código enviado. A responsabilidade de uso é sempre do próprio usuário. Na prática, é muito comum os desenvolvedores de pacotes manterem uma versão em desenvolvimento no <em>Github</em> e outra oficial no CRAN. Quando a versão em desenvolvimento atinge um estágio de maturidade, a mesma é enviada ao CRAN. <strong>O mais interessante no uso de pacotes é que estes podem ser acessados e instalados diretamente no R via a internet</strong>.</p>
+<p>Para saber qual é a quantidade atual de pacotes no CRAN, digite e execute os seguintes comandos no <em>prompt</em>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find current available packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df_cran_pkgs <span class="ot">&lt;-</span> <span class="fu">available.packages</span>()</span>
@@ -298,11 +298,10 @@ div.csl-indent {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(n_cran_pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 20271</code></pre>
+<pre><code>R&gt; [1] 20660</code></pre>
 </div>
 </div>
-<p>Atualmente, 2024-01-10 16:17:46.582736, existem 20271 pacotes disponíveis nos servidores do CRAN.</p>
-<p>Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
+<p>Conforme saída do código, 2024-04-07 09:33:52.329085, existem 20660 pacotes disponíveis nos servidores do CRAN. O objeto <code>df_cran_pkgs</code> contém uma tabela com todas as informações dos pacotes. Caso esteja curioso, basta executar <code>View(df_cran_pkgs)</code> para visualizar a tabela no Rstudio. Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get number of local (installed) packages</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_local_pkgs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">installed.packages</span>())</span>
@@ -310,39 +309,39 @@ div.csl-indent {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(n_local_pkgs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 431</code></pre>
+<pre><code>R&gt; [1] 562</code></pre>
 </div>
 </div>
-<p>Nesse caso, o computador em que o livro foi escrito possui 431 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada! A diversidade dos pacotes é gigantesca.</p>
+<p>Nesse caso, o computador em que o livro foi escrito possui 562 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada!</p>
 <section id="instalando-pacotes-do-cran" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="instalando-pacotes-do-cran"><span class="header-section-number">4.1</span> Instalando Pacotes do CRAN</h2>
-<p>Para instalar um pacote, basta utilizar o comando <strong>install.packages()</strong> . Como exemplo, vamos instalar um pacote que será utilizado nos capítulos futuros, o <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span>:</p>
+<p>Para instalar um pacote, basta utilizar o comando <strong>install.packages()</strong> . Como exemplo, vamos instalar um pacote que será utilizado nos capítulos futuros, o <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2024</a>)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install pkg readr</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'readr'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Copie e cole este comando no <em>prompt</em> e pronto! O R irá baixar os arquivos necessários e instalar o pacote <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span> e suas dependências. Após isto, as funções relativas ao pacote estarão prontas para serem usadas após o carregamento do módulo (detalhes a seguir). Observe que definimos o nome do pacote na instalação como se fosse texto, com o uso das aspas (<code>"</code>). Caso o pacote instalado seja dependente de outros pacotes, o R automaticamente instala todos módulos faltantes. Assim, todos os requerimentos para o uso do respectivo pacote já serão satisfeitos e tudo funcionará perfeitamente. É possível, porém, que um pacote tenha uma dependência externa. Como um exemplo, o pacote <code>RndTexExams</code> depende da existência de uma instalação do LaTex. Geralmente essa é anunciada na sua descrição e um erro é sinalizado na execução do programa quando o LaTex não é encontrado. Fique atento, portanto, a esses casos.</p>
-<p>Aproveitando o tópico, sugiro que o leitor já instale todos os pacotes do <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> com o seguinte código:</p>
+<p>Copie e cole este comando no <em>prompt</em> e pronto! O R irá baixar os arquivos necessários e instalar o pacote <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2024</a>)</span> e suas dependências. Após isto, as funções relativas ao pacote estarão prontas para serem usadas após o carregamento do módulo. Observe que definimos o nome do pacote na instalação como se fosse texto, com o uso das aspas (<code>"</code>). Caso o pacote instalado seja dependente de outros pacotes, o R automaticamente instala todos módulos faltantes. Assim, todos os requerimentos para o uso do respectivo pacote já estarão satisfeitos e tudo funcionará perfeitamente. É possível, porém, que um pacote tenha uma dependência externa. Como exemplo, pacote <strong>{quarto}</strong> <span class="citation" data-cites="R-quarto">(<a href="99-references.html#ref-R-quarto" role="doc-biblioref">Allaire and Dervieux 2024</a>)</span> depende da existência de uma instalação do LaTex. Geralmente essa é anunciada na sua descrição e um erro é sinalizado na execução do programa quando o LaTex não é encontrado. Fique atento, portanto, a esses casos.</p>
+<p>Aproveitando o tópico, sugiro que o leitor já instale todos os pacotes do <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span> com o seguinte código:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install pkgs from tidyverse</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tidyverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>O <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> é um conjunto de pacotes voltados a <em>data science</em> e com uma sintaxe própria e consistente, voltada a praticabilidade. Verás que, em uma instalação nova do R, o <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> depende de uma grande quantidade de pacotes.</p>
+<p>O <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span> é um conjunto de pacotes voltados a <em>data science</em> e com uma sintaxe própria e consistente, voltada a praticabilidade. Verás que, em uma instalação nova do R, o <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span> depende de uma grande quantidade de pacotes.</p>
 </section>
 <section id="instalando-pacotes-do-github" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="instalando-pacotes-do-github"><span class="header-section-number">4.2</span> Instalando Pacotes do Github</h2>
-<p>Para instalar um pacote diretamente do Github, é necessário instalar antes o pacote <em>devtools</em>, disponível no CRAN: </p>
+<p>Para instalar um pacote diretamente do Github, um dos pré-requisitos é o pacote <strong>{devtools}</strong> <span class="citation" data-cites="R-devtools">(<a href="99-references.html#ref-R-devtools" role="doc-biblioref">Wickham et al. 2022</a>)</span>, disponível no CRAN:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'devtools'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Após isto, utilize função <code>devtools::install_github</code> para instalar um pacote diretamente do Github. Note que o símbolo <code>::</code> indica que função <code>install_github</code> pertence ao pacote <code>devtools</code>. Com esta particular sintaxe, não precisamos carregar todo o pacote para utilizar apenas uma função.</p>
-<p>No exemplo a seguir instalamos a versão em desenvolvimento do pacote <code>ggplot2</code>, cuja versão oficial também está disponível no CRAN: </p>
+<p>Após isto, utilize função <strong>devtools</strong>::<strong>install_github()</strong> para instalar um pacote diretamente do Github. Note que o símbolo <code>::</code> indica que função <strong>install_github()</strong> pertence ao pacote <strong>{devtools}</strong>. Com esta particular sintaxe, não precisamos carregar todo o pacote para utilizar apenas uma função.</p>
+<p>No exemplo a seguir instalamos a versão em desenvolvimento do pacote <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, cuja versão oficial também está disponível no CRAN:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install ggplot2 from github</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"hadley/ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Observe que o nome do usuário do repositório também é incluído. No caso anterior, o nome <em>hadley</em> pertence ao desenvolvedor do <code>ggplot2</code>, Hadley Wickham. No decorrer do livro notará que esse nome aparecerá diversas vezes, dado que Hadley é um prolífico e competente desenvolvedor de diversos pacotes do R e do <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span>.</p>
+<p>Observe que o nome do usuário do repositório também é incluído. No caso anterior, o nome <em>hadley</em> pertence ao desenvolvedor principal do <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, Hadley Wickham. No decorrer do livro notará que esse nome aparecerá diversas vezes, dado que Hadley é um prolífico e competente desenvolvedor de diversos pacotes do R e do <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span>.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -353,13 +352,13 @@ Cuidado
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Um aviso aqui é importante. <strong>Os pacotes do github não são moderados. Qualquer pessoa pode enviar código para lá e o conteúdo não é checado de forma independente.</strong> Nunca instale pacotes do github sem conhecer os autores. Apesar de improvável – nunca aconteceu comigo por exemplo – é possível que esses possuam algum código malicioso.</p>
+<p>Um aviso aqui é importante. <strong>Os pacotes do github não são moderados. Qualquer pessoa pode enviar código para lá e o conteúdo não é checado</strong>. Nunca instale pacotes do github sem conhecer os autores. Apesar de improvável – nunca aconteceu comigo por exemplo – é possível que esses possuam algum código malicioso.</p>
 </div>
 </div>
 </section>
 <section id="carregando-pacotes" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="carregando-pacotes"><span class="header-section-number">4.3</span> Carregando Pacotes</h2>
-<p>Dentro de uma rotina de pesquisa, utilizamos a função <code>library</code> para carregar um pacote na nossa sessão do R. Ao fecharmos o RStudio ou então iniciar uma nova sessão do R, os pacotes são descarregados. Vale salientar que alguns pacotes, tal como o <strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023</a>)</span> e o <code>stats</code>, são inicializados automaticamente a cada nova sessão. A grande maioria, porém, deve ser carregada no início dos <em>scripts</em>. Veja o exemplo a seguir:</p>
+<p>Dentro de uma rotina de pesquisa, utilizamos a função <strong>library()</strong> para carregar um pacote na nossa sessão do R. Ao fecharmos o RStudio ou então iniciar uma nova sessão do R, os pacotes são descarregados. Vale salientar que alguns pacotes, tal como o <strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023a</a>)</span> e o <strong>{stats}</strong> <span class="citation" data-cites="R-stats">(<a href="99-references.html#ref-R-stats" role="doc-biblioref">R Core Team 2023b</a>)</span>, são inicializados automaticamente a cada nova sessão. A grande maioria, porém, deve ser carregada no início dos <em>scripts</em>. Veja o exemplo a seguir:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load dplyr</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -377,14 +376,14 @@ R&gt;    -- Frank Harrell (SAS User, 1969-1991)
 R&gt;       R-help (September 2003)</code></pre>
 </div>
 </div>
-<p>Nesse caso, utilizamos a função <code>fortune</code> do próprio pacote <code>fortunes</code>, o qual mostra na tela uma frase possivelmente engraçada escolhida do <em>mailing list</em> do R. Nesse caso, selecionamos a mensagem número 10. Se não tiver disponível o pacote, o R mostrará a seguinte mensagem de erro:</p>
+<p>Nesse caso, utilizamos a função <strong>fortunes</strong>::<strong>fortune()</strong> do próprio pacote <strong>{fortunes}</strong> <span class="citation" data-cites="R-fortunes">(<a href="99-references.html#ref-R-fortunes" role="doc-biblioref">Zeileis 2016</a>)</span>, o qual mostra na tela uma frase possivelmente engraçada escolhida do <em>mailing list</em> do R. Nesse caso, selecionamos a mensagem número 10. Se não tiver disponível o pacote, o R mostrará a seguinte mensagem de erro:</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
 <pre><code>R&gt; Error in library("fortune") : there is no package called "fortune"</code></pre>
 </div>
 </div>
 <p>Para resolver, utilize o comando <code>install.packages("fortunes")</code> para instalar o pacote no seu computador. Execute o código <code>fortunes::fortune(10)</code> no <em>prompt</em> para confirmar a instalação. Toda vez que se deparar com essa mensagem de erro, deves instalar o pacote que está faltando.</p>
-<p>Outra maneira de carregar um pacote é através da função <code>require</code>. Essa tem um comportamento diferente da função <code>library</code> e deve ser utilizada dentro da definição de funções ou no teste do carregamento do pacote. Caso o usuário crie uma função customizada que necessite de procedimentos de um pacote em particular, o mesmo deve carregar o pacote no escopo da função. Por exemplo, veja o código a seguir, em que criamos uma função dependente do pacote <code>quantmod</code>:</p>
+<p>Outra maneira de carregar um pacote é através da função <strong>require()</strong> . Esta tem um comportamento diferente da função <strong>library()</strong> pois não emite erro se o pacote não estiver instalado. Usualmente, <strong>require()</strong> é utilizado dentro da definição de funções ou no teste do carregamento do pacote. Caso o usuário crie uma função customizada que necessite de procedimentos de um pacote em particular, o mesmo deve carregar o pacote no escopo da função. Por exemplo, veja o código a seguir, em que criamos uma função dependente do pacote <strong>{quantmod}</strong> <span class="citation" data-cites="R-quantmod">(<a href="99-references.html#ref-R-quantmod" role="doc-biblioref">Ryan and Ulrich 2024</a>)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_fct <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">require</span>(quantmod)</span>
@@ -393,7 +392,7 @@ R&gt;       R-help (September 2003)</code></pre>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Nesse caso, a função <code>getSymbols</code> faz parte do pacote <code>quantmod</code>. Não se preocupe agora com a estrutura utilizada para criar uma função no R. Essa será explicada em capítulo futuro.</p>
+<p>Nesse caso, a função <strong>quantmod</strong>::<strong>getSymbols()</strong> faz parte do pacote <strong>{quantmod}</strong> <span class="citation" data-cites="R-quantmod">(<a href="99-references.html#ref-R-quantmod" role="doc-biblioref">Ryan and Ulrich 2024</a>)</span>. Não se preocupe agora com a estrutura utilizada para criar uma função no R. Essa será explicada em capítulo futuro.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -404,28 +403,33 @@ Cuidado!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Uma precaucão que deve sempre ser tomada quando se carrega um pacote é um possível <strong>conflito de funções</strong>. Por exemplo, existe uma função chamada <code>filter</code> no pacote <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span> e também no pacote <code>stats</code>. Caso carregarmos ambos pacotes e chamarmos a função <code>filter</code> no escopo do código, qual delas o R irá usar? Pois bem, a <strong>preferência é sempre para o último pacote carregado</strong>. Esse é um tipo de problema que pode gerar muita confusão. Felizmente, note que o próprio R acusa um conflito de nome de funções no carregamento do pacote. Para testar, inicie uma nova sessão do R e carregue o pacote <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>. Verás que uma mensagem indica haver dois conflitos com o pacote <code>stats</code> e quatro com pacote o <strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023</a>)</span>.</p>
+<p>Uma precaucão que deve sempre ser tomada quando se carrega um pacote é um possível <strong>conflito de funções</strong>. Por exemplo, existe uma função chamada <strong>filter()</strong> no pacote <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span> e também no pacote <strong>{stats}</strong> <span class="citation" data-cites="R-stats">(<a href="99-references.html#ref-R-stats" role="doc-biblioref">R Core Team 2023b</a>)</span>. Caso carregarmos ambos pacotes e chamarmos a função <strong>filter()</strong> no escopo do código, qual delas o R irá usar?</p>
+<p>Pois bem, a <strong>preferência é sempre para o último pacote carregado</strong>. Esse é um tipo de problema que pode gerar muita confusão. Felizmente, note que o próprio R acusa um conflito de nome de funções no carregamento do pacote. Para testar, inicie uma nova sessão do R e carregue o pacote <strong>{dplyr}</strong> <span class="citation" data-cites="R-dplyr">(<a href="99-references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>. Verás que uma mensagem indica haver dois conflitos com o pacote <code>stats</code> e quatro com pacote o <strong>{base}</strong> <span class="citation" data-cites="R-base">(<a href="99-references.html#ref-R-base" role="doc-biblioref">R Core Team 2023a</a>)</span>. Alternativamente, pacote <strong>{conflicted}</strong> <span class="citation" data-cites="R-conflicted">(<a href="99-references.html#ref-R-conflicted" role="doc-biblioref">Wickham 2023a</a>)</span> oferece uma maneira explícita de administrar possíveis conflitos e definir quais funções são usadas no código.</p>
 </div>
 </div>
 </section>
 <section id="atualizando-pacotes" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="atualizando-pacotes"><span class="header-section-number">4.4</span> Atualizando Pacotes</h2>
-<p>Ao longo do tempo, é natural que os pacotes disponibilizados no CRAN sejam atualizados para acomodar novas funcionalidades ou se adaptar a mudanças em suas dependências. Assim, é recomendável que os usuários atualizem os seus pacotes instalados para uma nova versão através da internet. Esse procedimento é bastante fácil. Uma maneira direta de atualizar pacotes é clicar no botão <em>update</em> no painel de pacotes no canto direito inferior do RStudio, conforme mostrado na figura @ref(fig:RStudio-update).</p>
+<p>Ao longo do tempo, é natural que os pacotes disponibilizados no CRAN sejam atualizados para acomodar novas funcionalidades ou se adaptar a mudanças em suas dependências. Assim, é recomendável que os usuários atualizem os seus pacotes instalados para uma nova versão através da internet. Esse procedimento é bastante fácil. Uma maneira direta de atualizar pacotes é clicar no botão <em>update</em> no painel de pacotes no canto direito inferior do RStudio, conforme mostrado na <a href="#fig-RStudio-update" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/RStudio_update.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Atualizando pacotes no R</figcaption>
+<div id="fig-RStudio-update" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RStudio-update-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="resources/figs/RStudio_update.png" class="img-fluid figure-img" width="683">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RStudio-update-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Atualizando pacotes no R
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>A atualização de pacotes através do <em>prompt</em> também é possível. Para isso, basta utilizar o comando <code>update.packages</code>, conforme mostrado a seguir. </p>
+<p>A atualização de pacotes através do <em>prompt</em> também é possível. Para isso, basta utilizar o comando <strong>update.packages()</strong> , conforme mostrado a seguir.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>O comando <code>update.packages()</code> compara a versão dos pacotes instalados em relação a versão disponível no CRAN. Caso tiver alguma diferença, a nova versão é instalada. Após a execução do comando, todos os pacotes estarão atualizados com a versão disponível nos servidores do CRAN.</p>
+<p>O comando <strong>update.packages()</strong> compara a versão dos pacotes instalados em relação a versão disponível no CRAN. Caso tiver alguma diferença, a nova versão é instalada. Após a execução do comando, todos os pacotes estarão atualizados com a versão disponível nos servidores do CRAN.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -436,24 +440,199 @@ Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Versionamento de pacotes é extremamente importante para manter a reproducibilidade do código. Apesar de ser raro de acontecer, é possível que a atualização de um pacote no R modifique, para os mesmos dados, resultados já obtidos anteriormente. Tenho uma experiência particularmente memorável quando um artigo científico retornou da revisão e, devido a atualização de um dos pacotes, não consegui reproduzir os resultados apresentados no artigo. No final deu tudo certo, mas o trauma fica.</p>
-<p>Uma solução para este problema é congelar as versões dos pacotes para cada projeto usando a ferramenta <code>packrat</code> do RStudio. Em resumo, o <code>packrat</code> faz cópias locais dos pacotes utilizados no projeto, os quais têm preferência aos pacotes do sistema. Assim, se um pacote for atualizado no sistema, mas não no projeto, o código R vai continuar usando a versão mais antiga e seu código sempre rodará nas mesmas condições.</p>
+<p>Versionamento de pacotes é extremamente importante para manter a reprodutibilidade do código. Apesar de ser raro de acontecer, é possível que a atualização de um pacote no R modifique, para os mesmos dados, resultados já obtidos anteriormente. Tenho uma experiência particularmente memorável quando um artigo científico retornou da revisão e, devido a atualização de um dos pacotes, não consegui reproduzir os resultados apresentados no artigo original. No final das contas deu tudo certo, mas o trauma fica. Reporto, porém, que isto é muito raro de acontecer.</p>
+<p>Uma solução para este problema é congelar as versões dos pacotes para cada projeto usando a ferramenta <strong>{renv}</strong> <span class="citation" data-cites="R-renv">(<a href="99-references.html#ref-R-renv" role="doc-biblioref">Ushey and Wickham 2024</a>)</span> do RStudio. Em resumo, o <strong>{renv}</strong> <span class="citation" data-cites="R-renv">(<a href="99-references.html#ref-R-renv" role="doc-biblioref">Ushey and Wickham 2024</a>)</span> faz cópias locais dos pacotes utilizados no projeto, os quais têm preferência aos pacotes do sistema. Assim, se um pacote for atualizado no sistema, mas não no projeto, o código R vai continuar usando a versão mais antiga e seu código sempre rodará nas mesmas condições.</p>
 </div>
 </div>
+</section>
+<section id="pacote-intror" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="pacote-intror"><span class="header-section-number">4.5</span> Pacote <code>introR</code></h2>
+<p>Nas seções futuras iremos utilizar o pacote do livro – <code>introR</code> – para carregar diversos exemplos de arquivos. Se você seguiu as instruções da seção <em>Material Suplementar</em> localizada no prefácio do livro, já deves ter o pacote instalado. Caso contrário, execute o seguinte código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install devtools (if not installed)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(devtools)) <span class="fu">install.packages</span> (<span class="st">'devtools'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install book package</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span> (<span class="st">'msperlin/introR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Uma vez que você instalou o pacote <strong>{introR}</strong> <span class="citation" data-cites="R-introR">(<a href="99-references.html#ref-R-introR" role="doc-biblioref"><strong>R-introR?</strong></a>)</span>, todos os arquivos de dados usados no livro foram baixados. Podemos verificar os cinco primeiros arquivos disponíveis com o comando <strong>introR</strong>::<strong>data_list()</strong> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list available data files</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>introR<span class="sc">::</span><span class="fu">data_list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ── Available data files at '/home/msperlin/R/x86_64-pc-linux</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_another-funky-csv-file.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-fst.fst</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-Rdata.RData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-rds.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-sqlite.SQLite</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_example-tsv.tsv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_funky-csv-file.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_ibovespa-Excel.xlsx</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_ibovespa.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_price-and-prejudice.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_SP500-Excel.xlsx</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH04_SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH07_FileWithLatinChar_Latin1.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH07_FileWithLatinChar_UTF-8.txt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH08_some-stocks-SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH08_wide-example-stocks.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH10_sp500-stocks-long-by-year.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_grunfeld.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_SP500.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ CH11_UCI-Credit-Card.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_B3-stocks.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_football-br.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_Ibov_PETR4.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_ibovespa.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks-wide.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks-yearly.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_SP500-stocks.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_TD-data.rds</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ℹ EX_TweetsElonMusk.csv</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ✔ You can get the local path of file using introR::data_path(name_of_file)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>R&gt; ✔ Example: local_path &lt;- introR::data_path('CH04_funky-csv-file.csv')</code></pre>
+</div>
+</div>
+<p>Os arquivos anteriores estão salvos na pasta de instalação dos pacote <code>introR</code>. Para ter o caminho completo, basta usar função <strong>introR</strong>::<strong>data_path()</strong> tendo o nome do arquivo como entrada:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get location of file</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>my_f <span class="ot">&lt;-</span> introR<span class="sc">::</span><span class="fu">data_path</span>(<span class="st">'CH11_grunfeld.csv'</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R&gt; /home/msperlin/R/x86_64-pc-linux-gnu-library/4.3/introR/extdata/data/CH11_grunfeld.csv</code></pre>
+</div>
+</div>
+<p>A partir de agora iremos usar a função <code>introR::data_path</code> para obter o caminho dos arquivos utilizados nos exemplos. Note que, desde que tenha o pacote <code>introR</code> instalado, podes facilmente reproduzir todos os exemplos do livro no seu computador.</p>
+</section>
+<section id="exercícios" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">4.6</span> Exercícios</h2>
+<hr>
+<p>Q.1 - Toda vez que o usuário instala um pacote do R, os arquivos particulares ao pacote são armazenados localmente em uma pasta específica do computador. Utilizando comando <code>Sys.getenv('R_LIBS_USER')</code> e <code>list.dirs</code>, liste todos os diretórios desta pasta. Quantos pacotes estão disponíveis nesta pasta do seu computador?</p>
+<hr>
+<p>Q.2 - Use função <strong>install.packages()</strong> para instalar o pacote <strong>{yfR}</strong> <span class="citation" data-cites="R-yfR">(<a href="99-references.html#ref-R-yfR" role="doc-biblioref">Perlin 2023</a>)</span> no seu computador. Após a instalação, use função <code>yfR::get_yf</code> para baixar dados de preços para a ação da Petrobrás – PETR3 (PETR3.SA no Yahoo finance) – nos últimos 15 dias. Dica: use função <code>Sys.Date()</code> para definir data atual e <code>Sys.Date() - 15</code> para calcular a data localizada 15 dias no passado.</p>
+<hr>
+<p>Q.3 - Pacote <strong>{cranlogs}</strong> <span class="citation" data-cites="R-cranlogs">(<a href="99-references.html#ref-R-cranlogs" role="doc-biblioref"><strong>R-cranlogs?</strong></a>)</span> permite o acesso a estatísticas de <em>downloads</em> de pacotes do CRAN. Após instalar o pacote no seu computador, use função <strong>cranlogs</strong>::<strong>cran_top_downloads()</strong> para verificar quais são os 10 pacotes mais instalados pela comunidade global no último mês. Qual o pacote em primeiro lugar? Dica: Defina a entrada da função <code>cran_top_downloads</code> como sendo <code>when = 'last-week'</code>. Também note que a resposta aqui pode não ser a mesma que obteve pois esta depende do dia em que foi executado o código.</p>
+<ol type="a">
+<li>cli</li>
+<li>rlang</li>
+<li>textshaping</li>
+<li>ragg</li>
+<li>ggplot2</li>
+</ol>
+<hr>
+<p>Q.4 - Utilizando pacote <code>devtools</code>, instale a versão de desenvolvimento do pacote <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, disponível no repositório de <a href="https://github.com/hadley">Hadley Hickman</a>. Carregue o pacote usando <code>library</code> e crie uma figura simples com o código <code>qplot(y = rnorm(10), x = 1:10)</code>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-R-quarto" class="csl-entry" role="listitem">
+Allaire, JJ, and Christophe Dervieux. 2024. <em>Quarto: R Interface to Quarto Markdown Publishing System</em>. <a href="https://github.com/quarto-dev/quarto-r">https://github.com/quarto-dev/quarto-r</a>.
+</div>
+<div id="ref-R-yfR" class="csl-entry" role="listitem">
+Perlin, Marcelo. 2023. <em>yfR: Downloads and Organizes Financial Data from Yahoo Finance</em>. <a href="https://github.com/ropensci/yfR">https://github.com/ropensci/yfR</a>.
+</div>
+<div id="ref-R-stats" class="csl-entry" role="listitem">
+R Core Team. 2023b. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
-R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+———. 2023a. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-R-quantmod" class="csl-entry" role="listitem">
+Ryan, Jeffrey A., and Joshua M. Ulrich. 2024. <em>Quantmod: Quantitative Financial Modelling Framework</em>. <a href="https://www.quantmod.com/">https://www.quantmod.com/</a>.
+</div>
+<div id="ref-R-renv" class="csl-entry" role="listitem">
+Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
+</div>
+<div id="ref-R-conflicted" class="csl-entry" role="listitem">
+Wickham, Hadley. 2023a. <em>Conflicted: An Alternative Conflict Resolution Strategy</em>. <a href="https://conflicted.r-lib.org/">https://conflicted.r-lib.org/</a>.
 </div>
 <div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley. 2023. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
+———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, Dewey Dunnington, and Teun van den Brand. 2024. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>.
 </div>
 <div id="ref-R-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
+Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2024. <em>Readr: Read Rectangular Text Data</em>. <a href="https://readr.tidyverse.org">https://readr.tidyverse.org</a>.
+</div>
+<div id="ref-R-devtools" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2022. <em>Devtools: Tools to Make Developing r Packages Easier</em>. <a href="https://devtools.r-lib.org/">https://devtools.r-lib.org/</a>.
+</div>
+<div id="ref-R-fortunes" class="csl-entry" role="listitem">
+Zeileis, Achim. 2016. <em>Fortunes: R Fortunes</em>. <a href="https://CRAN.R-project.org/package=fortunes">https://CRAN.R-project.org/package=fortunes</a>.
 </div>
 </div>
 </section>
@@ -538,10 +717,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -551,8 +729,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -565,6 +752,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -608,6 +914,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -633,6 +940,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -694,17 +1027,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-rstudio.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span>
+      <a href="./03-primeiros-passos-R.html" class="pagination-link  aria-label=" &lt;span="" passos="" com="" o="" r&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Primeiros Passos com o R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-interagindo-computador-internet.html" class="pagination-link">
+      <a href="./05-interagindo-computador-internet.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Interagindo com o Sistema Operacional e a Internet</span>">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interagindo com o Sistema Operacional e a Internet</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-como-o-r-funciona.html" rel="next">
+<link href="./02-primeiros-passos-rstudio.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +96,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <!-- Google tag (gtag.js) -->
@@ -104,8 +112,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   gtag('config', 'G-FR8PLMG1G7');
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -115,13 +121,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-introdução.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-introdução.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -130,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introdução ao R</a> 
@@ -157,14 +163,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-como-o-r-funciona.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Como o R Funciona?</span></span></a>
+  <a href="./02-primeiros-passos-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros Passos com o RStudio</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introdução ao RStudio</span></span></a>
+  <a href="./03-primeiros-passos-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Primeiros Passos com o R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -181,32 +187,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-importacao-exportacao-dados-locais.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados Locais</span></span></a>
+  <a href="./06-objetos-basicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-importacao-internet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Importação de Dados via Pacotes</span></span></a>
+  <a href="./07-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">As Classes de Armazenamento</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-objetos-armazenamento.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dataframes e outros Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./09-objetos-basicos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">As Classes Básicas de Objetos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-intro-programacao.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução a Programação com o R</span></span></a>
+  <a href="./08-importacao-exportacao-dados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Importação e Exportação de Dados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -228,12 +222,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#o-que-é-o-r" id="toc-o-que-é-o-r" class="nav-link active" data-scroll-target="#o-que-é-o-r"><span class="header-section-number">1.1</span> O que é o R</a></li>
   <li><a href="#por-que-escolher-o-r" id="toc-por-que-escolher-o-r" class="nav-link" data-scroll-target="#por-que-escolher-o-r"><span class="header-section-number">1.2</span> Por que Escolher o R</a></li>
   <li><a href="#usos-do-r" id="toc-usos-do-r" class="nav-link" data-scroll-target="#usos-do-r"><span class="header-section-number">1.3</span> Usos do R</a></li>
-  <li><a href="#instalacao" id="toc-instalacao" class="nav-link" data-scroll-target="#instalacao"><span class="header-section-number">1.4</span> Como Instalar o R</a></li>
+  <li><a href="#sec-instalacao" id="toc-sec-instalacao" class="nav-link" data-scroll-target="#sec-instalacao"><span class="header-section-number">1.4</span> Como Instalar o R</a></li>
   <li><a href="#instalando-o-rstudio" id="toc-instalando-o-rstudio" class="nav-link" data-scroll-target="#instalando-o-rstudio"><span class="header-section-number">1.5</span> Instalando o RStudio</a></li>
   <li><a href="#recursos-na-internet" id="toc-recursos-na-internet" class="nav-link" data-scroll-target="#recursos-na-internet"><span class="header-section-number">1.6</span> Recursos na Internet</a></li>
-  <li><a href="#organização-e-material-do-livro" id="toc-organização-e-material-do-livro" class="nav-link" data-scroll-target="#organização-e-material-do-livro"><span class="header-section-number">1.7</span> Organização e Material do Livro</a></li>
-  <li><a href="#animações-de-código" id="toc-animações-de-código" class="nav-link" data-scroll-target="#animações-de-código"><span class="header-section-number">1.8</span> Animações de código</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">1.9</span> Exercícios</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">1.7</span> Exercícios</a></li>
   </ul>
 </nav>
     </div>
@@ -255,15 +247,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<p>É indiscutível que estamos vivendo em um momento histórico onde a produção de informações é totalmente digitalizada e armazenada. Desde compras na internet a geolocalização pelo celular, um volume imenso de dados é produzido e guardado em bancos de dados de diferentes empresas e organizações.</p>
-<p>Um ambiente competitivo motiva as empresas a investirem na formação de equipes especializadas em análise de dados para tomarem as melhores decisões corporativas. Sem dúvida, o período atual é bastante prolífico para profissionais com conhecimento e experiência na utilização das ferramentas corretas para a análise computacional de dados.</p>
-<p>É nesse ambiente que se destaca o papel do R, uma linguagem de programação voltada para a resolução de problemas computacionais envolvendo análise, processamento, visualização e modelagem de dados. Nas próximas seções, explicarei o que é o R e quais são suas vantagens frente a outras alternativas.</p>
+
+<p>Segundo o site <a href="https://www.quanthub.com/how-much-data-is-being-generated-every-60-seconds/">quanthub.com</a>, a cada minuto, o tempo para ler alguns parágrafos deste livro, 204 milhões de emails são enviados. É indiscutível que estamos vivendo em um momento histórico de maciça produção e armazenamento de informação. Ao mesmo tempo em que o volume de dados cresceu exponencialmente, as aplicações de análise de dados também seguiram o mesmo padrão. Usando o exemplo do email, não tenho dúvida que o texto dos email é processado em servidores de alta performance, em busca de informações com finalidade comercial.</p>
+<p>Assim, um ambiente competitivo motiva as empresas a investirem e competirem na formação de equipes especializadas em análise de dados. Sem dúvida, o período atual é bastante positivo para profissionais com conhecimento e experiência na utilização das ferramentas corretas para a análise computacional de dados. É nesse ambiente que se destaca o papel do <strong>R</strong>, uma <strong>linguagem de programação</strong> voltada para a resolução de problemas computacionais envolvendo análise, processamento, visualização e modelagem de dados. Nas próximas seções, explicarei o que é o R e quais são suas vantagens frente a outras alternativas.</p>
 <section id="o-que-é-o-r" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="o-que-é-o-r"><span class="header-section-number">1.1</span> O que é o R</h2>
-<p>O R é uma linguagem de programação voltada para a resolução de problemas estatísticos e para a visualização gráfica de dados. O código base do R foi inspirado na linguagem <em>S</em>, inicialmente criada no laboratório da <strong>Bell/AT&amp;T</strong> por <strong>John Chambers</strong> e seus colegas. A ideia de criar uma linguagem de programação voltada a estatística foi redesenhada por dois acadêmicos, <strong>Ross Ihaka</strong> e <strong>Robert Gentleman</strong>, ambos da universidade de <em>Auckland</em> - Nova zelândia.</p>
-<p>Hoje, R é sinônimo de programação voltada à análise de dados, com uma larga base de usuários acadêmicos e da indústria. É muito provável que analistas de áreas diversas, desde Economia até Biologia, ou mesmo Música, encontrem no R uma quantidade significativa de códigos que facilitem suas análises. No campo empresarial, grandes empresas como <em>Google</em> e <em>Microsoft</em> já o adotaram como a linguagem interna para a análise de dados. O R é atualmente mantido pelo <strong>R Foundation</strong> e o <a href="https://www.r-consortium.org/"><strong>R Consortium</strong></a>, um esforço coletivo para financiar projetos de extensão da linguagem.</p>
+<p>O R é uma linguagem de programação criada em 1993, e voltada para a resolução de problemas estatísticos e visualização gráfica de dados. O código base do R foi inspirado na linguagem <em>S</em>, inicialmente criada no laboratório da <strong>Bell/AT&amp;T</strong> por <strong>John Chambers</strong> e seus colegas. A ideia de criar uma linguagem de programação voltada a estatística foi redesenhada por dois acadêmicos, <strong>Ross Ihaka</strong> e <strong>Robert Gentleman</strong>, ambos da universidade de <em>Auckland</em>, Nova Zelândia.</p>
+<p>Hoje, R é sinônimo de programação voltada à análise de dados, com uma larga base de usuários acadêmicos e da indústria. É muito provável que analistas de áreas diversas, desde Economia até Biologia, ou mesmo Música, encontrem no R uma quantidade significativa de códigos que facilitem suas análises. No campo empresarial, grandes empresas como <em>Google</em> e <em>Microsoft</em> já adotaram o R como a linguagem interna para a análise de dados. O R é atualmente mantido pelo <strong>R Foundation</strong> e o <a href="https://www.r-consortium.org/"><strong>R Consortium</strong></a>, um esforço coletivo para financiar projetos de extensão da linguagem.</p>
 <p>E o mais importante: <strong>o R é totalmente livre</strong> e disponível em vários sistemas operacionais. Seja você um usuário do Windows, do Linux/Unix ou do MacOS, existe uma instalação do R para a sua plataforma, e os seus códigos devem rodar entre uma e outra com mínimas alterações.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -275,7 +268,7 @@ Qual a origem do nome R?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>O que pode ser dito como uma ato pouco criativo, os desenvolvedores escolheram a letra R pois era a primeira letra de seus primeiros nomes, Ross e Robert.</p>
+<p>O que pode ser dito como um ato pouco criativo, os desenvolvedores escolheram a letra R pois era a primeira letra de seus primeiros nomes, Ross e Robert. Possivelmente, foi uma brincadeira com a linguagem <em>S</em>, a qual serviu de inspiração para o R.</p>
 </div>
 </div>
 </section>
@@ -284,8 +277,8 @@ Qual a origem do nome R?
 <p>Possivelmente você esteja se perguntando por que deve optar pelo R e investir tempo em sua aprendizagem, ao invés de escolher uma outra linguagem.</p>
 <p>Em primeiro lugar, <strong>o R é uma plataforma madura, estável, continuamente suportada e intensamente utilizada na indústria.</strong> Ao escolher o R, você terá a bagagem computacional necessária não somente para uma carreira acadêmica em pesquisa científica, mas também para o trabalho em organizações privadas. Nesse sentido, com a escolha de outra linguagem de programação menos popular ou proprietária/comercial, é provável que tal linguagem não seja utilizada em um ambiente empresarial e isso pode limitar as suas futuras oportunidades profissionais. Sem dúvida, o conhecimento de programação em um plataforma aberta de análise de dados aumenta a sua atratividade como profissional.</p>
 <p><strong>Aprender a linguagem do R é fácil.</strong> A experiência que tenho ensinando o R em sala de aula me permite afirmar que os alunos, mesmo aqueles sem experiência em programação, apresentam facilidade em aprender a linguagem e em utilizá-la para criar seus próprios códigos de pesquisa. A linguagem é intuitiva e certas normas e funções podem ser estendidas para diferentes casos. Após entender como o programa funciona, fica fácil descobrir novas funcionalidades partindo de uma lógica anterior. Essa notação compartilhada entre procedimentos facilita o aprendizado.</p>
-<p><strong>A interface do R e RStudio torna o uso da ferramenta bastante produtivo.</strong> A interface gráfica aberta e gratuita disponibilizada pela <a href="https://posit.co/products/open-source/rstudio/">RStudio/Posit</a> facilita o uso do software, assim como a produtividade do usuário. Utilizando o ambiente de trabalho do R e RStudio, têm-se a disposição diversas ferramentas que facilitam e estendem o uso da plataforma.</p>
-<p><strong>Os pacotes do R permitem as mais diversas funcionalidades.</strong> Logo veremos que o R permite o uso de código de outros usuários, os quais podem ser localmente instalados através de um simples comando. Esses estendem a linguagem básica do R e possibilitam as mais diversas funcionalidades. Além das funções óbvias de analisar dados, podes utilizar o R para mandar emails, escrever e publicar um livro, criar provas objetivas com conteúdo dinâmico, contar piadas e poemas (é sério!), acessar e coletar dados da internet, entre diversas outras funcionalidades.</p>
+<p><strong>A interface do R e RStudio torna o uso da ferramenta bastante produtivo.</strong> A interface gráfica aberta e gratuita disponibilizada pela <a href="https://posit.co/products/open-source/rstudio/">RStudio/Posit</a> facilita o uso do software, assim como a produtividade do usuário. Utilizando o ambiente de trabalho integrado do R e o RStudio, têm-se a disposição diversas ferramentas que facilitam e estendem o uso da plataforma.</p>
+<p><strong>Os pacotes do R permitem as mais diversas funcionalidades.</strong> Logo veremos que o R permite o uso de código de outros usuários, os quais podem ser localmente instalados através de um simples comando. Esses estendem a linguagem básica do R e possibilitam as mais diversas funcionalidades. Além das funções óbvias de analisar dados, podes utilizar o R para mandar emails, escrever e publicar um livro, contar piadas e poemas (é sério!), utilizar o chat GPT para responder perguntas, acessar e coletar dados da internet, entre diversas outras funcionalidades.</p>
 <p><strong>O R tem compatibilidade com diferentes linguagens e sistemas operacionais.</strong> Se, por algum motivo, o usuário precisar utilizar código de outra linguagem de programação tal como <em>C++</em>, <em>Python</em>, <em>Julia</em>, é fácil integrar a mesma dentro de um programa do R. Diversos pacotes estão disponíveis para facilitar esse processo. Portanto, o usuário nunca fica restrito a uma única linguagem e tem flexibilidade para escolher as suas ferramentas de trabalho.</p>
 <p><strong>O R é totalmente gratuito!</strong> O programa e todos os seus pacotes são completamente livres, não tendo custo algum de licença e distribuição. Portanto, você pode utilizá-lo e modificá-lo livremente no seu trabalho ou computador pessoal. Essa é uma razão muito forte para a adoção da linguagem em um ambiente empresarial, onde a obtenção de licenças individuais e coletivas de outros softwares comerciais pode incidir um alto custo financeiro.</p>
 </section>
@@ -294,84 +287,62 @@ Qual a origem do nome R?
 <p>O R é uma linguagem de programação completa e qualquer problema computacional relacionado a dados pode ser resolvido com base nela. Dada a adoção do R por diferentes áreas de conhecimento, a lista de possibilidades é extensa. Para o caso de Finanças e Economia, destaco abaixo as possíveis utilizações do programa:</p>
 <ul>
 <li><p>Substituir e melhorar tarefas intensivas e repetitivas dentro de ambientes corporativos, geralmente realizadas em planilhas eletrônicas;</p></li>
-<li><p>Criação de relatórios estruturados periódicos com a tecnologia <em>RMarkdown</em> e <em>quarto</em>. Podes, por exemplo, criar um relatório automatizado que importe dados brutos e analise as vendas as vendas na empresa no mês.</p></li>
+<li><p>Criação de relatórios estruturados periódicos com a tecnologia <em>RMarkdown</em> e <em>quarto</em>. Podes, por exemplo, criar um relatório automatizado que importe dados brutos e analise um conjunte de dados de vendas no mês.</p></li>
 <li><p>Desenvolvimento de rotinas para administrar portfolios de investimentos e executar ordens financeiras;</p></li>
 <li><p>Criação de ferramentas para controle, avaliação e divulgação de índices econômicos sobre um país ou região;</p></li>
 <li><p>Execução de diversas possibilidades de pesquisa científica através da estimação de modelos econométricos e testes de hipóteses;</p></li>
 <li><p>Criação e manutenção de <em>websites</em> dinâmicos ou estáticos através do pacotes <code>shiny</code>, <code>blogdown</code> ou <code>distill</code>;</p></li>
 </ul>
-<p>Além dos usos destacados anteriormente, o acesso público a pacotes desenvolvidos por usuários expande ainda mais essas funcionalidades. O site da <a href="https://cran.r-project.org/web/views">CRAN (<em>Comprehensive R Archive Network</em>)</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> oferece um <em>Task Views</em> do software para o tópico de <a href="https://cran.r-project.org/web/views/Finance.html">Finanças</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> e <a href="https://cran.r-project.org/web/views/Econometrics.html">Econometria</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Nos links é possível encontrar os principais pacotes disponíveis para cada tema. Isso inclui a importação de dados financeiros da internet, a estimação de um modelo econométrico específico, cálculos de diferentes estimativas de risco, entre várias outras possibilidades. A leitura dessa página e o conhecimento desses pacotes são essenciais para aqueles que pretendem trabalhar com Finanças e Economia. Vale destacar, porém, que essa lista é moderada e apresenta apenas os principais itens. A lista completa de pacotes é muito maior do que o apresentado no <em>Task Views</em>.</p>
+<p>Além dos usos destacados anteriormente, o acesso público a pacotes desenvolvidos por usuários expande ainda mais essas funcionalidades. O site do <a href="https://cran.r-project.org/web/views">CRAN (<em>Comprehensive R Archive Network</em>)</a> oferece um painel com uma lista de pacotes separadas por temas, incluindo <a href="https://cran.r-project.org/web/views/Finance.html">Finanças</a> e <a href="https://cran.r-project.org/web/views/Econometrics.html">Econometria</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Encontrando pacotes para determinada área
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A página do <em>task views</em>, localizada em <a href="https://cran.r-project.org/web/views">https://cran.r-project.org/web/views</a> é um ótimo lugar para estudar pacotes e buscar soluções para um problema específico. Lá encontrarás os pacotes separados por tema e subtema específico, assim como também uma breve descrição. Porém, saiba que a lista é moderada com baixa frequência de atualização, e apresenta apenas os principais itens. A lista completa de pacotes é muito maior do que o apresentado no <em>Task Views</em>.</p>
+</div>
+</div>
 </section>
-<section id="instalacao" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="instalacao"><span class="header-section-number">1.4</span> Como Instalar o R</h2>
-<p>O R é instalado no seu sistema operacional como qualquer outro programa. A maneira mais direta e funcional de instalá-lo é ir ao website do R em <a href=""></a> e clicar no <em>link</em> <em>CRAN</em> do painel <em>Download</em>, conforme mostrado na animação a seguir.</p>
+<section id="sec-instalacao" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-instalacao"><span class="header-section-number">1.4</span> Como Instalar o R</h2>
+<p>O R é instalado no seu sistema operacional como qualquer outro programa. A maneira mais direta e funcional de instalá-lo é ir ao website do R em <a href="https://www.r-project.org/">https://www.r-project.org/</a> e clicar no <em>link</em> <em>CRAN</em> do painel <em>Download</em>, conforme mostrado na animação em <a href="#fig-instalando-r" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-instalando-r" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img src="resources/gifs/gif_instalando-r.gif" class="img-fluid figure-img"></p>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-instalando-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="resources/gifs/gif_instalando-r.gif" class="img-fluid figure-img">
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.1: Instalando o R no Windows</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-instalando-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Instalando o R no Windows
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>Resumindo, os passos para a instalação do R no Windows são:</p>
+<ol type="1">
+<li><p>Após clicar em <a href="https://cran.r-project.org/mirrors.html">Download-CRAN</a>, a próxima tela apresenta a escolha do espelho para baixar os arquivos de instalação. O repositório do CRAN é espelhado em diversas partes do mundo, permitindo acesso rápido para os usuários. Para a grande maioria dos leitores deste livro, essa localidade deve ser o Brasil. Portanto, você pode escolher um dos links da instituição mais próxima, tal como o da UFPR (Universidade Federal do Paraná). Em caso de dúvida, escolha o repositório do RStudio <em>0-Cloud</em>, o qual automaticamente direciona para o local mais próximo.</p></li>
+<li><p>O próximo passo é selecionar o sistema operacional do computador. Devido à maior popularidade da plataforma <em>Windows</em>, a partir de agora daremos enfoque à instalação do R nesse sistema. As instruções de instalação nos demais sistemas operacionais podem ser facilmente encontradas na internet. Destaca-se que, independente da plataforma, o modo de uso do R é o mesmo. Existem, porém, algumas exceções, principalmente quando o R interage com o sistema de arquivos.</p></li>
+<li><p>Após clicar no link <em>Download R for Windows</em>, a próxima tela irá mostrar as seguintes opções de <em>download</em>: <em>base</em>, <em>contrib</em>, <em>old.contrib</em> e <em>RTools</em>. Dentre as opções de <em>download</em>, a primeira (<em>base</em>) deve ser selecionada. O <em>link</em> acessa a instalação básica do R para <em>Windows</em>. O link <em>contrib</em> e <em>old.contrib</em> acessa os arquivos dos pacotes/módulos disponíveis para o R. Não precisas acessar estes últimos links, existe uma maneira muito mais fácil de baixar e instalar pacotes, como veremos em seguida. O último link, <em>RTools</em>, serve para instalar dependências necessárias para compilar dependências em outras linguagens de programação. Minha sugestão é que já <strong>instale o Rtools</strong> pois, a medida que for instalando novos pacotes, o mesmo se tornará parte essencial no uso do R.</p></li>
+<li><p>Após clicar no link <em>base</em>, a próxima tela mostrará o link para o <em>download</em> do arquivo de instalação do R no <em>Windows</em>. Após baixar o arquivo, abra-o e siga os passos da tela de instalação do R. Escolha a língua inglesa em todas etapas do processo. O uso da língua inglesa não é acidental. Este é a melhor forma, mesmo para iniciantes, de se aprender a usar o R. É possível instalar uma versão em português porém isso limita o potencial da ferramenta. Caso não for fluente em inglês, não se preocupe, o vocabulário necessário é básico. Neste momento, nenhuma outra configuração especial é necessária. Sugiro manter todas as escolhas padrão selecionadas e simplesmente ir aceitando as telas de diálogo. Após a instalação do R, partimos para a instalação do RStudio.</p></li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'resources/figs/cran-webshot-01.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/cran-webshot-01.png" class="img-fluid figure-img" width="350"></p>
-<figcaption class="figure-caption">Página inicial para o download do R</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>A próxima tela apresenta a escolha do espelho para baixar os arquivos de instalação. O repositório do CRAN é espelhado em diversas partes do mundo, permitindo acesso rápido para os usuários. Para a grande maioria dos leitores deste livro, essa localidade deve ser o Brasil. Portanto, você pode escolher um dos links da instituição mais próxima, tal como o da UFPR (Universidade Federal do Paraná). Em caso de dúvida, escolha o repositório do RStudio <em>0-Cloud</em> (veja Figura <span class="math inline">\(\ref{fig:website-cran-2}\)</span>), o qual automaticamente direciona para o local mais próximo.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/cran-webshot-02.png" class="img-fluid figure-img" width="350"></p>
-<figcaption class="figure-caption">Tela com a escolha do espelho para o download</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>O próximo passo é selecionar o sistema operacional do computador. Devido à maior popularidade da plataforma <em>Windows</em>, a partir de agora daremos enfoque à instalação do R nesse sistema. As instruções de instalação nos demais sistemas operacionais podem ser facilmente encontradas na internet. Destaca-se que, independente da plataforma, o modo de uso do R é o mesmo. Existem, porém, algumas exceções, principalmente quando o R interage com o sistema de arquivos. Essas exceções serão destacadas no decorrer do livro. Assim, mesmo que você esteja utilizando Linux ou MacOS, poderá tirar proveito do material aqui apresentado.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/cran-webshot-03.png" class="img-fluid figure-img" width="300"></p>
-<figcaption class="figure-caption">Tela com a escolha do sistema operacional</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Após clicar no link <em>Download R for Windows</em>, a próxima tela irá mostrar as seguintes opções de <em>download</em>: <em>base</em>, <em>contrib</em>, <em>old.contrib</em> e <em>RTools</em>. Dentre as opções de <em>download</em>, a primeira (<em>base</em>) deve ser selecionada. O <em>link</em> acessa a instalação básica do R para <em>Windows</em>. O link <em>contrib</em> e <em>old.contrib</em> acessa os pacotes/módulos disponíveis para o R. Não precisas acessar estes últimos links, existe uma maneira muito mais fácil de instalar pacotes, como veremos em seguida.</p>
-<p>O último link, <em>RTools</em>, serve para instalar dependências necessárias no caso do usuário desenvolver e distribuir os seus próprios pacotes de R. Este não é uma instalação necessária para usuários iniciantes. Porém, saiba que alguns pacotes externos ao CRAN podem exigir a instalação do <em>RTools</em> para compilação de código. Minha sugestão é que já <strong>instale o Rtools</strong> e assim evite qualquer problema futuro.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="resources/figs/cran-webshot-04.png" class="img-fluid figure-img" width="300"></p>
-<figcaption class="figure-caption">Tela com opções de instalação</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Após clicar no link <em>base</em>, a próxima tela mostrará o link para o <em>download</em> do arquivo de instalação do R no <em>Windows</em>. Após baixar o arquivo, abra-o e siga os passos da tela de instalação do R. Escolha a língua inglesa em todas etapas do processo. O uso da língua inglessa não é acidental. Este é a melhor forma, mesmo para iniciantes, de se aprender a usar o R. É possível instalar uma versão em português porém isso limita o potencial da ferramenta. Caso não for fluente em inglês, não se preocupe, o vocabulário necessário é básico. Neste momento, nenhuma outra configuração especial é necessária. Sugiro manter todas as escolhas padrão selecionadas e simplesmente ir aceitando as telas de diálogo. Após a instalação do R, partimos para a instalação do RStudio.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_ver <span class="ot">&lt;-</span> R.version</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>major <span class="ot">&lt;-</span> R_ver<span class="sc">$</span>major</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>minor <span class="ot">&lt;-</span> R_ver<span class="sc">$</span>minor</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>R_version_str <span class="ot">&lt;-</span> <span class="fu">paste0</span>(major, <span class="st">"."</span>, minor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R_ver <span class="ot">&lt;-</span> R.version</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>major <span class="ot">&lt;-</span> R_ver<span class="sc">$</span>major</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>minor <span class="ot">&lt;-</span> R_ver<span class="sc">$</span>minor</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>R_version_str <span class="ot">&lt;-</span> <span class="fu">paste0</span>(major, <span class="st">"."</span>, minor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -383,17 +354,30 @@ Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A cada quatro meses uma nova versão do R é lançada, corrigindo <em>bugs</em> e implementando novas soluções. Temos dois tipos principais de versões, <em>major</em> e <em>minor</em>. Por exemplo, na data de compilação do livro, 10/01/2024, a última versão disponível do R é 4.3.2. O primeiro dígito (4) indica a versão <em>major</em> e todos os demais são do tipo <em>minor</em>. Geralmente, as mudanças <em>minor</em> são bem específicas e, possivelmente, terão pouco impacto no seu trabalho.</p>
-<p>Porém, mudanças do tipo <em>major</em> refletem totalmente no ecossistema de pacotes do R. Toda vez que instalar uma nova versão <em>major</em> do R, terás que reinstalar todos os pacotes utilizados. O problema é que não é incomum problemas de incompatibilidade de pacotes com a nova versão.</p>
-<p>Minha dica é: toda vez que uma nova versão <em>major</em> do R sair, espere alguns meses antes de instalar na sua máquina. Assim, o autores dos pacotes terão mais tempo para atualizar os seus códigos, minimizando a possibilidade de problemas de compatibilidade.</p>
+<p>A cada quatro meses uma nova versão do R é lançada, corrigindo <em>bugs</em> e implementando novas soluções. Temos dois tipos principais de versões, <em>major</em> e <em>minor</em>. Por exemplo, na data de compilação do livro, 07/04/2024, a última versão disponível do R é 4.3.3. O primeiro dígito (4) indica a versão <em>major</em> e todos os demais são do tipo <em>minor</em>. Geralmente, as mudanças <em>minor</em> são bem específicas e, possivelmente, terão pouco impacto no seu trabalho.</p>
+<p>Porém, mudanças do tipo <em>major</em> refletem totalmente no ecossistema de pacotes do R. Toda vez que instalar uma nova versão <em>major</em> do R, o diretório onde os pacotes são instalados é renovado, isto é, terás que reinstalar todos os pacotes utilizados no seu trabalho. O problema é que não é incomum problemas de incompatibilidade de pacotes com a nova versão.</p>
+<p>Minha dica é: toda vez que uma nova versão <em>major</em> do R sair, espere algumas semanas ou até um mês antes de instalar na sua máquina. Assim, o autores dos pacotes terão mais tempo para atualizar os seus códigos, minimizando a possibilidade de problemas de compatibilidade.</p>
 </div>
 </div>
 </section>
 <section id="instalando-o-rstudio" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="instalando-o-rstudio"><span class="header-section-number">1.5</span> Instalando o RStudio</h2>
-<p>A instalação do R inclui a sua própria interface gráfica, um programa que facilita a edição e execução de nossos <em>scripts</em>. Essa, porém, possui várias limitações. O RStudio é um <em>software</em> que torna o uso e o visual do R muito mais prático e eficiente. Uma forma de entender essa relação é com uma analogia com carros. Enquanto o R é o motor da linguagem de programação, o RStudio é a carroceria e o painel de instrumentos. Além de apresentar um visual mais atrativo, o RStudio também é acrescido de várias funcionalidades que facilitam a vida do usuário, possibilitando a construção de projetos e pacotes do próprio R, a criação de documentos dinâmicos (<em>Sweave/knitr</em>) e a interface com edição de textos em <em>LaTeX</em>, entre várias outras. Assim como o R, <strong>o RStudio também é gratuito</strong> e pode ser utilizado no ambiente empresarial.</p>
-<p>A instalação do RStudio é mais simples do que a do R. Os arquivos estão disponíveis no endereço disponibilizado no site da empresa <a href="https://posit.co/products/open-source/rstudio/">Posit</a> Posit. Após acessar a página, clique em <em>Download RStudio</em> e depois em <em>Download Rstudio Desktop</em>. Logo após, basta selecionar o arquivo relativo ao sistema operacional em que você irá trabalhar. Provavelmente, essa opção será <em>Windows Vista/7/8/10</em>. Note que, assim como o R, o RStudio também está disponível para diferentes plataformas.</p>
-<p>Destaco que o uso do RStudio não é essencial para desenvolver programas no R. Outros softwares de interface estão disponíveis e podem ser utilizados. Porém, dada minha experiência atual, o RStudio é o programa de interface que oferece a maior variedade de funcionalidades para essa linguagem, além de ser amplamente utilizado, o que justifica a sua escolha. Como uma alternativa ao RStudio, sugiro o <a href="https://code.visualstudio.com/">vscode</a>, o qual possui uma ótima integração com o R.</p>
+<p>A instalação do R inclui a sua própria interface gráfica, um programa que facilita a edição e execução de nossos <em>scripts</em>. Essa, porém, possui várias limitações. O RStudio é um <em>software</em> que torna o uso e o visual do R muito mais prático e eficiente. Uma forma de entender essa relação é com uma analogia com carros. Enquanto o R é o motor da linguagem de programação, o RStudio é a carroceria e o painel de instrumentos. Além de apresentar um visual mais atrativo, o RStudio também é acrescido de várias funcionalidades que facilitam a vida do usuário, possibilitando a construção de projetos e pacotes do próprio R, a criação de documentos dinâmicos (<em>rmarkdown/quarto</em>) e a interface com edição de textos em <em>LaTeX</em>, entre várias outras. Assim como o R, <strong>o RStudio também é gratuito</strong> e pode ser utilizado no ambiente empresarial.</p>
+<p>A instalação do RStudio é mais simples do que a do R. Os arquivos estão disponíveis no endereço disponibilizado no site da empresa <a href="https://posit.co/products/open-source/rstudio/">Posit</a>. Após acessar a página, clique em <em>Download RStudio</em> e depois em <em>Download Rstudio Desktop</em>. Logo após, basta selecionar o arquivo relativo ao sistema operacional em que você irá trabalhar. Provavelmente, essa opção será <em>Windows Vista/7/8/10</em>. Note que, assim como o R, o RStudio também está disponível para diferentes plataformas.</p>
+<p>Destaco que o uso do RStudio não é essencial para desenvolver programas no R. Outros softwares de interface estão disponíveis e podem ser utilizados. Porém, dada minha experiência atual, o RStudio é o programa de interface que oferece a maior variedade de funcionalidades para essa linguagem, além de ser amplamente utilizado, o que justifica a sua escolha. Como uma alternativa ao RStudio, sugiro o <a href="https://code.visualstudio.com/">vscode</a>, o qual possui uma ótima integração com o R (veja quadro a seguir).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sobre o Vscode
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O <a href="https://code.visualstudio.com/">vscode</a> é um editor de código multi-plataforma, com suporte para praticamente todas as linguagens de programação, incluindo R. O grande benefício é flexibilidade e customização, além da possibilidade de usar a mesma interface para diferentes linguagens. Como exemplo, o conteúdo inteiro do livro foi escrito e editado no vscode, com ótimas ferramentas de gramática e organização do texto. Porém, minha principal escolha de interface para qualquer projeto de R é sempre o RStudio.</p>
+</div>
+</div>
 </section>
 <section id="recursos-na-internet" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="recursos-na-internet"><span class="header-section-number">1.6</span> Recursos na Internet</h2>
@@ -401,77 +385,83 @@ Importante
 <p>Recentemente, uma lista de blogs locais sobre o R está compilada e organizada por Marcos Vital no <a href="https://marcosvital.github.io/blogs-de-R-no-Brasil/">Github</a>. Eu recomendo a inscrição no feed do R-Bloggers, além dos blogs nacionais. Não só você será informado sobre o que está acontecendo no universo do R, mas também aprenderá muito lendo artigos e os códigos de outros usuários.</p>
 <p>Aprender e usar R pode ser uma experiência social. Várias conferências e grupos de usuários estão disponíveis em muitos países, incluindo o Brasil. O grupo <em>R Brasil - Programadores</em> no <a href="https://www.facebook.com/groups/1410023525939155/">Facebook</a> é bastante ativo, com um grande número de participantes. Recomendo fortemente a inscrição neste grupo e o acompanhamento das discussões relacionadas ao uso do R. Diversas conferências locais sobre o R são divulgadas nesse grupo.</p>
 </section>
-<section id="organização-e-material-do-livro" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="organização-e-material-do-livro"><span class="header-section-number">1.7</span> Organização e Material do Livro</h2>
-<p>Este livro tem uma abordagem prática no uso do R e será acompanhado por uma série de códigos que irão exemplificar e mostrar para o leitor as funcionalidades do programa. Para tirar o máximo de proveito do material, sugiro que você primeiro busque entender o código mostrado e, somente então, tente utilizá-lo em seu próprio computador. O índice remissivo disponibilizado no final do livro impresso serve como uma mapa de uso das funções. Toda vez que uma função é chamada no livro, um registro do número da página é criado no índice remissivo. Esse indica, também, o pacote que a função pertence. Podes utilizar este mapa para localizar o uso de qualquer função ou pacote no decorrer do livro.</p>
-<p>Sugiro também o uso da versão <a href="https://www.msperlin.com/introR/">web do livro</a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, a qual permite que os código de exemplo sejam copiados direto para a sua sessão do R. Assim, perderás menos tempo digitando código, sobrando tempo para o estudo.</p>
-<p>Aprender a programar em uma nova linguagem é como aprender uma língua estrangeira: o uso no dia-a-dia é de extrema importância para criar fluência. Sempre que possível, teste o código no seu computador e <em>brinque</em> com o mesmo, modificando os exemplos dados e verificando o efeito das modificações nas saídas do programa. Procure sempre entender como a rotina estudada pode ajudar na solução de um problema seu. Cada capítulo apresenta no seu final uma lista de exercícios, incluindo questões do tipo desafio. Podes testar as suas habilidades de programação resolvendo as atividades propostas. Vale relembrar que todo o código deste livro está disponibilizado na internet. Não precisas, portanto, escrever o código diretamente do livro. Podes copiar e colar do código fonte disponibilizado no site.</p>
-<p>No decorrer da obra, toda demonstração de código terá duas partes: o código em si e sua saída do R. Essa saída nada mais é do que o resultado dos comandos na tela do programa. Todas as entradas e saídas de código serão sinalizadas no texto com um formato especial. Veja o exemplo a seguir:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">var1 =</span> <span class="st">'abc'</span>, <span class="at">var2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print to prompt</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R&gt; $var1
-R&gt; [1] "abc"
-R&gt; 
-R&gt; $var2
-R&gt; [1] 1 2 3 4 5</code></pre>
-</div>
-</div>
-<p>No caso anterior, os textos <code>L &lt;- list(var1 = 'abc', var2 = 1:5)</code> e <code>print(L)</code> são os códigos de entrada. A saída do programa é a apresentação na tela dos elementos de <code>x</code>, com o símbolo antecessor <code>R&gt;</code>. Por enquanto não se preocupe em entender e reproduzir o código utilizado acima. Iremos tratar disso no próximo capítulo.</p>
-<p>Note que faço uso da língua inglesa no código, tanto para a nomeação de objetos quanto para os comentários. Isso não é acidental. O uso da língua inglesa facilita o desenvolvimento de código ao evitar caracteres latinos, além de ser uma das línguas mais utilizadas no mundo. Portanto, é importante já ir se acostumando com esse formato. O vocabulário necessário, porém, é limitado. De forma alguma precisarás ter fluência em inglês para entender o código.</p>
-<p>O código também pode ser espacialmente organizado usando novas linhas. Esse é um procedimento comum em torno de argumentos de funções. O próximo pedaço de código é equivalente ao anterior, e executará exatamente da mesma maneira. Observe como usei uma nova linha para alinhar verticalmente os argumentos da função <code>list</code>. Você verá em breve que, ao longo do livro, esse tipo de alinhamento vertical é constantemente usado em códigos longos. Afinal, o código tem que necessariamente caber na página do livro impresso.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a list</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">var1 =</span> <span class="st">'abc'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">var2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print to prompt</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(L)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R&gt; $var1
-R&gt; [1] "abc"
-R&gt; 
-R&gt; $var2
-R&gt; [1] 1 2 3 4 5</code></pre>
-</div>
-</div>
-<p>O código também segue uma estrutura bem definida. Uma das decisões a ser feita na escrita de códigos de computação é a forma de nomear os objetos e como lidar com a estrutura do texto do código em geral. É recomendável seguir um padrão limpo de código, de forma que o mesmo seja fácil de ser mantido ao longo do tempo e de ser entendido por outros usuários. Para este livro, foi utilizado uma mistura de escolhas pessoais do autor com o estilo de código sugerido pelo <a href="https://google.github.io/styleguide/Rguide.xml">Google</a>. O usuário, porém, é livre para escolher a estrutura que achar mais eficiente. Voltaremos a discutir estrutura de código no capítulo @ref(otimizacao).</p>
-</section>
-<section id="animações-de-código" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="animações-de-código"><span class="header-section-number">1.8</span> Animações de código</h2>
-<p>Esta edição do livro inclui animações de código no formato <em>gif</em>, as quais devem ajudar a memorizar e visualizar as diferentes operações na plataforma. Para os leitores do livro impresso, obviamente não existe maneira de incluir animações em paper. Como alternativa, cada animação inclui um QRCode que irá direcionar o leitor para página na web com a animação em questão. A imagem a esquera é a primeira tela de cada animação. Veja o exemplo abaixo na <a href="#fig-exemplo-animacao">Figure&nbsp;<span>1.2</span></a>:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-exemplo-animacao" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img src="resources/gifs/gif_autocomplete_args.gif" class="img-fluid figure-img"></p>
-</div>
-</div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1.2: Exemplo de animação</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Para utilizar, abra seu celular e aponte a câmera para o QRCode da página. Após isso, basta clicar no link que aparecer na tela do celular.</p>
-</section>
-<section id="exercícios" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.9</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">1.7</span> Exercícios</h2>
+<hr>
+<p>Q.1 - A primeira versão do R foi desenvolvida com base em qual outra linguagem de programação?</p>
+<ol type="a">
+<li>C++</li>
+<li>S</li>
+<li>Javascript</li>
+<li>Python</li>
+<li>Julia</li>
+</ol>
+<hr>
+<p>Q.2 - Qual o nome dos autores da primeira versão do R?</p>
+<ol type="a">
+<li>Linus Torvalds e Richard Stallman</li>
+<li>John Chambers e Robert Engle</li>
+<li>Roger Federer e Rafael Nadal</li>
+<li>Guido van Rossum e Bjarne Stroustrup</li>
+<li>Ross Ihaka e Robert Gentleman</li>
+</ol>
+<hr>
+<p>Q.3 - Qual o principal diferencial do R em relação a outras linguagens de programação, tal como Python, C++, javascript e demais?</p>
+<ol type="a">
+<li>Facilidade para a análise estatística de dados</li>
+<li>Execução rápida de códigos</li>
+<li>Facilita o desenvolvimento de aplicativos web</li>
+<li>Facilita o desenvolvimento de aplicativos para celular</li>
+<li>Facilidade de uso, em geral</li>
+</ol>
+<hr>
+<p>Q.4 - Qual a razão para o nome da linguagem de programação ser R?</p>
+<ol type="a">
+<li>Compartilhamento da letra R por seus autores.</li>
+<li>R = Reausable code.</li>
+<li>Era a única letra ainda não usada como linguagem de programação.</li>
+<li>A mãe de um dos autores se chamada Renata e, por isso, ele homenageou-a com o nome R.</li>
+<li>Uma letra foi sorteada na própria linguagem de programação, e o resultado foi R.</li>
+</ol>
+<hr>
+<p>Q.5 - Sobre o R, considere as seguintes alternativas:</p>
+<p>I - O R é uma plataforma de programação madura e estável;</p>
+<p>II - O RStudio é uma linguagem de programação alternativa ao R;</p>
+<p>III - O R não tem compatibilidade com diferentes linguagens de programação;</p>
+<p>Quais alternativas estão corretas?</p>
+<ol type="a">
+<li>TRUE, TRUE, FALSE</li>
+<li>TRUE, FALSE, FALSE</li>
+<li>TRUE, FALSE, TRUE</li>
+<li>FALSE, FALSE, FALSE</li>
+<li>TRUE, TRUE, TRUE</li>
+</ol>
+<hr>
+<p>Q.6 - Assim que tiver R e RStudio instalado, dirija-se ao <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">site de pacotes do CRAN</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> e procure por tecnologias que usas no seu trabalho. Por exemplo, se usas <a href="https://www.google.com/sheets/about/">Planilhas do Google (Sheets)</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> ostensivamente no seu trabalho, logo descobrirá que existe um pacote no CRAN que interage com planilhas do Google na nuvem.</p>
+<hr>
+<p>Q.7 - No <a href="https://cloud.r-project.org/bin/windows/">site</a> de instalação do R no Windows é possível instalar também o aplicativo <strong>Rtools</strong>. Para que ele serve?</p>
+<ol type="a">
+<li>Compilar relatórios técnicos</li>
+<li>Criar gráficos</li>
+<li>Construir páginas na web</li>
+<li>Fazer café (?)</li>
+<li>Compilação de pacotes do R no Windows</li>
+</ol>
+<hr>
+<p>Q.8 - Use o <a href="https://www.google.com/search?q=R+groups+in+my+city">Google</a> para pesquisar por grupos de R em sua região. Verifique se os encontros são frequentes e, caso não tiver um impedimento maior, vá para um desses encontros e faça novos amigos.</p>
+<hr>
+<p>Q.9 - Dirija-se ao site do <a href="https://www.r-bloggers.com/">RBloggers</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> e procure por um tópico do seu interesse, tal como futebol (<em>soccer</em>) ou investimentos (<em>investments</em>). Leia pelo menos três artigos encontrados.</p>
+<hr>
+<p>Q.10 - Caso trabalhe em uma instituição com infraestrutura de computação, converse com o encarregado e busque entender quais são as tecnologias empregadas. Verifique se, através do R, é possível ter acesso a todas tabelas dos bancos de dados. Por enquanto não existe necessidade de escrever código, ainda. Apenas verifique se esta possibilidade existe.</p>
 
 
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>https://cran.r-project.org/web/views<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>https://cran.r-project.org/web/views/Finance.html<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>https://cran.r-project.org/web/views/Econometrics.html<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>https://www.msperlin.com/introR/<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>https://cloud.r-project.org/web/packages/available_packages_by_date.html<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>https://www.google.com/sheets/about/<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>https://www.r-bloggers.com/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -555,10 +545,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -568,8 +557,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -582,6 +580,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -625,6 +742,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -650,6 +768,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -711,17 +855,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link  aria-label=" prefácio"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prefácio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-como-o-r-funciona.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Como o R Funciona?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-primeiros-passos-rstudio.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Primeiros Passos com o RStudio</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primeiros Passos com o RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
