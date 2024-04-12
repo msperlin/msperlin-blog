@@ -38,9 +38,9 @@ All hosted data will be updated at least once a year.
 
 | R Package      | Source of Data    | Description | Direct Link | Last Update |
 | -------------  |:-----------------:| :---------------------------------------------| :------------| :------------|
-| GetTDData      | Tesouro Nacional  | Prices and yields of brazilian sovereign bonds | [Link](https://doi.org/10.7910/DVN/SCSQUF) | 2023-04-18 |
-| GetFREData     | CVM               | Corporate dataset from FRE systems| [Link](https://doi.org/10.7910/DVN/QIMUNZ) | 2023-04-18 |
-| GetDFPData2    | CVM               | Annual Financial Reports from DFP system  | [Link](https://doi.org/10.7910/DVN/7VVX4J) | 2023-04-18 |
+| GetTDData      | Tesouro Nacional  | Prices and yields of brazilian sovereign bonds | [Link](https://doi.org/10.7910/DVN/SCSQUF) | 2024-04-12 |
+| GetFREData     | CVM               | Corporate dataset from FRE systems| [Link](https://doi.org/10.7910/DVN/QIMUNZ) | 2024-04-12 |
+| GetDFPData2    | CVM               | Annual Financial Reports from DFP system  | [Link](https://doi.org/10.7910/DVN/7VVX4J) | 2025-04-12 |
 
 
 ---
@@ -48,6 +48,6 @@ All hosted data will be updated at least once a year.
 
 ### How to Support 
 
-I often get asked about how to support the release of the parsed data files. First, buying one of [my books](https://www.msperlin.com/publication/#5) and donating a copy to your local library is a great way of contributing. Alternatively, you can make a single or continuous donation to project [GetDFPData2](https://www.msperlin.com/shiny/GetDFPData2/) using Paypal (instructions at link).
+I often get asked about how to support the release of the parsed data files. First, buying one of [my books](https://www.msperlin.com/publication/#5) and donating a copy to your local library is a great way of contributing. 
 
 ---
