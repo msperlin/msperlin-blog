@@ -1180,7 +1180,7 @@ R&gt;  $ ticker   : chr "TICK4"
 R&gt;  $ market   : chr "Bovespa"
 R&gt;  $ df_prices: tibble [4 × 2] (S3: tbl_df/tbl/data.frame)
 R&gt;   ..$ P       : num [1:4] 1 1.5 2 2.3
-R&gt;   ..$ ref_date: Date[1:4], format: "2024-04-19" ...</code></pre>
+R&gt;   ..$ ref_date: Date[1:4], format: "2024-04-25" ...</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1211,10 +1211,10 @@ Use nomes em listas e dataframes!
 <pre><code>R&gt; # A tibble: 4 × 2
 R&gt;       P ref_date  
 R&gt;   &lt;dbl&gt; &lt;date&gt;    
-R&gt; 1   1   2024-04-19
-R&gt; 2   1.5 2024-04-20
-R&gt; 3   2   2024-04-21
-R&gt; 4   2.3 2024-04-22</code></pre>
+R&gt; 1   1   2024-04-25
+R&gt; 2   1.5 2024-04-26
+R&gt; 3   2   2024-04-27
+R&gt; 4   2.3 2024-04-28</code></pre>
 </div>
 </div>
 <p>Também é possível acessar os elementos com um colchete simples (<code>[ ]</code>), porém, tome cuidado com essa operação, pois o resultado não vai ser o objeto em si, mas uma outra lista. Esse é um equívoco muito fácil de passar despercebido, resultando em erros no código. Veja a seguir:</p>
@@ -1497,29 +1497,29 @@ R&gt; [1] 3</code></pre>
 <hr>
 <p>Q.1 - Usando a função <strong>dplyr</strong>::<strong>tibble()</strong> , crie um <code>dataframe</code> chamado <code>my_df</code>, o qual possui uma coluna chamada <code>x</code> contendo uma sequência de -100 a 100, e outra coluna chamada <code>y</code> com o valor da coluna x somado por 5. Quantos valores na coluna <code>x</code> são maiores que 10 e menores que 25?</p>
 <ol type="a">
-<li>18</li>
-<li>16</li>
+<li>36</li>
+<li>22</li>
+<li>9</li>
 <li>14</li>
-<li>23</li>
-<li>21</li>
+<li>3</li>
 </ol>
 <hr>
 <p>Q.2 - Crie uma nova coluna no objeto <code>my_df</code> chamada <code>cumsum_x</code>, contendo a soma cumulativa de <code>x</code> (função <strong>cumsum()</strong> ). Nesta nova coluna, quantos valores são maiores que -3500?</p>
 <ol type="a">
+<li>156</li>
 <li>89</li>
+<li>138</li>
+<li>120</li>
 <li>101</li>
-<li>152</li>
-<li>135</li>
-<li>118</li>
 </ol>
 <hr>
 <p>Q.3 - Use a função <strong>dplyr</strong>::<strong>filter()</strong> e o operador de <em>pipeline</em> para filtrar <code>my_df</code>, mantendo apenas as linhas onde o valor da coluna <code>y</code> é maior que 0. Qual é o número de linhas na tabela resultante?</p>
 <ol type="a">
-<li>27</li>
+<li>124</li>
+<li>162</li>
+<li>143</li>
+<li>181</li>
 <li>105</li>
-<li>72</li>
-<li>191</li>
-<li>296</li>
 </ol>
 <hr>
 <p>Q.4 - Caso não o tenha feito, repita os exercícios 1, 2 e 3 utilizando as funções do <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> e o operador de <em>pipeline</em>.</p>

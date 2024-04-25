@@ -369,7 +369,7 @@ O Formato Brasileiro
 <p>Quando trabalhando com dados brasileiros, a notação internacional pode gerar uma confusão desnecessária. Dados locais tendem a usar a vírgula para indicar valores decimais em números, assim como também datas no formato dia/mês/ano. Abaixo apresenta-se algumas regras de formatação de números e códigos para o caso brasileiro.</p>
 <p><strong>Decimal:</strong> O decimal no R é definido pelo ponto (.), tal como em <code>2.5</code> e não vírgula, como em <code>2,5</code>. Esse é o padrão internacional, e a diferença para a notação brasileira gera muita confusão. Em nenhuma situação deve-se utilizar a vírgula como separador de casas decimais. Mesmo quando estiver exportando dados, sempre dê prioridade para o formato internacional.</p>
 <p><strong>Caracteres latinos:</strong> Devido ao seu padrão internacional, o R apresenta problemas para entender caracteres latinos, tal como cedilha e acentos. Caso possa evitar, não utilize esses tipos de caracteres no código para nomeação de variáveis ou arquivos. Nos objetos de classe texto (<code>character</code>), é possível utilizá-los desde que a codificação do objeto esteja correta (<em>UTF-8</em> ou <em>Latin1</em>). Assim, recomenda-se que o código do R seja escrito na língua inglesa.</p>
-<p><strong>Formato das datas:</strong> Datas no R são formatadas de acordo com a norma <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>, seguindo o padrão <code>YYYY-MM-DD</code>, onde <code>YYYY</code> é o ano em quatro números, <code>MM</code> é o mês e <code>DD</code> é o dia. Por exemplo, uma data em ISO 8601 é 2024-04-19. No Brasil, as datas são formatadas como <code>DD/MM/YYYY</code>. Reforçando a regra, sempre dê preferência ao padrão internacional. Vale salientar que a conversão entre um formato e outro é bastante fácil e foi mostrada na <a href="06-objetos-basicos.html#sec-datas" class="quarto-xref"><span>Seção 6.5</span></a>.</p>
+<p><strong>Formato das datas:</strong> Datas no R são formatadas de acordo com a norma <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>, seguindo o padrão <code>YYYY-MM-DD</code>, onde <code>YYYY</code> é o ano em quatro números, <code>MM</code> é o mês e <code>DD</code> é o dia. Por exemplo, uma data em ISO 8601 é 2024-04-25. No Brasil, as datas são formatadas como <code>DD/MM/YYYY</code>. Reforçando a regra, sempre dê preferência ao padrão internacional. Vale salientar que a conversão entre um formato e outro é bastante fácil e foi mostrada na <a href="06-objetos-basicos.html#sec-datas" class="quarto-xref"><span>Seção 6.5</span></a>.</p>
 </div>
 </div>
 <p>O conteúdo de CH04_ibovespa.csv é bastante conservador e não será difícil importar o seu conteúdo. Porém, saiba que muitas vezes o arquivo <em>.csv</em> vem com informações extras de cabeçalho – o chamado <em>metadata</em> – ou diferentes formatações que exigem adaptações. Como sugestão para evitar problemas, antes de prosseguir para a importação de dados em um arquivo <em>.csv</em>, abra o arquivo em um editor de texto qualquer e siga os seguintes passos:</p>
@@ -537,7 +537,7 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>f_out <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">'.csv'</span>)</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> my_df, <span class="at">file =</span> f_out)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo file24487d475532.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
+<p>No exemplo anterior, salvamos o <code>dataframe</code> chamado <code>my_df</code> para o arquivo file6fc257f603db.csv, localizado na pasta temporária do computador. Podemos verificar o arquivo importando o seu conteúdo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(f_out,</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">y =</span> <span class="fu">col_double</span>(),</span>
@@ -545,14 +545,14 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, FALSE, TRUE, FALSE…</code>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(my_df))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R&gt; # A tibble: 6 × 2
-R&gt;       y z    
-R&gt;   &lt;dbl&gt; &lt;chr&gt;
-R&gt; 1 0.438 a    
-R&gt; 2 0.703 a    
-R&gt; 3 0.971 a    
-R&gt; 4 0.643 a    
-R&gt; 5 0.579 a    
-R&gt; 6 0.204 a</code></pre>
+R&gt;        y z    
+R&gt;    &lt;dbl&gt; &lt;chr&gt;
+R&gt; 1 0.119  a    
+R&gt; 2 0.0117 a    
+R&gt; 3 0.422  a    
+R&gt; 4 0.552  a    
+R&gt; 5 0.905  a    
+R&gt; 6 0.917  a</code></pre>
 </div>
 </div>
 <p>O resultado está conforme o esperado, um dataframe com duas colunas, a primeira com números e a segunda com texto.</p>
@@ -664,11 +664,11 @@ Use formato <em>rds</em>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">file_exists</span>(my_file)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; /tmp/Rtmp8L3p8o/file24481a269f5c.RData 
+<pre><code>R&gt; /tmp/RtmpTqQPSB/file6fc21154eb0e.RData 
 R&gt;                                   TRUE</code></pre>
 </div>
 </div>
-<p>Observe que o arquivo file24481a269f5c.RData está disponível na pasta temporária.</p>
+<p>Observe que o arquivo file6fc21154eb0e.RData está disponível na pasta temporária.</p>
 <p>Já para arquivos <em>.rds</em>, salvamos o objeto com função <strong>readr</strong>::<strong>write_rds()</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set data and file</span></span>
@@ -777,8 +777,8 @@ R&gt; $ Died   &lt;lgl&gt; FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE…</code>
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(my_text)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>R&gt; 
-R&gt; Time to WRITE dataframe with .rds: 0.622 seconds
-R&gt; Time to WRITE dataframe with .fst: 0.0970000000000004 seconds</code></pre>
+R&gt; Time to WRITE dataframe with .rds: 0.668 seconds
+R&gt; Time to WRITE dataframe with .fst: 0.093 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">Time to READ dataframe with '</span>,</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                  my_formats, <span class="st">': '</span>,</span>
@@ -786,8 +786,8 @@ R&gt; Time to WRITE dataframe with .fst: 0.0970000000000004 seconds</code></pre>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(my_text)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>R&gt; 
-R&gt; Time to READ dataframe with .rds: 0.765 seconds
-R&gt; Time to READ dataframe with .fst: 0.108000000000001 seconds</code></pre>
+R&gt; Time to READ dataframe with .rds: 0.782999999999999 seconds
+R&gt; Time to READ dataframe with .fst: 0.117999999999999 seconds</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>my_text <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">'</span><span class="sc">\n</span><span class="st">Resulting FILE SIZE for '</span>,</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                  my_formats, <span class="st">': '</span>,</span>
@@ -863,11 +863,11 @@ R&gt; [15] "                                   ]"</code></pre>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># save string to file</span></span>
 <span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">write_lines</span>(<span class="at">x =</span> my_text, <span class="at">file =</span> my_f, <span class="at">append =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file24483b3a20c1.txt. Podemos checar o resultado com a função <strong>readr</strong>::<strong>read_lines()</strong> :</p>
+<p>No exemplo, criamos um objeto de texto com uma mensagem sobre a data atual e gravamos a saída no arquivo temporário file6fc22bf56e9.txt. Podemos checar o resultado com a função <strong>readr</strong>::<strong>read_lines()</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(readr<span class="sc">::</span><span class="fu">read_lines</span>(my_f))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "Today is 2024-04-19"    "Tomorrow is 2024-04-20"</code></pre>
+<pre><code>R&gt; [1] "Today is 2024-04-25"    "Tomorrow is 2024-04-26"</code></pre>
 </div>
 </div>
 </section>
