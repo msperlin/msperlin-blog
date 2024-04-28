@@ -40,12 +40,12 @@ user_groups:
 - Visitors
 ---
 
-<div class="alert alert-danger">
-  A primeira edição do livro <strong>"Questões de R em Concursos Públicos"</strong> foi recém lançada! Veja mais detalhes neste <a href = "https://www.msperlin.com/publication/2023_book-qrcp/">post</a> do blog.
+<div class="alert alert-info">
+  A primeira edição do livro <strong>Introdução ao R</strong> foi recém lançada. Maiores detalhes no <a href = "https://msperlin.com/publication/2024_book-intror/">site</a>.
 </div>
 
-<div class="alert alert-info">
-  A terceira edição do livro <strong>Análise de Dados Financeiros e Econômicos com o R</strong> foi recém lançada. Maiores detalhes no <a href = "https://www.msperlin.com/publication/2021_book-adfer-pt/">site</a>.
+<div class="alert alert-danger">
+  A primeira edição do livro <strong>"Questões de R em Concursos Públicos"</strong> foi recém lançada! Veja mais detalhes neste <a href = "https://www.msperlin.com/publication/2023_book-qrcp/">post</a> do blog.
 </div>
 
 I'm an associate professor of Finance at Federal University of Rio Grande do Sul (UFRGS), south of Brazil. Details about my past and current work are available in section [Publications](/publication) and [Code](/code). My CV is available as [pdf](/files/cv.pdf) and [Lattes link](http://lattes.cnpq.br/3262699324398819). 

@@ -14,7 +14,7 @@ publication: ""
 publication_short: ""
 publication_types:
 - "5"
-publishDate: "2023-05-27T00:00:00"
+publishDate: "2024-04-15T00:00:00"
 title: "Introdução ao R - Um guia prático para iniciantes"
 url_code: ""
 url_dataset: ""
