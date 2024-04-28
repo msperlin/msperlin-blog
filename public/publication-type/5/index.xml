@@ -5,12 +5,48 @@
     <link>https://www.msperlin.com/publication-type/5/</link>
       <atom:link href="https://www.msperlin.com/publication-type/5/index.xml" rel="self" type="application/rss+xml" />
     <description>5</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sat, 27 Apr 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>5</title>
       <link>https://www.msperlin.com/publication-type/5/</link>
     </image>
+    
+    <item>
+      <title>Introdução ao R - Um guia prático para iniciantes</title>
+      <link>https://www.msperlin.com/publication/2024_book-intror/</link>
+      <pubDate>Sat, 27 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2024_book-intror/</guid>
+      <description>&lt;h2 id=&#34;onde-comprar&#34;&gt;Onde comprar&lt;/h2&gt;
+&lt;p&gt;O livro está disponível na Amazon nos seguintes formatos: 
+&lt;a href=&#34;https://www.amazon.com.br/dp/TODO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ebook&lt;/a&gt;, 
+&lt;a href=&#34;https://www.amazon.com/dp/TODO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa tradicional&lt;/a&gt;, 
+&lt;a href=&#34;https://www.amazon.com/dp/TODO&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impresso capa dura e colorido&lt;/a&gt; e 
+&lt;a href=&#34;https://www.msperlin.com/introR/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;versão online&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;alert alert-danger&#34;&gt;
+Infelizmente, a Amazon não tem gráfica no Brasil. Assim, o livro impresso é fabricado nos Estados Unidos e remetido para cá. Saiba, porém, que o frete é relativamente barato, com entrega em uma a duas semanas em qualquer parte do país. 
+&lt;/div&gt;
+&lt;h2 id=&#34;sumário&#34;&gt;Sumário&lt;/h2&gt;
+&lt;p&gt;O R é uma plataforma aberta, estável e acessível para a análise de dados e produção de relatórios estruturados. Hoje em dia, o R é sinônimo de programação voltada a dados, sendo usado em notáveis empresas de tecnologia, incluindo Microsoft, Google e Meta (Facebook).&lt;/p&gt;
+&lt;p&gt;Este livro introduz o leitor ao uso do R e RStudio como plataforma de análise de dados. O livro apresenta toda a base de conhecimento necessária para utilizar o R, desde a sua instalação até a importação de dados e manipulação de tabelas (dataframes). O livro está organizado com exemplos práticos de uso do código que contextualizam e facilitam o aprendizado em cada etapa do processo.&lt;/p&gt;
+&lt;h3 id=&#34;conteúdo-do-livro&#34;&gt;Conteúdo do livro&lt;/h3&gt;
+&lt;p&gt;Aqui escrevo sobre tudo aquilo que aprendi em mais de doze anos de carreira como professor, pesquisador e consultor da área de finanças e economia. O conteúdo do livro percorre sobre os seguintes tópicos:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Primeiros passos com o R e RStudio&lt;/dt&gt;
+&lt;dd&gt;Aprenderás sobre o uso da interface do RStudio, e como o mesmo pode facilitar significativamente o seu trabalho. Os primeiros capítulos também inclui os passos para a criação e execução do seu primeiro script no R.&lt;/dd&gt;
+&lt;dt&gt;Primeiros passos com pacotes do R&lt;/dt&gt;
+&lt;dd&gt;Aqui será mostrado a forma de utilizar pacotes (módulos) do R, desde a instalação até o uso de funções.&lt;/dd&gt;
+&lt;dt&gt;Interação do R com o seu computador e a internet&lt;/dt&gt;
+&lt;dd&gt;O R possui diversas funções para interagir com os arquivos do seu computador, baixar arquivos da internet e também realizar chamadas de APIs. Neste capítulo aprenderemos as principais funções na interação do R com o seu computador e a internet.&lt;/dd&gt;
+&lt;dt&gt;Manipulação de objetos básicos e de armazenamento no R&lt;/dt&gt;
+&lt;dd&gt;Os objetos do R forma o seu ecossistema e é através destes que iremos construir scripts de análise de dados. Nestes capítulos aprenderemos as propriedades e funções dos principais objetos do R, desde vetores numéricos até tabelas (dataframes).&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Importação de dados locais e da internet:
+Aqui aprenderemos a utilizar o R para importar dados de arquivos locais, percorrendo os principais formatos disponíveis atualmente. Também estudaremos o uso de pacotes para a importação de dados em sua sessão do R.&lt;/p&gt;
+&lt;p&gt;Todo o material do livro, incluindo gráficos e código, é aberto ao público e reproduzível. Para facilitar a importação dos dados, construí um módulo do R chamado introR, o qual pode ser instalado de forma prática e fácil. Este pacote contém todos os dados e funções usados no livro. Com ele será possível importar dados para a sua sessão do R e rodar todos os exemplos no seu próprio computador.&lt;/p&gt;
+&lt;p&gt;Este livro, assim como os demais livro que escrevi, é um projeto especial, buscando levar conhecimento do R para o maior número de pessoas possível. Espero que goste deste livro. Este é um projeto pessoal, produzido desde 2017 a base de muito suor e, literalmente, litros de café.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Questões de R em Concursos Públicos</title>
