@@ -273,7 +273,7 @@ div.csl-indent {
 
 <p>Um dos grandes benefícios do uso do R é o seu acervo de <strong>pacotes gratuitos</strong>. O R tem em sua essência uma filosofia de colaboração. O CRAN é o repositório oficial do R e é onde pessoas do mundo inteiro disponibilizam seus códigos no formato de pacotes. E, mais importante, <strong>todos os pacotes são gratuitos</strong>, assim como o R. Por exemplo, considere um caso em que está interessado em baixar dados da internet sobre o desemprego histórico no Brasil. Para isso, basta procurar e instalar o pacote específico que realiza esse procedimento.</p>
 <p>Os pacotes podem ser instalados de diferentes fontes, com as principais sendo <strong>CRAN</strong> (<em>The Comprehensive R Archive Network</em>) e <strong>Github</strong>. A cada dia aumenta a quantidade e diversidade de pacotes existentes para o R. O próprio autor deste livro possui <a href="https://www.r-pkg.org/maint/marceloperlin@gmail.com">diversos pacotes</a> disponíveis no CRAN, cada um para resolver algum problema diferente. Na grande maioria, são pacotes para importar e organizar dados financeiros.</p>
-<p>O CRAN é o repositório público oficial do R e, atualmente, contém 20610 pacotes disponíveis para a comunidade. Todo código do CRAN passa por um processo de avaliação onde normas rígidas devem ser respeitadas. Para quem tiver interesse, um tutorial claro e fácil de seguir é apresentado no site &lt; https://r-pkgs.org/ &gt;. As regras completas estão disponíveis no <a href="https://cran.r-project.org/web/packages/policies.html">site do CRAN</a>. A adequação do código a essas normas é responsabilidade do desenvolvedor e gera um trabalho significativo, principalmente na primeira submissão.</p>
+<p>O CRAN é o repositório público oficial do R e, atualmente, contém 20628 pacotes disponíveis para a comunidade. Todo código do CRAN passa por um processo de avaliação onde normas rígidas devem ser respeitadas. Para quem tiver interesse, um tutorial claro e fácil de seguir é apresentado no site &lt; https://r-pkgs.org/ &gt;. As regras completas estão disponíveis no <a href="https://cran.r-project.org/web/packages/policies.html">site do CRAN</a>. A adequação do código a essas normas é responsabilidade do desenvolvedor e gera um trabalho significativo, principalmente na primeira submissão.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -299,10 +299,10 @@ Como procurar um pacote na internet
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(n_cran_pkgs)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 20610</code></pre>
+<pre><code>R&gt; [1] 20628</code></pre>
 </div>
 </div>
-<p>Conforme saída do código, 2024-04-25 08:57:19.875785, existem 20610 pacotes disponíveis nos servidores do CRAN. O objeto <code>df_cran_pkgs</code> contém uma tabela com todas as informações dos pacotes. Caso esteja curioso, basta executar <code>View(df_cran_pkgs)</code> para visualizar a tabela no Rstudio. Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
+<p>Conforme saída do código, 2024-04-28 08:56:37.976501, existem 20628 pacotes disponíveis nos servidores do CRAN. O objeto <code>df_cran_pkgs</code> contém uma tabela com todas as informações dos pacotes. Caso esteja curioso, basta executar <code>View(df_cran_pkgs)</code> para visualizar a tabela no Rstudio. Também se pode verificar a quantidade de pacotes localmente instalados com o comando <code>installed.packages()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get number of local (installed) packages</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n_local_pkgs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">installed.packages</span>())</span>
@@ -310,10 +310,10 @@ Como procurar um pacote na internet
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(n_local_pkgs)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 570</code></pre>
+<pre><code>R&gt; [1] 473</code></pre>
 </div>
 </div>
-<p>Nesse caso, o computador em que o livro foi escrito possui 570 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada!</p>
+<p>Nesse caso, o computador em que o livro foi escrito possui 473 pacotes do R instalados. Note que, apesar do autor ser um experiente programador do R, apenas uma pequena fração do pacotes disponíveis no CRAN está sendo usada!</p>
 <section id="instalando-pacotes-do-cran" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="instalando-pacotes-do-cran"><span class="header-section-number">4.1</span> Instalando Pacotes do CRAN</h2>
 <p>Para instalar um pacote, basta utilizar o comando <strong>install.packages()</strong> . Como exemplo, vamos instalar um pacote que será utilizado nos capítulos futuros, o <strong>{readr}</strong> <span class="citation" data-cites="R-readr">(<a href="99-references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, e Bryan 2024</a>)</span>:</p>
@@ -328,6 +328,37 @@ Como procurar um pacote na internet
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">'tidyverse'</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>O <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span> é um conjunto de pacotes voltados a <em>data science</em> e com uma sintaxe própria e consistente, voltada a praticabilidade. Verás que, em uma instalação nova do R, o <strong>{tidyverse}</strong> <span class="citation" data-cites="R-tidyverse">(<a href="99-references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023b</a>)</span> depende de uma grande quantidade de pacotes.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Uma maneira rápida de instalar pacotes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O RStudio consegue identificar pacotes que são necessários para um <em>script</em> em particular e pode facilitar a instalação de pacotes. O mesmo lê o código que está sendo editado na interface e procura por chamadas a função <strong>library()</strong> , <strong>require()</strong> e o uso de <code>::</code>, tal como em <code>dplyr::tibble()</code>. Assim que encontra pacotes não instalados, ele apresenta um diálogo que permite instalar os pacotes faltantes. Assim, com um clique do mouse é possível instalar todas as dependências de um projeto no R. Veja um exemplo na <a href="#fig-RStudio-install-from-code" class="quarto-xref">Figura&nbsp;<span>4.1</span></a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-RStudio-install-from-code" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RStudio-install-from-code-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="resources/gifs/gif_installing-pkgs-rstudio.gif" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RStudio-install-from-code-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.1: Auto-instalação de pacotes no RStudio
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="instalando-pacotes-do-github" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="instalando-pacotes-do-github"><span class="header-section-number">4.2</span> Instalando Pacotes do Github</h2>
@@ -411,7 +442,7 @@ Cuidado!
 </section>
 <section id="atualizando-pacotes" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="atualizando-pacotes"><span class="header-section-number">4.4</span> Atualizando Pacotes</h2>
-<p>Ao longo do tempo, é natural que os pacotes disponibilizados no CRAN sejam atualizados para acomodar novas funcionalidades ou se adaptar a mudanças em suas dependências. Assim, é recomendável que os usuários atualizem os seus pacotes instalados para uma nova versão através da internet. Esse procedimento é bastante fácil. Uma maneira direta de atualizar pacotes é clicar no botão <em>update</em> no painel de pacotes no canto direito inferior do RStudio, conforme mostrado na <a href="#fig-RStudio-update" class="quarto-xref">Figura&nbsp;<span>4.1</span></a>.</p>
+<p>Ao longo do tempo, é natural que os pacotes disponibilizados no CRAN sejam atualizados para acomodar novas funcionalidades ou se adaptar a mudanças em suas dependências. Assim, é recomendável que os usuários atualizem os seus pacotes instalados para uma nova versão através da internet. Esse procedimento é bastante fácil. Uma maneira direta de atualizar pacotes é clicar no botão <em>update</em> no painel de pacotes no canto direito inferior do RStudio, conforme mostrado na <a href="#fig-RStudio-update" class="quarto-xref">Figura&nbsp;<span>4.2</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-RStudio-update" class="quarto-layout-panel">
@@ -424,7 +455,7 @@ Cuidado!
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RStudio-update-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.1: Aualizando pacotes no RStudio
+Figura&nbsp;4.2: Aualizando pacotes no RStudio
 </figcaption>
 </figure>
 </div>
@@ -493,11 +524,11 @@ R&gt; [5] "CH04_example-sqlite.SQLite"</code></pre>
 <hr>
 <p>Q.3 - Pacote <strong>{cranlogs}</strong> <span class="citation" data-cites="R-cranlogs">(<a href="99-references.html#ref-R-cranlogs" role="doc-biblioref">Csárdi 2019</a>)</span> permite o acesso a estatísticas de <em>downloads</em> de pacotes do CRAN. Após instalar o pacote no seu computador, use função <strong>cranlogs</strong>::<strong>cran_top_downloads()</strong> para verificar quais são os 10 pacotes mais instalados pela comunidade global no último mês. Qual o pacote em primeiro lugar? Dica: Defina a entrada da função <code>cran_top_downloads</code> como sendo <code>when = 'last-week'</code>. Também note que a resposta aqui pode não ser a mesma que obteve pois esta depende do dia em que foi executado o código.</p>
 <ol type="a">
-<li>cli</li>
-<li>lifecycle</li>
+<li>vctrs</li>
+<li>glue</li>
+<li>dplyr</li>
+<li>jsonlite</li>
 <li>ggplot2</li>
-<li>tibble</li>
-<li>pillar</li>
 </ol>
 <hr>
 <p>Q.4 - Utilizando pacote <code>devtools</code>, instale a versão de desenvolvimento do pacote <strong>{ggplot2}</strong> <span class="citation" data-cites="R-ggplot2">(<a href="99-references.html#ref-R-ggplot2" role="doc-biblioref">Wickham et al. 2024</a>)</span>, disponível no repositório de <a href="https://github.com/hadley">Hadley Hickman</a>. Carregue o pacote usando <code>library</code> e crie uma figura simples com o código <code>qplot(y = rnorm(10), x = 1:10)</code>.</p>

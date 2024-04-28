@@ -239,7 +239,7 @@ div.csl-indent {
 
 
 <p>Segundo o site <a href="https://www.quanthub.com/how-much-data-is-being-generated-every-60-seconds/">quanthub.com</a>, a cada minuto, o tempo para ler alguns parágrafos deste livro, 204 milhões de emails são enviados. Para ter uma ideia de volume, isso é aproximadamente o envio de um email por minuto por cada habitante do Brasil. É indiscutível que estamos vivendo em um momento histórico de maciça produção e armazenamento de informação. Ao mesmo tempo em que o volume de dados cresceu exponencialmente, as aplicações de análise de dados também seguiram o mesmo padrão. Usando o exemplo do email, não tenho dúvida que essa volumosa base de dados dos emails é processada em servidores de alta performance, em busca de informações com finalidade comercial.</p>
-<p>Assim, um ambiente competitivo motiva as empresas a investirem e competirem na formação de equipes especializadas em análise de dados. Sem dúvida, o período atual é bastante positivo para profissionais com conhecimento e experiência na utilização das ferramentas corretas para a análise computacional de dados. É nesse ambiente que se destaca o papel do <strong>R</strong>, uma <strong>linguagem de programação</strong> voltada para a resolução de problemas computacionais envolvendo análise, processamento, visualização e modelagem de dados. Nas próximas seções, explicarei o que é o R e quais são suas vantagens frente a outras alternativas.</p>
+<p>Assim, um ambiente competitivo motiva as empresas a investirem e competirem na formação de equipes especializadas em análise de dados. Sem dúvida, o período atual é bastante positivo para profissionais com conhecimento e experiência na utilização das ferramentas corretas para a análise computacional de dados. É nesse ambiente que se destaca o papel do <strong>R</strong>, uma <strong>linguagem de programação</strong> voltada para a resolução de problemas computacionais envolvendo <strong>análise, processamento, visualização e modelagem de dados</strong>. Nas próximas seções, explicarei o que é o R e quais são suas vantagens frente a outras alternativas.</p>
 <section id="o-que-é-o-r" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="o-que-é-o-r"><span class="header-section-number">1.1</span> O que é o R</h2>
 <p>O R é uma linguagem de programação criada em 1993, e voltada para a resolução de problemas estatísticos e visualização gráfica de dados. O código base do R foi inspirado na linguagem <em>S</em>, inicialmente criada no laboratório da <strong>Bell/AT&amp;T</strong> por <strong>John Chambers</strong> e seus colegas. A ideia de criar uma linguagem de programação voltada a estatística foi redesenhada por dois acadêmicos, <strong>Ross Ihaka</strong> e <strong>Robert Gentleman</strong>, ambos da universidade de <em>Auckland</em>, Nova Zelândia.</p>
@@ -333,7 +333,7 @@ Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A cada quatro meses uma nova versão do R é lançada, corrigindo <em>bugs</em> e implementando novas soluções. Temos dois tipos principais de versões, <em>major</em> e <em>minor</em>. Por exemplo, na data de compilação do livro, 25/04/2024, a última versão disponível do R é 4.3.3. O primeiro dígito (4) indica a versão <em>major</em> e todos os demais são do tipo <em>minor</em>. Geralmente, as mudanças <em>minor</em> são bem específicas e, possivelmente, terão pouco impacto no seu trabalho.</p>
+<p>A cada quatro meses uma nova versão do R é lançada, corrigindo <em>bugs</em> e implementando novas soluções. Temos dois tipos principais de versões, <em>major</em> e <em>minor</em>. Por exemplo, na data de compilação do livro, 28/04/2024, a última versão disponível do R é 4.4.0. O primeiro dígito (4) indica a versão <em>major</em> e todos os demais são do tipo <em>minor</em>. Geralmente, as mudanças <em>minor</em> são bem específicas e, possivelmente, terão pouco impacto no seu trabalho.</p>
 <p>Porém, mudanças do tipo <em>major</em> refletem totalmente no ecossistema de pacotes do R. Toda vez que instalar uma nova versão <em>major</em> do R, o diretório onde os pacotes são instalados é renovado, isto é, terás que reinstalar todos os pacotes utilizados no seu trabalho. O problema é que não é incomum problemas de incompatibilidade de pacotes com a nova versão.</p>
 <p>Minha dica é: toda vez que uma nova versão <em>major</em> do R sair, espere algumas semanas ou até um mês antes de instalar na sua máquina. Assim, o autores dos pacotes terão mais tempo para atualizar os seus códigos, minimizando a possibilidade de problemas de compatibilidade.</p>
 </div>
@@ -356,29 +356,29 @@ Importante
 <hr>
 <p>Q.1 - A primeira versão do R foi desenvolvida com base em qual outra linguagem de programação?</p>
 <ol type="a">
-<li>Julia</li>
-<li>Python</li>
 <li>C++</li>
-<li>Javascript</li>
 <li>S</li>
+<li>Javascript</li>
+<li>Python</li>
+<li>Julia</li>
 </ol>
 <hr>
 <p>Q.2 - Qual o nome dos autores da primeira versão do R?</p>
 <ol type="a">
 <li>Guido van Rossum e Bjarne Stroustrup</li>
 <li>John Chambers e Robert Engle</li>
+<li>Ross Ihaka e Robert Gentleman</li>
 <li>Roger Federer e Rafael Nadal</li>
 <li>Linus Torvalds e Richard Stallman</li>
-<li>Ross Ihaka e Robert Gentleman</li>
 </ol>
 <hr>
 <p>Q.3 - Qual o principal diferencial do R em relação a outras linguagens de programação, tal como Python, C++, javascript e demais?</p>
 <ol type="a">
-<li>Facilita o desenvolvimento de aplicativos web</li>
 <li>Execução rápida de códigos</li>
-<li>Facilidade de uso, em geral</li>
 <li>Facilidade para a análise estatística de dados</li>
 <li>Facilita o desenvolvimento de aplicativos para celular</li>
+<li>Facilita o desenvolvimento de aplicativos web</li>
+<li>Facilidade de uso, em geral</li>
 </ol>
 <hr>
 <p>Q.4 - Qual a razão para o nome da linguagem de programação ser R?</p>
@@ -392,26 +392,26 @@ Importante
 <hr>
 <p>Q.5 - Sobre o R, considere as seguintes alternativas:</p>
 <p>I - O R foi desenvolvido em 2018 e é um projeto inovador porém, instável;</p>
-<p>II - O RStudio é uma linguagem de programação alternativa ao R;</p>
+<p>II - O RStudio é uma interface ao R, aumentando a produtividade do analista de dados;</p>
 <p>III - O R tem compatibilidade com diferentes linguagens de programação;</p>
 <p>Quais alternativas estão corretas?</p>
 <ol type="a">
-<li>TRUE, FALSE, FALSE</li>
+<li>FALSE, TRUE, TRUE</li>
 <li>FALSE, FALSE, TRUE</li>
+<li>TRUE, FALSE, TRUE</li>
 <li>TRUE, TRUE, FALSE</li>
-<li>TRUE, TRUE, TRUE</li>
-<li>FALSE, FALSE, FALSE</li>
+<li>TRUE, FALSE, FALSE</li>
 </ol>
 <hr>
 <p>Q.6 - Assim que tiver R e RStudio instalado, dirija-se ao <a href="https://cloud.r-project.org/web/packages/available_packages_by_date.html">site de pacotes do CRAN</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> e procure por tecnologias que usas no seu trabalho. Por exemplo, se usas <a href="https://www.google.com/sheets/about/">Planilhas do Google (Sheets)</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> ostensivamente no seu trabalho, logo descobrirá que existe um pacote no CRAN que interage com planilhas do Google na nuvem.</p>
 <hr>
 <p>Q.7 - No <a href="https://cloud.r-project.org/bin/windows/">site</a> de instalação do R no Windows é possível instalar também o aplicativo <strong>Rtools</strong>. Para que ele serve?</p>
 <ol type="a">
-<li>Fazer café (?)</li>
-<li>Compilar relatórios técnicos</li>
-<li>Construir páginas na web</li>
 <li>Compilação de pacotes do R no Windows</li>
+<li>Fazer café (?)</li>
 <li>Criar gráficos</li>
+<li>Construir páginas na web</li>
+<li>Compilar relatórios técnicos</li>
 </ol>
 <hr>
 <p>Q.8 - Use o <a href="https://www.google.com/search?q=R+groups+in+my+city">Google</a> para pesquisar por grupos de R em sua região. Verifique se os encontros são frequentes e, caso não tiver um impedimento maior, vá para um desses encontros e faça novos amigos.</p>
