@@ -18,7 +18,7 @@ publishDate: "2024-04-15T00:00:00"
 title: "Introdução ao R - Um guia prático para iniciantes"
 url_code: ""
 url_dataset: ""
-url_pdf: "https://www.amazon.com.br/dp/TODO"
+url_pdf: "https://www.amazon.com/TODO"
 url_poster: ""
 url_project: ""
 url_slides: ""
@@ -28,7 +28,7 @@ url_video: ""
 
 ## Onde comprar
 
-O livro está disponível na Amazon nos seguintes formatos: [ebook](https://www.amazon.com.br/dp/TODO), [impresso capa tradicional](https://www.amazon.com/dp/TODO), [impresso capa dura e colorido](https://www.amazon.com/dp/TODO) e [versão online](https://www.msperlin.com/introR/). 
+O livro está disponível na Amazon nos seguintes formatos: [ebook](https://www.amazon.com.br/dp/TODO), [impresso capa tradicional](https://www.amazon.com/dp/B0D2W2W29W), [impresso capa dura e colorido](https://www.amazon.com/dp/TODO) e [versão online](https://www.msperlin.com/introR/). 
 
 <div class="alert alert-danger">
 Infelizmente, a Amazon não tem gráfica no Brasil. Assim, o livro impresso é fabricado nos Estados Unidos e remetido para cá. Saiba, porém, que o frete é relativamente barato, com entrega em uma a duas semanas em qualquer parte do país. 
