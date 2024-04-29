@@ -527,11 +527,11 @@ R&gt; [16]  7.8947368  8.4210526  8.9473684  9.4736842 10.0000000</code></pre>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print first 20 elements</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt;  [1] -0.83570938 -1.99017181 -0.69780031 -0.54998486
-R&gt;  [5] -2.68059457 -0.03714521 -1.36358702  0.03807002
-R&gt;  [9]  0.47559411  1.40950189  1.10198206 -0.49628384
-R&gt; [13]  1.99940437 -0.28709396 -1.44292977  1.02768071
-R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
+<pre><code>R&gt;  [1] -1.89688947 -0.04762470  0.45388231 -0.89843797
+R&gt;  [5] -1.29498227  1.67110135 -0.51274292 -0.68362237
+R&gt;  [9] -0.12605679 -0.01073547  0.50753426 -1.92770463
+R&gt; [13]  1.81812748  0.60527211 -0.04629702  1.47679568
+R&gt; [17]  0.23164228 -0.65815248  1.39087530  0.06353830</code></pre>
 </div>
 </div>
 <p>O código anterior gera uma grande quantidade de números aleatórios de uma distribuição Normal com média zero e desvio padrão igual a um.</p>
@@ -545,7 +545,7 @@ R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] -3.0504477 -0.4496589  3.3328394 -1.8183154 -4.7822923</code></pre>
+<pre><code>R&gt; [1] -1.276680  3.344633 -0.447848  3.705619  4.409560</code></pre>
 </div>
 </div>
 <p>Observe que ambas as funções anteriores são limitadas à suas respectivas distribuições. Uma maneira alternativa e flexível de gerar valores aleatórios é utilizar a função <strong>sample()</strong> . Essa tem como entrada um vetor qualquer e retorna uma versão embaralhada de seus elementos. A sua flexibilidade reside no fato de que o vetor de entrada pode ser qualquer coisa. Por exemplo, caso quiséssemos criar um vetor aleatório com os números <code>c(0, 5, 15, 20, 25)</code> apenas, poderíamos fazê-lo da seguinte forma:</p>
@@ -559,7 +559,7 @@ R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 25  5  0 20 10 15</code></pre>
+<pre><code>R&gt; [1]  0 20 25 10 15  5</code></pre>
 </div>
 </div>
 <p>A função <strong>sample()</strong> também permite a seleção aleatória de um certo número de termos. Por exemplo, caso quiséssemos selecionar aleatoriamente apenas um elemento de <code>my_vec</code>, escreveríamos o código da seguinte maneira:</p>
@@ -570,7 +570,7 @@ R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 10</code></pre>
+<pre><code>R&gt; [1] 5</code></pre>
 </div>
 </div>
 <p>Caso quiséssemos dois elementos, escreveríamos:</p>
@@ -581,7 +581,7 @@ R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] 10  0</code></pre>
+<pre><code>R&gt; [1] 15 10</code></pre>
 </div>
 </div>
 <p>Também é possível selecionar valores de uma amostra menor para a criação de um vetor maior. Por exemplo, considere o caso em que se tem um vetor com os números <code>c(10, 15, 20)</code> e deseja-se criar um vetor aleatório com dez elementos retirados desse vetor menor, com repetição. Para isso, podemos utilizar a opção <code>replace = TRUE</code>.</p>
@@ -593,7 +593,7 @@ R&gt; [17]  1.02029529 -1.59645128 -0.70186600  0.77991132</code></pre>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>my_rnd_vec <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x =</span> my_vec, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_rnd_vec)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt;  [1] 10 15  5 10  5 10  5 15  5 10</code></pre>
+<pre><code>R&gt;  [1]  5 10 10 10 10  5  5  5 10 15</code></pre>
 </div>
 </div>
 <p>Vale destacar que a função <strong>sample()</strong> funciona para qualquer tipo ou objeto, não sendo, portanto, exclusiva para vetores numéricos. Poderíamos, também, escolher elementos aleatórios de um vetor de texto ou então uma lista:</p>
@@ -1926,7 +1926,7 @@ R&gt; $ ret     &lt;dbl&gt; 0.042864781, 0.017056405, 0.011198439, 0.0…</code>
 <h2 data-number="6.5" class="anchored" data-anchor-id="sec-datas"><span class="header-section-number">6.5</span> Datas e Tempo</h2>
 <p>Manipular datas e horários de forma correta, levando em conta mudanças decorridas de horário de verão, feriados locais, em diferentes zonas de tempo, não é uma tarefa fácil! Felizmente, o R fornece um grande suporte para qualquer tipo de operação com datas e tempo.</p>
 <p>Nesta seção estudaremos as funções e classes nativas que representam e manipulam o tempo em R. Aqui, daremos prioridade as funções do pacote <strong>{lubridate}</strong> <span class="citation" data-cites="R-lubridate">(<a href="99-references.html#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, e Wickham 2023</a>)</span>. Existem, no entanto, muitos pacotes que podem ajudar o usuário a processar objetos do tipo data e tempo. Caso alguma operação com data e tempo não for encontrada aqui, sugiro o estudo dos pacotes <strong>{chron}</strong> <span class="citation" data-cites="R-chron">(<a href="99-references.html#ref-R-chron" role="doc-biblioref">James e Hornik 2023</a>)</span>, <strong>{timeDate}</strong> <span class="citation" data-cites="R-timeDate">(<a href="99-references.html#ref-R-timeDate" role="doc-biblioref">Wuertz et al. 2023</a>)</span> e <strong>{bizdays}</strong> <span class="citation" data-cites="R-bizdays">(<a href="99-references.html#ref-R-bizdays" role="doc-biblioref">Freitas 2024</a>)</span>.</p>
-<p>Antes de começarmos, vale relembrar que toda data no R segue o formato <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> (<code>YYYY-MM-DD</code>), onde <code>YYYY</code> é o ano em quatro números, <code>MM</code> é o mês e <code>DD</code> é o dia. Por exemplo, uma data em ISO 8601 é 2024-04-28. Deves familiarizar-se com esse formato pois toda importação de dados com formato de datas diferente desta notação exigirá conversão. Felizmente, essa operação é bastante simples de executar com o <strong>{lubridate}</strong> <span class="citation" data-cites="R-lubridate">(<a href="99-references.html#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, e Wickham 2023</a>)</span>.</p>
+<p>Antes de começarmos, vale relembrar que toda data no R segue o formato <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> (<code>YYYY-MM-DD</code>), onde <code>YYYY</code> é o ano em quatro números, <code>MM</code> é o mês e <code>DD</code> é o dia. Por exemplo, uma data em ISO 8601 é 2024-04-29. Deves familiarizar-se com esse formato pois toda importação de dados com formato de datas diferente desta notação exigirá conversão. Felizmente, essa operação é bastante simples de executar com o <strong>{lubridate}</strong> <span class="citation" data-cites="R-lubridate">(<a href="99-references.html#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, e Wickham 2023</a>)</span>.</p>
 <section id="criando-datas-simples" class="level3" data-number="6.5.1">
 <h3 data-number="6.5.1" class="anchored" data-anchor-id="criando-datas-simples"><span class="header-section-number">6.5.1</span> Criando Datas Simples</h3>
 <p>No R, existem diversas classes que podem representar datas. A escolha entre uma classe de datas e outra baseia-se na necessidade da pesquisa. Em muitas situações não é necessário saber o horário, enquanto que em outras isso é extremamente pertinente pois os dados são coletados ao longo de um dia.</p>
@@ -2387,12 +2387,12 @@ R&gt; [19] 30 45  0 15 30 45  0</code></pre>
 <span id="cb316-3"><a href="#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get today</span></span>
 <span id="cb316-4"><a href="#cb316-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">Sys.Date</span>())</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-28"</code></pre>
+<pre><code>R&gt; [1] "2024-04-29"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb318"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb318-1"><a href="#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb318-2"><a href="#cb318-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">today</span>())</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-28"</code></pre>
+<pre><code>R&gt; [1] "2024-04-29"</code></pre>
 </div>
 </div>
 <p>Para descobrir a data e horário, utilizamos a função <strong>Sys.time()</strong> ou <strong>lubridate</strong>::<strong>now()</strong> :</p>
@@ -2400,12 +2400,12 @@ R&gt; [19] 30 45  0 15 30 45  0</code></pre>
 <div class="sourceCode cell-code" id="cb320"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb320-1"><a href="#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get time!</span></span>
 <span id="cb320-2"><a href="#cb320-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">Sys.time</span>())</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-28 08:57:48 -03"</code></pre>
+<pre><code>R&gt; [1] "2024-04-29 08:13:10 -03"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb322"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb322-1"><a href="#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get time!</span></span>
 <span id="cb322-2"><a href="#cb322-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">now</span>())</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "2024-04-28 08:57:48 -03"</code></pre>
+<pre><code>R&gt; [1] "2024-04-29 08:13:10 -03"</code></pre>
 </div>
 </div>
 <p>Com base nessas, podemos escrever:</p>
@@ -2418,7 +2418,7 @@ R&gt; [19] 30 45  0 15 30 45  0</code></pre>
 <span id="cb324-6"><a href="#cb324-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print it</span></span>
 <span id="cb324-7"><a href="#cb324-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_str)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R&gt; [1] "This code was executed in 2024-04-28 08:57:48.952838"</code></pre>
+<pre><code>R&gt; [1] "This code was executed in 2024-04-29 08:13:10.551632"</code></pre>
 </div>
 </div>
 </section>
