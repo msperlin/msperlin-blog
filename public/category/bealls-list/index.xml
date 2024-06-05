@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bealls list | msperlin</title>
+    <title>Bealls List | msperlin</title>
     <link>https://www.msperlin.com/category/bealls-list/</link>
       <atom:link href="https://www.msperlin.com/category/bealls-list/index.xml" rel="self" type="application/rss+xml" />
-    <description>Bealls list</description>
+    <description>Bealls List</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>Bealls list</title>
+      <title>Bealls List</title>
       <link>https://www.msperlin.com/category/bealls-list/</link>
     </image>
     

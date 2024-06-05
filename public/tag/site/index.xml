@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>site | msperlin</title>
+    <title>Site | msperlin</title>
     <link>https://www.msperlin.com/tag/site/</link>
       <atom:link href="https://www.msperlin.com/tag/site/index.xml" rel="self" type="application/rss+xml" />
-    <description>site</description>
+    <description>Site</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>site</title>
+      <title>Site</title>
       <link>https://www.msperlin.com/tag/site/</link>
     </image>
     

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R in finance | msperlin</title>
+    <title>R in Finance | msperlin</title>
     <link>https://www.msperlin.com/tag/r-in-finance/</link>
       <atom:link href="https://www.msperlin.com/tag/r-in-finance/index.xml" rel="self" type="application/rss+xml" />
-    <description>R in finance</description>
+    <description>R in Finance</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Mon, 15 May 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>R in finance</title>
+      <title>R in Finance</title>
       <link>https://www.msperlin.com/tag/r-in-finance/</link>
     </image>
     

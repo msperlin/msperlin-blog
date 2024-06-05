@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>stock market | msperlin</title>
+    <title>Stock Market | msperlin</title>
     <link>https://www.msperlin.com/tag/stock-market/</link>
       <atom:link href="https://www.msperlin.com/tag/stock-market/index.xml" rel="self" type="application/rss+xml" />
-    <description>stock market</description>
+    <description>Stock Market</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sun, 15 Jan 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>stock market</title>
+      <title>Stock Market</title>
       <link>https://www.msperlin.com/tag/stock-market/</link>
     </image>
     

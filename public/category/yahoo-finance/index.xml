@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yahoo finance | msperlin</title>
+    <title>Yahoo Finance | msperlin</title>
     <link>https://www.msperlin.com/category/yahoo-finance/</link>
       <atom:link href="https://www.msperlin.com/category/yahoo-finance/index.xml" rel="self" type="application/rss+xml" />
-    <description>Yahoo finance</description>
+    <description>Yahoo Finance</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Mon, 22 Jan 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>Yahoo finance</title>
+      <title>Yahoo Finance</title>
       <link>https://www.msperlin.com/category/yahoo-finance/</link>
     </image>
     

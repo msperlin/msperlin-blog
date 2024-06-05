@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vdr | msperlin</title>
+    <title>Vdr | msperlin</title>
     <link>https://www.msperlin.com/category/vdr/</link>
       <atom:link href="https://www.msperlin.com/category/vdr/index.xml" rel="self" type="application/rss+xml" />
-    <description>vdr</description>
+    <description>Vdr</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sat, 22 Oct 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>vdr</title>
+      <title>Vdr</title>
       <link>https://www.msperlin.com/category/vdr/</link>
     </image>
     

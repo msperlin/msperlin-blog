@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>looking back | msperlin</title>
+    <title>Looking Back | msperlin</title>
     <link>https://www.msperlin.com/tag/looking-back/</link>
       <atom:link href="https://www.msperlin.com/tag/looking-back/index.xml" rel="self" type="application/rss+xml" />
-    <description>looking back</description>
+    <description>Looking Back</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>looking back</title>
+      <title>Looking Back</title>
       <link>https://www.msperlin.com/tag/looking-back/</link>
     </image>
     

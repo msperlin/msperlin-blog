@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>investing | msperlin</title>
+    <title>Investing | msperlin</title>
     <link>https://www.msperlin.com/category/investing/</link>
       <atom:link href="https://www.msperlin.com/category/investing/index.xml" rel="self" type="application/rss+xml" />
-    <description>investing</description>
+    <description>Investing</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>investing</title>
+      <title>Investing</title>
       <link>https://www.msperlin.com/category/investing/</link>
     </image>
     

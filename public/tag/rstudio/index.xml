@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rstudio | msperlin</title>
+    <title>Rstudio | msperlin</title>
     <link>https://www.msperlin.com/tag/rstudio/</link>
       <atom:link href="https://www.msperlin.com/tag/rstudio/index.xml" rel="self" type="application/rss+xml" />
-    <description>rstudio</description>
+    <description>Rstudio</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sat, 03 Nov 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
-      <title>rstudio</title>
+      <title>Rstudio</title>
       <link>https://www.msperlin.com/tag/rstudio/</link>
     </image>
     
