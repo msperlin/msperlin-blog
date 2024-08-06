@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Predatory Journals | msperlin</title>
+    <link>https://www.msperlin.com/category/predatory-journals/</link>
+      <atom:link href="https://www.msperlin.com/category/predatory-journals/index.xml" rel="self" type="application/rss+xml" />
+    <description>Predatory Journals</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sun, 22 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Predatory Journals</title>
+      <link>https://www.msperlin.com/category/predatory-journals/</link>
+    </image>
+    
+    <item>
+      <title>Predatory Journals and R</title>
+      <link>https://www.msperlin.com/post/2018-04-22-predatory-scientometrics/</link>
+      <pubDate>Sun, 22 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2018-04-22-predatory-scientometrics/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;My paper about the penetration of predatory journals in Brazil, &lt;strong&gt;Is predatory publishing a real threat? Evidence from a large database study&lt;/strong&gt;, just got &lt;a href=&#34;https://link.springer.com/article/10.1007/s11192-018-2750-6?wt_mc=Internal.Event.1.SEM.ArticleAuthorOnlineFirst&#34;&gt;published in Scientometrics!&lt;/a&gt;. The working paper version is available in &lt;a href=&#34;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3067958&#34;&gt;SSRN&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is a nice example of a data-intensive scientific work cycle, from gathering data to reporting results. Everything was done in R, using web scrapping algorithms, parallel processing, tidyverse packages and more. This was a special project for me, given its implications in science making in Brazil. It took me nearly one year to produce and execute the whole code. It is also a nice case of the capabilities of package ggplot2 in producing publication-ready figures. As a side output, our database of predatory journals is available as a &lt;a href=&#34;http://www.msperlin.com/shiny/predatory/&#34;&gt;shiny app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More details about the study itself is available in the paper. Our abstract is as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Using a database of potential, possible, or probable predatory scholarly open-access journals, the objective of this research is to study the penetration of predatory publications in the Brazilian academic system and the profile of authors in a cross-section empirical study. Based on a massive amount of publications from Brazilian researchers of all disciplines during the 2000–2015 period, we were able to analyze the extent of predatory publications using an econometric modeling. Descriptive statistics indicate that predatory publications represent a small overall proportion, but grew exponentially in the last 5 years. Departing from prior studies, our analysis shows that experienced researchers with a high number of non-indexed publications and PhD obtained locally are more likely to publish in predatory journals. Further analysis shows that once a journal regarded as predatory is listed in the local ranking system, the Qualis, it starts to receive more publications than non-predatory ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

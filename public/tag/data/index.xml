@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data | msperlin</title>
+    <link>https://www.msperlin.com/tag/data/</link>
+      <atom:link href="https://www.msperlin.com/tag/data/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Thu, 07 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Data</title>
+      <link>https://www.msperlin.com/tag/data/</link>
+    </image>
+    
+    <item>
+      <title>Update of compiled datasets (2022)</title>
+      <link>https://www.msperlin.com/post/2022-04-07-update-on-data/</link>
+      <pubDate>Thu, 07 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2022-04-07-update-on-data/</guid>
+      <description>
+
+
+&lt;p&gt;Back in 2020 I started to compile and share financial data in &lt;a href=&#34;https://dataverse.harvard.edu/dataverse/msperlin&#34;&gt;dataverse&lt;/a&gt;. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.&lt;/p&gt;
+&lt;p&gt;Today I updated all datasets. The available data are:&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;18%&#34; /&gt;
+&lt;col width=&#34;44%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;R Package&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Source of Data&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Direct Link&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Last Update&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GetTDData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Tesouro Nacional&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Prices and yields of brazilian sovereign bonds&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/SCSQUF&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2022-04-06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GetFREData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Corporate dataset from FRE systems&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/QIMUNZ&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2022-04-06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GetDFPData2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Annual Financial Reports from DFP system&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/7VVX4J&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2022-04-06&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update of compiled datasets</title>
+      <link>https://www.msperlin.com/post/2021-04-09-update-on-data/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2021-04-09-update-on-data/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Back in 2020 I started to compile and share financial data in &lt;a href=&#34;https://dataverse.harvard.edu/dataverse/msperlin&#34;&gt;dataverse&lt;/a&gt;. The data covers corporate finance events from the DFP and FRE systems. The available tables are the same I use for my research and teaching material, and will be updated once a year.&lt;/p&gt;
+&lt;p&gt;Today I updated all datasets. The available data are:&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;18%&#34; /&gt;
+&lt;col width=&#34;44%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;col width=&#34;12%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;R Package&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Source of Data&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Direct Link&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Last Update&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;GetTDData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Tesouro Nacional&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Prices and yields of brazilian sovereign bonds&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/SCSQUF&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2021-04-09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GetFREData&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Corporate dataset from FRE systems&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/QIMUNZ&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2021-04-09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;BatchGetSymbols&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Yahoo Finance&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Daily adjusted and unadjusted prices and trading volumes of stocks&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/7NAG08&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2021-04-09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;GetDFPData2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;CVM&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Annual Financial Reports from DFP system&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;https://doi.org/10.7910/DVN/7VVX4J&#34;&gt;Link&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2021-04-09&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

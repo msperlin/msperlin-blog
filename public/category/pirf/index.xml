@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pirf | msperlin</title>
+    <link>https://www.msperlin.com/category/pirf/</link>
+      <atom:link href="https://www.msperlin.com/category/pirf/index.xml" rel="self" type="application/rss+xml" />
+    <description>Pirf</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Pirf</title>
+      <link>https://www.msperlin.com/category/pirf/</link>
+    </image>
+    
+    <item>
+      <title>New online book available - Poupando e Investindo em Renda Fixa</title>
+      <link>https://www.msperlin.com/post/2020-05-24-pirf-is-online/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2020-05-24-pirf-is-online/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Back in early 2019 I decided to try a new writing style, resulting in my book about investing. The main innovation is the use of real data to make conclusions about the best way to invest money in the fixed income market in Brazil.&lt;/p&gt;
+&lt;p&gt;I was a lot of fun to learn more and write about money management and investing, a subject so different from the usual programming topics dealt in this blog. The audience is also much larger, making it a more challenging and rewarding effort.&lt;/p&gt;
+&lt;p&gt;I’m happy to report that the feedback has been great. As of today, 2020-05-24, the book has 22 five star ratings in &lt;a href=&#34;https://www.amazon.com.br/dp/B07RR9K9PV&#34;&gt;Amazon&lt;/a&gt;, a remarkable achievement!&lt;/p&gt;
+&lt;p&gt;Today I decided to work and publish the online version of the book. The content for the first three chapters is available at &lt;a href=&#34;https://www.msperlin.com/pirf/&#34;&gt;https://www.msperlin.com/pirf/&lt;/a&gt;. Hope you like it. If you do, please leave a feedback at Amazon.com.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

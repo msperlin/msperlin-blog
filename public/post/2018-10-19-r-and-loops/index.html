@@ -1,0 +1,1269 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Marcelo S. Perlin">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Loops in R First, if you are new to programming, you should know that loops are a way to tell the computer that you want to repeat some operation for a number of times. This is a very common task that can be found in many programming languages. For example, let’s say you invited five friends for dinner at your home and the whole cost of four pizzas will be split evenly. Assume now that you must give instructions to a computer on calculating how much each one will pay at the end of dinner.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://www.msperlin.com/post/2018-10-19-r-and-loops/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+    
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+    
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89690212-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-89690212-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu8681554187780269523.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu5759718931361666147.png">
+
+  <link rel="canonical" href="https://www.msperlin.com/post/2018-10-19-r-and-loops/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@msperlin">
+  <meta property="twitter:creator" content="@msperlin">
+  
+  <meta property="og:site_name" content="msperlin">
+  <meta property="og:url" content="https://www.msperlin.com/post/2018-10-19-r-and-loops/">
+  <meta property="og:title" content="Loops and Pizzas | msperlin">
+  <meta property="og:description" content="Loops in R First, if you are new to programming, you should know that loops are a way to tell the computer that you want to repeat some operation for a number of times. This is a very common task that can be found in many programming languages. For example, let’s say you invited five friends for dinner at your home and the whole cost of four pizzas will be split evenly. Assume now that you must give instructions to a computer on calculating how much each one will pay at the end of dinner."><meta property="og:image" content="https://www.msperlin.com/img/portrait.jpg">
+  <meta property="twitter:image" content="https://www.msperlin.com/img/portrait.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2018-10-19T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2018-10-19T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.msperlin.com/post/2018-10-19-r-and-loops/"
+  },
+  "headline": "Loops and Pizzas",
+  
+  "datePublished": "2018-10-19T00:00:00Z",
+  "dateModified": "2018-10-19T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "msperlin"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "msperlin",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.msperlin.com/images/icon_hu5759718931361666147.png"
+    }
+  },
+  "description": "Loops in R First, if you are new to programming, you should know that loops are a way to tell the computer that you want to repeat some operation for a number of times. This is a very common task that can be found in many programming languages. For example, let’s say you invited five friends for dinner at your home and the whole cost of four pizzas will be split evenly. Assume now that you must give instructions to a computer on calculating how much each one will pay at the end of dinner."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Loops and Pizzas | msperlin</title>
+
+</head>
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">msperlin</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-end" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication"><span>Publications</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/publication/#5"><span>Books</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Blog</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/post/"><span>Posts</span></a>
+            
+              <a class="dropdown-item" href="/subscribe_rss"><span>Subscribe in RSS</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Code</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/code/r/"><span>R Code</span></a>
+            
+              <a class="dropdown-item" href="/code/shiny/"><span>Shiny Web Apps</span></a>
+            
+              <a class="dropdown-item" href="/code/matlab/"><span>Matlab Code</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/data/"><span>Data</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/subscribe_email"><span>Subscribe</span></a>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Research & Talks</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="/research/awards"><span>Awards</span></a>
+            
+              <a class="dropdown-item" href="/research/on-the-news"><span>Coverage by News</span></a>
+            
+              <a class="dropdown-item" href="/talk"><span>Talks</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+        
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><span>Others</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu">
+            
+              <a class="dropdown-item" href="https://www.r-bloggers.com"><span>R-Bloggers</span></a>
+            
+              <a class="dropdown-item" href="/#search"><span>Search</span></a>
+            
+          </div>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Loops and Pizzas</h1>
+
+  
+  <p class="page-subtitle">An Introduction to Loops in R</p>
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    2018-10-19
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-10-19-r-and-loops/#disqus_thread"></a>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/r/">R</a>, <a href="/category/tutorial/">Tutorial</a></span>
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="loops-in-r" class="section level1">
+<h1>Loops in R</h1>
+<p>First, if you are new to programming, you should know that loops are a way to tell the computer that you want to repeat some operation for a number of times. This is a very common task that can be found in many programming languages. For example, let’s say you invited five friends for dinner at your home and the whole cost of four pizzas will be split evenly. Assume now that you <strong>must</strong> give instructions to a computer on calculating how much each one will pay at the end of dinner. For that, you need to sum up the individual tabs and divide by the number of people. Your instructions to the computer could be: <em>start with a value of x = zero, take each individual pizza cost and sum it to x until all costs are processed, dividing the result by the number of friends at the end</em>.</p>
+<p>The great thing about <em>loops</em> is that the length of it is dynamically set. Using the previous example, if we had 500 friends (and a large dinner table!), we could use the same instructions for calculating the individual tabs. That means we can encapsulate a generic procedure for processing any given number of friends at dinner. With it, you have at your reach a tool for the execution of any sequential process. In other words, you are the boss of your computer and, as long as you can write it down clearly, you can set it to do any kind of repeated task for you.</p>
+<p>Now, about the code, we could write the solution to the <em>pizza problem</em> in R as:</p>
+<pre class="r"><code>pizza.costs &lt;- c(50, 80, 30, 60) # each cost of pizza
+n.friends &lt;- 5 # number of friends
+
+x &lt;- 0 # set first cost to zero
+for (i.cost in pizza.costs) {
+  x &lt;- x + i.cost # sum it up
+}
+
+x &lt;- x/n.friends # divide for average per friend
+print(x)</code></pre>
+<pre><code>## [1] 44</code></pre>
+<p>Don’t worry if you didn’t understand the code. We’ll get to the structure of a loop soon.</p>
+<p>Back to our case, each friend would pay 44 for the meal. We can check the result against function <code>sum</code>:</p>
+<pre class="r"><code>x == sum(pizza.costs)/n.friends</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>The output <code>TRUE</code> shows that the results are equal.</p>
+<div id="the-structure-of-a-loop" class="section level2">
+<h2>The Structure of a Loop</h2>
+<p>Knowing how to use loops can be a powerful ally in a complex data related problem. Let’s talk more about how <em>loops</em> are defined in R. The structure of a <em>loop</em> in R follows:</p>
+<pre class="r"><code>for (i in i.vec){
+  ...
+}</code></pre>
+<p>In the previous code, command <code>for</code> indicates the beginning of a <em>loop</em>. Object <code>i</code> in <code>(i in i.vec)</code> is the iterator of the <em>loop</em>. This iterator will change its value in each iteration, taking each individual value contained in <code>i.vec</code>. Note the <em>loop</em> is encapsulated by curly braces (<code>{}</code>). These are important, as they define where the <em>loop</em> starts and where it ends. The indentation (use of bigger margins) is also important for visual cues, but not necessary. Consider the following practical example:</p>
+<pre class="r"><code># set seq
+my.seq &lt;- seq(-5,5)
+
+# do loop
+for (i in my.seq){
+  cat(paste(&#39;\nThe value of i is&#39;,i))
+}</code></pre>
+<pre><code>## 
+## The value of i is -5
+## The value of i is -4
+## The value of i is -3
+## The value of i is -2
+## The value of i is -1
+## The value of i is 0
+## The value of i is 1
+## The value of i is 2
+## The value of i is 3
+## The value of i is 4
+## The value of i is 5</code></pre>
+<p>In the code, we created a sequence from -5 to 5 and presented a text for each element with the <code>cat</code> function. Notice how we also broke the prompt line with <code>'\n'</code>. The <em>loop</em> starts with <code>i=-5</code>, execute command <code>cat(paste('\nThe value of i is', -5))</code>, proceed to the next iteration by setting <code>i=-4</code>, rerun the <code>cat</code> command, and so on. At its final iteration, the value of <code>i</code> is <code>5</code>.</p>
+<p>The iterated sequence in the <em>loop</em> is not exclusive to numerical vectors. Any type of vector or list may be used. See next:</p>
+<pre class="r"><code># set char vec
+my.char.vec &lt;- letters[1:5]
+
+# loop it!
+for (i.char in my.char.vec){
+  cat(paste(&#39;\nThe value of i.char is&#39;, i.char))
+}</code></pre>
+<pre><code>## 
+## The value of i.char is a
+## The value of i.char is b
+## The value of i.char is c
+## The value of i.char is d
+## The value of i.char is e</code></pre>
+<p>The same goes for <code>lists</code>:</p>
+<pre class="r"><code># set list
+my.l &lt;- list(x = 1:5, 
+             y = c(&#39;abc&#39;,&#39;dfg&#39;), 
+             z = factor(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;D&#39;))
+
+# loop list
+for (i.l in my.l){
+  
+  cat(paste0(&#39;\nThe class of i.l is &#39;, class(i.l), &#39;. &#39;))
+  cat(paste0(&#39;The number of elements is &#39;, length(i.l), &#39;.&#39;))
+  
+}</code></pre>
+<pre><code>## 
+## The class of i.l is integer. The number of elements is 5.
+## The class of i.l is character. The number of elements is 2.
+## The class of i.l is factor. The number of elements is 1.</code></pre>
+<p>In the definition of <em>loops</em>, the iterator does not have to be the only object incremented in each iteration. We can create other objects and increment them using a simple sum operation. See next:</p>
+<pre class="r"><code># set vec and iterators
+my.vec &lt;- seq(1:5)
+my.x &lt;- 5
+my.z &lt;- 10
+
+for (i in my.vec){
+  # iterate &quot;manually&quot;
+  my.x &lt;- my.x + 1
+  my.z &lt;- my.z + 2
+  
+  cat(&#39;\nValue of i = &#39;, i, 
+      &#39; | Value of my.x = &#39;, my.x, 
+      &#39; | Value of my.z = &#39;, my.z)
+}</code></pre>
+<pre><code>## 
+## Value of i =  1  | Value of my.x =  6  | Value of my.z =  12
+## Value of i =  2  | Value of my.x =  7  | Value of my.z =  14
+## Value of i =  3  | Value of my.x =  8  | Value of my.z =  16
+## Value of i =  4  | Value of my.x =  9  | Value of my.z =  18
+## Value of i =  5  | Value of my.x =  10  | Value of my.z =  20</code></pre>
+<p>Using nested <em>loops</em>, that is, a <em>loop</em> inside of another <em>loop</em> is also possible. See the following example, where we present all the elements of a matrix:</p>
+<pre class="r"><code># set matrix
+my.mat &lt;- matrix(1:9, nrow = 3)
+
+# loop all values of matrix
+for (i in seq(1,nrow(my.mat))){
+  for (j in seq(1,ncol(my.mat))){
+    cat(paste0(&#39;\nElement [&#39;, i, &#39;, &#39;, j, &#39;] = &#39;, my.mat[i,j]))
+  }
+}</code></pre>
+<pre><code>## 
+## Element [1, 1] = 1
+## Element [1, 2] = 4
+## Element [1, 3] = 7
+## Element [2, 1] = 2
+## Element [2, 2] = 5
+## Element [2, 3] = 8
+## Element [3, 1] = 3
+## Element [3, 2] = 6
+## Element [3, 3] = 9</code></pre>
+</div>
+<div id="a-real-world-example" class="section level2">
+<h2>A Real World Example</h2>
+<p>Now, the computational needs of the real world is far more complex than dividing a dinner expense. A practical example of using <em>loops</em> is processing data according to groups. Using an example from Finance, if we have a return dataset for several stocks and we want to calculate the average return of each stock, we can use a <em>loop</em> for that. In this example, we will use <em>Yahoo Finance</em> data from three stocks: FB, GE and AA. The first step is downloading it with package <code>BatchGetSymbols</code>.</p>
+<pre class="r"><code>library(BatchGetSymbols)</code></pre>
+<pre><code>## Loading required package: rvest</code></pre>
+<pre><code>## Loading required package: xml2</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## </code></pre>
+<pre class="r"><code>my.tickers &lt;-  c(&#39;FB&#39;, &#39;GE&#39;, &#39;AA&#39;)
+
+df.stocks &lt;- BatchGetSymbols(tickers = my.tickers, 
+                             first.date = &#39;2012-01-01&#39;, 
+                             freq.data = &#39;yearly&#39;)[[2]]</code></pre>
+<pre><code>## 
+## Running BatchGetSymbols for:</code></pre>
+<pre><code>## 
+##    tickers =FB, GE, AA
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1) | Found cache file
+## FB | yahoo (1|3) | Not Cached | Saving cache - Got 95% of valid prices | Nice!
+## GE | yahoo (2|3) | Not Cached | Saving cache - Got 100% of valid prices | Good job!
+## AA | yahoo (3|3) | Not Cached | Saving cache - Got 100% of valid prices | Good job!</code></pre>
+<p>It worked fine. Let’s check the contents of the dataframe:</p>
+<pre class="r"><code>dplyr::glimpse(df.stocks)</code></pre>
+<pre><code>## Rows: 27
+## Columns: 10
+## $ ticker              &lt;chr&gt; &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;AA&quot;, &quot;…
+## $ ref.date            &lt;date&gt; 2012-01-03, 2013-01-02, 2014-01-02, 2015-01-02, …
+## $ volume              &lt;dbl&gt; 2217410500, 2149575500, 2146821400, 2683551700, 2…
+## $ price.open          &lt;dbl&gt; 21.482821, 21.338640, 25.303591, 38.135609, 22.87…
+## $ price.high          &lt;dbl&gt; 25.85628, 25.68807, 42.29280, 41.01921, 32.05000,…
+## $ price.low           &lt;dbl&gt; 19.272060, 18.503099, 24.270300, 18.791460, 16.19…
+## $ price.close         &lt;dbl&gt; 22.179689, 21.602970, 25.303591, 38.159641, 23.33…
+## $ price.adjusted      &lt;dbl&gt; 20.893423, 20.621868, 24.485683, 37.242069, 23.00…
+## $ ret.adjusted.prices &lt;dbl&gt; NA, -0.01299715, 0.18736494, 0.52097326, -0.38221…
+## $ ret.closing.prices  &lt;dbl&gt; NA, -0.02600212, 0.17130149, 0.50807215, -0.38853…</code></pre>
+<p>All financial data is there. Notice that the return series is available at column ret.adjusted.prices.</p>
+<p>Now we will use a loop to build a table with the mean return of each stock:</p>
+<pre class="r"><code># find unique tickers in column ticker
+unique.tickers &lt;- unique(df.stocks$ticker)
+
+# create empty df
+tab.out &lt;- data.frame()
+
+# loop tickers
+for (i.ticker in unique.tickers){
+  
+  # create temp df with ticker i.ticker
+  temp &lt;- df.stocks[df.stocks$ticker==i.ticker, ]
+  
+  # row bind i.ticker and mean.ret
+  tab.out &lt;- rbind(tab.out, 
+                   data.frame(ticker = i.ticker,
+                              mean.ret = mean(temp$ret.adjusted.prices, na.rm = TRUE)))
+  
+}
+
+# print result
+print(tab.out)</code></pre>
+<pre><code>##   ticker   mean.ret
+## 1     AA 0.09646911
+## 2     FB 0.30161873
+## 3     GE 0.05304138</code></pre>
+<p>In the code, we used function <code>unique</code> to find out the names of all the tickers in the dataset. Soon after, we create an empty <em>dataframe</em> to save the results and a loop to filter the data of each stock sequentially and average its returns. At the end of the <em>loop</em>, we use function <code>rbind</code> to paste the results of each stock with the results of the main table. As you can see, we can use the data to perform group calculations with <em>loop</em>.</p>
+<p>By now, I must be forward in saying that the previous loop is by no means the best way of performing the data operation. What we just did by loops is called a <em>split-apply-combine</em> procedure. There are base function in R such as <code>tapply</code>, <code>split</code> and <code>lapply</code>/<code>sapply</code> that can do the same job but with a more intuitive and functional approach. Going further, functions from package <code>tidyverse</code> can do the same procuedure with an even more intuitive approach. In a future post I shall discuss this possibilities further.</p>
+<p>I hope you guys liked the post. Got a question? Just drop it at the comment section.</p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/r/">R</a>
+  
+  <a class="badge badge-light" href="/tag/loops/">Loops</a>
+  
+  <a class="badge badge-light" href="/tag/tutorial/">Tutorial</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://www.msperlin.com/post/2018-10-19-r-and-loops/&amp;text=Loops%20and%20Pizzas" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://www.msperlin.com/post/2018-10-19-r-and-loops/&amp;t=Loops%20and%20Pizzas" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Loops%20and%20Pizzas&amp;body=https://www.msperlin.com/post/2018-10-19-r-and-loops/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://www.msperlin.com/post/2018-10-19-r-and-loops/&amp;title=Loops%20and%20Pizzas" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Loops%20and%20Pizzas%20https://www.msperlin.com/post/2018-10-19-r-and-loops/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://www.msperlin.com/post/2018-10-19-r-and-loops/&amp;title=Loops%20and%20Pizzas" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "blog-gfluyjpsj0" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks",
+        'slides' : "Slides"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://blog-gfluyjpsj0.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.0d53a7f39b7d6770128a54b39dad2f22.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    Marcelo S. Perlin © 2024
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

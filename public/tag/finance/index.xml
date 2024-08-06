@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finance | msperlin</title>
+    <link>https://www.msperlin.com/tag/finance/</link>
+      <atom:link href="https://www.msperlin.com/tag/finance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Finance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Finance</title>
+      <link>https://www.msperlin.com/tag/finance/</link>
+    </image>
+    
+    <item>
+      <title>BatchGetSymbols 2.2</title>
+      <link>https://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2018-10-10-batchgetsymbols-newversion/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;One of the main requests I get for package &lt;code&gt;BatchGetSymbols&lt;/code&gt; is to add the choice of frequency of the financial dataset. Today I finally got some time to work on it. I just posted a new version of BatchGetSymbols in CRAN. The major change is that users can now set the time frequency of the financial data: dailly, weekly, monthly or yearly. Let’s check it out:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(BatchGetSymbols)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: rvest&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: xml2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: dplyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(purrr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;purrr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following object is masked from &amp;#39;package:rvest&amp;#39;:
+## 
+##     pluck&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+my.fct &amp;lt;- function(my.freq) {
+  
+  df &amp;lt;- BatchGetSymbols(tickers = c(&amp;#39;GE&amp;#39;), 
+                      first.date = &amp;#39;2010-01-01&amp;#39;,
+                      last.date = Sys.Date(), do.cache = FALSE,
+                      freq.data = my.freq)$df.tickers
+  
+  df$freq &amp;lt;- my.freq
+
+  return(df)
+}
+
+my.possible.freq &amp;lt;-  c(&amp;#39;daily&amp;#39;, &amp;#39;weekly&amp;#39;, &amp;#39;monthly&amp;#39;, &amp;#39;yearly&amp;#39;)
+
+df.allfreq &amp;lt;- bind_rows(map(.x = my.possible.freq, .f = my.fct))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Running BatchGetSymbols for:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | Good job!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | You got it!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | Feels good!
+## Running BatchGetSymbols for:
+##    tickers =GE
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## GE | yahoo (1|1) - Got 100% of valid prices | You got it!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(df.allfreq, aes(x=ref.date, y = price.adjusted)) + 
+  geom_point() + geom_line() + facet_grid(freq ~ ticker)
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-10-10-BatchGetSymbols-NewVersion_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Investing for the Long Run</title>
+      <link>https://www.msperlin.com/post/2018-05-12-investing-long-run/</link>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2018-05-12-investing-long-run/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I often get asked about how to invest in the stock market. Not surprisingly, this has been a common topic in my classes. Brazil is experiencing a big change in its financial scenario. Historically, fixed income instruments paid a large premium over the stock market and that is no longer the case. Interest rates are low, without the pressure from inflation. This means a more sustainable scenario for low-interest rates in the future. Without the premium in the fixed income market, people turn to the stock market.&lt;/p&gt;
+&lt;p&gt;We can separate investors according to their horizon. Traders try to profit in the short term, usually within a day, and long-term investors buy a stock without the intent to sell it in the near future. This type of investment strategy is called BH (&lt;em&gt;buy and hold&lt;/em&gt;). At the extreme, you buy a stock and hold it forever. The most famous spokesperson of BH is Warren Buffet, among many others.&lt;/p&gt;
+&lt;p&gt;Investing in the long run works for me because it doesn’t require much of my time. You just need to keep up with the quarterly and yearly financial reports of companies. You can easily do it as a side activity, parallel to your main job. You don’t need a lot of brain power to do it either, but it does require knowledge of accounting practices to understand all printed material released by companies.&lt;/p&gt;
+&lt;p&gt;I read many books before starting to invest and one of the most interesting tables I’ve found portrays the relationship between investment horizon and profitability. The idea is that the more time you hold a stock or index, higher the chance of a profit. The table, originally from Taleb’s &lt;em&gt;Fooled by Randomness&lt;/em&gt;, is as follows.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgur.com/a/d5VnMaF&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;My problem with the table is that it seems pretty off. My experience tells me that a 67% chance of positive return every month seems exaggerated. If that was the case, making money in the stock market would be easy. Digging deeper, I found out that the data behind the table is simulated and, therefore, doesn’t really give good an estimate about the improvement in the probability of profits as a function of the investment horizon.&lt;/p&gt;
+&lt;p&gt;As you probably suspect, I decided to tackle the problem using real data and R. I wrote a simple &lt;a href=&#34;https://www.msperlin.com/content/others/fct_invest_horizon.R&#34;&gt;function&lt;/a&gt; that will grab data, simulate investments of different horizons many times and plot the results. Let’s try it for the SP500 index:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;source(&amp;#39;fct_invest_horizon.R&amp;#39;)
+
+my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
+max.horizon = 255*50 # 50 years
+first.date &amp;lt;- &amp;#39;1950-01-01&amp;#39; 
+last.date &amp;lt;- Sys.Date()
+n.points &amp;lt;- 50 # number of points in figure 
+rf.year &amp;lt;- 0 # risk free return (or inflation)
+
+l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker, 
+                                 first.date = first.date, 
+                                 last.date = last.date,
+                                 max.horizon = max.horizon, 
+                                 n.points = n.points, 
+                                 rf.year = rf.year)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As the investment horizon increases, the chances of a positive return increases. This result suggests that, if you invest for more than 13 years, it is very unlikely that you’ll see a negative return. When looking at the distribution of total returns by the horizon, we find that it increases significantly with time. Someone that invested for 50 years is likely to receive a 2500% return on the investment.&lt;/p&gt;
+&lt;p&gt;With input input &lt;code&gt;rf.year&lt;/code&gt; we can also set a desired rate of return. Let’s try it with 5% return per year, with is pretty standard for financial markets.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;^GSPC&amp;#39; # ticker from yahoo finance
+max.horizon = 255*50 # 50 years
+first.date &amp;lt;- &amp;#39;1950-01-01&amp;#39; 
+last.date &amp;lt;- Sys.Date()
+n.points &amp;lt;- 50 # number of points in figure 
+rf.year &amp;lt;- 0.05 # risk free return (or inflation) - yearly
+
+l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker, 
+                                 first.date = first.date, 
+                                 last.date = last.date,
+                                 max.horizon = max.horizon, 
+                                 n.points = n.points, 
+                                 rf.year = rf.year)
+
+print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As expected, the curve of probabilities has a lower slope, meaning that you need more time investing in the SP500 index to guarantee a return of more than 5% a year.&lt;/p&gt;
+&lt;p&gt;Now, let’s try the same setup for Berkshire stock (BRK-A). This is Buffet’s company and looking at its share price we can have a good understanding of how successful Buffet has been as a BH (&lt;em&gt;buy and hold&lt;/em&gt;) investor.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my.ticker &amp;lt;- &amp;#39;BRK-A&amp;#39; # ticker from yahoo finance
+max.horizon = 255*25 # 50 years
+first.date &amp;lt;- &amp;#39;1980-01-01&amp;#39; 
+last.date &amp;lt;- Sys.Date()
+n.points &amp;lt;- 50 # number of points in figure 
+rf.year &amp;lt;- 0.05 # risk free return (or inflation) - yearly
+
+l.out &amp;lt;- get.figs.invest.horizon(ticker.in = my.ticker, 
+                                 first.date = first.date, 
+                                 last.date = last.date,
+                                 max.horizon = max.horizon, 
+                                 n.points = n.points, 
+                                 rf.year = rf.year)
+
+print(l.out$p1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(l.out$p2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2018-05-12-Investing-Long-Run_files/figure-html/unnamed-chunk-5-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Well, needless to say that, historically, Buffet has done very well in his investments! If you bought the stock and kept it for more 1 year, there is a 70% chance that you got a profit.&lt;/p&gt;
+&lt;p&gt;I hope this post convinced you to start investing. The results are clear, its better to start as early as possible.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Research Awards</title>
+      <link>https://www.msperlin.com/research/awards/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/research/awards/</guid>
+      <description>&lt;h2 id=&#34;2018&#34;&gt;2018&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Article &amp;ldquo;Is predatory publishing a real threat? Evidence from a large database study&amp;rdquo; in the top 5% of all research outputs scored by Altmetric. 
+&lt;a href=&#34;https://springeropen.altmetric.com/details/38773966&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Top 10% of authors on SSRN by all-time downloads. 
+&lt;a href=&#34;https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&amp;amp;rank=1&amp;amp;user=467401&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Top 10% of authors on SSRN by total new downloads within the last 12 months. 
+&lt;a href=&#34;https://hq.ssrn.com/rankings/focusedRankings.cfm?ID=7&amp;amp;rank=2&amp;amp;user=467401&amp;amp;redirectFrom=true&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2016&#34;&gt;2016&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;RBFIN best paper of 2015 (Honorary mention) - Award from the Brazilian Finance Society for best paper published in the Brazilian Review of Finance for the year of 2015.
+Title of paper: The researchers, the publications and the journals of Finance in Brazil: An analysis based on resumes from the Lattes platform. 
+&lt;a href=&#34;http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/47157&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2014&#34;&gt;2014&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;APIMEC Award for research paper in Capital Markets (3º place) - Award from the Brazilian Association of Financial Analysts (APIMEC) for the best conference papers in the subject of Capital Markets
+Title of paper: Estimating the Intensity of News based on Trade Data. 
+&lt;a href=&#34;http://www.congressoapimec.com.br/concurso-de-artigos.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RBFIN best paper of 2013 (1º place) - Award from the Brazilian Finance Society for best paper published in the Brazilian Review of Finance for the year of 2013.
+Title of paper: The effects of the introduction of market makers in the Brazilian equity market. 
+&lt;a href=&#34;http://bibliotecadigital.fgv.br/ojs/index.php/rbfin/article/view/4088&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2011&#34;&gt;2011&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ANBIMA award (1º place) - Award from ANBIMA (Brazilian Association of Capital Markets) for the best paper in the area of fixed income markets.
+Title of paper: The Determinants of a Cross Market Arbitrage Opportunity: Theory and Evidence for the European Bond Market. 
+&lt;a href=&#34;http://www.anbima.com.br/_aanbima/RFAnteriores.aspx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Award from IBEF SP/KPMG (Honorary mention) - Award from the Institute of Finance Executives. Title of paper: On the Performance of the Tick Test. 
+&lt;a href=&#34;http://www.ibef.com.br/instituto/premios/revelacao.asp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;File Exchange Pick of the Week - Award from the Matlab community website. Matlab package: MS_Regress - A Package for Markov Regime Switching Models in Matlab. 
+&lt;a href=&#34;http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

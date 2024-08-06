@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog | msperlin</title>
+    <link>https://www.msperlin.com/category/blog/</link>
+      <atom:link href="https://www.msperlin.com/category/blog/index.xml" rel="self" type="application/rss+xml" />
+    <description>Blog</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2024</copyright><lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Blog</title>
+      <link>https://www.msperlin.com/category/blog/</link>
+    </image>
+    
+    <item>
+      <title>Looking back in 2017 and plans for 2018</title>
+      <link>https://www.msperlin.com/post/2017-12-30-looking-back-2017/</link>
+      <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2017-12-30-looking-back-2017/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;my-blog-in-2017&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;My blog in 2017&lt;/h1&gt;
+&lt;p&gt;As we come close to the end of 2017, its time to look back. This has been a great year for me in many ways. This blog started as a way to write short pieces about using R for finance and promote my &lt;a href=&#34;https://sites.google.com/view/pafdR/home&#34;&gt;book&lt;/a&gt; in an organic way. Today, I’m very happy with my decision. Discovering and trying new writing styles keeps my interest very much alive. Academic research is very strict on what you can write and publish. It is satisfying to see that I can promote my work and have an impact in different ways, not only through the publication of academic papers.&lt;/p&gt;
+&lt;p&gt;My blog is build using a &lt;a href=&#34;https://deanattali.com/beautiful-jekyll/&#34;&gt;Jekyll template&lt;/a&gt;, meaning the whole site, including individual posts, is built and controlled with editable text files and Github. All files related to posts follow the same structure, meaning I can easily gather the textual data and organize it in a nice &lt;code&gt;tibble&lt;/code&gt;. Let’s first have a look in all post files:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;post.folder &amp;lt;- &amp;#39;~/GitRepo/msperlin.github.io/_posts/&amp;#39;
+
+my.f.posts &amp;lt;- list.files(post.folder, full.names = TRUE)
+my.f.posts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## character(0)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I posted 0 posts during 2017. Notice how all dates are in the beginning of the file name. I can easily convert that to a &lt;code&gt;Date&lt;/code&gt; object using &lt;code&gt;as.Date&lt;/code&gt;. Let’s organize it all in a nice &lt;code&gt;tibble&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
+## ✔ tibble  3.1.0     ✔ dplyr   1.0.4
+## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+## ✔ readr   1.4.0     ✔ forcats 0.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df.posts &amp;lt;- tibble(ref.date = as.Date(basename(my.f.posts)),
+                   ref.month = format(ref.date, &amp;#39;%m&amp;#39;), 
+                   content = sapply(my.f.posts, function(x) paste0(readLines(x), collapse = &amp;#39;\n&amp;#39;) ),
+                   char.length = nchar(content)) %&amp;gt;%  # includes output code in length calculation..
+  filter(ref.date &amp;gt; as.Date(&amp;#39;2017-01-01&amp;#39;) | ref.date &amp;lt; as.Date(&amp;#39;2018-01-01&amp;#39;) ) # not really necessary but keep it for future
+
+glimpse(df.posts)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 0
+## Columns: 4
+## $ ref.date    &amp;lt;date&amp;gt; 
+## $ ref.month   &amp;lt;chr&amp;gt; 
+## $ content     &amp;lt;named list&amp;gt; []
+## $ char.length &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fist, let’s look at the frequency of posts by month:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print( ggplot(df.posts, aes(x = ref.month)) + geom_histogram(stat=&amp;#39;count&amp;#39;)) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Ignoring unknown parameters: binwidth, bins, pad&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It is not accidental that january was the month with the highest number of posts. This is when I had material reserved for the book. June and July (0!) were the worst months as I traveled a lot. In June I attended R and Finance in Chicago, SER in Rio de Janeiro and in July I was visiting Goethe University in Germany for the whole month. On average, I created 0 posts per month overall, which fells quite alright. I hope I can keep that pace for the upcoming years.&lt;/p&gt;
+&lt;p&gt;As for the length of posts, below we can see a nice pattern for its distribution conditional on the months of the year.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(ggplot(df.posts, aes(x=ref.month, y = char.length)) + geom_boxplot())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2017-12-30-Looking-Back-2017_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I was not very productive from may to august, writing a few and short posts, when comparing to other months. This was probably due to my travels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plans-for-2018&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Plans for 2018&lt;/h1&gt;
+&lt;p&gt;Despite the usual effort in research and teaching, my plans for 2018 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Work on the second edition of the &lt;a href=&#34;https://sites.google.com/view/r-financas/&#34;&gt;portuguese book&lt;/a&gt;&lt;/strong&gt;. It significantly lags the english version in content and this need to be fixed. I already have some ideas laid out for new chapters and new packages to cover. I’ll write more about this update as soon as I have it figured out.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Start a portal for financial data in Brazil&lt;/strong&gt;. I want to make it easy for people to visualize and download organized financial data, specially those without programming experience. It will include the usual datasets such as prices in equity/bond/derivative markets for various frequencies, historical yield curves, financial statements of companies, and so on. The idea is to offer the datasets in various file formats, facilitating its use in research.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;That’s it. If you got this far, happy new year! Enjoy your family and the holidays!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
