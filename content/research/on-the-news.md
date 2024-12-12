@@ -26,6 +26,10 @@ summary = ""
   focal_point = "Smart"
 +++
 
+## 2024
+
+- [Revista Pesquisa Fapesp - Especialistas analisam riscos e vantagens de usar inteligência artificial para medir o desempenho de pesquisadores](https://revistapesquisa.fapesp.br/especialistas-analisam-riscos-e-vantagens-de-usar-inteligencia-artificial-para-medir-o-desempenho-de-pesquisadores/)
+
 ## 2018
 
 - [University World News - The alarming rise of predatory journals](http://www.universityworldnews.com/article.php?story=20180918144241202)
