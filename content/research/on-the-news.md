@@ -26,6 +26,10 @@ summary = ""
   focal_point = "Smart"
 +++
 
+## 2025
+
+- [Folha de São Paulo - Pretos e pardos ainda são minoria entre bolsistas de produtividade do CNPq no Brasil](https://www1.folha.uol.com.br/ciencia/2025/02/pretos-e-pardos-ainda-sao-minoria-entre-bolsistas-de-produtividade-do-cnpq-no-brasil.shtml)
+
 ## 2024
 
 - [Revista Pesquisa Fapesp - Especialistas analisam riscos e vantagens de usar inteligência artificial para medir o desempenho de pesquisadores](https://revistapesquisa.fapesp.br/especialistas-analisam-riscos-e-vantagens-de-usar-inteligencia-artificial-para-medir-o-desempenho-de-pesquisadores/)
