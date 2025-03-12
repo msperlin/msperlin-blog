@@ -5,12 +5,20 @@
     <link>https://www.msperlin.com/publication/</link>
       <atom:link href="https://www.msperlin.com/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Wed, 24 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Publications</title>
       <link>https://www.msperlin.com/publication/</link>
     </image>
+    
+    <item>
+      <title>Can AI beat a naive portfolio? An experiment with anonymized data</title>
+      <link>https://www.msperlin.com/publication/2025_frl-ai/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2025_frl-ai/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Pricing efficiency in cryptocurrencies: The case of centralized and decentralized markets</title>
