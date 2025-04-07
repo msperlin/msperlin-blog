@@ -38,9 +38,9 @@ All hosted data will be updated at least once a year.
 
 | R Package      | Source of Data    | Description | Direct Link | Last Update |
 | -------------  |:-----------------:| :---------------------------------------------| :------------| :------------|
-| GetTDData      | Tesouro Nacional  | Prices and yields of brazilian sovereign bonds | [Link](https://doi.org/10.7910/DVN/SCSQUF) | 2024-04-12 |
+| GetTDData      | Tesouro Nacional  | Prices and yields of brazilian sovereign bonds | [Link](https://doi.org/10.7910/DVN/SCSQUF) | 2025-04-07 |
 | GetFREData     | CVM               | Corporate dataset from FRE systems| [Link](https://doi.org/10.7910/DVN/QIMUNZ) | 2024-04-12 |
-| GetDFPData2    | CVM               | Annual Financial Reports from DFP system  | [Link](https://doi.org/10.7910/DVN/7VVX4J) | 2024-04-12 |
+| GetDFPData2    | CVM               | Annual Financial Reports from DFP system  | [Link](https://doi.org/10.7910/DVN/7VVX4J) | 2025-04-07 |
 
 
 ---
