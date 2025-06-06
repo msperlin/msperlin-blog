@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YfR | msperlin</title>
+    <link>https://www.msperlin.com/category/yfr/</link>
+      <atom:link href="https://www.msperlin.com/category/yfr/index.xml" rel="self" type="application/rss+xml" />
+    <description>YfR</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>YfR</title>
+      <link>https://www.msperlin.com/category/yfr/</link>
+    </image>
+    
+    <item>
+      <title>New R package yfR</title>
+      <link>https://www.msperlin.com/post/2022-03-31-yfr/</link>
+      <pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2022-03-31-yfr/</guid>
+      <description>
+
+
+&lt;p&gt;Package &lt;a href=&#34;https://github.com/msperlin/BatchGetSymbols&#34;&gt;BatchGetSymbols&lt;/a&gt; facilitates importation of Yahoo Finance data directly into R and is one of my most popular R packages, with over 100k installations since conception (around 2500 downloads per month). However, I developed BatchGetSymbols back in 2016, with many bad structural choices from my part.&lt;/p&gt;
+&lt;p&gt;For years I wanted to improved the code but always restrained myself because I did not want to mess up the execution of other people’s code that was based on BatchGetSymbols. In order to implement all the breaking changes and move forward with the package, I decided to develop a &lt;strong&gt;new&lt;/strong&gt; (and fresh) package called yfR.&lt;/p&gt;
+&lt;p&gt;Today I’m releasing the first version of yfR (not yeat in CRAN). This in a major upgrade on BatchGetSymbols, with many backwards-incompatible changes.&lt;/p&gt;
+&lt;div id=&#34;motivation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Motivation&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;yfR&lt;/code&gt; is the second and backwards-incompatible version of &lt;a href=&#34;https://CRAN.R-project.org/package=BatchGetSymbols&#34;&gt;BatchGetSymbols&lt;/a&gt;. In a nutshell, it provides access to daily stock prices from &lt;a href=&#34;https://finance.yahoo.com/&#34;&gt;Yahoo Finance&lt;/a&gt;, a vast repository with financial data around the globe. Yahoo Finance cover a large number of markets and assets, being used extensively for importing price datasets used in academic research and teaching.&lt;/p&gt;
+&lt;p&gt;Package &lt;code&gt;yfR&lt;/code&gt; is based on &lt;a href=&#34;https://www.quantmod.com/&#34;&gt;quantmod&lt;/a&gt; and used its main function for fetching data from Yahoo Finance. The main innovation in &lt;code&gt;yfR&lt;/code&gt; is in the organization of the imported financial data and using local caching system and parallel computing for speeding up large scale download of datasets from Yahoo Finance.&lt;/p&gt;
+&lt;p&gt;See full documentation &lt;a href=&#34;https://github.com/msperlin/yfR&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;features&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Fetchs daily/weekly/monthly/annual stock prices/returns from yahoo finance and outputs a dataframe (tibble) in the long format (stacked data);&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A new feature called “collections” facilitates download of multiple tickers from a particular market/index. You can, for example, download data for all stocks in the SP500 index with a simple call to &lt;code&gt;yf_collection_get()&lt;/code&gt;;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A session-persistent smart cache system is available by default. This means that the data is saved locally and only missing portions are downloaded, if needed.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All dates are compared to a benchmark ticker such as SP500 and, whenever an individual asset does not have a sufficient number of dates, the software drops it from the output. This means you can choose to ignore tickers with high number of missing dates.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A customized function called &lt;code&gt;yf_convert_to_wide()&lt;/code&gt; can transform the long dataframe into a wide format (tickers as columns), much used in portfolio optimization. The output is a list where each element is a different target variable (prices, returns, volumes).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Parallel computing with package &lt;code&gt;furrr&lt;/code&gt; is available, speeding up the data importation process.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;differences-from-batchgetsymbols&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Differences from &lt;a href=&#34;https://github.com/msperlin/BatchGetSymbols&#34;&gt;BatchGetSymbols&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Package &lt;code&gt;BatchgetSymbols&lt;/code&gt; was developed back in 2016, with many bad structural choices from my part. Since then, I learned more about R and its ecosystem, resulting in better and more maintainable code. However, it is impossible to keep compatibility with the changes I wanted to make, which is why I decided to develop a new (and fresh) package.&lt;/p&gt;
+&lt;p&gt;Here are the main differences between &lt;code&gt;yfR&lt;/code&gt; (new) and &lt;code&gt;BatchGetSymbols&lt;/code&gt; (old):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;All input arguments are now formatted as “snake_case” and not “dot.case”. For example, the argument for the first date of data importation in &lt;code&gt;yfR::yf_get()&lt;/code&gt; is &lt;code&gt;first_date&lt;/code&gt;, and not &lt;code&gt;first.date&lt;/code&gt; as used in &lt;code&gt;BatchGetSymbols::BatchGetSymbols&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;All function have been renamed for a common API notation. For example, &lt;code&gt;BatchGetSymbols::BatchGetSymbols&lt;/code&gt; is now &lt;code&gt;yfR::yf_get()&lt;/code&gt;. Likewise, the function for fetching collections is &lt;code&gt;yfR::yf_collection_get()&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The output of &lt;code&gt;yfR::yf_get()&lt;/code&gt; is always a tibble with the price data (and not a list as in &lt;code&gt;BatchGetSymbols::BatchGetSymbols&lt;/code&gt;). If one wants the tibble with a summary of the importing process, it is available as an attribute of the output (see function &lt;code&gt;base::attributes&lt;/code&gt;)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A new feature called “collection”, which allows for easy download of a collection of tickers. For example, you can download price data for all components of the SP500 by simply calling &lt;code&gt;yfR::yf_collection_get(&#34;SP500&#34;)&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;New and prettier status messages using package &lt;code&gt;cli&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can find more details at its github repo:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/msperlin/yfR&#34; class=&#34;uri&#34;&gt;https://github.com/msperlin/yfR&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# CRAN (not yet available)
+#install.packages(&amp;#39;yfR&amp;#39;)
+
+# Github (dev version)
+devtools::install_github(&amp;#39;msperlin/yfR&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Examples&lt;/h2&gt;
+&lt;div id=&#34;fetching-a-single-stock-price&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fetching a single stock price&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(yfR)
+
+# set options for algorithm
+my_ticker &amp;lt;- &amp;#39;FB&amp;#39;
+first_date &amp;lt;- Sys.Date() - 30
+last_date &amp;lt;- Sys.Date()
+
+# fetch data
+df_yf &amp;lt;- yf_get(tickers = my_ticker, 
+                first_date = first_date,
+                last_date = last_date)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 1 stocks | 2022-03-01 --&amp;gt; 2022-03-31 (30 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/1) Fetching data for &amp;#39;,
+## &amp;#39;FB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## !    - not cached&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - cache saved successfully&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 22 valid rows (2022-03-01 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Well done msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# output is a tibble with data
+head(df_yf)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 10
+##   ticker ref_date   price_open price_high price_low price_close   volume
+##   &amp;lt;chr&amp;gt;  &amp;lt;date&amp;gt;          &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;       &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+## 1 FB     2022-03-01       210.       212.      202.        203. 27094900
+## 2 FB     2022-03-02       205.       209.      202.        208. 29452100
+## 3 FB     2022-03-03       209.       209.      201.        203. 27263500
+## 4 FB     2022-03-04       202.       206.      199.        200. 32130900
+## 5 FB     2022-03-07       201.       201.      187.        187. 38560600
+## 6 FB     2022-03-08       188.       197.      186.        190. 37508100
+## # … with 3 more variables: price_adjusted &amp;lt;dbl&amp;gt;, ret_adjusted_prices &amp;lt;dbl&amp;gt;,
+## #   ret_closing_prices &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fetching-many-stock-prices&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fetching many stock prices&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(yfR)
+library(ggplot2)
+
+my_ticker &amp;lt;- c(&amp;#39;FB&amp;#39;, &amp;#39;GM&amp;#39;, &amp;#39;MMM&amp;#39;)
+first_date &amp;lt;- Sys.Date() - 100
+last_date &amp;lt;- Sys.Date()
+
+df_yf_multiple &amp;lt;- yf_get(tickers = my_ticker, 
+                         first_date = first_date,
+                         last_date = last_date)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 3 stocks | 2021-12-21 --&amp;gt; 2022-03-31 (100 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/3) Fetching data for &amp;#39;,
+## &amp;#39;FB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2022-03-01 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## !    - need new data (cache doesnt match query)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- All OK!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (2/3) Fetching data for &amp;#39;,
+## &amp;#39;GM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## !    - not cached&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - cache saved successfully&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Well done msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (3/3) Fetching data for &amp;#39;,
+## &amp;#39;MMM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## !    - not cached&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - cache saved successfully&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Youre doing good!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- ggplot(df_yf_multiple, 
+            aes(x = ref_date, y = price_adjusted,
+                color = ticker)) + 
+  geom_line()
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fetching-collections-of-prices&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fetching collections of prices&lt;/h3&gt;
+&lt;p&gt;Collections are just a bundle of tickers pre-organized in the package. For example, collection &lt;code&gt;SP500&lt;/code&gt; represents the current composition of the SP500 index.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(yfR)
+
+df_yf &amp;lt;- yf_collection_get(&amp;quot;SP500&amp;quot;, 
+                           first_date = Sys.Date() - 30,
+                           last_date = Sys.Date())
+
+head(df_yf)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fetching-dailyweeklymonthlyyearly-price-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fetching daily/weekly/monthly/yearly price data&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(yfR)
+library(ggplot2)
+library(dplyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_ticker &amp;lt;- &amp;#39;GE&amp;#39;
+first_date &amp;lt;- &amp;#39;2010-01-01&amp;#39;
+last_date &amp;lt;- Sys.Date()
+
+df_dailly &amp;lt;- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = &amp;#39;daily&amp;#39;) |&amp;gt;
+  mutate(freq = &amp;#39;daily&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 1 stocks | 2010-01-01 --&amp;gt; 2022-03-31 (4472 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/1) Fetching data for &amp;#39;,
+## &amp;#39;GE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## !    - not cached&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - cache saved successfully&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 3082 valid rows (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Time for some tea?&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_weekly &amp;lt;- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = &amp;#39;weekly&amp;#39;) |&amp;gt;
+  mutate(freq = &amp;#39;weekly&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 1 stocks | 2010-01-01 --&amp;gt; 2022-03-31 (4472 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/1) Fetching data for &amp;#39;,
+## &amp;#39;GE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 3082 valid rows (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- You got it msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_monthly &amp;lt;- yf_get(tickers = my_ticker, 
+                     first_date, last_date, 
+                     freq_data = &amp;#39;monthly&amp;#39;) |&amp;gt;
+  mutate(freq = &amp;#39;monthly&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 1 stocks | 2010-01-01 --&amp;gt; 2022-03-31 (4472 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/1) Fetching data for &amp;#39;,
+## &amp;#39;GE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 3082 valid rows (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Good stuff!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_yearly &amp;lt;- yf_get(tickers = my_ticker, 
+                    first_date, last_date, 
+                    freq_data = &amp;#39;yearly&amp;#39;) |&amp;gt;
+  mutate(freq = &amp;#39;yearly&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 1 stocks | 2010-01-01 --&amp;gt; 2022-03-31 (4472 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/1) Fetching data for &amp;#39;,
+## &amp;#39;GE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 3082 valid rows (2010-01-04 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Good job msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_allfreq &amp;lt;- bind_rows(
+  list(df_dailly, df_weekly, df_monthly, df_yearly)
+) |&amp;gt;
+  mutate(freq = factor(freq, 
+                       levels = c(&amp;#39;daily&amp;#39;, 
+                                  &amp;#39;weekly&amp;#39;,
+                                  &amp;#39;monthly&amp;#39;,
+                                  &amp;#39;yearly&amp;#39;))) # make sure the order in plot is right
+
+p &amp;lt;- ggplot(df_allfreq, aes(x=ref_date, y = price_adjusted)) + 
+  geom_point() + geom_line() + facet_grid(freq ~ ticker) + 
+  theme_minimal() + 
+  labs(x = &amp;#39;&amp;#39;, y = &amp;#39;Adjusted Prices&amp;#39;)
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2022-03-31-yfR_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;changing-format-to-wide&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Changing format to wide&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(yfR)
+library(ggplot2)
+
+my_ticker &amp;lt;- c(&amp;#39;FB&amp;#39;, &amp;#39;GM&amp;#39;, &amp;#39;MMM&amp;#39;)
+first_date &amp;lt;- Sys.Date() - 100
+last_date &amp;lt;- Sys.Date()
+
+df_yf_multiple &amp;lt;- yf_get(tickers = my_ticker, 
+                         first_date = first_date,
+                         last_date = last_date)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ── Running yfR for 3 stocks | 2021-12-21 --&amp;gt; 2022-03-31 (100 days) ──&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Downloading data for benchmark ticker ^GSPC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (1/3) Fetching data for &amp;#39;,
+## &amp;#39;FB&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Good job msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (2/3) Fetching data for &amp;#39;,
+## &amp;#39;GM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- All OK!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ (3/3) Fetching data for &amp;#39;,
+## &amp;#39;MMM&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - found cache file (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 69 valid rows (2021-12-21 --&amp;gt; 2022-03-30)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ✓    - got 100% of valid prices -- Well done msperlin!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## ℹ Binding price data&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;l_wide &amp;lt;- yf_convert_to_wide(df_yf_multiple)
+
+prices_wide &amp;lt;- l_wide$price_adjusted
+
+head(prices_wide)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 × 4
+##   ref_date      FB    GM   MMM
+##   &amp;lt;date&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+## 1 2021-12-21  334.  54.8  171.
+## 2 2021-12-22  330.  56.1  171.
+## 3 2021-12-23  335.  56.9  173.
+## 4 2021-12-27  346.  57.4  175.
+## 5 2021-12-28  346.  57.1  176.
+## 6 2021-12-29  343.  57.2  177.&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

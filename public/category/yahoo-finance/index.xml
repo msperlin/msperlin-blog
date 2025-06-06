@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yahoo Finance | msperlin</title>
+    <link>https://www.msperlin.com/category/yahoo-finance/</link>
+      <atom:link href="https://www.msperlin.com/category/yahoo-finance/index.xml" rel="self" type="application/rss+xml" />
+    <description>Yahoo Finance</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Mon, 22 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Yahoo Finance</title>
+      <link>https://www.msperlin.com/category/yahoo-finance/</link>
+    </image>
+    
+    <item>
+      <title>Major update to BatchGetSymbols</title>
+      <link>https://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</link>
+      <pubDate>Mon, 22 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2018-01-22-update-batchgetsymbols/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I just released a long due update to package &lt;code&gt;BatchGetSymbols&lt;/code&gt;. The files are under review in CRAN and you should get the update soon. Meanwhile, you can install the new version from Github:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if (!require(devtools)) install.packages(&amp;#39;devtools&amp;#39;)
+devtools::install_github(&amp;#39;msperlin/BatchGetSymbols&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The main innovations are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Clever cache system&lt;/strong&gt;: By default, every new download of data will be saved in a local file located in a directory chosen by user. Every new request of data is compared to the available local information. If data is missing, the function only downloads the piece of data that is missing. This make the call to function &lt;code&gt;BatchGetSymbols&lt;/code&gt; a lot faster! When updating an existing dataset of prices, the function only downloads the missing part of the data.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Returns calculation&lt;/strong&gt;: Function now returns a return vector in &lt;code&gt;df.tickers&lt;/code&gt;. Returns are used a lot more than prices in research. No reason why they should be keep out of the output.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Wide format&lt;/strong&gt;: Added function for converting data to the wide format. In some situations, such as portfolio analysis, the wide format makes a lot of sense and is required for some methodologies.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Ibovespa composition&lt;/strong&gt;: Added function for downloading current Ibovespa composition directly from Bovespa website.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the next chunks of code I show some of the innovations:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(BatchGetSymbols)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: rvest&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: xml2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Loading required package: dplyr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# download Ibovespa stocks
+my.tickers &amp;lt;- GetSP500Stocks()$Tickers[1:5] # lets keep it light
+
+# set dates
+first.date &amp;lt;- &amp;#39;2017-01-01&amp;#39;
+last.date &amp;lt;- &amp;#39;2019-01-01&amp;#39;
+
+# set folder for cache system
+my.temp.cache.folder &amp;lt;- &amp;#39;BGS_CACHE&amp;#39;
+
+# get data and time it
+time.nocache &amp;lt;- system.time({
+my.l &amp;lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = FALSE)
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Running BatchGetSymbols for:&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##    tickers =MMM, ABT, ABBV, ABMD, ACN
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1)
+## MMM | yahoo (1|5) - Got 100% of valid prices | Well done!
+## ABT | yahoo (2|5) - Got 100% of valid prices | Good job!
+## ABBV | yahoo (3|5) - Got 100% of valid prices | Youre doing good!
+## ABMD | yahoo (4|5) - Got 100% of valid prices | Youre doing good!
+## ACN | yahoo (5|5) - Got 100% of valid prices | You got it!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;time.withcache &amp;lt;- system.time({
+my.l &amp;lt;- BatchGetSymbols(tickers = my.tickers, first.date, last.date, 
+                        cache.folder = my.temp.cache.folder, do.cache = TRUE)
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Running BatchGetSymbols for:
+##    tickers =MMM, ABT, ABBV, ABMD, ACN
+##    Downloading data for benchmark ticker
+## ^GSPC | yahoo (1|1) | Not Cached | Saving cache
+## MMM | yahoo (1|5) | Not Cached | Saving cache - Got 100% of valid prices | Looking good!
+## ABT | yahoo (2|5) | Not Cached | Saving cache - Got 100% of valid prices | Good stuff!
+## ABBV | yahoo (3|5) | Not Cached | Saving cache - Got 100% of valid prices | Got it!
+## ABMD | yahoo (4|5) | Not Cached | Saving cache - Got 100% of valid prices | Looking good!
+## ACN | yahoo (5|5) | Not Cached | Saving cache - Got 100% of valid prices | Good stuff!&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;#39;\nTime with no cache:&amp;#39;, time.nocache[&amp;#39;elapsed&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Time with no cache: 4.094&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cat(&amp;#39;\nTime with cache:&amp;#39;, time.withcache[&amp;#39;elapsed&amp;#39;])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Time with cache: 2.386&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s check the default output with data in the long format:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dplyr::glimpse(my.l)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## List of 2
+##  $ df.control: tibble [5 × 6] (S3: tbl_df/tbl/data.frame)
+##   ..$ ticker              : chr [1:5] &amp;quot;MMM&amp;quot; &amp;quot;ABT&amp;quot; &amp;quot;ABBV&amp;quot; &amp;quot;ABMD&amp;quot; ...
+##   ..$ src                 : chr [1:5] &amp;quot;yahoo&amp;quot; &amp;quot;yahoo&amp;quot; &amp;quot;yahoo&amp;quot; &amp;quot;yahoo&amp;quot; ...
+##   ..$ download.status     : chr [1:5] &amp;quot;OK&amp;quot; &amp;quot;OK&amp;quot; &amp;quot;OK&amp;quot; &amp;quot;OK&amp;quot; ...
+##   ..$ total.obs           : int [1:5] 502 502 502 502 502
+##   ..$ perc.benchmark.dates: num [1:5] 1 1 1 1 1
+##   ..$ threshold.decision  : chr [1:5] &amp;quot;KEEP&amp;quot; &amp;quot;KEEP&amp;quot; &amp;quot;KEEP&amp;quot; &amp;quot;KEEP&amp;quot; ...
+##  $ df.tickers:&amp;#39;data.frame&amp;#39;:  2510 obs. of  10 variables:
+##   ..$ price.open         : num [1:2510] 179 178 178 177 178 ...
+##   ..$ price.high         : num [1:2510] 180 179 179 179 178 ...
+##   ..$ price.low          : num [1:2510] 177 178 177 176 177 ...
+##   ..$ price.close        : num [1:2510] 178 178 178 178 177 ...
+##   ..$ volume             : num [1:2510] 2509300 1542000 1447800 1625000 1622600 ...
+##   ..$ price.adjusted     : num [1:2510] 162 163 162 163 162 ...
+##   ..$ ref.date           : Date[1:2510], format: &amp;quot;2017-01-03&amp;quot; &amp;quot;2017-01-04&amp;quot; ...
+##   ..$ ticker             : chr [1:2510] &amp;quot;MMM&amp;quot; &amp;quot;MMM&amp;quot; &amp;quot;MMM&amp;quot; &amp;quot;MMM&amp;quot; ...
+##   ..$ ret.adjusted.prices: num [1:2510] NA 0.00152 -0.00342 0.00293 -0.00539 ...
+##   ..$ ret.closing.prices : num [1:2510] NA 0.00152 -0.00342 0.00293 -0.00539 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And change the format of the long dataframe to wide:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;l.wide &amp;lt;- reshape.wide(my.l$df.tickers) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we check the matrix of prices:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(head(l.wide$price.adjusted))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     ref.date     ABBV   ABMD      ABT      ACN      MMM
+## 1 2017-01-03 52.55166 112.36 36.55642 109.8161 162.4736
+## 2 2017-01-04 53.29267 115.74 36.84662 110.0802 162.7200
+## 3 2017-01-05 53.69685 114.81 37.16491 108.4300 162.1634
+## 4 2017-01-06 53.71369 115.42 38.17595 109.6653 162.6379
+## 5 2017-01-09 54.06735 117.11 38.13851 108.4394 161.7619
+## 6 2017-01-10 53.94946 112.24 38.65339 108.4960 161.1322&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and matrix of returns:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;print(head(l.wide$ret.adjusted.prices))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     ref.date          ABBV         ABMD           ABT           ACN
+## 1 2017-01-03            NA           NA            NA            NA
+## 2 2017-01-04  0.0141005055  0.030081853  0.0079383861  0.0024043005
+## 3 2017-01-05  0.0075841391 -0.008035252  0.0086381596 -0.0149906200
+## 4 2017-01-06  0.0003136497  0.005313126  0.0272041565  0.0113923084
+## 5 2017-01-09  0.0065841132  0.014642203 -0.0009806436 -0.0111779967
+## 6 2017-01-10 -0.0021804289 -0.041584860  0.0135001858  0.0005216922
+##            MMM
+## 1           NA
+## 2  0.001516547
+## 3 -0.003420851
+## 4  0.002926172
+## 5 -0.005386333
+## 6 -0.003892474&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cranes | msperlin</title>
+    <link>https://www.msperlin.com/tag/cranes/</link>
+      <atom:link href="https://www.msperlin.com/tag/cranes/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cranes</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Fri, 17 May 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Cranes</title>
+      <link>https://www.msperlin.com/tag/cranes/</link>
+    </image>
+    
+    <item>
+      <title>R usage in Brazil</title>
+      <link>https://www.msperlin.com/post/2019-05-17-r-in-brazil/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2019-05-17-r-in-brazil/</guid>
+      <description>
+&lt;script src=&#34;https://www.msperlin.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I’m using R for at least five years and always been curious about its usage in Brazil. I see some minor personal evidence that the number of users is increasing over time. My &lt;a href=&#34;https://www.amazon.com.br/dp/B07DN4M357&#34;&gt;book in portuguese&lt;/a&gt; is steadily increasing its sales, and I’ve been receiving far more emails about my &lt;a href=&#34;https://www.crantastic.org/authors/5303&#34;&gt;R packages&lt;/a&gt;. Conference are also booming. Every year there are at least two or three R conferences in Brazil.&lt;/p&gt;
+&lt;p&gt;What I learned from experience is that software choice is a group decision. It is very likely that you will use whatever your peer group uses. For example, if you are a PhD student, you will never convince your adviser to change research software, even if you have perfectly good reasons!&lt;/p&gt;
+&lt;p&gt;It takes some independence and autonomy to be able to break free from bad group choices. In academia, you can only do that later on, when you finish your PhD and start your career. Then you can use whatever rocks your boat. And, even for that, it takes courage and humbleness to relearn all you research tricks, from data acquisition to reporting your results.&lt;/p&gt;
+&lt;p&gt;In this post I’ll investigate the use of R in Brazil. Rstudio publishes a &lt;a href=&#34;http://cran-logs.rstudio.com/&#34;&gt;log page&lt;/a&gt; covering all R downloads and package installations. The data is organized by day and very easy to download and parse within R. After downloading it, I organized it by filtering only downloads in Brazil, and saved it in a .rds file. Let’s explore it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+df.dls &amp;lt;- read_rds(&amp;#39;data/r-downloads-brazil.rds&amp;#39;)
+
+glimpse(df.dls)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 72,853
+## Columns: 7
+## $ date    &amp;lt;date&amp;gt; 2012-10-31, 2012-10-31, 2012-10-31, 2012-10-31, 2012-10-31, …
+## $ time    &amp;lt;time&amp;gt; 16:17:34, 18:21:35, 19:26:20, 19:28:03, 19:26:03, 19:06:32, …
+## $ size    &amp;lt;dbl&amp;gt; 49351035, 33301364, 49351035, 49351024, 1424794, 66523409, 45…
+## $ version &amp;lt;chr&amp;gt; &amp;quot;2.15.2&amp;quot;, &amp;quot;2.15.2&amp;quot;, &amp;quot;2.15.2&amp;quot;, &amp;quot;2.15.2&amp;quot;, &amp;quot;2.15.2&amp;quot;, &amp;quot;2.15.2&amp;quot;, &amp;quot;…
+## $ os      &amp;lt;chr&amp;gt; &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;osx&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;, &amp;quot;win&amp;quot;…
+## $ country &amp;lt;chr&amp;gt; &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;BR&amp;quot;, &amp;quot;…
+## $ ip_id   &amp;lt;dbl&amp;gt; 30, 59, 73, 30, 87, 90, 143, 213, 231, 260, 260, 134, 181, 10…&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, we have the date, time, version, os (platform), country and ip (randomized daily). First of all, let’s see how many downloads per day we have for Brazil. I’m also including the different release dates for major R versions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_day &amp;lt;- df.dls %&amp;gt;%
+  group_by(ref.date = date) %&amp;gt;%
+  summarise(n = n())
+
+df.R.releases &amp;lt;- tibble(ref.date = as.Date(c(&amp;#39;2013-04-03&amp;#39;, &amp;#39;2014-04-10&amp;#39;,&amp;#39;2015-04-16&amp;#39;,
+                                             &amp;#39;2016-05-03&amp;#39;, &amp;#39;2017-04-21&amp;#39;,
+                                             &amp;#39;2018-04-23&amp;#39;, &amp;#39;2019-04-26&amp;#39;)),
+                            R_version  = c(&amp;#39;3.0.0&amp;#39;, &amp;#39;3.1.0&amp;#39;,&amp;#39;3.2.0&amp;#39;, 
+                                 &amp;#39;3.3.0&amp;#39;,&amp;#39;3.4.0&amp;#39;, &amp;#39;3.5.0&amp;#39;, 
+                                 &amp;#39;3.6.0&amp;#39;) )
+
+p &amp;lt;- ggplot(data = df_by_day, aes(y = n, 
+                                  x = ref.date) ) + 
+  geom_point() + geom_smooth(size = 2) + 
+  labs(x = &amp;#39;Date (day)&amp;#39;, y= &amp;#39;Number of Downloads&amp;#39;, 
+       title = paste0(&amp;#39;Number of R downloads in Brazil&amp;#39;),
+       subtitle = &amp;#39;Data from Rstudio logs &amp;lt;http://cran-logs.rstudio.com/&amp;gt;&amp;#39;) + 
+  geom_vline(data = df.R.releases,
+             aes(xintercept = ref.date, color = R_version ), size = 1) + 
+  scale_color_grey(start = 0.8, end = 0.2 )
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The number of downloads is steadily increasing over time. The new releases of R also seems to explain the outliers in the dataset. Let’s clean it a bit by decreasing the frequency and calculating the number of downloads per month, instead of by day.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_month &amp;lt;- df.dls %&amp;gt;%
+  group_by(ref.month = lubridate::ymd(format(date, &amp;#39;%Y-%m-01&amp;#39;))) %&amp;gt;%
+  summarise(n = n())
+  
+p &amp;lt;- ggplot(data = df_by_month, aes(y = n, 
+                                  x = ref.month) ) + 
+  geom_point() + geom_smooth(size = 2) + 
+  labs(x = &amp;#39;Date (month)&amp;#39;, y= &amp;#39;Number of Downloads&amp;#39;, 
+       title = paste0(&amp;#39;Number of R downloads in Brazil&amp;#39;),
+       subtitle = &amp;#39;Data from Rstudio logs &amp;lt;http://cran-logs.rstudio.com/&amp;gt;&amp;#39;) + 
+  geom_vline(data = df.R.releases,
+             aes(xintercept = ref.date, color = R_version ), size = 1) + 
+  scale_color_grey(start = 0.8, end = 0.2 )
+
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Much better! Overall, R downloads average about 910.7 per month, with a monthly compound rate of 6%. It means that, each month, the number of downloads is increasing by 6% from previous month.&lt;/p&gt;
+&lt;p&gt;The data also includes information about the operating system. Let’s check its distribution:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_by_os &amp;lt;- df.dls %&amp;gt;%
+  group_by(os) %&amp;gt;%
+  count() %&amp;gt;%
+  na.omit() %&amp;gt;% ungroup() %&amp;gt;%
+  mutate(os = fct_recode(os, 
+                         &amp;quot;Windows&amp;quot; = &amp;quot;win&amp;quot;,
+                         &amp;#39;Mac OS&amp;#39; = &amp;#39;osx&amp;#39;,
+                         &amp;#39;Linux&amp;#39; = &amp;#39;src&amp;#39;))
+
+p &amp;lt;- ggplot(df_by_os, aes(x = os, y = n)) + 
+  geom_col() + 
+  labs(x = &amp;#39;Operation System&amp;#39;, y = &amp;#39;Number of Download Cases&amp;#39;, 
+       title = &amp;#39;Distribution of OS&amp;#39;,
+       subtitle = &amp;#39;Data from Rstudio logs &amp;lt;http://cran-logs.rstudio.com/&amp;gt;&amp;#39;)
+
+print(p)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.msperlin.com/post/2019-05-17-R-in-Brazil_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Not unexpectedly, Windows is the winner! I’m very surprised to see that Mac OS presents more downloads than Linux. With an unfavorable exchange rate and many import taxes, the price of a Mac computer — desktop or laptop — are exorbitantly expensive in Brazil. This tells a lot about the purchase power of R users.&lt;/p&gt;
+&lt;p&gt;I hope you liked this post. Next time I’ll analyze the logs of package installation in Brazil.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Call for Papers | msperlin</title>
+    <link>https://www.msperlin.com/category/call-for-papers/</link>
+      <atom:link href="https://www.msperlin.com/category/call-for-papers/index.xml" rel="self" type="application/rss+xml" />
+    <description>Call for Papers</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Wed, 27 May 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Call for Papers</title>
+      <link>https://www.msperlin.com/category/call-for-papers/</link>
+    </image>
+    
+    <item>
+      <title>Call for papers on data reuse</title>
+      <link>https://www.msperlin.com/post/2020-05-27-call-for-papers-rac/</link>
+      <pubDate>Wed, 27 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/post/2020-05-27-call-for-papers-rac/</guid>
+      <description>
+
+
+&lt;p&gt;Myself and Henrique Martins (PUC Rio) organized a call for papers on data reuse, for publication in &lt;a href=&#34;https://rac.anpad.org.br/index.php/rac&#34;&gt;RAC – Revista de Administração Contemporanea&lt;/a&gt;. The deadline for submission is 10th october 2020, with expected publication date in july 2021.&lt;/p&gt;
+&lt;p&gt;We will select quality papers that use data already published and shared in other scientific outlet to test new theories or present a tutorial article, helping students see how an econometric result was achieved in practice.&lt;/p&gt;
+&lt;p&gt;You can find more details about this call for papers in this &lt;a href=&#34;https://www.msperlin.com/files/CALL%20FOR%20PAPERS_RAC_2021_Data%20Reuse.pdf&#34;&gt;pdf file&lt;/a&gt;. I encourage everyone to submit their work. If you got any question, please let me know.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
