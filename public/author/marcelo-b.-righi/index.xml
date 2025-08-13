@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marcelo B. Righi | msperlin</title>
+    <link>https://www.msperlin.com/author/marcelo-b.-righi/</link>
+      <atom:link href="https://www.msperlin.com/author/marcelo-b.-righi/index.xml" rel="self" type="application/rss+xml" />
+    <description>Marcelo B. Righi</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Marcelo B. Righi</title>
+      <link>https://www.msperlin.com/author/marcelo-b.-righi/</link>
+    </image>
+    
+    <item>
+      <title>Mispricing in the odd lots market in Brazil</title>
+      <link>https://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2017_najef-mispricing-odd-lots/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
