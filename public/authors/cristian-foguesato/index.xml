@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cristian Foguesato | msperlin</title>
+    <link>https://www.msperlin.com/authors/cristian-foguesato/</link>
+      <atom:link href="https://www.msperlin.com/authors/cristian-foguesato/index.xml" rel="self" type="application/rss+xml" />
+    <description>Cristian Foguesato</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>Cristian Foguesato</title>
+      <link>https://www.msperlin.com/authors/cristian-foguesato/</link>
+    </image>
+    
+    <item>
+      <title>Can AI beat a naive portfolio? An experiment with anonymized data</title>
+      <link>https://www.msperlin.com/publication/2025_frl-ai/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2025_frl-ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Profiling Brazil’s research elite: Insights from a cluster analysis of a large database</title>
+      <link>https://www.msperlin.com/publication/2025_jdis-cluster-lattes/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2025_jdis-cluster-lattes/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

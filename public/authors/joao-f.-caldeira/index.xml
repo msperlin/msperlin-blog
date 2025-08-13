@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>João F. Caldeira | msperlin</title>
+    <link>https://www.msperlin.com/authors/joao-f.-caldeira/</link>
+      <atom:link href="https://www.msperlin.com/authors/joao-f.-caldeira/index.xml" rel="self" type="application/rss+xml" />
+    <description>João F. Caldeira</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sat, 01 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://www.msperlin.com/img/portrait.jpg</url>
+      <title>João F. Caldeira</title>
+      <link>https://www.msperlin.com/authors/joao-f.-caldeira/</link>
+    </image>
+    
+    <item>
+      <title>Can we predict the financial markets based on Google&#39;s search queries?</title>
+      <link>https://www.msperlin.com/publication/2017_jf-gtrends/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2017_jf-gtrends/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Portfolio management using realized covariances: Evidence from Brazil</title>
+      <link>https://www.msperlin.com/publication/2017_economia-portfoliomanagement/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/publication/2017_economia-portfoliomanagement/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
