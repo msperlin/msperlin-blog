@@ -5,7 +5,7 @@
     <link>https://www.msperlin.com/talk/</link>
       <atom:link href="https://www.msperlin.com/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Recent &amp; Upcoming Talks</title>
@@ -13,19 +13,19 @@
     </image>
     
     <item>
-      <title>Interview with Prof. Henrique (PUC-RJ)</title>
-      <link>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</link>
-      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</guid>
+      <title>Participation in Acerto de Contas (in portuguese)</title>
+      <link>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</link>
+      <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</guid>
       <description>&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IGaQb80zrI4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
     </item>
     
     <item>
-      <title>Participation in Acerto de Contas (in portuguese)</title>
-      <link>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</link>
+      <title>Interview with Prof. Henrique (PUC-RJ)</title>
+      <link>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</guid>
+      <guid>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</guid>
       <description>&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IGaQb80zrI4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
     </item>

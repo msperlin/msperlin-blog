@@ -5,12 +5,21 @@
     <link>https://www.msperlin.com/author/marcelo-s.-perlin/</link>
       <atom:link href="https://www.msperlin.com/author/marcelo-s.-perlin/index.xml" rel="self" type="application/rss+xml" />
     <description>Marcelo S. Perlin</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Sun, 02 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>Marcelo S. Perlin © 2025</copyright><lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://www.msperlin.com/img/portrait.jpg</url>
       <title>Marcelo S. Perlin</title>
       <link>https://www.msperlin.com/author/marcelo-s.-perlin/</link>
     </image>
+    
+    <item>
+      <title>Participation in Acerto de Contas (in portuguese)</title>
+      <link>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</link>
+      <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</guid>
+      <description>&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IGaQb80zrI4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>Can AI beat a naive portfolio? An experiment with anonymized data</title>
@@ -73,15 +82,6 @@
       <link>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.msperlin.com/talk/2021-04-17-talk-about-getdfpdata/</guid>
-      <description>&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IGaQb80zrI4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Participation in Acerto de Contas (in portuguese)</title>
-      <link>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</link>
-      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.msperlin.com/talk/2025-08-12-acerto-de-contas/</guid>
       <description>&lt;iframe width=&#34;560&#34; height=&#34;315&#34; src=&#34;https://www.youtube.com/embed/IGaQb80zrI4&#34; frameborder=&#34;0&#34; allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&#34; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
     </item>

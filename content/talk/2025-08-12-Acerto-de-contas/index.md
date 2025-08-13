@@ -1,6 +1,6 @@
 +++
 title = "Participation in Acerto de Contas (in portuguese)"
-date = 2021-04-17T00:00:00  # Schedule page publish date.
+date = 2025-08-12T00:00:00  # Schedule page publish date.
 draft = false
 
 # Talk start and end times.
