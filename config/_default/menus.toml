@@ -13,23 +13,23 @@
   url = "publication/#5"
   weight = 3
 
-[[main]]
-  name = "Blog"
-  url = "#posts"
-  identifier = 'blog'     
-  weight = 4
+#[[main]]
+#  name = "Blog"
+#  url = "#posts"
+#  identifier = 'blog'     
+#  weight = 4
 
-[[main]]
-  name = "Posts"
-  url = "post/"
-  weight = 1
-  parent = 'blog'
+#[[main]]
+#  name = "Posts"
+#  url = "post/"
+#  weight = 1
+#  parent = 'blog'
 
-[[main]]
-  name = "Subscribe in RSS"
-  url = "subscribe_rss"
-  weight = 2
-  parent = 'blog'
+#[[main]]
+#  name = "Subscribe in RSS"
+#  url = "subscribe_rss"
+#  weight = 2
+#  parent = 'blog'
 
 [[main]]
   name = "Code"
