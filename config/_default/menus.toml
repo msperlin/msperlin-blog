@@ -68,7 +68,7 @@
 
 
 [[main]]
-  name = "Research & Talks"
+  name = "Others"
   url = "search"
   weight = 9
   identifier = "res_button"
@@ -92,23 +92,23 @@
   weight = 2
   parent = "res_button"
 
-[[main]]
-  name = "Others"
-  url = ""
-  weight = 10
-  identifier = "others_button"
+#[[main]]
+#  name = "Others"
+#  url = ""
+#  weight = 10
+#  identifier = "others_button"
 
-[[main]]
-  name = "R-Bloggers"
-  url = "https://www.r-bloggers.com"
-  parent = "others_button"
-  weight = 1
+#[[main]]
+#  name = "R-Bloggers"
+#  url = "https://www.r-bloggers.com"
+#  parent = "others_button"
+#  weight = 1
 
-[[main]]
-  name = "Search"
-  url = "#search"
-  parent = "others_button"
-  weight = 2
+#[[main]]
+#  name = "Search"
+#  url = "#search"
+#  parent = "others_button"
+#  weight = 2
   
 
 # Link to a PDF of your resume/CV from the menu.
