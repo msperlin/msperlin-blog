@@ -28,6 +28,10 @@ summary = ""
 
 ## 2025
 
+- [Zero Hora - Quer investir e não sabe como? Giane Guerra e convidados respondem dúvidas; acompanhe ao vivo](https://gauchazh.clicrbs.com.br/geral/noticia/2025/08/quer-investir-e-nao-sabe-como-giane-guerra-e-convidados-respondem-duvidas-acompanhe-ao-vivo-cme8nqad700lt013xxxxhwhsw.html)
+
+- [Zero Hora - Dos caminhos para começar a investir ao primeiro R$ 1 milhão](https://gauchazh.clicrbs.com.br/geral/noticia/2025/08/dos-caminhos-para-comecar-a-investir-ao-primeiro-r-1-milhao-giane-guerra-e-convidados-respondem-duvidas-em-live-veja-como-participar-cme34zjga00y0012x5npd9cnd.html)
+
 - [Folha de São Paulo - Pretos e pardos ainda são minoria entre bolsistas de produtividade do CNPq no Brasil](https://www1.folha.uol.com.br/ciencia/2025/02/pretos-e-pardos-ainda-sao-minoria-entre-bolsistas-de-produtividade-do-cnpq-no-brasil.shtml)
 
 ## 2024
