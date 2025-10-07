@@ -30,7 +30,7 @@ If you used one of the packages in research, please use the proper citation form
 
 ## Data Packages
 
-yfR ([Github]https://github.com/msperlin/yfR) and [CRAN](https://cran.r-project.org/package=yfR))
+yfR ([Github](https://github.com/msperlin/yfR) and [CRAN](https://cran.r-project.org/package=yfR))
 : Downloads and Organizes Financial Data from Yahoo Finance (daily prices/returns of stocks and market indices). 
 
 GetBCBData ([Github](https://github.com/msperlin/GetBCBData) and [CRAN](https://cran.r-project.org/package=GetBCBData))
